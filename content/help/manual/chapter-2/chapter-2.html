@@ -1,0 +1,315 @@
+<div id="content">
+	<h2><span>Help &raquo; Manual &raquo;<br>Chapter 2: Using nanoc</span></h2>
+
+	<p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
+
+	<div class="section" id="sites">
+		<h3><span>Sites</span></h3>
+
+		<p>A site managed by nanoc is a directory with a specific structure. A site consists of pages, layouts, templates, and more; the way this data is stored depends on the data source used (see further).</p>
+
+		<div class="section" id="sites-creating-a-site">
+			<h4><span>Creating a Site</span></h4>
+
+			<p>To create a site, use the <kbd>create_site</kbd> command. This command takes the site name as its first and only argument. You can also use <kbd>cs</kbd> instead of <kbd>create_site</kbd>. Example:</p>
+
+			<pre><kbd>nanoc create_site a_new_site</kbd></pre>
+
+			<p>This will create a directory with the given site name, with a bare-bones directory layout.</p>
+		</div>
+
+		<div class="section" id="sites-site-configuration">
+			<h4><span>Site Configuration</span></h4>
+
+			<p>The site configuration is defined by the <span class="path">config.yaml</span> file at the top level of the site directory. The file is in YAML format.</p>
+
+			<dl>
+				<dt><code>output_dir</code></dt>
+				<dd>Defines the path to the output directory. If the path does not start with a slash, it is assumed to be a path relative to the nanoc site directory. It defaults to <samp>output</samp>.</dd>
+				
+				<dt><code>data_source</code></dt>
+				<dd>Defines the data source that should be used for this site. Possible values are the identifiers for the data sources. It defaults to <samp>filesystem</samp>.</dd>
+			</dl>
+
+			<p>Custom data sources, filters and layout processors may use other configuration attributes. Check their documentation for details.</p>
+		</div>
+
+		<div class="section" id="sites-auto-compiling-a-site">
+			<h4><span>(Auto)compiling a Site</span></h4>
+
+			<p>To compile a site to its final form, the <kbd>nanoc compile</kbd> or simply <kbd>nanoc co</kbd> command is used. This will write the compiled site to the output directory as specified in the site configuration file.</p>
+
+			<p>It is possible to let nanoc run a local web server that serves the nanoc site. Each request will cause the requested page to be compiled. To run the autocompiler, use <kbd>nanoc autocompile</kbd> or <kbd>nanoc aco</kbd>.</p>
+
+			<p>The autocompiler will run on port 3000 by default. To change the port number, use the <kbd>-p</kbd> or <kbd>--port</kbd> commandline switch, like this: <samp>nanoc aco -p 8080</samp>.</p>
+
+			<p>Note that this autocompiler should <em>only</em> be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.</p>
+		</div>
+	</div>
+
+	<div class="section" id="data-sources">
+		<h3><span>Data Sources</span></h3>
+
+		<p>Each site has a <em>data source</em>&mdash;a plugin that determines where to read the data for the site from, and where to write new pages and page templates. By default, nanoc uses the filesystem data source, which means pages, layouts, etc. are stored as flat files on disk.</p>
+
+		<p>nanoc also comes with a database data source, powered by ActiveRecord. Such a database data source can be very useful when letting a nanoc site be managed by a custom application.</p>
+
+		<p>It is not possible to create a site with a specific data source. It is possible, however, to switch an existing site to a new data source. How to do this is specific for each data source, so check out the documentation for the data source you want to switch to.</p>
+
+		<div class="section" id="data-sources-filesystem">
+			<h4><span>Filesystem Data Source</span></h4>
+
+			<p>The filesystem data source is the default data source. New nanoc-powered sites automatically use it. This data source does not require any special configuration.</p>
+
+			<p>This manual assumes that the filesystem data source is used. The differences between the filesystem and the database data source are listed in the database data source section.</p>
+		</div>
+
+		<div class="section" id="data-sources-database">
+			<h4><span>Database Data Source</span></h4>
+
+			<p>To use the database data source, the site configuration file (<span class="path">config.yaml</span>) needs to contain details on how to access the database. The <code>database</code> attribute should contain a hash of configuration details. This is very similar to Ruby on Rails' <span class="path">database.yml</span>, except that nanoc's database data source doesn't require development/production/test databases.</p>
+
+			<p>The following is an example configuration file which tells the database data source to use SQLite3 as the database engine, and <span class="path">content.db</span> as the actual database file:</p>
+
+			<pre><code><span class="attribute">data_source</span>: <span class="value">"database"</span>
+<span class="attribute">database</span>:
+  <span class="attribute">adapter</span>: <span class="value">"sqlite3"</span>
+  <span class="attribute">dbfile</span>:  <span class="value">"content.db"</span></code></pre>
+
+			<p>To switch a site to the database data source, first update the <span class="path">config.yaml</span> file to include the database configuration details. Then, run <kbd>nanoc setup</kbd>, which will set up the database data source (i.e. create and fill the required tables). Note that this will overwrite any existing tables in the database!</p>
+
+			<p>The database schema is defined like this:</p>
+
+			<pre><code><span class="function">create_table</span> <span class="symbol">:pages</span>, <span class="symbol">:force</span> => <span class="constant">true</span> <span class="keyword">do</span> |<span class="variable">t</span>|
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:content</span>,   <span class="symbol">:text</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:path</span>,      <span class="symbol">:string</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:meta</span>,      <span class="symbol">:text</span>
+<span class="keyword">end</span>
+
+<span class="function">create_table</span> <span class="symbol">:page_defaults</span>, <span class="symbol">:force</span> => <span class="constant">true</span> <span class="keyword">do</span> |<span class="variable">t</span>|
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:meta</span>,      <span class="symbol">:text</span>
+<span class="keyword">end</span>
+
+<span class="function">create_table</span> <span class="symbol">:layouts</span>, <span class="symbol">:force</span> => <span class="constant">true</span> <span class="keyword">do</span> |<span class="variable">t</span>|
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:name</span>,      <span class="symbol">:string</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:content</span>,   <span class="symbol">:text</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:extension</span>, <span class="symbol">:string</span>
+<span class="keyword">end</span>
+
+<span class="function">create_table</span> <span class="symbol">:templates</span>, <span class="symbol">:force</span> => <span class="constant">true</span> <span class="keyword">do</span> |<span class="variable">t</span>|
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:content</span>,   <span class="symbol">:text</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:name</span>,      <span class="symbol">:string</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:meta</span>,      <span class="symbol">:text</span>
+<span class="keyword">end</span>
+
+<span class="function">create_table</span> <span class="symbol">:code_pieces</span>, <span class="symbol">:force</span> => <span class="constant">true</span> <span class="keyword">do</span> |<span class="variable">t</span>|
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:name</span>,      <span class="symbol">:string</span>
+  <span class="variable">t</span>.<span class="function">column</span> <span class="symbol">:code</span>,      <span class="symbol">:text</span>
+<span class="keyword">end</span></code></pre>
+
+			<p>All metadata is stored in YAML format inside the database. The <code>page_defaults</code> table has only one row. The code pieces stored in <code>code_pieces</code> have a name, but this name is not used by nanoc; it is only used to make code management easier.</p>
+		</div>
+	</div>
+
+	<div class="section" id="pages">
+		<h3><span>Pages</span></h3>
+
+		<p>A nanoc-powered site has several pages, which consist of content and metadata. The page content is the actual content, while the metadata contains extra information about the page, such as which filters to use, the e-mail address of the page author, a list of tags, etc.</p>
+
+		<div class="section" id="pages-creating-a-page">
+			<h4><span>Creating a Page</span></h4>
+
+			<p>To create a page, use <kbd>nanoc create_page</kbd> or <kbd>nanoc cp</kbd>. This command takes one argument: the page name. This page name is relative to the webroot. For example, to create a page named "bar" with "foo" as parent page, do this:</p>
+
+			<pre><kbd>nanoc create_page foo/bar</kbd></pre>
+
+			<p>To specify a custom template for creating this page, use the <kbd>-t</kbd> or <kbd>--template</kbd> commandline switches. The following example will make a page with the "article" template:</p>
+
+			<pre><kbd>nanoc create_page blog/2007/new-article -t article</kbd></pre>
+		</div>
+
+		<div class="section" id="pages-metadata">
+			<h4><span>Metadata</span></h4>
+
+			<p>Each page has metadata associated with it. This metadata consists of key-value pairs. Virtually anything can be put inside a page's metadata, but some attributes are reserved since they are used by nanoc during page compilation.</p>
+
+			<p>The built-in attributes are:</p>
+
+			<dl>
+				<dt><var>custom_path</var></dt>
+				<dd>A custom path to which the file will be compiled to, starting with a slash. For example, a <a href="http://www.sitemaps.org/">Sitemaps</a> file could have a custom path of <span class="path">/sitemaps.xml</span>. Defaults to <code>nil</code> (no custom path).</dd>
+
+				<dt><var>extension</var></dt>
+				<dd>The extension of the compiled page. Defaults to <code>"html"</code>.</dd>
+
+				<dt><var>filename</var></dt>
+				<dd>The base filename for the generated page. Useful on web servers where the default filename is not &#8220;index.html&#8221; but &#8220;default.html&#8221;, for example. Defaults to <code>"index"</code>.</dd>
+
+				<dt><var>filters_pre</var></dt>
+				<dd>A list of filters to run before laying out the page. You can also use <var>filters</var> instead of <var>filters_pre</var>. Defaults to <code>[]</code> (no filters).</dd>
+
+				<dt><var>filters_post</var></dt>
+				<dd>A list of filters to run after laying out the page. Defaults to <code>[]</code> (no filters).</dd>
+
+				<dt><var>is_draft</var></dt>
+				<dd>Whether this page is a draft or not. Draft pages are ignored during compilation; it is as if they never existed. Can be <code>true</code> or <code>false</code>. Defaults to <code>false</code>.</dd>
+
+				<dt><var>layout</var></dt>
+				<dd>The name of the layout to use for this page. This is the filename of the layout file, minus the <span class="path">erb</span> extension. Use <code>"none"</code> when you don&#8217;t want a layout. Defaults to <code>"default"</code> (surprisingly).</dd>
+
+				<dt><var>skip_output</var></dt>
+				<dd>Whether this page will be outputted or not. Pages with <var>skip_output</var> set to <code>true</code> will not be written. Can be <code>true</code> or <code>false</code>. Defaults to <code>false</code>.</dd>
+			</dl>
+
+			<p>Some filters may use other attributes. When using these filters, be sure to check their documentation (see below) to see what attributes they use, if any.</p>
+		</div>
+
+		<div class="section" id="pages-variables">
+			<h4><span>Variables</span></h4>
+
+			<p>When compiling pages with filters or layout processors that support adding code to the page or the layout (such as ERB and Haml), several variables are made available. These variables are:</p>
+
+			<dl>
+				<dt><var>@page</var></dt>
+				<dd>The page that is currently being compiled.</dd>
+
+				<dt><var>@pages</var></dt>
+				<dd>The list of all pages, including ones that have not yet been compiled.</dd>
+
+				<dt><var>@config</var></dt>
+				<dd>The site configuration as a hash.</dd>
+			</dl>
+
+			<p>To get a page attribute, access it as if it were a method, e.g. <code>@page.author</code>. Boolean variables can have a trailing question mark appended, e.g. <code>@page.display_sidebar?</code>.</p>
+
+			<p>Pages have the following attributes available at compile time:</p>
+
+			<dl>
+				<dt><var>content</var></dt>
+				<dd>The compiled but not yet laid out content of the page. If the page is not yet available, nanoc will compile the requested page first.</dd>
+
+				<dt><var>file</var></dt>
+				<dd>A <code>File</code> object representing the page's content file. Useful for getting a page’s last modification date, e.g. <code>@page.file.mtime</code>. Only available when using the filesystem data source.</dd>
+
+				<dt><var>path</var></dt>
+				<dd>The page's path relative to the web root, with leading and trailing slashes, e.g. <span class="path">/blog/</span>.</dd>
+			</dl>
+		</div>
+
+		<div class="section" id="pages-dependencies">
+			<h4><span>Dependencies</span></h4>
+
+			<p>Pages have dependencies on other pages when one page requires the content of another page. Such dependencies are resolved automatically by nanoc. Circular dependencies (page A requiring the content of page B and vice versa) are detected.</p>
+		</div>
+	</div>
+
+	<div class="section" id="filters">
+		<h3><span>Filters</span></h3>
+
+		<p>Filters change a page's content. For example, the ERB filter interprets the page's content as text with embedded Ruby, executes the embedded Ruby and returns the result.</p>
+
+		<p>Filters can be both pre-filters and post-filters. Pre-filters are run <em>before</em> the page is laid out, while post-filters are run <em>after</em> a page has been laid out. Pre-filters and post-filters are specified by the <var>filters_pre</var> and <var>filters_post</var> attributes in a page's metadata, respectively.</p>
+
+		<p>Each filter has one or more identifiers that are specified in a page's attributes. For example, to run the Haml filter, use <code>filters: [ 'haml' ]</code> or something similar.</p>
+
+		<div class="section" id="filters-list-of-built-in-filters">
+			<h4><span>List of Built-in Filters</span></h4>
+
+			<dl>
+				<dt><code>erb</code></dt>
+				<dt><code>eruby</code></dt>
+				<dd>for embedded Ruby (uses <a href="http://www.ruby-doc.org/stdlib/libdoc/erb/rdoc/">ERB</a>)</dd>
+
+				<dt><code>haml</code></dt>
+				<dd>for <a href="http://haml.hamptoncatlin.com/">Haml</a></dd>
+
+				<dt><code>markaby</code></dt>
+				<dd>for <a href="http://code.whytheluckystiff.net/markaby/">Markaby</a></dd>
+
+				<dt><code>markdown</code></dt>
+				<dt><code>bluecloth</code></dt>
+				<dd>for <a href="http://daringfireball.net/projects/markdown/">Markdown</a> (uses <a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a>)</dd>
+
+				<dt><code>rdoc</code> </dt>
+				<dd>for <a href="http://rdoc.sourceforge.net/">RDoc</a>&#8217;s Simple Markup</dd>
+
+				<dt><code>smartypants</code></dt>
+				<dt><code>rubypants</code></dt>
+				<dd>for <a href="http://daringfireball.net/projects/smartypants/">SmartyPants</a> (uses <a href="http://chneukirchen.org/blog/static/projects/rubypants.html">RubyPants</a>)</dd>
+
+				<dt><code>textile</code></dt>
+				<dt><code>redcloth</code></dt>
+				<dd>for <a href="http://www.textism.com/tools/textile/">Textile</a> (uses <a href="http://whytheluckystiff.net/ruby/redcloth/">RedCloth</a>)</dd>
+			</dl>
+
+			<p>The Haml filter uses the <code>haml_options</code> site configuration attribute, which will be converted to a hash and passed to <code>Haml::Engine</code> when a page is filtered.</p>
+
+			<p>With the Haml filter, the <var>@page</var>, <var>@pages</var> and <var>@config</var> variables are available, but <em>without</em> the leading @-sign. For example, to get hold of the current page in Haml, simply use <var>page</var> instead of <var>@page</var>.</p>
+		</div>
+	</div>
+
+	<div class="section" id="layouts-and-layout-processors">
+		<h3><span>Layouts and Layout Processors</span></h3>
+
+		<p>On itself, a page's content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the page.</p>
+
+		<p>For a layout to be useful, it must output the page's content at a certain point. This is done by outputting <code>@page.content</code>. This extremely minimal layout show an example of how this is usually done:</p>
+
+		<pre><code>&lt;<span class="element">html</span>&gt;
+  &lt;<span class="element">head</span>&gt;
+    &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
+  &lt;/<span class="element">head</span>&gt;
+  &lt;<span class="element">body</span>&gt;
+&lt;%= <span class="variable">@page</span>.<span class="function">content</span> %&gt;
+  &lt;/<span class="element">body</span>&gt;
+&lt;/<span class="element">html</span>&gt;</code></pre>
+
+		<div class="section" id="layouts-and-layout-processors-list-of-built-in-layout-processors">
+			<h4><span>List of Built-in Layout Processors</span></h4>
+
+			<dl>
+				<dt><code>.erb</code></dt>
+				<dt><code>.rhtml</code></dt>
+				<dd>for embedded Ruby</dd>
+
+				<dt><code>.haml</code></dt>
+				<dd>for Haml</dd>
+
+				<dt><code>.mab</code></dt>
+				<dd>for Markaby</dd>
+			</dl>
+
+			<p>For Haml, the two remarks made in the Filters section (configuration options, no @-sign) also apply.</p>
+		</div>
+	</div>
+
+	<div class="section" id="plugins">
+		<h3><span>Plugins</span></h3>
+
+		<p>nanoc will load all Ruby source files in the <span class="path">lib</span> directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helper methods.</p>
+
+		<p>The <span class="path">lib/</span> is also the place where you should put site-specific filters, layout processors and data sources. Simply drop the Ruby source files in there, and you're set.</p>
+
+		<p>When requiring external libraries, use <code>nanoc_require</code> instead of the normal <code>require</code>&mdash; it will display a much nicer error message in case the external library isn't available.</p>
+	</div>
+
+	<div class="section" id="tasks">
+		<h3><span>Tasks</span></h3>
+
+		<p>The <span class="path">tasks</span> directory contains rakefiles (see the <a href="http://rake.rubyforge.org/">Rake documentation</a>) that will be accessible to rake when you run rake in the site’s directory. The rakefiles' names must end with <code>.rake</code> in order to be recognised correctly.</p>
+	</div>
+
+	<div class="section" id="templates">
+		<h3><span>Templates</span></h3>
+
+		<p>Templates are basic page skeletons used when creating a page. For example, an article template could have the basic content file and meta file structure laid out to make it easier to write an article.</p>
+
+		<p>When a page is created using a custom template, nanoc will create the page and copy the template's meta and content files to the page's meta and content files, respectively. The page's content file will have the same extension as the template's content file.</p>
+
+		<p>To create a page using a custom template, use the <kbd>-t</kbd> or <kbd>--template</kbd> commandline switch. For example, this will create a page using the article template:</p>
+
+		<pre><samp>nanoc create_page blog/new-article -t article</samp></pre>
+
+		<p>Templates can be created by using the <code>create_template</code> command.</p>
+	</div>
+</div>

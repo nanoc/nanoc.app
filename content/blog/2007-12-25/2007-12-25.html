@@ -1,0 +1,49 @@
+<p>nanoc 2.0 has arrived, right in time for christmas!</p>
+
+<p>In addition to nanoc 2.0, I'm also proud to present a revamped nanoc site, featuring a much less amateurish look, and most importantly, a <a href="/help/manual/">brand new, completely rewritten manual</a>. There are quite a few other changes, but I'm sure you'll find those by yourself.</p>
+
+<p>To upgrade or install, simply:</p>
+
+<pre><kbd>sudo gem install nanoc</kbd></pre>
+
+<p>Before upgrading, know that there have been quite a few changes, and that some of the changes may cause your site to break. Read carefully what I have to say.</p>
+
+<h4><span>New Features</span></h4>
+
+<p>In addition to defining custom filters, it is now possible to define <strong>custom layout processors</strong>. This is very similar to the new way of defining filters (see below).</p>
+
+<p>Another new feature involves <strong>custom data sources</strong>. Instead of letting nanoc read the data off flat files on the hard disk, you can tell it to read from a database instead, for example. This may not sound terribly exciting, but it opens the door for writing GUI applications that manage a nanoc site. (There a no such GUI applications yet, though. Want to give it a shot?)</p>
+
+<p>Quite useful are <strong>parent and children links for page objects</strong>. You can now easily get the parent of a page like <code>@page.parent</code>, and you can get a page's child pages by doing <code>@page.children</code>. Very useful for building site maps or breadcrumb navigation, for example.</p>
+
+<p>The coolest (and perhaps oddest) feature is an <strong>auto-compiler</strong>. Instead of having to manually compile your site every time you make a change, you can now let nanoc compile it whenever necessary.</p>
+
+<h4><span>Important Differences with nanoc 1.x</span></h4>
+
+<p><strong>The way custom filters are defined has changed.</strong> You can no longer use <code>register_filter</code>. Instead, you can write filters by subclassing <code>Nanoc::Filter</code>. For example, the Markdown filter looks like this now:</p>
+
+<pre><code>
+<span class="keyword">class</span> <span class="storage">MarkdownFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
+  <span class="function">identifiers</span> <span class="symbol">:markdown</span>, <span class="symbol">:bluecloth</span>
+
+  <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">content</span>)
+    <span class="function">nanoc_require</span> <span class="string">'bluecloth'</span>
+    ::<span class="storage">BlueCloth</span>.<span class="function">new</span>(<span class="variable">content</span>).<span class="function">to_html</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+
+<p><strong>The <code>filters</code> attribute is gone now.</strong> To define the list of filters to run before laying out a page, use the <code>filters_pre</code> attribute, which does exactly the same as <code>filters</code>.</p>
+
+<p><strong>Support for Liquid has been dropped entirely.</strong> Liquid is a nice templating system, but it's only really useful in situations where template writers should have restricted access to variables and functions, because of security issues. Such security issues can be a problem on a live web server, but they are completely irrelevant for a nanoc-powered site.</p>
+
+<p><strong>The Erubis filter isn't there anymore.</strong> The main reason for using Erubis is speed, but since speed is not really relevant for nanoc-powered sites, the filter has been removed.</p>
+
+<p><strong>Templates are no longer run through ERB when creating a page.</strong> This <del>bug</del> <ins>feature</ins> was quite confusing, and it wasn't really useful either.</p>
+
+<p>It may not be useful to everybody, but I'd still like to mention that the nanoc source code has been completely restructured. Some parts were rewritten from scratch. The code is a lot cleaner now, so if you want to take a shot at hacking away at nanoc, now's the time.</p>
+
+<h4><span>Last Words</span></h4>
+
+<p>nanoc has been tested thorougly, but perhaps not thorough enough. If you are experiencing any issues, please do <a href="https://nanoc.stoneship.org/trac/newticket">do report them</a>. They'll be resolved in no time. Thanks a lot in advance!</p>
+
+<p>Enjoy nanoc 2.0. Merry christmas, and a happy new year.</p>

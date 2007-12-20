@@ -1,0 +1,13 @@
+<div id="content">
+	<h2><span>Blog</span></h2>
+
+	<p>Subscribe to the <a href="http://feeds.feedburner.com/nanoc">nanoc news feed</a> and don't miss a thing.</p>
+
+<% articles.each do |article| %>
+	<div class="section">
+		<h3><span><%= article.created_at.localtime.format_as_date %></span></h3>
+
+		<%= article.content %>
+	</div>
+<% end %>
+</div>
