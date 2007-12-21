@@ -108,6 +108,8 @@
 <span class="keyword">end</span></code></pre>
 
 			<p>All metadata is stored in YAML format inside the database. The <code>page_defaults</code> table has only one row. The code pieces stored in <code>code_pieces</code> have a name, but this name is not used by nanoc; it is only used to make code management easier.</p>
+
+			<p>The <span class="path">content</span>, <span class="path">layouts</span>, <span class="path">lib</span> and <span class="path">templates</span> directories are not used by the database data source and can therefore be removed. The <span class="path">meta.yaml</span> file can also be removed.</p>
 		</div>
 	</div>
 
