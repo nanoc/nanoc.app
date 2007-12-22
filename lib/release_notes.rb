@@ -8,11 +8,8 @@ def latest_release_version
   # Get release notes page
   doc = Hpricot(@pages.find { |page| page.path == '/download/release-notes/' }.content)
 
-  # Get latest release
-  latest_release = doc.search('#content > .section.last')
-
   # Get the version
-  latest_release.search('> h3 span').inner_html
+  latest_release = doc.search('#content > .section.last > h3 > span').inner_html
 end
 
 def latest_release_notes
