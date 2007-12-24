@@ -1,4 +1,4 @@
-require 'hpricot'
+nanoc_require 'hpricot'
 
 # These two functions get the latest release version and the latest release
 # notes. They're used on the download page, to prevent having to duplicate

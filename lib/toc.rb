@@ -1,4 +1,4 @@
-require 'hpricot'
+nanoc_require 'hpricot'
 
 def toc_for(page)
   # Parse with Hpricot
