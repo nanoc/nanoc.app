@@ -44,8 +44,18 @@
 
 <p>It may not be useful to everybody, but I'd still like to mention that the nanoc source code has been completely restructured. Some parts were rewritten from scratch. The code is a lot cleaner now, so if you want to take a shot at hacking away at nanoc, now's the time.</p>
 
+<h4><span>Compatibility with Ruby 1.9</span></h4>
+
+<p>nanoc is compatible with Ruby 1.9, which is being (or already has been) released today. (I admit I cheated a bit to make it compatible, though, but that's not relevant.)</p>
+
+<p>BlueCloth, however, does not appear to be compatible with Ruby 1.9. You'll get a "invalid mbstring sequence" error when trying to filter a page using the <code>markdown</code>/<code>bluecloth</code> filter. To resolve this, you can use RedCloth instead of BlueCloth, since RedCloth also supports Markdown. The RedCloth filter is identified using <code>redcloth</code> or <code>textile</code>.</p>
+
+<p>The nanoc site, which is available as a sample from the <a href="/development/">Subversion repository</a>, cannot currently be compiled because of its dependency on Hpricot, and Hpricot does not compile on Ruby 1.9.</p>
+
+<p>These are only small issues, and I'm convinced that these will be fixed soon. If you rely on BlueCloth, Hpricot, or anything else that is not currently compatible with Ruby 1.9, you can still use Ruby 1.8&mdash;nanoc still works on 1.8, and it'll stay that way for a long time.</p>
+
 <h4><span>Last Words</span></h4>
 
-<p>nanoc has been tested thorougly, but perhaps not thorough enough. If you are experiencing any issues, please do <a href="https://nanoc.stoneship.org/trac/newticket">do report them</a>. They'll be resolved in no time. Thanks a lot in advance!</p>
+<p>nanoc has been tested thorougly, but there's always a chance that something goes wrong. If you are experiencing any issues, please do <a href="https://nanoc.stoneship.org/trac/newticket">do report them</a>. They'll be resolved in no time. Thanks a lot!</p>
 
 <p>Enjoy nanoc 2.0. Merry christmas, and a happy new year.</p>
