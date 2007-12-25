@@ -13,4 +13,6 @@ skip_output:  false
 
 # Custom
 has_full_title: false
-base_url:       http://nanoc.stoneship.org/
+base_url:       http://nanoc.stoneship.org
+author_name:    Denis Defreyne
+author_uri:     http://stoneship.org
