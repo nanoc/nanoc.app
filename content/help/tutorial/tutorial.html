@@ -13,9 +13,11 @@
 
 	<h3><span>Requirements for this Tutorial</span></h3>
 
-	<p>This tutorial requires <a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a>. BlueCloth is a Ruby implementation of <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which allows you to write HTML in a easy-to-use plain text format. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install BlueCloth, jump to your terminal and type:</p>
+	<p>This tutorial requires <a href="http://whytheluckystiff.net/ruby/redcloth">RedCloth</a>. RedCloth is a Ruby implementation of both <a href="http://www.textism.com/tools/textile/">Textile</a> and <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which both allow you to write HTML in a easy-to-use plain text format. In this tutorial, we'll use Markdown. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install RedCloth, jump to your terminal and type:</p>
 
-	<pre><kbd>sudo gem install BlueCloth</kbd></pre>
+	<pre><kbd>sudo gem install RedCloth</kbd></pre>
+
+	<p>You can also use BlueCloth (which only handles Markdown) instead of RedCloth for this tutorial, but there unfortunately seems to be an incompatibility between BlueCloth and Ruby 1.9.</p>
 
 	<h3><span>Creating your First nanoc-powered Site</span></h3>
 
@@ -218,11 +220,11 @@ dog's back.
 	<p>If you would compile the site now, the compiled HTML page won't display the converted HTML just yet, because we haven't told nanoc to filter this page as Markdown yet. Open the homepage's meta file and add this line to the "built-in" section:</p>
 
 	<pre><samp><span class="attribute">filters_pre</span>:
-  - <span class="string">"markdown"</span></samp></pre>
+  - <span class="string">"redcloth"</span></samp></pre>
 
 	<p><code>filters_pre</code> is an attribute with a list of filters to run before laying out the page. You can also run filters <em>after</em> laying out the page, in which case you'd use <code>filters_post</code>. <a href="/help/manual/chapter-2/">Chapter 2 of the manual</a> has a list of built-in filters you can use.</p>
 
-	<p>Now that we've told nanoc to filters this page as Markdown, let's recompile the site. (If you are getting errors at this point, make sure you have BlueCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now look like this:</p>
+	<p>Now that we've told nanoc to filters this page using RedCloth, let's recompile the site. (If you are getting errors at this point, make sure you have RedCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now look like this:</p>
 
 	<pre><code>&lt;<span class="element">html</span>&gt;
   &lt;<span class="element">head</span>&gt;
@@ -251,8 +253,6 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 &lt;/<span class="element">blockquote</span>&gt;
   &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
-
-	<p>The indentation isn't as pretty as it could be, but that shouldn't really be a problem.</p>
 
 	<h3><span>Writing some Custom Code</span></h3>
 
