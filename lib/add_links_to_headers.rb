@@ -11,25 +11,14 @@ module Nanoc::Filter::AddLinksToHeaders
       doc = Hpricot(content)
 
       # Find top-level sections
-      doc.search('#content > .section').each do |section|
+      doc.search('.section').each do |section|
         # Find ID
         section_id = section['id']
         next if section_id.nil?
 
         # Add permalink to header
-        section_header = section.search('> h3 > span')
+        section_header = section.search((1..6).map { |i| "> h#{i} > span" }.join(', '))
         section_header.append(permalink_for(section_id))
-
-        # Find sub-sections
-        section.search('> .section').each do |subsection|
-          # Find ID
-          subsection_id = subsection['id']
-          next if subsection_id.nil?
-
-          # Add permalink to header
-          subsection_header = subsection.search('> h4 > span')
-          subsection_header.append(permalink_for(subsection_id))
-        end
       end
 
       doc.to_s
