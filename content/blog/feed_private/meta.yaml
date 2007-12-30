@@ -1,10 +1,10 @@
 # Built-in
-filters_pre:  [ 'erb' ]
-filters_post: [ ]
-extension:    "xml"
-layout:       "none"
+filters_pre:
+  - "erb"
+extension:  "xml"
+layout:     "none"
 
 # Custom
 is_hidden:  "true"
-title:      "nanoc news"
+title:      "nanoc blog"
 feed_url:   "http://feeds.feedburner.com/nanoc"

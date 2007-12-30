@@ -9,14 +9,16 @@
 
 	<p>The third and last chapter, <a href="/help/manual/chapter-3/">Extending nanoc</a>, tells you how to customize nanoc by writing custom filters, custom layout processors and custom data sources.</p>
 
-	<h3><span>Table of Contents</span></h3>
+	<div class="section" id="table-of-contents">
+		<h3><span>Table of Contents</span></h3>
 
-	<ol id="toc">
+		<ol id="toc">
 <% @page.children.each do |chapter| %>
-		<li>
-			<%= link_to(chapter.short_title, chapter.path) %>
-			<%= toc_for(chapter) %>
-		</li>
+			<li>
+				<%= link_to(chapter.short_title, chapter.path) %>
+				<%= toc_for(chapter) %>
+			</li>
 <% end %>
-	</ol>
+		</ol>
+	</div>
 </div>

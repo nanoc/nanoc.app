@@ -139,6 +139,24 @@ html>body {
 	background: url(/assets/images/underline-black.png) bottom left repeat-x;
 }
 
+/** permalink */
+
+#main a.permalink {
+	padding: 0.3em;
+	font-weight: normal;
+}
+
+#main a.permalink:link,
+#main a.permalink:visited {
+	color: #ddd;
+
+	background: none;
+}
+
+#main a.permalink:hover {
+	color: #c40023;
+}
+
 /** banner */
 
 #banner {

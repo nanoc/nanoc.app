@@ -24,6 +24,10 @@ class Time
   def format_as_date
     %[#{Date::MONTHNAMES[self.mon]} #{self.mday.ordinal}, #{self.year}]
   end
+
+  def format_as_date_id
+    "#{self.year}-#{self.mon}-#{self.mday}"
+  end
 end
 
 class Numeric

@@ -8,54 +8,62 @@
 
 <p>Before upgrading, know that there have been quite a few changes, and that some of the changes may cause your site to break. Read carefully what I have to say.</p>
 
-<h4><span>New Features</span></h4>
+<div class="section" id="blog-2007-12-25-new-features">
+	<h4><span>New Features</span></h4>
 
-<p>In addition to defining custom filters, it is now possible to define <strong>custom layout processors</strong>. This is very similar to the new way of defining filters (see below).</p>
+	<p>In addition to defining custom filters, it is now possible to define <strong>custom layout processors</strong>. This is very similar to the new way of defining filters (see below).</p>
 
-<p>Another new feature involves <strong>custom data sources</strong>. Instead of letting nanoc read the data off flat files on the hard disk, you can tell it to read from a database instead, for example. This may not sound terribly exciting, but it opens the door for writing GUI applications that manage a nanoc site. (There a no such GUI applications yet, though. Want to give it a shot?)</p>
+	<p>Another new feature involves <strong>custom data sources</strong>. Instead of letting nanoc read the data off flat files on the hard disk, you can tell it to read from a database instead, for example. This may not sound terribly exciting, but it opens the door for writing GUI applications that manage a nanoc site. (There a no such GUI applications yet, though. Want to give it a shot?)</p>
 
-<p>Quite useful are <strong>parent and children links for page objects</strong>. You can now easily get the parent of a page like <code>@page.parent</code>, and you can get a page's child pages by doing <code>@page.children</code>. Very useful for building site maps or breadcrumb navigation, for example.</p>
+	<p>Quite useful are <strong>parent and children links for page objects</strong>. You can now easily get the parent of a page like <code>@page.parent</code>, and you can get a page's child pages by doing <code>@page.children</code>. Very useful for building site maps or breadcrumb navigation, for example.</p>
 
-<p>The coolest (and perhaps oddest) feature is an <strong>auto-compiler</strong>. Instead of having to manually compile your site every time you make a change, you can now let nanoc compile it whenever necessary.</p>
+	<p>The coolest (and perhaps oddest) feature is an <strong>auto-compiler</strong>. Instead of having to manually compile your site every time you make a change, you can now let nanoc compile it whenever necessary.</p>
+</div>
 
-<h4><span>Important Differences with nanoc 1.x</span></h4>
+<div class="section" id="blog-2007-12-25-important-differences-with-nanoc-1.x">
+	<h4><span>Important Differences with nanoc 1.x</span></h4>
 
-<p><strong>The way custom filters are defined has changed.</strong> You can no longer use <code>register_filter</code>. Instead, you can write filters by subclassing <code>Nanoc::Filter</code>. For example, the Markdown filter looks like this now:</p>
+	<p><strong>The way custom filters are defined has changed.</strong> You can no longer use <code>register_filter</code>. Instead, you can write filters by subclassing <code>Nanoc::Filter</code>. For example, the Markdown filter looks like this now:</p>
 
-<pre><code>
+	<pre><code>
 <span class="keyword">class</span> <span class="storage">MarkdownFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
   <span class="function">identifiers</span> <span class="symbol">:markdown</span>, <span class="symbol">:bluecloth</span>
 
   <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">content</span>)
     <span class="function">nanoc_require</span> <span class="string">'bluecloth'</span>
-    ::<span class="storage">BlueCloth</span>.<span class="function">new</span>(<span class="variable">content</span>).<span class="function">to_html</span>
+    <span class="storage">::BlueCloth</span>.<span class="function">new</span>(<span class="variable">content</span>).<span class="function">to_html</span>
   <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre>
 
-<p><strong>The <code>filters</code> attribute is gone now.</strong> To define the list of filters to run before laying out a page, use the <code>filters_pre</code> attribute, which does exactly the same as <code>filters</code>.</p>
+	<p><strong>The <code>filters</code> attribute is gone now.</strong> To define the list of filters to run before laying out a page, use the <code>filters_pre</code> attribute, which does exactly the same as <code>filters</code>.</p>
 
-<p><strong>Support for Liquid has been dropped entirely.</strong> Liquid is a nice templating system, but it's only really useful in situations where template writers should have restricted access to variables and functions, because of security issues. Such security issues can be a problem on a live web server, but they are completely irrelevant for a nanoc-powered site.</p>
+	<p><strong>Support for Liquid has been dropped entirely.</strong> Liquid is a nice templating system, but it's only really useful in situations where template writers should have restricted access to variables and functions, because of security issues. Such security issues can be a problem on a live web server, but they are completely irrelevant for a nanoc-powered site.</p>
 
-<p><strong>The Erubis filter isn't there anymore.</strong> The main reason for using Erubis is speed, but since speed is not really relevant for nanoc-powered sites, the filter has been removed.</p>
+	<p><strong>The Erubis filter isn't there anymore.</strong> The main reason for using Erubis is speed, but since speed is not really relevant for nanoc-powered sites, the filter has been removed.</p>
 
-<p><strong>Identical files are no longer printed</strong> which makes nanoc's output cleaner for sites with many pages. You can use <kbd>--verbose</kbd> or <kbd>-V</kbd> (uppercase V) to let nanoc print identical files.</p>
+	<p><strong>Identical files are no longer printed</strong> which makes nanoc's output cleaner for sites with many pages. You can use <kbd>--verbose</kbd> or <kbd>-V</kbd> (uppercase V) to let nanoc print identical files.</p>
 
-<p><strong>Templates are no longer run through ERB when creating a page.</strong> This <del>bug</del> <ins>feature</ins> was quite confusing, and it wasn't really useful either.</p>
+	<p><strong>Templates are no longer run through ERB when creating a page.</strong> This <del>bug</del> <ins>feature</ins> was quite confusing, and it wasn't really useful either.</p>
 
-<p>It may not be useful to everybody, but I'd still like to mention that the nanoc source code has been completely restructured. Some parts were rewritten from scratch. The code is a lot cleaner now, so if you want to take a shot at hacking away at nanoc, now's the time.</p>
+	<p>It may not be useful to everybody, but I'd still like to mention that the nanoc source code has been completely restructured. Some parts were rewritten from scratch. The code is a lot cleaner now, so if you want to take a shot at hacking away at nanoc, now's the time.</p>
+</div>
 
-<h4><span>Compatibility with Ruby 1.9</span></h4>
+<div class="section" id="blog-2007-12-25-compatibility-with-ruby-1.9">
+	<h4><span>Compatibility with Ruby 1.9</span></h4>
 
-<p>nanoc is compatible with Ruby 1.9, which is being (or already has been) released today. (I admit I cheated a bit to make it compatible, though, but that's not relevant.)</p>
+	<p>nanoc is compatible with Ruby 1.9, which is being (or already has been) released today. (I admit I cheated a bit to make it compatible, though, but that's not relevant.)</p>
 
-<p>BlueCloth, however, does not appear to be compatible with Ruby 1.9. You'll get a "invalid mbstring sequence" error when trying to filter a page using the <code>markdown</code>/<code>bluecloth</code> filter. To resolve this, you can use RedCloth instead of BlueCloth, since RedCloth also supports Markdown. The RedCloth filter is identified using <code>redcloth</code> or <code>textile</code>.</p>
+	<p>BlueCloth, however, does not appear to be compatible with Ruby 1.9. You'll get a "invalid mbstring sequence" error when trying to filter a page using the <code>markdown</code>/<code>bluecloth</code> filter. To resolve this, you can use RedCloth instead of BlueCloth, since RedCloth also supports Markdown. The RedCloth filter is identified using <code>redcloth</code> or <code>textile</code>.</p>
 
-<p>The nanoc site, which is available as a sample from the <a href="/development/">Subversion repository</a>, cannot currently be compiled because of its dependency on Hpricot, and Hpricot does not compile on Ruby 1.9.</p>
+	<p>The nanoc site, which is available as a sample from the <a href="/development/">Subversion repository</a>, cannot currently be compiled because of its dependency on Hpricot, and Hpricot does not compile on Ruby 1.9.</p>
 
-<p>These are only small issues, and I'm convinced that these will be fixed soon. If you rely on BlueCloth, Hpricot, or anything else that is not currently compatible with Ruby 1.9, you can still use Ruby 1.8&mdash;nanoc still works on 1.8, and it'll stay that way for a long time.</p>
+	<p>These are only small issues, and I'm convinced that these will be fixed soon. If you rely on BlueCloth, Hpricot, or anything else that is not currently compatible with Ruby 1.9, you can still use Ruby 1.8&mdash;nanoc still works on 1.8, and it'll stay that way for a long time.</p>
+</div>
 
-<h4><span>Last Words</span></h4>
+<div class="section" id="blog-2007-12-25-last-words">
+	<h4><span>Last Words</span></h4>
 
-<p>nanoc has been tested thorougly, but there's always a chance that something goes wrong. If you are experiencing any issues, please do <a href="https://nanoc.stoneship.org/trac/newticket">do report them</a>. They'll be resolved in no time. Thanks a lot!</p>
+	<p>nanoc has been tested thorougly, but there's always a chance that something goes wrong. If you are experiencing any issues, please do <a href="https://nanoc.stoneship.org/trac/newticket">do report them</a>. They'll be resolved in no time. Thanks a lot!</p>
 
-<p>Enjoy nanoc 2.0. Merry christmas, and a happy new year.</p>
+	<p>Enjoy nanoc 2.0. Merry christmas, and a happy new year.</p>
+</div>
