@@ -21,7 +21,7 @@ module Nanoc::Filter::AddLinksToHeaders
         section_header.append(permalink_for(section_id))
       end
 
-      doc.to_s
+      doc.to_s.gsub(' />', '>')
     end
 
   private
