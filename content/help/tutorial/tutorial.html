@@ -305,6 +305,32 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 		<p>However, putting embedded Ruby code in HTML can get dirty pretty quickly. This example is still acceptable, but in cases where you need much larger amounts of code, it's best to create a separate function and then call this function where necessary.</p>
 	</div>
 
+	<div class="section" id="watch-out-for-paths">
+		<h3><span>Watch out for Paths</span></h3>
+
+		<p>There's one tricky thing involving paths that you need to know. To show you what can go wrong, let's create a stylesheet named <span class="path">style.css</span> in the output directory. Here's what I put in there:</p>
+
+		<pre><code><span class="element">h1</span>, <span class="element">h2</span>, <span class="element">h3</span> { <span class="attribute">color</span>: <span class="value">red</span>; }</code></pre>
+
+		<p>To link the stylesheet to the web site, open the layout (<span class="path">default.erb</span>) and put this in:</p>
+
+		<pre><code>&lt;<span class="element">link <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
+
+		<p>When you compile the site now and open <span class="path">index.html</span>, you'll see that all headers are red. <span class="path">about/index.html</span>'s headers, however, are not styled—the web browser looks for a <span class="path">about/style.css</span> which doesn't exist.</p>
+
+		<p>The most elegant solution is to use an absolute path, like this (note the new slash):</p>
+
+		<pre><code>&lt;<span class="element">link</span> <span class="attribute">href</span>=<span class="value">"/style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
+
+		<p>The compiled files in the output directory will <em>definitely</em> not be styled now if you open them by double-clicking, but that's okay—when the site is put on your web server, web browsers <em>will</em> find the stylesheet.</p>
+
+		<p>This would mean that you can't preview your site locally anymore, but there's a neat solution for that too. nanoc comes with an auto-compiler, which is a web server that compiles pages on-the-fly. More importantly, the output directory is its web root, so absolute paths are no issue anymore. To start it:</p>
+
+		<pre><kbd>nanoc aco</kbd></pre>
+
+		<p>This starts a server on localhost, port 3000 (you can customize the port with <kbd>-p</kbd> if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.</p>
+	</div>
+
 	<div class="section" id="thats-it">
 		<h3><span>That's it!</span></h3>
 
