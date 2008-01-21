@@ -1,0 +1,8 @@
+# Built-in
+skip_output: true
+
+# Custom
+title:                "January 21st"
+created_at:           "January 21st, 2008"
+kind:                 "article"
+custom_path_in_feed:  "/"
