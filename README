@@ -6,7 +6,7 @@ site is provided as an example to show off how nanoc can be used, and that
 there is no need to keep your site source secret; none of it runs on the
 server anyway.
 
-Also check out the Stoneship site source, available in the Subversion repository
+Also check out the Stoneship site source, available in the Mercurial repository
 at <http://nanoc.stoneship.org/hg/sites-stoneship>.
 
 Requirements
