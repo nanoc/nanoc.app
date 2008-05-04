@@ -1,0 +1,16 @@
+<p>nanoc 2.0.4 is out!</p>
+
+<p>This minor release fixes the default <code>html_escape</code> function in the <span class="path">lib/default.rb</span> file.</p>
+
+<p>Also, the Haml filter and layout processor have been updated. It is now possible to access variables as instance variables like in any other filter or layout processor. For example:</p>
+
+<pre><code><span class="comment">/ The old way</span>
+%<span class="element">h1</span>= <span class="function">h</span> <span class="variable">page</span>.<span class="function">title</span>
+
+<span class="comment">/ The new way</span>
+%<span class="element">h1</span>= <span class="function">h</span> <span class="variable">@page</span>.<span class="function">title</span>
+</code></pre>
+
+<p>This will no doubt solve many headaches.</p>
+
+<p>Enjoy!</p>
