@@ -5,7 +5,7 @@ module Nanoc::Filter::AddLinksToHeaders
     identifiers :add_links_to_headers
 
     def run(content)
-      nanoc_require 'hpricot'
+      require 'hpricot'
 
       # Parse with Hpricot
       doc = Hpricot(content)
