@@ -282,6 +282,18 @@ html>body {
 	padding: 0 6.0em;
 }
 
+#content p.meta {
+	color: #999;
+
+	letter-spacing: 1px;
+
+	text-transform: uppercase;
+}
+
+#content p.meta span {
+	font-size: 85%;
+}
+
 #content dl {
 	margin: 1.8em 0 0 0;
 	padding: 0 7.2em;
