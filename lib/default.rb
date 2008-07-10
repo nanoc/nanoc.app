@@ -1,21 +1,15 @@
 # All files in the 'lib' directory will be loaded
 # before nanoc starts compiling.
 
-def html_escape(str)
-  str.gsub('&', '&amp;').str('<', '&lt;').str('>', '&gt;').str('"', '&quot;')
-end
-alias h html_escape
+include Nanoc::Extensions::HTMLEscape
+include Nanoc::Extensions::LinkTo
 
-def nav_link_to_unless_current(path, text)
-  if @page[:path] == path
+def nav_link_to_unless_current(text, path)
+  if @page_rep and @page_rep.path == path
     "<span class=\"active\"><span>#{text}</span></span>"
   else
     "<a href=\"#{path}\"><span>#{text}</span></a>"
   end
-end
-
-def link_to(text, path)
-  '<a href="' + path + '">' + text + '</a>'
 end
 
 # Extensions
