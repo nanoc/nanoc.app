@@ -1,9 +1,14 @@
 # All files in the 'lib' directory will be loaded
 # before nanoc starts compiling.
 
+# Default
+include Nanoc::Extensions::Blogging
 include Nanoc::Extensions::HTMLEscape
 include Nanoc::Extensions::LinkTo
-include Nanoc::Extensions::Blogging
+
+# Custom
+include Nanoc::Extensions::ReleaseNotes
+include Nanoc::Extensions::TOC
 
 def nav_link_to_unless_current(text, path)
   if @page_rep and @page_rep.path == path
