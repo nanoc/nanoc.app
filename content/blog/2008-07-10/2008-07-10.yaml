@@ -1,0 +1,8 @@
+# Built-in
+skip_output: true
+
+# Custom
+title:                "nanoc 2.1: coming soon!"
+created_at:           "July 10th, 2008"
+kind:                 "article"
+custom_path_in_feed:  "/"
