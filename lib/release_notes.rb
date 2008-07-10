@@ -9,7 +9,7 @@ def latest_release_version
   doc = Hpricot(@pages.find { |page| page.path == '/download/release-notes/' }.content)
 
   # Get the version
-  latest_release = doc.search('#content > .section.last > h3 > span').inner_html
+  latest_release = doc.search('> .section.last > h3 > span').inner_html
 end
 
 def latest_release_notes
@@ -17,7 +17,7 @@ def latest_release_notes
   doc = Hpricot(@pages.find { |page| page.path == '/download/release-notes/' }.content)
 
   # Get latest release
-  latest_release = doc.search('#content > .section.last')
+  latest_release = doc.search('> .section.last')
 
   # Remove the header
   latest_release.search('> h3').remove

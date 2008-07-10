@@ -5,7 +5,7 @@ def toc_for(page)
   doc = Hpricot(page.content)
 
   # Find all top-level sections
-  sections = doc.search('#content > .section').map do |section|
+  sections = doc.search('> .section').map do |section|
     # Get title and ID of section
     header = section.search('> h3 span').first
     id    = section['id']
