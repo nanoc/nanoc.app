@@ -3,3 +3,4 @@
 # Custom
 title:          "nanoc: a Ruby CMS that generates static HTML &raquo; home"
 has_full_title: true
+raw_layout:     true

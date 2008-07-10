@@ -1,161 +1,158 @@
-<div id="content">
-	<h2><span>Help &raquo; Manual &raquo;<br>Chapter 3: Extending nanoc</span></h2>
+<h2><span>Help &raquo; Manual &raquo;<br>Chapter 3: Extending nanoc</span></h2>
 
-	<p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
+<p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
 
-	<p>nanoc is quite customizable. Apart from being able to write arbitrary code that is executed before a site is compiled, it is also possible to write custom (binary) filters, data sources and routers.</p>
+<p>nanoc is quite customizable. Apart from being able to write arbitrary code that is executed before a site is compiled, it is also possible to write custom (binary) filters, data sources and routers.</p>
 
-	<div class="section" id="writing-data-sources">
-		<h3><span>Writing Data Sources</span></h3>
+<div class="section" id="writing-data-sources">
+	<h3><span>Writing Data Sources</span></h3>
 
-		<p><strong>FIXME way outdated, update!</strong></p>
+	<p><strong>FIXME way outdated, update!</strong></p>
 
-		<p>A data source is responsible for loading a site's data: pages, page defaults, templates, layouts and code. Perhaps surprisingly, it is also responsible for creating pages, layouts and templates.</p>
+	<p>A data source is responsible for loading a site's data: pages, page defaults, templates, layouts and code. Perhaps surprisingly, it is also responsible for creating pages, layouts and templates.</p>
 
-		<p>Data sources are classes that inherit from <code>Nanoc::DataSource</code>. There is no need to explicitly register data source classes; nanoc will find all data source classes automatically. It's like magic.</p>
+	<p>Data sources are classes that inherit from <code>Nanoc::DataSource</code>. There is no need to explicitly register data source classes; nanoc will find all data source classes automatically. It's like magic.</p>
 
-		<p>Each data source has an identifier. This is a unique name that is used in a site's configuration file to specify which data source should be used to fetch data. It is specified like this:</p>
+	<p>Each data source has an identifier. This is a unique name that is used in a site's configuration file to specify which data source should be used to fetch data. It is specified like this:</p>
 
-		<pre><code><span class="keyword">class</span> <span class="storage">SampleDataSource</span> &lt; <span class="storage">Nanoc::DataSource</span>
-  <span class="function">identifier</span> <span class="symbol">:sample</span>
+	<pre><code><span class="keyword">class</span> <span class="storage">SampleDataSource</span> &lt; <span class="storage">Nanoc::DataSource</span>
+ <span class="function">identifier</span> <span class="symbol">:sample</span>
 <span class="keyword">end</span></code></pre>
 
-		<p>All methods in the data source have access to the <code>@site</code> object, which represents the site. Probably the only very useful thing that can be done with this is request the configuration hash, using <code>@site.config</code>.</p>
+	<p>All methods in the data source have access to the <code>@site</code> object, which represents the site. Probably the only very useful thing that can be done with this is request the configuration hash, using <code>@site.config</code>.</p>
 
-		<div class="section" id="writing-data-sources-preparation">
-			<h4><span>Preparation</span></h4>
+	<div class="section" id="writing-data-sources-preparation">
+		<h4><span>Preparation</span></h4>
 
-			<p>There are two methods you may want to implement first: <code>up</code> and <code>down</code>. <code>up</code> is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. <code>down</code> is executed when the data source is unloaded, so this is the ideal place to undo what <code>up</code> did.</p>
+		<p>There are two methods you may want to implement first: <code>up</code> and <code>down</code>. <code>up</code> is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. <code>down</code> is executed when the data source is unloaded, so this is the ideal place to undo what <code>up</code> did.</p>
 
-			<p>The <code>setup</code> method is used to create the initial site structure. For example, a database data source could create the database and the necessary tables here.</p>
+		<p>The <code>setup</code> method is used to create the initial site structure. For example, a database data source could create the database and the necessary tables here.</p>
 
-			<p>None of these three methods need to be implemented; you can simply leave the method definitions out.</p>
-		</div>
-
-		<div class="section" id="writing-data-sources-loading-data">
-			<h4><span>Loading Data</span></h4>
-
-			<p>The five methods that need to be implemented to load data are <code>pages</code>, <code>page_defaults</code>, <code>layouts</code>, <code>templates</code> and <code>code</code>. All these functions require an implementation.</p>
-
-			<p>The <code>pages</code> function should return an array of hashes representing pages. These hashes must at least have two keys: <code>:uncompiled_content</code> and <code>:path</code>. These hashes can have additional keys for additional metadata. Example:</p>
-
-			<pre><code><span class="keyword">def</span> <span class="function">pages</span>
-  [
-    { <span class="symbol">:uncompiled_content</span> => <span class="string">'Hi!'</span>,          <span class="symbol">:path</span> => <span class="string">'/'</span>       },
-    { <span class="symbol">:uncompiled_content</span> => <span class="string">'Hello there.'</span>, <span class="symbol">:path</span> => <span class="string">'/about/'</span> }
-  ]
-<span class="keyword">end</span></code></pre>
-
-			<p>The <code>page_defaults</code> function should return a hash with default values for page metadata. Example:</p>
-
-			<pre><code><span class="keyword">def</span> <span class="function">page_defaults</span>
-  { <span class="symbol">:layout</span> => <span class="string">'quux'</span> }
-<span class="keyword">end</span></code></pre>
-
-			<p><code>layouts</code> should return an array of hashes that represent layouts. Each has must have the <code>:name</code>, <code>:content</code> and <code>:extension</code> keys. <code>:extension</code> determines the layout processor that will be used for this page. For example:</p>
-
-			<pre><code><span class="keyword">def</span> <span class="function">layouts</span>
-  [
-    {
-      <span class="symbol">:name</span>       => <span class="string">'quux'</span>,
-      <span class="symbol">:content</span>    => <span class="string">"&lt;html&gt;\n"</span> +
-                     <span class="string">"  &lt;head&gt;\n"</span> +
-                     <span class="string">"    &lt;title&gt;&lt;%= @page.title %&gt;&lt;/title&gt;\n"</span> +
-                     <span class="string">"  &lt;/head&gt;\n"</span> +
-                     <span class="string">"  &lt;body&gt;\n"</span> +
-                     <span class="string">"&lt;%= @page.content %&gt;\n"</span> +
-                     <span class="string">"  &lt;/body&gt;\n"</span> +
-                     <span class="string">"&lt;/html&gt;"</span>,
-      <span class="symbol">:extension</span>  => <span class="string">'.erb'</span>
-    }
-  ]
-<span class="keyword">end</span></code></pre>
-
-			<p><code>templates</code> should return an array of hashes that represent page templates. These page templates are used used by the <code>create_page</code> function (see next section) to create pages using a template. Each hash must have the <code>:name</code> key for identifying the template. Apart from that, the hash can be structured in any way. I recommend having <code>:content</code> (for the page content) and <code>:meta</code> (for the page metadata) keys. Just make sure that what <code>templates</code> serves is what <code>create_page</code> expects. For example:</p>
-
-			<pre><code><span class="keyword">def</span> <span class="function">templates</span>
-  [
-    {
-      <span class="symbol">:name</span>     => <span class="string">'default'</span>,
-      <span class="symbol">:content</span>  => <span class="string">'Hi, I am a new page. Please edit me!'</span>,
-      <span class="symbol">:meta</span>     => { <span class="symbol">:title</span> => <span class="string">'A New Page'</span> }
-    }
-  ]
-<span class="keyword">end</span></code></pre>
-
-			<p><code>code</code> should return a string containing the code that will be loaded right before the site is compiled. For example:</p>
-
-			<pre><code><span class="keyword">def</span> <span class="function">code</span>
-  <span class="string">"def foo ; 'bar' ; end"</span>
-<span class="keyword">end</span></code></pre>
-		</div>
-
-		<div class="section" id="writing-data-sources-creating-data">
-			<h4><span>Creating Data</span></h4>
-
-			<p>Three methods that create data need to be implemented: <code>create_page</code>, <code>create_layout</code> and <code>create_template</code>. All these three methods require an implementation.</p>
-
-			<p><code>create_page</code> is used for creating a new page using a given template. It has two arguments: the page path, and the template, which is a hash from the array of templates as returned by the <code>templates</code> function.</p>
-
-			<p><code>create_layout</code> is used for creating a new layout. It has one argument: the layout name.</p>
-
-			<p><code>create_template</code> is used for creating a new template. It has one argument: the template name.</p>
-		</div>
+		<p>None of these three methods need to be implemented; you can simply leave the method definitions out.</p>
 	</div>
 
-	<div class="section" id="writing-filters">
-		<h3><span>Writing Filters</span></h3>
+	<div class="section" id="writing-data-sources-loading-data">
+		<h4><span>Loading Data</span></h4>
 
-		<p>Filters are classes that inherit from <code>Nanoc::Filter</code>. They do not need to be explicitly registered; nanoc will find filter classes automatically.</p>
+		<p>The five methods that need to be implemented to load data are <code>pages</code>, <code>page_defaults</code>, <code>layouts</code>, <code>templates</code> and <code>code</code>. All these functions require an implementation.</p>
 
-		<p>A filter has an identifier, which is an unique name that is used in a page's list of filters. It is set like this:</p>
+		<p>The <code>pages</code> function should return an array of hashes representing pages. These hashes must at least have two keys: <code>:uncompiled_content</code> and <code>:path</code>. These hashes can have additional keys for additional metadata. Example:</p>
 
-		<pre><code><span class="keyword">class</span> <span class="storage">CensorFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
-  <span class="function">identifier</span> <span class="symbol">:censor</span>
+		<pre><code><span class="keyword">def</span> <span class="function">pages</span>
+ [
+   { <span class="symbol">:uncompiled_content</span> => <span class="string">'Hi!'</span>,          <span class="symbol">:path</span> => <span class="string">'/'</span>       },
+   { <span class="symbol">:uncompiled_content</span> => <span class="string">'Hello there.'</span>, <span class="symbol">:path</span> => <span class="string">'/about/'</span> }
+ ]
 <span class="keyword">end</span></code></pre>
 
-		<p>A filter can have multiple identifiers. Specify multiple identifiers using <code>identifiers</code> instead of <code>identifier</code>, like this:</p>
+		<p>The <code>page_defaults</code> function should return a hash with default values for page metadata. Example:</p>
 
-		<pre><code><span class="keyword">class</span> <span class="storage">CensorFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
-  <span class="function">identifiers</span> <span class="symbol">:censor</span>, <span class="symbol">:stop_the_hate</span>
+		<pre><code><span class="keyword">def</span> <span class="function">page_defaults</span>
+ { <span class="symbol">:layout</span> => <span class="string">'quux'</span> }
 <span class="keyword">end</span></code></pre>
 
-		<p>A filter needs to implement only one method, <code>run</code>. This method takes the unfiltered content as its only argument, and returns the filtered content. For example:</p>
+		<p><code>layouts</code> should return an array of hashes that represent layouts. Each has must have the <code>:name</code>, <code>:content</code> and <code>:extension</code> keys. <code>:extension</code> determines the layout processor that will be used for this page. For example:</p>
 
-		<pre><code><span class="keyword">def</span> <span class="function">run</span>(<span class="variable">content</span>)
-  <span class="variable">content</span>.<span class="function">gsub</span>(<span class="string">'nanoc sucks'</span>, <span class="string">'nanoc rocks'</span>)
+		<pre><code><span class="keyword">def</span> <span class="function">layouts</span>
+ [
+   {
+     <span class="symbol">:name</span>       => <span class="string">'quux'</span>,
+     <span class="symbol">:content</span>    => <span class="string">"&lt;html&gt;\n"</span> +
+                    <span class="string">"  &lt;head&gt;\n"</span> +
+                    <span class="string">"    &lt;title&gt;&lt;%= @page.title %&gt;&lt;/title&gt;\n"</span> +
+                    <span class="string">"  &lt;/head&gt;\n"</span> +
+                    <span class="string">"  &lt;body&gt;\n"</span> +
+                    <span class="string">"&lt;%= @page.content %&gt;\n"</span> +
+                    <span class="string">"  &lt;/body&gt;\n"</span> +
+                    <span class="string">"&lt;/html&gt;"</span>,
+     <span class="symbol">:extension</span>  => <span class="string">'.erb'</span>
+   }
+ ]
 <span class="keyword">end</span></code></pre>
 
-		<p>The filter has access to several useful instance variables:</p>
-		
-		<dl>
-			<dt><code>@page_rep</code></dt>
-			<dd>Contains the page representation that is being filtered.</dd>
+		<p><code>templates</code> should return an array of hashes that represent page templates. These page templates are used used by the <code>create_page</code> function (see next section) to create pages using a template. Each hash must have the <code>:name</code> key for identifying the template. Apart from that, the hash can be structured in any way. I recommend having <code>:content</code> (for the page content) and <code>:meta</code> (for the page metadata) keys. Just make sure that what <code>templates</code> serves is what <code>create_page</code> expects. For example:</p>
 
-			<dt><code>@page</code></dt>
-			<dd>Contains the current page.</dd>
+		<pre><code><span class="keyword">def</span> <span class="function">templates</span>
+ [
+   {
+     <span class="symbol">:name</span>     => <span class="string">'default'</span>,
+     <span class="symbol">:content</span>  => <span class="string">'Hi, I am a new page. Please edit me!'</span>,
+     <span class="symbol">:meta</span>     => { <span class="symbol">:title</span> => <span class="string">'A New Page'</span> }
+   }
+ ]
+<span class="keyword">end</span></code></pre>
 
-			<dt><code>@asset_rep</code></dt>
-			<dd>Contains the asset representation that is being filtered.</dd>
+		<p><code>code</code> should return a string containing the code that will be loaded right before the site is compiled. For example:</p>
 
-			<dt><code>@asset</code></dt>
-			<dd>Contains the current asset.</dd>
-
-			<dt><code>@site</code></dt>
-			<dd>Contains the site.</dd>
-		</dl>
+		<pre><code><span class="keyword">def</span> <span class="function">code</span>
+ <span class="string">"def foo ; 'bar' ; end"</span>
+<span class="keyword">end</span></code></pre>
 	</div>
 
-	<div class="section" id="writing-binary-filters">
-		<h3><span>Writing Binary Filters</span></h3>
+	<div class="section" id="writing-data-sources-creating-data">
+		<h4><span>Creating Data</span></h4>
 
-		<p><strong>TODO write me</strong></p>
+		<p>Three methods that create data need to be implemented: <code>create_page</code>, <code>create_layout</code> and <code>create_template</code>. All these three methods require an implementation.</p>
+
+		<p><code>create_page</code> is used for creating a new page using a given template. It has two arguments: the page path, and the template, which is a hash from the array of templates as returned by the <code>templates</code> function.</p>
+
+		<p><code>create_layout</code> is used for creating a new layout. It has one argument: the layout name.</p>
+
+		<p><code>create_template</code> is used for creating a new template. It has one argument: the template name.</p>
 	</div>
+</div>
 
-	<div class="section" id="writing-layout-processors">
-		<h3><span>Writing Layout Processors</span></h3>
+<div class="section" id="writing-filters">
+	<h3><span>Writing Filters</span></h3>
 
-		<p>As of nanoc 2.1, layout processors are filters, so there is no need to write separate layout processors—simply write a filter and use that one.</p>
-	</div>
+	<p>Filters are classes that inherit from <code>Nanoc::Filter</code>. They do not need to be explicitly registered; nanoc will find filter classes automatically.</p>
 
+	<p>A filter has an identifier, which is an unique name that is used in a page's list of filters. It is set like this:</p>
+
+	<pre><code><span class="keyword">class</span> <span class="storage">CensorFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
+ <span class="function">identifier</span> <span class="symbol">:censor</span>
+<span class="keyword">end</span></code></pre>
+
+	<p>A filter can have multiple identifiers. Specify multiple identifiers using <code>identifiers</code> instead of <code>identifier</code>, like this:</p>
+
+	<pre><code><span class="keyword">class</span> <span class="storage">CensorFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
+ <span class="function">identifiers</span> <span class="symbol">:censor</span>, <span class="symbol">:stop_the_hate</span>
+<span class="keyword">end</span></code></pre>
+
+	<p>A filter needs to implement only one method, <code>run</code>. This method takes the unfiltered content as its only argument, and returns the filtered content. For example:</p>
+
+	<pre><code><span class="keyword">def</span> <span class="function">run</span>(<span class="variable">content</span>)
+ <span class="variable">content</span>.<span class="function">gsub</span>(<span class="string">'nanoc sucks'</span>, <span class="string">'nanoc rocks'</span>)
+<span class="keyword">end</span></code></pre>
+
+	<p>The filter has access to several useful instance variables:</p>
+	
+	<dl>
+		<dt><code>@page_rep</code></dt>
+		<dd>Contains the page representation that is being filtered.</dd>
+
+		<dt><code>@page</code></dt>
+		<dd>Contains the current page.</dd>
+
+		<dt><code>@asset_rep</code></dt>
+		<dd>Contains the asset representation that is being filtered.</dd>
+
+		<dt><code>@asset</code></dt>
+		<dd>Contains the current asset.</dd>
+
+		<dt><code>@site</code></dt>
+		<dd>Contains the site.</dd>
+	</dl>
+</div>
+
+<div class="section" id="writing-binary-filters">
+	<h3><span>Writing Binary Filters</span></h3>
+
+	<p><strong>TODO write me</strong></p>
+</div>
+
+<div class="section" id="writing-layout-processors">
+	<h3><span>Writing Layout Processors</span></h3>
+
+	<p>As of nanoc 2.1, layout processors are filters, so there is no need to write separate layout processors—simply write a filter and use that one.</p>
 </div>

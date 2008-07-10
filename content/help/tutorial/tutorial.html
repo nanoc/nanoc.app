@@ -1,59 +1,58 @@
-<div id="content">
-	<h2><span>Help &raquo; Tutorial</span></h2>
+<h2><span>Help &raquo; Tutorial</span></h2>
 
-	<p>(If you already have a bit of experience with nanoc, you may find the <a href="/help/manual/">Manual</a> a very useful resource in addition to this tutorial.)</p>
+<p>(If you already have a bit of experience with nanoc, you may find the <a href="/help/manual/">Manual</a> a very useful resource in addition to this tutorial.)</p>
 
-	<div class="section" id="installing-nanoc">
-		<h3><span>Installing nanoc</span></h3>
+<div class="section" id="installing-nanoc">
+	<h3><span>Installing nanoc</span></h3>
 
-		<p>nanoc requires <a href="http://www.ruby-lang.org/">Ruby</a> (1.8.5 or higher required). nanoc also requires <a href="http://rubyforge.org/projects/rubygems/">RubyGems</a>. You may already have RubyGems installed, but if you don't, <a href="http://rubyforge.org/frs/?group_id=126&amp;release_id=16500">get it here</a>.</p>
-	
-		<p>Once you have RubyGems, installing nanoc is easy. Simply write this in your terminal:</p>
+	<p>nanoc requires <a href="http://www.ruby-lang.org/">Ruby</a> (1.8.5 or higher required). nanoc also requires <a href="http://rubyforge.org/projects/rubygems/">RubyGems</a>. You may already have RubyGems installed, but if you don't, <a href="http://rubyforge.org/frs/?group_id=126&amp;release_id=16500">get it here</a>.</p>
 
-		<pre><kbd><span class="prompt">></span> sudo gem install nanoc</kbd></pre>
-	</div>
+	<p>Once you have RubyGems, installing nanoc is easy. Simply write this in your terminal:</p>
 
-	<div class="section" id="requirements-for-this-tutorial">
-		<h3><span>Requirements for this Tutorial</span></h3>
+	<pre><kbd><span class="prompt">></span> sudo gem install nanoc</kbd></pre>
+</div>
 
-		<p>This tutorial requires <a href="http://whytheluckystiff.net/ruby/redcloth">RedCloth</a>. RedCloth is a Ruby implementation of both <a href="http://www.textism.com/tools/textile/">Textile</a> and <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which both allow you to write HTML in a easy-to-use plain text format. In this tutorial, we'll use Markdown. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install RedCloth, jump to your terminal and type:</p>
+<div class="section" id="requirements-for-this-tutorial">
+	<h3><span>Requirements for this Tutorial</span></h3>
 
-		<pre><kbd><span class="prompt">></span> sudo gem install RedCloth</kbd></pre>
+	<p>This tutorial requires <a href="http://whytheluckystiff.net/ruby/redcloth">RedCloth</a>. RedCloth is a Ruby implementation of both <a href="http://www.textism.com/tools/textile/">Textile</a> and <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which both allow you to write HTML in a easy-to-use plain text format. In this tutorial, we'll use Markdown. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install RedCloth, jump to your terminal and type:</p>
 
-		<p>You can also use BlueCloth (which only handles Markdown) instead of RedCloth for this tutorial, but there unfortunately seems to be an incompatibility between BlueCloth and Ruby 1.9.</p>
-	</div>
+	<pre><kbd><span class="prompt">></span> sudo gem install RedCloth</kbd></pre>
 
-	<div class="section" id="creating-your-first-nanoc-powered-site">
-		<h3><span>Creating your First nanoc-powered Site</span></h3>
+	<p>You can also use BlueCloth (which only handles Markdown) instead of RedCloth for this tutorial, but there unfortunately seems to be an incompatibility between BlueCloth and Ruby 1.9.</p>
+</div>
 
-		<p>nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that's the way all cool apps work (or maybe not). It also explains why nanoc doesn't have any screenshots.</p>
+<div class="section" id="creating-your-first-nanoc-powered-site">
+	<h3><span>Creating your First nanoc-powered Site</span></h3>
 
-		<p>A nanoc-powered site is a directory with a specific structure. You can create such a directory yourself, but the best way is to let nanoc do it for you. In this tutorial, we'll create a site named <span class="path">nanoc_test</span>. To create this site, type into the terminal:</p>
+	<p>nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that's the way all cool apps work (or maybe not). It also explains why nanoc doesn't have any screenshots.</p>
 
-		<pre><kbd><span class="prompt">></span> nanoc create_site nanoc_test</kbd></pre>
+	<p>A nanoc-powered site is a directory with a specific structure. You can create such a directory yourself, but the best way is to let nanoc do it for you. In this tutorial, we'll create a site named <span class="path">nanoc_test</span>. To create this site, type into the terminal:</p>
 
-		<p>If you did that right, you should have seen this appear on the screen:</p>
+	<pre><kbd><span class="prompt">></span> nanoc create_site nanoc_test</kbd></pre>
 
-		<pre><samp>      <span class="log-create">create</span>  output
-      <span class="log-create">create</span>  config.yaml
-      <span class="log-create">create</span>  Rakefile
-      <span class="log-create">create</span>  tasks
-      <span class="log-create">create</span>  tasks/default.rake
-      <span class="log-create">create</span>  content
-      <span class="log-create">create</span>  content/content.txt
-      <span class="log-create">create</span>  content/content.yaml
-      <span class="log-create">create</span>  meta.yaml
-      <span class="log-create">create</span>  templates/default
-      <span class="log-create">create</span>  templates/default/default.txt
-      <span class="log-create">create</span>  templates/default/default.yaml
-      <span class="log-create">create</span>  layouts
-      <span class="log-create">create</span>  layouts/default.erb
-      <span class="log-create">create</span>  lib
-      <span class="log-create">create</span>  lib/default.rb</samp></pre>
+	<p>If you did that right, you should have seen this appear on the screen:</p>
 
-		<p>The nanoc-powered site named <span class="path">nanoc_test</span> has now been created. Go into the directory and list the files there. You should see something like this:</p>
+	<pre><samp>      <span class="log-create">create</span>  output
+     <span class="log-create">create</span>  config.yaml
+     <span class="log-create">create</span>  Rakefile
+     <span class="log-create">create</span>  tasks
+     <span class="log-create">create</span>  tasks/default.rake
+     <span class="log-create">create</span>  content
+     <span class="log-create">create</span>  content/content.txt
+     <span class="log-create">create</span>  content/content.yaml
+     <span class="log-create">create</span>  meta.yaml
+     <span class="log-create">create</span>  templates/default
+     <span class="log-create">create</span>  templates/default/default.txt
+     <span class="log-create">create</span>  templates/default/default.yaml
+     <span class="log-create">create</span>  layouts
+     <span class="log-create">create</span>  layouts/default.erb
+     <span class="log-create">create</span>  lib
+     <span class="log-create">create</span>  lib/default.rb</samp></pre>
 
-		<pre><samp>-rw-r--r--  1 ddfreyne  ddfreyne  123 14 Dec 09:19 Rakefile
+	<p>The nanoc-powered site named <span class="path">nanoc_test</span> has now been created. Go into the directory and list the files there. You should see something like this:</p>
+
+	<pre><samp>-rw-r--r--  1 ddfreyne  ddfreyne  123 14 Dec 09:19 Rakefile
 -rw-r--r--  1 ddfreyne  ddfreyne   48 14 Dec 09:19 config.yaml
 drwxr-xr-x  9 ddfreyne  ddfreyne  306 14 Dec 10:49 content
 drwxr-xr-x  3 ddfreyne  ddfreyne  102 14 Dec 09:19 layouts
@@ -63,155 +62,155 @@ drwxr-xr-x  9 ddfreyne  ddfreyne  306 14 Dec 10:50 output
 drwxr-xr-x  3 ddfreyne  ddfreyne  102 14 Dec 09:19 tasks
 drwxr-xr-x  3 ddfreyne  ddfreyne  102 14 Dec 09:19 templates</samp></pre>
 
-		<p>What all those directories are for, will be explained in just a minute, step by step.</p>
-	</div>
+	<p>What all those directories are for, will be explained in just a minute, step by step.</p>
+</div>
 
-	<div class="section" id="compiling-the-site">
-		<h3><span>Compiling the Site</span></h3>
+<div class="section" id="compiling-the-site">
+	<h3><span>Compiling the Site</span></h3>
 
-		<p>Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create_site</kbd>, require the current working directory to be a nanoc site.</p>
+	<p>Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create_site</kbd>, require the current working directory to be a nanoc site.</p>
 
-		<p>A new nanoc site isn't completely empty. It comes with one extremely minimalistic homepage, as well as one extremely minimalistic layout used by this homepage.</p>
+	<p>A new nanoc site isn't completely empty. It comes with one extremely minimalistic homepage, as well as one extremely minimalistic layout used by this homepage.</p>
 
-		<p>Before you can view the site, it needs to be compiled. All pages are stored in uncompiled source form in the site directory (in <span class="path">content</span>, to be precise, as you will see in a bit). To compile the site, do this:</p>
+	<p>Before you can view the site, it needs to be compiled. All pages are stored in uncompiled source form in the site directory (in <span class="path">content</span>, to be precise, as you will see in a bit). To compile the site, do this:</p>
 
-		<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
-		<p>This is what'll appear in the terminal when nanoc is done compiling:</p>
+	<p>This is what'll appear in the terminal when nanoc is done compiling:</p>
 
-		<pre><samp>Compiling site...
-      <span class="log-create">create</span>  output/index.html
+	<pre><samp>Compiling site...
+     <span class="log-create">create</span>  output/index.html
 Site compiled in 0.02s.</samp></pre>
 
-		<p>A file named <span class="path">index.html</span> has been created in the <span class="path">output</span> directory. Open it in your favourite web browser (mine is Safari); what you'll see is a very simple web page that says <q>I'm a brand new root page. Please edit me!</q>. If you doubt that it's an actual HTML page, open the file in your favourite text editor (mine is TextMate) and check out the page source.</p>
-	</div>
+	<p>A file named <span class="path">index.html</span> has been created in the <span class="path">output</span> directory. Open it in your favourite web browser (mine is Safari); what you'll see is a very simple web page that says <q>I'm a brand new root page. Please edit me!</q>. If you doubt that it's an actual HTML page, open the file in your favourite text editor (mine is TextMate) and check out the page source.</p>
+</div>
 
-	<div class="section" id="editing-the-home-page">
-		<h3><span>Editing the Home Page</span></h3>
+<div class="section" id="editing-the-home-page">
+	<h3><span>Editing the Home Page</span></h3>
 
-		<p>The first step in getting to know how nanoc really works will involve editing the content of the home page. First, though, a quick explanation of how uncompiled pages are stored.</p>
+	<p>The first step in getting to know how nanoc really works will involve editing the content of the home page. First, though, a quick explanation of how uncompiled pages are stored.</p>
 
-		<p>The pages in a nanoc site are stored in the <span class="path">content</span> directory. Currently, that directory has only two files: <span class="path">content.txt</span> and <span class="path">content.yaml</span>. These two files together form the home page. The file ending with <span class="path">.yaml</span> specifies the page's attributes (metadata, properties, whatever you want to call it), while the other file contains the actual page content. This may sound confusing, but it'll make more sense once more pages are added to the site. Patience, young padawan.</p>
+	<p>The pages in a nanoc site are stored in the <span class="path">content</span> directory. Currently, that directory has only two files: <span class="path">content.txt</span> and <span class="path">content.yaml</span>. These two files together form the home page. The file ending with <span class="path">.yaml</span> specifies the page's attributes (metadata, properties, whatever you want to call it), while the other file contains the actual page content. This may sound confusing, but it'll make more sense once more pages are added to the site. Patience, young padawan.</p>
 
-		<p>Let's change the homepage content to something less generic. Open <span class="path">content.txt</span> and change its text to something more exciting, perhaps something like this:</p>
+	<p>Let's change the homepage content to something less generic. Open <span class="path">content.txt</span> and change its text to something more exciting, perhaps something like this:</p>
 
-		<pre><code>&lt;<span class="element">p</span>&gt;Welcome to my new nanoc site! Denis is my hero!&lt;/<span class="element">p</span>&gt;</code></pre>
+	<pre><code>&lt;<span class="element">p</span>&gt;Welcome to my new nanoc site! Denis is my hero!&lt;/<span class="element">p</span>&gt;</code></pre>
 
-		<p>To view the changes, the site must be recompiled first. So, do this:</p>
+	<p>To view the changes, the site must be recompiled first. So, do this:</p>
 
-		<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
-		<p>And this is what you'll see:</p>
+	<p>And this is what you'll see:</p>
 
-		<pre><samp>Compiling site...
-      <span class="log-update">update</span>  output/index.html
+	<pre><samp>Compiling site...
+     <span class="log-update">update</span>  output/index.html
 Site compiled in 0.02s.</samp></pre>
 
-		<p>Open <span class="path">index.html</span> in the <span class="path">output</span> directory in your web browser and your text editor again, and verify that the page has indeed been updated.</p>
+	<p>Open <span class="path">index.html</span> in the <span class="path">output</span> directory in your web browser and your text editor again, and verify that the page has indeed been updated.</p>
 
-		<p>One thing that hasn't changed is the page title&mdash;the title that appears in the browser's title bar. The page title is defined in the page's meta file. Such a meta file contains all metadata about the page, e.g. the layout that should be used for this page, the page title, the page's author, when this page was created, &hellip; The homepage meta file, <span class="path">content.yaml</span>, looks like this right now:</p>
+	<p>One thing that hasn't changed is the page title&mdash;the title that appears in the browser's title bar. The page title is defined in the page's meta file. Such a meta file contains all metadata about the page, e.g. the layout that should be used for this page, the page title, the page's author, when this page was created, &hellip; The homepage meta file, <span class="path">content.yaml</span>, looks like this right now:</p>
 
-		<pre><samp><span class="comment"># Built-in</span>
+	<pre><samp><span class="comment"># Built-in</span>
 
 <span class="comment"># Custom</span>
 <span class="attribute">title</span>: <span class="string">"A New Root Page"</span></samp></pre>
 
-		<p>This file is split into two sections: <i>Built-in</i> and <i>Custom</i>. In the <i>Built-in</i> section, you can put metadata that is used by nanoc itself. For example, the <code>layout</code> attribute is used to determine which layout this page uses. There's a full list of built-in attributes in <a href="/help/manual/chapter-2/">chapter 2 of the manual</a>.</p>
+	<p>This file is split into two sections: <i>Built-in</i> and <i>Custom</i>. In the <i>Built-in</i> section, you can put metadata that is used by nanoc itself. For example, the <code>layout</code> attribute is used to determine which layout this page uses. There's a full list of built-in attributes in <a href="/help/manual/chapter-2/">chapter 2 of the manual</a>.</p>
 
-		<p>The <i>Custom</i> section is for custom metadata that isn't used by nanoc. Any attributes that aren't built-in are custom. Custom metadata could include the page title, keywords relevant to this page, the name of the page's author, the language the page is written in, etc.</p>
+	<p>The <i>Custom</i> section is for custom metadata that isn't used by nanoc. Any attributes that aren't built-in are custom. Custom metadata could include the page title, keywords relevant to this page, the name of the page's author, the language the page is written in, etc.</p>
 
-		<p>The homepage's meta file currently has one attribute, <code>title</code>. Change this to something cooler, like this:</p>
+	<p>The homepage's meta file currently has one attribute, <code>title</code>. Change this to something cooler, like this:</p>
 
-		<pre><samp><span class="attribute">title</span>: <span class="string">"The Guild of nanoc: a fan website dedicated to nanoc"</span></samp></pre>
+	<pre><samp><span class="attribute">title</span>: <span class="string">"The Guild of nanoc: a fan website dedicated to nanoc"</span></samp></pre>
 
-		<p>Recompile the site and open <span class="path">index.html</span> in your browser. You will see that the browser's title bar displays the page's title now. There's no magic involved here&mdash;it'll all become clear in a minute (or you can already take a peek at <span class="path">layouts/default.erb</span> if you can't wait).</p>
-	</div>
+	<p>Recompile the site and open <span class="path">index.html</span> in your browser. You will see that the browser's title bar displays the page's title now. There's no magic involved here&mdash;it'll all become clear in a minute (or you can already take a peek at <span class="path">layouts/default.erb</span> if you can't wait).</p>
+</div>
 
-	<div class="section" id="adding-a-page">
-		<h3><span>Adding a Page</span></h3>
+<div class="section" id="adding-a-page">
+	<h3><span>Adding a Page</span></h3>
 
-		<p>To create a new page in the site, use the <kbd>create_page</kbd> command. Let's create an "about" page like this:</p>
+	<p>To create a new page in the site, use the <kbd>create_page</kbd> command. Let's create an "about" page like this:</p>
 
-		<pre><kbd><span class="prompt">></span> nanoc create_page about</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc create_page about</kbd></pre>
 
-		<p>You should see this:</p>
+	<p>You should see this:</p>
 
-		<pre><samp>      <span class="log-create">create</span>  content/about
-      <span class="log-create">create</span>  content/about/about.yaml
-      <span class="log-create">create</span>  content/about/about.txt</samp></pre>
+	<pre><samp>      <span class="log-create">create</span>  content/about
+     <span class="log-create">create</span>  content/about/about.yaml
+     <span class="log-create">create</span>  content/about/about.txt</samp></pre>
 
-		<p>There is now a <span class="path">content/about</span> directory, with two files in it: the content file and the meta file. Open the content file (<span class="path">content/about/about.txt</span>) and put some text in it, like this:</p>
+	<p>There is now a <span class="path">content/about</span> directory, with two files in it: the content file and the meta file. Open the content file (<span class="path">content/about/about.txt</span>) and put some text in it, like this:</p>
 
-		<pre><samp>&lt;<span class="element">p</span>&gt;This is the about page for my new nanoc site.&lt;/<span class="element">p</span>&gt;</samp></pre>
+	<pre><samp>&lt;<span class="element">p</span>&gt;This is the about page for my new nanoc site.&lt;/<span class="element">p</span>&gt;</samp></pre>
 
-		<p>Edit the meta file (the YAML one) so it looks like this:</p>
+	<p>Edit the meta file (the YAML one) so it looks like this:</p>
 
-		<pre><samp><span class="comment"># Built-in</span>
+	<pre><samp><span class="comment"># Built-in</span>
 
 <span class="comment"># Custom</span>
 <span class="attribute">title</span>: <span class="string">"The Guild of nanoc -- About the Guild"</span></samp></pre>
 
-		<p>Recompile the site, and notice that a file <span class="path">output/about/index.html</span> has been created. Open that file in your web browser, and admire your brand new about page.</p>
-	</div>
+	<p>Recompile the site, and notice that a file <span class="path">output/about/index.html</span> has been created. Open that file in your web browser, and admire your brand new about page.</p>
+</div>
 
-	<div class="section" id="customizing-the-layout">
-		<h3><span>Customizing the Layout</span></h3>
+<div class="section" id="customizing-the-layout">
+	<h3><span>Customizing the Layout</span></h3>
 
-		<p>As you probably have noticed already, the page's content files are not really HTML files&mdash;they are <em>partial</em> HTML files. A page needs <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, &hellip; elements before it's valid HTML. This doesn't mean you've been writing invalid HTML all along, though, because nanoc <em>layouts</em> each page as a part of the compilation process.</p>
+	<p>As you probably have noticed already, the page's content files are not really HTML files&mdash;they are <em>partial</em> HTML files. A page needs <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, &hellip; elements before it's valid HTML. This doesn't mean you've been writing invalid HTML all along, though, because nanoc <em>layouts</em> each page as a part of the compilation process.</p>
 
-		<p>Take a look in the <span class="path">layouts</span> directory. It contains one file, <span class="path">default.erb</span>. This is the layout used by the home page and the about page. Open <span class="path">default.erb</span> in your favourite text editor. This is what it looks like:</p>
+	<p>Take a look in the <span class="path">layouts</span> directory. It contains one file, <span class="path">default.erb</span>. This is the layout used by the home page and the about page. Open <span class="path">default.erb</span> in your favourite text editor. This is what it looks like:</p>
 
-		<pre><code>&lt;<span class="element">html</span>&gt;
-  &lt;<span class="element">head</span>&gt;
-    &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
-  &lt;/<span class="element">head</span>&gt;
-  &lt;<span class="element">body</span>&gt;
+	<pre><code>&lt;<span class="element">html</span>&gt;
+ &lt;<span class="element">head</span>&gt;
+   &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
+ &lt;/<span class="element">head</span>&gt;
+ &lt;<span class="element">body</span>&gt;
 &lt;%= <span class="variable">@page</span>.<span class="function">content</span> %&gt;
-  &lt;/<span class="element">body</span>&gt;
+ &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
 
-		<p>This file isn't really HTML; it's HTML with embedded Ruby source in it. When compiling a site, nanoc will take a page that needs to be compiled and put it in the <code>@page</code> variable. Then, it'll evaluate the layout: <code>&lt;%= @page.title %&gt;</code> will be replaced by the page title, and <code>&lt;%= @page.content %&gt;</code> will be replaced by the page content. The compiled homepage will therefore look like this:</p>
+	<p>This file isn't really HTML; it's HTML with embedded Ruby source in it. When compiling a site, nanoc will take a page that needs to be compiled and put it in the <code>@page</code> variable. Then, it'll evaluate the layout: <code>&lt;%= @page.title %&gt;</code> will be replaced by the page title, and <code>&lt;%= @page.content %&gt;</code> will be replaced by the page content. The compiled homepage will therefore look like this:</p>
 
-		<pre><code>&lt;<span class="element">html</span>&gt;
-  &lt;<span class="element">head</span>&gt;
-    &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
-  &lt;/<span class="element">head</span>&gt;
-  &lt;<span class="element">body</span>&gt;
+	<pre><code>&lt;<span class="element">html</span>&gt;
+ &lt;<span class="element">head</span>&gt;
+   &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
+ &lt;/<span class="element">head</span>&gt;
+ &lt;<span class="element">body</span>&gt;
 &lt;<span class="element">p</span>&gt;Welcome to my new nanoc site! Denis is my hero!&lt;/<span class="element">p</span>&gt;
-  &lt;/<span class="element">body</span>&gt;
+ &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
 
-		<p>If you are not familiar with embedded Ruby (also known as eRuby), take a look at the <a href="http://www.eruby.info/">eRuby info site</a>, the <a href="http://en.wikipedia.org/wiki/ERuby">eRuby article on Wikipedia</a>, or the <a href="http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2">"Embedding Ruby in HTML" section</a> of the "Ruby and the Web" chapter of Programming Ruby.</p>
+	<p>If you are not familiar with embedded Ruby (also known as eRuby), take a look at the <a href="http://www.eruby.info/">eRuby info site</a>, the <a href="http://en.wikipedia.org/wiki/ERuby">eRuby article on Wikipedia</a>, or the <a href="http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2">"Embedding Ruby in HTML" section</a> of the "Ruby and the Web" chapter of Programming Ruby.</p>
 
-		<p>Let's take this layout to a higher level. Remember being able to add custom metadata to any document? Let's let the default layout display the value of the <samp>author</samp> metadata attribute. Currently, no document has <samp>author</samp> set, so we'll take care of that in the layout. Here's what the updated layout could look like:</p>
+	<p>Let's take this layout to a higher level. Remember being able to add custom metadata to any document? Let's let the default layout display the value of the <samp>author</samp> metadata attribute. Currently, no document has <samp>author</samp> set, so we'll take care of that in the layout. Here's what the updated layout could look like:</p>
 
-		<pre><code>&lt;<span class="element">html</span>&gt;
-  &lt;<span class="element">head</span>&gt;
-    &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
-  &lt;/<span class="element">head</span>&gt;
-  &lt;<span class="element">body</span>&gt;
+	<pre><code>&lt;<span class="element">html</span>&gt;
+ &lt;<span class="element">head</span>&gt;
+   &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
+ &lt;/<span class="element">head</span>&gt;
+ &lt;<span class="element">body</span>&gt;
 &lt;% <span class="keyword">unless</span> <span class="variable">@page</span>.<span class="function">author</span>.<span class="function">nil?</span> %&gt;
-  &lt;<span class="element">p</span>&gt;This page was written by &lt;%= <span class="variable">@page</span>.<span class="function">author</span> %&gt;.&lt;/<span class="element">p</span>&gt;
+ &lt;<span class="element">p</span>&gt;This page was written by &lt;%= <span class="variable">@page</span>.<span class="function">author</span> %&gt;.&lt;/<span class="element">p</span>&gt;
 &lt;% <span class="keyword">end</span> %&gt;
 &lt;%= <span class="variable">@page</span>.<span class="function">content</span> %&gt;
-  &lt;/<span class="element">body</span>&gt;
+ &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
 
-		<p>Let's set the page author for the "about" page. Open <span class="path">content/about/about.yaml</span> and add the following line to the "custom" section:</p>
+	<p>Let's set the page author for the "about" page. Open <span class="path">content/about/about.yaml</span> and add the following line to the "custom" section:</p>
 
-		<pre><samp><span class="attribute">author</span>: <span class="string">"John Doe"</span></samp></pre>
+	<pre><samp><span class="attribute">author</span>: <span class="string">"John Doe"</span></samp></pre>
 
-		<p>Recompile the site, and open the <span class="path">output/index.html</span> and <span class="path">output/about/index.html</span> pages in your browser. You'll see that the about page has a line saying <q>This page was written by John Doe.</q>&mdash;as expected!</p>
-	</div>
+	<p>Recompile the site, and open the <span class="path">output/index.html</span> and <span class="path">output/about/index.html</span> pages in your browser. You'll see that the about page has a line saying <q>This page was written by John Doe.</q>&mdash;as expected!</p>
+</div>
 
-	<div class="section" id="writing-pages-in-markdown">
-		<h3><span>Writing Pages in Markdown</span></h3>
+<div class="section" id="writing-pages-in-markdown">
+	<h3><span>Writing Pages in Markdown</span></h3>
 
-		<p>You don't have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we'll use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to avoid having to write HTML. nanoc calls these text transformations <em>filters</em>.</p>
+	<p>You don't have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we'll use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to avoid having to write HTML. nanoc calls these text transformations <em>filters</em>.</p>
 
-		<p>Let's get rid of the contents of the home page and replace it with some Markdown-formatted text. Open <span class="path">content/content.txt</span> and put this in instead:</p>
+	<p>Let's get rid of the contents of the home page and replace it with some Markdown-formatted text. Open <span class="path">content/content.txt</span> and put this in instead:</p>
 
-		<pre><code>A First Level Header
+	<pre><code>A First Level Header
 ====================
 
 A Second Level Header
@@ -232,20 +231,20 @@ dog's back.
 >
 > ## This is an H2 in a blockquote</code></pre>
 
-		<p>If you would compile the site now, the compiled HTML page won't display the converted HTML just yet, because we haven't told nanoc to filter this page as Markdown yet. Open the homepage's meta file and add this line to the "built-in" section:</p>
+	<p>If you would compile the site now, the compiled HTML page won't display the converted HTML just yet, because we haven't told nanoc to filter this page as Markdown yet. Open the homepage's meta file and add this line to the "built-in" section:</p>
 
-		<pre><samp><span class="attribute">filters_pre</span>:
-  - <span class="string">"redcloth"</span></samp></pre>
+	<pre><samp><span class="attribute">filters_pre</span>:
+ - <span class="string">"redcloth"</span></samp></pre>
 
-		<p><code>filters_pre</code> is an attribute with a list of filters to run before laying out the page. You can also run filters <em>after</em> laying out the page, in which case you'd use <code>filters_post</code>. <a href="/help/manual/chapter-2/">Chapter 2 of the manual</a> has a list of built-in filters you can use.</p>
+	<p><code>filters_pre</code> is an attribute with a list of filters to run before laying out the page. You can also run filters <em>after</em> laying out the page, in which case you'd use <code>filters_post</code>. <a href="/help/manual/chapter-2/">Chapter 2 of the manual</a> has a list of built-in filters you can use.</p>
 
-		<p>Now that we've told nanoc to filters this page using RedCloth, let's recompile the site. (If you are getting errors at this point, make sure you have RedCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now look like this:</p>
+	<p>Now that we've told nanoc to filters this page using RedCloth, let's recompile the site. (If you are getting errors at this point, make sure you have RedCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now look like this:</p>
 
-		<pre><code>&lt;<span class="element">html</span>&gt;
-  &lt;<span class="element">head</span>&gt;
-    &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
-  &lt;/<span class="element">head</span>&gt;
-  &lt;<span class="element">body</span>&gt;
+	<pre><code>&lt;<span class="element">html</span>&gt;
+ &lt;<span class="element">head</span>&gt;
+   &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
+ &lt;/<span class="element">head</span>&gt;
+ &lt;<span class="element">body</span>&gt;
 &lt;<span class="element">h1</span>&gt;A First Level Header&lt;/<span class="element">h1</span>&gt;
 
 &lt;<span class="element">h2</span>&gt;A Second Level Header&lt;/<span class="element">h2</span>&gt;
@@ -260,82 +259,81 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 &lt;<span class="element">h3</span>&gt;Header 3&lt;/<span class="element">h3</span>&gt;
 
 &lt;<span class="element">blockquote</span>&gt;
-    &lt;<span class="element">p</span>&gt;This is a blockquote.&lt;/<span class="element">p</span>&gt;
+   &lt;<span class="element">p</span>&gt;This is a blockquote.&lt;/<span class="element">p</span>&gt;
 
-    &lt;<span class="element">p</span>&gt;This is the second paragraph in the blockquote.&lt;/<span class="element">p</span>&gt;
+   &lt;<span class="element">p</span>&gt;This is the second paragraph in the blockquote.&lt;/<span class="element">p</span>&gt;
 
-    &lt;<span class="element">h2</span>&gt;This is an H2 in a blockquote&lt;/<span class="element">h2</span>&gt;
+   &lt;<span class="element">h2</span>&gt;This is an H2 in a blockquote&lt;/<span class="element">h2</span>&gt;
 &lt;/<span class="element">blockquote</span>&gt;
-  &lt;/<span class="element">body</span>&gt;
+ &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
-	</div>
+</div>
 
-	<div class="section" id="writing-some-custom-code">
-		<h3><span>Writing some Custom Code</span></h3>
+<div class="section" id="writing-some-custom-code">
+	<h3><span>Writing some Custom Code</span></h3>
 
-		<p>There is a directory named <span class="path">lib</span> in your nanoc site. In there, you can throw Ruby source files, and they'll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods. </p>
+	<p>There is a directory named <span class="path">lib</span> in your nanoc site. In there, you can throw Ruby source files, and they'll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods. </p>
 
-		<p>As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open <span class="path">about.yaml</span> and add this to the end of the "custom" section:</p>
+	<p>As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open <span class="path">about.yaml</span> and add this to the end of the "custom" section:</p>
 
-	<pre><samp><span class="element">tags</span>:
-  - <span class="string">"foo"</span>
-  - <span class="string">"bar"</span>
-  - <span class="string">"baz"</span></samp></pre>
+<pre><samp><span class="element">tags</span>:
+ - <span class="string">"foo"</span>
+ - <span class="string">"bar"</span>
+ - <span class="string">"baz"</span></samp></pre>
 
-		<p>Next, create a file named <span class="path">tags.rb</span> in the <span class="path">lib</span> directory. In there, put the following function:</p>
+	<p>Next, create a file named <span class="path">tags.rb</span> in the <span class="path">lib</span> directory. In there, put the following function:</p>
 
-		<pre><code><span class="keyword">def</span> <span class="function">tags</span>
-  <span class="keyword">if</span> <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span>
-    <span class="string">'(none)'</span>
-  <span class="keyword">else</span>
-    <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
-  <span class="keyword">end</span>
+	<pre><code><span class="keyword">def</span> <span class="function">tags</span>
+ <span class="keyword">if</span> <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span>
+   <span class="string">'(none)'</span>
+ <span class="keyword">else</span>
+   <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
+ <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre>
 
-		<p>This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= @page.content %&gt;</code> line:</p>
+	<p>This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= @page.content %&gt;</code> line:</p>
 
-		<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="function">tags</span> %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
+	<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="function">tags</span> %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
 
-		<p>Recompile the site, and take a look at both HTML files in the <span class="path">output</span> directory. If all went well, you should see a list of tags right above the page content.</p>
+	<p>Recompile the site, and take a look at both HTML files in the <span class="path">output</span> directory. If all went well, you should see a list of tags right above the page content.</p>
 
-		<p>This example may be a bit weak&mdash;after all, you could simply embed the tag-generating code into the layout directly, like this:</p>
+	<p>This example may be a bit weak&mdash;after all, you could simply embed the tag-generating code into the layout directly, like this:</p>
 
-		<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span> ? <span class="string">'(none)'</span> : <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>) %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
+	<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span> ? <span class="string">'(none)'</span> : <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>) %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
 
-		<p>However, putting embedded Ruby code in HTML can get dirty pretty quickly. This example is still acceptable, but in cases where you need much larger amounts of code, it's best to create a separate function and then call this function where necessary.</p>
-	</div>
+	<p>However, putting embedded Ruby code in HTML can get dirty pretty quickly. This example is still acceptable, but in cases where you need much larger amounts of code, it's best to create a separate function and then call this function where necessary.</p>
+</div>
 
-	<div class="section" id="watch-out-for-paths">
-		<h3><span>Watch out for Paths</span></h3>
+<div class="section" id="watch-out-for-paths">
+	<h3><span>Watch out for Paths</span></h3>
 
-		<p>There's one tricky thing involving paths that you need to know. To show you what can go wrong, let's create a stylesheet named <span class="path">style.css</span> in the output directory. Here's what I put in there:</p>
+	<p>There's one tricky thing involving paths that you need to know. To show you what can go wrong, let's create a stylesheet named <span class="path">style.css</span> in the output directory. Here's what I put in there:</p>
 
-		<pre><code><span class="element">h1</span>, <span class="element">h2</span>, <span class="element">h3</span> { <span class="attribute">color</span>: <span class="value">red</span>; }</code></pre>
+	<pre><code><span class="element">h1</span>, <span class="element">h2</span>, <span class="element">h3</span> { <span class="attribute">color</span>: <span class="value">red</span>; }</code></pre>
 
-		<p>To link the stylesheet to the web site, open the layout (<span class="path">default.erb</span>) and put this in:</p>
+	<p>To link the stylesheet to the web site, open the layout (<span class="path">default.erb</span>) and put this in:</p>
 
-		<pre><code>&lt;<span class="element">link <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
+	<pre><code>&lt;<span class="element">link <span class="attribute">href</span>=<span class="value">"style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
 
-		<p>When you compile the site now and open <span class="path">index.html</span>, you'll see that all headers are red. <span class="path">about/index.html</span>'s headers, however, are not styled—the web browser looks for a <span class="path">about/style.css</span> which doesn't exist.</p>
+	<p>When you compile the site now and open <span class="path">index.html</span>, you'll see that all headers are red. <span class="path">about/index.html</span>'s headers, however, are not styled—the web browser looks for a <span class="path">about/style.css</span> which doesn't exist.</p>
 
-		<p>The most elegant solution is to use an absolute path, like this (note the new slash):</p>
+	<p>The most elegant solution is to use an absolute path, like this (note the new slash):</p>
 
-		<pre><code>&lt;<span class="element">link</span> <span class="attribute">href</span>=<span class="value">"/style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
+	<pre><code>&lt;<span class="element">link</span> <span class="attribute">href</span>=<span class="value">"/style.css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>></code></pre>
 
-		<p>The compiled files in the output directory will <em>definitely</em> not be styled now if you open them by double-clicking, but that's okay—when the site is put on your web server, web browsers <em>will</em> find the stylesheet.</p>
+	<p>The compiled files in the output directory will <em>definitely</em> not be styled now if you open them by double-clicking, but that's okay—when the site is put on your web server, web browsers <em>will</em> find the stylesheet.</p>
 
-		<p>This would mean that you can't preview your site locally anymore, but there's a neat solution for that too. nanoc comes with an auto-compiler, which is a web server that compiles pages on-the-fly. More importantly, the output directory is its web root, so absolute paths are no issue anymore. To start it:</p>
+	<p>This would mean that you can't preview your site locally anymore, but there's a neat solution for that too. nanoc comes with an auto-compiler, which is a web server that compiles pages on-the-fly. More importantly, the output directory is its web root, so absolute paths are no issue anymore. To start it:</p>
 
-		<pre><kbd><span class="prompt">></span> nanoc aco</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc aco</kbd></pre>
 
-		<p>This starts a server on localhost, port 3000 (you can customize the port with <kbd>-p</kbd> if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.</p>
-	</div>
+	<p>This starts a server on localhost, port 3000 (you can customize the port with <kbd>-p</kbd> if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.</p>
+</div>
 
-	<div class="section" id="thats-it">
-		<h3><span>That's it!</span></h3>
+<div class="section" id="thats-it">
+	<h3><span>That's it!</span></h3>
 
-		<p>This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.</p>
+	<p>This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.</p>
 
-		<p>There's more reading material. It's definitely worth checking out the <a href="/help/manual/">Manual</a>&mdash;it's rather big, but it contains everything you need to know about nanoc.</p>
-	</div>
+	<p>There's more reading material. It's definitely worth checking out the <a href="/help/manual/">Manual</a>&mdash;it's rather big, but it contains everything you need to know about nanoc.</p>
 </div>
