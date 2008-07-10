@@ -2,7 +2,7 @@
 
 <p>Find out older articles on the <a href="/blog/archive/">blog archive</a>. Subscribe to the <a href="http://feeds.feedburner.com/nanoc">nanoc news feed</a> and don't miss a thing.</p>
 
-<% articles.first(1).each do |article| %>
+<% sorted_articles.first(1).each do |article| %>
 <div class="section" id="blog-<%= article.created_at.localtime.format_as_date_id %>">
 <% if article.title? %>
 	<h3><span><%=h article.title %></span></h3>

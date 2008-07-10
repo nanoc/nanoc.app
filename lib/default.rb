@@ -3,6 +3,7 @@
 
 include Nanoc::Extensions::HTMLEscape
 include Nanoc::Extensions::LinkTo
+include Nanoc::Extensions::Blogging
 
 def nav_link_to_unless_current(text, path)
   if @page_rep and @page_rep.path == path
@@ -45,14 +46,4 @@ module Enumerable
       groups
     end
   end
-end
-
-# Convenience methods
-
-def articles
-  @pages.select { |page| page.kind == 'article' }.sort { |x,y| y.created_at <=> x.created_at }
-end
-
-def articles_by_month
-  articles.group_by { |article| article.created_at.localtime.month }
 end
