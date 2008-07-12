@@ -2,12 +2,10 @@
 
 <p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
 
-<p>nanoc is quite customizable. Apart from being able to write arbitrary code that is executed before a site is compiled, it is also possible to write custom (binary) filters, data sources and routers.</p>
+<p>nanoc 2.0 is quite customizable. Apart from being able to write arbitrary code that is executed before a site is compiled, it is also possible to write custom filters, data sources and layout processors.</p>
 
 <div class="section" id="writing-data-sources">
 	<h3><span>Writing Data Sources</span></h3>
-
-	<p><strong>FIXME way outdated, update!</strong></p>
 
 	<p>A data source is responsible for loading a site's data: pages, page defaults, templates, layouts and code. Perhaps surprisingly, it is also responsible for creating pages, layouts and templates.</p>
 
@@ -105,7 +103,7 @@
 <div class="section" id="writing-filters">
 	<h3><span>Writing Filters</span></h3>
 
-	<p>Filters are classes that inherit from <code>Nanoc::Filter</code>. They do not need to be explicitly registered; nanoc will find filter classes automatically.</p>
+	<p>Filters are classes that inherit from <code>Nanoc::Filter</code>. Unlike with nanoc 1.x, they do not need to be explicitly registered; nanoc will find filter classes automatically.</p>
 
 	<p>A filter has an identifier, which is an unique name that is used in a page's list of filters. It is set like this:</p>
 
@@ -113,7 +111,7 @@
  <span class="function">identifier</span> <span class="symbol">:censor</span>
 <span class="keyword">end</span></code></pre>
 
-	<p>A filter can have multiple identifiers. Specify multiple identifiers using <code>identifiers</code> instead of <code>identifier</code>, like this:</p>
+	<p>A filter can have multiple identifiers. For example, the Markdown filter is both identified as <code>markdown</code> and <code>bluecloth</code>. Specify multiple identifiers using <code>identifiers</code> instead of <code>identifier</code>, like this:</p>
 
 	<pre><code><span class="keyword">class</span> <span class="storage">CensorFilter</span> &lt; <span class="storage">Nanoc::Filter</span>
  <span class="function">identifiers</span> <span class="symbol">:censor</span>, <span class="symbol">:stop_the_hate</span>
@@ -125,34 +123,31 @@
  <span class="variable">content</span>.<span class="function">gsub</span>(<span class="string">'nanoc sucks'</span>, <span class="string">'nanoc rocks'</span>)
 <span class="keyword">end</span></code></pre>
 
-	<p>The filter has access to several useful instance variables:</p>
-	
-	<dl>
-		<dt><code>@page_rep</code></dt>
-		<dd>Contains the page representation that is being filtered.</dd>
-
-		<dt><code>@page</code></dt>
-		<dd>Contains the current page.</dd>
-
-		<dt><code>@asset_rep</code></dt>
-		<dd>Contains the asset representation that is being filtered.</dd>
-
-		<dt><code>@asset</code></dt>
-		<dd>Contains the current asset.</dd>
-
-		<dt><code>@site</code></dt>
-		<dd>Contains the site.</dd>
-	</dl>
-</div>
-
-<div class="section" id="writing-binary-filters">
-	<h3><span>Writing Binary Filters</span></h3>
-
-	<p><strong>TODO write me</strong></p>
+	<p>The filter has access to several useful instance variables: <code>@page</code>, <code>@pages</code> and <code>@config</code>.</p>
 </div>
 
 <div class="section" id="writing-layout-processors">
 	<h3><span>Writing Layout Processors</span></h3>
 
-	<p>As of nanoc 2.1, layout processors are filters, so there is no need to write separate layout processors—simply write a filter and use that one.</p>
+	<p>Layout processors are classes that inherit from <code>Nanoc::LayoutProcessor</code>. These classes do not need to be explicitly registered, as nanoc will find all layout processors automatically.</p>
+
+	<p>A layout processor has an identifier and an extension. The identifier is currently not used; the extension determines what kind of files this layout processor applies to. They are specified like this:</p>
+
+	<pre><code><span class="keyword">class</span> <span class="storage">SampleLayoutProcessor</span> &lt; <span class="storage">Nanoc::LayoutProcessor</span>
+ <span class="function">identifier</span> <span class="symbol">:sample</span>
+ <span class="function">extension</span>  <span class="string">'.sample'</span>
+<span class="keyword">end</span></code></pre>
+
+	<p>It is also possible to use <code>identifiers</code> and <code>extensions</code> (with an extra s) instead.</p>
+
+	<p>Layout processors only need to have the <code>run</code> method implemented, which takes the layout as its only argument, and returns the laid out page content. When laying out the page, the <code>@page</code>, <code>@pages</code> and <code>@config</code> objects should be made public. As an example, here's Markaby's <code>run</code> method:</p>
+
+	<pre><code><span class="keyword">def</span> <span class="function">run</span>(<span class="symbol">layout</span>)
+ <span class="function">nanoc_require</span> <span class="symbol">'markaby'</span>
+
+ <span class="variable">assigns</span> = { <span class="symbol">:page</span> => <span class="variable">@page</span>, <span class="symbol">:pages</span> => <span class="variable">@pages</span>, <span class="symbol">:config</span> => <span class="variable">@config</span> }
+ <span class="storage">Markaby</span>::<span class="storage">Builder</span>.<span class="function">new</span>(<span class="variable">assigns</span>).<span class="function">instance_eval</span>(<span class="variable">layout</span>).<span class="function">to_s</span>
+<span class="keyword">end</span></code></pre>
+
+	<p>In order for the <code>render</code> method (which is used to render sub-layouts) to work, it is also recommended to make the <code>@site</code> variable available in the layout.</p>
 </div>
