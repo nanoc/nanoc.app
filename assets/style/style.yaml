@@ -1,0 +1,7 @@
+# Built-in
+binary:       false
+filters:      []
+
+# Custom
+version:      "4"
+asset_id:     "style"
