@@ -1,0 +1,125 @@
+<div style="margin: 1.8em 0; text-align: center;">
+	<img src="http://nanoc.stoneship.org/assets/images/whats-new-in-nanoc-21-small.png" alt="What's New in nanoc 2.1">
+</div>
+
+<p>Welcome to the first installment of <i>What's New in nanoc 2.1</i>! This installment introduces the first new important feature of nanoc 2.1: the <strong>improved commandline interface</strong>, which is not only a lot prettier but offers a few new features as well.</p>
+
+<p>The first of these new features includes <strong>built-in commandline help</strong> for every command. For example, the <kbd>compile</kbd> command has a help page that looks like this:</p>
+
+<pre><samp>nanoc compile [options] [path]
+
+compile pages and assets of this site
+
+    Compile all pages and all assets of the current site. If a path is given,
+    only the page or asset with the given path will be compiled. Additionally,
+    only pages and assets that are outdated will be compiled, unless specified
+    otherwise with the -a option.
+
+options:
+
+    -a --all        compile all pages and assets, even those that aren't
+                    outdated</samp></pre>
+
+<p>As you can see, the <kbd>compile</kbd> command has grown up a bit and it's now possible to tell nanoc only to compile a single page instead of the entire site. Note that nanoc also no longer compiles pages unless they're considered "outdated"—a real time saver.</p>
+
+<p>Also neat is that <strong>command abbreviations are detected automatically</strong>. The <kbd>co</kbd> command, for example, will be expanded to <kbd>compile</kbd> because there's no other command starting with <kbd>co</kbd>. Additionally, if you type something ambiguous, you'll be notified:</p>
+
+<pre><kbd><span class="prompt">></span> nanoc c</kbd>
+<samp>nanoc: 'c' is ambiguous:
+  create_template create_site create_page create_layout compile</samp></pre>
+
+<p><strong>Error reporting has also been improved.</strong> If a compilation error occurs at some point, the stack of what was being compiled will be printed. The following example shows that something went wrong when compiling the "meta" layout, which was rendered from inside the "journal_archive" layout, which in turn was rendered from inside the "journal/2008" page:</p>
+
+<pre><samp>Compilation stack:
+  - [layout] /meta/
+  - [layout] /journal_archive/
+  - [page]   /journal/2008/ (rep default)</samp></pre>
+
+<p>Of course, the actual error message and the Ruby stack trace will be printed as well, which should make debugging any accidental errors on your site quite a bit easier. (Ignore the "rep" thing for now. We'll talk about that later.)</p>
+
+<p>When passing the <kbd>--verbose</kbd> switch to the <kbd>compile</kbd> command, a pretty table containing some <strong>profiling information</strong> will be printed. Very useful if you want to optimize some of your custom filters. For example, this is the output for my personal web site:</p>
+
+<pre><samp>                        | count    min    avg    max     tot
+------------------------+-----------------------------------
+                    erb |    95  0.00s  0.01s  0.23s   0.74s
+image_science_thumbnail |    69  0.22s  0.27s  0.35s  18.51s
+              bluecloth |     2  0.06s  0.10s  0.15s   0.21s
+      website_thumbnail |    12  0.25s  0.48s  0.97s   5.80s
+            compile_css |     2  0.00s  0.00s  0.00s   0.00s
+              rubypants |    53  0.01s  0.03s  0.09s   1.39s
+               discount |    11  0.00s  0.00s  0.01s   0.02s</samp></pre>
+
+<p>This shows that the "compile_css" as well as "discount" filters are extremely fast, while the "image_science_thumbnail" and especially the "website_thumbnail" filters are really slow. (Those thumbnail filters are filters that apply to image assets, not to pages—asset compilation is something that'll be discussed later).</p>
+
+<p>Last but not least: it's not possible to <strong>write your own commands</strong>. Even though <a href="http://rake.rubyforge.org/">rake</a> is sufficient for performing simple tasks, sometimes you need a more advanced tool that allows passing commandline arguments. Now you can write custom commands. Here's a "Hello World" example:</p>
+
+<pre><code><span class="keyword">class</span> <span class="storage">HelloWorldCommand</span> &lt; <span class="storage">Nanoc::CLI::Command</span>
+
+  <span class="keyword">def</span> <span class="function">name</span>
+    <span class="string">'hello_world'</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">aliases</span>
+    <span class="string">%w( hw )</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">short_desc</span>
+    <span class="string">'print a simple greeting'</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">long_desc</span>
+    <span class="string">'Print the "hello world" greeting on the screen, in either '</span> +
+    <span class="string">'lowercase or uppercase. Can also print a custom text.'</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">usage</span>
+    <span class="string">"nanoc hello_world [options] [custom_text]"</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">option_definitions</span>
+    [
+      <span class="comment"># --uppercase</span>
+      {
+        <span class="symbol">:long</span> => <span class="string">'uppercase'</span>, <span class="symbol">:short</span> => <span class="string">'u'</span>, <span class="symbol">:argument</span> => <span class="symbol">:forbidden</span>,
+        <span class="symbol">:desc</span> => <span class="string">'print the text in uppercase instead of lowercase'</span>
+      }
+    ]
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">options</span>, <span class="variable">arguments</span>)
+    <span class="comment"># Get text</span>
+    <span class="variable">text</span> = (<span class="variable">arguments</span>[<span class="number">0</span>] || <span class="string">'hello world'</span>)
+
+    <span class="comment"># Print it</span>
+    <span class="function">puts</span> (<span class="variable">options</span>.<span class="function">has_key?</span>(<span class="symbol">:uppercase</span>) ? <span class="variable">text</span>.<span class="function">upcase</span> : <span class="variable">text</span>.<span class="function">downcase</span>)
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span></code></pre>
+
+<p>Some example output:</p>
+
+<pre><kbd><span class="prompt">></span> nanoc hello_world blah</kbd>
+<samp>blah</samp>
+<kbd><span class="prompt">></span> nanoc hw -u blah</kbd>
+<samp>BLAH</samp>
+<kbd><span class="prompt">></span> nanoc hello -u</kbd>
+<samp>HELLO WORLD</samp>
+<kbd><span class="prompt">></span> nanoc hw</kbd>
+<samp>hello world</samp></pre>
+
+<p>The auto-generated help page:</p>
+
+<pre><samp>nanoc hello_world [options] [custom_text]
+
+aliases: hw
+
+print a simple greeting
+
+    Print the "hello world" greeting on the screen, in either lowercase or
+    uppercase. Can also print a custom text.
+
+options:
+
+    -u --uppercase  print the text in uppercase instead of lowercase</samp></pre>
+
+<p>That's it for now. Stay tuned for the second installment of <i>What's New in nanoc 2.1</i>, which will discuss changes to the internals of nanoc and their implications.</p>
