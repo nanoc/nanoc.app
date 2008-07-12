@@ -51,7 +51,7 @@ image_science_thumbnail |    69  0.22s  0.27s  0.35s  18.51s
 
 <p>This shows that the "compile_css" as well as "discount" filters are extremely fast, while the "image_science_thumbnail" and especially the "website_thumbnail" filters are really slow. (Those thumbnail filters are filters that apply to image assets, not to pages—asset compilation is something that'll be discussed later).</p>
 
-<p>Last but not least: it's not possible to <strong>write your own commands</strong>. Even though <a href="http://rake.rubyforge.org/">rake</a> is sufficient for performing simple tasks, sometimes you need a more advanced tool that allows passing commandline arguments. Now you can write custom commands. Here's a "Hello World" example:</p>
+<p>Last but not least: it's now possible to <strong>write your own commands</strong>. Even though <a href="http://rake.rubyforge.org/">rake</a> is sufficient for performing simple tasks, sometimes you need a more advanced tool that allows passing commandline arguments. Now you can write custom commands. Here's a "Hello World" example:</p>
 
 <pre><code><span class="keyword">class</span> <span class="storage">HelloWorldCommand</span> &lt; <span class="storage">Nanoc::CLI::Command</span>
 
