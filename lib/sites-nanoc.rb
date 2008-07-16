@@ -18,6 +18,11 @@ def nav_link_to_unless_current(text, path)
   end
 end
 
+# Returns the asset with the given asset ID.
+def asset(asset_id)
+  @assets.find { |asset| asset.asset_id == asset_id }
+end
+
 # Extensions
 
 class Time

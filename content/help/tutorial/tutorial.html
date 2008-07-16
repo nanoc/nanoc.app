@@ -77,13 +77,13 @@ drwxr-xr-x  3 ddfreyne  ddfreyne  102 16 Jul 19:13 templates</samp></pre>
 	<p>This is what'll appear in the terminal when nanoc is done compiling:</p>
 
 	<pre><samp>Compiling site...
-  <span class="log-create">create</span>  [0.00s] output/index.html
+    <span class="log-create">create</span>  [0.00s] output/index.html
 
 Site compiled in 0.00s.</samp></pre>
 
 	<p>A file named <span class="path">index.html</span> has been created in the <span class="path">output</span> directory. Open it in your favourite web browser (mine is Safari); what you'll see is something like this:</p>
 
-	<div class="figure" style="margin: 20px 0; text-align: center">
+	<div class="figure">
 		<img style="border: 6px solid #ccc" src="/assets/images/help/tutorial/default-site.png" alt="Screenshot of what a brand new nanoc site looks like">
 	</div>
 
@@ -246,7 +246,7 @@ dog's back.
 
 	<pre><code>&lt;<span class="element">html</span>&gt;
 &lt;<span class="element">head</span>&gt;
-&lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
+  &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
 &lt;/<span class="element">head</span>&gt;
 &lt;<span class="element">body</span>&gt;
 &lt;<span class="element">h1</span>&gt;A First Level Header&lt;/<span class="element">h1</span>&gt;
@@ -263,13 +263,13 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 &lt;<span class="element">h3</span>&gt;Header 3&lt;/<span class="element">h3</span>&gt;
 
 &lt;<span class="element">blockquote</span>&gt;
-&lt;<span class="element">p</span>&gt;This is a blockquote.&lt;/<span class="element">p</span>&gt;
+    &lt;<span class="element">p</span>&gt;This is a blockquote.&lt;/<span class="element">p</span>&gt;
 
-&lt;<span class="element">p</span>&gt;This is the second paragraph in the blockquote.&lt;/<span class="element">p</span>&gt;
+    &lt;<span class="element">p</span>&gt;This is the second paragraph in the blockquote.&lt;/<span class="element">p</span>&gt;
 
-&lt;<span class="element">h2</span>&gt;This is an H2 in a blockquote&lt;/<span class="element">h2</span>&gt;
+    &lt;<span class="element">h2</span>&gt;This is an H2 in a blockquote&lt;/<span class="element">h2</span>&gt;
 &lt;/<span class="element">blockquote</span>&gt;
-&lt;/<span class="element">body</span>&gt;
+  &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
 </div>
 
@@ -289,9 +289,9 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 
 	<pre><code><span class="keyword">def</span> <span class="function">tags</span>
 <span class="keyword">if</span> <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span>
-<span class="string">'(none)'</span>
+  <span class="string">'(none)'</span>
 <span class="keyword">else</span>
-<span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
+  <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
 <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre>
 
