@@ -2,11 +2,11 @@
 	<img src="http://nanoc.stoneship.org/assets/images/whats-new-in-nanoc-21-small.png" alt="What's New in nanoc 2.1">
 </div>
 
-<p>This is the third installment of <i>What's New in nanoc 2.1</i>. This article discusses the new data sources, which have been improved a lot compared to 2.0 and have become a lot more useful.</p>
+<p>This is the third installment of <i>What's New in nanoc 2.1</i>. This article discusses the new data sources, which have been improved a lot in nanoc 2.1.</p>
 
 <p>To recap: data sources are classes that tell nanoc where to find site content. Even though you'll usually stick to storing your pages as files on the filesystem, you may want to store the in a database instead, or maybe simply store them in a different way on the filesystem.</p>
 
-<p>One big difference between nanoc and one of its competitors, webby, is that the latter stores its pages as single files, and not directories. Webby stores its metadata embedded inside pages, and not as separate files. nanoc 2.1 comes with a data source named <i>filesystem_combined</i> which, similar to webby, <strong>stores content and attributes in a single file</strong>. This can clean up the <span class="path">content</span> directory quite a bit.</p>
+<p>For example, one big difference between nanoc and one of its competitors, webby, is that the latter stores its pages as single files, and not directories. Webby stores its metadata embedded inside pages. nanoc 2.1 comes with a new data source named <i>filesystem_combined</i> which, similar to webby, <strong>stores content and attributes in a single file</strong>. This can clean up the <span class="path">content</span> directory quite a bit.</p>
 
 <p>Here's what the default nanoc site looks like with a filesystem_combined data source:</p>
 
@@ -21,7 +21,7 @@
 
 ... rest of the content goes here ...</samp></pre>
 
-<p>Creating a new site with this new <i>filesystem_combined</i> data source is easy (<kbd>-d</kbd> specifies the data source name):</p>
+<p>Creating a new site with this new <i>filesystem_combined</i> data source is easy. Just do this (the <kbd>-d</kbd> switch specifies the name of the data source):</p>
 
 <pre><kbd><span class="prompt">></span> nanoc create_site -d filesystem_combined my_new_site</kbd></pre>
 
