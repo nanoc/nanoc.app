@@ -337,6 +337,16 @@ html>body {
 	list-style-type: square;
 }
 
+#content ul.large {
+	padding: 0 7.2em 0 10.5em;
+}
+
+#content ul.large li {
+	margin: 1.5em 0;
+
+	list-style-position: outside;
+}
+
 #content li li {
 	font-size: 1em;
 
