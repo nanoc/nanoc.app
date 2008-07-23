@@ -6,7 +6,7 @@
 
 <p>First, a word about <em>paths</em>. Every page has a path starting and ending with a slash. The root and about page's paths could be <span class="path">/</span> and <span class="path">/about/</span>, for example. A page's path depends on the way it is stored; when using the <i>filesystem</i> or <i>filesystem_combined</i> data sources, the path is determined by the directory hierarchy in the <span class="path">content</span> directory.</p>
 
-<p>Then there's a page's <em>output path</em> or <em>disk path</em>, which includes the terminating "index.html". It is the path where the compiled page will be written to. The <em>web path</em> is the disk path without the trailing "index.html", for pretty URLs.</p>
+<p>Then there's a page's <em>output path</em> or <em>disk path</em>, which includes the terminating "index.html". It is the path where the compiled page will be written to. The <em>web path</em> is the disk path without the trailing "index.html", for pretty URLs. Unless you're using <code>custom_path</code> to set a custom output path, the web path is the same as the page's path.</p>
 
 <p>Speaking of pretty URLs: it is now possible to tell nanoc about the <strong>list of index filenames</strong> you want to have stripped of paths. This is quite useful when you want to generate "default.htm" files instead of "index.html" because you're running some weird web server. In the site's configuration file, simply set <code>index_filenames</code> to the list of index filenames to strip. For example:</p>
 
@@ -20,6 +20,7 @@
 <pre><samp><span class="comment"># Built-in</span>
 <span class="attribute">filename</span>:  <span class="string">'default'</span>
 <span class="attribute">extension</span>: <span class="string">'htm'</span>
+...
 
 <span class="comment"># Custom</span>
 ...</samp></pre>
@@ -56,5 +57,7 @@
 	<li>Write a router that changes the paths of journal articles to something like <span class="path">/blog/year/month/day/title</span>, without having to store pages this way (because storing pages hierarchically like this will require a lot of directories, which isn't too pretty). Simply store articles like <span class="path">/blog/year/title</span> and have a router clean up those paths.</li>
 	<li>When building a site in multiple languages, it's best to keep a page's different languages close together, e.g. <span class="path">/foo/bar/en/</span> and <span class="path">/foo/bar/fr/</span>. When changing a page in one language, it's easy to change the page's other languages because they're close. With routers it's easy to rewrite the paths so the language appears at the beginning, e.g. <span class="path">/en/foo/bar/</span> and <span class="path">/fr/foo/bar/</span>, respectively.</li>
 </ul>
+
+<p>Again, I do realise that not being able to show what a router <em>really</em> looks like (with example code) is annoying, but that'll all be fixed once I start talking about multiple representations. Don't worry.</p>
 
 <p>The next installment will discuss perhaps the two biggest new features new in 2.1, <em>asset compilation</em> and <em>multiple representations</em>. Stay tuned!</p>
