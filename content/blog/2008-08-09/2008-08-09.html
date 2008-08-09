@@ -40,7 +40,7 @@
 
 <span class="keyword">end</span></code></pre>
 
-<p>Binary assets are very similar to textual assets. Simply set <code>binary</code> to <code>true</code> and make sure that the list of filters contains only binary filters.</p>
+<p>Binary assets are very similar to textual assets. Simply set <code>binary</code> to <code>true</code> in the meta file and make sure that the list of filters contains only binary filters.</p>
 
 <p>Filters for binary assets are slightly different from textual filters. Firstly, binary filters inherit from <code>Nanoc::BinaryFilter</code> instead of <code>Nanoc::Filter</code>. Secondly, their <code>run</code> method takes a File object and not a string containing the asset content. Additionally, binary filters should return a File object representing the processed file. The original File argument should not be modified (otherwise you'd lose the original asset).</p>
 
@@ -78,11 +78,9 @@
 <pre><code><span class="attribute">reps</span>:
   <span class="attribute">default</span>:
     <span class="attribute">filters</span>:        []
-    <span class="attribute">extension</span>:      <span class="string">'jpg'</span>
   <span class="attribute">thumbnail</span>:
     <span class="attribute">filters</span>:        [ <span class="string">'image_science_thumbnail'</span> ]
-    <span class="attribute">thumbnail_size</span>: <span class="constant">100</span>
-    <span class="attribute">extension</span>:      <span class="string">'jpg'</span></code></pre>
+    <span class="attribute">thumbnail_size</span>: <span class="constant">100</span></code></pre>
 
 <p>The asset in this example has two representations: a default one (which is unprocessed) and a thumbnail one (which is run through the <code>image_science_thumbnail</code> filter).</p>
 
@@ -116,4 +114,4 @@
 
 <p>The code should be fairly self-explanatory (the <code>[0..-2]</code> is used to strip off the trailing slash). The most important point is that routers determine paths of asset/page <em>representations</em> instead of paths of assets/pages.</p>
 
-<p>So, that's what asset compilation and multiple represenations look like. The end of the <i>What's New In nanoc 2.1</i> series is coming closer, but there is still one more installment to go. The last article in the series will discuss several minor new features and changes. Stay tuned!</p>
+<p>So, that's what asset compilation and multiple representations look like. The end of the <i>What's New In nanoc 2.1</i> series is coming closer, but there is still one more installment to go. The last article in the series will discuss several minor new features and changes. Stay tuned!</p>
