@@ -9,7 +9,7 @@
 
 	<p>Once you have RubyGems, installing nanoc is easy. Simply write this in your terminal:</p>
 
-	<pre><kbd>sudo gem install nanoc</kbd></pre>
+	<pre><kbd><span class="prompt">></span> sudo gem install nanoc</kbd></pre>
 </div>
 
 <div class="section" id="requirements-for-this-tutorial">
@@ -17,7 +17,7 @@
 
 	<p>This tutorial requires <a href="http://whytheluckystiff.net/ruby/redcloth">RedCloth</a>. RedCloth is a Ruby implementation of both <a href="http://www.textism.com/tools/textile/">Textile</a> and <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which both allow you to write HTML in a easy-to-use plain text format. In this tutorial, we'll use Markdown. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install RedCloth, jump to your terminal and type:</p>
 
-	<pre><kbd>sudo gem install RedCloth</kbd></pre>
+	<pre><kbd><span class="prompt">></span> sudo gem install RedCloth</kbd></pre>
 
 	<p>You can also use BlueCloth (which only handles Markdown) instead of RedCloth for this tutorial, but there unfortunately seems to be an incompatibility between BlueCloth and Ruby 1.9.</p>
 </div>
@@ -29,7 +29,7 @@
 
 	<p>A nanoc-powered site is a directory with a specific structure. You can create such a directory yourself, but the best way is to let nanoc do it for you. In this tutorial, we'll create a site named <span class="path">nanoc_test</span>. To create this site, type into the terminal:</p>
 
-	<pre><kbd>nanoc create_site nanoc_test</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc create_site nanoc_test</kbd></pre>
 
 	<p>If you did that right, you should have seen this appear on the screen:</p>
 
@@ -68,7 +68,7 @@ drwxr-xr-x  3 ddfreyne  ddfreyne  102 14 Dec 09:19 templates</samp></pre>
 
 	<p>Before you can view the site, it needs to be compiled. All pages are stored in uncompiled source form in the site directory (in <span class="path">content</span>, to be precise, as you will see in a bit). To compile the site, do this:</p>
 
-	<pre><kbd>nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
 	<p>This is what'll appear in the terminal when nanoc is done compiling:</p>
 
@@ -88,11 +88,11 @@ Site compiled in 0.02s.</samp></pre>
 
 	<p>Let's change the homepage content to something less generic. Open <span class="path">content.txt</span> and change its text to something more exciting, perhaps something like this:</p>
 
-	<pre><kbd>&lt;<span class="element">p</span>&gt;Welcome to my new nanoc site! Denis is my hero!&lt;/<span class="element">p</span>&gt;</kbd></pre>
+	<pre><code>&lt;<span class="element">p</span>&gt;Welcome to my new nanoc site! Denis is my hero!&lt;/<span class="element">p</span>&gt;</code></pre>
 
 	<p>To view the changes, the site must be recompiled first. So, do this:</p>
 
-	<pre><kbd>nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
 	<p>And this is what you'll see:</p>
 
@@ -319,7 +319,7 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 
 	<p>This would mean that you can't preview your site locally anymore, but there's a neat solution for that too. nanoc comes with an auto-compiler, which is a web server that compiles pages on-the-fly. More importantly, the output directory is its web root, so absolute paths are no issue anymore. To start it:</p>
 
-	<pre><kbd>nanoc aco</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc aco</kbd></pre>
 
 	<p>This starts a server on localhost, port 3000 (you can customize the port with <kbd>-p</kbd> if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.</p>
 </div>
