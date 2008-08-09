@@ -5,21 +5,19 @@
 <div class="section" id="installing-nanoc">
 	<h3><span>Installing nanoc</span></h3>
 
-	<p>nanoc requires <a href="http://www.ruby-lang.org/">Ruby</a> (1.8.5 or higher required). nanoc also requires <a href="http://rubyforge.org/projects/rubygems/">RubyGems</a>. You may already have RubyGems installed, but if you don't, <a href="http://rubyforge.org/frs/?group_id=126&amp;release_id=16500">get it here</a>.</p>
+	<p>nanoc requires <a href="http://www.ruby-lang.org/">Ruby</a> (1.8.5 or higher required). nanoc also requires <a href="http://rubyforge.org/projects/rubygems/">RubyGems</a>. You may already have RubyGems installed, but if you don't, <a href="http://rubyforge.org/frs/?group_id=126">get it here</a>.</p>
 
 	<p>Once you have RubyGems, installing nanoc is easy. Simply write this in your terminal:</p>
 
-	<pre><kbd>sudo gem install nanoc</kbd></pre>
+	<pre><kbd><span class="prompt">></span> sudo gem install nanoc</kbd></pre>
 </div>
 
 <div class="section" id="requirements-for-this-tutorial">
 	<h3><span>Requirements for this Tutorial</span></h3>
 
-	<p>This tutorial requires <a href="http://whytheluckystiff.net/ruby/redcloth">RedCloth</a>. RedCloth is a Ruby implementation of both <a href="http://www.textism.com/tools/textile/">Textile</a> and <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which both allow you to write HTML in a easy-to-use plain text format. In this tutorial, we'll use Markdown. (If you haven't used Markdown before, don't fear&mdash;it's easy.) To install RedCloth, jump to your terminal and type:</p>
+	<p>This tutorial requires <a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a>. BlueCloth is a Ruby implementation of <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, which allows you to write HTML in a easy-to-use plain text format (if you haven't used Markdown before, don't fear&mdash;it's easy). To install BlueCloth, jump to your terminal and type:</p>
 
-	<pre><kbd>sudo gem install RedCloth</kbd></pre>
-
-	<p>You can also use BlueCloth (which only handles Markdown) instead of RedCloth for this tutorial, but there unfortunately seems to be an incompatibility between BlueCloth and Ruby 1.9.</p>
+	<pre><kbd><span class="prompt">></span> sudo gem install BlueCloth</kbd></pre>
 </div>
 
 <div class="section" id="creating-your-first-nanoc-powered-site">
@@ -29,7 +27,7 @@
 
 	<p>A nanoc-powered site is a directory with a specific structure. In this tutorial, we'll create a site named <span class="path">nanoc_test</span>. To create this site, type into the terminal:</p>
 
-	<pre><kbd>nanoc create_site nanoc_test</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc create_site nanoc_test</kbd></pre>
 
 	<p>If you did that right, you should have seen this appear on the screen:</p>
 
@@ -68,11 +66,11 @@ drwxr-xr-x  3 ddfreyne  ddfreyne  102 16 Jul 19:13 templates</samp></pre>
 
 	<p>Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create_site</kbd>, require the current working directory to be a nanoc site. So, if you haven't done it before:</p>
 
-	<pre><kbd>cd nanoc_test</kbd></pre>
+	<pre><kbd><span class="prompt">></span> cd nanoc_test</kbd></pre>
 
 	<p>Every new nanoc site already has a bit of content. It comes with one simple page with some simple "getting started" instructions. Before you can view the site, it needs to be compiled. To compile the site, do this:</p>
 
-	<pre><kbd>nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
 	<p>This is what'll appear in the terminal when nanoc is done compiling:</p>
 
@@ -99,12 +97,12 @@ Site compiled in 0.00s.</samp></pre>
 
 	<p>Let's change the content of the home page. Open <span class="path">content.txt</span> and add a paragraph somewhere in the file. I recommend something like this:</p>
 
-	<pre><kbd>&lt;<span class="element">p</span>&gt;This is a brand new paragraph which I've just inserted into this file!
-Gosh, I can barely control my excitement!&lt;/<span class="element">p</span>&gt;</kbd></pre>
+	<pre><code>&lt;<span class="element">p</span>&gt;This is a brand new paragraph which I've just inserted into this file!
+Gosh, I can barely control my excitement!&lt;/<span class="element">p</span>&gt;</code></pre>
 
 	<p>To view the changes, the site must be recompiled first. So, do this:</p>
 
-	<pre><kbd>nanoc compile</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc compile</kbd></pre>
 
 	<p>And this is what you'll see:</p>
 
@@ -205,8 +203,6 @@ Site compiled in 0.00s.</samp></pre>
 	<p>Recompile the site, and open the <span class="path">output/index.html</span> and <span class="path">output/about/index.html</span> pages in your browser. You'll see that the about page has a line saying <q>This page was written by John Doe</q>, while the home page does not&mdash;as expected!</p>
 </div>
 
-<hr>
-
 <div class="section" id="writing-pages-in-markdown">
 	<h3><span>Writing Pages in Markdown</span></h3>
 
@@ -235,21 +231,16 @@ dog's back.
 >
 > ## This is an H2 in a blockquote</code></pre>
 
-	<p>If you would compile the site now, the compiled HTML page won't display the converted HTML just yet, because we haven't told nanoc to filter this page as Markdown yet. Open the homepage's meta file and add this line to the "built-in" section:</p>
+	<p>Now open the homepage's meta file and add this line to the "built-in" section:</p>
 
 	<pre><samp><span class="attribute">filters_pre</span>:
-- <span class="string">"redcloth"</span></samp></pre>
+- <span class="string">"bluecloth"</span></samp></pre>
 
-	<p><code>filters_pre</code> is an attribute with a list of filters to run before laying out the page. You can also run filters <em>after</em> laying out the page, in which case you'd use <code>filters_post</code>. <a href="/help/manual/chapter-2/">Chapter 2 of the manual</a> has a list of built-in filters you can use.</p>
+	<p><code>filters_pre</code> is an attribute with a list of filters to run before laying out the page. You can also run filters <em>after</em> laying out the page, in which case you'd use <code>filters_post</code>.</p>
 
-	<p>Now that we've told nanoc to filters this page using RedCloth, let's recompile the site. (If you are getting errors at this point, make sure you have RedCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now look like this:</p>
+	<p>Now that we've told nanoc to filters this page using BlueCloth, let's recompile the site. (If you are getting errors at this point, make sure you have BlueCloth installed, as described at the beginning of this tutorial). The <span class="path">output/index.html</span> page source should now contain this text (header and footer omited):</p>
 
-	<pre><code>&lt;<span class="element">html</span>&gt;
-&lt;<span class="element">head</span>&gt;
-  &lt;<span class="element">title</span>The Guild of nanoc: a fan website dedicated to nanoc&lt;/<span class="element">title</span>&gt;
-&lt;/<span class="element">head</span>&gt;
-&lt;<span class="element">body</span>&gt;
-&lt;<span class="element">h1</span>&gt;A First Level Header&lt;/<span class="element">h1</span>&gt;
+	<pre><code>&lt;<span class="element">h1</span>&gt;A First Level Header&lt;/<span class="element">h1</span>&gt;
 
 &lt;<span class="element">h2</span>&gt;A Second Level Header&lt;/<span class="element">h2</span>&gt;
 
@@ -268,9 +259,10 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
     &lt;<span class="element">p</span>&gt;This is the second paragraph in the blockquote.&lt;/<span class="element">p</span>&gt;
 
     &lt;<span class="element">h2</span>&gt;This is an H2 in a blockquote&lt;/<span class="element">h2</span>&gt;
-&lt;/<span class="element">blockquote</span>&gt;
-  &lt;/<span class="element">body</span>&gt;
-&lt;/<span class="element">html</span>&gt;</code></pre>
+&lt;/<span class="element">blockquote</span>&gt;</code></pre>
+
+	<p>The BlueCloth filter is not the only filter you can use. For a list of filters included in the standard nanoc distribution, see <a href="/help/manual/chapter-2/">chapter 2 of the manual</a>. You can also write your own filters&mdash;read the <i><a href="/help/manual/chapter-3/#writing-filters">Writing Filters</a></i> section of chapter 3 in the manual for details.</p>
+
 </div>
 
 <div class="section" id="writing-some-custom-code">
@@ -281,18 +273,18 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 	<p>As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open <span class="path">about.yaml</span> and add this to the end of the "custom" section:</p>
 
 <pre><samp><span class="element">tags</span>:
-- <span class="string">"foo"</span>
-- <span class="string">"bar"</span>
-- <span class="string">"baz"</span></samp></pre>
+  - <span class="string">"foo"</span>
+  - <span class="string">"bar"</span>
+  - <span class="string">"baz"</span></samp></pre>
 
-	<p>Next, create a file named <span class="path">tags.rb</span> in the <span class="path">lib</span> directory. In there, put the following function:</p>
+	<p>Next, create a file named <span class="path">tags.rb</span> in the <span class="path">lib</span> directory (the filename doesn't really matter). In there, put the following function:</p>
 
 	<pre><code><span class="keyword">def</span> <span class="function">tags</span>
-<span class="keyword">if</span> <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span>
-  <span class="string">'(none)'</span>
-<span class="keyword">else</span>
-  <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
-<span class="keyword">end</span>
+  <span class="keyword">if</span> <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span>
+    <span class="string">'(none)'</span>
+  <span class="keyword">else</span>
+    <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>)
+  <span class="keyword">end</span>
 <span class="keyword">end</span></code></pre>
 
 	<p>This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= @page.content %&gt;</code> line:</p>
@@ -301,11 +293,15 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 
 	<p>Recompile the site, and take a look at both HTML files in the <span class="path">output</span> directory. If all went well, you should see a list of tags right above the page content.</p>
 
-	<p>This example may be a bit weak&mdash;after all, you could simply embed the tag-generating code into the layout directly, like this:</p>
+	<p>Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging extension by default. To enable this tagging extension, first delete <span class="path">tags.rb</span> and create a <span class="path">extensions.rb</span> file (again, the filename doesn't really matter) and put this inside:</p>
 
-	<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">nil?</span> ? <span class="string">'(none)'</span> : <span class="variable">@page</span>.<span class="function">tags</span>.<span class="function">join</span>(<span class="string">', '</span>) %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
+	<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Extensions</span>::<span class="storage">Tagging</span></code></pre>
 
-	<p>However, putting embedded Ruby code in HTML can get dirty pretty quickly. This example is still acceptable, but in cases where you need much larger amounts of code, it's best to create a separate function and then call this function where necessary.</p>
+	<p>This will make all functions defined in the Nanoc::Extensions::Tagging module available for use. You can check out the <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Extensions/Tagging.html">RDoc documentation for the Tagging extension</a>, but there is only one function we'll use: <code>tags_for</code>. It's very similar to the <code>tags</code> function we wrote before. Update the layout with this:</p>
+
+	<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="function">tags_for</span>(<span class="variable">@page</span>) %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
+
+	<p>nanoc comes with quite a few useful extensions. The <a href="http://nanoc.stoneship.org/help/rdoc/">RDoc documentation</a> describes each one of them.</p>
 </div>
 
 <div class="section" id="watch-out-for-paths">
@@ -329,7 +325,7 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 
 	<p>This would mean that you can't preview your site locally anymore, but there's a neat solution for that too. nanoc comes with an auto-compiler, which is a web server that compiles pages on-the-fly. More importantly, the output directory is its web root, so absolute paths are no issue anymore. To start it:</p>
 
-	<pre><kbd>nanoc aco</kbd></pre>
+	<pre><kbd><span class="prompt">></span> nanoc aco</kbd></pre>
 
 	<p>This starts a server on localhost, port 3000 (you can customize the port with <kbd>-p</kbd> if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.</p>
 </div>
