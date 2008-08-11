@@ -293,15 +293,15 @@ dog&#x27;s back.&lt;/<span class="element">p</span>&gt;
 
 	<p>Recompile the site, and take a look at both HTML files in the <span class="path">output</span> directory. If all went well, you should see a list of tags right above the page content.</p>
 
-	<p>Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging extension by default. To enable this tagging extension, first delete <span class="path">tags.rb</span> and create a <span class="path">extensions.rb</span> file (again, the filename doesn't really matter) and put this inside:</p>
+	<p>Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete <span class="path">tags.rb</span> and create a <span class="path">helper.rb</span> file (again, the filename doesn't really matter) and put this inside:</p>
 
-	<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Extensions</span>::<span class="storage">Tagging</span></code></pre>
+	<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Helpers</span>::<span class="storage">Tagging</span></code></pre>
 
-	<p>This will make all functions defined in the Nanoc::Extensions::Tagging module available for use. You can check out the <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Extensions/Tagging.html">RDoc documentation for the Tagging extension</a>, but there is only one function we'll use: <code>tags_for</code>. It's very similar to the <code>tags</code> function we wrote before. Update the layout with this:</p>
+	<p>This will make all functions defined in the Nanoc::Helpers::Tagging module available for use. You can check out the <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Tagging.html">RDoc documentation for the Tagging helper</a>, but there is only one function we'll use: <code>tags_for</code>. It's very similar to the <code>tags</code> function we wrote before. Update the layout with this:</p>
 
 	<pre><code>&lt;<span class="element">p</span>&gt;Tags: &lt;%= <span class="function">tags_for</span>(<span class="variable">@page</span>) %&gt;&lt;/<span class="element">p</span>&gt;</code></pre>
 
-	<p>nanoc comes with quite a few useful extensions. The <a href="http://nanoc.stoneship.org/help/rdoc/">RDoc documentation</a> describes each one of them.</p>
+	<p>nanoc comes with quite a few useful helpers. The <a href="http://nanoc.stoneship.org/help/rdoc/">RDoc documentation</a> describes each one of them.</p>
 </div>
 
 <div class="section" id="watch-out-for-paths">
