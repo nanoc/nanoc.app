@@ -1,0 +1,12 @@
+
+/* default opacity for IE */
+img {
+	filter:alpha(opacity=100);
+	}
+
+/* duplicate image positioning */
+img.idupe {
+	position:absolute;
+	z-index:30000;
+	visibility:hidden;
+	}

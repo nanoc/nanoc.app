@@ -210,6 +210,18 @@ html>body {
 	color: #c40023;
 }
 
+/** slideshow */
+
+#slideshow {
+	margin: 3.6em -10px 3.6em -10px;
+
+	border: 10px solid #ccc;
+}
+
+#slideshow img {
+	display: block;
+}
+
 /** features */
 
 #features h2 {
@@ -311,6 +323,10 @@ html>body {
 	padding: 0 7.2em;
 }
 
+#content dl.nested dt {
+	font-weight: bold;
+}
+
 #content dt,
 #content dd {
 	font-size: 1.2em;
@@ -332,7 +348,8 @@ html>body {
 	padding: 0 9.0em;
 }
 
-#content ul ul {
+#content ul ul,
+#content dd ul {
 	margin: 0 0 1.8em 0;
 	padding: 0;
 }
@@ -359,7 +376,8 @@ html>body {
 	list-style-position: outside;
 }
 
-#content li li {
+#content li li,
+#content dd li {
 	font-size: 1em;
 
 	line-height: 1.5em;

@@ -4,3 +4,8 @@
 title:          "nanoc: a Ruby CMS that generates static HTML &raquo; home"
 has_full_title: true
 raw_layout:     true
+extra_scripts:
+  - '/assets/scripts/crossfade.js'
+  - '/assets/scripts/slideshow.js'
+extra_stylesheets:
+  - '/assets/style/transitions.css'

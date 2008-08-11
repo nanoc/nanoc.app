@@ -23,7 +23,7 @@ def asset(asset_id)
   @assets.find { |asset| asset.asset_id == asset_id }
 end
 
-# Extensions
+# Helpers
 
 class Time
   def format_as_date
