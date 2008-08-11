@@ -198,6 +198,18 @@ html>body {
 	line-height: 1.5em;
 }
 
+/** slideshow */
+
+#slideshow {
+	margin: 3.6em -10px 3.6em -10px;
+
+	border: 10px solid #ccc;
+}
+
+#slideshow img {
+	display: block;
+}
+
 /** features */
 
 #features h2 {
