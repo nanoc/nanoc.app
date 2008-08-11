@@ -122,7 +122,23 @@ options:
 	<div class="section" id="pages-representations">
 		<h4><span>Representations</span></h4>
 
-		<p><strong>TODO write me</strong></p>
+		<p>Pages (and assets) can have multiple representations. Each representation (or "rep") corresponds to a single output file. Each representation has a name, which may be used by <a href="#routers">routers</a> for determining a page rep's path.</p>
+
+		<p>Each representation can have its own set of built-in attributes. Attributes that are not specified in the representation will be inherited from the page this rep belongs to. Each representation can have custom attributes as well.</p>
+
+		<p>Each page always has at least one representation. If no explicit list of representations is given, there will still be a representation named "default". It is therefore possible to ignore the multiple representations feature completely; simply add the attributes to the page instead of the default rep.</p>
+
+		<p>A page's representations are specified in the <code>reps</code> hash of the page itself. The keys of this hash are the representation names, while the values are a hash containing this representation's attributes, which are very similar to the attributes of a page with only an implicit default representation.</p>
+
+		<p>For example, this page will have two representations: a "default" one (which inherits its list of filters, its layout, ... from the page defaults), and a "raw" one (no filters, no layout):</p>
+
+		<pre><code><span class="attribute">reps</span>:
+  <span class="attribute">default</span>: {}
+  <span class="attribute">raw</span>:
+    <span class="attribute">filters_pre</span>:  []
+    <span class="attribute">filters_post</span>: []
+    <span class="attribute">layout</span>:       <span class="constant">none</span>
+    <span class="attribute">extension</span>:    <span class="string">'txt'</span></code></pre>
 	</div>
 
 	<div class="section" id="pages-compilation">
