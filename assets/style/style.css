@@ -193,9 +193,21 @@ html>body {
 }
 
 #intro p {
+	margin: 1.2em 0;
+
 	font-size: 1.2em;
 
 	line-height: 1.5em;
+}
+
+#intro strong {
+	font-size: 0.9em;
+
+	text-transform: uppercase;
+
+	margin-right: 0.5em;
+
+	color: #c40023;
 }
 
 /** slideshow */
@@ -352,6 +364,16 @@ html>body {
 
 #content ul li {
 	list-style-type: square;
+}
+
+#content ul.large {
+	padding: 0 7.2em 0 10.5em;
+}
+
+#content ul.large li {
+	margin: 1.5em 0;
+
+	list-style-position: outside;
 }
 
 #content li li,
