@@ -1,6 +1,6 @@
 require 'hpricot'
 
-module Nanoc::Extensions
+module Nanoc::Helpers
 
   # This module (specific to the nanoc site) contains functionality for
   # generating a table of contents (TOC) from a given page.

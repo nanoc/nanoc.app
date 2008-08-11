@@ -1,6 +1,6 @@
 require 'hpricot'
 
-module Nanoc::Extensions
+module Nanoc::Helpers
 
   # This module (specific to the nanoc web site) contains two functions that
   # get the latest release version and the latest release notes, respectively.

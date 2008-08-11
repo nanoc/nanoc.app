@@ -2,13 +2,13 @@
 # before nanoc starts compiling.
 
 # Default
-include Nanoc::Extensions::Blogging
-include Nanoc::Extensions::HTMLEscape
-include Nanoc::Extensions::LinkTo
+include Nanoc::Helpers::Blogging
+include Nanoc::Helpers::HTMLEscape
+include Nanoc::Helpers::LinkTo
 
 # Custom
-include Nanoc::Extensions::ReleaseNotes
-include Nanoc::Extensions::TOC
+include Nanoc::Helpers::ReleaseNotes
+include Nanoc::Helpers::TOC
 
 def nav_link_to_unless_current(text, path)
   if @page_rep and @page_rep.path == path
@@ -23,7 +23,7 @@ def asset(asset_id)
   @assets.find { |asset| asset.asset_id == asset_id }
 end
 
-# Extensions
+# Helpers
 
 class Time
   def format_as_date
