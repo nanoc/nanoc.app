@@ -304,12 +304,12 @@ options:
 	<p>For a layout to be useful, it must output the page's content at a certain point. This is done by outputting <code>@page.content</code>. This extremely minimal layout show an example of how this is usually done:</p>
 
 	<pre><code>&lt;<span class="element">html</span>&gt;
- &lt;<span class="element">head</span>&gt;
-   &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
- &lt;/<span class="element">head</span>&gt;
- &lt;<span class="element">body</span>&gt;
+  &lt;<span class="element">head</span>&gt;
+    &lt;<span class="element">title</span>&gt;&lt;%= <span class="variable">@page</span>.<span class="function">title</span> %&gt;&lt;/<span class="element">title</span>&gt;
+  &lt;/<span class="element">head</span>&gt;
+  &lt;<span class="element">body</span>&gt;
 &lt;%= <span class="variable">@page</span>.<span class="function">content</span> %&gt;
- &lt;/<span class="element">body</span>&gt;
+  &lt;/<span class="element">body</span>&gt;
 &lt;/<span class="element">html</span>&gt;</code></pre>
 
 	<div class="section" id="layouts-as-partials">
