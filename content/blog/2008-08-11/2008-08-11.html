@@ -1,0 +1,33 @@
+<div style="margin: 1.8em 0; text-align: center;">
+	<img src="http://nanoc.stoneship.org/assets/images/whats-new-in-nanoc-21-small.png" alt="What's New in nanoc 2.1">
+</div>
+
+<p>Welcome to the final installment of <i>What's New in nanoc 2.1</i>. In this article I'll show you several miscellaneous improvements and features I couldn't fit elsewhere.</p>
+
+<p>The <strong>autocompiler now uses Rack</strong>, so this is good news if you don't like WEBrick and would like to use something else instead. Thin, Mongrel, Ebb, &hellip; you name it.</p>
+
+<p><strong>Layout processors are gone</strong> entirely. Instead, use filters. Layouts consist of metafiles and content files now, and the meta files determine the filter to be run. This means less code duplication, as there's no need to have both e.g. a Haml filter <em>and</em> a Haml layout processor.</p>
+
+<p>A layout only has one attribute, <code>filter</code>, which determines the filter to be run. Here's what the meta file of the nanoc site's default layout contains, to show you how this works:</p>
+
+<pre><code><span class="attribute">filter</span>: <span class="string">'erb'</span></code></pre>
+
+<p><strong>Layouts can be stored hierarchically</strong>. This is useful in case you want to e.g. create a "partials" directory in your layouts directory, in which you'd store partials you want to render. Or, you could have a directory named "sidebars" in which you store sidebars, in case you want to render different sidebars for different sections on the site.</p>
+
+<p>Here's an example that shows how you'd render the "header" layout, located inside the "partials" directory inside the "layouts" directory:</p>
+
+<pre><code>&lt;%= <span class="function">render</span> <span class="string">'partials/header'</span> %&gt;</code></pre>
+
+<p>Nothing really important, but the <code>nanoc_require</code> function is gone&mdash;simply use the good old <code>require</code> function now.</p>
+
+<p>nanoc is now bundled with <strong>three new filters</strong>: <a href="http://github.com/rtomayko/rdiscount/tree/master">discount</a> (a fast implementation of Markdown), <a href="http://maruku.rubyforge.org/">maruku</a> (an implementation of a Markdown superset) and <a href="http://www.kuwata-lab.com/erubis/">erubis</a> (a fast implementation of eRuby). Because the filter used for processing layouts is no longer determined by the file extension, you can actually use Erubis instead of ERB for layouts now.</p>
+
+<p>A lot of helpers have been bundled with nanoc. There's helpers for <a href="nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Blogging.html">blogging</a>, <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Tagging.html">tagging</a>, <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Capturing.html">capturing</a>, <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/HTMLEscape.html">HTML-escaping</a>, <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Render.html">rendering</a>, building <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/XMLSitemap.html">XML sitemaps</a> and <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/LinkTo.html">linking</a>. All of these helpers are quite thoroughly documented so using them should be a breeze. These helpers will first need to be activated before they can be used (except the Render and HTMLEscape ones), which works like this:</p>
+
+<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Helpers</span>::<span class="storage">LinkTo</span></code></pre>
+
+<p>These helpers were previously available as plugins on the <a href="/trac">wiki</a>, but now they're actually bundled so you don't have to download them separately. More helpers (and filters) will be added to the standard nanoc distribution later on; contributions are always welcome.</p>
+
+<p>I forgot to mention it before, but <strong>nanoc 2.1 is entirely backwards compatible</strong> with nanoc 2.0. This means that a site that can be compiled with nanoc 2.0 (and doesn't show any deprecation warnings) should compile flawlessly using nanoc 2.1.</p>
+
+<p>So, this is the end of the very last installment of <i>What's New in nanoc 2.1</i>. I hope you enjoyed it! nanoc 2.1 itself is <em>nearly</em> ready, but still needs a tiny bit of work. With a bit of luck, there'll be a release at the end of the week. Stay tuned!</p>
