@@ -12,7 +12,7 @@ repository at <http://nanoc.stoneship.org/hg/sites-stoneship>.
 Requirements
 ------------
 
-You will need nanoc 2.0 or higher, as well as:
+You will need nanoc 2.1 or higher, as well as:
 
 * builder
 * rubypants
