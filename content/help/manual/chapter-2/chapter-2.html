@@ -103,7 +103,9 @@ options:
 		<li>processing information, such as the list of filters to run, the layout that should be used, …</li>
 	</ul>
 
-	<p>Pages are structured hierarchically. A page has a path, which reflects this hierarchy. There is one "root" or "home" page which has path <span class="path">/</span>; other pages will have paths such as <span class="path">/journal/2008/some-article/</span>. The hierarchy of outputted pages does <em>not</em> have to be the same as the hierarchy of uncompiled, raw pages; see the <a href="#routers">Routers</a> section for details.</p>
+	<p>Pages are structured hierarchically. A page has a path, which reflects this hierarchy. There is one "root" or "home" page which has path <span class="path">/</span>; other pages will have paths such as <span class="path">/journal/2008/some-article/</span>.</p>
+
+	<p>Pages have an <em>output path</em> or <em>disk path</em> which is the path where the compiled page will be written to. It includes the terminating "index.html". The <em>web path</em> is the disk path with the trailing index filenames removed (usually <span class="path">index.html</span>). The hierarchy of outputted pages does <em>not</em> have to be the same as the hierarchy of uncompiled, raw pages; see the <a href="#routers">Routers</a> section for details.</p>
 
 	<div class="section" id="pages-creating-a-page">
 		<h4><span>Creating a Page</span></h4>
@@ -197,7 +199,7 @@ options:
 			<dd>The base filename for the generated page. Useful on web servers where the default filename is not &#8220;index.html&#8221; but &#8220;default.html&#8221;, for example. Defaults to <code>"index"</code>.</dd>
 
 			<dt><var>filters_pre</var></dt>
-			<dd>A list of filters to run before laying out the page. You can also use <var>filters</var> instead of <var>filters_pre</var>. Defaults to <code>[]</code> (no filters).</dd>
+			<dd>A list of filters to run before laying out the page. Defaults to <code>[]</code> (no filters).</dd>
 
 			<dt><var>filters_post</var></dt>
 			<dd>A list of filters to run after laying out the page. Defaults to <code>[]</code> (no filters).</dd>
@@ -273,26 +275,24 @@ options:
 <div class="section" id="assets">
 	<h3><span>Assets</span></h3>
 
-	<p><strong>TODO write me</strong></p>
-
 	<p>Assets are content elements that are not pages, such as images, stylesheets, movies, sounds, etc. There are two kinds of assets: <em>binary</em> and <em>textual</em>; both have their own kinds of filters. Assets are not laid out.</p>
+
+	<p>Assets are only filtered and not laid out. Textual assets use normal textual filters, while binary assets use binary filters.</p>
+
+	<p>Assets can have multiple representations. Multiple asset representations work exactly like <a href="#pages-representations">multiple page representations</a>, and is therefore not documented here.</p>
 
 	<div class="section" id="assets-attributes">
 		<h4><span>Attributes</span></h4>
 
-		<p><strong>TODO write me</strong></p>
-	</div>
+		<p>Assets have the following built-in attributes:</p>
 
-	<div class="section" id="assets-representations">
-		<h4><span>Representations</span></h4>
+		<dl>
+			<dt><var>binary</var></dt>
+			<dd>A flag indicating whether the asset is binary or not.</dd>
 
-		<p><strong>TODO write me</strong></p>
-	</div>
-
-	<div class="section" id="assets-variables">
-		<h4><span>Variables</span></h4>
-
-		<p><strong>TODO write me</strong></p>
+			<dt><var>filters</var></dt>
+			<dd>A list of filters to run before laying out the page. Defaults to <code>[]</code> (no filters).</dd>
+		</dl>
 	</div>
 </div>
 
@@ -408,32 +408,47 @@ options:
 
 	<dl>
 		<dt><code>Nanoc::Helpers::Blogging</code></dt>
-		<dd>provides blogging and Atom feed features (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
+		<dd>provides blogging and Atom feed features (<a href="/help/rdoc/classes/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Capturing</code></dt>
-		<dd>provides functionality for capturing content and reusing it elsewhere (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
+		<dd>provides functionality for capturing content and reusing it elsewhere (<a href="/help/rdoc/classes/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::HTMLEscape</code></dt>
-		<dd>provides a HTML escaping function (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/HTMLEscape.html">documentation</a>)</dd>
+		<dd>provides a HTML escaping function (<a href="/help/rdoc/classes/Nanoc/Helpers/HTMLEscape.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::LinkTo</code></dt>
-		<dd>provides <code>link_to</code> and <code>link_to_unless_current</code> functions (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/LinkTo.html">documentation</a>)</dd>
+		<dd>provides <code>link_to</code> and <code>link_to_unless_current</code> functions (<a href="/help/rdoc/classes/Nanoc/Helpers/LinkTo.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Render</code></dt>
-		<dd>provides functionality for rendering layouts as partials (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Render.html">documentation</a>)</dd>
+		<dd>provides functionality for rendering layouts as partials (<a href="/help/rdoc/classes/Nanoc/Helpers/Render.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Tagging</code></dt>
-		<dd>provides functionality for printing a page's tags (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/Tagging.html">documentation</a>)</dd>
+		<dd>provides functionality for printing a page's tags (<a href="/help/rdoc/classes/Nanoc/Helpers/Tagging.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::XMLSitemap</code></dt>
-		<dd>provides functionality for creating XML sitemaps (<a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/Helpers/XMLSitemap.html">documentation</a>)</dd>
+		<dd>provides functionality for creating XML sitemaps (<a href="/help/rdoc/classes/Nanoc/Helpers/XMLSitemap.html">documentation</a>)</dd>
 	</dl>
 </div>
 
 <div class="section" id="routers">
 	<h3><span>Routers</span></h3>
 
-	<p><strong>TODO write me</strong></p>
+	<p>Routers determine the disk paths of page representations. Given a page rep, the router will return both its disk and web paths. Each site has a router; chosing a router for a site is done in the <a href="#sites-site-configuration">site configuration</a>.</p>
+
+	<p>nanoc comes with three routers by default:</p>
+
+	<dl>
+		<dt><code>default</code></dt>
+		<dd>The default router creates a directory for every page. The representation name is appended to non-default reps. Assets do not get their own directory. <a href="/help/rdoc/classes/Nanoc/Routers/Default.html">Read documentation</a>.</dd>
+
+		<dt><code>versioned</code></dt>
+		<dd>The versioned router behaves similarly to the default router, but appends a version number. <a href="/help/rdoc/classes/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
+
+		<dt><code>no_dirs</code></dt>
+		<dd>The no-dirs router does not create directories unless necessary. For example, a page with path <span class="path">/about/</span> will be written to <span class="path">/about.html</span> instead of <span class="path">/about/index.html</span>.<a href="/help/rdoc/classes/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
+	</dl>
+
+	<p>See the <a href="/help/manual/chapter-3/#writing-routers">Writing Routers</a> section of Chapter 3 for information about writing custom routers.</p>
 </div>
 
 <div class="section" id="data-sources">
@@ -450,7 +465,7 @@ options:
 
 		<p>This manual assumes that the filesystem data source is used. The differences between the filesystem and the filesystem-combined data source are listed in the database data source section.</p>
 
-		<p>For more information, see the <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/DataSources/Filesystem.html">Filesystem RDoc documentation</a>.</p>
+		<p>For more information, see the <a href="/help/rdoc/classes/Nanoc/DataSources/Filesystem.html">Filesystem RDoc documentation</a>.</p>
 	</div>
 
 	<div class="section" id="data-sources-filesystem-combined">
@@ -465,7 +480,7 @@ options:
 -----
 h1. Hello!</code></pre>
 
-		<p>For more information, see the <a href="http://nanoc.stoneship.org/help/rdoc/classes/Nanoc/DataSources/FilesystemCombined.html">FilesystemCombined RDoc documentation</a>.</p>
+		<p>For more information, see the <a href="/help/rdoc/classes/Nanoc/DataSources/FilesystemCombined.html">FilesystemCombined RDoc documentation</a>.</p>
 	</div>
 </div>
 

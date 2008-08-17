@@ -158,7 +158,41 @@
 <div class="section" id="writing-binary-filters">
 	<h3><span>Writing Binary Filters</span></h3>
 
-	<p><strong>TODO write me</strong></p>
+	<p>Binary filters are very similar to <a href="#writing-filters">normal filters</a>, except that they work with File objects instead of actual content. They inherit from <code>Nanoc::BinaryFilter</code>.</p>
+
+	<p>Just like with normal filters, binary filters can have one or more identifiers, and they do not need to be registered explicitly.</p>
+
+	<p>A binary filter needs to implement the <code>run</code> method, which takes a File argument and returns a File object. The returned File object should be a reference to a new file. The File argument should not be modified (otherwise the original asset will be changed).</p>
+</div>
+
+<div class="section" id="writing-routers">
+	<h3><span>Writing Routers</span></h3>
+
+	<p>Routers inherit from <code>Nanoc::Router</code> and must implement the <code>path_for_page_rep</code> and <code>path_for_asset_rep</code> methods. The former takes a page representation (<code>Nanoc::PageRep</code>) as an argument while the second takes an asset representation (<code>Nanoc::AssetRep</code>). The methods should return the output path of the given representation, starting with a slash representing the web root. Also see the <a href="/help/rdoc/classes/Nanoc/Router.html">RDoc documentation for <code>Nanoc::Router</code></a>.</p>
+
+	<p>For example, this is the default router's implementation of <code>path_for_asset_rep</code>:</p>
+
+	<pre><code><span class="keyword">def</span> <span class="function">path_for_asset_rep</span>(<span class="variable">asset_rep</span>)
+  <span class="comment"># Get data we need</span>
+  <span class="variable">extension</span>     = <span class="variable">asset_rep</span>.<span class="function">attribute_named</span>(<span class="symbol">:extension</span>)
+  <span class="variable">modified_path</span> = <span class="variable">asset_rep</span>.<span class="function">asset</span>.<span class="function">path</span>[<span class="constant">0</span>..<span class="constant">-2</span>]
+  <span class="variable">version</span>       = <span class="variable">asset_rep</span>.<span class="function">attribute_named</span>(<span class="symbol">:version</span>)
+
+  <span class="comment"># Initialize path</span>
+  <span class="variable">assets_prefix</span> = <span class="variable">@site</span>.<span class="function">config</span>[<span class="symbol">:assets_prefix</span>] || <span class="string">'/assets'</span>
+  <span class="variable">path</span> = <span class="variable">assets_prefix</span> + <span class="variable">modified_path</span>
+
+  <span class="comment"># Add rep name if necessary</span>
+  <span class="keyword">unless</span> <span class="variable">asset_rep</span>.<span class="function">name</span> == <span class="symbol">:default</span>
+    <span class="variable">path</span> += <span class="string">'-'</span> + <span class="variable">asset_rep</span>.<span class="function">name</span>.<span class="function">to_s</span>
+  <span class="keyword">end</span>
+
+  <span class="comment"># Add extension</span>
+  <span class="variable">path</span> += <span class="string">'.'</span> + <span class="variable">extension</span>
+
+  <span class="comment"># Done</span>
+  <span class="variable">path</span>
+<span class="keyword">end</span></code></pre>
 </div>
 
 <div class="section" id="writing-layout-processors">
