@@ -1,0 +1,14 @@
+<h2><span>Blog Archive</span></h2>
+
+<% sorted_articles.each do |article| %>
+<div class="section" id="blog-<%= article.created_at.localtime.format_as_date_id %>">
+<% if article.title? %>
+	<h3><span><%=h article.title %></span></h3>
+<% else %>
+	<h3><span><%= article.created_at.localtime.format_as_date %></span></h3>
+<% end %>
+	<p class="meta"><span>Written <%= article.created_at.localtime.format_as_date %>. [<%= link_to 'permalink', article %>]</span></p>
+
+	<%= article.content %>
+</div>
+<% end %>

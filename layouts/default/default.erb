@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!-- title -->
+<% if @page.title? %>
+		<title><%= @page.has_full_title? ? @page.title : 'nanoc &raquo; ' + @page.title %></title>
+<% else %>
+		<title>nanoc &raquo; Blog &raquo; <%= @page.created_at.localtime.format_as_date %></title>
+<% end %>
+
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="<%= asset('style').path %>" type="text/css" media="screen">
+<% (@page.extra_stylesheets || []).each do |stylesheet| %>
+		<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
+<% end %>
+
+		<!-- scripts -->
+<% (@page.extra_scripts || []).each do |script| %>
+		<script type="text/javascript" src="<%=h script %>"></script>
+<% end %>
+	</head>
+	<body>
+		<div id="header">
+			<div id="header-inside">
+				<div id="nav">
+					<ul>
+						<li><%= nav_link_to_unless_current('home',        '/')             %></li>
+						<li><%= nav_link_to_unless_current('blog',        '/blog/')        %></li>
+						<li><%= nav_link_to_unless_current('download',    '/download/')    %></li>
+						<li><%= nav_link_to_unless_current('help',        '/help/')        %></li>
+						<li><%= nav_link_to_unless_current('development', '/development/') %></li>
+					</ul>
+				</div>
+				<h1><span>nanoc 2</span></h1>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="main-inside">
+<% unless @page.raw_layout? %>
+				<div id="content">
+<% end %>
+<% if @page.kind == 'article' %>
+<% if @page.title? %>
+					<h2><span>Blog &raquo; <%=h @page.title %></span></h2>
+<% else %>
+					<h2><span>Blog &raquo; <%= @page.created_at.localtime.format_as_date %></span></h2>
+<% end %>
+					<p class="meta"><span>Written <%= @page.created_at.localtime.format_as_date %>.</span></p>
+<% end %>
+<%= @page.content %>
+<% unless @page.raw_layout? %>
+				</div>
+<% end %>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div id="footer-inside">
+				<p>nanoc &copy; 2007-2008 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence.</p>
+			</div>
+		</div>
+	</body>
+</html>

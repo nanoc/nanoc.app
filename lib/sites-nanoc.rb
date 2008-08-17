@@ -1,24 +1,29 @@
 # All files in the 'lib' directory will be loaded
 # before nanoc starts compiling.
 
-def html_escape(str)
-  str.gsub('&', '&amp;').str('<', '&lt;').str('>', '&gt;').str('"', '&quot;')
-end
-alias h html_escape
+# Default
+include Nanoc::Helpers::Blogging
+include Nanoc::Helpers::HTMLEscape
+include Nanoc::Helpers::LinkTo
 
-def nav_link_to_unless_current(path, text)
-  if @page[:path] == path
+# Custom
+include Nanoc::Helpers::ReleaseNotes
+include Nanoc::Helpers::TOC
+
+def nav_link_to_unless_current(text, path)
+  if @page_rep and @page_rep.path == path
     "<span class=\"active\"><span>#{text}</span></span>"
   else
     "<a href=\"#{path}\"><span>#{text}</span></a>"
   end
 end
 
-def link_to(text, path)
-  '<a href="' + path + '">' + text + '</a>'
+# Returns the asset with the given asset ID.
+def asset(asset_id)
+  @assets.find { |asset| asset.asset_id == asset_id }
 end
 
-# Extensions
+# Helpers
 
 class Time
   def format_as_date
@@ -51,14 +56,4 @@ module Enumerable
       groups
     end
   end
-end
-
-# Convenience methods
-
-def articles
-  @pages.select { |page| page.kind == 'article' }.sort { |x,y| y.created_at <=> x.created_at }
-end
-
-def articles_by_month
-  articles.group_by { |article| article.created_at.localtime.month }
 end

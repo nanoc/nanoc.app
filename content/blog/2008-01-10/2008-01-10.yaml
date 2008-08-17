@@ -1,8 +1,5 @@
 # Built-in
-skip_output: true
 
 # Custom
-title:                "January 10th"
 created_at:           "January 10th, 2008"
 kind:                 "article"
-custom_path_in_feed:  "/"

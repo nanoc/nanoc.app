@@ -5,11 +5,11 @@
 custom_path:  none
 extension:    "html"
 filename:     "index"
+filters_pre:
+  - "erb"
 filters_post:
   - "add_links_to_headers"
   - "rubypants"
-filters_pre:
-  - "erb"
 is_draft:     false
 layout:       "default"
 skip_output:  false

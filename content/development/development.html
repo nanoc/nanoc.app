@@ -1,37 +1,35 @@
-<div id="content">
-	<h2><span>Development</span></h2>
+<h2><span>Development</span></h2>
 
-	<div class="section" id="following-development">
-		<h3><span>Following Development</span></h3>
+<div class="section" id="following-development">
+	<h3><span>Following Development</span></h3>
 
-		<p>nanoc uses the <a href="http://www.selenic.com/mercurial/">Mercurial</a> distributed version control system. Those that are unfamiliar with Mercurial or <abbr title="distributed version control system">DVCS</abbr>es in general should read the <a href="http://www.selenic.com/mercurial/wiki/index.cgi/Tutorial">Mercurial tutorial</a>.</p>
+	<p>nanoc uses the <a href="http://www.selenic.com/mercurial/">Mercurial</a> distributed version control system. Those that are unfamiliar with Mercurial or <abbr title="distributed version control system">DVCS</abbr>es in general should read the <a href="http://www.selenic.com/mercurial/wiki/index.cgi/Tutorial">Mercurial tutorial</a>.</p>
 
-		<p>The repositories are located <a href="http://nanoc.stoneship.org/hg/">over here</a>. There is a repository for nanoc itself, and there are repositories for sample sites and plugins. Each repository's web interface has a timeline for following development.</p>
+	<p>The repositories are located <a href="/hg/">over here</a>. There is a repository for nanoc itself, and there are repositories for sample sites and plugins. Each repository's web interface has a timeline for following development.</p>
 
-		<p>There also is a <a href="/trac">Trac installation for nanoc</a> which has a source code browser and a timeline, among other features, for tracking changes to the nanoc repository.</p>
-	</div>
+	<p>There also is a <a href="/trac">Trac installation for nanoc</a> which has a source code browser and a timeline, among other features, for tracking changes to the nanoc repository.</p>
+</div>
 
-	<div class="section" id="enhancing-nanoc">
-		<h3><span>Enhancing nanoc</span></h3>
+<div class="section" id="enhancing-nanoc">
+	<h3><span>Enhancing nanoc</span></h3>
 
-		<p>The easiest way to customize nanoc is to implement helper functions in Ruby source files that reside inside a site's <span class="path">lib</span> directory. Most of what is defined in these files will be available during the compilation process (functions, classes, globals, &hellip;).</p>
+	<p>The easiest way to customize nanoc is to implement helper functions in Ruby source files that reside inside a site's <span class="path">lib</span> directory. Most of what is defined in these files will be available during the compilation process (functions, classes, globals, &hellip;).</p>
 
-		<p>It is possible to override built-in nanoc functions by re-implementing them. This is not recommended, as it relies on nanoc's internals which may change between releases, causing your site to break.</p>
+	<p>It is possible to override built-in nanoc functions by re-implementing them. This is not recommended, as it relies on nanoc's internals which may change between releases, causing your site to break.</p>
 
-		<p>You can also write custom filters, layout processors and data sources to extend nanoc. The <a href="/help/manual/chapter-3/">third chapter</a> of the nanoc manual explains how to do this.</p>
+	<p>You can also write custom filters, layout processors and data sources to extend nanoc. The <a href="/help/manual/chapter-3/">third chapter</a> of the nanoc manual explains how to do this.</p>
 
-		<div class="section" id="modifying-nanocs-core">
-			<h4><span>Modifying nanoc's core</span></h4>
+	<div class="section" id="modifying-nanocs-core">
+		<h4><span>Modifying nanoc's core</span></h4>
 
-			<p>It is possible to modify nanoc's source code (that's why nanoc is open source). This is quite useful for fixing bugs, or even adding new features to nanoc. However, I recommend not modifying nanoc itself, unless it is impossible to enhance nanoc by putting code in the <span class="path">lib</span> directory.</p>
+		<p>It is possible to modify nanoc's source code (that's why nanoc is open source). This is quite useful for fixing bugs, or even adding new features to nanoc. However, I recommend not modifying nanoc itself, unless it is impossible to enhance nanoc by putting code in the <span class="path">lib</span> directory.</p>
 
-			<p>A quick word about test: nanoc comes with a large amount of unit tests. There unit tests are not included in the standard nanoc distribution, since this would make nanoc a lot larger. You can get the tests from the repository (see above). If possible, run the unit tests to check whether your patch works. If you can't run unit tests or if some tests fail, send the patch to me anyway&mdash;I'll fix the issues.</p>
+		<p>A quick word about test: nanoc comes with a large amount of unit tests. There unit tests are not included in the standard nanoc distribution, since this would make nanoc a lot larger. You can get the tests from the repository (see above). If possible, run the unit tests to check whether your patch works. If you can't run unit tests or if some tests fail, send the patch to me anyway&mdash;I'll fix the issues.</p>
 
-			<p>If you have modified nanoc one way or another, I would <em>love</em> to see your changes. <a href="/trac/newticket">Create a ticket</a> on the nanoc Trac, attach a patch, and specify what version of nanoc this patch was made for. If I like your patch, I will include it in the standard nanoc distribution, and include you in the nanoc credits.</p>
+		<p>If you have modified nanoc one way or another, I would <em>love</em> to see your changes. <a href="/trac/newticket">Create a ticket</a> on the nanoc Trac, attach a patch, and specify what version of nanoc this patch was made for. If I like your patch, I will include it in the standard nanoc distribution, and include you in the nanoc credits.</p>
 
-			<p>A small word about licensing issues: nanoc is licensed under the MIT licence. To prevent legal issues, all your contributions to the nanoc core should also be under the MIT licence.</p>
+		<p>A small word about licensing issues: nanoc is licensed under the MIT licence. To prevent legal issues, all your contributions to the nanoc core should also be under the MIT licence.</p>
 
-			<p>Any contribution to nanoc is more than welcome. Thanks in advance!</p>
-		</div>
+		<p>Any contribution to nanoc is more than welcome. Thanks in advance!</p>
 	</div>
 </div>

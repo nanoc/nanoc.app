@@ -1,75 +1,73 @@
-<div id="content">
-	<h2><span>Help &raquo; Manual &raquo;<br>Chapter 1: An Introduction to nanoc</span></h2>
+<h2><span>Help &raquo; Manual &raquo;<br>Chapter 1: An Introduction to nanoc</span></h2>
 
-	<p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
+<p><a href="/help/manual/">&laquo; Back to the Manual Table of Contents</a></p>
 
-	<div class="section" id="what-is-nanoc-exactly">
-		<h3><span>What is nanoc, Exactly?</span></h3>
+<div class="section" id="what-is-nanoc-exactly">
+	<h3><span>What is nanoc, Exactly?</span></h3>
 
-		<p>In short, nanoc is a tool that makes building static (or semi-static) web sites easier. You could call nanoc a content management system, but it's not quite like other CMSes. "Site processor", perhaps?</p>
+	<p>In short, nanoc is a tool that makes building static (or semi-static) web sites easier. You could call nanoc a content management system, but it's not quite like other CMSes. "Site processor", perhaps?</p>
 
-		<p>Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn't need to&mdash;nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn't need to have anything "special" installed at all&mdash;it just needs to be able to serve static files, which every web server can.</p>
-	</div>
+	<p>Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn't need to&mdash;nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn't need to have anything "special" installed at all&mdash;it just needs to be able to serve static files, which every web server can.</p>
+</div>
 
-	<div class="section" id="nanocs-birth">
-		<h3><span>nanoc's Birth</span></h3>
+<div class="section" id="nanocs-birth">
+	<h3><span>nanoc's Birth</span></h3>
 
-		<P>Before nanoc, I was in an eternal search for a CMS that would work well for <a href="http://stoneship.org/">Stoneship</a>, my personal website. I've tried bBlog, WordPress, TextPattern, Mephisto, and more. I didn't really like any of them: they were either hard to use or very resource-hungry.</p>
+	<P>Before nanoc, I was in an eternal search for a CMS that would work well for <a href="http://stoneship.org/">Stoneship</a>, my personal website. I've tried bBlog, WordPress, TextPattern, Mephisto, and more. I didn't really like any of them: they were either hard to use or very resource-hungry.</p>
 
-		<p>At some point, <a href="http://fixnum.org/">Wim Vander Schelden</a>, a friend of mine, wrote a set of Ruby scripts for managing his site offline. With those scripts, you could compile a site and upload the resulting static HTML pages to a web server. I loved the idea, stole it, and turned it into what later became nanoc.</p>
+	<p>At some point, <a href="http://fixnum.org/">Wim Vander Schelden</a>, a friend of mine, wrote a set of Ruby scripts for managing his site offline. With those scripts, you could compile a site and upload the resulting static HTML pages to a web server. I loved the idea, stole it, and turned it into what later became nanoc.</p>
 
-		<p>The name "nanoc" used to mean "nano-CMS". However, nanoc is not much of a CMS (although it's the only way to describe what it does) and it's not exactly nano-tiny anymore either. Also, just in case you were wondering, nanoc is not related to Nanook, the master of the bears.</p>
-	</div>
+	<p>The name "nanoc" used to mean "nano-CMS". However, nanoc is not much of a CMS (although it's the only way to describe what it does) and it's not exactly nano-tiny anymore either. Also, just in case you were wondering, nanoc is not related to Nanook, the master of the bears.</p>
+</div>
 
-	<div class="section" id="similar-projects">
-		<h3><span>Similar Projects</span></h3>
+<div class="section" id="similar-projects">
+	<h3><span>Similar Projects</span></h3>
 
-		<p>There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these do: <a href="http://hobix.com/">Hobix</a>, <a href="http://rubyforge.org/projects/rakeweb/">RakeWeb</a>, <a href="http://rassmalog.rubyforge.org/">Rassmalog</a>, <a href="http://rog.rubyforge.org/">Rog</a>, <a href="http://rubyforge.org/projects/staticmatic/">StaticMatic</a>, <a href="http://staticweb.rubyforge.org/">StaticWeb</a>, <a href="http://webby.rubyforge.org/">Webby</a>, <a href="http://webgen.rubyforge.org/">webgen</a>, <a href="http://yurtcms.roberthahn.ca/">Yurt CMS</a>, or <a href="http://www.zenspider.com/ZSS/Products/ZenWeb/">ZenWeb</a>.</p>
-	</div>
+	<p>There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these do: <a href="http://hobix.com/">Hobix</a>, <a href="http://rubyforge.org/projects/rakeweb/">RakeWeb</a>, <a href="http://rassmalog.rubyforge.org/">Rassmalog</a>, <a href="http://rog.rubyforge.org/">Rog</a>, <a href="http://rubyforge.org/projects/staticmatic/">StaticMatic</a>, <a href="http://staticweb.rubyforge.org/">StaticWeb</a>, <a href="http://webby.rubyforge.org/">Webby</a>, <a href="http://webgen.rubyforge.org/">webgen</a>, <a href="http://yurtcms.roberthahn.ca/">Yurt CMS</a>, or <a href="http://www.zenspider.com/ZSS/Products/ZenWeb/">ZenWeb</a>.</p>
+</div>
 
-	<div class="section" id="advantage-1-fast">
-		<h3><span>Advantage #1: Fast</span></h3>
+<div class="section" id="advantage-1-fast">
+	<h3><span>Advantage #1: Fast</span></h3>
 
-		<p>The main reason why nanoc was created, is to reduce the server load and improve page load times. After all, nothing gets served faster than a page static HTML page.</p>
+	<p>The main reason why nanoc was created, is to reduce the server load and improve page load times. After all, nothing gets served faster than a page static HTML page.</p>
 
-		<p>Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor's browser. Caching helps quite a bit, but not all CMSes do that.</p>
+	<p>Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor's browser. Caching helps quite a bit, but not all CMSes do that.</p>
 
-		<p>nanoc goes a step further than caching, and generates static files right away (you could call it "extreme caching" if you are so inclined). Using static files is not only fast&mdash;it also allows web servers to send <code>Last-Modified</code> etc. headers to the client, allowing the client to cache pages much more efficiently.</p>
-	</div>
+	<p>nanoc goes a step further than caching, and generates static files right away (you could call it "extreme caching" if you are so inclined). Using static files is not only fast&mdash;it also allows web servers to send <code>Last-Modified</code> etc. headers to the client, allowing the client to cache pages much more efficiently.</p>
+</div>
 
-	<div class="section" id="advantage-2-secure">
-		<h3><span>Advantage #2: Secure</span></h3>
+<div class="section" id="advantage-2-secure">
+	<h3><span>Advantage #2: Secure</span></h3>
 
-		<p>It wasn't a design goal, but it turns out that nanoc makes web pages a lot more secure.</p>
+	<p>It wasn't a design goal, but it turns out that nanoc makes web pages a lot more secure.</p>
 
-		<p>Because nanoc does not run on the server itself, there is no way to exploit nanoc or Ruby, one way or another, in order to hack the site. Most CMSes do run on the server, which makes them a target for attacks.</p>
+	<p>Because nanoc does not run on the server itself, there is no way to exploit nanoc or Ruby, one way or another, in order to hack the site. Most CMSes do run on the server, which makes them a target for attacks.</p>
 
-		<p>Using nanoc is not a guarantee that your site will be unhackable, though. If your FTP account has a weak password, then you're asking for trouble. What I'm saying is that nanoc can't be blamed. :)</p>
-	</div>
+	<p>Using nanoc is not a guarantee that your site will be unhackable, though. If your FTP account has a weak password, then you're asking for trouble. What I'm saying is that nanoc can't be blamed. :)</p>
+</div>
 
-	<div class="section" id="advantage-3-previewable">
-		<h3><span>Advantage #3: Previewable</span></h3>
+<div class="section" id="advantage-3-previewable">
+	<h3><span>Advantage #3: Previewable</span></h3>
 
-		<p>nanoc takes the pressure off going live.</p>
+	<p>nanoc takes the pressure off going live.</p>
 
-		<p>When making changes to a live site, there is always the possibility that something will go wrong. Perhaps a typo in a SQL statement, a <code>div</code> that wasn't closed, etc. Whatever the reason is, visitors will temporarily see a site that is broken in some way.</p>
+	<p>When making changes to a live site, there is always the possibility that something will go wrong. Perhaps a typo in a SQL statement, a <code>div</code> that wasn't closed, etc. Whatever the reason is, visitors will temporarily see a site that is broken in some way.</p>
 
-		<p>When nanoc compiles a site, the compiled site goes into the <span class="path">output</span> directory on the local computer. You can check every single page to make sure their contents are correct before uploading the site to the live server. That way, you're sure that nothing ever breaks.</p>
-	</div>
+	<p>When nanoc compiles a site, the compiled site goes into the <span class="path">output</span> directory on the local computer. You can check every single page to make sure their contents are correct before uploading the site to the live server. That way, you're sure that nothing ever breaks.</p>
+</div>
 
-	<div class="section" id="advantage-4-versionable">
-		<h3><span>Advantage #4: Versionable</span></h3>
+<div class="section" id="advantage-4-versionable">
+	<h3><span>Advantage #4: Versionable</span></h3>
 
-		<p>The source files for a nanoc site are stored as flat text files by default. This means that you can easily store the site in a versioned repository (Subversion, Mercurial, git, darcs, Bazaar, etc.).</p>
+	<p>The source files for a nanoc site are stored as flat text files by default. This means that you can easily store the site in a versioned repository (Subversion, Mercurial, git, darcs, Bazaar, etc.).</p>
 
-		<p>Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way. In fact, they're available from the nanoc repository. Check the <a href="/development/">Development</a> page for details.</p>
-	</div>
+	<p>Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way. In fact, they're available from the nanoc repository. Check the <a href="/development/">Development</a> page for details.</p>
+</div>
 
-	<div class="section" id="advantage-5-flexible">
-		<h3><span>Advantage #5: Flexible</span></h3>
+<div class="section" id="advantage-5-flexible">
+	<h3><span>Advantage #5: Flexible</span></h3>
 
-		<p>A page in a nanoc site can have arbitrary metadata associated with it. This makes it quite easy to define custom page types. For example, you could create a blog post by setting the <code>kind</code> attribute to <samp>article</samp>, and then fetch all articles through <code>@pages.select { |p| p.kind == 'article' }</code>. You can give a blog post tags, or you can give it an excerpt. Or, perhaps set <code>excerpt_length</code> and let nanoc generate the excerpt for you by taking a substring of the page content.</p>
+	<p>A page in a nanoc site can have arbitrary metadata associated with it. This makes it quite easy to define custom page types. For example, you could create a blog post by setting the <code>kind</code> attribute to <samp>article</samp>, and then fetch all articles through <code>@pages.select { |p| p.kind == 'article' }</code>. You can give a blog post tags, or you can give it an excerpt. Or, perhaps set <code>excerpt_length</code> and let nanoc generate the excerpt for you by taking a substring of the page content.</p>
 
-		<p>It is also possible to add custom code to a nanoc site. Simply create a Ruby file in the <span class="path">lib</span> directory, put a function in there, and it'll be available when the site gets compiled. For example, this nanoc site has a <code>toc_for(page)</code> function for automatically generating the table of contents on the manual page.</p>
-	</div>
+	<p>It is also possible to add custom code to a nanoc site. Simply create a Ruby file in the <span class="path">lib</span> directory, put a function in there, and it'll be available when the site gets compiled. For example, this nanoc site has a <code>toc_for(page)</code> function for automatically generating the table of contents on the manual page.</p>
 </div>

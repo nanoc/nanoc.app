@@ -193,9 +193,33 @@ html>body {
 }
 
 #intro p {
+	margin: 1.2em 0;
+
 	font-size: 1.2em;
 
 	line-height: 1.5em;
+}
+
+#intro strong {
+	font-size: 0.9em;
+
+	text-transform: uppercase;
+
+	margin-right: 0.5em;
+
+	color: #c40023;
+}
+
+/** slideshow */
+
+#slideshow {
+	margin: 3.6em -10px 3.6em -10px;
+
+	border: 10px solid #ccc;
+}
+
+#slideshow img {
+	display: block;
 }
 
 /** features */
@@ -206,6 +230,7 @@ html>body {
 
 #features .feature {
 	width: 21.6em;
+	height: 19.8em;
 
 	float: left;
 
@@ -282,9 +307,25 @@ html>body {
 	padding: 0 6.0em;
 }
 
+#content p.meta {
+	color: #999;
+
+	letter-spacing: 1px;
+
+	text-transform: uppercase;
+}
+
+#content p.meta span {
+	font-size: 85%;
+}
+
 #content dl {
 	margin: 1.8em 0 0 0;
 	padding: 0 7.2em;
+}
+
+#content dl.nested dt {
+	font-weight: bold;
 }
 
 #content dt,
@@ -298,13 +339,18 @@ html>body {
 	margin: 0 0 1.5em 3em;
 }
 
-#content ul,
-#content ol {
+#content ul {
 	margin: 1.8em 0 0 0;
 	padding: 0 7.2em;
 }
 
-#content ul ul {
+#content ol {
+	margin: 1.8em 0 0 0;
+	padding: 0 9.0em;
+}
+
+#content ul ul,
+#content dd ul {
 	margin: 0 0 1.8em 0;
 	padding: 0;
 }
@@ -315,10 +361,24 @@ html>body {
 	line-height: 1.5em;
 
 	list-style-position: inside;
+}
+
+#content ul li {
 	list-style-type: square;
 }
 
-#content li li {
+#content ul.large {
+	padding: 0 7.2em 0 10.5em;
+}
+
+#content ul.large li {
+	margin: 1.5em 0;
+
+	list-style-position: outside;
+}
+
+#content li li,
+#content dd li {
 	font-size: 1em;
 
 	line-height: 1.5em;
@@ -334,6 +394,12 @@ html>body {
 	font-weight: normal;
 
 	list-style-type: square;
+}
+
+#content .figure {
+	padding: 3.6em 0;
+
+	text-align: center;
 }
 
 #content q {
@@ -430,6 +496,21 @@ html>body {
 	line-height: 1.5em;
 }
 
+#content pre kbd {
+	color: #ff971e;
+}
+
+#content pre kbd .prompt {
+	color: #666;
+}
+
+#content pre kbd var {
+	color: #ffc27f;
+
+	font-size: 1em;
+	font-weight: bold;
+}
+
 #content pre .log-create {
 	font-weight: bold;
 
@@ -443,7 +524,7 @@ html>body {
 }
 
 #content pre .comment {
-	color: #4d4d4d;
+	color: #666666;
 }
 
 #content pre .value,

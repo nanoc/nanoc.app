@@ -1,0 +1,63 @@
+<div style="margin: 1.8em 0; text-align: center;">
+	<img src="/assets/images/whats-new-in-nanoc-21-small.png" alt="What's New in nanoc 2.1">
+</div>
+
+<p>Welcome to the 4th installment of What's New in nanoc 2.1. This article introduces a new feature in nanoc 2.1 named <em>Routers</em>.</p>
+
+<p>First, a word about <em>paths</em>. Every page has a path starting and ending with a slash. The root and about page's paths could be <span class="path">/</span> and <span class="path">/about/</span>, for example. A page's path depends on the way it is stored; when using the <i>filesystem</i> or <i>filesystem_combined</i> data sources, the path is determined by the directory hierarchy in the <span class="path">content</span> directory.</p>
+
+<p>Then there's a page's <em>output path</em> or <em>disk path</em>, which includes the terminating "index.html". It is the path where the compiled page will be written to. The <em>web path</em> is the disk path without the trailing "index.html", for pretty URLs. Unless you're using <code>custom_path</code> to set a custom output path, the web path is the same as the page's path.</p>
+
+<p>Speaking of pretty URLs: it is now possible to tell nanoc about the <strong>list of index filenames</strong> you want to have stripped of paths. This is quite useful when you want to generate "default.htm" files instead of "index.html" because you're running some weird web server. In the site's configuration file, simply set <code>index_filenames</code> to the list of index filenames to strip. For example:</p>
+
+<pre><samp><span class="attribute">index_filenames</span>:
+  - <span class="string">'index.htm'</span>
+  - <span class="string">'index.html'</span>
+  - <span class="string">'default.htm'</span></samp></pre>
+
+<p>If you want to generate "default.htm" instead of "index.html" files by default, simply set the filename and extension in the global metadata file. You could already do this with nanoc 2.0, but I'll repeat it because it's relevant. Here's an example of what the global <span class="path">meta.yaml</span> could look like:</p>
+
+<pre><samp><span class="comment"># Built-in</span>
+<span class="attribute">filename</span>:  <span class="string">'default'</span>
+<span class="attribute">extension</span>: <span class="string">'htm'</span>
+...
+
+<span class="comment"># Custom</span>
+...</samp></pre>
+
+<p>With the list of index filenames including "default.htm", a page with path <span class="path">/foo/</span> will now have a web path <span class="path">/foo/</span> instead of <span class="path">/foo/default.htm</span>. Pretty.</p>
+
+<p>So&hellip; <em>routers</em>. Before 2.1, a page's web path was always the same as the page path. A page with path <span class="path">/about/</span> would be written to <span class="path">/about/index.html</span>, for example. <strong>Routers allow paths to be rewritten</strong>; the hierarchy of pages in <span class="path">output</span> can, in fact, be entirely different.</p>
+
+<p>I'd like to show you what a router looks like, but unfortunately that would require me to explain a new feature of nanoc 2.1 called <em>multiple representations</em>, which I'm going to discuss in a future installment. So, what I'm going to do is show fake, non-functional code which should never, ever be used. For illustrative purposes only, mkay?</p>
+
+<p>The default router could, <em>hypothetically</em>, look like this:</p>
+
+<pre><samp><span class="keyword">class</span> <span class="storage">Default</span> &lt; <span class="storage">Nanoc</span>::<span class="storage">Router</span>
+
+  <span class="function">identifier</span> <span class="symbol">:default</span>
+
+  <span class="keyword">def</span> <span class="function">path_for_page</span>(<span class="variable">page</span>)
+    <span class="comment"># Get data we need</span>
+    <span class="variable">filename</span>   = <span class="variable">page</span>.<span class="function">attribute_named</span>(<span class="symbol">:filename</span>)
+    <span class="variable">extension</span>  = <span class="variable">page</span>.<span class="function">attribute_named</span>(<span class="symbol">:extension</span>)
+    <span class="variable">path</span>       = <span class="variable">page</span>.<span class="function">path</span>
+
+    <span class="comment"># Build path</span>
+    <span class="variable">path</span> + <span class="variable">filename</span> + <span class="string">'.'</span> + <span class="variable">extension</span>
+  <span class="keyword">end</span>
+
+<span class="keyword">end</span></samp></pre>
+
+<p>What this router does, is quite straightforward. When asking the router for the (disk) path for a given page, it simply returns the path with the filename and extension appended to it. Nothing special. (<em>But remember that it's a fake router and won't work!</em>)</p>
+
+<p>At this point, routers may not seem very useful yet, but they play a larger role with multiple representations. You'll see soon. There are a few useful things you can do with routers already, though:</p>
+
+<ul class="large">
+	<li>Write a router that changes the paths of journal articles to something like <span class="path">/blog/year/month/day/title</span>, without having to store pages this way (because storing pages hierarchically like this will require a lot of directories, which isn't too pretty). Simply store articles like <span class="path">/blog/year/title</span> and have a router clean up those paths.</li>
+	<li>When building a site in multiple languages, it's best to keep a page's different languages close together, e.g. <span class="path">/foo/bar/en/</span> and <span class="path">/foo/bar/fr/</span>. When changing a page in one language, it's easy to change the page's other languages because they're close. With routers it's easy to rewrite the paths so the language appears at the beginning, e.g. <span class="path">/en/foo/bar/</span> and <span class="path">/fr/foo/bar/</span>, respectively.</li>
+</ul>
+
+<p>Again, I do realise that not being able to show what a router <em>really</em> looks like (with example code) is annoying, but that'll all be fixed once I start talking about multiple representations. Don't worry.</p>
+
+<p>The next installment will discuss perhaps the two biggest new features new in 2.1, <em>asset compilation</em> and <em>multiple representations</em>. Stay tuned!</p>
