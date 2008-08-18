@@ -419,6 +419,65 @@ html>body {
 	padding: 0.2em;
 }
 
+/** content - pagination */
+
+#content .pagination {
+	margin: 20px 0;
+
+	text-align: center;
+}
+
+#content .pagination .step {
+	padding: 0 5px;
+
+	line-height: 20px;
+
+	font-size: 20px;
+}
+
+#content .pagination ul {
+	margin: 0;
+	padding: 0;
+
+	display: inline;
+}
+
+#content .pagination li {
+	margin: 0 3px;
+
+	font-weight: bold;
+
+	display: inline;
+}
+
+#content .pagination li.active span {
+	padding: 3px 5px;
+
+	background: #c40023;
+
+	color: #fff;
+
+	border: 1px solid #fff;
+}
+
+#content .pagination a {
+	background: none;
+}
+
+#content .pagination a.step {
+	padding: 0 5px;
+}
+
+#content .pagination a.page {
+	padding: 3px 5px;
+
+	border: 1px solid #eee;
+}
+
+#content .pagination a.page:hover {
+	border: 1px solid #c40023;
+}
+
 /** content - toc */
 
 #content ol#toc {

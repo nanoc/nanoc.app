@@ -1,0 +1,25 @@
+<h2><span>Blog Archive (page <%= @page_id+1 %>)</span></h2>
+
+<!-- pagination -->
+<%= render 'pagination', :page_size => @page_size, :page_id => @page_id, :root => '/blog' %>
+
+<% sorted_articles.slice(@page_id*@page_size, @page_size).each do |article| %>
+	<!-- article section -->
+	<div class="section" id="blog-<%= article.created_at.localtime.format_as_date_id %>">
+		<!-- title -->
+		<% if article.title? %>
+			<h3><span><%=h article.title %></span></h3>
+		<% else %>
+			<h3><span><%= article.created_at.localtime.format_as_date %></span></h3>
+		<% end %>
+
+		<!-- meta -->
+		<p class="meta"><span>Written <%= article.created_at.localtime.format_as_date %>. [<%= link_to 'permalink', article %>]</span></p>
+
+		<!-- content -->
+		<%= article.content %>
+	</div>
+<% end %>
+
+<!-- pagination -->
+<%= render 'pagination', :page_size => @page_size, :page_id => @page_id, :root => '/blog' %>

@@ -1,0 +1,38 @@
+<%
+
+# Determine number of pagination pages
+article_count = sorted_articles.size
+page_count = article_count / @page_size + (article_count % @page_size == 0 ? 0 : 1) 
+
+# Get human page ID (not starting with 0)
+human_page_id = @page_id+1
+
+%>
+
+<!-- pagination -->
+<div class="pagination">
+	<!-- prev -->
+	<% if human_page_id != 1 %>
+		<span class="step"><a href="<%= @root %>/<%= human_page_id-1 %>">&laquo;</a></span>
+	<% else %>
+		<span class="step">&laquo;</span>
+	<% end %>
+
+	<!-- list of pages -->
+	<ul>
+		<% page_count.times do |i| %>
+			<% if i == @page_id %>
+				<li class="active"><span><%= i+1 %></span></li>
+			<% else %>
+				<li><a class="page" href="<%= @root %>/<%= i+1 %>"><%= i+1 %></a></li>
+			<% end %>
+		<% end %>
+	</ul>
+
+	<!-- next -->
+	<% if human_page_id != page_count %>
+		<span class="step"><a href="<%= @root %>/<%= human_page_id+1 %>">&raquo;</a></span>
+	<% else %>
+		<span class="step">&raquo;</span>
+	<% end %>
+</div>

@@ -3,5 +3,5 @@ binary:       false
 filters:      []
 
 # Custom
-version:      "7"
+version:      "8"
 asset_id:     "style"
