@@ -13,7 +13,7 @@ human_page_id = @page_id+1
 <div class="pagination">
 	<!-- prev -->
 	<% if human_page_id != 1 %>
-		<span class="step"><a href="<%= @root %>/<%= human_page_id-1 %>">&laquo;</a></span>
+		<span class="step"><a href="<%= @root %>/<%= human_page_id-1 %>/">&laquo;</a></span>
 	<% else %>
 		<span class="step">&laquo;</span>
 	<% end %>
@@ -24,14 +24,14 @@ human_page_id = @page_id+1
 			<% if i == @page_id %>
 				<li class="active"><span><%= i+1 %></span></li>
 			<% else %>
-				<li><a class="page" href="<%= @root %>/<%= i+1 %>"><%= i+1 %></a></li>
+				<li><a class="page" href="<%= @root %>/<%= i+1 %>/"><%= i+1 %></a></li>
 			<% end %>
 		<% end %>
 	</ul>
 
 	<!-- next -->
 	<% if human_page_id != page_count %>
-		<span class="step"><a href="<%= @root %>/<%= human_page_id+1 %>">&raquo;</a></span>
+		<span class="step"><a href="<%= @root %>/<%= human_page_id+1 %>/">&raquo;</a></span>
 	<% else %>
 		<span class="step">&raquo;</span>
 	<% end %>

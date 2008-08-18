@@ -21,7 +21,7 @@ task :paginate do
     pagination_page = Nanoc::Page.new(
       "<%= render 'pagination_page', :page_size => #{page_size}, :page_id => #{i} %>",
       { :title => "Blog - Archive (#{i+1})" },
-      "/blog/#{i+1}"
+      "/blog/#{i+1}/"
     )
 
     # Create reps and add to site
