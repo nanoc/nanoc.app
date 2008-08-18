@@ -422,7 +422,9 @@ html>body {
 /** content - pagination */
 
 #content .pagination {
-	margin: 20px 0;
+	margin: 18px 0;
+
+	height: 18px;
 
 	text-align: center;
 }
@@ -430,7 +432,7 @@ html>body {
 #content .pagination .step {
 	padding: 0 5px;
 
-	line-height: 20px;
+	line-height: 18px;
 
 	font-size: 20px;
 }
@@ -444,6 +446,7 @@ html>body {
 
 #content .pagination li {
 	margin: 0 3px;
+	padding: 0;
 
 	font-weight: bold;
 
