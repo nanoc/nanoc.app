@@ -4,22 +4,22 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 		<!-- title -->
-<% if @page.title? %>
-		<title><%= @page.has_full_title? ? @page.title : 'nanoc &raquo; ' + @page.title %></title>
-<% else %>
-		<title>nanoc &raquo; Blog &raquo; <%= @page.created_at.localtime.format_as_date %></title>
-<% end %>
+		<% if @page.title? %>
+			<title><%= @page.has_full_title? ? @page.title : 'nanoc &raquo; ' + @page.title %></title>
+		<% else %>
+			<title>nanoc &raquo; Blog &raquo; <%= @page.created_at.localtime.format_as_date %></title>
+		<% end %>
 
 		<!-- stylesheets -->
 		<link rel="stylesheet" href="<%= asset('style').path %>" type="text/css" media="screen">
-<% (@page.extra_stylesheets || []).each do |stylesheet| %>
-		<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
-<% end %>
+		<% (@page.extra_stylesheets || []).each do |stylesheet| %>
+			<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
+		<% end %>
 
 		<!-- scripts -->
-<% (@page.extra_scripts || []).each do |script| %>
-		<script type="text/javascript" src="<%=h script %>"></script>
-<% end %>
+		<% (@page.extra_scripts || []).each do |script| %>
+			<script type="text/javascript" src="<%=h script %>"></script>
+		<% end %>
 	</head>
 	<body>
 		<div id="header">
@@ -39,21 +39,28 @@
 
 		<div id="main">
 			<div id="main-inside">
-<% unless @page.raw_layout? %>
-				<div id="content">
-<% end %>
-<% if @page.kind == 'article' %>
-<% if @page.title? %>
-					<h2><span>Blog &raquo; <%=h @page.title %></span></h2>
-<% else %>
-					<h2><span>Blog &raquo; <%= @page.created_at.localtime.format_as_date %></span></h2>
-<% end %>
+				<% unless @page.raw_layout? %>
+					<div id="content">
+				<% end %>
+
+				<% if @page.kind == 'article' %>
+					<!-- title -->
+					<% if @page.title? %>
+						<h2><span>Blog &raquo; <%=h @page.title %></span></h2>
+					<% else %>
+						<h2><span>Blog &raquo; <%= @page.created_at.localtime.format_as_date %></span></h2>
+					<% end %>
+
+					<!-- meta -->
 					<p class="meta"><span>Written <%= @page.created_at.localtime.format_as_date %>.</span></p>
-<% end %>
-<%= @page.content %>
-<% unless @page.raw_layout? %>
-				</div>
-<% end %>
+				<% end %>
+
+				<!-- content -->
+				<%= @page.content %>
+
+				<% unless @page.raw_layout? %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 
