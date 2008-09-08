@@ -1,5 +1,4 @@
-Dir['tasks/**/*.rake'].sort.each { |rakefile| load rakefile }
+begin ; require 'rubygems' ; rescue LoadError ; end
+require 'nanoc'
 
-task :default do
-  puts 'This is an example rake task.'
-end
+Dir['tasks/**/*.rake'].sort.each { |rakefile| load rakefile }

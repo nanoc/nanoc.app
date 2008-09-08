@@ -1,6 +1,3 @@
-begin ; require 'rubygems' ; rescue LoadError ; end
-require 'nanoc'
-
 desc 'removes all generated output files from the output directory'
 task :clean do
   # Load site

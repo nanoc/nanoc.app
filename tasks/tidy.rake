@@ -1,7 +1,6 @@
-require 'rubygems'
-require 'tidy'
-
 task :tidy do
+  require 'tidy'
+
   puts '===== TIDYING'
 
   # config
