@@ -95,7 +95,7 @@ Site compiled in 0.00s.</samp></pre>
 
 	<p>The pages in a nanoc site are stored in the <span class="path">content</span> directory. Currently, that directory has only two files: <span class="path">content.html</span> and <span class="path">content.yaml</span>. These two files together form the home page. The file ending with <span class="path">.yaml</span> contain the page's attributes (or metadata, or properties, or whatever you want to call it), while the other file contains the actual page content. This may sound confusing, but it'll make more sense once more pages are added to the site. Patience, young padawan.</p>
 
-	<p>Let's change the content of the home page. Open <span class="path">content.txt</span> and add a paragraph somewhere in the file. I recommend something like this:</p>
+	<p>Let's change the content of the home page. Open <span class="path">content.html</span> and add a paragraph somewhere in the file. I recommend something like this:</p>
 
 	<pre><code>&lt;<span class="element">p</span>&gt;This is a brand new paragraph which I've just inserted into this file!
 Gosh, I can barely control my excitement!&lt;/<span class="element">p</span>&gt;</code></pre>
@@ -208,7 +208,7 @@ Site compiled in 0.00s.</samp></pre>
 
 	<p>You don't have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we'll use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to avoid having to write HTML. nanoc calls these text transformations <em>filters</em>.</p>
 
-	<p>Let's get rid of the contents of the home page and replace it with some Markdown-formatted text. Open <span class="path">content/content.txt</span> and put this in instead:</p>
+	<p>Let's get rid of the contents of the home page and replace it with some Markdown-formatted text. Open <span class="path">content/content.html</span> and put this in instead:</p>
 
 	<pre><code>A First Level Header
 ====================
