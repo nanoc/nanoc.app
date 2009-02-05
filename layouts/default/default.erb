@@ -16,6 +16,9 @@
 			<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
 		<% end %>
 
+		<!-- feed -->
+		<link rel="alternate" type="application/atom+xml" title="nanoc news" href="http://feeds.feedburner.com/nanoc">
+
 		<!-- scripts -->
 		<% (@page.extra_scripts || []).each do |script| %>
 			<script type="text/javascript" src="<%=h script %>"></script>
