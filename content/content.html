@@ -7,6 +7,13 @@
 	<p><strong>Latest news article:</strong> <%= link_to(sorted_articles.first.title, sorted_articles.first) %> (posted <%= sorted_articles.first.created_at.localtime.format_as_date %>).</p>
 </div>
 
+<ul id="intro-links">
+	<li><a href="/help/tutorial/">Tutorial</a></li>
+	<li><a href="/help/manual/">Manual</a></li>
+	<li><a href="irc://chat.freenode.net/#nanoc">IRC channel</a></li>
+	<li><a href="http://groups.google.com/group/nanoc">Discussion group</a></li>
+</ul>
+
 <div id="slideshow">
 	<img src="/assets/images/slideshow/0.png" id="slideshow-image" alt="Slideshow image 1">
 </div>

@@ -210,6 +210,24 @@ html>body {
 	color: #c40023;
 }
 
+/** intro links */
+
+#intro-links {
+	margin: 0.6em 0;
+
+	text-align: center;
+}
+
+#intro-links li {
+	font-size: 1.2em;
+
+	line-height: 1.5em;
+
+	display: inline;
+
+	margin: 0 1em;
+}
+
 /** slideshow */
 
 #slideshow {
