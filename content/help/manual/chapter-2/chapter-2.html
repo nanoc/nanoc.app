@@ -406,7 +406,7 @@ options:
 
 	<p>nanoc comes with a handful of useful helpers which provide methods that can be called in pages and layouts.</p>
 
-	<p>These helpers have to be activated manually, except for the <code>HTMLEscape</code> and <code>Render</code> helpers, which are activated by default for backward compatibility reasons. To activate a helper, <code>include</code> it, like this:</p>
+	<p>These helpers have to be activated manually, except for the <code>HTMLEscape</code> and <code>Render</code> helpers, which are activated by default for backward compatibility reasons. To activate a helper, <code>include</code> it in a file in the <span class="path">lib</span> directory (I personally like <span class="path">lib/helpers.rb</span>), like this:</p>
 
 	<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Helpers</span>::<span class="storage">Blogging</span></code></pre>
 
