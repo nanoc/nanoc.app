@@ -232,6 +232,15 @@ options:
 			<dt><var>@pages</var></dt>
 			<dd>The list of all pages, including ones that have not yet been compiled.</dd>
 
+			<dt><var>@asset_rep</var></dt>
+			<dd>The asset representation that is currently being compiled.</dd>
+
+			<dt><var>@asset</var></dt>
+			<dd>The asset that is currently being compiled.</dd>
+
+			<dt><var>@layout</var></dt>
+			<dd>The layout that is currently being used in the layout phase.</dd>
+
 			<dt><var>@assets</var></dt>
 			<dd>The list of all assets, including ones that have not yet been compiled.</dd>
 
@@ -376,6 +385,9 @@ options:
 			<dt><code>maruku</code></dt>
 			<dd>for <a href="http://daringfireball.net/projects/markdown/">Markdown</a> (uses <a href="http://maruku.rubyforge.org/">Maruku</a>)</dd>
 
+			<dt><code>rainpress</code> </dt>
+			<dd>for <a href="http://code.google.com/p/rainpress/">Rainpress</a></dd>
+
 			<dt><code>rdoc</code> </dt>
 			<dd>for <a href="http://rdoc.sourceforge.net/">RDoc</a>&#8217;s Simple Markup</dd>
 
@@ -418,6 +430,9 @@ options:
 
 		<dt><code>Nanoc::Helpers::Capturing</code></dt>
 		<dd>provides functionality for capturing content and reusing it elsewhere (<a href="/help/rdoc/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
+
+		<dt><code>Nanoc::Helpers::Filtering</code></dt>
+		<dd>provides ability to filter parts of pages/assets (<a href="/help/rdoc/Nanoc/Helpers/Filtering.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::HTMLEscape</code></dt>
 		<dd>provides a HTML escaping function (<a href="/help/rdoc/Nanoc/Helpers/HTMLEscape.html">documentation</a>)</dd>
