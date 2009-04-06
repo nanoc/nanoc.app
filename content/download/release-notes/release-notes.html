@@ -1,6 +1,39 @@
 <h2><span>Release Notes</span></h2>
 
-<div class="section last" id="v2.1.6">
+<div class="section last" id="v2.2">
+	<h3><span>2.2</span></h3>
+
+	<ul class="nested">
+		<li>New features
+			<ul>
+				<li><kbd>--pages</kbd> and <kbd>--assets</kbd> compiler options</li>
+				<li><kbd>--no-color</kbd> commandline option</li>
+				<li><code>Filtering</code> helper</li>
+				<li><code>relative_path_to</code> function in <code>LinkTo</code> helper</li>
+				<li><code>Rainpress</code> filter</li>
+				<li><code>RelativizePaths</code> filter</li>
+				<li>The current layout is now accessible through the <code>@layout</code> variable</li>
+				<li>Much more informative stack traces when something goes wrong</li>
+			</ul>
+		</li>
+		<li>Changed
+			<ul>
+				<li>The commandline option parser is now a lot more reliable</li>
+				<li>atom_feed now takes optional <code>:content_proc</code>, <code>:excerpt_proc</code> and <code>:articles</code> parameters</li>
+				<li>The compile command show non-written items (those with <code>skip_output: true</code>)</li>
+				<li>The compile command compiles everything by default</li>
+				<li>Added <kbd>--only-outdated</kbd> option to compile only outdated pages</li>
+			</ul>
+		</li>
+		<li>Removed
+			<ul>
+				<li>Deprecated extension-based code</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="section" id="v2.1.6">
 	<h3><span>2.1.6</span></h3>
 
 	<ul>
