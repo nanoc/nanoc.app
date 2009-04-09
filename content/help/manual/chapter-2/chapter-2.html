@@ -376,6 +376,10 @@ options:
 			<dt><code>erubis</code></dt>
 			<dd>for embedded Ruby (uses <a href="http://www.kuwata-lab.com/erubis/">Erubis</a>)</dd>
 
+			<dt><code>relativize_paths_in_html</code></dt>
+			<dt><code>relativize_paths_in_css</code></dt>
+			<dd>see note below</dd>
+
 			<dt><code>haml</code></dt>
 			<dd>for <a href="http://haml.hamptoncatlin.com/">Haml</a></dd>
 
@@ -402,6 +406,12 @@ options:
 		</dl>
 
 		<p>The Haml filter uses the <code>haml_options</code> page rep attribute, which will be converted to a hash and passed to <code>Haml::Engine</code> when a page is filtered. Similarly, the Sass filter uses the <code>sass_options</code> attribute.</p>
+
+		<p>The <code>relativize_paths_in_html</code> and <code>relativize_paths_in_css</code> make all paths in HTML resp. CSS relative. For example, a reference from the <span class="path">/about/</span> page to the <span class="path">/journal/</span> page will become <span class="path">../journal/</span> instead of <span class="path">/journal/</span>. This filter uses the <a href="/help/doc/2.2.0/Nanoc/Helpers/LinkTo.html">LinkTo helper</a>'s <code>relative_path_to</code> function.</p>
+
+		<p>The <code>relativize_paths_in_html</code> filter makes all paths in HTML relative. It relativizes all paths in <code>src=""</code> and <code>href=""</code> attributes. For example, a <code>&lt;a href="/journal/">journal&lt;/a><code> link on the <span class="path">/about/</span> page will become <code>&lt;a href="../journal/">journal&lt;/a><code>.</p>
+
+		<p>The <code>relativize_paths_in_css</code> filter makes all paths in CSS relative. It relativizes all paths in <code>url()</code> properties. For example, <code>url(/assets/images/foo.png)</code> on the <span class="path">/assets/style/screen.css</span> file will be turned into <code>url(../images/foo.png)</code>.</p>
 	</div>
 </div>
 
