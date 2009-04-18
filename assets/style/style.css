@@ -187,7 +187,7 @@ html>body {
 /** intro */
 
 #intro {
-	margin: 3.6em auto;
+	margin: 1.8em auto;
 
 	width: 72em;
 }
@@ -213,7 +213,7 @@ html>body {
 /** intro links */
 
 #intro-links {
-	margin: 0.6em 0;
+	margin: 1.8em 0;
 
 	text-align: center;
 }
@@ -228,10 +228,18 @@ html>body {
 	margin: 0 1em;
 }
 
+/** donate button */
+
+#donate-button {
+	margin: 1.8em 0;
+
+	text-align: center;
+}
+
 /** slideshow */
 
 #slideshow {
-	margin: 3.6em -10px 3.6em -10px;
+	margin: 1.8em -10px 3.6em -10px;
 
 	border: 10px solid #ccc;
 }
