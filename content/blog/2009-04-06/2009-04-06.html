@@ -12,13 +12,13 @@
 
 <p>When laying out a page, the current layout is accessible through the <strong>new <code>@layout</code> variable</strong>.</p>
 
-<p>The Blogging helper's <code>atom_feed</code> method now takes <strong>new <code>:content_proc</code>, <code>:excerpt_proc</code> and <code>:articles</code> parameters</strong>. This allows atom feeds to be constructed with a custom set of articles, or atom feeds where the excerpt is automatically generated based on the content, etc. See the <a href="http://nanoc.stoneship.org/help/doc/2.2.0/Nanoc/Helpers/Blogging.html">Blogging helper documentation</a> for more information.</p>
+<p>The Blogging helper's <code>atom_feed</code> method now takes <strong>new <code>:content_proc</code>, <code>:excerpt_proc</code> and <code>:articles</code> parameters</strong>. This allows atom feeds to be constructed with a custom set of articles, or atom feeds where the excerpt is automatically generated based on the content, etc. See the <a href="http://nanoc.stoneship.org/help/doc/2.2.1/Nanoc/Helpers/Blogging.html">Blogging helper documentation</a> for more information.</p>
 
 <p>There is a <strong>new Rainpress filter</strong>, which compresses CSS using the <a href="http://code.google.com/p/rainpress/">Rainpress</a> library.</p>
 
 <p>The LinkTo helper has a <strong>new <code>relative_path_to</code> function</strong>, which generates a relative path to the given page/asset or path. This may not be very useful by itself, but the <strong>new RelativizePaths filter</strong>, which makes all paths in all HTML and CSS files relative, should be quite useful for those who want to deploy their site in subdirectory instead of at the root of a web site.</p>
 
-<p>Last, but not least, the <strong>new Filtering helper</strong> allows parts of a page to be filtered. Check out the <a href="http://nanoc.stoneship.org/help/doc/2.2.0/Nanoc/Helpers/Filtering.html">Filtering helper documentation</a> for details. Here's an example of how it could be used:</p>
+<p>Last, but not least, the <strong>new Filtering helper</strong> allows parts of a page to be filtered. Check out the <a href="http://nanoc.stoneship.org/help/doc/2.2.1/Nanoc/Helpers/Filtering.html">Filtering helper documentation</a> for details. Here's an example of how it could be used:</p>
 
 <pre><code>&lt;% <span class="function">filter</span> <span class="symbol">:rubypants</span> <span class="keyword">do</span> %>
   Here's some text...

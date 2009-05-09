@@ -4,7 +4,7 @@
 
 <p>nanoc is quite customizable. Apart from being able to write arbitrary code that is executed before a site is compiled, it is also possible to write custom (binary) filters, data sources and routers.</p>
 
-<p>There is also the <a href="http://nanoc.stoneship.org/help/doc/2.2.0/">source code documentation for nanoc 2.2.0</a> which may be useful in certain cases.</p>
+<p>There is also the <a href="http://nanoc.stoneship.org/help/doc/2.2.1/">source code documentation for nanoc 2.2.0</a> which may be useful in certain cases.</p>
 
 <div class="section" id="writing-data-sources">
 	<h3><span>Writing Data Sources</span></h3>
@@ -170,7 +170,7 @@
 <div class="section" id="writing-routers">
 	<h3><span>Writing Routers</span></h3>
 
-	<p>Routers inherit from <code>Nanoc::Router</code> and must implement the <code>path_for_page_rep</code> and <code>path_for_asset_rep</code> methods. The former takes a page representation (<code>Nanoc::PageRep</code>) as an argument while the second takes an asset representation (<code>Nanoc::AssetRep</code>). The methods should return the output path of the given representation, starting with a slash representing the web root. Also see the <a href="/help/doc/2.2.0/Nanoc/Router.html">RDoc documentation for <code>Nanoc::Router</code></a>.</p>
+	<p>Routers inherit from <code>Nanoc::Router</code> and must implement the <code>path_for_page_rep</code> and <code>path_for_asset_rep</code> methods. The former takes a page representation (<code>Nanoc::PageRep</code>) as an argument while the second takes an asset representation (<code>Nanoc::AssetRep</code>). The methods should return the output path of the given representation, starting with a slash representing the web root. Also see the <a href="/help/doc/2.2.1/Nanoc/Router.html">RDoc documentation for <code>Nanoc::Router</code></a>.</p>
 
 	<p>For example, this is the default router's implementation of <code>path_for_asset_rep</code>:</p>
 

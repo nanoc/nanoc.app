@@ -407,7 +407,7 @@ options:
 
 		<p>The Haml filter uses the <code>haml_options</code> page rep attribute, which will be converted to a hash and passed to <code>Haml::Engine</code> when a page is filtered. Similarly, the Sass filter uses the <code>sass_options</code> attribute.</p>
 
-		<p>The <code>relativize_paths_in_html</code> and <code>relativize_paths_in_css</code> make all paths in HTML resp. CSS relative. For example, a reference from the <span class="path">/about/</span> page to the <span class="path">/journal/</span> page will become <span class="path">../journal/</span> instead of <span class="path">/journal/</span>. This filter uses the <a href="/help/doc/2.2.0/Nanoc/Helpers/LinkTo.html">LinkTo helper</a>'s <code>relative_path_to</code> function.</p>
+		<p>The <code>relativize_paths_in_html</code> and <code>relativize_paths_in_css</code> make all paths in HTML resp. CSS relative. For example, a reference from the <span class="path">/about/</span> page to the <span class="path">/journal/</span> page will become <span class="path">../journal/</span> instead of <span class="path">/journal/</span>. This filter uses the <a href="/help/doc/2.2.1/Nanoc/Helpers/LinkTo.html">LinkTo helper</a>'s <code>relative_path_to</code> function.</p>
 
 		<p>The <code>relativize_paths_in_html</code> filter makes all paths in HTML relative. It relativizes all paths in <code>src=""</code> and <code>href=""</code> attributes. For example, a <code>&lt;a href="/journal/">journal&lt;/a><code> link on the <span class="path">/about/</span> page will become <code>&lt;a href="../journal/">journal&lt;/a><code>.</p>
 
@@ -436,28 +436,28 @@ options:
 
 	<dl>
 		<dt><code>Nanoc::Helpers::Blogging</code></dt>
-		<dd>provides blogging and Atom feed features (<a href="/help/doc/2.2.0/Nanoc/Helpers/Blogging.html">documentation</a>)</dd>
+		<dd>provides blogging and Atom feed features (<a href="/help/doc/2.2.1/Nanoc/Helpers/Blogging.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Capturing</code></dt>
-		<dd>provides functionality for capturing content and reusing it elsewhere (<a href="/help/doc/2.2.0/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
+		<dd>provides functionality for capturing content and reusing it elsewhere (<a href="/help/doc/2.2.1/Nanoc/Helpers/Capturing.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Filtering</code></dt>
-		<dd>provides ability to filter parts of pages/assets (<a href="/help/doc/2.2.0/Nanoc/Helpers/Filtering.html">documentation</a>)</dd>
+		<dd>provides ability to filter parts of pages/assets (<a href="/help/doc/2.2.1/Nanoc/Helpers/Filtering.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::HTMLEscape</code></dt>
-		<dd>provides a HTML escaping function (<a href="/help/doc/2.2.0/Nanoc/Helpers/HTMLEscape.html">documentation</a>)</dd>
+		<dd>provides a HTML escaping function (<a href="/help/doc/2.2.1/Nanoc/Helpers/HTMLEscape.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::LinkTo</code></dt>
-		<dd>provides <code>link_to</code> and <code>link_to_unless_current</code> functions (<a href="/help/doc/2.2.0/Nanoc/Helpers/LinkTo.html">documentation</a>)</dd>
+		<dd>provides <code>link_to</code> and <code>link_to_unless_current</code> functions (<a href="/help/doc/2.2.1/Nanoc/Helpers/LinkTo.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Render</code></dt>
-		<dd>provides functionality for rendering layouts as partials (<a href="/help/doc/2.2.0/Nanoc/Helpers/Render.html">documentation</a>)</dd>
+		<dd>provides functionality for rendering layouts as partials (<a href="/help/doc/2.2.1/Nanoc/Helpers/Render.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::Tagging</code></dt>
-		<dd>provides functionality for printing a page's tags (<a href="/help/doc/2.2.0/Nanoc/Helpers/Tagging.html">documentation</a>)</dd>
+		<dd>provides functionality for printing a page's tags (<a href="/help/doc/2.2.1/Nanoc/Helpers/Tagging.html">documentation</a>)</dd>
 
 		<dt><code>Nanoc::Helpers::XMLSitemap</code></dt>
-		<dd>provides functionality for creating XML sitemaps (<a href="/help/doc/2.2.0/Nanoc/Helpers/XMLSitemap.html">documentation</a>)</dd>
+		<dd>provides functionality for creating XML sitemaps (<a href="/help/doc/2.2.1/Nanoc/Helpers/XMLSitemap.html">documentation</a>)</dd>
 	</dl>
 </div>
 
@@ -470,13 +470,13 @@ options:
 
 	<dl>
 		<dt><code>default</code></dt>
-		<dd>The default router creates a directory for every page. The representation name is appended to non-default reps. Assets do not get their own directory. <a href="/help/doc/2.2.0/Nanoc/Routers/Default.html">Read documentation</a>.</dd>
+		<dd>The default router creates a directory for every page. The representation name is appended to non-default reps. Assets do not get their own directory. <a href="/help/doc/2.2.1/Nanoc/Routers/Default.html">Read documentation</a>.</dd>
 
 		<dt><code>versioned</code></dt>
-		<dd>The versioned router behaves similarly to the default router, but appends a version number. <a href="/help/doc/2.2.0/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
+		<dd>The versioned router behaves similarly to the default router, but appends a version number. <a href="/help/doc/2.2.1/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
 
 		<dt><code>no_dirs</code></dt>
-		<dd>The no-dirs router does not create directories unless necessary. For example, a page with path <span class="path">/about/</span> will be written to <span class="path">/about.html</span> instead of <span class="path">/about/index.html</span>.<a href="/help/doc/2.2.0/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
+		<dd>The no-dirs router does not create directories unless necessary. For example, a page with path <span class="path">/about/</span> will be written to <span class="path">/about.html</span> instead of <span class="path">/about/index.html</span>.<a href="/help/doc/2.2.1/Nanoc/Routers/Versioned.html">Read documentation</a>.</dd>
 	</dl>
 
 	<p>See the <a href="/help/manual/chapter-3/#writing-routers">Writing Routers</a> section of Chapter 3 for information about writing custom routers.</p>
@@ -496,7 +496,7 @@ options:
 
 		<p>This manual assumes that the filesystem data source is used. The differences between the filesystem and the filesystem-combined data source are listed in the database data source section.</p>
 
-		<p>For more information, see the <a href="/help/doc/2.2.0/Nanoc/DataSources/Filesystem.html">Filesystem RDoc documentation</a>.</p>
+		<p>For more information, see the <a href="/help/doc/2.2.1/Nanoc/DataSources/Filesystem.html">Filesystem RDoc documentation</a>.</p>
 	</div>
 
 	<div class="section" id="data-sources-filesystem-combined">
@@ -511,7 +511,7 @@ options:
 -----
 h1. Hello!</code></pre>
 
-		<p>For more information, see the <a href="/help/doc/2.2.0/Nanoc/DataSources/FilesystemCombined.html">FilesystemCombined RDoc documentation</a>.</p>
+		<p>For more information, see the <a href="/help/doc/2.2.1/Nanoc/DataSources/FilesystemCombined.html">FilesystemCombined RDoc documentation</a>.</p>
 	</div>
 </div>
 
