@@ -1,0 +1,13 @@
+<p>nanoc 2.2.2 is out. This maintenance release fixes two bugs in nanoc 2.2.1.</p>
+
+<p>The first fixed bug would cause nanoc to complain about the open file limit being reached when using a site with a large amount of assets (hundreds).</p>
+
+<p>The second fixed bug would cause nanoc to slow down to a crawl and use <em>massive</em> amounts of memory when an exception occurred.</p>
+
+<p>Also, if you're still using the <code>relativize_paths</code> filter instead of the newer <code>relativize_paths_in_html</code>, you'll have to switch. <code>relativize_paths</code> is no longer available in 2.2.2</p>
+
+<p>As always, you can update your copy of nanoc by issuing the "gem update" command, like this:</p>
+
+<pre><kbd><span class="prompt">></span> sudo gem update nanoc</kbd></pre>
+
+<p>If you have any issues with this nanoc release, do let me know on the <a href="http://groups.google.com/group/nanoc/">mailinglist</a> or on the <a href="irc://chat.freenode.net/#nanoc">IRC channel</a>. Enjoy!</p>
