@@ -421,6 +421,8 @@ options:
 	<p>nanoc will load all Ruby source files in the <span class="path">lib</span> directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helper methods.</p>
 
 	<p>The <span class="path">lib/</span> is also the place where you should put site-specific filters and routers. Simply drop the Ruby source files in there, and you're set.</p>
+
+	<p>The code for custom data sources should be placed in <span class="path">lib/data_sources</span>. The code in this directory will be loaded before any other code. (This is necessary, because the data source is responsible for loading code, but it would only be able to load the code for itself once it's loaded.)</p>
 </div>
 
 <div class="section" id="helpers">
