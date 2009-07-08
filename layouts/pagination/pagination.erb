@@ -2,7 +2,7 @@
 
 # Determine number of pagination pages
 article_count = sorted_articles.size
-page_count = article_count / @item_size + (article_count % @item_size == 0 ? 0 : 1) 
+page_count = article_count / @articles_per_item + (article_count % @articles_per_item == 0 ? 0 : 1) 
 
 # Get human page ID (not starting with 0)
 human_page_id = @item_id+1

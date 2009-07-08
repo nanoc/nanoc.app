@@ -4,33 +4,37 @@ task :paginate do
   page_size = 5
 
   # Load site
-  site = Nanoc::Site.new(YAML.load_file('config.yaml'))
+  site = Nanoc3::Site.new('.')
   site.load_data
 
   # Get articles
-  articles = site.pages.select { |p| p.attribute_named(:kind) == 'article' }
-  articles.sort_by { |a| a.attribute_named(:created_at) }
+  articles = site.items.select { |i| i[:kind] == 'article' }
+  articles.sort_by { |a| Time.parse(a[:created_at]) }
 
   # Paginate articles
-  page_groups = []
-  page_groups << articles.slice!(0..page_size-1) until articles.empty?
+  article_groups = []
+  article_groups << articles.slice!(0..page_size-1) until articles.empty?
 
-  # Create temporary pages
-  page_groups.each_with_index do |pages, i|
+  # Create temporary items
+  pagination_items = []
+  article_groups.each_with_index do |articles, i|
     # Create page
-    pagination_page = Nanoc::Page.new(
-      "<%= render 'pagination_page', :page_size => #{page_size}, :page_id => #{i} %>",
+    pagination_item = Nanoc3::Item.new(
+      "<%= render 'pagination_page', :articles_per_item => #{page_size}, :item_id => #{i} %>",
       { :title => "Blog - Archive (#{i+1})" },
       "/blog/#{i+1}/"
     )
 
     # Create reps and add to site
-    pagination_page.site = site
-    pagination_page.build_reps
-    site.pages << pagination_page
-
-    # Compile page
-    site.compiler.run([pagination_page])
+    pagination_item.site = site
+    site.items << pagination_item
+    pagination_items << pagination_item
   end
 
+  # Prepare new items
+  site.send :build_reps
+  site.send :route_reps
+
+  # Compile pagination items
+  site.compiler.run(nil, :force => true)
 end

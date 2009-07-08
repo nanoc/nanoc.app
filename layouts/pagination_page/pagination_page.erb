@@ -1,25 +1,25 @@
 <h2><span>Blog Archive</span></h2>
 
 <!-- pagination -->
-<%= render 'pagination', :page_size => @item_size, :page_id => @item_id, :root => '/blog' %>
+<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/blog' %>
 
-<% sorted_articles.slice(@item_id*@item_size, @item_size).each do |article| %>
+<% sorted_articles.slice(@item_id*@articles_per_item, @articles_per_item).each do |article| %>
 	<!-- article section -->
 	<div class="section" id="blog-<%= Time.parse(article[:created_at]).localtime.format_as_date_id %>">
 		<!-- title -->
-		<% if article[:title]? %>
+		<% if article[:title] %>
 			<h3><span><%=h article[:title] %></span></h3>
 		<% else %>
 			<h3><span><%= Time.parse(article[:created_at]).localtime.format_as_date %></span></h3>
 		<% end %>
 
 		<!-- meta -->
-		<p class="meta"><span>Written <%= Time.parse(article[:created_at]).localtime.format_as_date %>. [<%= link_to 'permalink', article %>]</span></p>
+		<p class="meta"><span>Written <%= Time.parse(article[:created_at]).localtime.format_as_date %>. [<%= link_to 'permalink', article.reps[0] %>]</span></p>
 
 		<!-- content -->
-		<%= article.content %>
+		<%= article.reps[0].content_at_snapshot(:pre) %>
 	</div>
 <% end %>
 
 <!-- pagination -->
-<%= render 'pagination', :page_size => @item_size, :page_id => @item_id, :root => '/blog' %>
+<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/blog' %>

@@ -1,4 +1,3 @@
-begin ; require 'rubygems' ; rescue LoadError ; end
-require 'nanoc'
+require 'nanoc3/tasks'
 
 Dir['tasks/**/*.rake'].sort.each { |rakefile| load rakefile }
