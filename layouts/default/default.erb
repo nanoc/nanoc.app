@@ -4,15 +4,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 		<!-- title -->
-		<% if @page.title? %>
-			<title><%= @page.has_full_title? ? @page.title : 'nanoc &raquo; ' + @page.title %></title>
+		<% if @item[:title] %>
+			<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
 		<% else %>
-			<title>nanoc &raquo; Blog &raquo; <%= @page.created_at.localtime.format_as_date %></title>
+			<title>nanoc &raquo; Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></title>
 		<% end %>
 
 		<!-- stylesheets -->
-		<link rel="stylesheet" href="<%= asset('style').path %>" type="text/css" media="screen">
-		<% (@page.extra_stylesheets || []).each do |stylesheet| %>
+		<link rel="stylesheet" href="<%= item('/assets/style/').reps[0].path %>" type="text/css" media="screen">
+		<% (@item[:extra_stylesheets] || []).each do |stylesheet| %>
 			<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
 		<% end %>
 
@@ -20,7 +20,7 @@
 		<link rel="alternate" type="application/atom+xml" title="nanoc news" href="http://feeds.feedburner.com/nanoc">
 
 		<!-- scripts -->
-		<% (@page.extra_scripts || []).each do |script| %>
+		<% (@item[:extra_scripts] || []).each do |script| %>
 			<script type="text/javascript" src="<%=h script %>"></script>
 		<% end %>
 	</head>
@@ -42,26 +42,26 @@
 
 		<div id="main">
 			<div id="main-inside">
-				<% unless @page.raw_layout? %>
+				<% unless @item[:raw_layout] %>
 					<div id="content">
 				<% end %>
 
-				<% if @page.kind == 'article' %>
+				<% if @item[:kind] == 'article' %>
 					<!-- title -->
-					<% if @page.title? %>
-						<h2><span>Blog &raquo; <%=h @page.title %></span></h2>
+					<% if @item[:title] %>
+						<h2><span>Blog &raquo; <%=h @item[:title] %></span></h2>
 					<% else %>
-						<h2><span>Blog &raquo; <%= @page.created_at.localtime.format_as_date %></span></h2>
+						<h2><span>Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></span></h2>
 					<% end %>
 
 					<!-- meta -->
-					<p class="meta"><span>Written <%= @page.created_at.localtime.format_as_date %>.</span></p>
+					<p class="meta"><span>Written <%= Time.parse(@item[:created_at]).localtime.format_as_date %>.</span></p>
 				<% end %>
 
 				<!-- content -->
-				<%= @page.content %>
+				<%= yield %>
 
-				<% unless @page.raw_layout? %>
+				<% unless @item[:raw_layout] %>
 					</div>
 				<% end %>
 			</div>
@@ -72,5 +72,7 @@
 				<p>nanoc &copy; 2007-2009 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence.</p>
 			</div>
 		</div>
+
+		<script src="http://ram.purepistos.net/ramalytics.js"></script>
 	</body>
 </html>

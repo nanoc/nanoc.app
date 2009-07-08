@@ -2,10 +2,10 @@
 
 # Determine number of pagination pages
 article_count = sorted_articles.size
-page_count = article_count / @page_size + (article_count % @page_size == 0 ? 0 : 1) 
+page_count = article_count / @item_size + (article_count % @item_size == 0 ? 0 : 1) 
 
 # Get human page ID (not starting with 0)
-human_page_id = @page_id+1
+human_page_id = @item_id+1
 
 %>
 
@@ -21,7 +21,7 @@ human_page_id = @page_id+1
 	<!-- list of pages -->
 	<ul>
 		<% page_count.times do |i| %>
-			<% if i == @page_id %>
+			<% if i == @item_id %>
 				<li class="active"><span><%= i+1 %></span></li>
 			<% else %>
 				<li><a class="page" href="<%= @root %>/<%= i+1 %>/"><%= i+1 %></a></li>

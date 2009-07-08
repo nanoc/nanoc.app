@@ -1,20 +1,20 @@
 <h2><span>Blog Archive</span></h2>
 
 <!-- pagination -->
-<%= render 'pagination', :page_size => @page_size, :page_id => @page_id, :root => '/blog' %>
+<%= render 'pagination', :page_size => @item_size, :page_id => @item_id, :root => '/blog' %>
 
-<% sorted_articles.slice(@page_id*@page_size, @page_size).each do |article| %>
+<% sorted_articles.slice(@item_id*@item_size, @item_size).each do |article| %>
 	<!-- article section -->
-	<div class="section" id="blog-<%= article.created_at.localtime.format_as_date_id %>">
+	<div class="section" id="blog-<%= Time.parse(article[:created_at]).localtime.format_as_date_id %>">
 		<!-- title -->
-		<% if article.title? %>
-			<h3><span><%=h article.title %></span></h3>
+		<% if article[:title]? %>
+			<h3><span><%=h article[:title] %></span></h3>
 		<% else %>
-			<h3><span><%= article.created_at.localtime.format_as_date %></span></h3>
+			<h3><span><%= Time.parse(article[:created_at]).localtime.format_as_date %></span></h3>
 		<% end %>
 
 		<!-- meta -->
-		<p class="meta"><span>Written <%= article.created_at.localtime.format_as_date %>. [<%= link_to 'permalink', article %>]</span></p>
+		<p class="meta"><span>Written <%= Time.parse(article[:created_at]).localtime.format_as_date %>. [<%= link_to 'permalink', article %>]</span></p>
 
 		<!-- content -->
 		<%= article.content %>
@@ -22,4 +22,4 @@
 <% end %>
 
 <!-- pagination -->
-<%= render 'pagination', :page_size => @page_size, :page_id => @page_id, :root => '/blog' %>
+<%= render 'pagination', :page_size => @item_size, :page_id => @item_id, :root => '/blog' %>

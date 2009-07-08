@@ -1,11 +1,5 @@
-# Built-in
-filters_pre:
-  - "erb"
-filters_post: []
-extension:  "xml"
-layout:     "none"
-
-# Custom
-is_hidden:  "true"
-title:      "nanoc blog"
-feed_url:   "http://feeds.feedburner.com/nanoc"
+is_hidden:    true
+title:        nanoc blog
+feed_url:     http://feeds.feedburner.com/nanoc
+author_name:  Denis Defreyne
+author_uri:   http://stoneship.org

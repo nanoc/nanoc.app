@@ -1,6 +1,3 @@
-# Built-in
-
-# Custom
 title:          "nanoc: a Ruby site compiler that generates static HTML &raquo; home"
 has_full_title: true
 raw_layout:     true

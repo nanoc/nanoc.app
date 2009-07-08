@@ -1,6 +1,6 @@
 require 'hpricot'
 
-module Nanoc::Helpers
+module Nanoc3::Helpers
 
   # This module (specific to the nanoc web site) contains two functions that
   # get the latest release version and the latest release notes, respectively.
@@ -10,7 +10,7 @@ module Nanoc::Helpers
 
     def latest_release_version
       # Get release notes page
-      doc = Hpricot(@pages.find { |page| page.path == '/download/release-notes/' }.content)
+      doc = Hpricot(@items.find { |item| item.identifier == '/download/release-notes/' }.reps[0].content_at_snapshot(:pre))
 
       # Get the version
       latest_release = doc.search('> .section.last > h3 > span').inner_html
@@ -18,7 +18,7 @@ module Nanoc::Helpers
 
     def latest_release_notes
       # Get release notes page
-      doc = Hpricot(@pages.find { |page| page.path == '/download/release-notes/' }.content)
+      doc = Hpricot(@items.find { |item| item.identifier == '/download/release-notes/' }.reps[0].content_at_snapshot(:pre))
 
       # Get latest release
       latest_release = doc.search('> .section.last')

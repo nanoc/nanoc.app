@@ -12,9 +12,9 @@
 	<h3><span>Table of Contents</span></h3>
 
 	<ol id="toc">
-		<% @page.children.each do |chapter| %>
+		<% @item.children.each do |chapter| %>
 			<li>
-				<%= link_to(chapter.short_title, chapter.path) %>
+				<%= link_to(chapter[:short_title], chapter.reps[0].path) %>
 				<%= toc_for(chapter) %>
 			</li>
 		<% end %>

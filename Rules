@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+### Routing Rules
+
+route '/assets/style/' do |rep|
+  # path with version
+  rep.item.identifier[0..-2] + '-v' + rep.item[:version].to_s + '.css'
+end
+
+route '/blog/feed_private/' do |rep|
+  rep.item.identifier + 'index.xml'
+end
+
+route '*' do |rep|
+  rep.item.identifier + 'index.html'
+end
+
+### Compilation Rules
+
+compile '/assets/style/' do |rep|
+  # do nothing
+end
+
+compile '/blog/feed_private/' do |rep|
+  rep.filter :erb
+end
+
+compile '*' do |rep|
+  rep.filter :erb
+  rep.layout '/default/'
+  rep.filter :add_links_to_headers
+  rep.filter :rubypants
+end
+
+### Layouting rules
+
+layout '*' => :erb

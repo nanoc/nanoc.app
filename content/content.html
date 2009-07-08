@@ -4,7 +4,7 @@
 
 <div id="intro">
 	<p>nanoc is a tool that runs on your local computer and compiles Markdown, Textile, Haml, etc. documents into static web pages, ready for uploading to any web host. Interested? <a href="/help/tutorial/">Install nanoc and get started! &raquo;</a>.</p>
-	<p><strong>Latest news article:</strong> <%= link_to(sorted_articles.first.title, sorted_articles.first) %> (posted <%= sorted_articles.first.created_at.localtime.format_as_date %>).</p>
+	<p><strong>Latest news article:</strong> <%= link_to(h(sorted_articles.first[:title]), sorted_articles.first.reps[0]) %> (posted <%= Time.parse(sorted_articles.first[:created_at]).localtime.format_as_date %>).</p>
 </div>
 
 <ul id="intro-links">

@@ -1,3 +1,1 @@
-output_dir:  "output"
-data_source: "filesystem"
-router:      "versioned"
+base_url: http://nanoc.stoneship.org

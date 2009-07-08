@@ -1,11 +1,11 @@
-module Nanoc::Filters
+module Nanoc3::Filters
 
   # This filters adds permalinks to all section headers.
-  class AddLinksToHeaders < Nanoc::Filter
+  class AddLinksToHeaders < Nanoc3::Filter
 
     identifiers :add_links_to_headers
 
-    def run(content)
+    def run(content, arguments={})
       require 'hpricot'
 
       # Parse with Hpricot

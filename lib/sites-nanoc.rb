@@ -1,29 +1,15 @@
-# All files in the 'lib' directory will be loaded
-# before nanoc starts compiling.
-
-# Default
-include Nanoc::Helpers::Blogging
-include Nanoc::Helpers::HTMLEscape
-include Nanoc::Helpers::LinkTo
-
-# Custom
-include Nanoc::Helpers::ReleaseNotes
-include Nanoc::Helpers::TOC
-
 def nav_link_to_unless_current(text, path)
-  if @page_rep and @page_rep.path == path
+  if @item_rep and @item_rep.path == path
     "<span class=\"active\"><span>#{text}</span></span>"
   else
     "<a href=\"#{path}\"><span>#{text}</span></a>"
   end
 end
 
-# Returns the asset with the given asset ID.
-def asset(asset_id)
-  @assets.find { |asset| asset.asset_id == asset_id }
+# Returns the item with the given identifier.
+def item(identifier)
+  @items.find { |item| item.identifier == identifier }
 end
-
-# Helpers
 
 class Time
   def format_as_date

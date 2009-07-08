@@ -149,7 +149,7 @@
 
 	<ul>
 		<li>Fixed default.rb's <code>html_escape</code></li>
-		<li>Updated Haml filter and layout processor so that <code>@page</code>, <code>@pages</code> and <code>@config</code> are now available as instance variables as well as local variables</li>
+		<li>Updated Haml filter and layout processor so that <code>@item</code>, <code>@items</code> and <code>@config</code> are now available as instance variables as well as local variables</li>
 	</ul>
 </div>
 
@@ -230,7 +230,7 @@
 
 	<ul>
 		<li>Added support for post-layout filters</li>
-		<li>Added support for getting a File object for a page, e.g. <code>@page.file.mtime</code></li>
+		<li>Added support for getting a File object for a page, e.g. <code>@item.file.mtime</code></li>
 		<li>Cleaned up the source code a lot</li>
 		<li>Removed deprecated asset-copying functionality</li>
 	</ul>
@@ -272,7 +272,7 @@
 	<h3><span>1.3</span></h3>
 
 	<ul>
-		<li>The <code>@pages</code> array now also contains uncompiled pages</li>
+		<li>The <code>@items</code> array now also contains uncompiled pages</li>
 		<li>Pages with <code>skip_output</code> set to <code>true</code> will not be outputted</li>
 		<li>Added Textile/RedCloth and Sass filters</li>
 		<li>nanoc now warns before overwriting in <kbd>create_site</kbd>, <kbd>create_page</kbd> and <kbd>create_template</kbd></li>
@@ -287,8 +287,8 @@
 		<li>Added support for non-eRuby layouts (Markaby, Haml, Liquid)</li>
 		<li>Added more filters (Markaby, Haml, Liquid, RDoc [Dmitry Bilunov])</li>
 		<li>Improved error reporting</li>
-		<li>Accessing page attributes using instance variables, and not through <code>@page</code>, is no longer possible</li>
-		<li>Page attributes can now be accessed using dot notation, i.e. <code>@page.title</code> as well as <code>@page[:title]</code></li>
+		<li>Accessing page attributes using instance variables, and not through <code>@item</code>, is no longer possible</li>
+		<li>Page attributes can now be accessed using dot notation, i.e. <code>@item.title</code> as well as <code>@item[:title]</code></li>
 	</ul>
 </div>
 
@@ -315,9 +315,9 @@
 	<ul>
 		<li>Added support for nested layouts</li>
 		<li>Added coloured logging</li>
-		<li><code>@page</code> now hold the page that is currently being processed</li>
+		<li><code>@item</code> now hold the page that is currently being processed</li>
 		<li>Index files are now called “content” files and are now named after the directory they are in [Colin Barrett]</li>
-		<li>It is now possible to access <code>@page</code> in the page’s content file</li>
+		<li>It is now possible to access <code>@item</code> in the page’s content file</li>
 	</ul>
 </div>
 

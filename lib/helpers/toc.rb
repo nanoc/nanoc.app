@@ -1,14 +1,14 @@
 require 'hpricot'
 
-module Nanoc::Helpers
+module Nanoc3::Helpers
 
   # This module (specific to the nanoc site) contains functionality for
   # generating a table of contents (TOC) from a given page.
   module TOC
 
-    def toc_for(page)
+    def toc_for(item)
       # Parse with Hpricot
-      doc = Hpricot(page.content)
+      doc = Hpricot(item.reps[0].content_at_snapshot(:pre))
 
       # Find all top-level sections
       sections = doc.search('> .section').map do |section|
@@ -35,12 +35,12 @@ module Nanoc::Helpers
       sections.each do |section|
         # Link
         res << '<li>'
-        res << '<a href="' + page.path + '#' + section[:id] + '">' + section[:title] + '</a>'
+        res << '<a href="' + item.reps[0].path + '#' + section[:id] + '">' + section[:title] + '</a>'
         unless section[:sub_sections].empty?
           res << '<ol>'
           section[:sub_sections].each do |sub_section|
             res << '<li>'
-            res << '<a href="' + page.path + '#' + sub_section[:id] + '">' + sub_section[:title] + '</a>'
+            res << '<a href="' + item.reps[0].path + '#' + sub_section[:id] + '">' + sub_section[:title] + '</a>'
             res << '</li>'
           end
           res << '</ol>'
