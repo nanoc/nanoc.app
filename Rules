@@ -34,4 +34,4 @@ end
 
 ### Layouting rules
 
-layout '*' => :erb
+layout '*', :erb
