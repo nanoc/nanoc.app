@@ -1,5 +1,30 @@
 #!/usr/bin/env ruby
 
+### Preprocessing
+
+preprocess do
+  def paginate_articles
+    # Get articles
+    articles = items.select { |i| i[:kind] == 'article' }.sort_by { |a| Time.parse(a[:created_at]) }
+
+    # Paginate articles
+    article_groups = []
+    article_groups << articles.slice!(0..config[:page_size]-1) until articles.empty?
+
+    # Create pagination pages
+    article_groups.each_with_index do |articles, i|
+      # Create item
+      items << Nanoc3::Item.new(
+        "<%= render 'pagination_page', :articles_per_item => #{config[:page_size]}, :item_id => #{i} %>",
+        { :title => "Blog - Archive (#{i+1})" },
+        "/blog/#{i+1}/"
+      )
+    end
+  end
+
+  paginate_articles
+end
+
 ### Routing Rules
 
 route '/assets/style/' do |rep|

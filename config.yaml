@@ -3,3 +3,4 @@ data_sources:
   - type: filesystem_compact
     items_root:   '/'
     layouts_root: '/'
+page_size: 5
