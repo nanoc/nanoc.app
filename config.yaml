@@ -1,1 +1,5 @@
 base_url: http://nanoc.stoneship.org
+data_sources:
+  - type: filesystem_compact
+    items_root:   '/'
+    layouts_root: '/'
