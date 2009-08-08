@@ -1,18 +1,10 @@
 <div id="banner">
-	<p>nanoc is a site compiler written in Ruby for building awesome web sites.</p>
+	<p><strong>nanoc</strong> is a web publishing system written in Ruby for building small to medium-sized websites.</p>
 </div>
 
 <div id="intro">
-	<p>nanoc is a tool that runs on your local computer and compiles Markdown, Textile, Haml, etc. documents into static web pages, ready for uploading to any web host. Interested? <a href="/help/tutorial/">Install nanoc and get started! &raquo;</a>.</p>
-	<p><strong>Latest news article:</strong> <%= link_to(h(sorted_articles.first[:title]), sorted_articles.first.reps[0]) %> (posted <%= Time.parse(sorted_articles.first[:created_at]).localtime.format_as_date %>).</p>
+	<p>nanoc is a tool that runs on your local computer and "compiles" documents written in HTML, Markdown, Textile, Haml, etc. into a static web site, ready for uploading to any web server. To get started, <kbd>gem install nanoc3</kbd> and <a href="/tutorial/">take the tutorial &raquo;</a>.</p>
 </div>
-
-<ul id="intro-links">
-	<li><a href="/help/tutorial/">Tutorial</a></li>
-	<li><a href="/help/manual/">Manual</a></li>
-	<li><a href="irc://chat.freenode.net/#nanoc">IRC channel</a></li>
-	<li><a href="http://groups.google.com/group/nanoc">Discussion group</a></li>
-</ul>
 
 <div id="donate-button">
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -22,46 +14,40 @@
 		<input type="hidden" name="item_name" value="nanoc">
 		<input type="hidden" name="currency_code" value="EUR">
 		<input type="hidden" name="bn" value="PP-DonationsBF:donate.png:NonHosted">
-		<input type="image" src="http://nanoc.stoneship.org/pub/donate.png" name="submit">
+		<input type="submit" name="submit" value="Donate">
 	</form>
-</div>
-
-<div id="slideshow">
-	<img src="/assets/images/slideshow/0.png" id="slideshow-image" alt="Slideshow image 1">
 </div>
 
 <div id="features">
 	<h2>Features</h2>
 
-	<div class="feature">
-		<h3>Secure.</h3>
-		<p>A nanoc site does not contain any executable code&mdash;just static HTML pages. nanoc does not run on the server; exploiting nanoc or Ruby in order to wreak havoc on a nanoc-powered site is therefore simply impossible.</p>
+	<div class="feature odd">
+		<h3>Secure</h3>
+		<img src="/assets/images/features/secure.png">
+		<p>A nanoc site does not contain any executable code—just static HTML pages. nanoc does not run on the server; exploiting nanoc in order to wreak havoc is therefore impossible.</p>
 	</div>
 
-	<div class="feature">
-		<h3>Fast.</h3>
-		<p>Serving static HTML pages straight off the hard disk of a web server is much faster than running a PHP or Ruby script, querying the database, assembling the requested page, and finally sending the output to the client.</p>
+	<div class="feature even">
+		<h3>Extensible</h3>
+		<img src="/assets/images/features/extensible.png">
+		<p>nanoc is not a monolithic framework, but rather a small application that is easily built upon with new plugins such as filters and helpers. Writing new plugins is a trivial task.</p>
 	</div>
 
-	<div class="feature feature-last">
-		<h3>Previewable.</h3>
-		<p>You can preview every change you make to your site before uploading it. Compile your site, make sure everything is just like you want it, and upload the site when you're satisfied.</p>
+	<div class="feature odd">
+		<h3>Previewable</h3>
+		<img src="/assets/images/features/previewable.png">
+		<p>You can preview every change you make to your site before uploading it. Compile your site, make sure everything is just like you want it, and upload the site when you’re satisfied.</p>
 	</div>
 
-	<div class="feature">
-		<h3>Stable.</h3>
-		<p>nanoc has a large automated test suite, which makes sure everything works as advertised. This makes it extremely easy to pinpoint any bugs and squish them before they do any harm.</p>
+	<div class="feature even">
+		<h3>Fast</h3>
+		<img src="/assets/images/features/fast.png">
+		<p>Serving static files straight off the hard disk of a web server is much faster than dynamically generating the content  Let web servers do what they’re best at—serving static content.</p>
 	</div>
 
-	<div class="feature">
-		<h3>User Friendly.</h3>
-		<p>Even though nanoc is a command-line application, a lot of effort has been put into making nanoc as easy to use as possible. You won’t get any weird messages and odd errors in nanoc.</p>
+	<div class="feature odd last">
+		<h3>Flexible</h3>
+		<img src="/assets/images/features/flexible.png">
+		<p>All pages and assets in nanoc can have arbitrary hierarchical metadata associated with it. You’re not limited to pages with nothing but a title and a list of tags anymore.</p>
 	</div>
-
-	<div class="feature feature-last">
-		<h3>Extensible.</h3>
-		<p>nanoc is not a monolithic framework, but rather a small framework that is easily built upon with new plugins such as filters and helpers.</p>
-	</div>
-
-	<div style="clear:left"></div>
 </div>

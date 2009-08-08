@@ -43,3 +43,9 @@ module Enumerable
     end
   end
 end
+
+# This is necessary because the markdown-generated files have a doctype and
+# cannot really be used as partials.
+def strip_doctype(s)
+  s.sub(/^<!DOCTYPE.*?>\s*/, '')
+end

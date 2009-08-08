@@ -1,0 +1,1 @@
+<%= @item.children.map { |i| i.reps[0].content_at_snapshot(:last) }.join("\n\n") %>

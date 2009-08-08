@@ -1,25 +1,21 @@
-<h2><span>Blog Archive</span></h2>
-
 <!-- pagination -->
-<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/blog' %>
+<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/news' %>
 
 <% sorted_articles.slice(@item_id*@articles_per_item, @articles_per_item).each do |article| %>
-	<!-- article section -->
-	<div class="section" id="blog-<%= Time.parse(article[:created_at]).localtime.format_as_date_id %>">
-		<!-- title -->
-		<% if article[:title] %>
-			<h3><span><%=h article[:title] %></span></h3>
-		<% else %>
-			<h3><span><%= Time.parse(article[:created_at]).localtime.format_as_date %></span></h3>
-		<% end %>
 
-		<!-- meta -->
-		<p class="meta"><span>Written <%= Time.parse(article[:created_at]).localtime.format_as_date %>. [<%= link_to 'permalink', article.reps[0] %>]</span></p>
+<% if article[:title] %>
+<h2><%= article[:title] %></h2>
+<% else %>
+<h2><%= Time.parse(article[:created_at]).localtime.format_as_date %></h2>
+<% end %>
 
-		<!-- content -->
-		<%= article.reps[0].content_at_snapshot(:pre) %>
-	</div>
+<!-- meta -->
+<p class="meta"><span>Written <%= Time.parse(article[:created_at]).localtime.format_as_date %>. [ <%= link_to 'permalink', article.reps[0] %> ]</span></p>
+
+<!-- content -->
+<%= strip_doctype(article.reps[0].content_at_snapshot(:pre)) %>
+
 <% end %>
 
 <!-- pagination -->
-<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/blog' %>
+<%= render 'pagination', :articles_per_item => @articles_per_item, :item_id => @item_id, :root => '/news' %>

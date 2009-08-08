@@ -1,6 +1,11 @@
-base_url: http://nanoc.stoneship.org
+base_url: http://nanoc.stoneship.org/v3.0
 data_sources:
   - type: filesystem_compact
     items_root:   '/'
     layouts_root: '/'
+deploy:
+  default:
+    dst:     "ectype:sites/nanoc/public/v3.0"
+    options: [ '-gpPrvz', '--exclude=".hg"', '--delete-after' ]
 page_size: 5
+enable_ramalytics: false

@@ -6,21 +6,27 @@ module Nanoc3::Helpers
   # generating a table of contents (TOC) from a given page.
   module TOC
 
-    def toc_for(item)
+    def toc_for(item_rep, params={})
+      require 'nokogiri'
+
+      # Parse params
+      params[:base]  ||= item_rep.path
+      params[:class] ||= 'toc'
+
       # Parse with Hpricot
-      doc = Hpricot(item.reps[0].content_at_snapshot(:pre))
+      doc = Nokogiri::HTML(item_rep.content_at_snapshot(:pre))
 
       # Find all top-level sections
-      sections = doc.search('> .section').map do |section|
+      sections = doc.xpath('/html/body/div[@class="section"]').map do |section|
         # Get title and ID of section
-        header = section.search('> h3 span').first
+        header = section.xpath('h2').first
         id    = section['id']
         title = header.inner_html
 
         # Find all sub-sections for this section
-        sub_sections = section.search('> .section').map do |sub_section|
+        sub_sections = section.xpath('div[@class="section"]').map do |sub_section|
           # Get title and ID of sub-section
-          sub_header = sub_section.search('> h4 span').first
+          sub_header = sub_section.xpath('h3').first
           sub_id    = sub_section['id']
           sub_title = sub_header.inner_html
 
@@ -31,16 +37,16 @@ module Nanoc3::Helpers
       end
 
       # Build table of contents
-      res = '<ol>'
+      res = params[:class] ? %[<ol class="#{params[:class]}">] : '<ol>'
       sections.each do |section|
         # Link
         res << '<li>'
-        res << '<a href="' + item.reps[0].path + '#' + section[:id] + '">' + section[:title] + '</a>'
+        res << '<a href="' + params[:base] + '#' + section[:id] + '">' + section[:title] + '</a>'
         unless section[:sub_sections].empty?
           res << '<ol>'
           section[:sub_sections].each do |sub_section|
             res << '<li>'
-            res << '<a href="' + item.reps[0].path + '#' + sub_section[:id] + '">' + sub_section[:title] + '</a>'
+            res << '<a href="' + params[:base] + '#' + sub_section[:id] + '">' + sub_section[:title] + '</a>'
             res << '</li>'
           end
           res << '</ol>'

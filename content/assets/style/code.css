@@ -1,0 +1,186 @@
+.article pre .log-create {
+	font-weight: bold;
+
+	color: #6f6;
+}
+
+.article pre .log-update {
+	font-weight: bold;
+
+	color: #ff6;
+}
+
+.article pre .comment,
+.article pre .Comment,
+.article pre .c /* comment */{
+	color: #666666;
+}
+
+.article pre .TagAttribute,
+.article pre .ke /* key */{
+	color: #ffe834;
+}
+
+.article pre .string,
+.article pre .value,
+.article pre .String,
+.article pre .s  /* string */,
+.article pre .vl /* value  */ {
+	background: #41380d;
+
+	color: #ffe834;
+}
+
+.article pre .constant,
+.article pre .Constant,
+.article pre .Integer,
+.article pre .ClassName,
+.article pre .LibraryClassType,
+.article pre .LibraryConstant,
+.article pre .UserDefinedConstant,
+.article pre .Entity,
+.article pre .symbol,
+.article pre .co, /* constant */
+.article pre .sy  /* symbol */ {
+	color: #ffe834;
+}
+
+.article pre .function,
+.article pre .FunctionCall,
+.article pre .FunctionName,
+.article pre .fu /* function */ {
+	color: #ff971e;
+}
+
+.article pre .storage,
+.article pre .Storage {
+	color: #6dff1b;
+}
+
+.article pre .variable,
+.article pre .Variable,
+.article pre .iv /* instance variable */ {
+	color: #ffc27f;
+}
+
+.article pre .keyword,
+.article pre .ControlKeyword,
+.article pre .Keyword,
+.article pre .r /* reserved */ {
+	color: #ff0000;
+}
+
+.article pre .element,
+.article pre .Tag,
+.article pre .ta,
+.article pre .kw {
+	color: #6dff1b;
+}
+
+.article pre .attribute,
+.article pre .TagName,
+.article pre .an {
+	color: #a65500;
+}
+
+.article pre .m {
+	padding: 0 0.1em;
+
+	background: #555;
+
+	color: #fff;
+}
+
+.article pre .embedded {
+	background: #4c2200;
+
+	color: #ff4300;
+}
+
+/* ultraviolet */
+
+/*
+
+.article pre .Heading {
+   color: #FF971E;
+}
+.article pre .Unit {
+   color: #FFF6B4;
+}
+.article pre .String {
+   background-color: #DBDB02;
+   color: #FFE834;
+}
+.article pre .Constant {
+   color: #FFE834;
+}
+.article pre .line-numbers {
+   background-color: #FF0000;
+   color: #000000;
+}
+.article pre .List {
+   color: #FF4300;
+}
+.article pre .Section {
+   text-decoration: underline;
+}
+.article pre .EmbeddedSource {
+   background-color: #361D00;
+}
+.article pre .Variable {
+   color: #FFC27F;
+}
+.article pre .Storage {
+   color: #6DFF1B;
+}
+.article pre {
+   background-color: #0E0E0E;
+   color: #F8F8F2;
+}
+.article pre .Tag {
+   color: #6DFF1B;
+}
+.article pre .PropertyName {
+   color: #FF4300;
+}
+.article pre .Classes {
+   color: #6DFF1B;
+}
+.article pre .StringInterpolation {
+   color: #FFF6B4;
+}
+.article pre .Raw {
+   color: #FFE834;
+}
+.article pre .Highlight {
+   background-color: #FF4300;
+   color: #F8F8F2;
+}
+.article pre .Quote {
+   background-color: #333333;
+}
+.article pre .TagAttribute {
+   color: #A65500;
+}
+.article pre .Keyword {
+   font-weight: bold;
+   color: #FF0000;
+}
+.article pre .FunctionCall {
+   color: #6DFF1B;
+}
+.article pre .EntityInheritedClass {
+   color: #9B540E;
+}
+.article pre .Invalid {
+   background-color: #FF0000;
+}
+.article pre .Entity {
+   font-weight: bold;
+   color: #FF971E;
+}
+.article pre .Comment {
+   color: #656565;
+}
+
+*/

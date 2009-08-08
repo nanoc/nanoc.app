@@ -6,23 +6,24 @@ module Nanoc3::Filters
     identifiers :add_links_to_headers
 
     def run(content, arguments={})
-      require 'hpricot'
+      require 'nokogiri'
 
       # Parse with Hpricot
-      doc = Hpricot(content)
+      doc = Nokogiri::HTML(content)
 
       # Find top-level sections
-      doc.search('.section').each do |section|
+      doc.css('.section').each do |section|
         # Find ID
         section_id = section['id']
         next if section_id.nil?
 
         # Add permalink to header
-        section_header = section.search((1..6).map { |i| "> h#{i} > span" }.join(', '))
-        section_header.append(permalink_for(section_id))
+        section_header = section.css((1..6).map { |i| "h#{i}" }.join(', ')).first
+        section_header.inner_html += permalink_for(section_id)
       end
 
-      doc.to_s.gsub(' />', '>')
+      # Done
+      doc.to_s
     end
 
   private

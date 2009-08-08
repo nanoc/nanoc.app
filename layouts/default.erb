@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,35 +25,35 @@
 		<% end %>
 	</head>
 	<body>
-		<div id="header">
-			<div id="header-inside">
-				<div id="nav">
-					<ul>
-						<li><%= nav_link_to_unless_current('home',        '/')             %></li>
-						<li><%= nav_link_to_unless_current('blog',        '/blog/')        %></li>
-						<li><%= nav_link_to_unless_current('download',    '/download/')    %></li>
-						<li><%= nav_link_to_unless_current('help',        '/help/')        %></li>
-						<li><%= nav_link_to_unless_current('development', '/development/') %></li>
-					</ul>
-				</div>
-				<h1><span>nanoc 2</span></h1>
-			</div>
+		<div class="nav">
+			<ul>
+				<li><%= nav_link_to_unless_current('home',        '/')             %></li>
+				<li><%= nav_link_to_unless_current('news',        '/news/')        %></li>
+				<li><%= nav_link_to_unless_current('about',       '/about/')       %></li>
+				<li><%= nav_link_to_unless_current('tutorial',    '/tutorial/')    %></li>
+				<li><%= nav_link_to_unless_current('manual',      '/manual/')      %></li>
+				<li><%= nav_link_to_unless_current('migrating',   '/migrating/')   %></li>
+				<li><%= nav_link_to_unless_current('community',   '/community/')   %></li>
+			</ul>
 		</div>
 
-		<div id="main">
-			<div id="main-inside">
-				<% unless @item[:raw_layout] %>
-					<div id="content">
+		<div class="body">
+<% unless @item[:raw_layout] %>
+			<div class="article">
+<% end %>
+
+				<!-- title -->
+				<% if @item[:kind] == 'article' %>
+					<% if @item[:title] %>
+						<h1>Blog &raquo; <%=h @item[:title] %></h1>
+					<% else %>
+						<h1>Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></h1>
+					<% end %>
+				<% elsif !@item[:raw_layout] %>
+					<h1><%= @item[:title] %></h1>
 				<% end %>
 
 				<% if @item[:kind] == 'article' %>
-					<!-- title -->
-					<% if @item[:title] %>
-						<h2><span>Blog &raquo; <%=h @item[:title] %></span></h2>
-					<% else %>
-						<h2><span>Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></span></h2>
-					<% end %>
-
 					<!-- meta -->
 					<p class="meta"><span>Written <%= Time.parse(@item[:created_at]).localtime.format_as_date %>.</span></p>
 				<% end %>
@@ -61,10 +61,9 @@
 				<!-- content -->
 				<%= yield %>
 
-				<% unless @item[:raw_layout] %>
-					</div>
-				<% end %>
+<% unless @item[:raw_layout] %>
 			</div>
+<% end %>
 		</div>
 
 		<div id="footer">
@@ -73,6 +72,8 @@
 			</div>
 		</div>
 
+<% if @config[:enable_ramalytics] %>
 		<script src="http://ram.purepistos.net/ramalytics.js"></script>
+<% end %>
 	</body>
 </html>

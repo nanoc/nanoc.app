@@ -10,24 +10,25 @@ module Nanoc3::Helpers
 
     def latest_release_version
       # Get release notes page
-      doc = Hpricot(@items.find { |item| item.identifier == '/download/release-notes/' }.reps[0].content_at_snapshot(:pre))
+      content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre)
+      doc = Nokogiri::HTML(content)
 
       # Get the version
-      latest_release = doc.search('> .section.last > h3 > span').inner_html
+      doc.css('h2').first.inner_html.strip
     end
 
     def latest_release_notes
       # Get release notes page
-      doc = Hpricot(@items.find { |item| item.identifier == '/download/release-notes/' }.reps[0].content_at_snapshot(:pre))
+      doc = Nokogiri::HTML(@items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre))
 
       # Get latest release
-      latest_release = doc.search('> .section.last')
+      latest_release = doc.search('.section').first
 
       # Remove the header
-      latest_release.search('> h3').remove
+      latest_release.search('h2').remove
 
       # Get the release notes
-      latest_release.inner_html
+      latest_release.inner_html.strip
     end
 
   end
