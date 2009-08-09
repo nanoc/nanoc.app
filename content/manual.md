@@ -331,11 +331,29 @@ Preprocessors can be used for various purposes. Here are two sample uses:
 
 ### Building the Item Representations
 
-TODO write
+Once the data is loaded and preprocessed, item representations are built for each item. For each item, its compilation rules (one per item rep) are looked up and a rep is built for each rule.
+
+For example, the following code will cause the item `/foo/` to have only one rep (`default`), while the item `/bar/` will have two reps (`raw` and `full`):
+
+<% syntax_colorize 'ruby' do %>
+	compile '/foo/' do
+	  # ...
+	end
+	
+	compile '/bar/', :rep => :raw do
+	  # ...
+	end
+	
+	compile '/bar/', :rep => :full do
+	  # ...
+	end
+<% end %>
 
 ### Routing the Item Representations
 
-TODO write
+For each item representation, the matching routing rule is looked up and applied to the item rep. The item rep's path to the output file will be set to the return value of the routing rule block.
+
+The routing rule block can also return nil, in which case the item representation will not be written to the disk--useful when items should be included as part of other, larger items, but should not exist separately.
 
 ### Compiling the Item Representations
 
