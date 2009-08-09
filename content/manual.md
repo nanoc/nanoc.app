@@ -652,127 +652,98 @@ Here's an example `config.yaml` that shows the deployment configuration:
 Data Sources
 ------------
 
-<div style="padding: 10px; background: #fcc; margin: 18px 72px; font-size: 12px; line-height: 18px"><strong style="background: transparent; font-weight: bold; text-transform: uppercase; color: #c00">Warning:</strong> The rest of the document is likely entirely outdated. Peruse at your own risk.</div>
+Each site has one or more _data sources_: objects that can load site data such as items and layouts from certain locations, and even create new items and layouts.
 
-Each site has a *data source*&mdash;a plugin that determines where to read the data for the site from, and where to write new pages and page templates. By default, nanoc uses the filesystem data source, which means pages, layouts, etc. are stored as flat files on disk.
+New nanoc sites will have only one data source: the `filesystem_compact` one (see the [FilesystemCompact](#filesystemcompact) section for details). To create a site with a different data source, use the `create_site` command with the `--datasource` option, like this:
 
-It is not possible to create a site with a specific data source. It is possible, however, to switch an existing site to a new data source. How to do this is specific for each data source, so check out the documentation for the data source you want to switch to.
+	nanoc3 create_site my_new_site --datasource=filesystem_combined
 
-### Filesystem Data Source
+The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
-The filesystem data source is the default data source. New nanoc-powered sites automatically use it. This data source does not require any special configuration.
+`type`
 
-This manual assumes that the filesystem data source is used. The differences between the filesystem and the filesystem-combined data source are listed in the database data source section.
+: The type of data source to use (`filesystem_compact`, `filesystem_combined`, `filesystem`, `delicious`, `twitter`, `last_fm`, …)
 
-For more information, see the <a href="/doc/3.0.0/Nanoc3/DataSources/Filesystem.html">Filesystem RDoc documentation</a>.
+`items_root`
 
-### FilesystemCombined Data Source
+: The root where items should be mounted. Optional; defaults to `/`.
 
-The filesystem-combined data source is similar to the filesystem one, except that metadata is stored *inside* the content files, therefore making it unnecessary for pages to be stored in separate directories. This makes the number of files and directories quite a bit lower than with the filesystem data source.
-		
-The metadata for a page is embedded into the file itself. It is stored at the top of the file, between five dashes. For example:
+`layouts_root`
 
-	-----
-	title: Foo
-	-----
-	h1. Hello!
+: The root where layouts should be mounted. Optional; defaults to `/`.
 
-For more information, see the <a href="/doc/3.0.0/Nanoc3/DataSources/FilesystemCombined.html">FilesystemCombined RDoc documentation</a>.
+`config`
 
-### Writing Data Sources
+: A hash containing custom configuration options for the data source. The contents of this hash depends on the data source used; see the documentation of the data source for details.
 
-A data source is responsible for loading and storing a site's data: pages, page defaults, assets, asset defaults, templates, layouts and code.
+For example, the configuration of a site that uses many data sources could look like this:
 
-Data sources are classes that inherit from `Nanoc::DataSource`. There is no need to explicitly register data source classes; nanoc will find all data source classes automatically.
+<% syntax_colorize 'yaml' do %>
+	data_sources:
+	  -
+	    type:       'filesystem_compact'
+	  -
+	    type:       'twitter'
+	    items_root: '/tweets'
+	    config:
+	      username: 'ddfreyne'
+	  -
+	    type:       'delicious'
+	    items_root: '/links'
+	    config:
+	      username: 'ddfreyne'
+	  -
+	    type:       'last_fm'
+	    items_root: '/tracks'
+	    config:
+	      username: 'amonre'
+	      limit:    '10'
+	      api_key:  '1234567890abcdefghijklmnopqrstuv'
+<% end %>
+
+nanoc comes bundled with the following data sources:
+
+`filesystem_compact`
+: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/FilesystemCompact.html))
+
+`filesystem_combined`
+: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/FilesystemCombined.html))
+
+`filesystem`
+: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/Filesystem.html))
+
+`delicious`
+: Reads data from [Delicious](http://delicious.com/) ([doc](/doc/3.0.0/Nanoc3/DataSources/Delicious.html))
+
+`last_fm`
+: Reads data from [Last.fm](http://last.fm/) ([doc](/doc/3.0.0/Nanoc3/DataSources/LastFM.html))
+
+`twitter`
+: Reads data from [Twitter](http://twitter.com/) ([doc](/doc/3.0.0/Nanoc3/DataSources/Twitter.html))
+
+### Writing Custom Data Sources
+
+Data sources are responsible for loading and storing a site's data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the ([`Nanoc3::DataSource` source code documentation](/doc/3.0.0/Nanoc3/DataSource.html).
 
 Each data source has an identifier. This is a unique name that is used in a site's configuration file to specify which data source should be used to fetch data. It is specified like this:
 
-<pre><code><span class="keyword">class</span> <span class="storage">SampleDataSource</span> &lt; <span class="storage">Nanoc::DataSource</span>
-  <span class="function">identifier</span> <span class="symbol">:sample</span>
-<span class="keyword">end</span></code></pre>
+<% syntax_colorize 'ruby' do %>
+	class SampleDataSource < Nanoc3::DataSource
+	  identifier :sample
+	  # ... other code goes here ...
+	end
+<% end %>
 
 All methods in the data source have access to the `@site` object, which represents the site. One useful thing that can be done with this is request the configuration hash, using `@site.config`.
 
-There are two methods you may want to implement first: `up` and `down`. `up` is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. `down` is executed when the data source is unloaded, so this is the ideal place to undo what `up` did.
+There are two methods you may want to implement first: `#up` and `#down`. `#up` is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. `#down` is executed when the data source is unloaded, so this is the ideal place to undo what `#up` did. You don't need to implement `#up` or `#down` if you don't want to.
 
-The `setup` method is used to create the initial site structure. For example, a database data source could create the necessary tables here. The `destroy` method should do the opposite of what `setup` does. For example, a database data source would drop the created tables in this method.
+The `#setup` method is used to create the initial site structure. For example, a database data source could create the necessary tables here. This method is required to be implemented.
 
-The `update` method is used for updating the format in which the data is stored. For example, a database data source could add necessary new columns here.
+You may also want to implement the optional `#update` method, which is used by the `update` command to update the data source to a newer version. This is very useful if the data source changes the way data is stored.
 
-None of these methods need to be implemented; you can simply leave the method definitions out.
+The three main methods in a data source are `#items`, `#layouts` and `#code_snippets`. These load items ([`Nanoc3::Item`](/doc/3.0.0/Nanoc3/Item.html)), layouts ([`Nanoc3::Layout`](/doc/3.0.0/Nanoc3/Layout.html)) and code snippets ([`Nanoc3::CodeSnippet`](/doc/3.0.0/Nanoc3/CodeSnippet.html)), respectively. Implementing these methods is optional, so if you have a data source that only returns items, there's no need to implement `#layouts` or `#code_snippets`.
 
-The following methods (grouped by data type) are required to be implemented by any data source:
+If your data source can create items and/or layouts, then `#create_item` and `#create_layout` are methods you will want to implement. These will be used by the `create_site`, `create_item` and `create_layout` commands.
 
-<dl class="nested">
-	<dt>Pages &mdash; `Nanoc::Page`</dt>
-	<dd>
-		<ul>
-			<li>`pages()`</li>
-			<li>`save_page(page)`</li>
-			<li>`move_page(page, new_path)`</li>
-			<li>`destroy_page(page)`</li>
-		</ul>
-	</dd>
-	<dt>Page Defaults (singular) &mdash; `Nanoc::PageDefaults`</dt>
-	<dd>
-		<ul>
-			<li>`page_defaults()`</li>
-			<li>`save_page_defaults(page_defaults)`</li>
-		</ul>
-	</dd>
-	<dt>Assets &mdash; `Nanoc::Asset`</dt>
-	<dd>
-		<ul>
-			<li>`assets()`</li>
-			<li>`save_asset(asset)`</li>
-			<li>`move_asset(asset, new_path)`</li>
-			<li>`destroy_asset(asset)`</li>
-		</ul>
-	</dd>
-	<dt>Asset Defaults (singular) &mdash; `Nanoc::AssetDefaults`</dt>
-	<dd>
-		<ul>
-			<li>`asset_defaults()`</li>
-			<li>`save_asset_defaults(asset_defaults)`</li>
-		</ul>
-	</dd>
-	<dt>Layouts &mdash; `Nanoc::AssetDefaults`</dt>
-	<dd>
-		<ul>
-			<li>`layouts()`</li>
-			<li>`save_layout(layout)`</li>
-			<li>`move_layout(layout, new_path)`</li>
-			<li>`destroy_layout(layout)`</li>
-		</ul>
-	</dd>
-	<dt>Templates &mdash; `Nanoc::Template`</dt>
-	<dd>
-		<ul>
-			<li>`templates()`</li>
-			<li>`save_template(template)`</li>
-			<li>`move_template(template, new_path)`</li>
-			<li>`destroy_template(template)`</li>
-		</ul>
-	</dd>
-	<dt>Code (singular) &mdash; `Nanoc::Code`</dt>
-	<dd>
-		<ul>
-			<li>`code()`</li>
-			<li>`save_code(code)`</li>
-		</ul>
-	</dd>
-</dl>
-
-The "singular" indicates that there is only one resource of the specified kind. Such resources therefore lack `move_x` and `destroy_x` functions, as they cannot be moved nor destroyed.
-
-The class name next to each data type is the object type that is passed to functions or is returned from functions. For example, the `save_page` function will get a `Nanoc::Page` while the `layouts` function will return an array of `Nanoc::Layout`s.
-
-The loading functions (`pages`, `page_defaults`, …) should return an array of objects, or, if the resource is singular, a single object. These functions do not take any parameters.
-
-The saving functions (`save_page`, `save_page_defaults`, …) should store the given object. The argument is the object to be stored.
-
-The moving functions (`move_page`, …) should change the given object's name or path. The first argument is the object to be moved, while the second argument is the new path or new name.
-
-The destroying functions (`destroy_page`, …) should delete the given object. The argument is the object to be destroyed.
-
-If all this sounds a bit vague and weird, do check out the source of a data source, and the documentation of `Nanoc::DataSource` itself. The code is well-documented and should help you to get started quickly.
+If all this sounds a bit vague, check out the [documentation for `Nanoc3::DataSource`](/doc/3.0.0/Nanoc3/DataSource.html). You may also want to take a look at the code for some of the data sources; the code is well-documented and should help you to get started quickly.
