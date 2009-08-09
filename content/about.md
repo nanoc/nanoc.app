@@ -63,7 +63,7 @@ The source files for a nanoc site are stored as flat text files by default. This
 
 FIXME get rid of link to development section (and perhaps move it into the about page?)
 
-Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository--check the [Development](/development/) page for details).
+Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository--check the [Development](#development) section for details).
 
 Advantage #5: Flexible
 -----
