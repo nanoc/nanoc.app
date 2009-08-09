@@ -597,8 +597,8 @@ nanoc comes with a couple of built-in helpers. These helpers all all child modul
 `LinkTo`
 : provides `link_to` and `link_to_unless_current` functions (<a href="/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">documentation</a>)
 
-`Render`
-: provides functionality for rendering layouts as partials (<a href="/doc/3.0.0/Nanoc3/Helpers/Render.html">documentation</a>)
+`Rendering`
+: provides functionality for rendering layouts as partials (<a href="/doc/3.0.0/Nanoc3/Helpers/Rendering.html">documentation</a>)
 
 `Tagging`
 : provides functionality for printing a item's tags (<a href="/doc/3.0.0/Nanoc3/Helpers/Tagging.html">documentation</a>)
