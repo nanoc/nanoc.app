@@ -11,21 +11,9 @@ Table of Contents
 Getting nanoc 3.0
 -----------------
 
-At the moment, there is no package for nanoc 3.0 yet. To get nanoc, first
-clone the repository (http://projects.stoneship.org/hg/nanoc/) using hg, like
-this:
+You can get nanoc 3.0 (currently a prerelease) using rubygems, like this:
 
-	hg clone http://projects.stoneship.org/hg/nanoc/
-
-Now cd into the new `nanoc` directory and execute the 'gem:install' rake task
-as root in order to install nanoc, like this:
-
-	sudo rake gem:install
-
-If you want to update your local cloned repository, you can do so by executing
-the following command in the repository directory:
-
-	hg pull -u
+	sudo gem install nanoc3 --prerelease
 
 Name changes
 ------------
