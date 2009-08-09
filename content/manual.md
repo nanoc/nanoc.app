@@ -702,22 +702,22 @@ For example, the configuration of a site that uses many data sources could look 
 nanoc comes bundled with the following data sources:
 
 `filesystem_compact`
-: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/FilesystemCompact.html))
+: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/FilesystemCompact.html))
 
 `filesystem_combined`
-: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/FilesystemCombined.html))
+: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/FilesystemCombined.html))
 
 `filesystem`
-: Reads data from files on the disk ([doc](/doc/3.0.0/Nanoc3/DataSources/Filesystem.html))
+: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/Filesystem.html))
 
 `delicious`
-: Reads data from [Delicious](http://delicious.com/) ([doc](/doc/3.0.0/Nanoc3/DataSources/Delicious.html))
+: Reads data from [Delicious](http://delicious.com/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/Delicious.html))
 
 `last_fm`
-: Reads data from [Last.fm](http://last.fm/) ([doc](/doc/3.0.0/Nanoc3/DataSources/LastFM.html))
+: Reads data from [Last.fm](http://last.fm/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/LastFM.html))
 
 `twitter`
-: Reads data from [Twitter](http://twitter.com/) ([doc](/doc/3.0.0/Nanoc3/DataSources/Twitter.html))
+: Reads data from [Twitter](http://twitter.com/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/Twitter.html))
 
 ### Writing Custom Data Sources
 
