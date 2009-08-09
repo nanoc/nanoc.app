@@ -1,5 +1,3 @@
-<div style="padding: 10px; background: #fcc; margin: 18px 72px; font-size: 12px; line-height: 18px"><strong style="background: transparent; font-weight: bold; text-transform: uppercase; color: #c00">Warning:</strong> This document currently in the process of being updated for nanoc 3.0. It is at the moment quite incomplete; do not rely on this document to be correct. If you have any questions about nanoc 3.0, find me on the mailinglist or on the IRC channel.</div>
-
 This manual will tell you everything there is to know about nanoc. You may want to read the [Tutorial](/tutorial/) first, especially if you're new to nanoc. You may also want to check out the [source code documentation](/doc/3.0.0/) where all modules, classes, attributes, methods, … are documented—an excellent way to familiarize yourself with nanoc's internals.
 
 Table of Contents
