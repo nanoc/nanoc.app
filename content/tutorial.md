@@ -228,13 +228,16 @@ Let's get rid of the contents of the home page and replace it with some Markdown
 
 To tell nanoc to run the home page through the `bluecloth` filter, the `Rules` file is used. This file specifies all processing instructions for all items. It consists of a series of rules, which in turn consist of three parts:
 
-the *rule type*
+*rule type*
+
 : This can be `compile` (which specifies the filters and layouts to apply), `route` (which specifies where a compiled page should be written to) or `layout` (which specifies the filter to use for a given layout).
 
-the *selector*
+*selector*
+
 : This determines what items or layouts the rule applies to. It can contain the `*` wildcard, which matches anything. The default rules file has three rules of each type, and they all apply to all items or layouts.
 
-the *processing instructions*
+*instructions*
+
 : This is the code inside the `do…end` block and specifies what exactly should be done with the items that match this rule.
 
 These rules are quite powerful and are not fully explained in this tutorial. I recommend checking out the manual for a more in-depth explanation of the rules file.
