@@ -12,38 +12,16 @@ repository at <http://nanoc.stoneship.org/hg/sites-stoneship>.
 Requirements
 ------------
 
-You will need nanoc 2.1 or higher, as well as:
+You will need nanoc 3.0.0 or higher, as well as:
 
 * builder
 * rubypants
-* Hpricot
-
-Branches
---------
-
-The Mercurial repository for this site has a few branches:
-
-* The _default_ branch contains the latest version of the public site that can
-  be compiled with the latest released version of nanoc. This branch usually
-  contains outdated stuff.
-
-* The _future_ branch contains the latest version of the public site that can
-  be compiled with the latest version from the Mercurial repository. This
-  branch will likely be up-to-date.
-
-* The _future-21_ branch contains the version of the site that will be made
-  public when nanoc 2.1 is released. The site in this branch can only be
-  compiled with the latest version from the Mercurial repository.
-
-Once nanoc 2.1 is released, the _future-21_ branch will become the _default_
-branch. When work on nanoc 2.2 is started, the _future_ branch will be used
-when the site can only be compiled with nanoc 2.2 anymore, and a _future-22_
-branch will be started.
+* nokogiri
 
 Legal
 -----
 
-All content on this site, unless otherwise specified, is copyright 2007-2008
+All content on this site, unless otherwise specified, is copyright 2007-2009
 Denis Defreyne and may not be copied without the express permission from Denis
 Defreyne.
 
