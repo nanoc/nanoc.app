@@ -404,7 +404,7 @@ body {
 	clear: left;
 
 	display: block;
-	width: 108px;
+	width: 135px;
 
 	font-weight: bold;
 }
@@ -414,7 +414,12 @@ body {
 
 	display: block;
 
-	margin: 0 0 0 108px;
+	margin: 0 0 0 135px;
+}
+
+.article dd p {
+	margin: 18px 0;
+	padding: 0;
 }
 
 /** article - miscellaneous */
