@@ -6,10 +6,10 @@ v3.0
 * Multiple data sources
 * Dependency tracking between items
 * Filters can now optionally take arguments
-* create_page and create_layout methods in data sources
+* `create_page` and `create_layout` methods in data sources
 * A new way to specify compilation/routing rules using a Rules file
 * Coderay filter
-* A filesystem_compact data source which uses less directories
+* A `filesystem_compact` data source which uses less directories
 
 ### Changed
 
@@ -21,7 +21,7 @@ v3.0
 * Support for binary assets
 * Support for templates
 * Everything that was deprecated in nanoc 2.x
-* save_*, move_* and delete_* methods in data sources
+* `save_*`, `move_*` and `delete_*` methods in data sources
 * Processing instructions in metadata
 
 v2.2.2
