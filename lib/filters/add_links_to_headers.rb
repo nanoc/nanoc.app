@@ -8,7 +8,7 @@ module Nanoc3::Filters
     def run(content, arguments={})
       require 'nokogiri'
 
-      # Parse with Hpricot
+      # Parse
       doc = Nokogiri::HTML(content)
 
       # Find top-level sections

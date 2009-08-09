@@ -13,7 +13,7 @@ module Nanoc3::Helpers
       params[:base]  ||= item_rep.path
       params[:class] ||= 'toc'
 
-      # Parse with Hpricot
+      # Parse
       doc = Nokogiri::HTML(item_rep.content_at_snapshot(:pre))
 
       # Find all top-level sections
