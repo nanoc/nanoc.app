@@ -345,7 +345,7 @@ body {
 
 .article ul,
 .article ol {
-	margin: 18px 0 0 0;
+	margin: 18px 0 0 18px;
 	padding: 0 72px;
 }
 
@@ -359,12 +359,10 @@ body {
 	font-size: 12px;
 
 	line-height: 18px;
-
-	list-style-position: inside;
 }
 
 .article li p {
-	margin: 0;
+	margin: 18px 0;
 	padding: 0;
 }
 
@@ -374,11 +372,15 @@ body {
 
 /** article - toc */
 
+.article ol.toc {
+	margin: 18px 0 0 0;
+	padding: 0 72px;
+}
+
 .article ol.toc > li {
 	font-weight: bold;
 
 	list-style-type: upper-roman;
-	list-style-position: outside;
 }
 
 .article ol.toc > li li {
