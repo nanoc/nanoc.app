@@ -87,6 +87,7 @@ end
 compile '*' do
   filter :erb
   filter :maruku if item[:markdown]
+  snapshot :before_sections
   filter :add_sections
   layout '/default/'
   filter :add_links_to_headers

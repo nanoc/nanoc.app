@@ -19,16 +19,38 @@ module Nanoc3::Helpers
 
     def latest_release_notes
       # Get release notes page
-      doc = Nokogiri::HTML(@items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre))
+      content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:before_sections)
+      doc = Nokogiri::HTML(content)
 
-      # Get latest release
-      latest_release = doc.search('.section').first
+      # Get latest header
+      header = doc.search('h2').first
 
-      # Remove the header
-      latest_release.search('h2').remove
+      # Get all siblings
+      siblings = header.parent.children
 
-      # Get the release notes
-      latest_release.inner_html.strip
+      # Remove previous siblings
+      siblings_after = []
+      should_include = false
+      siblings.each do |sibling|
+        if sibling == header
+          should_include = true
+        elsif should_include
+          siblings_after << sibling
+        end
+      end
+
+      # Remove next siblings that should not be part of this section
+      siblings_in_between = []
+      siblings_after.each do |sibling|
+        if sibling.name =~ /^h(\d)/ && $1.to_i <= 2
+          break
+        else
+          siblings_in_between << sibling
+        end
+      end
+
+      # Done
+      siblings_in_between.join
     end
 
   end
