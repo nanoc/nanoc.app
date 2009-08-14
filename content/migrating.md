@@ -8,13 +8,6 @@ Table of Contents
 
 <%= toc_for(@item.reps.find { |r| r.name == :notoc }, :base => '') unless @item_rep.name == :notoc %>
 
-Getting nanoc 3.0
------------------
-
-You can get nanoc 3.0 (currently a prerelease) using rubygems, like this:
-
-	sudo gem install nanoc3 --prerelease
-
 Name changes
 ------------
 
