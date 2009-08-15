@@ -12,17 +12,9 @@
 
 		<!-- stylesheets -->
 		<link rel="stylesheet" href="<%= item('/assets/style/').reps[0].path %>" type="text/css" media="screen">
-		<% (@item[:extra_stylesheets] || []).each do |stylesheet| %>
-			<link rel="stylesheet" href="<%=h stylesheet %>" type="text/css" media="screen">
-		<% end %>
 
 		<!-- feed -->
 		<link rel="alternate" type="application/atom+xml" title="nanoc news" href="http://feeds.feedburner.com/nanoc">
-
-		<!-- scripts -->
-		<% (@item[:extra_scripts] || []).each do |script| %>
-			<script type="text/javascript" src="<%=h script %>"></script>
-		<% end %>
 	</head>
 	<body>
 		<div class="nav">
