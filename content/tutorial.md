@@ -67,12 +67,18 @@ This is what'll appear in the terminal when nanoc is done compiling:
 
 	Site compiled in 0.01s.
 
-A file named `index.html` has been created in the `output` directory. Open it in your favourite web browser (mine is Safari); what you'll see is something like this:
+A file named `index.html` has been created in the `output` directory. Start the nanoc _autocompiler_ (a web server that compiles all pages as they are requested) like this:
+
+	nanoc aco
+
+Now, open your favourite web browser (mine is Safari) and navigate to `http://localhost:3000/`. What you'll see is something like this:
 
 <div class="figure">
 	<img style="border: 6px solid #ccc" src="/assets/images/tutorial/default-site.png"
 	     alt="Screenshot of what a brand new nanoc site looks like">
 </div>
+
+(If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one. See the [Watch out for Paths](#watch-out-for-paths) section for details.)
 
 You can also open the `output/index.html` file in your favourite text editor, where you'll find that the file is just a normal HTML page. No big surprise there.
 
