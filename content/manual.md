@@ -130,6 +130,167 @@ The autocompiler will run on port 3000 by default. To change the port number, us
 
 Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
 
+Items
+-----
+
+Items are the basic building blocks of a nanoc-powered site. An item consist of content and metadata attributes.
+
+Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one "root" or "home" page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
+
+Item also have a *raw path*, which is where the compiled item will be written to. It is relative to the nanoc site directory and includes the path to the output directory and the terminating "index.html," if any. The *path* of an item is what will be used to link to an item. It is the raw path with the trailing index filenames removed (usually `index.html`). The hierarchy of outputted items does *not* have to be the same as the hierarchy of uncompiled, raw items; see the <a href="#routing">Routing</a> section for details.
+
+### Creating an Item
+
+Item can easily be created manually by simply creating its metadata file and content file. It is often easier to create an item using the commandline, though.
+
+To create an item using the commandline, use `nanoc3 create_item` or `nanoc3 ci`. This command takes one argument: the item identifier. For example, to create an item named "bar" with "foo" as parent item, do this:
+
+	> nanoc3 create_item /foo/bar
+
+### Attributes
+
+Each item has attributes (also called "meta-data") associated with it. This metadata consists of key-value pairs, which are stored in YAML format (although this may vary for different data sources). All attributes are free-form; there are no predefined attributes.
+
+Some filters or helpers may use certain attributes. When using these filters, be sure to check their documentation (see below) to see what attributes they use, if any.
+
+### Representations
+
+An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`).
+
+One reason why an item would have different representations is because the data needs to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn't compiled at all (just the raw, unfiltered, non-laid out content). Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
+
+An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
+
+<% syntax_colorize 'ruby' do %>
+	rep = @item.reps.find { |r| r.name == :default }
+<% end %>
+
+### Snapshots
+
+A representation contains multiple versions of its compiled content. "Snapshots" of the compiled content are automatically created at specific points in the compilation process, but can also be made manually.
+
+To get the compiled content of a representation at a specific snapshot, use `#content_at_snapshot`, like this:
+
+<% syntax_colorize 'ruby' do %>
+	compiled_content = rep.content_at_snapshot(:last)
+<% end %>
+
+If you only have an item (a `Nanoc3::Item` instance) and not a rep (a `Nanoc3::ItemRep` instance), you can use something like this to get the compiled content of the first rep of the given item:
+
+<% syntax_colorize 'ruby' do %>
+	compiled_content = @item.reps[0].content_at_snapshot(:last)
+<% end %>
+
+The automatically generated snapshots are:
+
+`:raw`
+: The content right before actual compilation is started
+
+`:pre`
+: The content right before the item is laid out
+
+`:post`
+: The content after the item has been laid out and post-filtered
+
+`:last`
+: The most recent compiled content
+
+The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot (for example, items without layouts).
+
+### Variables
+
+When compiling items with filters that support adding code to the item or the layout (such as ERB and Haml), several variables are made available. These variables are:
+
+`@item_rep`
+: The item representation that is currently being compiled.
+
+`@item`
+: The item that is currently being compiled.
+
+`@items`
+: The list of all items, including ones that have not yet been compiled.
+
+`@layout`
+: The layout that is currently being used in the layout phase.
+
+`@layouts`
+: The list of all layouts.
+
+`@config`
+: The site configuration as a hash.
+
+`@site`
+: The site.
+
+To get an item attribute, use the `#[]` method and pass the attribute key as a symbol, e.g. `@item[:author]`.
+
+Items have the following attributes available at compile time:
+
+`mtime`
+: The time when the item was last modified.
+
+`parent`
+: The parent of this item. The root item will have a `nil` parent.
+
+`children`
+: A list of child items. This may be an empty array.
+
+`reps`
+: A list of representations for this item.
+
+`path`
+: The item's path relative to the web root, with leading and trailing slashes, e.g. `/news/`.
+
+To get a item representation with a specific name, get the reps by using the `#reps` method and then find the right rep. For example, to get the "raw" representation:
+
+<% syntax_colorize 'ruby' do %>
+	raw_rep = @item.reps.find { |r| r.name == :raw }
+<% end %>
+
+It is not possible to get the compiled content of an item; items themselves have no compiled content but their reps do. For example, to get the compiled content of a certain item:
+
+<% syntax_colorize 'ruby' do %>
+	content = item.reps[0].content_at_snapshot(:pre)
+<% end %>
+
+Layouts
+-------
+
+On itself, an item's content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the item.
+
+For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout show an example of how this is usually done:
+
+<% syntax_colorize 'html_rails' do %>
+	<html>
+	  <head>
+	    <title><%%=h @item[:title] %></title>
+	  </head>
+	  <body>
+	<%%= yield %>
+	  </body>
+	</html>
+<% end %>
+
+### As Partials
+
+Layouts can also be used as *partials*: a specific layout can be rendered into an item or a layout by using the `render` function, which takes the layout name as an argument. For example:
+
+<% syntax_colorize 'html_rails' do %>
+	<%%= render 'head' %>
+<% end %>
+
+For this to work, though, you'll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+
+<% syntax_colorize 'ruby' do %>
+	include Nanoc3::Helpers::Rendering
+<% end %>
+
+It is also possible to pass custom variables to rendered partials by putting them into a hash passed to `render`. The following example will make a `@title` variable (set to "Foo" in this example) available in the "head" layout:
+
+<% syntax_colorize 'html_rails' do %>
+	<%%= render 'head', :title => 'Foo' %>
+<% end %>
+
 Rules
 -----
 
@@ -396,167 +557,6 @@ The following diagram illustrates item compilation by giving a few examples of h
 Items that have content dependencies on other items, i.e. items that include the content of another item, will be compiled once the content of the items it depends on is available. Circular content dependencies (item "A" requiring the content of item "B" and vice versa) are detected and reported.
 
 By default, item representations will not be recompiled unless they are outdated. This provides a noticeable speedup, especially for large sites. The `compile` and `autocompile` commands accept a `-f` or `--force` switch, which recompiles items even if they are not outdated.
-
-Items
------
-
-Items are the basic building blocks of a nanoc-powered site. An item consist of content and metadata attributes.
-
-Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one "root" or "home" page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
-
-Item also have a *raw path*, which is where the compiled item will be written to. It is relative to the nanoc site directory and includes the path to the output directory and the terminating "index.html," if any. The *path* of an item is what will be used to link to an item. It is the raw path with the trailing index filenames removed (usually `index.html`). The hierarchy of outputted items does *not* have to be the same as the hierarchy of uncompiled, raw items; see the <a href="#routing">Routing</a> section for details.
-
-### Creating an Item
-
-Item can easily be created manually by simply creating its metadata file and content file. It is often easier to create an item using the commandline, though.
-
-To create an item using the commandline, use `nanoc3 create_item` or `nanoc3 ci`. This command takes one argument: the item identifier. For example, to create an item named "bar" with "foo" as parent item, do this:
-
-	> nanoc3 create_item /foo/bar
-
-### Attributes
-
-Each item has attributes (also called "meta-data") associated with it. This metadata consists of key-value pairs, which are stored in YAML format (although this may vary for different data sources). All attributes are free-form; there are no predefined attributes.
-
-Some filters or helpers may use certain attributes. When using these filters, be sure to check their documentation (see below) to see what attributes they use, if any.
-
-### Representations
-
-An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`).
-
-One reason why an item would have different representations is because the data needs to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn't compiled at all (just the raw, unfiltered, non-laid out content). Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
-
-An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
-
-<% syntax_colorize 'ruby' do %>
-	rep = @item.reps.find { |r| r.name == :default }
-<% end %>
-
-### Snapshots
-
-A representation contains multiple versions of its compiled content. "Snapshots" of the compiled content are automatically created at specific points in the compilation process, but can also be made manually.
-
-To get the compiled content of a representation at a specific snapshot, use `#content_at_snapshot`, like this:
-
-<% syntax_colorize 'ruby' do %>
-	compiled_content = rep.content_at_snapshot(:last)
-<% end %>
-
-If you only have an item (a `Nanoc3::Item` instance) and not a rep (a `Nanoc3::ItemRep` instance), you can use something like this to get the compiled content of the first rep of the given item:
-
-<% syntax_colorize 'ruby' do %>
-	compiled_content = @item.reps[0].content_at_snapshot(:last)
-<% end %>
-
-The automatically generated snapshots are:
-
-`:raw`
-: The content right before actual compilation is started
-
-`:pre`
-: The content right before the item is laid out
-
-`:post`
-: The content after the item has been laid out and post-filtered
-
-`:last`
-: The most recent compiled content
-
-The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot (for example, items without layouts).
-
-### Variables
-
-When compiling items with filters that support adding code to the item or the layout (such as ERB and Haml), several variables are made available. These variables are:
-
-`@item_rep`
-: The item representation that is currently being compiled.
-
-`@item`
-: The item that is currently being compiled.
-
-`@items`
-: The list of all items, including ones that have not yet been compiled.
-
-`@layout`
-: The layout that is currently being used in the layout phase.
-
-`@layouts`
-: The list of all layouts.
-
-`@config`
-: The site configuration as a hash.
-
-`@site`
-: The site.
-
-To get an item attribute, use the `#[]` method and pass the attribute key as a symbol, e.g. `@item[:author]`.
-
-Items have the following attributes available at compile time:
-
-`mtime`
-: The time when the item was last modified.
-
-`parent`
-: The parent of this item. The root item will have a `nil` parent.
-
-`children`
-: A list of child items. This may be an empty array.
-
-`reps`
-: A list of representations for this item.
-
-`path`
-: The item's path relative to the web root, with leading and trailing slashes, e.g. `/news/`.
-
-To get a item representation with a specific name, get the reps by using the `#reps` method and then find the right rep. For example, to get the "raw" representation:
-
-<% syntax_colorize 'ruby' do %>
-	raw_rep = @item.reps.find { |r| r.name == :raw }
-<% end %>
-
-It is not possible to get the compiled content of an item; items themselves have no compiled content but their reps do. For example, to get the compiled content of a certain item:
-
-<% syntax_colorize 'ruby' do %>
-	content = item.reps[0].content_at_snapshot(:pre)
-<% end %>
-
-Layouts
--------
-
-On itself, an item's content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the item.
-
-For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout show an example of how this is usually done:
-
-<% syntax_colorize 'html_rails' do %>
-	<html>
-	  <head>
-	    <title><%%=h @item[:title] %></title>
-	  </head>
-	  <body>
-	<%%= yield %>
-	  </body>
-	</html>
-<% end %>
-
-### As Partials
-
-Layouts can also be used as *partials*: a specific layout can be rendered into an item or a layout by using the `render` function, which takes the layout name as an argument. For example:
-
-<% syntax_colorize 'html_rails' do %>
-	<%%= render 'head' %>
-<% end %>
-
-For this to work, though, you'll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
-
-<% syntax_colorize 'ruby' do %>
-	include Nanoc3::Helpers::Rendering
-<% end %>
-
-It is also possible to pass custom variables to rendered partials by putting them into a hash passed to `render`. The following example will make a `@title` variable (set to "Foo" in this example) available in the "head" layout:
-
-<% syntax_colorize 'html_rails' do %>
-	<%%= render 'head', :title => 'Foo' %>
-<% end %>
 
 Filters
 -------
