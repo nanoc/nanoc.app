@@ -137,7 +137,7 @@ Items are the basic building blocks of a nanoc-powered site. An item consist of 
 
 Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one "root" or "home" page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
 
-Item also have a *raw path*, which is where the compiled item will be written to. It is relative to the nanoc site directory and includes the path to the output directory and the terminating "index.html," if any. The *path* of an item is what will be used to link to an item. It is the raw path with the trailing index filenames removed (usually `index.html`). The hierarchy of outputted items does *not* have to be the same as the hierarchy of uncompiled, raw items; see the <a href="#routing">Routing</a> section for details.
+Item also have a *raw path*, which is where the compiled item will be written to. It is relative to the nanoc site directory and includes the path to the output directory and the terminating "index.html," if any. The *path* of an item is what will be used to link to an item. It is the raw path with the trailing index filenames removed (usually `index.html`). The hierarchy of outputted items does *not* have to be the same as the hierarchy of uncompiled, raw items; see the [routing rules](#routing-rules) section for details.
 
 ### Creating an Item
 
