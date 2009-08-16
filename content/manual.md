@@ -546,6 +546,12 @@ Layouts can also be used as *partials*: a specific layout can be rendered into a
 	<%%= render 'head' %>
 <% end %>
 
+For this to work, though, you'll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+
+<% syntax_colorize 'ruby' do %>
+	include Nanoc3::Helpers::Rendering
+<% end %>
+
 It is also possible to pass custom variables to rendered partials by putting them into a hash passed to `render`. The following example will make a `@title` variable (set to "Foo" in this example) available in the "head" layout:
 
 <% syntax_colorize 'html_rails' do %>
