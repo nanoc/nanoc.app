@@ -394,7 +394,45 @@ Some filters or helpers may use certain attributes. When using these filters, be
 
 ### Representations
 
-TODO write
+An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`). For example, an item could have a `default` rep (fully filtered and laid out) and a `raw` (uncompiled content) representation.
+
+An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
+
+<% syntax_colorize 'ruby' do %>
+	rep = @item.reps.find { |r| r.name == :default }
+<% end %>
+
+### Snapshots
+
+A representation contains multiple versions of its compiled content. "Snapshots" of the compiled content are automatically created at specific points in the compilation process, but can also be made manually.
+
+To get the compiled content of a representation at a specific snapshot, use `#content_at_snapshot`, like this:
+
+<% syntax_colorize 'ruby' do %>
+	compiled_content = rep.content_at_snapshot(:last)
+<% end %>
+
+If you only have an item (a `Nanoc3::Item` instance) and not a rep (a `Nanoc3::ItemRep` instance), you can use something like this to get the compiled content of the first rep of the given item:
+
+<% syntax_colorize 'ruby' do %>
+	compiled_content = @item.reps[0].content_at_snapshot(:last)
+<% end %>
+
+The automatically generated snapshots are:
+
+`:raw`
+: The content right before actual compilation is started
+
+`:pre`
+: The content right before the item is laid out
+
+`:post`
+: The content after the item has been laid out and post-filtered
+
+`:last`
+: The most recent compiled content
+
+The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot (for example, items without layouts).
 
 ### Variables
 
