@@ -155,6 +155,11 @@ The argument for the `#route` method is the identifier of the item that should
 be compiled. It can also be a string that contains the `*` wildcard, which
 matches zero or more characters. Additionally, it can be a regular expression.
 
+A `:rep` argument can be passed to the `#route` call. This indicates the
+name of the representation this rule should apply to. This is `:default` by
+default, which means routing rules apply to the default representation unless
+specified otherwise.
+
 The code block should return the routed path for the relevant item. The code
 block can return nil, in which case the item will not be written.
 
@@ -192,6 +197,15 @@ so that they can be included in other items, however):
 	end
 <% end %>
 
+Example #4: The following rule will apply to all items below `/people/`, and
+only to textual representations (with name equal to `text`):
+
+<% syntax_colorize 'ruby' do %>
+	route '/people/*', :rep => :text do
+	  item.identifier + '.txt'
+	end
+<% end %>
+
 ### Compilation Rules
 
 A compilation rule looks like this:
@@ -204,6 +218,11 @@ A compilation rule looks like this:
 
 The argument for the `#compile` command is exactly the same as the argument
 for `#route`; see above for details.
+
+Just like with routing rules, a `:rep` argument can be passed to the
+`#compile` call. This indicates the name of the representation this rule
+should apply to. This is `:default` by default, which means compilation
+rules apply to the default representation unless specified otherwise.
 
 The code block should execute the necessary actions for compiling the item. It
 does not have to return anything.
@@ -267,6 +286,15 @@ invoking `#filter` or `#layout` with an explicit receiver:
 	  filter :erb
 	  layout '/shiny/'
 	  filter :rubypants
+	end
+<% end %>
+
+Example #4: The following rule will apply to all items below `/people/`, and
+only to textual representations (with name equal to `text`):
+
+<% syntax_colorize 'ruby' do %>
+	compile '/people/*', :rep => :text do
+	  # don't filter or layout
 	end
 <% end %>
 
