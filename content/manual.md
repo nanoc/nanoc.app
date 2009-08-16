@@ -394,7 +394,9 @@ Some filters or helpers may use certain attributes. When using these filters, be
 
 ### Representations
 
-An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`). For example, an item could have a `default` rep (fully filtered and laid out) and a `raw` (uncompiled content) representation.
+An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`).
+
+One reason why an item would have different representations is because the data needs to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn't compiled at all (just the raw, unfiltered, non-laid out content). Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
 
 An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
 
