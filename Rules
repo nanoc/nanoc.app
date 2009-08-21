@@ -29,6 +29,10 @@ end
 
 ### Routing Rules
 
+route '/404/' do
+  '/error-404.php'
+end
+
 route '/assets/style/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
@@ -75,6 +79,11 @@ end
     filter :maruku
     filter :add_sections
   end
+end
+
+compile '/404/' do
+  filter :erb
+  layout '/default/'
 end
 
 compile '/' do
