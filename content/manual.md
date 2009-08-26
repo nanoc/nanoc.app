@@ -450,7 +450,7 @@ invoking `#filter` or `#layout` with an explicit receiver:
 	end
 <% end %>
 
-Example #4: The following rule will apply to all items below `/people/`, and
+Example #6: The following rule will apply to all items below `/people/`, and
 only to textual representations (with name equal to `text`):
 
 <% syntax_colorize 'ruby' do %>
