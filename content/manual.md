@@ -271,6 +271,8 @@ For a layout to be useful, it must output the item's content at a certain point.
 	</html>
 <% end %>
 
+An item is put into a layout by calling the `layout` function in a compilation rule. See the [Compilation Rules](#compilation-rules) section for details.
+
 ### As Partials
 
 Layouts can also be used as *partials*: a specific layout can be rendered into an item or a layout by using the `render` function, which takes the layout name as an argument. For example:
