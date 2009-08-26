@@ -461,6 +461,17 @@ only to textual representations (with name equal to `text`):
 	end
 <% end %>
 
+Example #7: The following rule will create a snapshot named `without_toc`
+so that the content at that snapshot can then later be reused elsewhere:
+
+<% syntax_colorize 'ruby' do %>
+	compile '/foo/' do
+	  filter :markdown
+	  snapshot :without_toc
+	  filter :add_toc
+	end
+<% end %>
+
 ### Layouting Rules
 
 To specify the filter used for a layout, use the `#layout` method.
