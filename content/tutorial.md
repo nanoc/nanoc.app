@@ -71,6 +71,11 @@ A file named `index.html` has been created in the `output` directory. Start the 
 
 	nanoc aco
 
+If this doesn't work and gives errors about `rack` or `mime/types`, you need to install two extra gems:
+
+	sudo gem install rack
+	sudo gem install mime-types
+
 Now, open your favourite web browser (mine is Safari) and navigate to `http://localhost:3000/`. What you'll see is something like this:
 
 <div class="figure">
