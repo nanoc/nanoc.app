@@ -69,7 +69,7 @@ This is what'll appear in the terminal when nanoc is done compiling:
 
 A file named `index.html` has been created in the `output` directory. Start the nanoc _autocompiler_ (a web server that compiles all pages as they are requested) like this:
 
-	nanoc aco
+	nanoc3 aco
 
 If this doesn't work and gives errors about `rack` or `mime/types`, you need to install two extra gems:
 
