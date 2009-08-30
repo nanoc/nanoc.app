@@ -112,7 +112,7 @@ And this is what you'll see:
 	
 	Site compiled in 0.01s.
 
-The number between brackes next to the `output/index.html`filename indicates the time it took for nanoc to compile the home page. At the bottom, the total time needed for compiling the entire site is also shown.
+The number between brackets next to the `output/index.html` filename indicates the time it took for nanoc to compile the home page. At the bottom, the total time needed for compiling the entire site is also shown.
 
 Open `index.html` in the `output` directory in your web browser and your text editor again, and verify that the page has indeed been updated.
 
