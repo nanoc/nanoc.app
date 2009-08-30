@@ -1,5 +1,3 @@
-require 'hpricot'
-
 module Nanoc3::Helpers
 
   # This module (specific to the nanoc site) contains functionality for

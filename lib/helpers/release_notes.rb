@@ -1,5 +1,3 @@
-require 'hpricot'
-
 module Nanoc3::Helpers
 
   # This module (specific to the nanoc web site) contains two functions that
@@ -9,6 +7,8 @@ module Nanoc3::Helpers
   module ReleaseNotes
 
     def latest_release_version
+      require 'nokogiri'
+
       # Get release notes page
       content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre)
       doc = Nokogiri::HTML(content)
@@ -18,6 +18,8 @@ module Nanoc3::Helpers
     end
 
     def latest_release_notes
+      require 'nokogiri'
+
       # Get release notes page
       content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:before_sections)
       doc = Nokogiri::HTML(content)
