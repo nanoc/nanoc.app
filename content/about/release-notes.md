@@ -1,3 +1,12 @@
+v3.0.1
+------
+
+* The proper exception is now raised when no matching compilation rules can be found
+* The autocompile command no longer has a duplicate `--port` option
+* The `#url_for` and `#feed_url` methods now check the presence of the `base_url` site configuration attribute
+* Several outdated URLs are now up-to-date
+* Error handling has been improved in general
+
 v3.0
 ----
 
