@@ -7,7 +7,7 @@
 		<% if @item[:title] %>
 			<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
 		<% else %>
-			<title>nanoc &raquo; Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></title>
+			<title>nanoc &raquo; News &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></title>
 		<% end %>
 
 		<!-- stylesheets -->
@@ -37,9 +37,9 @@
 				<!-- title -->
 				<% if @item[:kind] == 'article' %>
 					<% if @item[:title] %>
-						<h1>Blog &raquo; <%=h @item[:title] %></h1>
+						<h1>News &raquo; <%=h @item[:title] %></h1>
 					<% else %>
-						<h1>Blog &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></h1>
+						<h1>News &raquo; <%= Time.parse(@item[:created_at]).localtime.format_as_date %></h1>
 					<% end %>
 				<% elsif !@item[:raw_layout] %>
 					<h1><%= @item[:title] %></h1>
