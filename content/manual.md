@@ -258,7 +258,7 @@ Layouts
 
 On itself, an item's content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the item.
 
-For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout show an example of how this is usually done:
+For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout shows an example of how this is usually done:
 
 <% syntax_colorize 'html_rails' do %>
 	<html>
