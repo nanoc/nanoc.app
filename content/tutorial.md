@@ -377,4 +377,4 @@ That's it!
 
 This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.
 
-There's more reading material. It's definitely worth checking out the [Manual](/manual/)--it's rather big, but it contains everything you need to know about nanoc.
+There's more reading material. It's definitely worth checking out the [Manual](/manual/)--it's rather big, but it contains everything you need to know about nanoc. Be sure to check out the [Glossary](/manual/#glossary) if you're confused by terminology.
