@@ -24,8 +24,13 @@ module Nanoc3::Helpers
       # Process
       case type
       when :ultraviolet
-        require 'uv'
-        filtered_data = Uv.parse(data, 'xhtml', lang, false, 'amy')
+        begin
+          require 'uv'
+          filtered_data = Uv.parse(data, 'xhtml', lang, false, 'amy')
+        rescue LoadError
+          warn "Couldn't load uv; please install the ultraviolet gem"
+          filtered_data = '<pre class="no-uv">' + h(data) + '</pre>'
+        end
 
         # Convert to HTML
         filtered_data = filtered_data.strip.sub(%r{/ ?>}, '>') # convert to HTML
