@@ -424,6 +424,31 @@ body {
 	padding: 0;
 }
 
+.article dl.glossary dt {
+	float: none;
+	clear: none;
+
+	width: 100%;
+
+	font-weight: bold;
+}
+
+.article dl.glossary dd {
+	clear: none;
+
+	display: block;
+
+	margin: 0 0 18px 18px;
+}
+
+.article dl.glossary .see {
+	font-style: italic;
+}
+
+.article dl.glossary .see a {
+	font-style: normal;
+}
+
 /** article - miscellaneous */
 
 .article .figure {
