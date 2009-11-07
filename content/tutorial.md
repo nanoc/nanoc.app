@@ -339,6 +339,8 @@ This will make all functions defined in the `Nanoc3::Helpers::Tagging` module av
 	<p>Tags: <%%= tags_for(@item) %></p>
 <% end %>
 
+Now compile the site again, and you'll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
+
 nanoc comes with quite a few useful helpers. The [RDoc documentation](/doc/3.0.0/) describes each one of them.
 
 Watch out for Paths
