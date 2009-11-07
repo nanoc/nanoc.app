@@ -1,3 +1,10 @@
+v3.0.2
+------
+
+* Children-only identifier patterns no longer erroneously also match parent (e.g. `/foo/*/` no longer matches `/foo/`)
+* The `create_site` command no longer uses those ugly HTML entities
+* The install message now mentions the IRC channel
+
 v3.0.1
 ------
 
