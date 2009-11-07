@@ -235,7 +235,7 @@ Let's get rid of the contents of the home page and replace it with some Markdown
 	> 
 	> This is the second paragraph in the blockquote.
 	>
-	> ## This is an H2 in a blockquote`</pre>
+	> ## This is an H2 in a blockquote
 
 To tell nanoc to run the home page through the `bluecloth` filter, the `Rules` file is used. This file specifies all processing instructions for all items. It consists of a series of rules, which in turn consist of three parts:
 
