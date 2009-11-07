@@ -298,7 +298,7 @@ Writing some Custom Code
 
 There is a directory named `lib` in your nanoc site. In there, you can throw Ruby source files, and they'll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods. 
 
-As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.yaml` and add this to the end of the "custom" section:
+As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.yaml` and add this to the end:
 
 <% syntax_colorize 'yaml' do %>
 tags:
