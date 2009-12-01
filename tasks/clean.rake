@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 desc 'Removes all stray files from the output directory'
 task :clean_all do
   puts '=== Removing stray files from output directory…'

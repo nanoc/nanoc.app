@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 task :tidy do
   require 'tidy'
 

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 task :copy_assets do
   puts '=== Copying assets…'
   system "rsync -gprt --partial assets/ output"
