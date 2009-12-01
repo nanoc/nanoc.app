@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::DataSources::FilesystemCombined</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_DataSources_FilesystemCombined">
+  <h1 class="title">Class: Nanoc3::DataSources::FilesystemCombined</h1>
+  <div class="section inheritance">
+  <ul>
+  <li><a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></li><ul><li><a href="../DataSource.html" title="Nanoc3::DataSource">Nanoc3::DataSource</a></li><ul><li>Nanoc3::DataSources::FilesystemCombined</li>
+  </ul></ul></ul>
+</div><div class="section mixins">
+  <h1>Included Modules</h1>
+  <p><a href="FilesystemCommon.html" title="Nanoc3::DataSources::FilesystemCommon">Nanoc3::DataSources::FilesystemCommon</a></p>
+</div>
+<div class="section docstring">
+  <h1>Items</h1>
+<p>
+The filesystem data source stores its items in nested directories. A item
+is represented by a single file. The root directory is the
+&#8216;content&#8217; directory.
+</p>
+<p>
+The metadata for a item is embedded into the file itself. It is stored at
+the top of the file, between &#8217;--&#8217; (three dashes)
+separators. For example:
+</p>
+<pre class="code">
+  <span class='minus op'>-</span><span class='minus op'>-</span><span class='minus op'>-</span>
+  <span class='title identifier id'>title</span><span class='colon op'>:</span> <span class='string val'>&quot;Moo!&quot;</span>
+  <span class='minus op'>-</span><span class='minus op'>-</span><span class='minus op'>-</span>
+  <span class='h1 identifier id'>h1</span><span class='dot token'>.</span> <span class='Hello! constant id'>Hello!</span>
+</pre>
+<p>
+The identifier of a item is determined as follows. A file with an
+&#8216;index.*&#8217; filename, such as &#8216;index.txt&#8217;, will have
+the filesystem path with the &#8216;index.*&#8217; part stripped as a
+identifier. For example, &#8216;foo/bar/index.html&#8217; will have
+&#8217;/foo/bar/&#8217; as identifier.
+</p>
+<p>
+A file with a filename not starting with &#8216;index.&#8217;, such as
+&#8216;foo.html&#8217;, will have an identifier ending in
+&#8216;foo/&#8217;. For example, &#8216;foo/bar.html&#8217; will have
+&#8217;/foo/bar/&#8217; as identifier.
+</p>
+<p>
+Note that it is possible for two different, separate files to have the same
+identifier. It is therefore recommended to avoid such situations.
+</p>
+<p>
+Some more examples:
+</p>
+<pre class="code">
+  <span class='content identifier id'>content</span><span class='div op'>/</span><span class='index identifier id'>index</span><span class='dot token'>.</span><span class='html identifier id'>html</span>          <span class='minus op'>-</span><span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='regexp val'>/
+  content/</span><span class='foo identifier id'>foo</span><span class='dot token'>.</span><span class='html identifier id'>html</span>            <span class='minus op'>-</span><span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='regexp val'>/foo/</span>
+  <span class='content identifier id'>content</span><span class='div op'>/</span><span class='foo identifier id'>foo</span><span class='div op'>/</span><span class='index identifier id'>index</span><span class='dot token'>.</span><span class='html identifier id'>html</span>      <span class='minus op'>-</span><span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='regexp val'>/foo/</span>
+  <span class='content identifier id'>content</span><span class='div op'>/</span><span class='foo identifier id'>foo</span><span class='div op'>/</span><span class='bar identifier id'>bar</span><span class='dot token'>.</span><span class='html identifier id'>html</span>        <span class='minus op'>-</span><span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='regexp val'>/foo/</span><span class='bar identifier id'>bar</span><span class='div op'>/</span>
+  <span class='content identifier id'>content</span><span class='div op'>/</span><span class='foo identifier id'>foo</span><span class='div op'>/</span><span class='bar identifier id'>bar</span><span class='div op'>/</span><span class='index identifier id'>index</span><span class='dot token'>.</span><span class='html identifier id'>html</span>  <span class='minus op'>-</span><span class='minus op'>-</span><span class='gt op'>&gt;</span> <span class='regexp val'>/foo/</span><span class='bar identifier id'>bar</span><span class='div op'>/</span>
+</pre>
+<p>
+File extensions are ignored by nanoc. The file extension does not determine
+the filters to run on it; the metadata in the file defines the list of
+filters.
+</p>
+<h1>Layouts</h1>
+<p>
+Layouts are stored as files in the &#8216;layouts&#8217; directory. Similar
+to items, each layout consists of a metadata part and a content part,
+separated by &#8217;--&#8217; (three dashes).
+</p>
+<h1>Code Snippets</h1>
+<p>
+Code snippets are stored in &#8217;.rb&#8217; files in the
+&#8216;lib&#8217; directory. Code snippets can reside in sub-directories.
+</p>
+
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>vcs</span>
+          </td>
+          <td class="readwrite">
+            [R<span id='vcs=-instance_method'>W</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+VCSes ##########.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+      </table>
+    </div>
+  
+</div>
+<div class="section constants">
+  <div class="inherited">
+  
+  <div>
+    <h1>Constants Inherited from <a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="../Plugin.html#MAP-constant" title="MAP">MAP</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <p class="inherited_msg">
+    This class inherits a constructor from <a href="../DataSource.html#initialize-instance_method" title="Nanoc3::DataSource">Nanoc3::DataSource</a>.
+  </p>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <div class="inherited">
+  
+  <div>
+    <h1>Public Class Methods Inherited from <a href="../DataSource.html" title="Nanoc3::DataSource">Nanoc3::DataSource</a></h1>
+    <p><span class='name'><a href="../DataSource.html#identifier-class_method" title="identifier">identifier</a></span>, <span class='name'><a href="../DataSource.html#identifiers-class_method" title="identifiers">identifiers</a></span>, <span class='name'><a href="../DataSource.html#register-class_method" title="register">register</a></span></p>
+  </div>
+  
+  <div>
+    <h1>Public Class Methods Inherited from <a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="../Plugin.html#all-class_method" title="all">all</a></span>, <span class='name'><a href="../Plugin.html#named-class_method" title="named">named</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#create_item-instance_method" title="#create_item">#create_item</a></span><span class='args'>(content, attributes, identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creating data ########## Creates a new item with the given content,
+attributes and identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#create_layout-instance_method" title="#create_layout">#create_layout</a></span><span class='args'>(content, attributes, identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a new layout with the given content, attributes and identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#down-instance_method" title="#down">#down</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#items-instance_method" title="#items">#items</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Loading data ##########.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#layouts-instance_method" title="#layouts">#layouts</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#setup-instance_method" title="#setup">#setup</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#up-instance_method" title="#up">#up</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Preparation ##########.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#vcs-instance_method" title="#vcs">#vcs</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+VCSes ##########.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+<div class="inherited">
+  
+  <div>
+    <h1>Public Instance Methods Inherited from <a href="../DataSource.html" title="Nanoc3::DataSource">Nanoc3::DataSource</a></h1>
+    <p><span class='name'><a href="../DataSource.html#code_snippets-instance_method" title="code_snippets">code_snippets</a></span>, <span class='name'><a href="../DataSource.html#loading-instance_method" title="loading">loading</a></span>, <span class='name'><a href="../DataSource.html#unuse-instance_method" title="unuse">unuse</a></span>, <span class='name'><a href="../DataSource.html#update-instance_method" title="update">update</a></span>, <span class='name'><a href="../DataSource.html#use-instance_method" title="use">use</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div><div class="included">
+  
+  <div>
+    <h1>Public Instance Methods Included from <a href="FilesystemCommon.html" title="Nanoc3::DataSources::FilesystemCommon">Nanoc3::DataSources::FilesystemCommon</a></h1>
+    <p><span class='name'><a href="FilesystemCommon.html#code_snippets-instance_method" title="code_snippets">code_snippets</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>create_item</h3>
+</div><div id="create_item-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>create_item</span><span class='args'>(content, attributes, identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creating data ########## Creates a new item with the given content,
+attributes and identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 129</span>
+
+<span class='def def kw'>def</span> <span class='create_item identifier id'>create_item</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='comment val'># Determine path</span>
+  <span class='if if kw'>if</span> <span class='identifier identifier id'>identifier</span> <span class='eq op'>==</span> <span class='string val'>'/'</span>
+    <span class='path identifier id'>path</span> <span class='assign token'>=</span> <span class='string val'>'content/index.html'</span>
+  <span class='else else kw'>else</span>
+    <span class='path identifier id'>path</span> <span class='assign token'>=</span> <span class='string val'>'content'</span> <span class='plus op'>+</span> <span class='identifier identifier id'>identifier</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>-2</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>'.html'</span>
+  <span class='end end kw'>end</span>
+  <span class='parent_path identifier id'>parent_path</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Notify</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='NotificationCenter constant id'>NotificationCenter</span><span class='dot token'>.</span><span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='symbol val'>:file_created</span><span class='comma token'>,</span> <span class='path identifier id'>path</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Write item</span>
+  <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='parent_path identifier id'>parent_path</span><span class='rparen token'>)</span>
+  <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='comma token'>,</span> <span class='string val'>'w'</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='io identifier id'>io</span><span class='bitor op'>|</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='YAML constant id'>YAML</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span><span class='dot token'>.</span><span class='stringify_keys identifier id'>stringify_keys</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='string val'>&quot;---\n&quot;</span><span class='rparen token'>)</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>create_layout</h3>
+</div><div id="create_layout-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>create_layout</span><span class='args'>(content, attributes, identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new layout with the given content, attributes and identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 151</span>
+
+<span class='def def kw'>def</span> <span class='create_layout identifier id'>create_layout</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='comment val'># Determine path</span>
+  <span class='path identifier id'>path</span> <span class='assign token'>=</span> <span class='string val'>'layouts'</span> <span class='plus op'>+</span> <span class='identifier identifier id'>identifier</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>-2</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>'.html'</span>
+  <span class='parent_path identifier id'>parent_path</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Notify</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='NotificationCenter constant id'>NotificationCenter</span><span class='dot token'>.</span><span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='symbol val'>:file_created</span><span class='comma token'>,</span> <span class='path identifier id'>path</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Write layout</span>
+  <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='parent_path identifier id'>parent_path</span><span class='rparen token'>)</span>
+  <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='comma token'>,</span> <span class='string val'>'w'</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='io identifier id'>io</span><span class='bitor op'>|</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='YAML constant id'>YAML</span><span class='dot token'>.</span><span class='dump identifier id'>dump</span><span class='lparen token'>(</span><span class='attributes identifier id'>attributes</span><span class='dot token'>.</span><span class='stringify_keys identifier id'>stringify_keys</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='string val'>&quot;---\n&quot;</span><span class='rparen token'>)</span>
+    <span class='io identifier id'>io</span><span class='dot token'>.</span><span class='write identifier id'>write</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>down</h3>
+</div><div id="down-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>down</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+70
+71</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 70</span>
+
+<span class='def def kw'>def</span> <span class='down identifier id'>down</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>items</h3>
+</div><div id="items-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>items</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Loading data ##########
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 83</span>
+
+<span class='def def kw'>def</span> <span class='items identifier id'>items</span>
+  <span class='files identifier id'>files</span><span class='lparen token'>(</span><span class='string val'>'content'</span><span class='comma token'>,</span> <span class='true true kw'>true</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='filename identifier id'>filename</span><span class='bitor op'>|</span>
+    <span class='comment val'># Read and parse data</span>
+    <span class='meta identifier id'>meta</span><span class='comma token'>,</span> <span class='content identifier id'>content</span> <span class='assign token'>=</span> <span class='mult op'>*</span><span class='parse_file identifier id'>parse_file</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='string val'>'item'</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Get attributes</span>
+    <span class='attributes identifier id'>attributes</span> <span class='assign token'>=</span> <span class='meta identifier id'>meta</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:file</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='FileProxy constant id'>FileProxy</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Get actual identifier</span>
+    <span class='if if kw'>if</span> <span class='filename identifier id'>filename</span> <span class='match op'>=~</span> <span class='regexp val'>/\/index\.[^\/]+$/</span>
+      <span class='identifier identifier id'>identifier</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/^content/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/index\.[^\/]+$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/'</span>
+    <span class='else else kw'>else</span>
+      <span class='identifier identifier id'>identifier</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/^content/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/\.[^\/]+$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/'</span>
+    <span class='end end kw'>end</span>
+
+    <span class='comment val'># Get mtime</span>
+    <span class='mtime identifier id'>mtime</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='stat identifier id'>stat</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='mtime identifier id'>mtime</span>
+
+    <span class='comment val'># Build item</span>
+    <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Item constant id'>Item</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='mtime identifier id'>mtime</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>layouts</h3>
+</div><div id="layouts-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>layouts</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 106</span>
+
+<span class='def def kw'>def</span> <span class='layouts identifier id'>layouts</span>
+  <span class='files identifier id'>files</span><span class='lparen token'>(</span><span class='string val'>'layouts'</span><span class='comma token'>,</span> <span class='true true kw'>true</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='filename identifier id'>filename</span><span class='bitor op'>|</span>
+    <span class='comment val'># Read and parse data</span>
+    <span class='meta identifier id'>meta</span><span class='comma token'>,</span> <span class='content identifier id'>content</span> <span class='assign token'>=</span> <span class='mult op'>*</span><span class='parse_file identifier id'>parse_file</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='string val'>'layout'</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Get actual identifier</span>
+    <span class='if if kw'>if</span> <span class='filename identifier id'>filename</span> <span class='match op'>=~</span> <span class='regexp val'>/\/index\.[^\/]+$/</span>
+      <span class='identifier identifier id'>identifier</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/^layouts/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/index\.[^\/]+$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/'</span>
+    <span class='else else kw'>else</span>
+      <span class='identifier identifier id'>identifier</span> <span class='assign token'>=</span> <span class='filename identifier id'>filename</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/^layouts/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/\.[^\/]+$/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='string val'>'/'</span>
+    <span class='end end kw'>end</span>
+
+    <span class='comment val'># Get mtime</span>
+    <span class='mtime identifier id'>mtime</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='stat identifier id'>stat</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='mtime identifier id'>mtime</span>
+
+    <span class='comment val'># Build layout</span>
+    <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Layout constant id'>Layout</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='meta identifier id'>meta</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='mtime identifier id'>mtime</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span><span class='dot token'>.</span><span class='compact identifier id'>compact</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>setup</h3>
+</div><div id="setup-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>setup</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+73
+74
+75
+76
+77
+78
+79</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 73</span>
+
+<span class='def def kw'>def</span> <span class='setup identifier id'>setup</span>
+  <span class='comment val'># Create directories</span>
+  <span class='dstring node'>%w( content layouts lib )</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='dir identifier id'>dir</span><span class='bitor op'>|</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='rparen token'>)</span>
+    <span class='vcs identifier id'>vcs</span><span class='dot token'>.</span><span class='add identifier id'>add</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>up</h3>
+</div><div id="up-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>up</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Preparation ##########
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+67
+68</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 67</span>
+
+<span class='def def kw'>def</span> <span class='up identifier id'>up</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>vcs</h3>
+</div><div id="vcs-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>vcs</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+VCSes ##########
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+59
+60
+61</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/data_sources/filesystem_combined.rb', line 59</span>
+
+<span class='def def kw'>def</span> <span class='vcs identifier id'>vcs</span>
+  <span class='@vcs ivar id'>@vcs</span> <span class='opasgn op'>||=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='VCSes constant id'>VCSes</span><span class='colon2 op'>::</span><span class='Dummy constant id'>Dummy</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:12 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

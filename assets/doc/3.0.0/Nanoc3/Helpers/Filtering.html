@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Module: Nanoc3::Helpers::Filtering</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section module Nanoc3_Helpers_Filtering">
+  <h1 class="title">Module: Nanoc3::Helpers::Filtering</h1>
+  <div class="section mixins">
+  <h1>Included Modules</h1>
+  <p><a href="Capturing.html" title="Nanoc3::Helpers::Capturing">Nanoc3::Helpers::Capturing</a></p>
+</div>
+<div class="section docstring">
+  <p>
+Nanoc3::Helpers::Filtering provides a filter method, which allows parts of
+an item to be filtered.
+</p>
+<p>
+For example, the following piece of code only runs the
+&quot;rubypants&quot; filter on the second paragraph:
+</p>
+<pre class="code">
+  <span class='lt op'>&lt;</span><span class='p identifier id'>p</span><span class='gt op'>&gt;</span><span class='Lorem constant id'>Lorem</span> <span class='ipsum identifier id'>ipsum</span> <span class='dolor identifier id'>dolor</span> <span class='sit identifier id'>sit</span> <span class='amet identifier id'>amet</span><span class='dot3 op'>...</span><span class='lt op'>&lt;</span><span class='regexp val'>/p&gt;
+  &lt;% filter :rubypants do %&gt;
+    &lt;p&gt;Consectetur adipisicing elit...&lt;/</span><span class='p identifier id'>p</span><span class='gt op'>&gt;</span>
+  <span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
+</pre>
+<p>
+This helper likely only works with ERB (and perhaps Erubis).
+</p>
+<p>
+To activate this helper, <tt>include</tt> it, like this:
+</p>
+<pre class="code">
+  <span class='include identifier id'>include</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Helpers constant id'>Helpers</span><span class='colon2 op'>::</span><span class='Filtering constant id'>Filtering</span>
+</pre>
+
+</div><div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#filter-instance_method" title="#filter">#filter</a></span><span class='args'>(filter_name, arguments = {}, &amp;block)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Filters the content in the given block and outputs it.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+<div class="included">
+  
+  <div>
+    <h1>Public Instance Methods Included from <a href="Capturing.html" title="Nanoc3::Helpers::Capturing">Nanoc3::Helpers::Capturing</a></h1>
+    <p><span class='name'><a href="Capturing.html#capture-instance_method" title="capture">capture</a></span>, <span class='name'><a href="Capturing.html#content_for-instance_method" title="content_for">content_for</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>filter</h3>
+</div><div id="filter-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>filter</span><span class='args'>(filter_name, arguments = {}, &amp;block)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Filters the content in the given block and outputs it.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt><a href="../Errors/UnknownFilter.html" title="Nanoc3::Errors::UnknownFilter">Nanoc3::Errors::UnknownFilter</a></tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/filtering.rb', line 27</span>
+
+<span class='def def kw'>def</span> <span class='filter identifier id'>filter</span><span class='lparen token'>(</span><span class='filter_name identifier id'>filter_name</span><span class='comma token'>,</span> <span class='arguments identifier id'>arguments</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='comment val'># Capture block</span>
+  <span class='data identifier id'>data</span> <span class='assign token'>=</span> <span class='capture identifier id'>capture</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Find filter</span>
+  <span class='klass identifier id'>klass</span> <span class='assign token'>=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Filter constant id'>Filter</span><span class='dot token'>.</span><span class='named identifier id'>named</span><span class='lparen token'>(</span><span class='filter_name identifier id'>filter_name</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='UnknownFilter constant id'>UnknownFilter</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='filter_name identifier id'>filter_name</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='klass identifier id'>klass</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='filter identifier id'>filter</span> <span class='assign token'>=</span> <span class='klass identifier id'>klass</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@item_rep ivar id'>@item_rep</span><span class='dot token'>.</span><span class='assigns identifier id'>assigns</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Filter captured data</span>
+  <span class='filtered_data identifier id'>filtered_data</span> <span class='assign token'>=</span> <span class='filter identifier id'>filter</span><span class='dot token'>.</span><span class='run identifier id'>run</span><span class='lparen token'>(</span><span class='data identifier id'>data</span><span class='comma token'>,</span> <span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Append filtered data to buffer</span>
+  <span class='buffer identifier id'>buffer</span> <span class='assign token'>=</span> <span class='eval identifier id'>eval</span><span class='lparen token'>(</span><span class='string val'>'_erbout'</span><span class='comma token'>,</span> <span class='block identifier id'>block</span><span class='dot token'>.</span><span class='binding identifier id'>binding</span><span class='rparen token'>)</span>
+  <span class='buffer identifier id'>buffer</span> <span class='lshft op'>&lt;&lt;</span> <span class='filtered_data identifier id'>filtered_data</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:14 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

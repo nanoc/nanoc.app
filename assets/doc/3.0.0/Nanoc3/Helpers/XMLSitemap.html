@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Module: Nanoc3::Helpers::XMLSitemap</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section module Nanoc3_Helpers_XMLSitemap">
+  <h1 class="title">Module: Nanoc3::Helpers::XMLSitemap</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::Helpers::XMLSitemap contains functionality for building XML
+sitemaps that will be crawled by search engines. See the Sitemaps protocol
+web site, http://www.sitemaps.org, for details.
+</p>
+<p>
+To activate this helper, <tt>include</tt> it, like this:
+</p>
+<pre class="code">
+  <span class='include identifier id'>include</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Helpers constant id'>Helpers</span><span class='colon2 op'>::</span><span class='XMLSitemap constant id'>XMLSitemap</span>
+</pre>
+
+</div><div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#xml_sitemap-instance_method" title="#xml_sitemap">#xml_sitemap</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the XML sitemap as a string.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>xml_sitemap</h3>
+</div><div id="xml_sitemap-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>xml_sitemap</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the XML sitemap as a string.
+</p>
+<p>
+The following attributes can optionally be set on items to change the
+behaviour of the sitemap:
+</p>
+<ul>
+<li>&#8216;changefreq&#8217;, containing the estimated change frequency as
+defined by the Sitemaps protocol.
+
+</li>
+<li>&#8216;priority&#8217;, containing the item&#8217;s priority, ranging from
+0.0 to 1.0, as defined by the Sitemaps protocol.
+
+</li>
+</ul>
+<p>
+The sitemap will also include dates on which the items were updated. These
+are generated automatically; the way this happens depends on the used data
+source (the filesystem data source checks the file mtimes, for instance).
+</p>
+<p>
+The site configuration will need to have the following attributes:
+</p>
+<ul>
+<li>&#8216;base_url&#8217;, containing the URL to the site, without trailing
+slash. For example, if the site is at &quot;http://example.com/&quot;, the
+base_url would be &quot;http://example.com&quot;.
+
+</li>
+</ul>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/xml_sitemap.rb', line 35</span>
+
+<span class='def def kw'>def</span> <span class='xml_sitemap identifier id'>xml_sitemap</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'builder'</span>
+
+  <span class='comment val'># Create builder</span>
+  <span class='buffer identifier id'>buffer</span> <span class='assign token'>=</span> <span class='string val'>''</span>
+  <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='Builder constant id'>Builder</span><span class='colon2 op'>::</span><span class='XmlMarkup constant id'>XmlMarkup</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:target</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='buffer identifier id'>buffer</span><span class='comma token'>,</span> <span class='symbol val'>:indent</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>2</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Check for required attributes</span>
+  <span class='if if kw'>if</span> <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='symbol val'>:base_url</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='raise identifier id'>raise</span> <span class='RuntimeError constant id'>RuntimeError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;The Nanoc3::Helpers::XMLSitemap helper requires the site configuration to specify the base URL for the site.&quot;</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='comment val'># Build sitemap</span>
+  <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='instruct! fid id'>instruct!</span>
+  <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='urlset identifier id'>urlset</span><span class='lparen token'>(</span><span class='symbol val'>:xmlns</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://www.google.com/schemas/sitemap/0.84'</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='comment val'># Add item</span>
+    <span class='@items ivar id'>@items</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span> <span class='i identifier id'>i</span><span class='lbrack token'>[</span><span class='symbol val'>:is_hidden</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='item identifier id'>item</span><span class='bitor op'>|</span>
+      <span class='item identifier id'>item</span><span class='dot token'>.</span><span class='reps identifier id'>reps</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='raw_path identifier id'>raw_path</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='rep identifier id'>rep</span><span class='bitor op'>|</span>
+        <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='url identifier id'>url</span> <span class='do do kw'>do</span>
+          <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='loc identifier id'>loc</span>         <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='symbol val'>:base_url</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='path identifier id'>path</span>
+          <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='lastmod identifier id'>lastmod</span>     <span class='item identifier id'>item</span><span class='dot token'>.</span><span class='mtime identifier id'>mtime</span><span class='dot token'>.</span><span class='to_iso8601_date identifier id'>to_iso8601_date</span> <span class='unless unless_mod kw'>unless</span> <span class='item identifier id'>item</span><span class='dot token'>.</span><span class='mtime identifier id'>mtime</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+          <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='changefreq identifier id'>changefreq</span>  <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:changefreq</span><span class='rbrack token'>]</span> <span class='unless unless_mod kw'>unless</span> <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:changefreq</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+          <span class='xml identifier id'>xml</span><span class='dot token'>.</span><span class='priority identifier id'>priority</span>    <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:priority</span><span class='rbrack token'>]</span> <span class='unless unless_mod kw'>unless</span> <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:priority</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+        <span class='end end kw'>end</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='comment val'># Return sitemap</span>
+  <span class='buffer identifier id'>buffer</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:13 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
