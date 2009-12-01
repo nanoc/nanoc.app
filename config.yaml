@@ -6,6 +6,6 @@ data_sources:
 deploy:
   default:
     dst:     "ectype:sites/nanoc/public"
-    options: [ '-gpPrvz', '--exclude=".hg"', '--delete-after' ]
+    options: [ '-gpPrtvz', '--exclude=".hg"' ]
 page_size: 5
 enable_ramalytics: false
