@@ -28,7 +28,11 @@ module Nanoc3::Helpers
           require 'uv'
           filtered_data = Uv.parse(data, 'xhtml', lang, false, 'amy')
         rescue LoadError
-          warn "Couldn't load uv; please install the ultraviolet gem"
+          unless $_WARNED_ABOUT_ULTRAVIOLET
+            warn "WARNING: Couldn't load uv; please install the ultraviolet gem. This message will not appear again."
+          end
+          $_WARNED_ABOUT_ULTRAVIOLET = true
+
           filtered_data = '<pre class="no-uv">' + h(data) + '</pre>'
         end
 
