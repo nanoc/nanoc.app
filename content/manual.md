@@ -197,6 +197,8 @@ The automatically generated snapshots are:
 
 The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot (for example, items without layouts).
 
+Note that the `:pre` snapshot is relative to the last `layout` call: the `:pre` snapshot will contain the content right before the last layout; not the first.
+
 ### Variables
 
 When compiling items with filters that support adding code to the item or the layout (such as ERB and Haml), several variables are made available. These variables are:
