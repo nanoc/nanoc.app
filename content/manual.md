@@ -597,6 +597,9 @@ Each filter has an identifier (a symbol), which is used in the call to `#filter`
 `haml`
 : for [Haml](http://haml.hamptoncatlin.com/)
 
+`less`
+: for [LESS](http://lesscss.org/)
+
 `markaby`
 : for [Markaby](http://markaby.rubyforge.org/)
 
