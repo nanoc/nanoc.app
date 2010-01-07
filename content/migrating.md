@@ -105,11 +105,11 @@ method has changed: instead of taking only one option (the content), it takes
 two: the content and a hash of arguments. For example:
 
 <pre><code class="language-ruby">
-	class MyNanoc3Filter &lt; Nanoc3::Filter
-	  def run(content, arguments={})
-	    # ... code goes here ...
-	  end
-	end
+class MyNanoc3Filter &lt; Nanoc3::Filter
+  def run(content, arguments={})
+    # ... code goes here ...
+  end
+end
 </code></pre>
 
 LinkTo Helper and Reps
@@ -137,34 +137,34 @@ Example #1: This data source configuration is the default configuration which
 contains only a single data source (the filesystem one) mounted at /:
 
 <pre><code class="language-yaml">
-	data_sources:
-	  -
-	    type:         'filesystem'
-	    items_root:   '/'
-	    layouts_root: '/'
+data_sources:
+  -
+    type:         'filesystem'
+    items_root:   '/'
+    layouts_root: '/'
 </code></pre>
 
 Example #2: This data source configuration contains multiple data sources
 (filesystem, twitter, delicious) mounted at different paths:
 
 <pre><code class="language-yaml">
-	data_sources:
-	  -
-	    type:         'filesystem'
-	    items_root:   '/'
-	    layouts_root: '/'
-	  -
-	    type:         'twitter'
-	    items_root:   '/tweets'
-	    # no layouts_root because twitter does not provide layouts
-	    config:
-	      username: 'ddfreyne'
-	  -
-	    type:       'delicious'
-	    items_root: '/links'
-	    # no layouts_root because delicious does not provide layouts
-	    config:
-	      username: 'ddfreyne'
+data_sources:
+  -
+    type:         'filesystem'
+    items_root:   '/'
+    layouts_root: '/'
+  -
+    type:         'twitter'
+    items_root:   '/tweets'
+    # no layouts_root because twitter does not provide layouts
+    config:
+      username: 'ddfreyne'
+  -
+    type:       'delicious'
+    items_root: '/links'
+    # no layouts_root because delicious does not provide layouts
+    config:
+      username: 'ddfreyne'
 </code></pre>
 
 FilesystemCompact data source

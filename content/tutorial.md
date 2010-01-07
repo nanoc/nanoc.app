@@ -97,7 +97,7 @@ The pages in a nanoc site are stored in the `content` directory. Currently, that
 Let's change the content of the home page. Open `index.html` and add a paragraph somewhere in the file. I recommend something like this:
 
 <pre><code class="language-html">
-	&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
+&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
 </code></pre>
 
 To view the changes, the site must be recompiled first. So, do this:
@@ -119,7 +119,7 @@ Open `index.html` in the `output` directory in your web browser and your text ed
 One thing that hasn't changed is the page title--the title that appears in the browser's title bar. The page title is defined in the page's meta file. Such a meta file contains all metadata about the page, e.g. the layout that should be used for this page, the page title, the page's author, when this page was created, &hellip; The homepage meta file, `index.yaml`, looks like this right now:
 
 <pre><code class="language-yaml">
-	title: "Home"
+title: "Home"
 </code></pre>
 
 This file is formatted as YAML and contains attributes for the page it belongs to. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page's author, the language the page is written in, etc.
@@ -127,7 +127,7 @@ This file is formatted as YAML and contains attributes for the page it belongs t
 The homepage's meta file currently has one attribute, `title`. Change this to something cooler, like this:
 
 <pre><code class="language-yaml">
-	title: "The Guild of nanoc: a fan website dedicated to nanoc"
+title: "The Guild of nanoc: a fan website dedicated to nanoc"
 </code></pre>
 
 Recompile the site and open `index.html` in your browser. You will see that the browser's title bar displays the page's title now. If you're wondering how exactly nanoc knew that it had to update the stuff between the `<title>` and `</title>` tags: don't worry. There's no magic involved. It'll all become crystal clear in a minute. (Take a peek at `layouts/default.html` if you're curious.)
@@ -149,15 +149,15 @@ You should see this:
 There are now two new files that form the about page: the content file (`content/about.html`) and the meta file (`content/about.yaml`). Open the content file and put some text in it, like this:
 
 <pre><code class="language-html">
-	&lt;h1>My cute little "About" page&lt;/h1>
-	
-	&lt;p>This is the about page for my new nanoc site.&lt;/p>
+&lt;h1>My cute little "About" page&lt;/h1>
+
+&lt;p>This is the about page for my new nanoc site.&lt;/p>
 </code></pre>
 
 Edit the meta file (the YAML one) so it looks like this:
 
 <pre><code class="language-yaml">
-	title: "The Guild of nanoc -- About the Guild"
+title: "The Guild of nanoc -- About the Guild"
 </code></pre>
 
 Recompile the site, and notice that a file `output/about/index.html` has been created. Open that file in your web browser, and admire your brand new about page. Shiny!
@@ -174,11 +174,11 @@ Take a look in the `layouts` directory. It contains two files: `default.html` an
 Open `default.html` in your favourite text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
 
 <pre><code class="language-html">
-	...
-	&lt;div id="main">
-	  &lt;%= yield %>
-	&lt;/div>
-	...
+...
+&lt;div id="main">
+  &lt;%= yield %>
+&lt;/div>
+...
 </code></pre>
 
 The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%%= yield %>` instruction will be replaced with the item's compiled content when compiling.
@@ -188,7 +188,7 @@ If you are not familiar with embedded Ruby (also known as eRuby), take a look at
 In fact--maybe you've noticed it already--there's another important piece of embedded Ruby code near the top of the file:
 
 <pre><code class="language-html_rails">
-	&lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
+&lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
 </code></pre>
 
 This is where the page's title is put into the compiled document.
@@ -196,15 +196,15 @@ This is where the page's title is put into the compiled document.
 Every page can have arbitrary metadata associated with it. For example, you can set the `author_name` attribute to your own name, quite similar to how the `title` attribute is set. To demonstrate this, add the following line to the meta file:
 
 <pre><code class="language-yaml">
-	author: "John Doe"
+author: "John Doe"
 </code></pre>
 
 Now output the author name in the layout. Put this piece of code somewhere in your layout (somewhere between the `<body>` and `</body>` tags, please, or you won't see a thing):
 
 <pre><code class="language-html_rails">
-	&lt;% if @item[:author] %>
-	  &lt;p>This page was written by &lt;%= @item[:author] %>.&lt;/p>
-	&lt;% end %>
+&lt;% if @item[:author] %>
+  &lt;p>This page was written by &lt;%= @item[:author] %>.&lt;/p>
+&lt;% end %>
 </code></pre>
 
 Recompile the site, and open the `output/index.html` and `output/about/index.html` pages in your browser. You'll see that the about page has a line saying <q>This page was written by John Doe</q>, while the home page does not--as expected!
@@ -258,10 +258,10 @@ Take a look at the default compilation rule (the `compile '*' do … end` one). 
 To make sure that the home page (but not any other page) is run through the `bluecloth` filter, add this piece of code *before* the existing compilation rule:.
 
 <pre><code class="language-ruby">
-	compile '/' do
-	  filter :bluecloth
-	  layout 'default'
-	end
+compile '/' do
+  filter :bluecloth
+  layout 'default'
+end
 </code></pre>
 
 It is important that this rule comes *before* the existing one (`compile '*' do … end`). When compiling a page, nanoc will use the first and only the first matching rule; if the new compilation rule were *below* the existing one, it would never have been used.
@@ -269,26 +269,26 @@ It is important that this rule comes *before* the existing one (`compile '*' do 
 Now that we've told nanoc to filter this page using BlueCloth, let's recompile the site. (If you are getting errors at this point, make sure you have BlueCloth installed, as described at the beginning of this tutorial). The `output/index.html` page source should now contain this text (header and footer omited):
 
 <pre><code class="language-html">
-	&lt;h1>A First Level Header&lt;/h1>
+&lt;h1>A First Level Header&lt;/h1>
 
-	&lt;h2>A Second Level Header&lt;/h2>
+&lt;h2>A Second Level Header&lt;/h2>
 
-	&lt;p>Now is the time for all good men to come to
-	the aid of their country. This is just a
-	regular paragraph.&lt;/p>
+&lt;p>Now is the time for all good men to come to
+the aid of their country. This is just a
+regular paragraph.&lt;/p>
 
-	&lt;p>The quick brown fox jumped over the lazy
-	dog's back.&lt;/p>
+&lt;p>The quick brown fox jumped over the lazy
+dog's back.&lt;/p>
 
-	&lt;h3>Header 3&lt;/h3>
+&lt;h3>Header 3&lt;/h3>
 
-	&lt;blockquote>
-	    &lt;p>This is a blockquote.&lt;/p>
+&lt;blockquote>
+    &lt;p>This is a blockquote.&lt;/p>
 
-	    &lt;p>This is the second paragraph in the blockquote.&lt;/p>
+    &lt;p>This is the second paragraph in the blockquote.&lt;/p>
 
-	    &lt;h2>This is an H2 in a blockquote&lt;/h2>
-	&lt;/blockquote>
+    &lt;h2>This is an H2 in a blockquote&lt;/h2>
+&lt;/blockquote>
 </code></pre>
 
 The BlueCloth filter is not the only filter you can use--take a look a the [full list of filters included with nanoc](/manual/#list-of-built-in-filters). You can also write your own filters--read the [Writing Filters](/manual/#writing-filters) section in the manual for details.
@@ -310,19 +310,19 @@ tags:
 Next, create a file named `tags.rb` in the `lib` directory (the filename doesn't really matter). In there, put the following function:
 
 <pre><code class="language-ruby">
-	def tags
-	  if @item[:tags].nil?
-	    '(none)'
-	  else
-	    @item[:tags].join(', ')
-	  end
-	end
+def tags
+  if @item[:tags].nil?
+    '(none)'
+  else
+    @item[:tags].join(', ')
+  end
+end
 </code></pre>
 
 This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the `<%%= yield %>` line:
 
 <pre><code class="language-html_rails">
-	&lt;p>Tags: &lt;%= tags %>&lt;/p>
+&lt;p>Tags: &lt;%= tags %>&lt;/p>
 </code></pre>
 
 Recompile the site, and take a look at both HTML files in the `output` directory. If all went well, you should see a list of tags right above the page content.
@@ -330,13 +330,13 @@ Recompile the site, and take a look at both HTML files in the `output` directory
 Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete `tags.rb` and create a `helper.rb` file (again, the filename doesn't really matter) and put this inside:
 
 <pre><code class="language-ruby">
-	include Nanoc3::Helpers::Tagging
+include Nanoc3::Helpers::Tagging
 </code></pre>
 
 This will make all functions defined in the `Nanoc3::Helpers::Tagging` module available for use. You can check out the [RDoc documentation for the Tagging helper](/doc/3.0.0/Nanoc3/Helpers/Tagging.html), but there is only one function we'll use: `tags_for`. It's very similar to the `tags` function we wrote before. Update the layout with this:
 
 <pre><code class="language-html_rails">
-	&lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>
+&lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>
 </code></pre>
 
 Now compile the site again, and you'll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
@@ -349,13 +349,13 @@ Watch out for Paths
 There's one tricky thing involving paths that you need to know. To show you what can go wrong, let's create a stylesheet named `style.css` in the output directory. Here's what I put in there:
 
 <pre><code class="language-css">
-	h1, h2, h3 { color: red; }
+h1, h2, h3 { color: red; }
 </code></pre>
 
 To link the stylesheet to the web site, open the layout (`default.html`) and put this in:
 
 <pre><code class="language-html">
-	&lt;link href="style.css" rel="stylesheet" type="text/css">
+&lt;link href="style.css" rel="stylesheet" type="text/css">
 </code></pre>
 
 When you compile the site now and open `index.html`, you'll see that all headers are red. `about/index.html`'s headers, however, are not styled—the web browser looks for a `about/style.css` which doesn't exist.
@@ -363,7 +363,7 @@ When you compile the site now and open `index.html`, you'll see that all headers
 The most elegant solution is to use an absolute path, like this (note the new slash):
 
 <pre><code class="language-html">
-	&lt;link href="/style.css" rel="stylesheet" type="text/css">
+&lt;link href="/style.css" rel="stylesheet" type="text/css">
 </code></pre>
 
 The compiled files in the output directory will *definitely* not be styled now if you open them by double-clicking, but that's okay—when the site is put on your web server, web browsers *will* find the stylesheet.
