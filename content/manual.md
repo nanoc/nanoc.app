@@ -161,9 +161,9 @@ One reason why an item would have different representations is because the data 
 
 An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	rep = @item.reps.find { |r| r.name == :default }
-<% end %>
+</code></pre>
 
 ### Snapshots
 
@@ -171,15 +171,15 @@ A representation contains multiple versions of its compiled content. "Snapshots"
 
 To get the compiled content of a representation at a specific snapshot, use `#content_at_snapshot`, like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compiled_content = rep.content_at_snapshot(:last)
-<% end %>
+</code></pre>
 
 If you only have an item (a `Nanoc3::Item` instance) and not a rep (a `Nanoc3::ItemRep` instance), you can use something like this to get the compiled content of the first rep of the given item:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compiled_content = @item.reps[0].content_at_snapshot(:last)
-<% end %>
+</code></pre>
 
 The automatically generated snapshots are:
 
@@ -245,15 +245,15 @@ Items have the following attributes available at compile time:
 
 To get a item representation with a specific name, get the reps by using the `#reps` method and then find the right rep. For example, to get the "raw" representation:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	raw_rep = @item.reps.find { |r| r.name == :raw }
-<% end %>
+</code></pre>
 
 It is not possible to get the compiled content of an item; items themselves have no compiled content but their reps do. For example, to get the compiled content of a certain item:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	content = item.reps[0].content_at_snapshot(:pre)
-<% end %>
+</code></pre>
 
 Layouts
 -------
@@ -262,16 +262,16 @@ On itself, an item's content is not valid HTML yet: it lacks the structure a typ
 
 For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout shows an example of how this is usually done:
 
-<% syntax_colorize 'html_rails' do %>
-	<html>
-	  <head>
-	    <title><%%=h @item[:title] %></title>
-	  </head>
-	  <body>
-	<%%= yield %>
-	  </body>
-	</html>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;html>
+	  &lt;head>
+	    &lt;title>&lt;%=h @item[:title] %>&lt;/title>
+	  &lt;/head>
+	  &lt;body>
+	&lt;%= yield %>
+	  &lt;/body>
+	&lt;/html>
+</code></pre>
 
 An item is put into a layout by calling the `layout` function in a compilation rule. See the [Compilation Rules](#compilation-rules) section for details.
 
@@ -279,21 +279,21 @@ An item is put into a layout by calling the `layout` function in a compilation r
 
 Layouts can also be used as *partials*: a specific layout can be rendered into an item or a layout by using the `render` function, which takes the layout name as an argument. For example:
 
-<% syntax_colorize 'html_rails' do %>
-	<%%= render 'head' %>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;%= render 'head' %>
+</code></pre>
 
 For this to work, though, you'll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	include Nanoc3::Helpers::Rendering
-<% end %>
+</code></pre>
 
 It is also possible to pass custom variables to rendered partials by putting them into a hash passed to `render`. The following example will make a `@title` variable (set to "Foo" in this example) available in the "head" layout:
 
-<% syntax_colorize 'html_rails' do %>
-	<%%= render 'head', :title => 'Foo' %>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;%= render 'head', :title => 'Foo' %>
+</code></pre>
 
 Rules
 -----
@@ -310,11 +310,11 @@ nanoc will first attempt to build a route for each item. To do so, it will run t
 
 A routing rule looks like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	route '/foo/' do
 	  # ... routing code here ...
 	end
-<% end %>
+</code></pre>
 
 The argument for the `#route` method is the identifier of the item that should
 be compiled. It can also be a string that contains the `*` wildcard, which
@@ -336,50 +336,50 @@ Example #1: The following rule will give the item with identifier `/404/` the
 path `/error/404.php` (in nanoc 2.2, this would have been done using the
 `custom_path` attribute):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	route '/404/' do
 	  '/errors/404.php'
 	end
-<% end %>
+</code></pre>
 
 Example #2: The following rule will give all identifiers for which no prior
 matching rule exists a path based directly on its identifier (for example, the
 item `/foo/bar/` would get the path `/foo/bar/index.html`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	route '*' do
 	  rep.item.identifier + 'index.html'
 	end
-<% end %>
+</code></pre>
 
 Example #3: The following rule will prevent all items with identifiers
 starting with '/links/' from being written (the items will still be compiled
 so that they can be included in other items, however):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	route '/link/*' do
 	  nil
 	end
-<% end %>
+</code></pre>
 
 Example #4: The following rule will apply to all items below `/people/`, and
 only to textual representations (with name equal to `text`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	route '/people/*', :rep => :text do
 	  item.identifier + '.txt'
 	end
-<% end %>
+</code></pre>
 
 ### Compilation Rules
 
 A compilation rule looks like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/foo/' do
 	  # ... compilation code here ...
 	end
-<% end %>
+</code></pre>
 
 The argument for the `#compile` command is exactly the same as the argument
 for `#route`; see above for details.
@@ -408,71 +408,71 @@ the rep and pass the snapshot name as argument.
 Example #1: The following rule will not perform any actions, i.e. the item
 will not be filtered nor laid out:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/sample/one/' do
 	end
-<% end %>
+</code></pre>
 
 Example #2: The following rule will filter the rep using the `erb` filter, but
 not lay out the rep:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/samples/two/' do
 	  rep.filter :erb
 	end
-<% end %>
+</code></pre>
 
 Example #3: The following rule will filter the rep using the `erb` filter, lay
 out the rep using the `shiny` layout, and finally run the laid out rep through
 the `rubypants` filter:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/samples/three/' do
 	  rep.filter :erb
 	  rep.layout '/shiny/'
 	  rep.filter :rubypants
 	end
-<% end %>
+</code></pre>
 
 Example #4: The following rule will filter the rep using the
 `relativize_paths` filter with the filter argument `type` equal to `css`:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/assets/style/' do
 	  rep.filter :relativize_paths, :type => :css
 	end
-<% end %>
+</code></pre>
 
 Example #5: The following rule will filter the rep and layout it without
 invoking `#filter` or `#layout` with an explicit receiver:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/samples/three/' do
 	  filter :erb
 	  layout '/shiny/'
 	  filter :rubypants
 	end
-<% end %>
+</code></pre>
 
 Example #6: The following rule will apply to all items below `/people/`, and
 only to textual representations (with name equal to `text`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/people/*', :rep => :text do
 	  # don't filter or layout
 	end
-<% end %>
+</code></pre>
 
 Example #7: The following rule will create a snapshot named `without_toc`
 so that the content at that snapshot can then later be reused elsewhere:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/foo/' do
 	  filter :markdown
 	  snapshot :without_toc
 	  filter :add_toc
 	end
-<% end %>
+</code></pre>
 
 ### Layouting Rules
 
@@ -489,16 +489,16 @@ will be passed on to the filter.
 
 Example #1: The following rule will make all layouts use the `:erb` filter:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	layout '*', :erb
-<% end %>
+</code></pre>
 
 Example #2: The following rule will make the default layout use the `haml`
 filter and pass a filter argument:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	layout '/default/', :haml, :format => :html5
-<% end %>
+</code></pre>
 
 The Compilation Process
 -----------------------
@@ -519,11 +519,11 @@ Before compilation starts, all data from all data sources will be read (items, l
 
 After the data is loaded, it is _preprocessed_ if a preprocessor block exists. A preprocessor block is a simple piece of code defined in the `Rules` file that will be executed after the data is loaded. It looks like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	preprocess do
 	  # ...
 	end
-<% end %>
+</code></pre>
 
 Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content and the path, but also add and remove items.
 
@@ -539,7 +539,7 @@ Once the data is loaded and preprocessed, item representations are built for eac
 
 For example, the following code will cause the item `/foo/` to have only one rep (`default`), while the item `/bar/` will have two reps (`raw` and `full`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/foo/' do
 	  # ...
 	end
@@ -551,7 +551,7 @@ For example, the following code will cause the item `/foo/` to have only one rep
 	compile '/bar/', :rep => :full do
 	  # ...
 	end
-<% end %>
+</code></pre>
 
 ### Routing the Item Representations
 
@@ -635,22 +635,22 @@ The `relativize_paths` filter makes all paths in HTML or CSS relative. To set th
 
 Filters are classes that inherit from `Nanoc3::Filter`. They have one important method, `#run`, which takes the content to filter and a list of parameters, and returns the filtered content. For example:
 
-<% syntax_colorize 'ruby' do %>
-	class CensorFilter < Nanoc3::Filter
+<pre><code class="language-ruby">
+	class CensorFilter &lt; Nanoc3::Filter
 	  def run(content, params={})
 	    content.gsub('nanoc sucks', 'nanoc rocks')
 	  end
 	end
-<% end %>
+</code></pre>
 
 A filter has an identifier, which is an unique name that is used in calls to `#filter` in a compilation rule. A filter identifier is set using `#identifier`, like this:
 
-<% syntax_colorize 'ruby' do %>
-	class CensorFilter < Nanoc3::Filter
+<pre><code class="language-ruby">
+	class CensorFilter &lt; Nanoc3::Filter
 	  identifier :censor
 	  # ... other code goes here ...
 	end
-<% end %>
+</code></pre>
 
 A filter has access to an `assigns` variable, which is a hash that contains several useful values:
 
@@ -679,9 +679,9 @@ A helper is a module with useful functions that can be used in items and layouts
 
 Helpers need to be activated before they can be used. To activate a helper, `include` it, like this (in a file in the `lib` directory, such as `lib/helpers.rb`):
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	include Nanoc3::Helpers::Blogging
-<% end %>
+</code></pre>
 
 ### List of Built-in Helpers
 
@@ -722,9 +722,9 @@ Rake Tasks
 
 nanoc comes with a couple of useful built-in rake tasks. To use them, require them in your rakefile, like this:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	require 'nanoc3/tasks'
-<% end %>
+</code></pre>
 
 The tasks that come with nanoc are:
 
@@ -750,12 +750,12 @@ Each deployment configuration needs a `dst` key, containing the destination to w
 
 Here's an example `config.yaml` that shows the deployment configuration:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	deploy:
 	  default:
 	    dst:     "myserver:/var/www/mysite"
 	    options: [ '-gpPrvz', '--exclude=".svn"' ]
-<% end %>
+</code></pre>
 
 Data Sources
 ------------
@@ -786,7 +786,7 @@ The site configuration has a list of hashes containing the data source configura
 
 For example, the configuration of a site that uses many data sources could look like this:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	data_sources:
 	  -
 	    type:       'filesystem_compact'
@@ -807,7 +807,7 @@ For example, the configuration of a site that uses many data sources could look 
 	      username: 'amonre'
 	      limit:    '10'
 	      api_key:  '1234567890abcdefghijklmnopqrstuv'
-<% end %>
+</code></pre>
 
 nanoc comes bundled with the following data sources:
 
@@ -835,12 +835,12 @@ Data sources are responsible for loading and storing a site's data: items, layou
 
 Each data source has an identifier. This is a unique name that is used in a site's configuration file to specify which data source should be used to fetch data. It is specified like this:
 
-<% syntax_colorize 'ruby' do %>
-	class SampleDataSource < Nanoc3::DataSource
+<pre><code class="language-ruby">
+	class SampleDataSource &lt; Nanoc3::DataSource
 	  identifier :sample
 	  # ... other code goes here ...
 	end
-<% end %>
+</code></pre>
 
 All methods in the data source have access to the `@site` object, which represents the site. One useful thing that can be done with this is request the configuration hash, using `@site.config`.
 

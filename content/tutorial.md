@@ -1,7 +1,7 @@
 (If you already have a bit of experience with nanoc, you may find the [Manual](/manual/) a very useful resource in addition to this tutorial.)
 
 Installing nanoc
------
+----------------
 
 nanoc requires [Ruby](http://www.ruby-lang.org/) (1.8.6 or higher required). nanoc also requires [RubyGems](http://rubyforge.org/projects/rubygems/). You may already have RubyGems installed, but if you don't, [get it here](http://rubyforge.org/frs/?group_id=126).
 
@@ -10,14 +10,14 @@ Once you have RubyGems, installing nanoc is easy. Simply write this in your term
 	sudo gem install nanoc3
 
 Requirements for this Tutorial
------
+------------------------------
 
 This tutorial requires [BlueCloth](http://www.deveiate.org/projects/BlueCloth). BlueCloth is a Ruby implementation of [Markdown](http://daringfireball.net/projects/markdown/), which allows you to write HTML in a easy-to-use plain text format (if you haven't used Markdown before, don't fear--it's easy). To install BlueCloth, jump to your terminal and type:
 
 	sudo gem install BlueCloth
 
 Creating your First nanoc-powered Site
------
+--------------------------------------
 
 nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that's the way all cool apps work (or maybe not).
 
@@ -49,7 +49,7 @@ The nanoc-powered site named `tutorial` has now been created. Go into the direct
 What all those files and directories are for will be explained in just a minute, step by step.
 
 Compiling the Site
------
+------------------
 
 Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for `create_site`, require the current working directory to be a nanoc site. So, if you haven't done it before:
 
@@ -88,7 +88,7 @@ Now, open your favourite web browser (mine is Safari) and navigate to `http://lo
 You can also open the `output/index.html` file in your favourite text editor, where you'll find that the file is just a normal HTML page. No big surprise there.
 
 Editing the Home Page
------
+---------------------
 
 The first step in getting to know how nanoc really works will involve editing the content of the home page. First, though, a quick explanation of how uncompiled pages are stored.
 
@@ -96,9 +96,9 @@ The pages in a nanoc site are stored in the `content` directory. Currently, that
 
 Let's change the content of the home page. Open `index.html` and add a paragraph somewhere in the file. I recommend something like this:
 
-<% syntax_colorize 'html' do %>
-	<p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!</p>
-<% end %>
+<pre><code class="language-html">
+	&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
+</code></pre>
 
 To view the changes, the site must be recompiled first. So, do this:
 
@@ -118,22 +118,22 @@ Open `index.html` in the `output` directory in your web browser and your text ed
 
 One thing that hasn't changed is the page title--the title that appears in the browser's title bar. The page title is defined in the page's meta file. Such a meta file contains all metadata about the page, e.g. the layout that should be used for this page, the page title, the page's author, when this page was created, &hellip; The homepage meta file, `index.yaml`, looks like this right now:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	title: "Home"
-<% end %>
+</code></pre>
 
 This file is formatted as YAML and contains attributes for the page it belongs to. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page's author, the language the page is written in, etc.
 
 The homepage's meta file currently has one attribute, `title`. Change this to something cooler, like this:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	title: "The Guild of nanoc: a fan website dedicated to nanoc"
-<% end %>
+</code></pre>
 
 Recompile the site and open `index.html` in your browser. You will see that the browser's title bar displays the page's title now. If you're wondering how exactly nanoc knew that it had to update the stuff between the `<title>` and `</title>` tags: don't worry. There's no magic involved. It'll all become crystal clear in a minute. (Take a peek at `layouts/default.html` if you're curious.)
 
 Adding a Page
------
+-------------
 
 In nanoc, pages are sometimes referred to as "items." This is because items don't necessarily have to be pages: JavaScript and CSS files aren't pages, but they are items.
 
@@ -148,22 +148,22 @@ You should see this:
 
 There are now two new files that form the about page: the content file (`content/about.html`) and the meta file (`content/about.yaml`). Open the content file and put some text in it, like this:
 
-<% syntax_colorize 'html' do %>
-	<h1>My cute little "About" page</h1>
+<pre><code class="language-html">
+	&lt;h1>My cute little "About" page&lt;/h1>
 	
-	<p>This is the about page for my new nanoc site.</p>
-<% end %>
+	&lt;p>This is the about page for my new nanoc site.&lt;/p>
+</code></pre>
 
 Edit the meta file (the YAML one) so it looks like this:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	title: "The Guild of nanoc -- About the Guild"
-<% end %>
+</code></pre>
 
 Recompile the site, and notice that a file `output/about/index.html` has been created. Open that file in your web browser, and admire your brand new about page. Shiny!
 
 Customizing the Layout
------
+----------------------
 
 The default home page recommended editing the default layout, so let's see what we can do there.
 
@@ -173,13 +173,13 @@ Take a look in the `layouts` directory. It contains two files: `default.html` an
 
 Open `default.html` in your favourite text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
 
-<% syntax_colorize 'html' do %>
+<pre><code class="language-html">
 	...
-	<div id="main">
-	  <%%= yield %>
-	</div>
+	&lt;div id="main">
+	  &lt;%= yield %>
+	&lt;/div>
 	...
-<% end %>
+</code></pre>
 
 The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%%= yield %>` instruction will be replaced with the item's compiled content when compiling.
 
@@ -187,30 +187,30 @@ If you are not familiar with embedded Ruby (also known as eRuby), take a look at
 
 In fact--maybe you've noticed it already--there's another important piece of embedded Ruby code near the top of the file:
 
-<% syntax_colorize 'html_rails' do %>
-	<title>A Brand New nanoc Site - <%%= @item[:title] %></title>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
+</code></pre>
 
 This is where the page's title is put into the compiled document.
 
 Every page can have arbitrary metadata associated with it. For example, you can set the `author_name` attribute to your own name, quite similar to how the `title` attribute is set. To demonstrate this, add the following line to the meta file:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 	author: "John Doe"
-<% end %>
+</code></pre>
 
 Now output the author name in the layout. Put this piece of code somewhere in your layout (somewhere between the `<body>` and `</body>` tags, please, or you won't see a thing):
 
-<% syntax_colorize 'html_rails' do %>
-	<%% if @item[:author] %>
-	  <p>This page was written by <%%= @item[:author] %>.</p>
-	<%% end %>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;% if @item[:author] %>
+	  &lt;p>This page was written by &lt;%= @item[:author] %>.&lt;/p>
+	&lt;% end %>
+</code></pre>
 
 Recompile the site, and open the `output/index.html` and `output/about/index.html` pages in your browser. You'll see that the about page has a line saying <q>This page was written by John Doe</q>, while the home page does not--as expected!
 
 Writing Pages in Markdown
------
+-------------------------
 
 You don't have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we'll use [Markdown](http://daringfireball.net/projects/markdown) to avoid having to write HTML. nanoc calls these text transformations *filters*.
 
@@ -257,39 +257,39 @@ Take a look at the default compilation rule (the `compile '*' do … end` one). 
 
 To make sure that the home page (but not any other page) is run through the `bluecloth` filter, add this piece of code *before* the existing compilation rule:.
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	compile '/' do
 	  filter :bluecloth
 	  layout 'default'
 	end
-<% end %>
+</code></pre>
 
 It is important that this rule comes *before* the existing one (`compile '*' do … end`). When compiling a page, nanoc will use the first and only the first matching rule; if the new compilation rule were *below* the existing one, it would never have been used.
 
 Now that we've told nanoc to filter this page using BlueCloth, let's recompile the site. (If you are getting errors at this point, make sure you have BlueCloth installed, as described at the beginning of this tutorial). The `output/index.html` page source should now contain this text (header and footer omited):
 
-<% syntax_colorize 'html' do %>
-	<h1>A First Level Header</h1>
+<pre><code class="language-html">
+	&lt;h1>A First Level Header&lt;/h1>
 
-	<h2>A Second Level Header</h2>
+	&lt;h2>A Second Level Header&lt;/h2>
 
-	<p>Now is the time for all good men to come to
+	&lt;p>Now is the time for all good men to come to
 	the aid of their country. This is just a
-	regular paragraph.</p>
+	regular paragraph.&lt;/p>
 
-	<p>The quick brown fox jumped over the lazy
-	dog's back.</p>
+	&lt;p>The quick brown fox jumped over the lazy
+	dog's back.&lt;/p>
 
-	<h3>Header 3</h3>
+	&lt;h3>Header 3&lt;/h3>
 
-	<blockquote>
-	    <p>This is a blockquote.</p>
+	&lt;blockquote>
+	    &lt;p>This is a blockquote.&lt;/p>
 
-	    <p>This is the second paragraph in the blockquote.</p>
+	    &lt;p>This is the second paragraph in the blockquote.&lt;/p>
 
-	    <h2>This is an H2 in a blockquote</h2>
-	</blockquote>
-<% end %>
+	    &lt;h2>This is an H2 in a blockquote&lt;/h2>
+	&lt;/blockquote>
+</code></pre>
 
 The BlueCloth filter is not the only filter you can use--take a look a the [full list of filters included with nanoc](#). You can also write your own filters--read the [Writing Filters](/manual/#writing-filters) section in the manual for details.
 
@@ -300,16 +300,16 @@ There is a directory named `lib` in your nanoc site. In there, you can throw Rub
 
 As an example, let's add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.yaml` and add this to the end:
 
-<% syntax_colorize 'yaml' do %>
+<pre><code class="language-yaml">
 tags:
   - foo
   - bar
   - baz
-<% end %>
+</code></pre>
 
 Next, create a file named `tags.rb` in the `lib` directory (the filename doesn't really matter). In there, put the following function:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	def tags
 	  if @item[:tags].nil?
 	    '(none)'
@@ -317,54 +317,54 @@ Next, create a file named `tags.rb` in the `lib` directory (the filename doesn't
 	    @item[:tags].join(', ')
 	  end
 	end
-<% end %>
+</code></pre>
 
 This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the `<%%= yield %>` line:
 
-<% syntax_colorize 'html_rails' do %>
-	<p>Tags: <%%= tags %></p>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;p>Tags: &lt;%= tags %>&lt;/p>
+</code></pre>
 
 Recompile the site, and take a look at both HTML files in the `output` directory. If all went well, you should see a list of tags right above the page content.
 
 Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete `tags.rb` and create a `helper.rb` file (again, the filename doesn't really matter) and put this inside:
 
-<% syntax_colorize 'ruby' do %>
+<pre><code class="language-ruby">
 	include Nanoc3::Helpers::Tagging
-<% end %>
+</code></pre>
 
 This will make all functions defined in the `Nanoc3::Helpers::Tagging` module available for use. You can check out the [RDoc documentation for the Tagging helper](/doc/3.0.0/Nanoc3/Helpers/Tagging.html), but there is only one function we'll use: `tags_for`. It's very similar to the `tags` function we wrote before. Update the layout with this:
 
-<% syntax_colorize 'html_rails' do %>
-	<p>Tags: <%%= tags_for(@item) %></p>
-<% end %>
+<pre><code class="language-html_rails">
+	&lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>
+</code></pre>
 
 Now compile the site again, and you'll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
 
 nanoc comes with quite a few useful helpers. The [RDoc documentation](/doc/3.0.0/) describes each one of them.
 
 Watch out for Paths
------
+-------------------
 
 There's one tricky thing involving paths that you need to know. To show you what can go wrong, let's create a stylesheet named `style.css` in the output directory. Here's what I put in there:
 
-<% syntax_colorize 'css' do %>
+<pre><code class="language-css">
 	h1, h2, h3 { color: red; }
-<% end %>
+</code></pre>
 
 To link the stylesheet to the web site, open the layout (`default.html`) and put this in:
 
-<% syntax_colorize 'html' do %>
-	<link href="style.css" rel="stylesheet" type="text/css">
-<% end %>
+<pre><code class="language-html">
+	&lt;link href="style.css" rel="stylesheet" type="text/css">
+</code></pre>
 
 When you compile the site now and open `index.html`, you'll see that all headers are red. `about/index.html`'s headers, however, are not styled—the web browser looks for a `about/style.css` which doesn't exist.
 
 The most elegant solution is to use an absolute path, like this (note the new slash):
 
-<% syntax_colorize 'html' do %>
-	<link href="/style.css" rel="stylesheet" type="text/css">
-<% end %>
+<pre><code class="language-html">
+	&lt;link href="/style.css" rel="stylesheet" type="text/css">
+</code></pre>
 
 The compiled files in the output directory will *definitely* not be styled now if you open them by double-clicking, but that's okay—when the site is put on your web server, web browsers *will* find the stylesheet.
 
@@ -375,7 +375,7 @@ This would mean that you can't preview your site locally anymore, but there's a 
 This starts a server on localhost, port 3000 (you can customize the port with `-p` if you want). Now you can go to http://localhost:3000/ and absolute paths will pose no problem anymore.
 
 That's it!
------
+----------
 
 This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.
 

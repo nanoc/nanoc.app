@@ -96,6 +96,7 @@ end
 compile '*' do
   filter :erb
   filter :maruku if item[:markdown]
+  filter :syntax_colorize
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
