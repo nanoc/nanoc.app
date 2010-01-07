@@ -1,3 +1,15 @@
+v3.0.3
+------
+
+* The Blogging helper now properly handles item reps without paths
+* The relativize_paths filter now only operates inside tags
+* The autocompiler now handles escaped paths
+* The LinkTo and Tagging helpers now output escaped HTML
+* Fixed played_at attribute assignment in Last.fm data source for tracks playing now and added a now_playing attribute \[Nicky Peeters\]
+* The filesystem_* data sources can now handle dots in identifiers
+* Required `enumerator` to make sure `#enum_with_index` always works
+* `Array#stringify_keys` now properly recurses
+
 v3.0.2
 ------
 
