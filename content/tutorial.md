@@ -291,7 +291,7 @@ Now that we've told nanoc to filter this page using BlueCloth, let's recompile t
 	&lt;/blockquote>
 </code></pre>
 
-The BlueCloth filter is not the only filter you can use--take a look a the [full list of filters included with nanoc](#). You can also write your own filters--read the [Writing Filters](/manual/#writing-filters) section in the manual for details.
+The BlueCloth filter is not the only filter you can use--take a look a the [full list of filters included with nanoc](/manual/#list-of-built-in-filters). You can also write your own filters--read the [Writing Filters](/manual/#writing-filters) section in the manual for details.
 
 Writing some Custom Code
 -----
