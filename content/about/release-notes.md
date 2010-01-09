@@ -1,3 +1,8 @@
+v3.0.4
+------
+
+* Fixed a bug which would cause the filesystem_compact data source to incorrectly determine the content filename, leading to weird “Expected 1 content file but found 3” errors \[Eric Sunshine\]
+
 v3.0.3
 ------
 
