@@ -1,9 +1,0 @@
-img {
-	filter: alpha(opacity=100);
-}
-
-img.idupe {
-	position:absolute;
-	z-index:30000;
-	visibility:hidden;
-}
