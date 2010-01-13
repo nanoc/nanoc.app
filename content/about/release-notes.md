@@ -1,3 +1,8 @@
+v3.0.5
+------
+
+* Restored pre-3.0.3 behaviour of periods in identifiers. By default, a file can have multiple extensions (e.g. content/foo.html.erb will have the identifier /foo/), but if `allow_periods_in_identifiers` in the site configuration is true, a file can have only one extension (e.g. content/blog/stuff.entry.html will have the identifier /blog/stuff.entry/).
+
 v3.0.4
 ------
 
