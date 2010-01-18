@@ -341,6 +341,54 @@ body {
 	padding: 0.2em;
 }
 
+/** article - table */
+
+.article table {
+	margin: 36px auto;
+
+	border-collapse: collapse;
+}
+
+.article tr.head th {
+	border-top:    2px solid #000;
+	border-bottom: 1px solid #666;
+
+	padding-top:    5px;
+	padding-bottom: 5px;
+}
+
+.article tr.first td,
+.article tr.first th {
+	padding-top: 5px;
+}
+
+.article tr.last td,
+.article tr.last th {
+	padding-bottom: 5px;
+
+	border-bottom: 2px solid #000;
+}
+
+.article th.row {
+	text-align: right;
+}
+
+.article th,
+.article td {
+	padding: 2px 10px;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+
+	text-align: left;
+}
+
+.article th {
+	font-weight: bold;
+
+	text-transform: uppercase;
+}
+
 /** article - lists */
 
 .article ul,
