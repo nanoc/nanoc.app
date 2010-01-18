@@ -1,3 +1,11 @@
+v3.0.6
+------
+
+* Error checking in `filesystem_combined` has been improved [Brian Candler]
+* Generated HTML files now have a default encoding of UTF-8
+* Periods in identifiers for layouts now behave correctly
+* The `relativize_paths` filter now correctly handles “/” [Eric Sunshine]
+
 v3.0.5
 ------
 
