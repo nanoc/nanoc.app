@@ -1,2 +1,2 @@
-title:    "News"
-markdown: true
+title:      "News"
+is_dynamic: true

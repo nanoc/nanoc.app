@@ -1,2 +1,3 @@
-title:    "The Big Book of nanoc"
-markdown: true
+title:      "The Big Book of nanoc"
+markdown:   advanced
+is_dynamic: true

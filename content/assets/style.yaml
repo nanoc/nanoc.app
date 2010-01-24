@@ -1,2 +1,3 @@
 version:    13
 is_hidden:  true
+is_dynamic: true

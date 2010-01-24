@@ -181,7 +181,7 @@ Open `default.html` in your favourite text editor. It *almost* looks like a HTML
 ...
 </code></pre>
 
-The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%%= yield %>` instruction will be replaced with the item's compiled content when compiling.
+The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%= yield %>` instruction will be replaced with the item's compiled content when compiling.
 
 If you are not familiar with embedded Ruby (also known as eRuby), take a look at the [eRuby article on Wikipedia](http://en.wikipedia.org/wiki/ERuby), or the [<i>Embedding Ruby in HTML</i> section](http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2) of the <i>Ruby and the Web</i> chapter of the online <i>Programming Ruby</i> book.
 
@@ -319,7 +319,7 @@ def tags
 end
 </code></pre>
 
-This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the `<%%= yield %>` line:
+This function will take the current page's tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the `<%= yield %>` line:
 
 <pre><code class="language-html_rails">
 &lt;p>Tags: &lt;%= tags %>&lt;/p>

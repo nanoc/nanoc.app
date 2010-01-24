@@ -1,2 +1,3 @@
-title:    "About"
-markdown: true
+title:      "About"
+markdown:   basic
+is_dynamic: true

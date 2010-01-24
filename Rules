@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-### Preprocessing
+### Preprocessing ############################################################
 
 preprocess do
   def paginate_articles
@@ -18,7 +18,10 @@ preprocess do
       # Create item
       items << Nanoc3::Item.new(
         "<%= render 'pagination_page', :articles_per_item => #{config[:page_size]}, :item_id => #{i} %>",
-        { :title => "News Archive (posts #{i*config[:page_size]}–#{(i+1)*config[:page_size]})" },
+        {
+          :title      => "News Archive (posts #{i*config[:page_size]}–#{(i+1)*config[:page_size]})",
+          :is_dynamic => true
+        },
         "/news/#{i+1}/"
       )
     end
@@ -27,7 +30,7 @@ preprocess do
   paginate_articles
 end
 
-### Routing Rules
+### Routing ##################################################################
 
 route '/404/' do
   '/error-404.php'
@@ -36,11 +39,6 @@ end
 route '/assets/style/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
-end
-
-route '/assets/style/*' do
-  # don't output partial stylesheets
-  nil
 end
 
 route '/news/feed_private/' do
@@ -54,10 +52,16 @@ end
 end
 
 route '*' do
-  rep.item.identifier + 'index.html'
+  if item[:is_partial]
+    # Don’t output partial items (e.g. sub-stylesheets)
+    nil
+  else
+    # Place each file in its own directory
+    rep.item.identifier + 'index.html'
+  end
 end
 
-### Compilation Rules
+### Compilation ##############################################################
 
 compile '/assets/style/' do
   filter :erb
@@ -94,9 +98,17 @@ compile '/' do
 end
 
 compile '*' do
-  filter :erb
-  filter :maruku if item[:markdown]
+  filter :erb if item[:is_dynamic]
+
+  case item[:markdown]
+  when 'advanced'
+    filter :maruku
+  when 'basic'
+    filter :rdiscount
+  end
+
   filter :syntax_colorize
+
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
@@ -105,6 +117,6 @@ compile '*' do
   filter :rubypants
 end
 
-### Layouting rules
+### Layouting ################################################################
 
 layout '*', :erb
