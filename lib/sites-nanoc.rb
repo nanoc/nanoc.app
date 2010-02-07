@@ -7,7 +7,7 @@ def nav_link_to_unless_current(text, path)
 end
 
 # Returns the item with the given identifier.
-def item(identifier)
+def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
 end
 
