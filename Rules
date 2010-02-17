@@ -63,10 +63,6 @@ end
 
 ### Compilation ##############################################################
 
-DEFAULT_OPTIONS = {
-  :kramdown => { :auto_ids => false }
-}
-
 compile '/assets/style/' do
   filter :erb
   filter :relativize_paths, :type => :css
@@ -84,7 +80,7 @@ end
 [ '/manual/', '/migrating/' ].each do |pattern|
   compile pattern, :rep => 'notoc' do
     filter :erb
-    filter :kramdown, DEFAULT_OPTIONS[:kramdown]
+    filter :kramdown, :auto_ids => false
     filter :add_sections
   end
 end
@@ -106,7 +102,7 @@ compile '*' do
 
   case item[:markdown]
   when 'advanced'
-    filter :kramdown, DEFAULT_OPTIONS[:kramdown]
+    filter :kramdown, :auto_ids => false
   when 'basic'
     filter :rdiscount
   end
