@@ -4,11 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 		<!-- title -->
-		<% if @item[:kind] == 'articles_category' %>
-			<title>Articles related to <%= @item[:category] %></title>
-		<% else %>
-			<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
-		<% end %>
+		<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
 
 		<!-- stylesheets -->
 		<link rel="stylesheet" href="<%= item_named('/assets/style/').reps[0].path %>" type="text/css" media="screen">
