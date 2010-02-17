@@ -1,6 +1,6 @@
 ---
 
-title:     "About &raquo; Release Notes"
+title:     "Release Notes"
 markdown:  basic
 
 ---
