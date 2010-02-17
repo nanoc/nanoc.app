@@ -5,6 +5,8 @@ markdown: basic
 
 ---
 
+Can’t remember what a certain term means? That’s why there a glossary!
+
 <dl class="glossary">
 	<dt id="glossary-asset">asset</dt>
 	<dd><span class="see">see <a href="#glossary-item">item</a></span></dd>
