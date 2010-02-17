@@ -24,7 +24,7 @@ options:
 
 <p>Also neat is that <strong>command abbreviations are detected automatically</strong>. The <kbd>co</kbd> command, for example, will be expanded to <kbd>compile</kbd> because there's no other command starting with <kbd>co</kbd>. Additionally, if you type something ambiguous, you'll be notified:</p>
 
-<pre><kbd><span class="prompt">></span> nanoc c</kbd>
+<pre><kbd><span class="prompt">%</span> nanoc c</kbd>
 <samp>nanoc: 'c' is ambiguous:
   create_template create_site create_page create_layout compile</samp></pre>
 
@@ -100,13 +100,13 @@ image_science_thumbnail |    69  0.22s  0.27s  0.35s  18.51s
 
 <p>Some example output:</p>
 
-<pre><kbd><span class="prompt">></span> nanoc hello_world blah</kbd>
+<pre><kbd><span class="prompt">%</span> nanoc hello_world blah</kbd>
 <samp>blah</samp>
-<kbd><span class="prompt">></span> nanoc hw -u blah</kbd>
+<kbd><span class="prompt">%</span> nanoc hw -u blah</kbd>
 <samp>BLAH</samp>
-<kbd><span class="prompt">></span> nanoc hello -u</kbd>
+<kbd><span class="prompt">%</span> nanoc hello -u</kbd>
 <samp>HELLO WORLD</samp>
-<kbd><span class="prompt">></span> nanoc hw</kbd>
+<kbd><span class="prompt">%</span> nanoc hw</kbd>
 <samp>hello world</samp></pre>
 
 <p>The auto-generated help page:</p>

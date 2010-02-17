@@ -38,7 +38,7 @@ Installing nanoc
 
 All dependencies are now taken care of, and installing nanoc should now be as easy as this (you may have to prefix the <kbd>gem</kbd> command with <kbd>sudo</kbd> to ensure that you’re using root privileges):
 
-<pre title="Installing nanoc"><span class="prompt">></span> <kbd>gem install nanoc3</kbd></pre>
+<pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc3</kbd></pre>
 
 To make sure that nanoc was installed correctly, run <kbd>nanoc3 --version</kbd>. It should print the version number along with some other information, like this:
 
