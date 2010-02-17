@@ -1,11 +1,8 @@
 require 'time'
 
-def nav_link_to_unless_current(text, path)
-  if @item_rep and @item_rep.path == path
-    "<span class=\"active\"><span>#{text}</span></span>"
-  else
-    "<a href=\"#{path}\"><span>#{text}</span></a>"
-  end
+def nav_link_to_unless_current(identifier)
+  other = @items.find { |i| i.identifier == identifier }
+  link_to_unless_current(other[:short_title] || other[:title], other)
 end
 
 # Returns the item with the given identifier.
