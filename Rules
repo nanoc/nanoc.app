@@ -68,7 +68,6 @@ compile '*' do
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
-  filter :add_links_to_headers
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
   filter :rubypants
 end
