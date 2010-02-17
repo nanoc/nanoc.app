@@ -15,7 +15,7 @@ nanoc is a tool for building static web sites. It compiles pages and assets by t
 
 nanoc is not a content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you.
 
-Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn't need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn't need to have anything "special" installed at all—it just needs to be able to serve static files, which every web server can.
+Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything "special" installed at all—it just needs to be able to serve static files, which every web server can.
 
 Markup conventions
 ------------------
@@ -53,9 +53,9 @@ Advantages
 
 The main reason why nanoc was created, is to reduce the server load and improve page load times. After all, nothing gets served faster than a static HTML page.
 
-Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor's browser. Caching helps quite a bit, but not all CMSes do it well.
+Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor’s browser. Caching helps quite a bit, but not all CMSes do it well.
 
-nanoc goes a step further than caching, and generates static files right away (you may call it "extreme caching" if you are so inclined). Using static files is not only fast--it also allows web browsers to cache files much more efficiently due to `Last-Modified` headers and such.
+nanoc goes a step further than caching, and generates static files right away (you may call it "extreme caching" if you are so inclined). Using static files is not only fast—it also allows web browsers to cache files much more efficiently due to `Last-Modified` headers and such.
 
 ### Safe
 
@@ -63,29 +63,29 @@ It is a lot safer to host a static web site than a dynamic one.
 
 Because nanoc does not run on the server itself, there is no way to exploit nanoc or Ruby, one way or another, in order to hack the site. Most CMSes do run on the server, which certainly does makes them a target for attacks.
 
-Using nanoc is not a guarantee that your site will be unhackable, though. If your FTP account has a weak password, then you're asking for trouble. With nanoc you can still output dynamic files, such as PHP ones, and these pages could still be the cause of security issues.
+Using nanoc is not a guarantee that your site will be unhackable, though. If your FTP account has a weak password, then you’re asking for trouble. With nanoc you can still output dynamic files, such as PHP ones, and these pages could still be the cause of security issues.
 
 ### Previewable
 
 nanoc takes the pressure off going live.
 
-When making changes to a live site, there is always the possibility that something will go wrong. Perhaps a typo in a SQL statement, a `div` that wasn't closed, etc. Whatever the reason is, visitors will temporarily see a site that is broken in some way.
+When making changes to a live site, there is always the possibility that something will go wrong. Perhaps a typo in a SQL statement, a `div` that wasn’t closed, etc. Whatever the reason is, visitors will temporarily see a site that is broken in some way.
 
-When nanoc compiles a site, the compiled site goes into the `output` directory on the local computer. You can check every single page to make sure their contents are correct before uploading the site to the live server. That way, you're sure that nothing ever breaks.
+When nanoc compiles a site, the compiled site goes into the `output` directory on the local computer. You can check every single page to make sure their contents are correct before uploading the site to the live server. That way, you’re sure that nothing ever breaks.
 
 ### Versionable
 
 The source files for a nanoc site are stored as flat text files by default. This means that you can easily store the site in a versioned repository (Subversion, Mercurial, git, darcs, Bazaar, etc.).
 
-Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository--check the [Development](#development) section for details).
+Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](#development) section for details).
 
 ### Flexible
 
 A page in a nanoc site can have arbitrary metadata associated with it. This makes it quite easy to define custom page types. For example, you could create a blog post by setting the `kind` attribute to `article`, and then fetch all articles through `@items.select { |i| i[:kind] == 'article' }`. You can give a blog post tags, or you can give it an excerpt. Or, perhaps set `excerpt_length` and let nanoc generate the excerpt for you by taking a substring of the page content.
 
-It is also possible to add custom code to a nanoc site. Simply create a Ruby file in the `lib` directory, put a function in there, and it'll be available when the site gets compiled. For example, this nanoc site has a `toc_for(item)` function for automatically generating the table of contents on the manual page.
+It is also possible to add custom code to a nanoc site. Simply create a Ruby file in the `lib` directory, put a function in there, and it’ll be available when the site gets compiled. For example, this nanoc site has a `toc_for(item)` function for automatically generating the table of contents on the manual page.
 
 Development
 -----------
 
-nanoc uses Mercurial as its VCS, and the repositories are located [over here](http://projects.stoneship.org/hg/). There is a [repository for nanoc itself](http://projects.stoneship.org/hg/nanoc), and there are repositories for sample sites and plugins. If you have any patches to share, I'd be happy to accept them!
+nanoc uses Mercurial as its VCS, and the repositories are located [over here](http://projects.stoneship.org/hg/). There is a [repository for nanoc itself](http://projects.stoneship.org/hg/nanoc), and there are repositories for sample sites and plugins. If you have any patches to share, I’d be happy to accept them!

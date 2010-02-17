@@ -19,7 +19,7 @@ nanoc 3.0 uses a new namespace, `Nanoc3`, instead of the old `Nanoc`
 namespace. Any custom code that lives in the `Nanoc` namespace should
 therefore be moved into the new `Nanoc3` namespace.
 
-The `Render` helper has, for consistency's sake, been renamed to `Rendering`.
+The `Render` helper has, for consistency’s sake, been renamed to `Rendering`.
 
 Dropped Features
 ----------------
@@ -31,7 +31,7 @@ These include:
 * Support for drafts
 * Support for templates
 * `save_*`, `delete_*`, `move_*` methods in data sources
-* Old-style routers (replaced with routing rules---see below for details)
+* Old-style routers (replaced with routing rules—see below for details)
 * Page and asset defaults
 
 Items versus Pages and Assets
@@ -100,14 +100,14 @@ to `Date` and `Time` instances, respectively.
 Filter Arguments
 ----------------
 
-Filters can now take a hash of arguments. The signature of a filter's `#run`
+Filters can now take a hash of arguments. The signature of a filter’s `#run`
 method has changed: instead of taking only one option (the content), it takes
 two: the content and a hash of arguments. For example:
 
 <pre><code class="language-ruby">
 class MyNanoc3Filter &lt; Nanoc3::Filter
   def run(content, arguments={})
-    # ... code goes here ...
+    # … code goes here …
   end
 end
 </code></pre>

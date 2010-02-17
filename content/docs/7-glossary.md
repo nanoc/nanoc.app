@@ -65,7 +65,7 @@ oneliner: "Can’t remember what a certain term means? That’s why there a glos
 	<dd><span class="see">see <a href="#glossary-representation">representation</a></span></dd>
 
 	<dt id="glossary-representation">representation</dt>
-	<dd>A “version” of an <a href="#glossary-item">item</a>. For example, an item can have a HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a <a href="#glossary-path">path</a>).</dd>
+	<dd>A "version" of an <a href="#glossary-item">item</a>. For example, an item can have a HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a <a href="#glossary-path">path</a>).</dd>
 
 	<dt id="glossary-routing-rule">routing rule</dt>
 	<dd>A <a href="#glossary-rule">rule</a> that defines what <a href="#glossary-path">path</a> a <a href="#glossary-representation">representation</a> should get.</dd>
@@ -74,5 +74,5 @@ oneliner: "Can’t remember what a certain term means? That’s why there a glos
 	<dd>A bit of code that defines how an <a href="#glossary-item">item</a> should be processed (routed using a <a href="#glossary-routing-rule">routing rule</a> and compiled using a <a href="#glossary-compilation-rule">compilation rule</a>), or which <a href="#glossary-filter">filter</a> should be used for processing a given <a href="#glossary-layout">layout</a> in a <a href="#glossary-layout-rule">layout rule</a>.</dd>
 
 	<dt id="glossary-site">site</dt>
-	<dd>A directory containing <a href="#glossary-item">items</a>, <a href='#glossary-layout'>layouts</a>, <a href="#glossary-rule">rules</a> and custom code. It can also refer to the compiled site, which can be found in the uncompiled site's <a href="#glossary-output-directory">output directory</a>.</dd>
+	<dd>A directory containing <a href="#glossary-item">items</a>, <a href='#glossary-layout'>layouts</a>, <a href="#glossary-rule">rules</a> and custom code. It can also refer to the compiled site, which can be found in the uncompiled site’s <a href="#glossary-output-directory">output directory</a>.</dd>
 </dl>

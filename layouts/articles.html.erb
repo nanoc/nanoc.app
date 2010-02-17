@@ -1,4 +1,4 @@
-<p>Below is a list of articles related to <%= @item[:group] %>. Subscribe to the <a href="http://feeds.feedburner.com/nanoc">nanoc news feed</a> and don't miss a thing.</p>
+<p>Below is a list of articles related to <%= @item[:group] %>. Subscribe to the <a href="http://feeds.feedburner.com/nanoc">nanoc news feed</a> and don’t miss a thing.</p>
 
 <% @item.children.sort_by { |i| Time.parse(i[:created_at]) }.reverse.each do |article| %>
 	<%= render 'article', :article => article %>

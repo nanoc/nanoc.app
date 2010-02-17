@@ -1,6 +1,6 @@
 module Nanoc3::Filters
 
-  # This filters adds section div's based on headers. For example, this:
+  # This filters adds section div’s based on headers. For example, this:
   #
   # h1
   # p

@@ -69,7 +69,6 @@ compile '*' do
   filter :add_sections
   layout '/default/'
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
-  filter :rubypants
 end
 
 ### Layouting ################################################################

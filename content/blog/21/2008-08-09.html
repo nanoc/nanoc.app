@@ -1,12 +1,12 @@
 <div style="margin: 1.8em 0; text-align: center;">
-	<img src="/assets/images/whats-new-in-nanoc-21-small.png" alt="What's New in nanoc 2.1">
+	<img src="/assets/images/whats-new-in-nanoc-21-small.png" alt="What’s New in nanoc 2.1">
 </div>
 
-<p>Welcome to installment #5 of What's New in nanoc 2.1. This article will show you two of the biggest new features of nanoc 2.1: <em>asset compilation</em> and <em>multiple representations</em>.</p>
+<p>Welcome to installment #5 of What’s New in nanoc 2.1. This article will show you two of the biggest new features of nanoc 2.1: <em>asset compilation</em> and <em>multiple representations</em>.</p>
 
 <p>The new <strong>asset compilation</strong> feature allows a site to have assets, which can be run through filters. Assets can be anything&mdash;<a href="http://haml.hamptoncatlin.com/docs/rdoc/classes/Sass.html">Sass</a> stylesheets, images, MP3s, videos, and so on. Filters can then compile Sass, rescale images, make images grayscale, change the volume of a MP3 file, play a video backwards (so you get to see the end first), etc. The only limit is your imagination.</p>
 
-<p>nanoc supports two different kinds of assets: <em>textual</em> and <em>binary</em> assets. Textual assets will be compiled by textual filters, which are the filters you already know. An example of a textual asset would be a Sass stylesheet. Binary assets are all assets that aren't text. Examples of binary assets include images, sound and music files, videos, etc.</p>
+<p>nanoc supports two different kinds of assets: <em>textual</em> and <em>binary</em> assets. Textual assets will be compiled by textual filters, which are the filters you already know. An example of a textual asset would be a Sass stylesheet. Binary assets are all assets that aren’t text. Examples of binary assets include images, sound and music files, videos, etc.</p>
 
 <p>Binary assets require a <strong>new kind of filters called binary filters</strong>. Binary filters, unlike textual filters, do not load assets into memory. This means binary assets can be arbitrarily big.</p>
 
@@ -26,7 +26,7 @@ filters: [ 'sass' ]</code></pre>
 
 <p>&hellip; which should not be a big surprise.</p>
 
-<p>Textual filters are exactly the same as the filters in nanoc 2.0, so there's probably not much point in showing one, but I'll just do it anyway:</p>
+<p>Textual filters are exactly the same as the filters in nanoc 2.0, so there’s probably not much point in showing one, but I’ll just do it anyway:</p>
 
 <pre><code class="language-ruby">class Sass &lt; Nanoc::Filter
 
@@ -42,7 +42,7 @@ end</code></pre>
 
 <p>Binary assets are very similar to textual assets. Simply set <code>binary</code> to <code>true</code> in the meta file and make sure that the list of filters contains only binary filters.</p>
 
-<p>Filters for binary assets are slightly different from textual filters. Firstly, binary filters inherit from <code>Nanoc::BinaryFilter</code> instead of <code>Nanoc::Filter</code>. Secondly, their <code>run</code> method takes a File object and not a string containing the asset content. Additionally, binary filters should return a File object representing the processed file. The original File argument should not be modified (otherwise you'd lose the original asset).</p>
+<p>Filters for binary assets are slightly different from textual filters. Firstly, binary filters inherit from <code>Nanoc::BinaryFilter</code> instead of <code>Nanoc::Filter</code>. Secondly, their <code>run</code> method takes a File object and not a string containing the asset content. Additionally, binary filters should return a File object representing the processed file. The original File argument should not be modified (otherwise you’d lose the original asset).</p>
 
 <p>For example, a binary filter for generating a thumbnail of an image (using <a href="http://seattlerb.rubyforge.org/ImageScience.html">ImageScience</a>) could look like this (the code is non-functional, because the filter has a lot of irrelevant implementation details):</p>
 
@@ -65,15 +65,15 @@ end</code></pre>
 
 end</code></pre>
 
-<p>The default router (see the <a href="/blog/2008-07-23/">article on routers</a>) saves compiled assets in an <span class="path">assets</span> directory inside the output directory. It's possible to set <var>assets_prefix</var> in the config file to something else such as "/media", or even "" to save assets directly in the output directory.</p>
+<p>The default router (see the <a href="/blog/2008-07-23/">article on routers</a>) saves compiled assets in an <span class="path">assets</span> directory inside the output directory. It’s possible to set <var>assets_prefix</var> in the config file to something else such as "/media", or even "" to save assets directly in the output directory.</p>
 
 <p>Now you know how to compile assets.</p>
 
-<p>There is one small issue, though. Generating thumbnails of images is fine, but what if you want to keep the full-size version? There's not much point in only having a thumbnail, and not being able to show the full-size image.</p>
+<p>There is one small issue, though. Generating thumbnails of images is fine, but what if you want to keep the full-size version? There’s not much point in only having a thumbnail, and not being able to show the full-size image.</p>
 
 <p>This is where <strong>multiple representations</strong> come into play. A single asset can have different representations (or "reps"): a thumbnail rep, a grayscale rep, a full-size rep, &hellip; Even pages can have multiple reps.</p>
 
-<p>Giving an asset multiple representations is quite easy. In the asset's meta file, fill up the list of reps like in this example:</p>
+<p>Giving an asset multiple representations is quite easy. In the asset’s meta file, fill up the list of reps like in this example:</p>
 
 <pre><code class="language-yaml">reps:
   default:
@@ -86,7 +86,7 @@ end</code></pre>
 
 <p>Each representation has its own output file. The name of the output file is determined by the router. The default router appends the representation name to the filename.</p>
 
-<p><a href="#">Last time</a> I wasn't able to show you what a real router looks like (because I didn't explain multiple representations before), but now I can. Let me just show you the implementation for <code>path_for_asset_rep</code> real quick:</p>
+<p><a href="#">Last time</a> I wasn’t able to show you what a real router looks like (because I didn’t explain multiple representations before), but now I can. Let me just show you the implementation for <code>path_for_asset_rep</code> real quick:</p>
 
 <pre><code class="language-ruby">def path_for_asset_rep(asset_rep)
   # Get data we need
@@ -110,8 +110,8 @@ end</code></pre>
   path
 end</code></pre>
 
-<p>The implementation of <code>path_for_page_rep</code> is very similar, so I'm not showing it here.</p>
+<p>The implementation of <code>path_for_page_rep</code> is very similar, so I’m not showing it here.</p>
 
 <p>The code should be fairly self-explanatory (the <code>[0..-2]</code> is used to strip off the trailing slash). The most important point is that routers determine paths of asset/page <em>representations</em> instead of paths of assets/pages.</p>
 
-<p>So, that's what asset compilation and multiple representations look like. The end of the <i>What's New In nanoc 2.1</i> series is coming closer, but there is still one more installment to go. The last article in the series will discuss several minor new features and changes. Stay tuned!</p>
+<p>So, that’s what asset compilation and multiple representations look like. The end of the <i>What’s New In nanoc 2.1</i> series is coming closer, but there is still one more installment to go. The last article in the series will discuss several minor new features and changes. Stay tuned!</p>

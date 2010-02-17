@@ -14,7 +14,7 @@ Interacting with nanoc happens through a commandline tool named `nanoc3`. (The `
 
 	> nanoc3 [command]
 
-Here, `command` obviously is the name of the command you're invoking. A very useful command is the `help` command, which will give you a detailed description of a given command. You can use it like this:
+Here, `command` obviously is the name of the command you’re invoking. A very useful command is the `help` command, which will give you a detailed description of a given command. You can use it like this:
 
 	> nanoc3 help [command]
 
@@ -39,14 +39,14 @@ If you want general help, such as a list of available commands and global option
 
 	> nanoc3 help
 
-So, if you're ever stuck, consult the the commandline help which (hopefully) will put you back on track.
+So, if you’re ever stuck, consult the the commandline help which (hopefully) will put you back on track.
 
 Sites
 -----
 
 A site managed by nanoc is a directory with a specific structure. A site consists of items, layouts, a site configuration and a set of rules.
 
-The way the data in a site is stored depends on the data source that is being used. However, unless you've explicitly told nanoc to use a different data source, the `filesystem_compact` one will be used. This manual assumes that this `filesystem_compact` data source is used. For details, see the [Data Sources](#data-sources) section.
+The way the data in a site is stored depends on the data source that is being used. However, unless you’ve explicitly told nanoc to use a different data source, the `filesystem_compact` one will be used. This manual assumes that this `filesystem_compact` data source is used. For details, see the [Data Sources](#data-sources) section.
 
 ### Creating a Site
 
@@ -85,7 +85,7 @@ A site has the following files and directories:
 
 nanoc will load all Ruby source files in the `lib` directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helpers and filters.
 
-The code for custom data sources should be placed in `lib/data_sources`. The code in this directory will be loaded before any other code. (This is necessary, because the data source is responsible for loading code, but it would only be able to load the code for itself once it's loaded.)
+The code for custom data sources should be placed in `lib/data_sources`. The code in this directory will be loaded before any other code. (This is necessary, because the data source is responsible for loading code, but it would only be able to load the code for itself once it’s loaded.)
 
 ### Site configuration
 
@@ -106,10 +106,10 @@ The list of data source configurations is a collection of key/value pairs. These
 : The type (name) of the data source (e.g. `filesystem_compact`).
 
 `items_root`
-: The point where this data source's items should be mounted. Defaults to `/`.
+: The point where this data source’s items should be mounted. Defaults to `/`.
 
 `layouts_root`
-: The point where this data source's layouts should be mounted. Defaults to `/`.
+: The point where this data source’s layouts should be mounted. Defaults to `/`.
 
 `config`
 : A hash containing extra configuration details (e.g. username, API key).
@@ -159,9 +159,9 @@ Some filters or helpers may use certain attributes. When using these filters, be
 
 An item representation (or "rep" for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`).
 
-One reason why an item would have different representations is because the data needs to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn't compiled at all (just the raw, unfiltered, non-laid out content). Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
+One reason why an item would have different representations is because the data needs to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn’t compiled at all (just the raw, unfiltered, non-laid out content). Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
 
-An item's list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
+An item’s list of representation can be fetched by calling `#reps` on the `Nanoc3::Item` instance. To get a specific rep, use `Enumerable#find`, like this:
 
 <pre><code class="language-ruby">
 rep = @item.reps.find { |r| r.name == :default }
@@ -243,7 +243,7 @@ Items have the following attributes available at compile time:
 : A list of representations for this item.
 
 `path`
-: The item's path relative to the web root, with leading and trailing slashes, e.g. `/blog/`.
+: The item’s path relative to the web root, with leading and trailing slashes, e.g. `/blog/`.
 
 To get a item representation with a specific name, get the reps by using the `#reps` method and then find the right rep. For example, to get the "raw" representation:
 
@@ -260,9 +260,9 @@ content = item.reps[0].content_at_snapshot(:pre)
 Layouts
 -------
 
-On itself, an item's content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the item.
+On itself, an item’s content is not valid HTML yet: it lacks the structure a typical HTML document has. A layout is used to add this missing structure to the item.
 
-For a layout to be useful, it must output the item's content at a certain point. This is done by outputting `yield`. This extremely minimal layout shows an example of how this is usually done:
+For a layout to be useful, it must output the item’s content at a certain point. This is done by outputting `yield`. This extremely minimal layout shows an example of how this is usually done:
 
 <pre><code class="language-html_rails">
 &lt;html>
@@ -285,7 +285,7 @@ Layouts can also be used as *partials*: a specific layout can be rendered into a
 &lt;%= render 'head' %>
 </code></pre>
 
-For this to work, though, you'll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+For this to work, though, you’ll first have to activate the `Rendering` helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
 
 <pre><code class="language-ruby">
 include Nanoc3::Helpers::Rendering
@@ -314,7 +314,7 @@ A routing rule looks like this:
 
 <pre><code class="language-ruby">
 route '/foo/' do
-  # ... routing code here ...
+  # … routing code here …
 end
 </code></pre>
 
@@ -379,7 +379,7 @@ A compilation rule looks like this:
 
 <pre><code class="language-ruby">
 compile '/foo/' do
-  # ... compilation code here ...
+  # … compilation code here …
 end
 </code></pre>
 
@@ -461,7 +461,7 @@ only to textual representations (with name equal to `text`):
 
 <pre><code class="language-ruby">
 compile '/people/*', :rep => :text do
-  # don't filter or layout
+  # don’t filter or layout
 end
 </code></pre>
 
@@ -523,7 +523,7 @@ After the data is loaded, it is _preprocessed_ if a preprocessor block exists. A
 
 <pre><code class="language-ruby">
 preprocess do
-  # ...
+  # …
 end
 </code></pre>
 
@@ -533,7 +533,7 @@ Preprocessors can be used for various purposes. Here are two sample uses:
 
 * A preprocessor could set a `language_code` attribute based on the item path. An item such as `/en/about/` would get an attribute `language_code` equal to `'en'`. This would eliminate the need for helpers such as `language_code_of`.
 
-* A preprocessor could create new (in-memory) items for a given set of items. This is what happens on the nanoc site, where the news archive's pagination pages are created during the preprocessing phase.
+* A preprocessor could create new (in-memory) items for a given set of items. This is what happens on the nanoc site, where the news archive’s pagination pages are created during the preprocessing phase.
 
 ### Building the Item Representations
 
@@ -543,27 +543,27 @@ For example, the following code will cause the item `/foo/` to have only one rep
 
 <pre><code class="language-ruby">
 compile '/foo/' do
-  # ...
+  # …
 end
 
 compile '/bar/', :rep => :raw do
-  # ...
+  # …
 end
 
 compile '/bar/', :rep => :full do
-  # ...
+  # …
 end
 </code></pre>
 
 ### Routing the Item Representations
 
-For each item representation, the matching routing rule is looked up and applied to the item rep. The item rep's path to the output file will be set to the return value of the routing rule block.
+For each item representation, the matching routing rule is looked up and applied to the item rep. The item rep’s path to the output file will be set to the return value of the routing rule block.
 
-The routing rule block can also return nil, in which case the item representation will not be written to the disk--useful when items should be included as part of other, larger items, but should not exist separately.
+The routing rule block can also return nil, in which case the item representation will not be written to the disk—useful when items should be included as part of other, larger items, but should not exist separately.
 
 ### Compiling the Item Representations
 
-Compiling an item means compiling all of its representations, which in turn involves executing the compilation rules on each representation. After a compilation rule has been applied, the item representation's compiled content will be written to its output file (if it has one) determined by its routing rule.
+Compiling an item means compiling all of its representations, which in turn involves executing the compilation rules on each representation. After a compilation rule has been applied, the item representation’s compiled content will be written to its output file (if it has one) determined by its routing rule.
 
 The following diagram illustrates item compilation by giving a few examples of how items can be filtered and laid out.
 
@@ -578,7 +578,7 @@ By default, item representations will not be recompiled unless they are outdated
 Filters
 -------
 
-Filters are used for transforming an item's content. For example, the ERB filter interprets the item's content as text with embedded Ruby, executes the embedded Ruby and returns the result.
+Filters are used for transforming an item’s content. For example, the ERB filter interprets the item’s content as text with embedded Ruby, executes the embedded Ruby and returns the result.
 
 Each filter has an identifier (a symbol), which is used in the call to `#filter` in a compilation rule.
 
@@ -631,7 +631,7 @@ Each filter has an identifier (a symbol), which is used in the call to `#filter`
 
 Filter arguments for the `haml` and `sass` filters will be passed to `Haml::Engine.new` and `Sass::Engine.new`, respectively (with the exception of `:filename`, which will be set to the item rep name).
 
-The `relativize_paths` filter makes all paths in HTML or CSS relative. To set the type of data to relativize (HTML or CSS) pass `:type => :html` resp. `:type => :css`. For example, a reference from the `/about/` item to the `/journal/` item will become `../journal/` instead of `/journal/`. This filter uses the <a href="/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">LinkTo helper</a>'s `relative_path_to` function. When using it with HTML, it relativizes all paths in `src=""` and `href=""` attributes; when using it with CSS, it relativizes all paths in `url()` properties.
+The `relativize_paths` filter makes all paths in HTML or CSS relative. To set the type of data to relativize (HTML or CSS) pass `:type => :html` resp. `:type => :css`. For example, a reference from the `/about/` item to the `/journal/` item will become `../journal/` instead of `/journal/`. This filter uses the <a href="/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">LinkTo helper</a>’s `relative_path_to` function. When using it with HTML, it relativizes all paths in `src=""` and `href=""` attributes; when using it with CSS, it relativizes all paths in `url()` properties.
 
 ### Writing Filters
 
@@ -650,7 +650,7 @@ A filter has an identifier, which is an unique name that is used in calls to `#f
 <pre><code class="language-ruby">
 class CensorFilter &lt; Nanoc3::Filter
   identifier :censor
-  # ... other code goes here ...
+  # … other code goes here …
 end
 </code></pre>
 
@@ -711,7 +711,7 @@ nanoc comes with a couple of built-in helpers. These helpers all all child modul
 : provides functionality for rendering layouts as partials (<a href="/doc/3.0.0/Nanoc3/Helpers/Rendering.html">documentation</a>)
 
 `Tagging`
-: provides functionality for printing a item's tags (<a href="/doc/3.0.0/Nanoc3/Helpers/Tagging.html">documentation</a>)
+: provides functionality for printing a item’s tags (<a href="/doc/3.0.0/Nanoc3/Helpers/Tagging.html">documentation</a>)
 
 `Text`
 : provides various text/HTML-related functions (<a href="/doc/3.0.0/Nanoc3/Helpers/Text.html">documentation</a>)
@@ -737,10 +737,10 @@ The tasks that come with nanoc are:
 : Deploys the site to a remote server using `rsync`. See below for details.
 
 `validate:css`
-: Validates the site's CSS files.
+: Validates the site’s CSS files.
 
 `validate:html`
-: Validates the site's HTML files.
+: Validates the site’s HTML files.
 
 Please note that the HTML/CSS validation tasks validate each file by sending it to the W3C validator. Depending on the number of files you have, this may be quite slow.
 
@@ -750,7 +750,7 @@ In order to use the deploy rake task, the site configuration needs to have deplo
 
 Each deployment configuration needs a `dst` key, containing the destination to where should be deployed. It can also contain an optional `options` hash, which is an array of options to pass to rsync.
 
-Here's an example `config.yaml` that shows the deployment configuration:
+Here’s an example `config.yaml` that shows the deployment configuration:
 
 <pre><code class="language-yaml">
 deploy:
@@ -829,26 +829,26 @@ nanoc comes bundled with the following data sources:
 
 ### Writing Custom Data Sources
 
-Data sources are responsible for loading and storing a site's data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the ([`Nanoc3::DataSource` source code documentation](/doc/3.0.0/Nanoc3/DataSource.html).
+Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the ([`Nanoc3::DataSource` source code documentation](/doc/3.0.0/Nanoc3/DataSource.html).
 
-Each data source has an identifier. This is a unique name that is used in a site's configuration file to specify which data source should be used to fetch data. It is specified like this:
+Each data source has an identifier. This is a unique name that is used in a site’s ’s configuration file to specify which data source should be used to fetch data. It is specified like this:
 
 <pre><code class="language-ruby">
 class SampleDataSource &lt; Nanoc3::DataSource
   identifier :sample
-  # ... other code goes here ...
+  # … other code goes here …
 end
 </code></pre>
 
 All methods in the data source have access to the `@site` object, which represents the site. One useful thing that can be done with this is request the configuration hash, using `@site.config`.
 
-There are two methods you may want to implement first: `#up` and `#down`. `#up` is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. `#down` is executed when the data source is unloaded, so this is the ideal place to undo what `#up` did. You don't need to implement `#up` or `#down` if you don't want to.
+There are two methods you may want to implement first: `#up` and `#down`. `#up` is executed when the data source is loaded. For example, this would be the ideal place to establish a connection to the database. `#down` is executed when the data source is unloaded, so this is the ideal place to undo what `#up` did. You don’t need to implement `#up` or `#down` if you don’t want to.
 
 The `#setup` method is used to create the initial site structure. For example, a database data source could create the necessary tables here. This method is required to be implemented.
 
 You may also want to implement the optional `#update` method, which is used by the `update` command to update the data source to a newer version. This is very useful if the data source changes the way data is stored.
 
-The three main methods in a data source are `#items`, `#layouts` and `#code_snippets`. These load items ([`Nanoc3::Item`](/doc/3.0.0/Nanoc3/Item.html)), layouts ([`Nanoc3::Layout`](/doc/3.0.0/Nanoc3/Layout.html)) and code snippets ([`Nanoc3::CodeSnippet`](/doc/3.0.0/Nanoc3/CodeSnippet.html)), respectively. Implementing these methods is optional, so if you have a data source that only returns items, there's no need to implement `#layouts` or `#code_snippets`.
+The three main methods in a data source are `#items`, `#layouts` and `#code_snippets`. These load items ([`Nanoc3::Item`](/doc/3.0.0/Nanoc3/Item.html)), layouts ([`Nanoc3::Layout`](/doc/3.0.0/Nanoc3/Layout.html)) and code snippets ([`Nanoc3::CodeSnippet`](/doc/3.0.0/Nanoc3/CodeSnippet.html)), respectively. Implementing these methods is optional, so if you have a data source that only returns items, there’s no need to implement `#layouts` or `#code_snippets`.
 
 If your data source can create items and/or layouts, then `#create_item` and `#create_layout` are methods you will want to implement. These will be used by the `create_site`, `create_item` and `create_layout` commands.
 

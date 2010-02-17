@@ -287,7 +287,7 @@ Removed:
 
 * Sites now have an `assets` directory, whose contents are copied to the
   `output` directory when compiling [Soryu]
-* Added support for non-eRuby layouts (Markaby, Haml, Liquid, ...)
+* Added support for non-eRuby layouts (Markaby, Haml, Liquid, …)
 * Added more filters (Markaby, Haml, Liquid, RDoc [Dmitry Bilunov])
 * Improved error reporting
 * Accessing page attributes using instance variables, and not through `@page`,

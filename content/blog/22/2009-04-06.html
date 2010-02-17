@@ -1,27 +1,27 @@
 <p>nanoc 2.2 has arrived. This release contains a handful of new features. nanoc 2.2 is not quite as big as 2.1 was, and it is mostly backward compatible.</p>
 
-<p>nanoc <strong>commands now inherit from <code>Cri::Command</code> instead of <code>Nanoc::CLI::Command</code></strong>. Cri (Commandline Ruby Interface or something) is a library for building commandline applications that was derived from nanoc's commandline interface. If you have custom commands defined in your site, you will need to update them to inherit from <code>Cri::Command</code> instead.</p>
+<p>nanoc <strong>commands now inherit from <code>Cri::Command</code> instead of <code>Nanoc::CLI::Command</code></strong>. Cri (Commandline Ruby Interface or something) is a library for building commandline applications that was derived from nanoc’s commandline interface. If you have custom commands defined in your site, you will need to update them to inherit from <code>Cri::Command</code> instead.</p>
 
 <p>The <kbd>compile</kbd> command now takes <strong><kbd>--pages</kbd> and <kbd>--assets</kbd> commandline switches</strong> which tell the compiler to only compile pages or assets (very useful if you have a lot of assets and only want to recompile some pages).</p>
 
-<p>Windows users may find the <strong>new <kbd>--no-color</kbd> commandline switch</strong> useful. This switch disables ANSI color codes, which should make nanoc's terminal output a lot nicer to read.</p>
+<p>Windows users may find the <strong>new <kbd>--no-color</kbd> commandline switch</strong> useful. This switch disables ANSI color codes, which should make nanoc’s terminal output a lot nicer to read.</p>
 
-<p>The compiler now <strong>compiles <em>all</em> pages and assets by default</strong>&mdash;not just outdated ones. In other words, the <kbd>--all</kbd> switch is on by default. To compile only outdated pages, use <kbd>--only-outdated</kbd>. nanoc's algorithm for finding out which pages/assets are outdated simply isn't smart enough (yet).</p>
+<p>The compiler now <strong>compiles <em>all</em> pages and assets by default</strong>&mdash;not just outdated ones. In other words, the <kbd>--all</kbd> switch is on by default. To compile only outdated pages, use <kbd>--only-outdated</kbd>. nanoc’s algorithm for finding out which pages/assets are outdated simply isn’t smart enough (yet).</p>
 
 <p><strong>Stack traces are a lot more informative now</strong>. When an exception occurs, the stack trace will show the exact page/asset/layout and line number where the error happened.</p>
 
 <p>When laying out a page, the current layout is accessible through the <strong>new <code>@layout</code> variable</strong>.</p>
 
-<p>The Blogging helper's <code>atom_feed</code> method now takes <strong>new <code>:content_proc</code>, <code>:excerpt_proc</code> and <code>:articles</code> parameters</strong>. This allows atom feeds to be constructed with a custom set of articles, or atom feeds where the excerpt is automatically generated based on the content, etc. See the <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Blogging.html">Blogging helper documentation</a> for more information.</p>
+<p>The Blogging helper’s <code>atom_feed</code> method now takes <strong>new <code>:content_proc</code>, <code>:excerpt_proc</code> and <code>:articles</code> parameters</strong>. This allows atom feeds to be constructed with a custom set of articles, or atom feeds where the excerpt is automatically generated based on the content, etc. See the <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Blogging.html">Blogging helper documentation</a> for more information.</p>
 
 <p>There is a <strong>new Rainpress filter</strong>, which compresses CSS using the <a href="http://code.google.com/p/rainpress/">Rainpress</a> library.</p>
 
 <p>The LinkTo helper has a <strong>new <code>relative_path_to</code> function</strong>, which generates a relative path to the given page/asset or path. This may not be very useful by itself, but the <strong>new RelativizePaths filter</strong>, which makes all paths in all HTML and CSS files relative, should be quite useful for those who want to deploy their site in subdirectory instead of at the root of a web site.</p>
 
-<p>Last, but not least, the <strong>new Filtering helper</strong> allows parts of a page to be filtered. Check out the <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Filtering.html">Filtering helper documentation</a> for details. Here's an example of how it could be used:</p>
+<p>Last, but not least, the <strong>new Filtering helper</strong> allows parts of a page to be filtered. Check out the <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Filtering.html">Filtering helper documentation</a> for details. Here’s an example of how it could be used:</p>
 
 <pre><code class="language-html">&lt;% filter :rubypants do %>
-  Here's some text…
+  Here’s some text…
 &lt;% end %></code></pre>
 
 <p>You can, as always, update your copy of nanoc by issuing the "gem update" command, like this:</p>
