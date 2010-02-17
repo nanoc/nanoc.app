@@ -241,7 +241,7 @@ Items have the following attributes available at compile time:
 : A list of representations for this item.
 
 `path`
-: The item's path relative to the web root, with leading and trailing slashes, e.g. `/news/`.
+: The item's path relative to the web root, with leading and trailing slashes, e.g. `/blog/`.
 
 To get a item representation with a specific name, get the reps by using the `#reps` method and then find the right rep. For example, to get the "raw" representation:
 
@@ -622,7 +622,7 @@ Each filter has an identifier (a symbol), which is used in the call to `#filter`
 : for making paths in HTML and CSS relative
 
 `rubypants`
-: for [SmartyPants](http://daringfireball.net/projects/smartypants/) (uses [RubyPants](http://chneukirchen.org/news/static/projects/rubypants.html))
+: for [SmartyPants](http://daringfireball.net/projects/smartypants/) (uses [RubyPants](http://chneukirchen.org/blog/static/projects/rubypants.html))
 
 `sass`
 : for [Sass](http://haml.hamptoncatlin.com/docs/rdoc/classes/Sass.html)

@@ -1,3 +1,5 @@
+require 'time'
+
 def nav_link_to_unless_current(text, path)
   if @item_rep and @item_rep.path == path
     "<span class=\"active\"><span>#{text}</span></span>"

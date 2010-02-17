@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<!-- title -->
+		<% if @item[:kind] == 'articles_category' %>
+			<title>Articles related to <%= @item[:category] %></title>
+		<% else %>
+			<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
+		<% end %>
+
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="<%= item_named('/assets/style/').reps[0].path %>" type="text/css" media="screen">
+
+		<!-- feed -->
+		<link rel="alternate" type="application/atom+xml" title="The nanoc Blog" href="http://feeds.feedburner.com/nanoc">
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li><%= nav_link_to_unless_current('home',        '/')             %></li>
+				<li><%= nav_link_to_unless_current('blog',        '/blog/')        %></li>
+				<li><%= nav_link_to_unless_current('about',       '/about/')       %></li>
+				<li><%= nav_link_to_unless_current('tutorial',    '/tutorial/')    %></li>
+				<li><%= nav_link_to_unless_current('manual',      '/manual/')      %></li>
+				<li><%= nav_link_to_unless_current('migrating',   '/migrating/')   %></li>
+				<li><%= nav_link_to_unless_current('community',   '/community/')   %></li>
+			</ul>
+		</div>
+
+		<div class="body">
+<% unless @item[:raw_layout] %>
+			<div class="article">
+<% end %>
+
+				<!-- title -->
+				<% if !@item[:raw_layout] %>
+					<h1><%= @item[:title] %></h1>
+				<% end %>
+
+				<!-- content -->
+				<%= yield %>
+
+<% unless @item[:raw_layout] %>
+			</div>
+<% end %>
+		</div>
+
+		<div id="footer">
+			<div id="footer-inside">
+				<p>nanoc &copy; 2007–2010 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence.</p>
+			</div>
+		</div>
+
+<% if @config[:enable_ramalytics] %>
+		<script src="http://ram.purepistos.net/ramalytics.js"></script>
+<% end %>
+	</body>
+</html>
