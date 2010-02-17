@@ -15,12 +15,6 @@ route '/blog/feed_private/' do
   rep.item.identifier + 'index.xml'
 end
 
-[ '/manual/', '/migrating/' ].each do |pattern|
-  route pattern, :rep => 'notoc' do
-    nil
-  end
-end
-
 route '*' do
   if item[:is_partial] || item[:kind] == 'article'
     # Don’t output partial items (e.g. sub-stylesheets)
@@ -39,20 +33,12 @@ compile '/assets/style/' do
   filter :rainpress
 end
 
-compile '/assets/style/*' do
+compile '/assets/style/*/' do
   filter :sass
 end
 
 compile '/blog/feed_private/' do
   filter :erb
-end
-
-[ '/manual/', '/migrating/' ].each do |pattern|
-  compile pattern, :rep => 'notoc' do
-    filter :erb
-    filter :kramdown, :auto_ids => false
-    filter :add_sections
-  end
 end
 
 compile '/404/' do
