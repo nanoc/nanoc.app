@@ -2,3 +2,4 @@ title:          "nanoc: a Ruby site compiler that generates static HTML &raquo; 
 has_full_title: true
 raw_layout:     true
 markdown:       false
+is_dynamic:     true
