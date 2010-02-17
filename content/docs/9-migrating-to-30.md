@@ -1,6 +1,6 @@
 ---
 
-title:      "Migrating from nanoc 2.2 to nanoc 3.0"
+title:      "Migrating to nanoc 3.0"
 markdown:   advanced
 is_dynamic: true
 
