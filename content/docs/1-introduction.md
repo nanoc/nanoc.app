@@ -1,12 +1,17 @@
 ---
 
-title:      "Introduction to nanoc"
-markdown:   basic
-is_dynamic: true
+title:                 "Introduction to nanoc"
+markdown:              basic
+is_dynamic:            true
+toc_includes_sections: true
+oneliner:              "It is not easy to define what nanoc does, but I’ll give it a shot anyway."
 
 ---
 
-nanoc is a tool for building static (or semi-static) web sites. It processes (or "compiles") pages and assets. It transforms ("filters") content from one format into another (from Haml into HTML for example).
+What is nanoc?
+--------------
+
+nanoc is a tool for building static web sites. It compiles pages and assets by transforming content from one format into the other and putting compiled content in a layout.
 
 nanoc is not a content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you.
 

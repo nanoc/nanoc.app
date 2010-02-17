@@ -1,15 +1,12 @@
 ---
 
-title:      "Migrating to nanoc 3.0"
-markdown:   advanced
-is_dynamic: true
+title:                 "Migrating to nanoc 3.0"
+markdown:              advanced
+is_dynamic:            true
+toc_includes_sections: true
+oneliner:              "nanoc 3.0 is quite different from nanoc 2.2. nanoc 3.0 is also not backwards compatible, which means that it is not possible to compile a nanoc 2.2 site out of the box. This document is meant to be a guide through the steps necessary to convert a nanoc 2.2 site to a nanoc 3.0 one."
 
 ---
-
-nanoc 3.0 is quite different from nanoc 2.2 in several ways. It is not
-backward compatible, which means that it is not possible to compile a nanoc
-2.2 site out of the box. This document is meant to be a guide through the
-steps necessary to convert a nanoc 2.2 site to a nanoc 3.0 one.
 
 Name changes
 ------------

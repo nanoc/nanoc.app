@@ -35,19 +35,15 @@
 		</div>
 
 		<div class="body">
-<% unless @item[:raw_layout] %>
+<% if @item[:raw_layout] %>
+			<%= yield %>
+<% else %>
 			<div class="article">
-<% end %>
-
-				<!-- title -->
-				<% if !@item[:raw_layout] %>
+				<div class="header">
 					<h1><%= @item[:title] %></h1>
-				<% end %>
-
-				<!-- content -->
+					<p><%= @item[:oneliner] %></p>
+				</div>
 				<%= yield %>
-
-<% unless @item[:raw_layout] %>
 			</div>
 <% end %>
 		</div>

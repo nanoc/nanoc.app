@@ -1,7 +1,8 @@
 ---
 
-title:    "Guides"
-markdown: basic
+title:                 "Guides"
+toc_includes_sections: true
+markdown:              basic
 
 ---
 

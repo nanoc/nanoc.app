@@ -3,10 +3,9 @@
 title:                 "Basic Concepts"
 markdown:              advanced
 toc_includes_sections: true
+oneliner:              This manual will tell you everything there is to know about nanoc. If you’re new to nanoc, you may want to follow the getting started guide before diving into this chapter.
 
 ---
-
-This manual will tell you everything there is to know about nanoc. You may want to read the [Tutorial](/tutorial/) first, especially if you're new to nanoc. You may also want to check out the [source code documentation](/doc/3.0.0/) where all modules, classes, attributes, methods, … are documented—an excellent way to familiarize yourself with nanoc's internals.
 
 The Commandline Tool
 --------------------

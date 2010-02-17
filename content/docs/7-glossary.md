@@ -2,10 +2,9 @@
 
 title:    "Glossary"
 markdown: basic
+oneliner: "Can’t remember what a certain term means? That’s why there a glossary!"
 
 ---
-
-Can’t remember what a certain term means? That’s why there a glossary!
 
 <dl class="glossary">
 	<dt id="glossary-asset">asset</dt>
