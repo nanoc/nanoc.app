@@ -18,20 +18,20 @@
 	</head>
 	<body>
 		<div class="nav">
-			<ul>
-				<li><%= nav_link_to_unless_current('/')                          %></li>
-				<li><%= nav_link_to_unless_current('/blog/')                     %></li>
-				<li><%= nav_link_to_unless_current('/docs/1-introduction/')      %></li>
-				<li><%= nav_link_to_unless_current('/docs/2-installation/')      %></li>
-				<li><%= nav_link_to_unless_current('/docs/3-getting-started/')   %></li>
-				<li><%= nav_link_to_unless_current('/docs/4-basic-concepts/')    %></li>
-				<li><%= nav_link_to_unless_current('/docs/5-advanced-concepts/') %></li>
-				<li><%= nav_link_to_unless_current('/docs/6-guides/')            %></li>
-				<li><%= nav_link_to_unless_current('/docs/7-glossary/')          %></li>
-				<li><%= nav_link_to_unless_current('/docs/8-faq/')               %></li>
-				<li><%= nav_link_to_unless_current('/docs/9-migrating-to-30/')   %></li>
-				<li><%= nav_link_to_unless_current('/community/')                %></li>
-			</ul>
+			<ol>
+				<%= nav_item_for('/')                          %>
+				<%= nav_item_for('/blog/')                     %>
+				<%= nav_item_for('/docs/1-introduction/')      %>
+				<%= nav_item_for('/docs/2-installation/')      %>
+				<%= nav_item_for('/docs/3-getting-started/')   %>
+				<%= nav_item_for('/docs/4-basic-concepts/')    %>
+				<%= nav_item_for('/docs/5-advanced-concepts/') %>
+				<%= nav_item_for('/docs/6-guides/')            %>
+				<%= nav_item_for('/docs/7-glossary/')          %>
+				<%= nav_item_for('/docs/8-faq/')               %>
+				<%= nav_item_for('/docs/9-migrating-to-30/')   %>
+				<%= nav_item_for('/community/')                %>
+			</ol>
 		</div>
 
 		<div class="body">

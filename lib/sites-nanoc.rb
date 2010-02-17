@@ -1,8 +1,28 @@
 require 'time'
 
-def nav_link_to_unless_current(identifier)
+def nav_item_for(identifier)
   other = @items.find { |i| i.identifier == identifier }
-  link_to_unless_current(other[:short_title] || other[:title], other)
+
+  # Check whether we are in other or a child
+  in_other_tree = @item == other || @item.parent == other
+
+  res = '<li>'
+
+  # Add link itself
+  res << link_to_unless_current(other[:short_title] || other[:title], other)
+
+  # Children
+  if in_other_tree && other[:toc_includes_children]
+    res << '<ol>'
+    other.children.each { |c| res << nav_item_for(c.identifier) unless c[:is_hidden] }
+    res << '</ol>'
+  elsif in_other_tree && other[:toc_includes_sections]
+    res << toc_for(@item)
+  end
+
+  res << '</li>'
+
+  res
 end
 
 # Returns the item with the given identifier.

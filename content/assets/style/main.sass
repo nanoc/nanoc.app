@@ -20,35 +20,36 @@ body
 
   li
     list-style-type: none
+    background-color: #ccdd99
 
-  a, .active
-    display: block
-    height: 15px
-    margin: 10px 0 0 0
-    padding: 5px 25px
-    font-family: Helvetica, Arial, sans-serif
-    font-weight: bold
-    font-size: 13px
-    text-decoration: none
-    text-transform: uppercase
-    text-align: left
-    line-height: 18px
+    a, .active
+      display: block
+      margin: 6px 0 0 0
+      padding: 3px 25px
+      font-family: Helvetica, Arial, sans-serif
+      font-weight: bold
+      font-size: 12px
+      text-decoration: none
+      text-transform: uppercase
+      text-align: left
+      line-height: 18px
 
-  a span, .active span
-    padding: 5px
+    a
 
-  a
-    &:link, &:visited
-      color: #6c6e3e
-      background-color: #ccdd99
+      &:link, &:visited
+        color: #6c6e3e
 
-    &:hover
+      &:hover
+        color: #fff
+        background-color: #909964
+
+    .active
       color: #fff
-      background-color: #909964
+      background-color: #6c6e3e
 
-  .active
-    color: #fff
-    background-color: #6c6e3e
+    li a, li .active
+      margin: 0
+      padding-left: 40px
 
 .body
   padding: 40px

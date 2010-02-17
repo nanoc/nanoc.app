@@ -1,14 +1,15 @@
 ---
 
-title:    "Getting Started"
-markdown: advanced
+title:                 "Getting Started"
+markdown:              advanced
+toc_includes_sections: true
 
 ---
 
 This tutorial will make you aquainted with the basic concepts of nanoc. It will take about 15 minutes to finish the tutorial.
 
-Requirements for this Tutorial
-------------------------------
+Requirements
+------------
 
 This tutorial requires [kramdown](http://kramdown.rubyforge.org/). Kramdown is a Ruby implementation of [Markdown](http://daringfireball.net/projects/markdown/), which allows you to write HTML in a easy-to-use plain text format. If you haven't used Markdown before, don't fear—it's quite easy to use. To install kramdown, jump to your terminal and type:
 
@@ -18,8 +19,8 @@ You should also install [adsf](http://stoneship.org/software/adsf/), a tool that
 
 <pre title="Installing adsf"><span class="prompt">%</span> <kbd>gem install adsf</kbd></pre>
 
-Creating your First nanoc-powered Site
---------------------------------------
+Creating a Site
+---------------
 
 nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that's the way all cool apps work.
 
