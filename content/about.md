@@ -11,7 +11,7 @@ Install nanoc using RubyGems (Ruby 1.8.5 or higher required):
 
 	sudo gem install nanoc3
 
-The latest release is <%= latest_release_version %>. Release notes for this version (or check out the [older release notes](/about/release-notes/)):
+The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. Release notes for this version (or check out the [older release notes](/about/release-notes/)):
 
 <%= latest_release_notes %>
 

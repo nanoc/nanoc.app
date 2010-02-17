@@ -13,6 +13,12 @@ def item_named(identifier)
   @items.find { |item| item.identifier == identifier }
 end
 
+class Date
+  def format_as_date
+    %[#{Date::MONTHNAMES[self.mon]} #{self.mday.ordinal}, #{self.year}]
+  end
+end
+
 class Time
   def format_as_date
     %[#{Date::MONTHNAMES[self.mon]} #{self.mday.ordinal}, #{self.year}]

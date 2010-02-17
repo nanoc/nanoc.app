@@ -6,15 +6,21 @@ module Nanoc3::Helpers
   # latest release notes on both the release notes and the download pages.
   module ReleaseNotes
 
-    def latest_release_version
+    def latest_release_info
       require 'nokogiri'
 
       # Get release notes page
       content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre)
       doc = Nokogiri::HTML(content)
 
-      # Get the version
-      doc.css('h2').first.inner_html.strip
+      # Parse title
+      raw = doc.css('h2').first.inner_html.strip
+      if raw !~ /^(\d\.\d(\.\d)?) \((\d{4}-\d{2}-\d{2})\)$/
+        raise RuntimeError, "title does not match latest release info regex: #{raw.inspect}"
+      end
+
+      # Done
+      { :version => $1, :date => Date.parse($3) }
     end
 
     def latest_release_notes
