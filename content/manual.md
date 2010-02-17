@@ -769,19 +769,15 @@ New nanoc sites will have only one data source: the `filesystem_compact` one (se
 The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
 `type`
-
 : The type of data source to use (`filesystem_compact`, `filesystem_combined`, `filesystem`, `delicious`, `twitter`, `last_fm`, …)
 
 `items_root`
-
 : The root where items should be mounted. Optional; defaults to `/`.
 
 `layouts_root`
-
 : The root where layouts should be mounted. Optional; defaults to `/`.
 
 `config`
-
 : A hash containing custom configuration options for the data source. The contents of this hash depends on the data source used; see the documentation of the data source for details.
 
 For example, the configuration of a site that uses many data sources could look like this:
