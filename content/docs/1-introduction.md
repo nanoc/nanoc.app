@@ -12,13 +12,37 @@ nanoc is not a content management system (CMS), as it does not manage content--*
 
 Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn't need to--nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn't need to have anything "special" installed at all--it just needs to be able to serve static files, which every web server can.
 
+Markup conventions
+------------------
+
+The nanoc documentation uses a few conventions for markup:
+
+* <i>Italic text</i> introduces new terms.
+* <code>Monospaced text</code> is used for code snippets.
+* <kbd>Monospaced, bold text</kbd> is used for commands that should be typed literally.
+* <var>Monospaced, italic text</var> is used for text that should be replaced with user-supplied values.
+
+The documentation also contains quite a few blocks of code snippets. These are marked up like this:
+
+<pre title="Title of the snippet"><code class="lang-ruby">class Lorem
+  def ipsum
+    "dolor"
+  end
+end</code></pre>
+
+Pieces of terminal input/output are marked up in a similar way. Note that the prompt is always included, but should never be typed. Here’s an example:
+
+<pre title="Title of the snippet"><span class="prompt">some-dir%</span> <kbd>echo "hello" &amp;&amp; cd other-dir</kbd>
+hello
+<span class="prompt">other-dir%</span></pre>
+
 Release Notes
 -------------
 
 The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find all release notes on the [release notes](/release-notes/) page.
 
-nanoc's Birth
--------------
+History
+-------
 
 Before nanoc, I was in an eternal search for a CMS that would work well for [Stoneship](http://stoneship.org/), my personal website. I've tried bBlog, WordPress, TextPattern, Mephisto, and more. I didn't really like any of them: they were either hard to use or very resource-hungry.
 

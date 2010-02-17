@@ -335,8 +335,18 @@ body
 
   code, kbd, samp, var
     font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
-    font-style: italic
     font-size: 12px
+    line-height: 20px
+    padding: 0 2px
+
+  code, samp
+    font-style: normal
+
+  kbd
+    font-weight: bold
+
+  var
+    font-style: italic
 
   pre
     margin: 20px 0 0 0
@@ -350,7 +360,6 @@ body
     font-size: 12px
     line-height: 20px
     background: #eee url(/assets/images/triangle-right.gif) bottom right no-repeat
-    border-top: 1px solid #aaa
 
     &[title]:before
       margin: -12px -15px 8px -15px
@@ -364,13 +373,8 @@ body
       color: #fff
 
     code, kbd, samp, var
-      font-style: normal
-      color: #333
       background: transparent
       padding: 0
-
-    kbd
-      font-weight: bold
 
     .prompt
       color: #999
