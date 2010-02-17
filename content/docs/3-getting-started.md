@@ -1,20 +1,20 @@
-(If you already have a bit of experience with nanoc, you may find the [Manual](/manual/) a very useful resource in addition to this tutorial.)
+---
 
-Installing nanoc
-----------------
+title:    "Getting Started"
+markdown: advanced
 
-nanoc requires [Ruby](http://www.ruby-lang.org/) (1.8.6 or higher required). nanoc also requires [RubyGems](http://rubyforge.org/projects/rubygems/). You may already have RubyGems installed, but if you don't, [get it here](http://rubyforge.org/frs/?group_id=126).
+---
 
-Once you have RubyGems, installing nanoc is easy. Simply write this in your terminal:
-
-	sudo gem install nanoc3
+This tutorial will make you aquainted with the basic concepts of nanoc. It will take about 15 minutes to finish the tutorial.
 
 Requirements for this Tutorial
 ------------------------------
 
 This tutorial requires [BlueCloth](http://www.deveiate.org/projects/BlueCloth). BlueCloth is a Ruby implementation of [Markdown](http://daringfireball.net/projects/markdown/), which allows you to write HTML in a easy-to-use plain text format (if you haven't used Markdown before, don't fear--it's easy). To install BlueCloth, jump to your terminal and type:
 
-	sudo gem install BlueCloth
+FIXME should we default to kramdown instead? it’s pure ruby, and it’s good…
+
+<pre title="Installing BlueCloth"><span class="prompt">%</span> <kbd>gem install BlueCloth</kbd></pre>
 
 Creating your First nanoc-powered Site
 --------------------------------------

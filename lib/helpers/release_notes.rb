@@ -10,7 +10,7 @@ module Nanoc3::Helpers
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:pre)
+      content = @items.find { |item| item.identifier == '/release-notes/' }.reps[0].content_at_snapshot(:pre)
       doc = Nokogiri::HTML(content)
 
       # Parse title
@@ -27,7 +27,7 @@ module Nanoc3::Helpers
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.find { |item| item.identifier == '/about/release-notes/' }.reps[0].content_at_snapshot(:before_sections)
+      content = @items.find { |item| item.identifier == '/release-notes/' }.reps[0].content_at_snapshot(:before_sections)
       doc = Nokogiri::HTML(content)
 
       # Get latest header

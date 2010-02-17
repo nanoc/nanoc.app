@@ -15,25 +15,25 @@ body
   position: fixed
   top:  40px
   left: 720px
-  width: 130px
+  width: 280px
 
   li
     list-style-type: none
 
   a, .active
     display: block
-    float: right
+    float: left
+    clear: left
     height: 15px
-    width:  100px
     margin: 5px 0
-    padding: 3px 3px 3px 24px
-    background: url(/assets/images/triangle-left.gif) bottom left no-repeat
+    padding: 3px 25px 3px 3px
+    background: url(/assets/images/triangle-right.gif) bottom right no-repeat
     font-family: Helvetica, Arial, sans-serif
     font-weight: bold
     font-size: 13px
     text-decoration: none
     text-transform: uppercase
-    text-align: right
+    text-align: left
     line-height: 18px
 
   a span, .active span
@@ -47,7 +47,6 @@ body
     &:hover
       color: #fff
       background-color: #909964
-      width: 130px
 
   .active
     color: #fff
@@ -161,6 +160,7 @@ body
     top: 18px
 
 .article
+  min-height: 400px
 
   h1
     margin: 0 0 20px 0
@@ -172,17 +172,17 @@ body
     color: #50522e
 
   h2
-    margin: 40px 0 20px 0
+    margin: 20px 0 0 0
     font-family: Helvetica, Arial, sans-serif
     font-weight: bold
-    font-size: 28px
+    font-size: 24px
     line-height: 40px
     letter-spacing: -1px
     color: #000
 
   .section + .section h2:before, p + .section h2:before
     content: "* * *"
-    color: #666
+    color: #999
     text-align: center
     font-family: Helvetica, Arial, sans-serif
     font-weight: normal
@@ -190,7 +190,7 @@ body
     line-height: 20px
     letter-spacing: 10px
     display: block
-    margin: 40px 0
+    margin: 40px 0 20px 0
 
   h3
     margin: 40px 0 20px 0
@@ -203,7 +203,7 @@ body
   p
     font-size: 15px
     line-height: 20px
-    margin: 18px 0 0 0
+    margin: 20px 0 0 0
     padding: 0
 
     &.meta
@@ -340,7 +340,7 @@ body
 
   pre
     margin: 20px 0 0 0
-    padding: 9px  15px 10px 15px
+    padding: 10px  15px 10px 15px
     white-space: pre-wrap
     white-space: -moz-pre-wrap
     white-space: -pre-wrap
@@ -348,6 +348,17 @@ body
     word-wrap: break-word
     background: #eee url(/assets/images/triangle-right.gif) bottom right no-repeat
     border-top: 1px solid #aaa
+
+    &[title]:before
+      margin: -12px -15px 8px -15px
+      padding: 4px 15px
+      display: block
+      content: attr(title)
+      font-family: Helvetica, Arial, sans-serif
+      font-size: 13px
+      line-height: 20px
+      background: #aaa
+      color: #fff
 
     code, kbd, samp, var
       color: #333
@@ -361,8 +372,8 @@ body
     kbd
       font-weight: bold
 
-      .prompt
-        color: #ccc
+    .prompt
+      color: #999
 
 #footer
   margin:  40px 0 0    0
@@ -371,7 +382,7 @@ body
 
   p
     width: 640px
-    font-size: 13px
+    font-size: 15px
     line-height: 20px
     color: #666
 

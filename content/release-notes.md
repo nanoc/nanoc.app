@@ -1,3 +1,10 @@
+---
+
+title:     "About &raquo; Release Notes"
+markdown:  basic
+
+---
+
 ## 3.0.7 (2010-01-29)
 
 * Fixed bug which could cause layout rules not be matched in order

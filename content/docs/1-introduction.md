@@ -1,19 +1,21 @@
+---
+
+title:      "Introduction to nanoc"
+markdown:   basic
+is_dynamic: true
+
+---
+
 nanoc is a tool for building static (or semi-static) web sites. It processes (or "compiles") pages and assets. It transforms ("filters") content from one format into another (from Haml into HTML for example).
 
 nanoc is not a content management system (CMS), as it does not manage content--*you* manage the content, and nanoc processes it for you.
 
 Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn't need to--nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn't need to have anything "special" installed at all--it just needs to be able to serve static files, which every web server can.
 
-Install
--------
+Release Notes
+-------------
 
-Install nanoc using RubyGems (Ruby 1.8.5 or higher required):
-
-	sudo gem install nanoc3
-
-The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. Release notes for this version (or check out the [older release notes](/about/release-notes/)):
-
-<%= latest_release_notes %>
+The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find all release notes on the [release notes](/release-notes/) page.
 
 nanoc's Birth
 -------------
