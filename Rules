@@ -40,7 +40,7 @@ compile '/assets/style/' do
 end
 
 compile '/assets/style/*' do
-  # don't filter partial stylesheets
+  filter :sass
 end
 
 compile '/blog/feed_private/' do
