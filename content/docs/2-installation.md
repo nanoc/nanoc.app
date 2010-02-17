@@ -1,6 +1,6 @@
 ---
 
-title:    "Installation & Configuration"
+title:    "Installation"
 markdown: basic
 
 ---
