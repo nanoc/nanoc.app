@@ -2,7 +2,6 @@
 
 title:    "Glossary"
 markdown: basic
-oneliner: "Can’t remember what a certain term means? That’s why there a glossary!"
 
 ---
 

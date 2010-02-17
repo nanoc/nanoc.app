@@ -3,7 +3,6 @@
 title:                 "Basic Concepts"
 markdown:              advanced
 toc_includes_sections: true
-oneliner:              This manual will tell you everything there is to know about nanoc. If you’re new to nanoc, you may want to follow the getting started guide before diving into this chapter.
 
 ---
 

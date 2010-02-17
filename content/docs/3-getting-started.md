@@ -3,7 +3,6 @@
 title:                 "Getting Started"
 markdown:              advanced
 toc_includes_sections: true
-oneliner:              "This tutorial will make you aquainted with the basic concepts of nanoc. It will take about 15 minutes to finish the tutorial."
 
 ---
 

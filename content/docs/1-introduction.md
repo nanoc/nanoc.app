@@ -4,7 +4,6 @@ title:                 "Introduction to nanoc"
 markdown:              basic
 is_dynamic:            true
 toc_includes_sections: true
-oneliner:              "It is not easy to define what nanoc does, but I’ll give it a shot anyway."
 
 ---
 

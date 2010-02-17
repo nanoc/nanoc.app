@@ -3,7 +3,7 @@
 title:                 "Installation"
 markdown:              basic
 toc_includes_sections: true
-oneliner:              "Installing nanoc is quite easy. nanoc does depend on a few other software packages, but you probably have those packages installed already. You’ll get started in no time!"
+is_dynamic:            true
 
 ---
 
