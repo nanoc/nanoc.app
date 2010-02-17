@@ -53,50 +53,50 @@ image_science_thumbnail |    69  0.22s  0.27s  0.35s  18.51s
 
 <p>Last but not least: it's now possible to <strong>write your own commands</strong>. Even though <a href="http://rake.rubyforge.org/">rake</a> is sufficient for performing simple tasks, sometimes you need a more advanced tool that allows passing commandline arguments. Now you can write custom commands. Here's a "Hello World" example:</p>
 
-<pre><code><span class="function">require</span> <span class="string">'nanoc/cli'</span>
+<pre><code class="language-ruby">require 'nanoc/cli'
 
-<span class="keyword">class</span> <span class="storage">HelloWorldCommand</span> &lt; <span class="storage">Nanoc::CLI::Command</span>
+class HelloWorldCommand &lt; Nanoc::CLI::Command
 
-  <span class="keyword">def</span> <span class="function">name</span>
-    <span class="string">'hello_world'</span>
-  <span class="keyword">end</span>
+  def name
+    'hello_world'
+  end
 
-  <span class="keyword">def</span> <span class="function">aliases</span>
-    <span class="string">%w( hw )</span>
-  <span class="keyword">end</span>
+  def aliases
+    %w( hw )
+  end
 
-  <span class="keyword">def</span> <span class="function">short_desc</span>
-    <span class="string">'print a simple greeting'</span>
-  <span class="keyword">end</span>
+  def short_desc
+    'print a simple greeting'
+  end
 
-  <span class="keyword">def</span> <span class="function">long_desc</span>
-    <span class="string">'Print the "hello world" greeting on the screen, in either '</span> +
-    <span class="string">'lowercase or uppercase. Can also print a custom text.'</span>
-  <span class="keyword">end</span>
+  def long_desc
+    'Print the "hello world" greeting on the screen, in either ' +
+    'lowercase or uppercase. Can also print a custom text.'
+  end
 
-  <span class="keyword">def</span> <span class="function">usage</span>
-    <span class="string">"nanoc hello_world [options] [custom_text]"</span>
-  <span class="keyword">end</span>
+  def usage
+    "nanoc hello_world [options] [custom_text]"
+  end
 
-  <span class="keyword">def</span> <span class="function">option_definitions</span>
+  def option_definitions
     [
-      <span class="comment"># --uppercase</span>
+      # --uppercase
       {
-        <span class="symbol">:long</span> => <span class="string">'uppercase'</span>, <span class="symbol">:short</span> => <span class="string">'u'</span>, <span class="symbol">:argument</span> => <span class="symbol">:forbidden</span>,
-        <span class="symbol">:desc</span> => <span class="string">'print the text in uppercase instead of lowercase'</span>
+        :long => 'uppercase', :short => 'u', :argument => :forbidden,
+        :desc => 'print the text in uppercase instead of lowercase'
       }
     ]
-  <span class="keyword">end</span>
+  end
 
-  <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">options</span>, <span class="variable">arguments</span>)
-    <span class="comment"># Get text</span>
-    <span class="variable">text</span> = (<span class="variable">arguments</span>[<span class="number">0</span>] || <span class="string">'hello world'</span>)
+  def run(options, arguments)
+    # Get text
+    text = (arguments[0] || 'hello world')
 
-    <span class="comment"># Print it</span>
-    <span class="function">puts</span> (<span class="variable">options</span>.<span class="function">has_key?</span>(<span class="symbol">:uppercase</span>) ? <span class="variable">text</span>.<span class="function">upcase</span> : <span class="variable">text</span>.<span class="function">downcase</span>)
-  <span class="keyword">end</span>
+    # Print it
+    puts (options.has_key?(:uppercase) ? text.upcase : text.downcase)
+  end
 
-<span class="keyword">end</span></code></pre>
+end</code></pre>
 
 <p>Some example output:</p>
 

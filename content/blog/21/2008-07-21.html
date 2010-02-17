@@ -10,16 +10,16 @@
 
 <p>Here's what the default nanoc site looks like with a filesystem_combined data source:</p>
 
-<pre><samp>-----
-<span class="comment"># Built-in</span>
+<pre><code class="language-yaml">-----
+# Built-in
 
-<span class="comment"># Custom</span>
-<span class="attribute">title</span>: <span class="value">Home</span>
+# Custom
+title: Home
 -----
 
-&lt;<span class="element">h1</span>&gt;A Brand New nanoc Site&lt;/<span class="element">h1</span>&gt;
+&lt;h1&gt;A Brand New nanoc Site&lt;/h1&gt;
 
-... rest of the content goes here ...</samp></pre>
+… rest of the content goes here …</code></pre>
 
 <p>Creating a new site with this new <i>filesystem_combined</i> data source is easy. Just do this (the <kbd>-d</kbd> switch specifies the name of the data source):</p>
 
@@ -48,7 +48,7 @@
   custom:
     (none)
 
-... more stuff here ...</samp></pre>
+… more stuff here …</samp></pre>
 
 <p>The original filesystem data source you're all used to (which is simply called <i>filesystem</i>) has been updated a bit. <strong>Layouts are now stored as directories</strong> instead of files, and in the new meta file you can specify the name of the filter to use when rendering this layout. The filter used for compiling layouts is no longer dependent on the file extension.</p>
 
@@ -56,7 +56,7 @@
 
 <pre><kbd><span class="prompt">%</span> nanoc update -c hg</kbd></pre>
 
-<p>The data sources now also <strong>allow creating, updating and deleting stored data</strong>. This is probably not very useful for the commandline interface&mdash;after all, why have <kbd>delete_page</kbd> and <kbd>move_page</kbd> when there's the standard unix commands <kbd>rm</kbd> and <kbd>mv</kbd>, respectively&mdash;but for new frontends (GUI frontend, web-based frontend, ...) this may become quite useful later on.</p>
+<p>The data sources now also <strong>allow creating, updating and deleting stored data</strong>. This is probably not very useful for the commandline interface&mdash;after all, why have <kbd>delete_page</kbd> and <kbd>move_page</kbd> when there's the standard unix commands <kbd>rm</kbd> and <kbd>mv</kbd>, respectively&mdash;but for new frontends (GUI frontend, web-based frontend, …) this may become quite useful later on.</p>
 
 <p>A last important new feature is <strong>data sources now provide modification times</strong> for the data they read, which makes it possible for nanoc to only compile outdated pages, which creates a nice speed improvement.</p>
 

@@ -10,13 +10,13 @@
 
 <p>A layout only has one attribute, <code>filter</code>, which determines the filter to be run. Here's what the meta file of the nanoc site's default layout contains, to show you how this works:</p>
 
-<pre><code><span class="attribute">filter</span>: <span class="string">'erb'</span></code></pre>
+<pre><code class="language-yaml">filter: 'erb'</code></pre>
 
 <p><strong>Layouts can be stored hierarchically</strong>. This is useful in case you want to e.g. create a "partials" directory in your layouts directory, in which you'd store partials you want to render. Or, you could have a directory named "sidebars" in which you store sidebars, in case you want to render different sidebars for different sections on the site.</p>
 
 <p>Here's an example that shows how you'd render the "header" layout, located inside the "partials" directory inside the "layouts" directory:</p>
 
-<pre><code>&lt;%= <span class="function">render</span> <span class="string">'partials/header'</span> %&gt;</code></pre>
+<pre><code class="language-ruby">&lt;%= render 'partials/header' %&gt;</code></pre>
 
 <p>Nothing really important, but the <code>nanoc_require</code> function is gone&mdash;simply use the good old <code>require</code> function now.</p>
 
@@ -24,7 +24,7 @@
 
 <p>A lot of helpers have been bundled with nanoc. There's helpers for <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Blogging.html">blogging</a>, <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Tagging.html">tagging</a>, <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Capturing.html">capturing</a>, <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/HTMLEscape.html">HTML-escaping</a>, <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/Render.html">rendering</a>, building <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/XMLSitemap.html">XML sitemaps</a> and <a href="http://nanoc.stoneship.org/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">linking</a>. All of these helpers are quite thoroughly documented so using them should be a breeze. These helpers will first need to be activated before they can be used (except the Render and HTMLEscape ones), which works like this:</p>
 
-<pre><code><span class="function">include</span> <span class="storage">Nanoc</span>::<span class="storage">Helpers</span>::<span class="storage">LinkTo</span></code></pre>
+<pre><code class="language-ruby">include Nanoc::Helpers::LinkTo</code></pre>
 
 <p>These helpers were previously available as plugins on the <a href="/trac">wiki</a>, but now they're actually bundled so you don't have to download them separately. More helpers (and filters) will be added to the standard nanoc distribution later on; contributions are always welcome.</p>
 

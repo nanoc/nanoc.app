@@ -8,30 +8,29 @@
 
 <p>Also important is that nanoc <strong>has a public API now</strong>, which makes manipulating sites a lot easier. For example, it's now possible to programmatically generate pages. If you have a blog where all articles are tagged, you can generate tag index pages easily using something like this:</p>
 
-<pre><samp><span class="comment"># Load nanoc site</span>
-<span class="variable">site</span> = <span class="storage">Nanoc</span>::<span class="storage">Site</span>.<span class="function">new</span>(<span class="storage">YAML</span>.<span class="function">load_file</span>(<span class="string">'config.yaml'</span>))
-<span class="variable">site</span>.<span class="function">load_data</span>
-<span class="variable">pages</span> = <span class="variable">site</span>.<span class="function">pages</span>
+<pre><code class="language-ruby"># Load nanoc site
+site = Nanoc::Site.new(YAML.load_file('config.yaml'))
+site.load_data
+pages = site.pages
 
-<span class="comment"># Get all tags used on the site</span>
-<span class="variable">all_tags</span> = <span class="variable">pages</span>.<span class="function">map</span> { |<span class="variable">p</span>| <span class="variable">p</span>.<span class="function">attribute_named</span>(<span class="symbol">:tags</span>) }.<span class="function">flatten</span>.<span class="function">compact</span>.<span class="function">uniq</span>
+# Get all tags used on the site
+all_tags = pages.map { |p| p.attribute_named(:tags) }.flatten.compact.uniq
 
-<span class="comment"># Get tags for which an index page exists</span>
-<span class="variable">tags_with_pages</span> = <span class="variable">pages</span>.<span class="function">map</span> { |<span class="variable">p</span>| <span class="variable">p</span>.<span class="function">attribute_named</span>(<span class="symbol">:tag</span>) }
+# Get tags for which an index page exists
+tags_with_pages = pages.map { |p| p.attribute_named(:tag) }
 
-<span class="comment"># Get tags for which no index page exists</span>
-<span class="variable">tags_without_pages</span> = <span class="variable">all_tags</span> - <span class="variable">tags_with_pages</span>
+# Get tags for which no index page exists
+tags_without_pages = all_tags - tags_with_pages
 
-<span class="comment"># Build pages for each tag</span>
-<span class="variable">tags_without_pages</span>.<span class="function">each</span> <span class="keyword">do</span> |<span class="variable">t</span>|
-  <span class="comment"># Buid page</span>
-  <span class="variable">page</span> = <span class="storage">Nanoc</span>::<span class="storage">Page</span>.<span class="function">new</span>(<span class="string">"Tag: #{tag}"</span>, { <span class="symbol">:tag</span> => <span class="variable">t</span> }, <span class="string">"/blog/tags/#{t}"</span>)
-  <span class="variable">page</span>.<span class="function">site</span> = <span class="variable">site</span>
+# Build pages for each tag
+tags_without_pages.each do |t|
+  # Buid page
+  page = Nanoc::Page.new("Tag: #{tag}", { :tag => t }, "/blog/tags/#{t}")
+  page.site = site
 
-  <span class="comment"># Store page</span>
-  <span class="variable">page</span>.<span class="function">save</span>
-<span class="keyword">end</span>
-</samp></pre>
+  # Store page
+  page.save
+end</code></pre>
 
 <p>If that example above confused you, don't worry, because&hellip;</p>
 

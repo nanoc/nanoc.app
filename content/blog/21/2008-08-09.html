@@ -14,31 +14,31 @@
 
 <p>For example, the nanoc site has an asset named "style", whose directory contains "style.css" and "style.yaml". The attributes in the meta file look like this:</p>
 
-<pre><code><span class="attribute">binary</span>:  <span class="value">false</span>
-<span class="attribute">filters</span>: []</code></pre>
+<pre><code class="language-yaml">binary:  false
+filters: []</code></pre>
 
 <p>There are only two built-in asset attributes. <code>binary</code> indicates whether the asset is binary or not (in this case it is a textual asset, thus <code>false</code>) and <code>filters</code> is the list of filters to run (empty, in this case).</p>
 
 <p>If the stylesheet had been a Sass one, the attributes would have looked like this:</p>
 
-<pre><code><span class="attribute">binary</span>:  <span class="value">false</span>
-<span class="attribute">filters</span>: [ <span class="string">'sass'</span> ]</code></pre>
+<pre><code class="language-yaml">binary:  false
+filters: [ 'sass' ]</code></pre>
 
 <p>&hellip; which should not be a big surprise.</p>
 
 <p>Textual filters are exactly the same as the filters in nanoc 2.0, so there's probably not much point in showing one, but I'll just do it anyway:</p>
 
-<pre><code><span class="keyword">class</span> <span class="storage">Sass</span> &lt; <span class="storage">Nanoc</span>::<span class="storage">Filter</span>
+<pre><code class="language-ruby">class Sass &lt; Nanoc::Filter
 
-  <span class="function">identifier</span> <span class="symbol">:sass</span>
+  identifier :sass
 
-  <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">content</span>)
-    <span class="function">require</span> <span class="string">'sass'</span>
+  def run(content)
+    require 'sass'
 
-    ::<span class="storage">Sass</span>::<span class="storage">Engine</span>.<span class="function">new</span>(<span class="variable">content</span>).<span class="function">render</span>
-  <span class="keyword">end</span>
+    ::Sass::Engine.new(content).render
+  end
 
-<span class="keyword">end</span></code></pre>
+end</code></pre>
 
 <p>Binary assets are very similar to textual assets. Simply set <code>binary</code> to <code>true</code> in the meta file and make sure that the list of filters contains only binary filters.</p>
 
@@ -46,24 +46,24 @@
 
 <p>For example, a binary filter for generating a thumbnail of an image (using <a href="http://seattlerb.rubyforge.org/ImageScience.html">ImageScience</a>) could look like this (the code is non-functional, because the filter has a lot of irrelevant implementation details):</p>
 
-<pre><code><span class="keyword">class</span> <span class="storage">ImageScienceThumbnail</span> &lt; <span class="storage">Nanoc</span>::<span class="storage">BinaryFilter</span>
+<pre><code class="language-ruby">class ImageScienceThumbnail &lt; Nanoc::BinaryFilter
 
-  <span class="function">identifier</span> <span class="symbol">:image_science_thumbnail</span>
+  identifier :image_science_thumbnail
 
-  <span class="keyword">def</span> <span class="function">run</span>(<span class="variable">file</span>)
-    <span class="function">require</span> <span class="string">'image_science'</span>
+  def run(file)
+    require 'image_science'
 
-    <span class="comment"># Get temporary path</span>
-    <span class="variable">tmp_path</span> = ...
+    # Get temporary path
+    tmp_path = …
 
-    <span class="comment"># Create thumbnail and write it to the temp path</span>
-    ...
+    # Create thumbnail and write it to the temp path
+    …
 
-    <span class="comment"># Return thumbnail file</span>
-    <span class="storage">File</span>.<span class="function">open</span>(<span class="variable">tmp_path</span>)
-  <span class="keyword">end</span>
+    # Return thumbnail file
+    File.open(tmp_path)
+  end
 
-<span class="keyword">end</span></code></pre>
+end</code></pre>
 
 <p>The default router (see the <a href="/blog/2008-07-23/">article on routers</a>) saves compiled assets in an <span class="path">assets</span> directory inside the output directory. It's possible to set <var>assets_prefix</var> in the config file to something else such as "/media", or even "" to save assets directly in the output directory.</p>
 
@@ -75,12 +75,12 @@
 
 <p>Giving an asset multiple representations is quite easy. In the asset's meta file, fill up the list of reps like in this example:</p>
 
-<pre><code><span class="attribute">reps</span>:
-  <span class="attribute">default</span>:
-    <span class="attribute">filters</span>:        []
-  <span class="attribute">thumbnail</span>:
-    <span class="attribute">filters</span>:        [ <span class="string">'image_science_thumbnail'</span> ]
-    <span class="attribute">thumbnail_size</span>: <span class="constant">100</span></code></pre>
+<pre><code class="language-yaml">reps:
+  default:
+    filters:        []
+  thumbnail:
+    filters:        [ 'image_science_thumbnail' ]
+    thumbnail_size: 100</code></pre>
 
 <p>The asset in this example has two representations: a default one (which is unprocessed) and a thumbnail one (which is run through the <code>image_science_thumbnail</code> filter).</p>
 
@@ -88,27 +88,27 @@
 
 <p><a href="#">Last time</a> I wasn't able to show you what a real router looks like (because I didn't explain multiple representations before), but now I can. Let me just show you the implementation for <code>path_for_asset_rep</code> real quick:</p>
 
-<pre><code><span class="keyword">def</span> <span class="function">path_for_asset_rep</span>(<span class="variable">asset_rep</span>)
-  <span class="comment"># Get data we need</span>
-  <span class="variable">extension</span>     = <span class="variable">asset_rep</span>.<span class="function">attribute_named</span>(<span class="symbol">:extension</span>)
-  <span class="variable">modified_path</span> = <span class="variable">asset_rep</span>.<span class="function">asset</span>.<span class="function">path</span>[<span class="constant">0</span>..<span class="constant">-2</span>]
-  <span class="variable">version</span>       = <span class="variable">asset_rep</span>.<span class="function">attribute_named</span>(<span class="symbol">:version</span>)
+<pre><code class="language-ruby">def path_for_asset_rep(asset_rep)
+  # Get data we need
+  extension     = asset_rep.attribute_named(:extension)
+  modified_path = asset_rep.asset.path[0..-2]
+  version       = asset_rep.attribute_named(:version)
 
-  <span class="comment"># Initialize path</span>
-  <span class="variable">assets_prefix</span> = <span class="variable">@site</span>.<span class="function">config</span>[<span class="symbol">:assets_prefix</span>] || <span class="string">'/assets'</span>
-  <span class="variable">path</span> = <span class="variable">assets_prefix</span> + <span class="variable">modified_path</span>
+  # Initialize path
+  assets_prefix = @site.config[:assets_prefix] || '/assets'
+  path = assets_prefix + modified_path
 
-  <span class="comment"># Add rep name if necessary</span>
-  <span class="keyword">unless</span> <span class="variable">asset_rep</span>.<span class="function">name</span> == <span class="symbol">:default</span>
-    <span class="variable">path</span> += <span class="string">'-'</span> + <span class="variable">asset_rep</span>.<span class="function">name</span>.<span class="function">to_s</span>
-  <span class="keyword">end</span>
+  # Add rep name if necessary
+  unless asset_rep.name == :default
+    path += '-' + asset_rep.name.to_s
+  end
 
-  <span class="comment"># Add extension</span>
-  <span class="variable">path</span> += <span class="string">'.'</span> + <span class="variable">extension</span>
+  # Add extension
+  path += '.' + extension
 
-  <span class="comment"># Done</span>
-  <span class="variable">path</span>
-<span class="keyword">end</span></code></pre>
+  # Done
+  path
+end</code></pre>
 
 <p>The implementation of <code>path_for_page_rep</code> is very similar, so I'm not showing it here.</p>
 
