@@ -17,6 +17,8 @@ You should also install [adsf](http://stoneship.org/software/adsf/), a tool that
 
 <pre title="Installing adsf"><span class="prompt">%</span> <kbd>gem install adsf</kbd></pre>
 
+nanoc also requires a basic level of experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
+
 Creating a Site
 ---------------
 
