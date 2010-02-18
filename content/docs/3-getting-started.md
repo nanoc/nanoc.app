@@ -89,7 +89,7 @@ Now, open your web browser and navigate to [http://localhost:3000/](http://local
 	     alt="Screenshot of what a brand new nanoc site looks like">
 </div>
 
-(If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one. See the [Watch out for Paths](#watch-out-for-paths) section for details.)
+(If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one.)
 
 You can also open the `output/index.html` file in your favourite text editor, where you’ll find that the file is just a normal HTML page.
 
@@ -284,9 +284,7 @@ dog’s back.&lt;/p>
 &lt;/blockquote>
 </code></pre>
 
-The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/manual/#list-of-built-in-filters). You can also write your own filters—read the [Writing Filters](/manual/#writing-filters) section in the manual for details.
-
-FIXME fix URL
+The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/4-basic-concepts/#list-of-built-in-filters). You can also write your own filters—read the [Writing Filters](/docs/5-advanced-concepts/#writing-filters) section in the manual for details.
 
 Writing some Custom Code
 ------------------------
@@ -328,9 +326,7 @@ Writing your own functions for handling tags is not really necessary, though, as
 include Nanoc3::Helpers::Tagging
 </code></pre>
 
-This will make all functions defined in the `Nanoc3::Helpers::Tagging` module available for use. You can check out the [RDoc documentation for the Tagging helper](/doc/3.0.0/Nanoc3/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
-
-FIXME fix URL
+This will make all functions defined in the `Nanoc3::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/3.1/Nanoc3/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
 
 <pre title="Code snippet to be added to the default layout"><code class="language-html">
 &lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>
@@ -338,15 +334,11 @@ FIXME fix URL
 
 Now compile the site again, and you’ll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
 
-nanoc comes with quite a few useful helpers. The [RDoc documentation](/doc/3.0.0/) describes each one of them.
-
-FIXME fix URL
+nanoc comes with quite a few useful helpers. The [API documentation](/docs/3.1/) describes each one of them.
 
 That’s it!
 ----------
 
 This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.
 
-There’s more reading material. It’s definitely worth checking out the [Manual](/manual/)—it’s rather big, but it contains everything you need to know about nanoc. Be sure to check out the [Glossary](/manual/#glossary) if you’re confused by terminology.
-
-FIXME fix URL
+There’s more reading material. It’s definitely worth checking out the following chapters; they’re rather big, but they contains everything you need to know about nanoc.
