@@ -1,23 +1,17 @@
 <div id="banner">
-	<p><strong>nanoc</strong> is a web publishing system written in Ruby for building small to medium-sized websites.</p>
+	<p><strong>nanoc</strong> is a Ruby web publishing system for building small to medium-sized websites.</p>
 </div>
 
 <div id="intro">
-	<p>nanoc is a tool that runs on your local computer and "compiles" documents written in HTML, Markdown, Textile, Haml, etc. into a static web site, ready for uploading to any web server. To get started, <kbd>gem install nanoc3</kbd> and <a href="/tutorial/">take the tutorial &raquo;</a>.</p>
+	<p>nanoc is a tool that runs on your local computer and "compiles" documents written in HTML, Markdown, Textile, Haml, etc. into a static web site, ready for uploading to any web server. To get started, <kbd>gem install nanoc3</kbd> and <a href="/docs/2-installation/">take the tutorial &raquo;</a>.</p>
 
 	<p>Latest release: <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %> (<a href="/release-notes/">release notes</a>)</p>
 </div>
 
 <div id="donate-button">
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-		<input type="hidden" name="cmd" value="_donations">
-		<input type="hidden" name="business" value="YMZLHC3PN5NLC">
-		<input type="hidden" name="lc" value="BE">
-		<input type="hidden" name="item_name" value="nanoc">
-		<input type="hidden" name="currency_code" value="EUR">
-		<input type="hidden" name="bn" value="PP-DonationsBF:donate.png:NonHosted">
-		<input type="submit" name="submit" value="Donate">
-	</form>
+	<a href='http://www.pledgie.com/campaigns/6847'>
+		<img alt="Click here to lend your support to: nanoc and make a donation at pledgie.com!" src="http://www.pledgie.com/campaigns/6847.png?skin_name=chrome">
+	</a>
 </div>
 
 <div id="features">
