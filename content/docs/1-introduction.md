@@ -10,35 +10,11 @@ toc_includes_sections: true
 What is nanoc?
 --------------
 
-nanoc is a tool for building static web sites. It compiles pages and assets by transforming content from one format into the other and putting compiled content in a layout.
+nanoc is a tool for building static web sites. It can transform content from one format (e.g. Haml or Markdown) into another (usually HTML) and lay out pages so that the site’s look and feel is consistent across all pages.
 
-nanoc is not a content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you.
+nanoc is not a true content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you. nanoc does have some CMS-like functionality, such as finding items that have certain attributes associated with them; for example, running a query such as “find all articles by a given author” is possible.
 
-Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything "special" installed at all—it just needs to be able to serve static files, which every web server can.
-
-Markup conventions
-------------------
-
-The nanoc documentation uses a few conventions for markup:
-
-* <i>Italic text</i> introduces new terms.
-* <code>Monospaced text</code> is used for code snippets.
-* <kbd>Monospaced, bold text</kbd> is used for commands that should be typed literally.
-* <var>Monospaced, italic text</var> is used for text that should be replaced with user-supplied values.
-
-The documentation also contains quite a few blocks of code snippets. These are marked up like this:
-
-<pre title="Title of the snippet"><code class="lang-ruby">class Lorem
-  def ipsum
-    "dolor"
-  end
-end</code></pre>
-
-Pieces of terminal input/output are marked up in a similar way. Note that the prompt is always included, but should never be typed. Here’s an example:
-
-<pre title="Title of the snippet"><span class="prompt">some-dir%</span> <kbd>echo "hello" &amp;&amp; cd other-dir</kbd>
-hello
-<span class="prompt">other-dir%</span></pre>
+Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything “special” installed at all—it just needs to be able to serve static files, which every web server can.
 
 Similar Projects
 ----------------
@@ -50,11 +26,11 @@ Advantages
 
 ### Fast
 
-The main reason why nanoc was created, is to reduce the server load and improve page load times. After all, nothing gets served faster than a static HTML page.
+Static pages load lightning fast.
 
-Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor’s browser. Caching helps quite a bit, but not all CMSes do it well.
+The main reason why nanoc was created, is to reduce the server load and improve page load times. After all, nothing gets served faster than a static HTML page. Many CMSes (in its broadest sense) waste a lot of time. On each request, they fetch data from the database, then let a templating system merge the data with a page template, and finally send the assembled content to the site visitor’s browser. Caching helps quite a bit, but not all CMSes do it well.
 
-nanoc goes a step further than caching, and generates static files right away (you may call it "extreme caching" if you are so inclined). Using static files is not only fast—it also allows web browsers to cache files much more efficiently due to `Last-Modified` headers and such.
+nanoc goes a step further than caching, and generates static files right away (you may call it “extreme caching” if you are so inclined). Using static files is not only fast—it also allows web browsers to cache files much more efficiently due to `Last-Modified` headers and such.
 
 ### Safe
 
