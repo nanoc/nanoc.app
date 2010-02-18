@@ -15,20 +15,27 @@
 	<body>
 		<div class="nav">
 			<ol>
-				<%= nav_item_for('/')                          %>
-				<%= nav_item_for('/blog/')                     %>
-				<%= nav_item_for('/docs/1-introduction/')      %>
-				<%= nav_item_for('/docs/2-installation/')      %>
-				<%= nav_item_for('/docs/3-getting-started/')   %>
-				<%= nav_item_for('/docs/4-basic-concepts/')    %>
-				<%= nav_item_for('/docs/5-advanced-concepts/') %>
-				<%= nav_item_for('/docs/6-guides/')            %>
-				<%= nav_item_for('/docs/7-glossary/')          %>
-				<%= nav_item_for('/docs/8-faq/')               %>
-				<%= nav_item_for('/docs/9-migrating-to-30/')   %>
-				<%= nav_item_for('/community/')                %>
+				<%= nav_item_for('/',           :include_children => false) %>
+				<%= nav_item_for('/blog/',      :include_children => false) %>
+				<%= nav_item_for('/docs/',      :include_children => false) %>
+				<%= nav_item_for('/community/', :include_children => false) %>
 			</ol>
 		</div>
+<% if @item.identifier =~ %r[^/docs/] %>
+		<div class="subnav">
+			<ol>
+				<%= nav_item_for('/docs/1-introduction/'     ) %>
+				<%= nav_item_for('/docs/2-installation/'     ) %>
+				<%= nav_item_for('/docs/3-getting-started/'  ) %>
+				<%= nav_item_for('/docs/4-basic-concepts/'   ) %>
+				<%= nav_item_for('/docs/5-advanced-concepts/') %>
+				<%= nav_item_for('/docs/6-guides/'           ) %>
+				<%= nav_item_for('/docs/7-glossary/'         ) %>
+				<%= nav_item_for('/docs/8-faq/'              ) %>
+				<%= nav_item_for('/docs/9-migrating-to-30/'  ) %>
+			</ol>
+		</div>
+<% end %>
 
 		<div class="body">
 <% if @item[:raw_layout] %>
@@ -36,7 +43,7 @@
 <% else %>
 			<div class="article">
 				<div class="header">
-					<h1><%= @item[:title] %></h1>
+					<h1><%= @item[:short_title] || @item[:title] %></h1>
 				</div>
 				<%= yield %>
 			</div>

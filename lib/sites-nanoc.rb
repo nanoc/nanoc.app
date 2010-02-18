@@ -1,6 +1,10 @@
 require 'time'
 
-def nav_item_for(identifier)
+def nav_item_for(identifier, params={})
+  # Parse params
+  params[:include_children] = true unless params.has_key?(:include_children)
+
+  # Get other item
   other = @items.find { |i| i.identifier == identifier }
 
   # Check whether we are in other or a child
@@ -9,14 +13,17 @@ def nav_item_for(identifier)
   res = '<li>'
 
   # Add link itself
-  res << link_to_unless_current(other[:short_title] || other[:title], other)
+  res << link_to_unless_current(
+    '<span>' + (other[:short_title] || other[:title]) + '</span>',
+    other
+  )
 
   # Children
-  if in_other_tree && other[:toc_includes_children]
+  if in_other_tree && other[:toc_includes_children] && params[:include_children]
     res << '<ol>'
     other.children.each { |c| res << nav_item_for(c.identifier) unless c[:is_hidden] }
     res << '</ol>'
-  elsif in_other_tree && other[:toc_includes_sections]
+  elsif in_other_tree && other[:toc_includes_sections] && params[:include_children]
     res << toc_for(@item)
   end
 
