@@ -83,11 +83,9 @@ A file named `index.html` has been created in the `output` directory. Start a we
 Now, open your web browser and navigate to [http://localhost:3000/](http://localhost:3000/). What you’ll see is something like this:
 
 <div class="figure">
-	<img style="border: 6px solid #ccc" src="/assets/images/tutorial/default-site.png"
+	<img src="/assets/images/tutorial/default-site.png"
 	     alt="Screenshot of what a brand new nanoc site looks like">
 </div>
-
-FIXME add a bigger screenshot
 
 (If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one. See the [Watch out for Paths](#watch-out-for-paths) section for details.)
 
