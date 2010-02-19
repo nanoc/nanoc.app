@@ -69,10 +69,19 @@ body
   background-repeat:   repeat-x, no-repeat
   background-position: center bottom, center 40px
 
+  .section
+    padding: 20px 25px
+
+  .section.odd
+    background: #d5e3a0
+
   p
-    margin:  0 0 20px 0
-    padding: 0 25px
     color:   #50522e
+
+    kbd
+      font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
+      font-size: 14px
+      font-weight: bold
 
     a
 
@@ -82,11 +91,8 @@ body
       &:hover
         color: #50522e
 
-  pre
-    margin: 20px 0
-    padding: 20px 25px
-    background: #d5e3a0
-    color:   #50522e
+  .figure
+    text-align: center
 
   li
     list-style-type: none
