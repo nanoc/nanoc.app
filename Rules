@@ -1,12 +1,21 @@
 #!/usr/bin/env ruby
 
+require 'compass'
+
+Compass.configuration.parse('compass_config.rb')
+
 ### Routing ##################################################################
 
 route '/404/' do
   '/error-404.php'
 end
 
-route '/assets/style/' do
+route '/assets/style/_*/' do
+  # Don't output partials, so return nil
+  nil
+end
+
+route '/assets/style/*/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
@@ -27,14 +36,14 @@ end
 
 ### Compilation ##############################################################
 
-compile '/assets/style/' do
-  filter :erb
-  filter :relativize_paths, :type => :css
-  filter :rainpress
+compile '/assets/style/_*/' do
+  # Don’t compile partials
 end
 
 compile '/assets/style/*/' do
-  filter :sass
+  filter :sass, Compass.sass_engine_options
+  filter :relativize_paths, :type => :css
+  filter :rainpress
 end
 
 compile '/blog/feed_private/' do

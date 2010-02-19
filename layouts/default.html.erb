@@ -7,7 +7,7 @@
 		<title><%= @item[:has_full_title] ? @item[:title] : 'nanoc &raquo; ' + @item[:title] %></title>
 
 		<!-- stylesheets -->
-		<link rel="stylesheet" href="<%= item_named('/assets/style/').reps[0].path %>" type="text/css" media="screen">
+		<link rel="stylesheet" href="<%= item_named('/assets/style/screen/').path %>" type="text/css" media="screen">
 
 		<!-- feed -->
 		<link rel="alternate" type="application/atom+xml" title="The nanoc Blog" href="http://feeds.feedburner.com/nanoc">
