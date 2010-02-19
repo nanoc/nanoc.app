@@ -21,8 +21,8 @@
 				<%= nav_item_for('/community/', :include_children => false) %>
 			</ol>
 		</div>
+		<div class="side">
 <% if @item.identifier =~ %r[^/docs/] %>
-		<div class="subnav">
 			<ol>
 				<%= nav_item_for('/docs/1-introduction/'     ) %>
 				<%= nav_item_for('/docs/2-installation/'     ) %>
@@ -35,8 +35,20 @@
 				<%= nav_item_for('/docs/9-migrating-to-30/'  ) %>
 				<li><a href="/docs/api/3.1/"><span>API documentation</span></a></li>
 			</ol>
-		</div>
+<% elsif @item.identifier =~ %r[^/blog/] %>
+			<ol>
+				<%= nav_item_for('/blog/20/') %>
+				<%= nav_item_for('/blog/21/') %>
+				<%= nav_item_for('/blog/22/') %>
+				<%= nav_item_for('/blog/30/') %>
+			</ol>
+<% else %>
+			<p>Install nanoc with Rubygems; it’s simple and quick:</p>
+			<pre><kbd>gem install nanoc3</kbd></pre>
+			<p>First-time user? Read the <a href="#">getting started guide</a>.</p>
+			<p>The current version of nanoc is 3.0.7, released on January 29th. See the <a href="/release-notes/">release notes</a> for details.</p>
 <% end %>
+		</div>
 
 		<div class="body">
 <% if @item[:raw_layout] %>
