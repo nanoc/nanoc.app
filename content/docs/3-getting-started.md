@@ -26,11 +26,11 @@ nanoc is a command-line application. This means that in order to use nanoc, you 
 
 A nanoc-powered site is a directory with a specific structure. In this tutorial, we’ll create a site named `tutorial`. To create this site, type into the terminal:
 
-<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc3 create_site tutorial</kbd></pre>
+<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc create_site tutorial</kbd></pre>
 
 If you did that right, you should see something like this in the terminal:
 
-<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc3 create_site tutorial</kbd>
+<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create_site tutorial</kbd>
       <span class="log-create">create</span>  config.yaml
       <span class="log-create">create</span>  Rakefile
       <span class="log-create">create</span>  Rules
@@ -66,11 +66,11 @@ Before doing anything else, make sure the current working directory is the site 
 
 Every new nanoc site already has a bit of content. It comes with one simple page with some simple "getting started" instructions. Before you can view the site, it needs to be compiled. To compile the site, do this:
 
-<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc3 compile</kbd></pre>
+<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd></pre>
 
 This is what’ll appear in the terminal while nanoc is compiling:
 
-<pre title="Compiling the new site (with command output)"><span class="prompt">tutorial%</span> <kbd>nanoc3 compile</kbd>
+<pre title="Compiling the new site (with command output)"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
 Loading site data…
 Compiling site…
       <span class="log-create">create</span>  [0.01s] output/index.html
@@ -80,7 +80,7 @@ Site compiled in 0.01s.
 
 A file named `index.html` has been created in the `output` directory. Start a web server using the <kbd>view</kbd> command, like this:
 
-<pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc3 view</kbd></pre>
+<pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
 
 Now, open your web browser and navigate to [http://localhost:3000/](http://localhost:3000/). What you’ll see is something like this:
 
@@ -108,7 +108,7 @@ Let’s change the content of the home page. Open `index.html` and add a paragra
 
 To view the changes, the site must be recompiled first. So, run the <kbd>compile</kbd> command. You should see something like this:
 
-<pre title="Compiling the site again"><span class="prompt">tutorial%</span> <kbd>nanoc3 compile</kbd>
+<pre title="Compiling the site again"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
 Loading site data…
 Compiling site…
       <span class="log-update">update</span>  [0.01s] output/index.html
@@ -118,7 +118,7 @@ Site compiled in 0.01s.
 
 The number between brackets next to the `output/index.html` filename indicates the time it took for nanoc to compile the home page. At the bottom, the total time needed for compiling the entire site is also shown.
 
-Make sure that the preview server (<kbd>nanoc3 view</kbd>) is still running, reload [http://localhost:3000/](http://localhost:3000/) in your browser, and verify that the page has indeed been updated.
+Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, reload [http://localhost:3000/](http://localhost:3000/) in your browser, and verify that the page has indeed been updated.
 
 In the same file, let’s change the page title from "Home" to something more interesting. Change the line that reads `title: "Home"` to something else. The file should now start with this:
 
@@ -137,11 +137,11 @@ In nanoc, pages are sometimes referred to as "items." This is because items don�
 
 To create a new page or item in the site, use the `create_item` command (or `ci` for short). Let’s create an "about" page like this:
 
-<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc3 create_item about</kbd></pre>
+<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc create_item about</kbd></pre>
 
 You should see this:
 
-<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc3 create_item about</kbd>
+<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc create_item about</kbd>
       <span class="log-create">create</span>  content/about.html
 <span class="prompt">tutorial%</span> </pre>
 

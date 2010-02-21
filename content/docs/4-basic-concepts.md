@@ -9,18 +9,18 @@ toc_includes_sections: true
 The Commandline Tool
 --------------------
 
-Interacting with nanoc happens through a commandline tool named `nanoc3`. (The `nanoc` command can only be used for sites built with nanoc 2.x, not 3.x). `nanoc3` has a few sub-commands, which you can invoke like this:
+Interacting with nanoc happens through a commandline tool named `nanoc`. This tool has a few sub-commands, which you can invoke like this:
 
-	> nanoc3 [command]
+	> nanoc [command]
 
 Here, `command` obviously is the name of the command you’re invoking. A very useful command is the `help` command, which will give you a detailed description of a given command. You can use it like this:
 
-	> nanoc3 help [command]
+	> nanoc help [command]
 
 For example, this is the help for the `create_site` command:
 
-	> nanoc3 help create_site
-	nanoc3 create_site [path]
+	> nanoc help create_site
+	nanoc create_site [path]
 
 	aliases: cs
 
@@ -36,9 +36,27 @@ For example, this is the help for the `create_site` command:
 
 If you want general help, such as a list of available commands and global options, omit the command name, like this:
 
-	> nanoc3 help
+	> nanoc help
 
 So, if you’re ever stuck, consult the the commandline help which (hopefully) will put you back on track.
+
+### Selecting a different version
+
+By default, `nanoc` will invoke nanoc 3.x. If you want to use nanoc 2.x instead, you can select this version using the `nanoc-select` commandline tool, which works like this:
+
+<pre title="Using nanoc-select to pick a version"><span class="prompt">%</span> <kbd>nanoc-select 3</kbd>
+Switched to nanoc version 3.
+
+<span class="prompt">%</span> <kbd>nanoc --version</kbd>
+nanoc 3.1.0 (c) 2007-2010 Denis Defreyne.
+Ruby 1.9.1 (2010-01-10) running on i386-darwin10.2.0
+
+<span class="prompt">%</span> <kbd>nanoc-select 2</kbd>
+Switched to nanoc version 2.
+
+<span class="prompt">%</span> <kbd>nanoc --version</kbd>
+nanoc 2.2.3 (c) 2007-2010 Denis Defreyne.
+Ruby 1.9.1 (2010-01-10) running on i386-darwin10.2.0</pre>
 
 Sites
 -----
@@ -51,7 +69,7 @@ The way the data in a site is stored depends on the data source that is being us
 
 To create a site, use the `create_site` command. This command takes the site name as its first and only argument, like this:
 
-	> nanoc3 create_site [site_name]
+	> nanoc create_site [site_name]
 
 This will create a directory with the given site name, with a bare-bones directory layout.
 
@@ -117,17 +135,17 @@ Custom data sources, filters and helpers may use other configuration attributes.
 
 ### (Auto)compiling a Site
 
-To compile a site to its final form, the `nanoc3 compile` or simply `nanoc3 co` command is used. This will write the compiled site to the output directory as specified in the site configuration file. For example:
+To compile a site to its final form, the `nanoc compile` or simply `nanoc co` command is used. This will write the compiled site to the output directory as specified in the site configuration file. For example:
 
-	> nanoc3 co
+	> nanoc co
 
 nanoc will not compile items that are not outdated. You can tell nanoc to compile all items to pass the `--force` or `-f` flag. Also useful is the `--verbose` or `-V` flag, which turns on extra output.
 
-It is possible to let nanoc run a local web server that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. To run the autocompiler, use `nanoc3 autocompile` or `nanoc3 aco`.
+It is possible to let nanoc run a local web server that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. To run the autocompiler, use `nanoc autocompile` or `nanoc aco`.
 
 The autocompiler will run on port 3000 by default. To change the port number, use the `-p` or `--port` commandline switch, like this:
 
-	> nanoc3 aco -p 8080
+	> nanoc aco -p 8080
 
 Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
 
@@ -144,9 +162,9 @@ Item also have a *raw path*, which is where the compiled item will be written to
 
 Item can easily be created manually by simply creating its metadata file and content file. It is often easier to create an item using the commandline, though.
 
-To create an item using the commandline, use `nanoc3 create_item` or `nanoc3 ci`. This command takes one argument: the item identifier. For example, to create an item named "bar" with "foo" as parent item, do this:
+To create an item using the commandline, use `nanoc create_item` or `nanoc ci`. This command takes one argument: the item identifier. For example, to create an item named "bar" with "foo" as parent item, do this:
 
-	> nanoc3 create_item /foo/bar
+	> nanoc create_item /foo/bar
 
 ### Attributes
 
@@ -683,7 +701,7 @@ Rake Tasks
 nanoc comes with a couple of useful built-in rake tasks. To use them, require them in your rakefile, like this:
 
 <pre><code class="language-ruby">
-require 'nanoc3/tasks'
+require 'nanoc/tasks'
 </code></pre>
 
 The tasks that come with nanoc are:
@@ -724,7 +742,7 @@ Each site has one or more _data sources_: objects that can load site data such a
 
 New nanoc sites will have only one data source: the `filesystem_compact` one (see the [FilesystemCompact](#filesystemcompact) section for details). To create a site with a different data source, use the `create_site` command with the `--datasource` option, like this:
 
-	nanoc3 create_site my_new_site --datasource=filesystem_combined
+	nanoc create_site my_new_site --datasource=filesystem_combined
 
 The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
