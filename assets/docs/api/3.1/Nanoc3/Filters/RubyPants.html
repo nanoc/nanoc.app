@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Nanoc3::Filters::RubyPants</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><a href="../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../Filters.html" title="Nanoc3::Filters (module)">Filters</a></span>
+     &raquo; 
+    <span class="title">RubyPants</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Filters::RubyPants 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><a href="../Context.html" title="Nanoc3::Context (class)">Nanoc3::Context</a></li>
+          
+            <li class="next"><a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></li>
+          
+            <li class="next">Nanoc3::Filters::RubyPants</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/filters/rubypants.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>(content, params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+  </ul>
+
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></h3>
+  <p class="inherited"><a href="../Filter.html#filename-instance_method" title="Nanoc3::Filter#filename (method)">#filename</a>, <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">#initialize</a></p>
+
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../Context.html" title="Nanoc3::Context (class)">Nanoc3::Context</a></h3>
+  <p class="inherited"><a href="../Context.html#get_binding-instance_method" title="Nanoc3::Context#get_binding (method)">#get_binding</a>, <a href="../Context.html#initialize-instance_method" title="Nanoc3::Context#initialize (method)">#initialize</a></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">Nanoc3::Filter</a></p>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="run-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run</strong>(content, params = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/filters/rubypants.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id content'>content</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubypants</span><span class='tstring_end'>'</span></span>
+
+  <span class='comment'># Get result
+</span>  <span class='op'>::</span><span class='const'>RubyPants</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_html'>to_html</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:30 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

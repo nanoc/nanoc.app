@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Nanoc3::Extra::VCS</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo; 
+    <span class='title'><a href="../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../Extra.html" title="Nanoc3::Extra (module)">Extra</a></span>
+     &raquo; 
+    <span class="title">VCS</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Extra::VCS 
+  <span class="abstract note title">Abstract</span>
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::Extra::VCS</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extends:</dt>
+      <dd class="r2"><a href="../PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">Nanoc3::PluginRegistry::PluginMethods</a></dd>
+      
+    
+  
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/nanoc3/extra/vcs.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This class is abstract.</strong> 
+  Subclass and override <tt><a href="#add-instance_method" title="Nanoc3::Extra::VCS#add (method)">#add</a></tt>, <tt><a href="#remove-instance_method" title="Nanoc3::Extra::VCS#remove (method)">#remove</a></tt> and <tt><a href="#move-instance_method" title="Nanoc3::Extra::VCS#move (method)">#move</a></tt> to implement a custom VCS.
+</p>
+<p>A very simple representation of a version control system (VCS) that
+abstracts the add, remove and move operations. It does not commit. This
+class is primarily used by data sources that store data as flat files on
+the disk.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><a href="VCSes/Bazaar.html" title="Nanoc3::Extra::VCSes::Bazaar (class)">VCSes::Bazaar</a>, <a href="VCSes/Dummy.html" title="Nanoc3::Extra::VCSes::Dummy (class)">VCSes::Dummy</a>, <a href="VCSes/Git.html" title="Nanoc3::Extra::VCSes::Git (class)">VCSes::Git</a>, <a href="VCSes/Mercurial.html" title="Nanoc3::Extra::VCSes::Mercurial (class)">VCSes::Mercurial</a>, <a href="VCSes/Subversion.html" title="Nanoc3::Extra::VCSes::Subversion (class)">VCSes::Subversion</a></p>
+</div>
+
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add-instance_method" title="#add (instance method)">- (void) <strong>add</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="abstract note title">Abstract</span>
+  
+
+  
+    <span class="summary_desc">Adds the file with the given filename to the working copy.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#move-instance_method" title="#move (instance method)">- (void) <strong>move</strong>(src, dst) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="abstract note title">Abstract</span>
+  
+
+  
+    <span class="summary_desc">Moves the file with the given filename to a new location.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove-instance_method" title="#remove (instance method)">- (void) <strong>remove</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="abstract note title">Abstract</span>
+  
+
+  
+    <span class="summary_desc">Removes the file with the given filename from the working copy.</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add-instance_method">
+  
+    - (<tt>void</tt>) <strong>add</strong>(filename) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This method is abstract.</strong> 
+  
+</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Adds the file with the given filename to the working copy.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+      
+        &mdash;
+        The name of the file to add
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id add'>add</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='rparen'>)</span>
+  <span class='id not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>add</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="move-instance_method">
+  
+    - (<tt>void</tt>) <strong>move</strong>(src, dst) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This method is abstract.</strong> 
+  
+</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Moves the file with the given filename to a new location. When this
+method is executed, the original file should no longer be present on the
+disk.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>src</span>
+      
+      
+      
+        &mdash;
+        The old filename
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>dst</span>
+      
+      
+      
+        &mdash;
+        The new filename
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id move'>move</span><span class='lparen'>(</span><span class='id src'>src</span><span class='comma'>,</span> <span class='id dst'>dst</span><span class='rparen'>)</span>
+  <span class='id not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>move</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove-instance_method">
+  
+    - (<tt>void</tt>) <strong>remove</strong>(filename) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note abstract">
+  <strong>This method is abstract.</strong> 
+  
+</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Removes the file with the given filename from the working copy. When
+this method is executed, the file should no longer be present on the
+disk.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>filename</span>
+      
+      
+      
+        &mdash;
+        The name of the file to remove
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id remove'>remove</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='rparen'>)</span>
+  <span class='id not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>remove</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:26 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

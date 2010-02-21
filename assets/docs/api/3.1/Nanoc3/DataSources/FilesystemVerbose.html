@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Nanoc3::DataSources::FilesystemVerbose</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo; 
+    <span class='title'><a href="../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../DataSources.html" title="Nanoc3::DataSources (module)">DataSources</a></span>
+     &raquo; 
+    <span class="title">FilesystemVerbose</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::DataSources::FilesystemVerbose 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></li>
+          
+            <li class="next">Nanoc3::DataSources::FilesystemVerbose</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><a href="Filesystem.html" title="Nanoc3::DataSources::Filesystem (module)">Filesystem</a></dd>
+      
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/nanoc3/data_sources/filesystem_verbose.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The filesystem_verbose data source is the old data source for a new nanoc
+site. It stores all data as files on the hard disk.</p>
+
+<p>None of the methods are documented in this file. See <tt><a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></tt>
+for documentation on the overridden methods instead.</p>
+
+<p>The filesystem_verbose data source stores its items and layouts in nested
+directories. Each directory represents a single item or layout. The root
+directory for items is the <code>content</code> directory; for layouts it is the
+<code>layouts</code> directory.</p>
+
+<p>Every directory has a content file and a meta file. The content file
+contains the actual item content, while the meta file contains the item’s
+or the layout’s metadata, formatted as YAML.</p>
+
+<p>Both content files and meta files are named after its parent directory
+(i.e. item). For example, an item/layout named <code>foo</code> will have a directory
+named <code>foo</code>, with e.g. a <code>foo.markdown</code> content file and a <code>foo.yaml</code> meta
+file.</p>
+
+<p>Content file extensions are not used for determining the filter that
+should be run; the meta file defines the list of filters. The meta file
+extension must always be <code>.yaml</code>, though.</p>
+
+<p>For backwards compatibility, content files can also have the <code>index</code>
+basename. Similarly, meta files can have the <code>meta</code> basename. For example,
+a parent directory named <code>foo</code> can have an <code>index.txt</code> content file and a
+<code>meta.yaml</code> meta file.</p>
+
+<p>The identifier is calculated by stripping the extension; if there is more
+than one extension, only the last extension is stripped and the previous
+extensions will be part of the identifier.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="Filesystem.html" title="Nanoc3::DataSources::Filesystem (module)">Filesystem</a></h3>
+  <p class="inherited"><a href="Filesystem.html#create_item-instance_method" title="Nanoc3::DataSources::Filesystem#create_item (method)">#create_item</a>, <a href="Filesystem.html#create_layout-instance_method" title="Nanoc3::DataSources::Filesystem#create_layout (method)">#create_layout</a>, <a href="Filesystem.html#down-instance_method" title="Nanoc3::DataSources::Filesystem#down (method)">#down</a>, <a href="Filesystem.html#items-instance_method" title="Nanoc3::DataSources::Filesystem#items (method)">#items</a>, <a href="Filesystem.html#layouts-instance_method" title="Nanoc3::DataSources::Filesystem#layouts (method)">#layouts</a>, <a href="Filesystem.html#setup-instance_method" title="Nanoc3::DataSources::Filesystem#setup (method)">#setup</a>, <a href="Filesystem.html#up-instance_method" title="Nanoc3::DataSources::Filesystem#up (method)">#up</a></p>
+
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></h3>
+  <p class="inherited"><a href="../DataSource.html#create_item-instance_method" title="Nanoc3::DataSource#create_item (method)">#create_item</a>, <a href="../DataSource.html#create_layout-instance_method" title="Nanoc3::DataSource#create_layout (method)">#create_layout</a>, <a href="../DataSource.html#down-instance_method" title="Nanoc3::DataSource#down (method)">#down</a>, <a href="../DataSource.html#initialize-instance_method" title="Nanoc3::DataSource#initialize (method)">#initialize</a>, <a href="../DataSource.html#items-instance_method" title="Nanoc3::DataSource#items (method)">#items</a>, <a href="../DataSource.html#layouts-instance_method" title="Nanoc3::DataSource#layouts (method)">#layouts</a>, <a href="../DataSource.html#loading-instance_method" title="Nanoc3::DataSource#loading (method)">#loading</a>, <a href="../DataSource.html#setup-instance_method" title="Nanoc3::DataSource#setup (method)">#setup</a>, <a href="../DataSource.html#unuse-instance_method" title="Nanoc3::DataSource#unuse (method)">#unuse</a>, <a href="../DataSource.html#up-instance_method" title="Nanoc3::DataSource#up (method)">#up</a>, <a href="../DataSource.html#update-instance_method" title="Nanoc3::DataSource#update (method)">#update</a>, <a href="../DataSource.html#use-instance_method" title="Nanoc3::DataSource#use (method)">#use</a></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <a href="../DataSource.html#initialize-instance_method" title="Nanoc3::DataSource#initialize (method)">Nanoc3::DataSource</a></p>
+  
+</div>
+
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:35 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

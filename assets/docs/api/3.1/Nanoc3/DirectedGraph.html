@@ -1,0 +1,1023 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Nanoc3::DirectedGraph</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span>
+     &raquo; 
+    <span class="title">DirectedGraph</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::DirectedGraph 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::DirectedGraph</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/directed_graph.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Nanoc3::DirectedGraph represents a directed graph. It is used by the
+dependency tracker for storing and querying dependencies between items.
+Internally, the graph will be stored as an adjacency matrix. For this,
+the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::DirectedGraph::SquareBooleanMatrix (class)">Nanoc3::DirectedGraph::SquareBooleanMatrix</a></tt> class is used.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4>Creating and using a directed graph</h4>
+      <pre class="example code">
+  <span class='comment'># Create a graph with three vertices
+</span>  <span class='id graph'>graph</span> <span class='op'>=</span> <span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w( </span><span class='tstring_content'>a</span><span class='words_sep'> </span><span class='tstring_content'>b</span><span class='words_sep'> </span><span class='tstring_content'>c</span><span class='words_sep'> </span><span class='tstring_content'>d</span><span class='words_sep'> )</span><span class='rparen'>)</span>
+
+  <span class='comment'># Add edges
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># Get (direct) predecessors
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+    <span class='comment'># =&gt; %w( c )
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+    <span class='comment'># =&gt; %w( a b c )
+</span>
+  <span class='comment'># Modify edges
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># Get (direct) predecessors again
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+    <span class='comment'># =&gt; %w( c )
+</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+    <span class='comment'># =&gt; %w( b c )</span></pre>
+    
+  </div>
+
+</div>
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vertices-instance_method" title="#vertices (instance method)">- (Array) <strong>vertices</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">The list of vertices in this graph.</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_edge-instance_method" title="#add_edge (instance method)">- (void) <strong>add_edge</strong>(from, to) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Adds an edge from the first vertex to the second vertex.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#direct_predecessors_of-instance_method" title="#direct_predecessors_of (instance method)">- (Array) <strong>direct_predecessors_of</strong>(to) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns the direct predecessors of the given vertex, i.e.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#direct_successors_of-instance_method" title="#direct_successors_of (instance method)">- (Array) <strong>direct_successors_of</strong>(from) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns the direct successors of the given vertex, i.e.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edges-instance_method" title="#edges (instance method)">- (Array) <strong>edges</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns an array of tuples representing the edges.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DirectedGraph) <strong>initialize</strong>(vertices) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Creates a new directed graph with the given vertices.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#predecessors_of-instance_method" title="#predecessors_of (instance method)">- (Array) <strong>predecessors_of</strong>(to) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns the predecessors of the given vertex, i.e.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_edge-instance_method" title="#remove_edge (instance method)">- (void) <strong>remove_edge</strong>(from, to) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Removes the edge from the first vertex to the second vertex.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#successors_of-instance_method" title="#successors_of (instance method)">- (Array) <strong>successors_of</strong>(from) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns the successors of the given vertex, i.e.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns a string representing this graph in ASCII art (or, to be more
+precise, the string representation of the matrix backing this graph).</span>
+  
+</li>
+
+    
+  </ul>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Nanoc3::DirectedGraph (class)">DirectedGraph</a></tt>) <strong>initialize</strong>(vertices) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new directed graph with the given vertices.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id vertices'>vertices</span><span class='rparen'>)</span>
+  <span class='ivar'>@vertices</span> <span class='op'>=</span> <span class='id vertices'>vertices</span>
+
+  <span class='ivar'>@matrix</span> <span class='op'>=</span> <span class='const'>SquareBooleanMatrix</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@vertices</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="vertices-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="vertices-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>vertices</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The list of vertices in this graph.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id vertices'>vertices</span>
+  <span class='ivar'>@vertices</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="add_edge-instance_method">
+  
+    - (<tt>void</tt>) <strong>add_edge</strong>(from, to) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Adds an edge from the first vertex to the second vertex.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>from</span>
+      
+      
+      
+        &mdash;
+        Vertex where the edge should start
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>to</span>
+      
+      
+      
+        &mdash;
+        Vertex where the edge should end
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 127</span>
+
+<span class='kw'>def</span> <span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="direct_predecessors_of-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>direct_predecessors_of</strong>(to) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the direct predecessors of the given vertex, i.e. the vertices
+x where there is an edge from x to the given vertex y.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>to</span>
+      
+      
+      
+        &mdash;
+        The vertex of which the predecessors should be calculated
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        Direct predecessors of the given vertex
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id from'>from</span><span class='op'>|</span>
+    <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+    <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="direct_successors_of-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>direct_successors_of</strong>(from) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the direct successors of the given vertex, i.e. the vertices y
+where there is an edge from the given vertex x to y.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>from</span>
+      
+      
+      
+        &mdash;
+        The vertex of which the successors should be calculated
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        Direct successors of the given vertex
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163
+164
+165
+166
+167
+168</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 163</span>
+
+<span class='kw'>def</span> <span class='id direct_successors_of'>direct_successors_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='rparen'>)</span>
+  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id to'>to</span><span class='op'>|</span>
+    <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+    <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edges-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>edges</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns an array of tuples representing the edges. The result of this
+method may take a while to compute and should be cached if possible.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        The list of all edges in this graph.
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id edges'>edges</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id from'>from</span><span class='op'>|</span>
+    <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id to'>to</span><span class='op'>|</span>
+      <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>false</span>
+
+      <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='rbracket'>]</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="predecessors_of-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>predecessors_of</strong>(to) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the predecessors of the given vertex, i.e. the vertices x for
+which there is a path from x to the given vertex y.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>to</span>
+      
+      
+      
+        &mdash;
+        The vertex of which the predecessors should be calculated
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        Predecessors of the given vertex
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id to'>to</span><span class='comma'>,</span> <span class='symbol'>:direct_predecessors_of</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_edge-instance_method">
+  
+    - (<tt>void</tt>) <strong>remove_edge</strong>(from, to) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Removes the edge from the first vertex to the second vertex. If the
+edge does not exist, nothing is done.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>from</span>
+      
+      
+      
+        &mdash;
+        Start vertex of the edge
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>to</span>
+      
+      
+      
+        &mdash;
+        End vertex of the edge
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="successors_of-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a></tt>) <strong>successors_of</strong>(from) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the successors of the given vertex, i.e. the vertices y for
+which there is a path from the given vertex x to y.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>from</span>
+      
+      
+      
+        &mdash;
+        The vertex of which the successors should be calculated
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        Successors of the given vertex
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id successors_of'>successors_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='rparen'>)</span>
+  <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='symbol'>:direct_successors_of</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns a string representing this graph in ASCII art (or, to be more
+precise, the string representation of the matrix backing this graph).</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        The string representation of this graph
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 213</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='ivar'>@matrix</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:32 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

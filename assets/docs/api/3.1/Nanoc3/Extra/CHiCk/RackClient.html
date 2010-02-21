@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: Nanoc3::Extra::CHiCk::RackClient</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><a href="../../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../../Extra.html" title="Nanoc3::Extra (module)">Extra</a></span> &raquo; <span class='title'><a href="../CHiCk.html" title="Nanoc3::Extra::CHiCk (module)">CHiCk</a></span>
+     &raquo; 
+    <span class="title">RackClient</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Extra::CHiCk::RackClient 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::Extra::CHiCk::RackClient</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/extra/chick.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>CHiCk::RackClient performs the actual HTTP requests. It does not perform
+any caching.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="METHOD_TO_CLASS_MAPPING-constant" class="">METHOD_TO_CLASS_MAPPING =
+            <span class="summary_desc"></span>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DELETE</span><span class='tstring_end'>'</span></span>  <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Delete</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span>     <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>HEAD</span><span class='tstring_end'>'</span></span>    <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Head</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span>    <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PUT</span><span class='tstring_end'>'</span></span>     <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Put</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+  <h2>Class Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#call-class_method" title="call (class method)">+ (Object) <strong>call</strong>(env) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="call-class_method">
+  
+    + (<tt>Object</tt>) <strong>call</strong>(env) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id env'>env</span><span class='rparen'>)</span>
+  <span class='comment'># Build request
+</span>  <span class='id request'>request</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id env'>env</span><span class='rparen'>)</span>
+
+  <span class='comment'># Build headers and strip HTTP_
+</span>  <span class='id request_headers'>request_headers</span> <span class='op'>=</span> <span class='id env'>env</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id m'>m</span><span class='comma'>,</span><span class='lparen'>(</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='rparen'>)</span><span class='op'>|</span>
+    <span class='id k'>k</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^HTTP_(.*)$</span><span class='regexp_end'>/</span></span> <span class='op'>&amp;&amp;</span> <span class='id v'>v</span> <span class='op'>?</span> <span class='id m'>m</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='backref'>$1</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>_</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>=&gt;</span> <span class='id v'>v</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id m'>m</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Build Net::HTTP request
+</span>  <span class='id http'>http</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id request'>request</span><span class='period'>.</span><span class='id host'>host</span><span class='comma'>,</span> <span class='id request'>request</span><span class='period'>.</span><span class='id port'>port</span><span class='rparen'>)</span>
+  <span class='id net_http_request_class'>net_http_request_class</span> <span class='op'>=</span> <span class='const'>METHOD_TO_CLASS_MAPPING</span><span class='lbracket'>[</span><span class='id request'>request</span><span class='period'>.</span><span class='id request_method'>request_method</span><span class='rbracket'>]</span>
+  <span class='id raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unsupported method: </span><span class='embexpr_beg'>#{</span><span class='id request'>request</span><span class='period'>.</span><span class='id request_method'>request_method</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id net_http_request_class'>net_http_request_class</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id net_http_request'>net_http_request</span> <span class='op'>=</span> <span class='id net_http_request_class'>net_http_request_class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id request'>request</span><span class='period'>.</span><span class='id fullpath'>fullpath</span><span class='comma'>,</span> <span class='id request_headers'>request_headers</span><span class='rparen'>)</span>
+  <span class='id net_http_request'>net_http_request</span><span class='period'>.</span><span class='id body'>body</span> <span class='op'>=</span> <span class='id env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rack.input</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id read'>read</span> <span class='kw'>if</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>POST</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PUT</span><span class='tstring_end'>'</span></span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id request'>request</span><span class='period'>.</span><span class='id request_method'>request_method</span><span class='rparen'>)</span>
+
+  <span class='comment'># Perform request
+</span>  <span class='id http'>http</span><span class='period'>.</span><span class='id request'>request</span><span class='lparen'>(</span><span class='id net_http_request'>net_http_request</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id response'>response</span><span class='op'>|</span>
+    <span class='comment'># Build Rack response triplet
+</span>    <span class='kw'>return</span> <span class='lbracket'>[</span>
+      <span class='id response'>response</span><span class='period'>.</span><span class='id code'>code</span><span class='period'>.</span><span class='id to_i'>to_i</span><span class='comma'>,</span>
+      <span class='id response'>response</span><span class='period'>.</span><span class='id to_hash'>to_hash</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='comma'>,</span><span class='lparen'>(</span><span class='id k'>k</span><span class='comma'>,</span><span class='id v'>v</span><span class='rparen'>)</span><span class='op'>|</span> <span class='id m'>m</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id k'>k</span> <span class='op'>=&gt;</span> <span class='id v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='lbracket'>[</span> <span class='id response'>response</span><span class='period'>.</span><span class='id body'>body</span> <span class='rbracket'>]</span>
+    <span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:28 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

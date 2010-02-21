@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Module: Nanoc3::HashExtensions</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (H)</a> &raquo; 
+    <span class='title'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span>
+     &raquo; 
+    <span class="title">HashExtensions</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Nanoc3::HashExtensions 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/nanoc3/base/core_ext/hash.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>encoding: utf-8</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stringify_keys-instance_method" title="#stringify_keys (instance method)">- (Hash) <strong>stringify_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns a new hash where all keys are recursively converted to strings by
+calling <tt><a href="ArrayExtensions.html#stringify_keys-instance_method" title="Nanoc3::ArrayExtensions#stringify_keys (method)">Nanoc3::ArrayExtensions#stringify_keys</a></tt> or
+<tt><a href="#stringify_keys-instance_method" title="Nanoc3::HashExtensions#stringify_keys (method)">Nanoc3::HashExtensions#stringify_keys</a></tt>.</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#symbolize_keys-instance_method" title="#symbolize_keys (instance method)">- (Hash) <strong>symbolize_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">Returns a new hash where all keys are recursively converted to symbols by
+calling <tt><a href="ArrayExtensions.html#symbolize_keys-instance_method" title="Nanoc3::ArrayExtensions#symbolize_keys (method)">Nanoc3::ArrayExtensions#symbolize_keys</a></tt> or
+<tt><a href="#symbolize_keys-instance_method" title="Nanoc3::HashExtensions#symbolize_keys (method)">Nanoc3::HashExtensions#symbolize_keys</a></tt>.</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="stringify_keys-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) <strong>stringify_keys</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new hash where all keys are recursively converted to strings by
+calling <tt><a href="ArrayExtensions.html#stringify_keys-instance_method" title="Nanoc3::ArrayExtensions#stringify_keys (method)">Nanoc3::ArrayExtensions#stringify_keys</a></tt> or
+<tt><a href="#stringify_keys-instance_method" title="Nanoc3::HashExtensions#stringify_keys (method)">Nanoc3::HashExtensions#stringify_keys</a></tt>.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        The converted hash
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/core_ext/hash.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id stringify_keys'>stringify_keys</span>
+  <span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id hash'>hash</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span><span class='op'>|</span>
+    <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id key'>key</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='op'>=&gt;</span> <span class='id value'>value</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id value'>value</span><span class='period'>.</span><span class='id stringify_keys'>stringify_keys</span> <span class='op'>:</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="symbolize_keys-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) <strong>symbolize_keys</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new hash where all keys are recursively converted to symbols by
+calling <tt><a href="ArrayExtensions.html#symbolize_keys-instance_method" title="Nanoc3::ArrayExtensions#symbolize_keys (method)">Nanoc3::ArrayExtensions#symbolize_keys</a></tt> or
+<tt><a href="#symbolize_keys-instance_method" title="Nanoc3::HashExtensions#symbolize_keys (method)">Nanoc3::HashExtensions#symbolize_keys</a></tt>.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        The converted hash
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/core_ext/hash.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id symbolize_keys'>symbolize_keys</span>
+  <span class='id inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id hash'>hash</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span><span class='op'>|</span>
+    <span class='id hash'>hash</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id key'>key</span><span class='period'>.</span><span class='id to_sym'>to_sym</span> <span class='op'>=&gt;</span> <span class='id value'>value</span><span class='period'>.</span><span class='id respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbolize_keys</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id value'>value</span><span class='period'>.</span><span class='id symbolize_keys'>symbolize_keys</span> <span class='op'>:</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Feb 21 17:17:32 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>
