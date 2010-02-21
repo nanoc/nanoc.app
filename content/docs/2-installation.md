@@ -33,7 +33,7 @@ It’s likely that you have Rubygems installed already. If you want to check whe
 1.3.5
 <span class="prompt">%</span> </pre>
 
-To install Rubygems, go to the [Rubygems downloads page](http://rubyforge.org/frs/?group_id=126), download the most recent Rubygems version, extract the archive and run <kbd>ruby setup.rb</kbd> inside the extracted directory.
+To install Rubygems, go to the [Rubygems download page](http://rubygems.org/pages/download) and follow the instructions there.
 
 Installing nanoc
 ----------------
