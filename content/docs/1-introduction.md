@@ -65,4 +65,4 @@ It is also possible to add custom code to a nanoc site. Simply create a Ruby fil
 Development
 -----------
 
-nanoc uses Mercurial as its VCS, and the repositories are located [over here](http://projects.stoneship.org/hg/). There is a [repository for nanoc itself](http://projects.stoneship.org/hg/nanoc), and there are repositories for sample sites and plugins. If you have any patches to share, I’d be happy to accept them!
+nanoc uses Mercurial as its VCS, and its main repository is located [over here](http://projects.stoneship.org/hg/nanoc). There is also a [mirror at GitHub](http://github.com/ddfreyne/nanoc) if you prefer git over hg. If you have any patches to share, I’d be happy to accept them!
