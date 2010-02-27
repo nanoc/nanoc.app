@@ -2,7 +2,7 @@
 
 task :copy_assets do
   puts '=== Copying assets…'
-  system "rsync -gprt --partial assets/ output"
+  system "rsync -gprt --partial static/ output"
 end
 
 task :compile do
