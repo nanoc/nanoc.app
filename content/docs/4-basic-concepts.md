@@ -635,7 +635,7 @@ Each filter has an identifier (a symbol), which is used in the call to `#filter`
 : for [RDoc](http://rdoc.sourceforge.net/)&#8217;s Simple Markup
 
 `redcloth`
-: for [Textile](http://www.textism.com/tools/textile/) (uses [RedCloth](http://whytheluckystiff.net/ruby/redcloth/))
+: for [Textile](http://www.textism.com/tools/textile/) (uses [RedCloth](http://redcloth.org/))
 
 `relativize_paths`
 : for making paths in HTML and CSS relative
