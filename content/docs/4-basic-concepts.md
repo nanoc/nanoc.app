@@ -648,7 +648,7 @@ Each filter has an identifier (a symbol), which is used in the call to `#filter`
 
 Filter arguments for the `haml` and `sass` filters will be passed to `Haml::Engine.new` and `Sass::Engine.new`, respectively (with the exception of `:filename`, which will be set to the item rep name).
 
-The `relativize_paths` filter makes all paths in HTML or CSS relative. To set the type of data to relativize (HTML or CSS) pass `:type => :html` resp. `:type => :css`. For example, a reference from the `/about/` item to the `/journal/` item will become `../journal/` instead of `/journal/`. This filter uses the <a href="/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">LinkTo helper</a>’s `relative_path_to` function. When using it with HTML, it relativizes all paths in `src=""` and `href=""` attributes; when using it with CSS, it relativizes all paths in `url()` properties.
+The `relativize_paths` filter makes all paths in HTML or CSS relative. To set the type of data to relativize (HTML or CSS) pass `:type => :html` resp. `:type => :css`. For example, a reference from the `/about/` item to the `/journal/` item will become `../journal/` instead of `/journal/`. This filter uses the <a href="/docs/api/3.1/Nanoc3/Helpers/LinkTo.html">LinkTo helper</a>’s `relative_path_to` function. When using it with HTML, it relativizes all paths in `src=""` and `href=""` attributes; when using it with CSS, it relativizes all paths in `url()` properties.
 
 Helpers
 -------
@@ -666,34 +666,34 @@ include Nanoc3::Helpers::Blogging
 nanoc comes with a couple of built-in helpers. These helpers all all child modules of `Nanoc3::Helpers` (so `Blogging` is actually `Nanoc3::Helpers::Blogging`).
 
 `Blogging`
-: provides blogging and Atom feed features (<a href="/doc/3.0.0/Nanoc3/Helpers/Blogging.html">documentation</a>)
+: provides blogging and Atom feed features (<a href="/docs/api/3.1/Nanoc3/Helpers/Blogging.html">documentation</a>)
 
 `Breadcrumbs`
-: provides functionality for generating breadcrumb trails (<a href="/doc/3.0.0/Nanoc3/Helpers/Breadcrumbs.html">documentation</a>)
+: provides functionality for generating breadcrumb trails (<a href="/docs/api/3.1/Nanoc3/Helpers/Breadcrumbs.html">documentation</a>)
 
 `Capturing`
-: provides functionality for capturing and reusing content (<a href="/doc/3.0.0/Nanoc3/Helpers/Capturing.html">documentation</a>)
+: provides functionality for capturing and reusing content (<a href="/docs/api/3.1/Nanoc3/Helpers/Capturing.html">documentation</a>)
 
 `Filtering`
-: provides ability to filter parts of items (<a href="/doc/3.0.0/Nanoc3/Helpers/Filtering.html">documentation</a>)
+: provides ability to filter parts of items (<a href="/docs/api/3.1/Nanoc3/Helpers/Filtering.html">documentation</a>)
 
 `HTMLEscape`
-: provides a HTML escaping function (<a href="/doc/3.0.0/Nanoc3/Helpers/HTMLEscape.html">documentation</a>)
+: provides a HTML escaping function (<a href="/docs/api/3.1/Nanoc3/Helpers/HTMLEscape.html">documentation</a>)
 
 `LinkTo`
-: provides `link_to` and `link_to_unless_current` functions (<a href="/doc/3.0.0/Nanoc3/Helpers/LinkTo.html">documentation</a>)
+: provides `link_to` and `link_to_unless_current` functions (<a href="/docs/api/3.1/Nanoc3/Helpers/LinkTo.html">documentation</a>)
 
 `Rendering`
-: provides functionality for rendering layouts as partials (<a href="/doc/3.0.0/Nanoc3/Helpers/Rendering.html">documentation</a>)
+: provides functionality for rendering layouts as partials (<a href="/docs/api/3.1/Nanoc3/Helpers/Rendering.html">documentation</a>)
 
 `Tagging`
-: provides functionality for printing a item’s tags (<a href="/doc/3.0.0/Nanoc3/Helpers/Tagging.html">documentation</a>)
+: provides functionality for printing a item’s tags (<a href="/docs/api/3.1/Nanoc3/Helpers/Tagging.html">documentation</a>)
 
 `Text`
-: provides various text/HTML-related functions (<a href="/doc/3.0.0/Nanoc3/Helpers/Text.html">documentation</a>)
+: provides various text/HTML-related functions (<a href="/docs/api/3.1/Nanoc3/Helpers/Text.html">documentation</a>)
 
 `XMLSitemap`
-: provides functionality for creating XML sitemaps (<a href="/doc/3.0.0/Nanoc3/Helpers/XMLSitemap.html">documentation</a>)
+: provides functionality for creating XML sitemaps (<a href="/docs/api/3.1/Nanoc3/Helpers/XMLSitemap.html">documentation</a>)
 
 Rake Tasks
 ----------
@@ -786,19 +786,19 @@ data_sources:
 nanoc comes bundled with the following data sources:
 
 `filesystem_compact`
-: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/FilesystemCompact.html))
+: Reads data from files on the disk ([documentation](/docs/api/3.1/Nanoc3/DataSources/FilesystemCompact.html))
 
 `filesystem_combined`
-: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/FilesystemCombined.html))
+: Reads data from files on the disk ([documentation](/docs/api/3.1/Nanoc3/DataSources/FilesystemCombined.html))
 
 `filesystem`
-: Reads data from files on the disk ([documentation](/doc/3.0.0/Nanoc3/DataSources/Filesystem.html))
+: Reads data from files on the disk ([documentation](/docs/api/3.1/Nanoc3/DataSources/Filesystem.html))
 
 `delicious`
-: Reads data from [Delicious](http://delicious.com/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/Delicious.html))
+: Reads data from [Delicious](http://delicious.com/) ([documentation](/docs/api/3.1/Nanoc3/DataSources/Delicious.html))
 
 `last_fm`
-: Reads data from [Last.fm](http://last.fm/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/LastFM.html))
+: Reads data from [Last.fm](http://last.fm/) ([documentation](/docs/api/3.1/Nanoc3/DataSources/LastFM.html))
 
 `twitter`
-: Reads data from [Twitter](http://twitter.com/) ([documentation](/doc/3.0.0/Nanoc3/DataSources/Twitter.html))
+: Reads data from [Twitter](http://twitter.com/) ([documentation](/docs/api/3.1/Nanoc3/DataSources/Twitter.html))
