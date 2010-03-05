@@ -72,7 +72,7 @@ compile '*' do
     filter :rdiscount
   end
 
-  filter :syntax_colorize
+  filter :colorize_syntax
 
   snapshot :before_sections
   filter :add_sections
