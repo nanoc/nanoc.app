@@ -23,7 +23,7 @@ The nanoc documentation uses a few conventions for markup:
 
 The documentation also contains quite a few blocks of code snippets. These are marked up like this:
 
-<pre title="Title of the snippet"><code class="lang-ruby">class Lorem
+<pre title="Title of the snippet"><code class="language-ruby">class Lorem
   def ipsum
     "dolor"
   end
