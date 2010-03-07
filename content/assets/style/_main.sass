@@ -7,10 +7,15 @@ body
   border-top: 10px solid #a1b74a
   font-family: "Gentium Basic", Gentium, Palatino, Georgia, serif
 
+.wrapper
+  width: 960px
+  margin: 0 auto
+  position: relative
+
 .nav
   position: absolute
-  top:  10px
-  left: 40px
+  top:  0
+  left: 0
 
   li
     display: inline
@@ -57,14 +62,11 @@ body
 
 .side
   position: fixed
-  padding: 140px 0 80px 0
-  top:  -20px
-  left: 720px
-  width: 270px
-  background-color:    #e8f0b0
-  background-image:    url(/assets/images/nav-bottom.png), url(/assets/images/logo.png)
-  background-repeat:   repeat-x, no-repeat
-  background-position: center bottom, center 40px
+  padding: 40px 0 60px 0
+  top:   -20px
+  width: 280px
+  margin-left: 680px
+  background: #e8f0b0 url(/assets/images/nav-bottom.png) repeat-x center bottom
 
   .section
     padding: 20px 25px
@@ -102,7 +104,7 @@ body
   li
     list-style-type: none
     background-color: #ccdd99
-    width: 270px
+    width: 280px
     margin: 0 0 5px 0
 
     li
@@ -139,7 +141,7 @@ body
       padding-left: 40px
 
 .body
-  padding: 40px 310px 40px 40px
+  padding: 40px 0
   width:   640px
 
   a
@@ -445,6 +447,8 @@ body
 
   p
     width: 640px
+    padding-right: 320px
+    margin: 0 auto
     font-size: 15px
     line-height: 20px
     color: #666

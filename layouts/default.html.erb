@@ -13,70 +13,72 @@
 		<link rel="alternate" type="application/atom+xml" title="The nanoc Blog" href="http://feeds.feedburner.com/nanoc">
 	</head>
 	<body>
-		<div class="nav">
-			<ol>
-				<%= nav_item_for('/',           :include_children => false) %>
-				<%= nav_item_for('/blog/',      :include_children => false) %>
-				<%= nav_item_for('/docs/',      :include_children => false) %>
-				<%= nav_item_for('/community/', :include_children => false) %>
-			</ol>
-		</div>
-		<div class="side">
+		<div class="wrapper">
+			<div class="nav">
+				<ol>
+					<%= nav_item_for('/',           :include_children => false) %>
+					<%= nav_item_for('/blog/',      :include_children => false) %>
+					<%= nav_item_for('/docs/',      :include_children => false) %>
+					<%= nav_item_for('/community/', :include_children => false) %>
+				</ol>
+			</div>
+			<div class="side">
 <% if @item.identifier =~ %r[^/docs/] %>
-			<ol>
-				<%= nav_item_for('/docs/1-introduction/'     ) %>
-				<%= nav_item_for('/docs/2-installation/'     ) %>
-				<%= nav_item_for('/docs/3-getting-started/'  ) %>
-				<%= nav_item_for('/docs/4-basic-concepts/'   ) %>
-				<%= nav_item_for('/docs/5-advanced-concepts/') %>
-				<%= nav_item_for('/docs/6-guides/'           ) %>
-				<%= nav_item_for('/docs/7-glossary/'         ) %>
-				<%= nav_item_for('/docs/8-faq/'              ) %>
-				<%= nav_item_for('/docs/9-migrating-to-30/'  ) %>
-				<li><a href="/docs/api/3.1/"><span>API documentation</span></a></li>
-				<li><a href="http://projects.stoneship.org/trac/nanoc"><span>Wiki</span></a></li>
-			</ol>
+				<ol>
+					<%= nav_item_for('/docs/1-introduction/'     ) %>
+					<%= nav_item_for('/docs/2-installation/'     ) %>
+					<%= nav_item_for('/docs/3-getting-started/'  ) %>
+					<%= nav_item_for('/docs/4-basic-concepts/'   ) %>
+					<%= nav_item_for('/docs/5-advanced-concepts/') %>
+					<%= nav_item_for('/docs/6-guides/'           ) %>
+					<%= nav_item_for('/docs/7-glossary/'         ) %>
+					<%= nav_item_for('/docs/8-faq/'              ) %>
+					<%= nav_item_for('/docs/9-migrating-to-30/'  ) %>
+					<li><a href="/docs/api/3.1/"><span>API documentation</span></a></li>
+					<li><a href="http://projects.stoneship.org/trac/nanoc"><span>Wiki</span></a></li>
+				</ol>
 <% elsif @item.identifier =~ %r[^/blog/] %>
-			<ol>
-				<%= nav_item_for('/blog/20/') %>
-				<%= nav_item_for('/blog/21/') %>
-				<%= nav_item_for('/blog/22/') %>
-				<%= nav_item_for('/blog/30/') %>
-			</ol>
+				<ol>
+					<%= nav_item_for('/blog/20/') %>
+					<%= nav_item_for('/blog/21/') %>
+					<%= nav_item_for('/blog/22/') %>
+					<%= nav_item_for('/blog/30/') %>
+				</ol>
 <% else %>
-			<div class="section odd">
-				<p>Install nanoc using <kbd>gem install nanoc</kbd> and take the <a href="/docs/2-installation/">tutorial</a>.</p>
-			</div>
-			<div class="section even">
-				<p>The current version of nanoc is 3.0.7, released on January 29th. See the <a href="/release-notes/">release notes</a> for details.</p>
-			</div>
-			<div class="section odd">
-				<p>Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.</p>
-			</div>
-			<div class="section even">
-				<div class="figure">
-					<a href='http://www.pledgie.com/campaigns/6847'>
-						<img alt="Click here to lend your support to: nanoc and make a donation at pledgie.com!" src="http://www.pledgie.com/campaigns/6847.png?skin_name=chrome">
-					</a>
+				<div class="section odd">
+					<p>Install nanoc using <kbd>gem install nanoc</kbd> and take the <a href="/docs/2-installation/">tutorial</a>.</p>
 				</div>
-			</div>
+				<div class="section even">
+					<p>The current version of nanoc is 3.0.7, released on January 29th. See the <a href="/release-notes/">release notes</a> for details.</p>
+				</div>
+				<div class="section odd">
+					<p>Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.</p>
+				</div>
+				<div class="section even">
+					<div class="figure">
+						<a href='http://www.pledgie.com/campaigns/6847'>
+							<img alt="Click here to lend your support to: nanoc and make a donation at pledgie.com!" src="http://www.pledgie.com/campaigns/6847.png?skin_name=chrome">
+						</a>
+					</div>
+				</div>
 <% end %>
-		</div>
+			</div>
 
-		<div class="body">
-			<div class="warning">
-				<strong>Note:</strong> This new version of the nanoc web site is under construction. Some pages are still woefully incomplete or haven’t been updated at all yet. Feedback about the site is welcome! If you’re here to look for nanoc’s documentation, the <a href="http://nanoc.stoneship.org/">actual web site</a> may be a better place to go.
-			</div>
-<% if @item[:raw_layout] %>
-			<%= yield %>
-<% else %>
-			<div class="article">
-				<div class="header">
-					<h1><%= @item[:short_title] || @item[:title] %></h1>
+			<div class="body">
+				<div class="warning">
+					<strong>Note:</strong> This new version of the nanoc web site is under construction. Some pages are still woefully incomplete or haven’t been updated at all yet. Feedback about the site is welcome! If you’re here to look for nanoc’s documentation, the <a href="http://nanoc.stoneship.org/">actual web site</a> may be a better place to go.
 				</div>
+<% if @item[:raw_layout] %>
 				<%= yield %>
-			</div>
+<% else %>
+				<div class="article">
+					<div class="header">
+						<h1><%= @item[:short_title] || @item[:title] %></h1>
+					</div>
+					<%= yield %>
+				</div>
 <% end %>
+			</div>
 		</div>
 
 		<div id="footer">
