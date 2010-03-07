@@ -1,0 +1,78 @@
+!!!
+%html{ :lang => "en" }
+
+  %head
+    %meta{ "charset" => "UTF-8" }
+    %title
+    %link{ :rel => "stylesheet", :href => item_named('/assets/style/screen/').path, :type => "text/css", :media => "screen" }
+    %link{ :rel => "alternate", :type => "application/atom+xml", :title => "The nanoc Blog", :href => "http://feeds.feedburner.com/nanoc" }
+
+  %body
+    .wrapper
+
+      / ----- navigation -----
+      .nav
+        %ol
+          = nav_item_for('/',           :include_children => false)
+          = nav_item_for('/blog/',      :include_children => false)
+          = nav_item_for('/docs/',      :include_children => false)
+          = nav_item_for('/community/', :include_children => false)
+
+      / ----- sidebar -----
+      .side
+
+        - if @item.identifier =~ %r[^/docs/]
+
+          %ol
+            = nav_item_for('/docs/1-introduction/'     )
+            = nav_item_for('/docs/2-installation/'     )
+            = nav_item_for('/docs/3-getting-started/'  )
+            = nav_item_for('/docs/4-basic-concepts/'   )
+            = nav_item_for('/docs/5-advanced-concepts/')
+            = nav_item_for('/docs/6-guides/'           )
+            = nav_item_for('/docs/7-glossary/'         )
+            = nav_item_for('/docs/8-faq/'              )
+            = nav_item_for('/docs/9-migrating-to-30/'  )
+            %li <a href="/docs/api/3.1/"><span>API documentation</span></a>
+            %li <a href="http://projects.stoneship.org/trac/nanoc"><span>Wiki</span></a>
+
+        - elsif @item.identifier =~ %r[^/blog/]
+
+          %ol
+            = nav_item_for('/blog/20/')
+            = nav_item_for('/blog/21/')
+            = nav_item_for('/blog/22/')
+            = nav_item_for('/blog/30/')
+
+        - else
+
+          .section.odd
+            %p Install nanoc using <kbd>gem install nanoc</kbd> and take the <a href="docs/2-installation/">tutorial</a>.
+
+          .section.even
+            / FIXME get right version and release date automatically
+            %p The current version of nanoc is 3.0.7, released on January 29th. See the <a href="release-notes/">release notes</a> for details.
+
+          .section.odd
+            %p Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.
+
+          .section.even
+            .figure
+              %a{ :href => "http://www.pledgie.com/campaigns/6847" }
+                %img{ :alt => "Click here to lend your support to: nanoc and make a donation at pledgie.com!", :src => "http://www.pledgie.com/campaigns/6847.png?skin_name=chrome" }
+
+      / ----- body -----
+      .body
+        .warning <strong>Note:</strong> This new version of the nanoc web site is under construction. Some pages are still woefully incomplete or haven’t been updated at all yet. Feedback about the site is welcome! If you’re here to look for nanoc’s documentation, the <a href="http://nanoc.stoneship.org/">actual web site</a> may be a better place to go.
+
+        - if @item[:raw_layout]
+          = yield
+        - else
+          .article
+            .header
+              %h1= @item[:short_title] || @item[:title]
+            = yield
+
+    / ----- footer -----
+    #footer
+      %p nanoc &copy; 2007–2010 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence. We’re using the awesome <a href="http://www.theleagueofmoveabletype.com/fonts/7-league-gothic">League Gothic</a> and <a href="http://www.fonts.info/info/press/free-fonts-for-font-face-embedding.htm">Graublau</a> fonts on this web site.

@@ -82,4 +82,6 @@ end
 
 ### Layouting ################################################################
 
+layout '/default/', :haml, :format => :html5, :ugly => true
+
 layout '*', :erb
