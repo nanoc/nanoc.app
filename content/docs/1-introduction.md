@@ -16,15 +16,19 @@ nanoc is not a true content management system (CMS), as it does not manage conte
 
 Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything “special” installed at all—it just needs to be able to serve static files, which every web server can.
 
-Similar Projects
-----------------
+Design Goals
+------------
 
-There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these Ruby ones do: [Bonsai](http://tinytree.info/), [Hobix](http://github.com/hobix/hobix/), [Jekyll](http://github.com/mojombo/jekyll), [Korma](http://github.com/sandal/korma), [Middleman](http://github.com/tdreyno/middleman), [RakeWeb](http://rubyforge.org/projects/rakeweb/), [Rassmalog](http://rassmalog.rubyforge.org/), [Rog](http://rog.rubyforge.org/), [Rote](http://rote.rubyforge.org/), [RubyFrontier](http://www.apeth.com/RubyFrontierDocs/default.html), [StaticMatic](http://rubyforge.org/projects/staticmatic/), [StaticWeb](http://staticweb.rubyforge.org/), [Webby](http://webby.rubyforge.org/), [webgen](http://webgen.rubyforge.org/), [Yurt CMS](http://yurtcms.roberthahn.ca/), or [ZenWeb](http://www.zenspider.com/ZSS/Products/ZenWeb/).
+<p class="fixme">write me</p>
 
-There are some non-Ruby ones around too: [Chisel](http://github.com/dz/chisel) (Python), [Hakyll](http://jaspervdj.be/hakyll/) (Haskell), [Hyde](http://github.com/lakshmivyas/hyde) (Python), [Pagegen](http://pagegen.phnd.net/) (Bash), [Tahchee](http://www.ivy.fr/tahchee/) (Python), [Ultra simple Site Maker](http://www.loup-vaillant.fr/projects/ussm/) (Ocaml), [Website Meta Language](http://www.thewml.org/) (C and Perl).
+nanoc is suitable for all sorts of sites. It is usable for small personal weblogs, portfolios, product web sites and more.
 
-Advantages
-----------
+nanoc is not a simplistic web site publishing tool. It is aimed at being both powerful and flexible. 
+
+Why static?
+-----------
+
+Why use a static site generator instead of a powerful server-side content management system? Here are some reasons why using a server-side CMS may not be the right choice for you:
 
 ### Fast
 
@@ -56,11 +60,12 @@ The source files for a nanoc site are stored as flat text files by default. This
 
 Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](#development) section for details).
 
-### Flexible
+Similar Projects
+----------------
 
-A page in a nanoc site can have arbitrary metadata associated with it. This makes it quite easy to define custom page types. For example, you could create a blog post by setting the `kind` attribute to `article`, and then fetch all articles through `@items.select { |i| i[:kind] == 'article' }`. You can give a blog post tags, or you can give it an excerpt. Or, perhaps set `excerpt_length` and let nanoc generate the excerpt for you by taking a substring of the page content.
+There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these Ruby ones do: [Bonsai](http://tinytree.info/), [Hobix](http://github.com/hobix/hobix/), [Jekyll](http://github.com/mojombo/jekyll), [Korma](http://github.com/sandal/korma), [Middleman](http://github.com/tdreyno/middleman), [RakeWeb](http://rubyforge.org/projects/rakeweb/), [Rassmalog](http://rassmalog.rubyforge.org/), [Rog](http://rog.rubyforge.org/), [Rote](http://rote.rubyforge.org/), [RubyFrontier](http://www.apeth.com/RubyFrontierDocs/default.html), [StaticMatic](http://rubyforge.org/projects/staticmatic/), [StaticWeb](http://staticweb.rubyforge.org/), [Webby](http://webby.rubyforge.org/), [webgen](http://webgen.rubyforge.org/), [Yurt CMS](http://yurtcms.roberthahn.ca/), or [ZenWeb](http://www.zenspider.com/ZSS/Products/ZenWeb/).
 
-It is also possible to add custom code to a nanoc site. Simply create a Ruby file in the `lib` directory, put a function in there, and it’ll be available when the site gets compiled. For example, this nanoc site has a `toc_for(item)` function for automatically generating the table of contents on the manual page.
+There are some non-Ruby ones around too: [Chisel](http://github.com/dz/chisel) (Python), [Hakyll](http://jaspervdj.be/hakyll/) (Haskell), [Hyde](http://github.com/lakshmivyas/hyde) (Python), [Pagegen](http://pagegen.phnd.net/) (Bash), [Tahchee](http://www.ivy.fr/tahchee/) (Python), [Ultra simple Site Maker](http://www.loup-vaillant.fr/projects/ussm/) (Ocaml), [Website Meta Language](http://www.thewml.org/) (C and Perl).
 
 Development
 -----------
