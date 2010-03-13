@@ -161,6 +161,8 @@ title: "My Cool About Page"
 
 Recompile the site, and notice that a file `output/about/index.html` has been created. With the preview server running, open [http://localhost:3000/about/](http://localhost:3000/about/) in your browser and admire your brand new about page. Shiny!
 
+By the way, if you don’t like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the `content/about.html` page could have its metadata stored in `content/about.yaml` instead.
+
 Customizing the Layout
 ----------------------
 
