@@ -3,7 +3,7 @@
 
   %head
     %meta{ "charset" => "UTF-8" }
-    %title
+    %title= @item[:has_full_title] ? @item[:title] : "nanoc &rsaquo; #{@item[:title]}"
     %link{ :rel => "stylesheet", :href => item_named('/assets/style/screen/').path, :type => "text/css", :media => "screen" }
     %link{ :rel => "alternate", :type => "application/atom+xml", :title => "The nanoc Blog", :href => "http://feeds.feedburner.com/nanoc" }
 
