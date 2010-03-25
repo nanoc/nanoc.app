@@ -22,7 +22,7 @@ markdown: basic
 	<dd>A file containing the actual content of an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. Usually, there will also be a <a href="#glossary-meta-file">meta-file</a> containing <a href="#glossary-metadata">metadata</a> about that item or layout, although some <a href="#glossary-data-source">data sources</a> (e.g. <code>filesystem_combined</code>) merge the content file and the meta-file into a single file.</dd>
 
 	<dt id="glossary-data source">data source</dt>
-	<dd>An object that reads data from a given location and turns this data into <a href="#glossary-item">items</a>, <a href="#glossary-layout">layouts</a> and/or custom code. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.</dd>
+	<dd>An object that reads data from a given location and turns this data into <a href="#glossary-item">items</a> and/or <a href="#glossary-layout">layouts</a>. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.</dd>
 
 	<dt id="glossary-filter">filter</dt>
 	<dd>An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (<code>erb</code>, <code>haml</code>), filters that transform from text to HTML (<code>bluecloth</code>, <code>redcloth</code>), filters that "clean" HTML (<code>rubypants</code>), and more.</dd>
