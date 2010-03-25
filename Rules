@@ -6,6 +6,10 @@ Compass.configuration.parse('compass_config.rb')
 
 ### Routing ##################################################################
 
+route '/pub/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
 route '/404/' do
   '/error-404.php'
 end
@@ -25,7 +29,9 @@ route '/blog/feed_private/' do
 end
 
 route '*' do
-  if item[:is_partial] || item[:kind] == 'article'
+  if item.binary?
+    item.identifier.chop + '.' + item[:extension]
+  elsif item[:is_partial] || item[:kind] == 'article'
     # Don’t output partial items (e.g. sub-stylesheets)
     nil
   else
@@ -35,6 +41,12 @@ route '*' do
 end
 
 ### Compilation ##############################################################
+
+# Don’t compile static stuff
+compile '/assets/fonts/*/'  do ; end
+compile '/assets/images/*/' do ; end
+compile '/docs/api/*/'      do ; end
+compile '/pub/*/'           do ; end
 
 compile '/assets/style/_*/' do
   # Don’t compile partials
