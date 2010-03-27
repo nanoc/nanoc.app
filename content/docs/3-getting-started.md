@@ -9,6 +9,8 @@ toc_includes_sections: true
 Requirements
 ------------
 
+This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Installation](/docs/2-installation/) page.
+
 This tutorial requires [kramdown](http://kramdown.rubyforge.org/). Kramdown is a Ruby implementation of [Markdown](http://daringfireball.net/projects/markdown/), which allows you to write HTML in a easy-to-use plain text format. If you haven’t used Markdown before, don’t fear—it’s quite easy to use. To install kramdown, jump to your terminal and type:
 
 <pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
