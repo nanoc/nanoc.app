@@ -41,19 +41,6 @@ Now, the deploy:rsync task can be invoked using a `config` argument that corresp
 
 <pre title="Deploying with a custom configuration"><span class="prompt">%</span> <kbd>rake deploy:rsync config=staging</kbd></pre>
 
-### With a VCS (git, hg, …)
-
-<p class="fixme">Write me (someone else needs to write this because I’m not quite experienced enough with git post-push or post-commit hooks.)</p>
-
-### Deploying to a sub-site
-
-<p class="fixme">Write me</p>
-
-Using Compass
--------------
-
-<p class="fixme">Write me</p>
-
 Paginating articles
 -------------------
 
@@ -142,13 +129,6 @@ You should also ensure that the generated pagination pages are filtered using er
 end</code></pre>
 
 When you compile the site now, you should see that nanoc generates new files corresponding to the pagination pages, such as output/blog/archive/1/index.html. Mission complete!
-
-Creating tag/category pages
----------------------------
-
-Creating separate pages for each tag or category is similar to paginating articles (see the section above), but is simpler. There are two approaches of handling tag/category pages: the first involves manually creating the individual tag/category pages on the disk, and the second one involves creating them in-memory at runtime; I’ll use the second approach since it is easier to use for large amounts of different tags.
-
-<p class="fixme">Write me</p>
 
 Using filters based on file extensions
 --------------------------------------
