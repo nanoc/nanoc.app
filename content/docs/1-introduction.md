@@ -12,20 +12,22 @@ What is nanoc?
 
 nanoc is a tool for building static web sites. It can transform content from one format (e.g. Haml or Markdown) into another (usually HTML) and lay out pages so that the site’s look and feel is consistent across all pages.
 
-nanoc is not a true content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you. nanoc does have some CMS-like functionality, such as finding items that have certain attributes associated with them; for example, running a query such as “find all articles by a given author” is possible.
+nanoc is not a true content management system (CMS), as it does not manage content—*you* manage the content, and nanoc processes it for you. Some CMS-like functionality, such as finding items that have certain attributes associated with them, is present in nanoc, though; for example, running a query such as “find all articles by a given author” is possible.
 
 Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything “special” installed at all—it just needs to be able to serve static files, which every web server can.
 
-Design Goals
-------------
+Why use nanoc?
+--------------
 
-<p class="fixme">write me</p>
+nanoc is suitable for all sorts of sites. It is usable for small personal weblogs, portfolios, product web sites and more. It has been used in production for such sites. All web sites that do not need to allow user-contributed content through a web interface can can be built with nanoc.
 
-nanoc is suitable for all sorts of sites. It is usable for small personal weblogs, portfolios, product web sites and more.
+nanoc is not a simplistic web site publishing tool. It is aimed at being both powerful and flexible. While other static web site publishing tools focus on providing only a handful of features, nanoc aims to be capable of building all sorts of sites.
 
-nanoc is not a simplistic web site publishing tool. It is aimed at being both powerful and flexible. 
+Extending nanoc is easy because of its modular architecture. It comes with only a couple of extensions, thereby avoiding bloat, but allows new functionality to be plugged in quickly and easily. A well-documented API is what makes nanoc powerful and flexible.
 
-Why static?
+The target audience of nanoc is Rubyists with some level of Ruby experience. It does not hide its Ruby roots, as doing so would make it a lot less powerful. This does mean, however, that people new to Ruby will maybe not find nanoc to be the easiest static site generation tool out there.
+
+Why Static?
 -----------
 
 Why use a static site generator instead of a powerful server-side content management system? Here are some reasons why using a server-side CMS may not be the right choice for you:
