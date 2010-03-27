@@ -18,8 +18,8 @@ If your web host supports rsync, then deploying a site can be fully automated, a
 To use the deploy:rsyn task, open the config.yaml file and add a `deploy` hash. Inside, add a `default` hash, which will correspond to the default configuration to use when invoking the rake task without extra arguments. Inside the default hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded. Here’s what it will look like:
 
 <pre title="A simple deployment configuration"><code class="language-yaml">deploy:
-	default:
-		dst: "stoneship.org:/var/www/sites/example.com"</code></pre>
+  default:
+    dst: "stoneship.org:/var/www/sites/example.com"</code></pre>
 
 By default, the rake task will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. You can run the deployment task like this:
 
