@@ -4,11 +4,11 @@
 
 body
   background: #fff
-  border-top: 10px solid #a1b74a
+  border-top: 10px solid #299bf8
   font-family: "Gentium Basic", Gentium, Palatino, Georgia, serif
 
 .wrapper
-  width: 960px
+  width: 940px
   margin: 0 auto
   position: relative
 
@@ -43,11 +43,18 @@ body
     &:link,
     &:visited
       color: #fff
-      background-color: #909964
+      background-color: #1b67a5
 
     &:hover
       color: #fff
-      background-color: #6c6e3e
+      background-color: #000
+
+      position: relative
+      top: 9px
+
+    &:active
+      color: #fff
+      background-color: #299bf8
 
       position: relative
       top: 9px
@@ -62,14 +69,15 @@ body
 
 .side
   position: fixed
-  padding: 90px 0 60px 0
+
+  margin:  90px 0 0    660px
+  padding: 0 20px
+
   top:   -20px
-  width: 280px
-  margin-left: 680px
-  background: #e8f0b0 url(/assets/images/nav-bottom.png) repeat-x center bottom
+  width: 260px
 
   .section
-    padding: 20px 25px
+    padding: 20px 5px
 
   .section.odd
     background: #d5e3a0
@@ -103,13 +111,12 @@ body
 
   li
     list-style-type: none
-    background-color: #ccdd99
-    width: 280px
-    margin: 0 0 5px 0
+    width: 260px
+    margin: 0 0 10px 0
 
     a, .active
       display: block
-      padding: 2px 25px
+      padding: 0 5px
       font-family: Helvetica, Arial, sans-serif
       font-weight: bold
       font-size: 12px
@@ -119,38 +126,49 @@ body
       line-height: 18px
       white-space: nowrap
       overflow: hidden
+      background-color: #dbeffe
+      background-image: url(/assets/images/triangle-right.gif)
+      background-position: bottom right
+      background-repeat: no-repeat
 
     a
 
       &:link, &:visited
-        color: #6c6e3e
+        color: #299bf8
 
       &:hover
         color: #fff
-        background-color: #909964
+        background-color: #299bf8
+
+      &:active
+        color: #fff
+        background-color: #000
 
     .active
       color: #fff
-      background-color: #6c6e3e
+      background-color: #f89b29
 
     li
-      margin: 0
+      margin:  0
+      padding: 0
+      width: 280px
 
       a, .active
-        padding: 1px 25px
         margin: 0
-        padding-left: 35px
+        padding: 0 5px
         text-transform: none
         font-weight: normal
+        background: #fff
 
       a
 
         &:link, &:visited
-          color: #454627
+          color: #f89b29
 
         &:hover
-          color: #fff
-          background-color: #909964
+          color: #000
+          font-weight: bold
+          background: transparent
 
 .body
   padding: 40px 0
@@ -161,7 +179,7 @@ body
     text-decoration: underline
 
     &:link, &:visited
-      color: #427e00
+      color: #1b67a5
 
     &:hover
       color: #000
@@ -176,7 +194,7 @@ body
         background: none
 
       &:hover
-        color: #427e00
+        color: #299bf8
 
 #intro
   width: 640px
@@ -216,19 +234,18 @@ body
   background: #fcc
 
 .article
-  min-height: 500px
 
   .header
     margin: 20px 0 40px 0
 
   h1
     margin: 0
-    font-family: "League Gothic", Impact, sans-serif
     font-family: "Graublau Web", Helvetica, Arial, sans-serif
     font-weight: bold
     font-size: 46px
     line-height: 60px
-    color: #50522e
+    color: #299bf8
+    color: #f89b29
 
   h2
     margin: 40px 0 0 0
@@ -247,9 +264,13 @@ body
       font-size: 75%
       text-transform: uppercase
 
+  .section:target > h2
+    color: #f89b29
+
   .section:target > h2:after
     padding: 0 20px
     font-size: 34px
+    line-height: 40px
     position: relative
     top: 5px
     content: "☜"
@@ -402,7 +423,8 @@ body
 
   pre
     margin: 20px 0 0 0
-    padding: 10px  15px 10px 15px
+    padding: 10px 15px 10px 15px
+    padding: 10px
     white-space: pre-wrap
     white-space: -moz-pre-wrap
     white-space: -pre-wrap
@@ -411,18 +433,20 @@ body
     font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
     font-size: 12px
     line-height: 20px
-    background: #eee url(/assets/images/triangle-right.gif) bottom right no-repeat
+    border: 1px solid #ccc
 
     &[title]:before
-      margin: -12px -15px 8px -15px
+      margin: -12px -10px 8px -10px
       padding: 4px 15px
+      padding: 4px 10px
       display: block
       content: attr(title)
       font-family: Helvetica, Arial, sans-serif
       font-size: 13px
+      font-style: italic
       line-height: 20px
-      background: #aaa
-      color: #fff
+      border-bottom: 1px solid #ccc
+      color: #666
 
     code, kbd, samp, var
       background: transparent
@@ -432,15 +456,14 @@ body
       color: #999
 
 #footer
-  margin:  40px 0 0    0
-  padding: 40px
-  background: #eee
+  margin: 0 auto
+  padding: 100px 0 40px 0
 
   p
-    width: 640px
+    width: 620px
     padding-right: 320px
     margin: 0 auto
-    font-size: 15px
+    font-size: 14px
     line-height: 20px
     color: #666
 
@@ -448,7 +471,7 @@ body
     text-decoration: underline
 
     &:link, &:visited
-      color: #333
+      color: #666
 
     &:hover
       color: #000
