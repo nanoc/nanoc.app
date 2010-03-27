@@ -9,7 +9,29 @@ markdown:              advanced
 Writing Helpers
 ---------------
 
-…
+Helpers are modules that can be `include`d to provide additional functionality. The functions in these modules will then be callable from items and layouts. Such helpers need to be located in the `lib/` directory; often, it is a god idea to place them in `lib/helpers/`.
+
+For example, the file `lib/helpers/random_text.rb` could contain this:
+
+<pre title="Defining the RandomTextHelper helper"><code class="language-ruby">
+module RandomTextHelper
+  def random_text
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  end
+end
+</code></pre>
+
+To allow the `#random_text` method to be called, it can be `include`d. This is often done in `lib/helpers_.rb` (the underscore is necessary to ensure that the file is loaded _after_ the helpers are loaded, which is necessary because files in `lib/` are loaded in alphabetical order). For example:
+
+<pre title="Loading the RandomTextHelper helper"><code class="language-ruby">
+include RandomTextHelper
+</code></pre>
+
+Now, in an item or layout, the methods provided by this helper can be used. For example, the default layout, assuming it is filtered using ERB, can call the method like this:
+
+<pre title="Calling the random_text method after having loaded the RandomTextHelper helper"><code class="language-html">
+&lt;p>&lt;%= random_text %>&lt;/p>
+</code></pre>
 
 Writing Filters
 ---------------
