@@ -10,7 +10,7 @@
   %body
     .wrapper
 
-      / ----- navigation -----
+      / ***** navigation *****
       .nav
         %ol
           = nav_item_for('/',           :include_children => false)
@@ -18,7 +18,7 @@
           = nav_item_for('/docs/',      :include_children => false)
           = nav_item_for('/community/', :include_children => false)
 
-      / ----- sidebar -----
+      / ***** sidebar *****
       .side
 
         - if @item.identifier =~ %r[^/docs/]
@@ -61,7 +61,7 @@
               %a{ :href => "http://www.pledgie.com/campaigns/9282" }
                 %img{ :alt => "Click here to lend your support to: nanoc and make a donation at pledgie.com!", :src => "http://pledgie.com/campaigns/9282.png?skin_name=chrome" }
 
-      / ----- body -----
+      / ***** body *****
       .body
         .warning <strong>Note:</strong> This new version of the nanoc web site is under construction. Some pages are still woefully incomplete or haven’t been updated at all yet. Feedback about the site is welcome! If you’re here to look for nanoc’s documentation, the <a href="http://nanoc.stoneship.org/">actual web site</a> may be a better place to go.
 
@@ -73,6 +73,6 @@
               %h1= @item[:short_title] || @item[:title]
             = yield
 
-    / ----- footer -----
+    / ***** footer *****
     #footer
       %p nanoc &copy; 2007–2010 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence. We’re using the awesome <a href="http://www.theleagueofmoveabletype.com/fonts/7-league-gothic">League Gothic</a> and <a href="http://www.fonts.info/info/press/free-fonts-for-font-face-embedding.htm">Graublau</a> fonts on this web site.
