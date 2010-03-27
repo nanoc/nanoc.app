@@ -7,8 +7,6 @@ is_dynamic:            true
 
 ---
 
-Feel free to skip to the [Getting Started guide](/docs/3-getting-started/) if nanoc is already installed.
-
 Installing Ruby
 ---------------
 
