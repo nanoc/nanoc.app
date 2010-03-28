@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::PluginRegistry</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/plugin_registry.rb</dd>
   
@@ -87,14 +88,25 @@ filters (<tt><a href="Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter
 </div>
 <div class="tags">
   
-</div>
-
-
-  <h2>Class Method Summary</h2>
-
-  <ul class="summary">
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
     
-      <li class="public ">
+      <strong class="modules">Modules:</strong> <a href="PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">PluginMethods</a>
+    
+   
+    
+  
+</p>
+
+
+
+  
+    <h2>Class Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#instance-class_method" title="instance (class method)">+ (Nanoc3::PluginRegistry) <strong>instance</strong> </a>
@@ -109,19 +121,19 @@ filters (<tt><a href="Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter
   
 
   
-    <span class="summary_desc">Returns the shared <tt><a href="" title="Nanoc3::PluginRegistry (class)">PluginRegistry</a></tt> instance, creating it if none exists
-yet.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the shared <tt><a href="" title="Nanoc3::PluginRegistry (class)">PluginRegistry</a></tt> instance, creating it if none exists
+yet.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+    <h2>Instance Method Summary</h2>
 
-  <h2>Instance Method Summary</h2>
-
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#all-instance_method" title="#all (instance method)">- (Array&lt;Hash&gt;) <strong>all</strong> </a>
@@ -136,12 +148,12 @@ yet.</span>
   
 
   
-    <span class="summary_desc">Returns a list of all plugins.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a list of all plugins.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#find-instance_method" title="#find (instance method)">- (Class<sup>?</sup>) <strong>find</strong>(klass, name) </a>
@@ -156,13 +168,13 @@ yet.</span>
   
 
   
-    <span class="summary_desc">Finds the plugin that is a subclass of the given class and has the given
-name.</span>
+    <span class="summary_desc"><div class='inline'><p>Finds the plugin that is a subclass of the given class and has the given
+name.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (PluginRegistry) <strong>initialize</strong> </a>
@@ -179,12 +191,12 @@ name.</span>
   
 
   
-    <span class="summary_desc">Creates a new plugin registry.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new plugin registry.</p></div></span>
   
 </li>
 
-    
-      <li class="public deprecated">
+      
+        <li class="public deprecated">
   <span class="summary_signature">
     
       <a href="#named-instance_method" title="#named (instance method)">- (Object) <strong>named</strong>(name) </a>
@@ -199,12 +211,12 @@ name.</span>
   <span class="deprecated note title">Deprecated</span>
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> Use <tt><a href="#find-instance_method" title="Nanoc3::PluginRegistry#find (method)">Nanoc3::PluginRegistry#find</a></tt> instead</span>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#find-instance_method" title="Nanoc3::PluginRegistry#find (method)">Nanoc3::PluginRegistry#find</a></tt> instead</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#register-instance_method" title="#register (instance method)">- (void) <strong>register</strong>(superclass, class_or_name, *identifiers) </a>
@@ -219,12 +231,14 @@ name.</span>
   
 
   
-    <span class="summary_desc">Registers the given class as a plugin.</span>
+    <span class="summary_desc"><div class='inline'><p>Registers the given class as a plugin.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -299,7 +313,7 @@ yet.</p>
       
       
         &mdash;
-        The shared plugin registry
+        <div class='inline'><p>The shared plugin registry</p></div>
       
     </li>
   
@@ -344,8 +358,7 @@ yet.</p>
     <p>Returns a list of all plugins. The returned list of plugins is an array
 with array elements in the following format:</p>
 
-<pre class="code">{ :class =&gt; ..., :superclass =&gt; ..., :identifiers =&gt; ... }
-</pre>
+<p>  { :class => ..., :superclass => ..., :identifiers => ... }</p>
 
   </div>
 </div>
@@ -361,7 +374,7 @@ with array elements in the following format:</p>
       
       
         &mdash;
-        A list of all plugins in the format described
+        <div class='inline'><p>A list of all plugins in the format described</p></div>
       
     </li>
   
@@ -462,7 +475,7 @@ name.</p>
       
       
         &mdash;
-        The name of the plugin to return
+        <div class='inline'><p>The name of the plugin to return</p></div>
       
     </li>
   
@@ -478,7 +491,7 @@ name.</p>
       
       
         &mdash;
-        The plugin with the given name
+        <div class='inline'><p>The plugin with the given name</p></div>
       
     </li>
   
@@ -536,7 +549,7 @@ name.</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p class="note deprecated"><strong>Deprecated.</strong> Use <tt><a href="#find-instance_method" title="Nanoc3::PluginRegistry#find (method)">Nanoc3::PluginRegistry#find</a></tt> instead</p>
+    <p class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#find-instance_method" title="Nanoc3::PluginRegistry#find (method)">Nanoc3::PluginRegistry#find</a></tt> instead</p></div></p>
 
 
   </div>
@@ -591,7 +604,8 @@ name.</p>
       
       
         &mdash;
-        The superclass of the plugin. For example: <tt><a href="Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></tt>, <tt><a href="Extra/VCS.html" title="Nanoc3::Extra::VCS (class)">Nanoc3::Extra::VCS</a></tt>.
+        <div class='inline'><p>The superclass of the plugin. For example:
+<tt><a href="Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></tt>, <tt><a href="Extra/VCS.html" title="Nanoc3::Extra::VCS (class)">Nanoc3::Extra::VCS</a></tt>.</p></div>
       
     </li>
   
@@ -605,7 +619,10 @@ name.</p>
       
       
         &mdash;
-        The class to register. This can be a string, in which case it will be automatically converted to a proper class at lookup. For example: <code>Nanoc3::Filters::ERB</code>, <code>"Nanoc3::Filters::Haml"</code>.
+        <div class='inline'><p>The class to register. This can be
+a string, in which case it will be automatically converted to a proper
+class at lookup. For example: <code>Nanoc3::Filters::ERB</code>,
+<code>"Nanoc3::Filters::Haml"</code>.</p></div>
       
     </li>
   
@@ -619,7 +636,8 @@ name.</p>
       
       
         &mdash;
-        One or more symbols identifying the class. For example: <code>:haml</code>, :<code>erb</code>.
+        <div class='inline'><p>One or more symbols identifying the class.
+For example: <code>:haml</code>, :<code>erb</code>.</p></div>
       
     </li>
   
@@ -659,9 +677,9 @@ name.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:33 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Rule</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/rule.rb</dd>
   
@@ -108,7 +109,8 @@
   
 
   
-    <span class="summary_desc">The regex that determines which items this rule can be applied to.</span>
+    <span class="summary_desc"><div class='inline'><p>The regex that determines which items this rule can be
+applied to.</p></div></span>
   
 </li>
 
@@ -131,7 +133,8 @@
   
 
   
-    <span class="summary_desc">The name of the representation that will be compiled using this rule.</span>
+    <span class="summary_desc"><div class='inline'><p>The name of the representation that will be compiled
+using this rule.</p></div></span>
   
 </li>
 
@@ -139,11 +142,12 @@
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#applicable_to%3F-instance_method" title="#applicable_to? (instance method)">- (Boolean) <strong>applicable_to?</strong>(item) </a>
@@ -158,12 +162,13 @@
   
 
   
-    <span class="summary_desc">True if this rule can be applied to the given item rep, false otherwise.</span>
+    <span class="summary_desc"><div class='inline'><p>True if this rule can be applied to the given item
+rep, false otherwise.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#apply_to-instance_method" title="#apply_to (instance method)">- (void) <strong>apply_to</strong>(rep) </a>
@@ -178,12 +183,12 @@
   
 
   
-    <span class="summary_desc">Applies this rule to the given item rep.</span>
+    <span class="summary_desc"><div class='inline'><p>Applies this rule to the given item rep.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Rule) <strong>initialize</strong>(identifier_regex, rep_name, block) </a>
@@ -200,13 +205,15 @@
   
 
   
-    <span class="summary_desc">Creates a new item compilation rule with the given identifier regex,
-compiler and block.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new item compilation rule with the given identifier regex,
+compiler and block.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -239,7 +246,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        A regular expression that will be used to determine whether this rule is applicable to certain items.
+        <div class='inline'><p>A regular expression that will be used
+to determine whether this rule is applicable to certain items.</p></div>
       
     </li>
   
@@ -253,7 +261,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        The name of the item representation where this rule can be applied to
+        <div class='inline'><p>The name of the item representation
+where this rule can be applied to</p></div>
       
     </li>
   
@@ -267,7 +276,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        A block that will be called when matching items are compiled
+        <div class='inline'><p>A block that will be called when matching items are
+compiled</p></div>
       
     </li>
   
@@ -317,7 +327,9 @@ item rep as its argument.</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The regex that determines which items this rule can be applied to. This rule can be applied to items with a identifier matching this regex.</p>
+    <p>The regex that determines which items this rule can be
+applied to. This rule can be applied to items with a identifier matching
+this regex.</p>
 
   </div>
 </div>
@@ -333,7 +345,9 @@ item rep as its argument.</p>
       
       
         &mdash;
-        The regex that determines which items this rule can be applied to. This rule can be applied to items with a identifier matching this regex.
+        <div class='inline'><p>The regex that determines which items this rule can be
+applied to. This rule can be applied to items with a identifier matching
+this regex.</p></div>
       
     </li>
   
@@ -372,7 +386,8 @@ item rep as its argument.</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The name of the representation that will be compiled using this rule</p>
+    <p>The name of the representation that will be compiled
+using this rule</p>
 
   </div>
 </div>
@@ -388,7 +403,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        The name of the representation that will be compiled using this rule
+        <div class='inline'><p>The name of the representation that will be compiled
+using this rule</p></div>
       
     </li>
   
@@ -431,7 +447,8 @@ item rep as its argument.</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>True if this rule can be applied to the given item rep, false otherwise</p>
+    <p>True if this rule can be applied to the given item
+rep, false otherwise</p>
 
   </div>
 </div>
@@ -449,7 +466,7 @@ item rep as its argument.</p>
       
       
         &mdash;
-        The item to check
+        <div class='inline'><p>The item to check</p></div>
       
     </li>
   
@@ -465,7 +482,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        true if this rule can be applied to the given item rep, false otherwise
+        <div class='inline'><p>true if this rule can be applied to the given item
+rep, false otherwise</p></div>
       
     </li>
   
@@ -519,7 +537,8 @@ item rep as its argument.</p>
       
       
         &mdash;
-        The item representation where this rule should be applied to
+        <div class='inline'><p>The item representation where this rule
+should be applied to</p></div>
       
     </li>
   
@@ -551,9 +570,9 @@ item rep as its argument.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:26 2010 by 
+  Generated on Sun Mar 28 19:25:39 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

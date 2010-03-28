@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Extra::Deployers::Rsync</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/extra/deployers/rsync.rb</dd>
   
@@ -79,7 +80,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Nanoc3::Extra::Deployers::Rsync is a deployer that deploys a site using rsync.</p>
+    <p>A deployer that deploys a site using rsync.</p>
 
   </div>
 </div>
@@ -91,7 +92,15 @@
     <dl class="constants">
       
         <dt id="DEFAULT_OPTIONS-constant" class="">DEFAULT_OPTIONS =
-            <span class="summary_desc"></span>
+          <div class="docstring">
+  <div class="discussion">
+    <p>Default rsync options</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span>
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-glpPrtvz</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
@@ -105,11 +114,12 @@
 
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Rsync) <strong>initialize</strong> </a>
@@ -126,15 +136,15 @@
   
 
   
-    <span class="summary_desc">Creates a new deployer that uses rsync.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new deployer that uses rsync.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>(params = {}) </a>
+      <a href="#run-instance_method" title="#run (instance method)">- (void) <strong>run</strong>(params = {}) </a>
     
 
     
@@ -146,12 +156,14 @@
   
 
   
-    <span class="summary_desc">Runs the task.</span>
+    <span class="summary_desc"><div class='inline'><p>Runs the task.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -171,43 +183,46 @@ to be the current working directory).</p>
 <p>The deployment configurations are stored like this in the site's
 configuration file:</p>
 
-<pre class="code">deploy:
-  NAME:
-    options: [ OPTIONS ]
-    dst:     &quot;DST&quot;
+<p>  deploy:</p>
+
+<pre class="code">NAME:
+  options: [ OPTIONS ]
+  dst:     &quot;DST&quot;
 </pre>
 
-<p>+NAME+ is a unique name for the deployment configuration. By default,
-the deployer will use the deployment configuration named "default".</p>
+<p><code>NAME</code> is a unique name for the deployment configuration. By default,
+the deployer will use the deployment configuration named <code>"default"</code>.</p>
 
-<p>+OPTIONS+ is an array containing options to pass to the rsync
-executable. This is not required; by default, +-glpPrtvz+ and
-+--exclude+s for +.svn+, +.hg+ and +.git+ are used.</p>
+<p><code>OPTIONS</code> is an array containing options to pass to the rsync
+executable. This is not required; by default, <tt><a href="#DEFAULT_OPTIONS-constant" title="Nanoc3::Extra::Deployers::Rsync::DEFAULT_OPTIONS (constant)">DEFAULT_OPTIONS</a></tt> options
+will be used.</p>
 
-<p>+DST+ is a string containing the destination to where rsync should
-upload its data. It will likely be in +host:path+ format. For example,
-"example.com:/var/www/sites/mysite/html". It should not end with a
+<p><code>DST</code> is a string containing the destination to where rsync should
+upload its data. It will likely be in <code>host:path</code> format. For example,
+<code>"example.com:/var/www/sites/mysite/html"</code>. It should not end with a
 trailing slash.</p>
 
 <p>Example: This deployment configuration defines a "default" and a
 "staging" deployment configuration. The default options are used.</p>
 
-<pre class="code">deploy:
-  default:
-    dst: &quot;ectype:sites/stoneship/public&quot;
-  staging:
-    dst: &quot;ectype:sites/stoneship-staging/public&quot;
-    options: [ &quot;-glpPrtvz&quot; ]
+<p>  deploy:</p>
+
+<pre class="code">default:
+  dst: &quot;ectype:sites/stoneship/public&quot;
+staging:
+  dst: &quot;ectype:sites/stoneship-staging/public&quot;
+  options: [ &quot;-glpPrtvz&quot; ]
 </pre>
 
-<p>When running the deployer with the "default" resp. "staging"
+<p>When running the deployer with the <code>default</code> resp. <code>staging</code>
 configurations, the following rsync commands will be executed:</p>
 
-<pre class="code">rsync -glpPrtvz --exclude=&quot;.hg&quot; --exclude=&quot;.svn&quot;
-  --exclude=&quot;.git&quot; output ectype:sites/stoneship/public
+<p>  rsync -glpPrtvz --exclude=".hg" --exclude=".svn"</p>
 
-rsync -glpPrtvz output ectype:sites/stoneship-staging/public
+<pre class="code">--exclude=&quot;.git&quot; output ectype:sites/stoneship/public
 </pre>
+
+<p>  rsync -glpPrtvz output ectype:sites/stoneship-staging/public</p>
 
   </div>
 </div>
@@ -219,14 +234,14 @@ rsync -glpPrtvz output ectype:sites/stoneship-staging/public
       <pre class="lines">
 
 
-56
 57
 58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/deployers/rsync.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/deployers/rsync.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span>
   <span class='comment'># Get site
@@ -248,37 +263,59 @@ rsync -glpPrtvz output ectype:sites/stoneship-staging/public
       <div class="method_details first">
   <p class="signature first" id="run-instance_method">
   
-    - (<tt>Object</tt>) <strong>run</strong>(params = {}) 
+    - (<tt>void</tt>) <strong>run</strong>(params = {}) 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>Runs the task. Possible params:</p>
-
-<p>+:dry_run+:: Set to true when the action itself should not be executed,</p>
-
-<pre class="code">         but still printed. Useful for debugging.
-</pre>
-
-<p>+:config_name+:: The name of the deployment configuration to use.</p>
-
-<pre class="code">             Defaults to +:default+ (surprise!).
-</pre>
+    <p class="note returns_void">This method returns an undefined value.</p><p>Runs the task. Possible params:</p>
 
   </div>
 </div>
 <div class="tags">
   
+  
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="name">:dry_run</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>True if the action itself
+should not be executed, but still printed; false otherwise.</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="../../../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:config_name</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:default</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the
+deployment configuration to use.</p></div>
+        </tr>
+      
+    </ul>
+  
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-69
-70
-71
 72
 73
 74
@@ -301,10 +338,13 @@ rsync -glpPrtvz output ectype:sites/stoneship-staging/public
 91
 92
 93
-94</pre>
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/deployers/rsync.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/deployers/rsync.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Extract params
@@ -342,9 +382,9 @@ rsync -glpPrtvz output ectype:sites/stoneship-staging/public
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:33 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

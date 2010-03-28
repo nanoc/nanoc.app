@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::CLI::Logger</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/cli/logger.rb</dd>
   
@@ -96,7 +97,7 @@ feedback in the terminal.</p>
     <dl class="constants">
       
         <dt id="ACTION_COLORS-constant" class="">ACTION_COLORS =
-            <span class="summary_desc"></span>
+          
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='symbol'>:create</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[32m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># bold + green
@@ -133,7 +134,7 @@ feedback in the terminal.</p>
   
 
   
-    <span class="summary_desc">Whether to use color in log messages or not.</span>
+    <span class="summary_desc"><div class='inline'><p>Whether to use color in log messages or not.</p></div></span>
   
 </li>
 
@@ -156,9 +157,9 @@ feedback in the terminal.</p>
   
 
   
-    <span class="summary_desc">The log level, which can be :high, :low or :off (which will log all
+    <span class="summary_desc"><div class='inline'><p>The log level, which can be :high, :low or :off (which will log all
 messages, only high-priority messages, or no messages at all,
-respectively).</span>
+respectively).</p></div></span>
   
 </li>
 
@@ -166,11 +167,12 @@ respectively).</span>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#file-instance_method" title="#file (instance method)">- (Object) <strong>file</strong>(level, action, identifier, duration = nil) </a>
@@ -185,12 +187,12 @@ respectively).</span>
   
 
   
-    <span class="summary_desc">Logs a file-related action.</span>
+    <span class="summary_desc"><div class='inline'><p>Logs a file-related action.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Logger) <strong>initialize</strong> </a>
@@ -207,12 +209,12 @@ respectively).</span>
   
 
   
-    <span class="summary_desc">A new instance of Logger.</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Logger.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#log-instance_method" title="#log (instance method)">- (Object) <strong>log</strong>(level, s, io = $stdout) </a>
@@ -227,12 +229,14 @@ respectively).</span>
   
 
   
-    <span class="summary_desc">Logs a message.</span>
+    <span class="summary_desc"><div class='inline'><p>Logs a message.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -506,9 +510,9 @@ respectively).</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:26 2010 by 
+  Generated on Sun Mar 28 19:25:39 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

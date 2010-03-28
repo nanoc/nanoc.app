@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Tagging</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -60,6 +60,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/helpers/tagging.rb</dd>
   
@@ -80,8 +81,9 @@ should be applied to the item.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Adding tags to an item</h4>
-      <pre class="example code">  tags: [ 'foo', 'bar', 'baz' ]</pre>
+      <h4><div class='inline'><p>Adding tags to an item</p></div></h4>
+      <pre class="example code">
+tags: [ 'foo', 'bar', 'baz' ]</pre>
     
   </div>
 
@@ -92,11 +94,12 @@ should be applied to the item.</p>
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#items_with_tag-instance_method" title="#items_with_tag (instance method)">- (Array) <strong>items_with_tag</strong>(tag) </a>
@@ -111,12 +114,12 @@ should be applied to the item.</p>
   
 
   
-    <span class="summary_desc">Find all items with the given tag.</span>
+    <span class="summary_desc"><div class='inline'><p>Find all items with the given tag.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#link_for_tag-instance_method" title="#link_for_tag (instance method)">- (String) <strong>link_for_tag</strong>(tag, base_url) </a>
@@ -131,12 +134,12 @@ should be applied to the item.</p>
   
 
   
-    <span class="summary_desc">Returns a link to to the specified tag.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a link to to the specified tag.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#tags_for-instance_method" title="#tags_for (instance method)">- (String) <strong>tags_for</strong>(item, params = {}) </a>
@@ -151,13 +154,17 @@ should be applied to the item.</p>
   
 
   
-    <span class="summary_desc">Returns a formatted list of tags for the given item as a string.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a formatted list of tags for the given item as a string.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
@@ -198,7 +205,7 @@ should be applied to the item.</p>
       
       
         &mdash;
-        The tag for which to find all items
+        <div class='inline'><p>The tag for which to find all items</p></div>
       
     </li>
   
@@ -214,7 +221,7 @@ should be applied to the item.</p>
       
       
         &mdash;
-        All items with the given tag
+        <div class='inline'><p>All items with the given tag</p></div>
       
     </li>
   
@@ -226,12 +233,12 @@ should be applied to the item.</p>
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id items_with_tag'>items_with_tag</span><span class='lparen'>(</span><span class='id tag'>tag</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id i'>i</span><span class='lbracket'>[</span><span class='symbol'>:tags</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id tag'>tag</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -270,7 +277,8 @@ escaped, as will the content of the <code>a</code> element.</p>
       
       
         &mdash;
-        The name of the tag, which should consist of letters and numbers (no spaces, slashes, or other special characters).
+        <div class='inline'><p>The name of the tag, which should consist of letters
+and numbers (no spaces, slashes, or other special characters).</p></div>
       
     </li>
   
@@ -284,7 +292,8 @@ escaped, as will the content of the <code>a</code> element.</p>
       
       
         &mdash;
-        The URL to which the tag will be appended to construct the link URL. This URL must have a trailing slash.
+        <div class='inline'><p>The URL to which the tag will be appended to
+construct the link URL. This URL must have a trailing slash.</p></div>
       
     </li>
   
@@ -300,7 +309,7 @@ escaped, as will the content of the <code>a</code> element.</p>
       
       
         &mdash;
-        A link for the given tag and the given base URL
+        <div class='inline'><p>A link for the given tag and the given base URL</p></div>
       
     </li>
   
@@ -312,12 +321,12 @@ escaped, as will the content of the <code>a</code> element.</p>
       <pre class="lines">
 
 
-64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id link_for_tag'>link_for_tag</span><span class='lparen'>(</span><span class='id tag'>tag</span><span class='comma'>,</span> <span class='id base_url'>base_url</span><span class='rparen'>)</span>
   <span class='tstring'><span class='tstring_beg'>%[</span><span class='tstring_content'>&lt;a href=&quot;</span><span class='embexpr_beg'>#{</span><span class='id h'>h</span> <span class='id base_url'>base_url</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id h'>h</span> <span class='id tag'>tag</span><span class='rbrace'>}</span><span class='tstring_content'>&quot; rel=&quot;tag&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id h'>h</span> <span class='id tag'>tag</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/a&gt;</span><span class='tstring_end'>]</span></span>
@@ -361,7 +370,9 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
               <tt>&quot;http://technorati.com/tag/&quot;</tt>
             
           </span>
-          &mdash;The URL to which the tag will be appended to construct the link URL. This URL must have a trailing slash.
+          &mdash;<div class='inline'><p>The URL
+to which the tag will be appended to construct the link URL. This URL
+must have a trailing slash.</p></div>
         </tr>
       
         <li>
@@ -373,7 +384,8 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
               <tt>&quot;(none)&quot;</tt>
             
           </span>
-          &mdash;The text to display when the item has no tags
+          &mdash;<div class='inline'><p>The text to display when
+the item has no tags</p></div>
         </tr>
       
         <li>
@@ -385,7 +397,8 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
               <tt>&quot;</tt>, <tt>&quot;</tt>
             
           </span>
-          &mdash;The separator to put between tags
+          &mdash;<div class='inline'><p>The separator to put between
+tags</p></div>
         </tr>
       
     </ul>
@@ -401,7 +414,7 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
       
       
         &mdash;
-        A hyperlinked list of tags for the given item
+        <div class='inline'><p>A hyperlinked list of tags for the given item</p></div>
       
     </li>
   
@@ -413,7 +426,6 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
       <pre class="lines">
 
 
-32
 33
 34
 35
@@ -423,10 +435,11 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
 39
 40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id tags_for'>tags_for</span><span class='lparen'>(</span><span class='id item'>item</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id base_url'>base_url</span>  <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span>  <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://technorati.com/tag/</span><span class='tstring_end'>'</span></span>
@@ -449,9 +462,9 @@ HTML-escaping rules for <tt><a href="#link_for_tag-instance_method" title="Nanoc
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:29 2010 by 
+  Generated on Sun Mar 28 19:25:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

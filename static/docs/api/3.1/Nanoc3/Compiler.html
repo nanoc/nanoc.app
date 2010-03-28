@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Compiler</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/compiler.rb</dd>
   
@@ -108,7 +109,7 @@
   
 
   
-    <span class="summary_desc">The list of compilation rules that will be used to compile items.</span>
+    <span class="summary_desc"><div class='inline'><p>The list of compilation rules that will be used to compile items.</p></div></span>
   
 </li>
 
@@ -131,7 +132,7 @@
   
 
   
-    <span class="summary_desc">The list of routing rules that will be used to give all items a path.</span>
+    <span class="summary_desc"><div class='inline'><p>The list of routing rules that will be used to give all items a path.</p></div></span>
   
 </li>
 
@@ -154,7 +155,7 @@
   
 
   
-    <span class="summary_desc">The hash containing layout-to-filter mapping rules.</span>
+    <span class="summary_desc"><div class='inline'><p>The hash containing layout-to-filter mapping rules.</p></div></span>
   
 </li>
 
@@ -177,7 +178,7 @@
   
 
   
-    <span class="summary_desc">The compilation stack.</span>
+    <span class="summary_desc"><div class='inline'><p>The compilation stack.</p></div></span>
   
 </li>
 
@@ -185,11 +186,12 @@
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#compilation_rule_for-instance_method" title="#compilation_rule_for (instance method)">- (Nanoc3::Rule<sup>?</sup>) <strong>compilation_rule_for</strong>(rep) </a>
@@ -204,13 +206,13 @@
   
 
   
-    <span class="summary_desc">Finds the first matching compilation rule for the given item
-representation.</span>
+    <span class="summary_desc"><div class='inline'><p>Finds the first matching compilation rule for the given item
+representation.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#filter_for_layout-instance_method" title="#filter_for_layout (instance method)">- (Array<sup>?</sup>) <strong>filter_for_layout</strong>(layout) </a>
@@ -225,12 +227,12 @@ representation.</span>
   
 
   
-    <span class="summary_desc">Finds the filter name and arguments to use for the given layout.</span>
+    <span class="summary_desc"><div class='inline'><p>Finds the filter name and arguments to use for the given layout.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Compiler) <strong>initialize</strong>(site) </a>
@@ -247,12 +249,12 @@ representation.</span>
   
 
   
-    <span class="summary_desc">Creates a new compiler fo the given site.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new compiler fo the given site.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#routing_rule_for-instance_method" title="#routing_rule_for (instance method)">- (Nanoc3::Rule<sup>?</sup>) <strong>routing_rule_for</strong>(rep) </a>
@@ -267,12 +269,12 @@ representation.</span>
   
 
   
-    <span class="summary_desc">Finds the first matching routing rule for the given item representation.</span>
+    <span class="summary_desc"><div class='inline'><p>Finds the first matching routing rule for the given item representation.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#run-instance_method" title="#run (instance method)">- (void) <strong>run</strong>(item = nil, params = {}) </a>
@@ -287,13 +289,15 @@ representation.</span>
   
 
   
-    <span class="summary_desc">Compiles (part of) the site and writes out the compiled item
-representations.</span>
+    <span class="summary_desc"><div class='inline'><p>Compiles (part of) the site and writes out the compiled item
+representations.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -324,7 +328,7 @@ representations.</span>
       
       
         &mdash;
-        The site this compiler belongs to
+        <div class='inline'><p>The site this compiler belongs to</p></div>
       
     </li>
   
@@ -397,7 +401,7 @@ array will be filled by <tt><a href="Site.html#load_data-instance_method" title=
       
       
         &mdash;
-        The list of item compilation rules
+        <div class='inline'><p>The list of item compilation rules</p></div>
       
     </li>
   
@@ -453,7 +457,7 @@ This array will be filled by <tt><a href="Site.html#load_data-instance_method" t
       
       
         &mdash;
-        The list of item routing rules
+        <div class='inline'><p>The list of item routing rules</p></div>
       
     </li>
   
@@ -509,7 +513,7 @@ ordered: iterating over the hash will happen in insertion order.</p>
       
       
         &mdash;
-        The layout-to-filter mapping rules
+        <div class='inline'><p>The layout-to-filter mapping rules</p></div>
       
     </li>
   
@@ -566,7 +570,7 @@ rep or layout, it will be removed from the stack.</p>
       
       
         &mdash;
-        The compilation stack
+        <div class='inline'><p>The compilation stack</p></div>
       
     </li>
   
@@ -628,7 +632,7 @@ representation.</p>
       
       
         &mdash;
-        The item rep for which to fetch the rule
+        <div class='inline'><p>The item rep for which to fetch the rule</p></div>
       
     </li>
   
@@ -644,7 +648,8 @@ representation.</p>
       
       
         &mdash;
-        The compilation rule for the given item rep, or nil if no rules have been found
+        <div class='inline'><p>The compilation rule for the given item rep,
+or nil if no rules have been found</p></div>
       
     </li>
   
@@ -656,14 +661,14 @@ representation.</p>
       <pre class="lines">
 
 
-97
-98
 99
 100
-101</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id compilation_rule_for'>compilation_rule_for</span><span class='lparen'>(</span><span class='id rep'>rep</span><span class='rparen'>)</span>
   <span class='ivar'>@item_compilation_rules</span><span class='period'>.</span><span class='id find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rule'>rule</span><span class='op'>|</span>
@@ -702,7 +707,7 @@ representation.</p>
       
       
         &mdash;
-        The layout for which to fetch the filter.
+        <div class='inline'><p>The layout for which to fetch the filter.</p></div>
       
     </li>
   
@@ -718,7 +723,8 @@ representation.</p>
       
       
         &mdash;
-        A tuple containing the filter name and the filter  arguments for the given layout.
+        <div class='inline'><p>A tuple containing the filter name and the filter
+arguments for the given layout.</p></div>
       
     </li>
   
@@ -730,15 +736,15 @@ representation.</p>
       <pre class="lines">
 
 
-121
-122
 123
 124
 125
-126</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id filter_for_layout'>filter_for_layout</span><span class='lparen'>(</span><span class='id layout'>layout</span><span class='rparen'>)</span>
   <span class='ivar'>@layout_filter_mapping</span><span class='period'>.</span><span class='id each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id filter_name_and_args'>filter_name_and_args</span><span class='op'>|</span>
@@ -778,7 +784,7 @@ representation.</p>
       
       
         &mdash;
-        The item rep for which to fetch the rule
+        <div class='inline'><p>The item rep for which to fetch the rule</p></div>
       
     </li>
   
@@ -794,7 +800,8 @@ representation.</p>
       
       
         &mdash;
-        The routing rule for the given item rep, or nil if no rules have been found
+        <div class='inline'><p>The routing rule for the given item rep, or
+nil if no rules have been found</p></div>
       
     </li>
   
@@ -806,14 +813,14 @@ representation.</p>
       <pre class="lines">
 
 
-109
-110
 111
 112
-113</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id routing_rule_for'>routing_rule_for</span><span class='lparen'>(</span><span class='id rep'>rep</span><span class='rparen'>)</span>
   <span class='ivar'>@item_routing_rules</span><span class='period'>.</span><span class='id find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rule'>rule</span><span class='op'>|</span>
@@ -855,7 +862,8 @@ representations.</p>
       
       
         &mdash;
-        The item that should be compiled, along with its dependencies. Pass <code>nil</code> if the entire site should be compiled.
+        <div class='inline'><p>The item that should be compiled, along with
+its dependencies. Pass <code>nil</code> if the entire site should be compiled.</p></div>
       
     </li>
   
@@ -878,7 +886,8 @@ representations.</p>
               <tt>false</tt>
             
           </span>
-          &mdash;true if the rep should be compiled even if it is not outdated, false if not
+          &mdash;<div class='inline'><p>true if the rep should be
+compiled even if it is not outdated, false if not</p></div>
         </tr>
       
     </ul>
@@ -922,7 +931,9 @@ representations.</p>
 85
 86
 87
-88</pre>
+88
+89
+90</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 56</span>
@@ -933,7 +944,6 @@ representations.</p>
 
   <span class='comment'># Load dependencies
 </span>  <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id load_graph'>load_graph</span>
-  <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id print_graph'>print_graph</span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
 
   <span class='comment'># Get items and reps to compile
 </span>  <span class='kw'>if</span> <span class='id item'>item</span>
@@ -948,7 +958,7 @@ representations.</p>
 </span>  <span class='kw'>if</span> <span class='id params'>params</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:force</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:force</span><span class='rbracket'>]</span>
     <span class='id reps'>reps</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id force_outdated'>force_outdated</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
   <span class='kw'>else</span>
-    <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id mark_outdated_items'>mark_outdated_items</span>
+    <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id propagate_outdatedness'>propagate_outdatedness</span>
   <span class='kw'>end</span>
   <span class='id forget_dependencies_if_outdated'>forget_dependencies_if_outdated</span><span class='lparen'>(</span><span class='id items'>items</span><span class='rparen'>)</span>
 
@@ -956,6 +966,9 @@ representations.</p>
 </span>  <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id start'>start</span>
   <span class='id compile_reps'>compile_reps</span><span class='lparen'>(</span><span class='id reps'>reps</span><span class='rparen'>)</span>
   <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id stop'>stop</span>
+
+  <span class='comment'># Cleanup
+</span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Filter</span><span class='op'>::</span><span class='const'>TMP_BINARY_ITEMS_DIR</span><span class='rparen'>)</span>
 
   <span class='comment'># Store dependencies
 </span>  <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id store_graph'>store_graph</span>
@@ -970,9 +983,9 @@ representations.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:28 2010 by 
+  Generated on Sun Mar 28 19:25:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

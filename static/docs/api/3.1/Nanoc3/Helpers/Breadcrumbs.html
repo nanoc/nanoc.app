@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Breadcrumbs</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -56,6 +56,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/helpers/breadcrumbs.rb</dd>
   
@@ -74,11 +75,32 @@ page hierarchy.</p>
 </div>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-      <li class="public ">
+      <a href="#breadcrumbs_for_identifier-instance_method" title="#breadcrumbs_for_identifier (instance method)">- (Object) <strong>breadcrumbs_for_identifier</strong>(identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#breadcrumbs_trail-instance_method" title="#breadcrumbs_trail (instance method)">- (Array) <strong>breadcrumbs_trail</strong> </a>
@@ -93,13 +115,35 @@ page hierarchy.</p>
   
 
   
-    <span class="summary_desc">Creates a breadcrumb trail leading from the current item to its parent,
-to its parent’s parent, etc, until the root item is reached.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a breadcrumb trail leading from the current item to its parent,
+to its parent’s parent, etc, until the root item is reached.</p></div></span>
   
 </li>
 
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-  </ul>
+      <a href="#item_with_identifier-instance_method" title="#item_with_identifier (instance method)">- (Object) <strong>item_with_identifier</strong>(identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -107,7 +151,47 @@ to its parent’s parent, etc, until the root item is reached.</span>
     
     
       <div class="method_details first">
-  <p class="signature first" id="breadcrumbs_trail-instance_method">
+  <p class="signature first" id="breadcrumbs_for_identifier-instance_method">
+  
+    - (<tt>Object</tt>) <strong>breadcrumbs_for_identifier</strong>(identifier) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/breadcrumbs.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='ivar'>@breadcrumbs_cache</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@breadcrumbs_cache</span><span class='lbracket'>[</span><span class='id identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='id head'>head</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='op'>:</span>  <span class='id breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^\/]+\/$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+    <span class='id tail'>tail</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id item_with_identifier'>item_with_identifier</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='rparen'>)</span> <span class='rbracket'>]</span>
+
+    <span class='id head'>head</span> <span class='op'>+</span> <span class='id tail'>tail</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="breadcrumbs_trail-instance_method">
   
     - (<tt><a href="../../Array.html" title="Array (class)">Array</a></tt>) <strong>breadcrumbs_trail</strong> 
   
@@ -135,7 +219,8 @@ will contain a <code>nil</code> element.</p>
       
       
         &mdash;
-        The breadcrumbs, starting with the root item and ending with the item itself
+        <div class='inline'><p>The breadcrumbs, starting with the root item and ending
+with the item itself</p></div>
       
     </li>
   
@@ -149,33 +234,47 @@ will contain a <code>nil</code> element.</p>
 
 17
 18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre>
+19</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/breadcrumbs.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id breadcrumbs_trail'>breadcrumbs_trail</span>
-  <span class='id trail'>trail</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id current_identifier'>current_identifier</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier'>identifier</span>
+  <span class='id breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="item_with_identifier-instance_method">
+  
+    - (<tt>Object</tt>) <strong>item_with_identifier</strong>(identifier) 
+  
 
-  <span class='id loop'>loop</span> <span class='kw'>do</span>
-    <span class='id item'>item</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='id current_identifier'>current_identifier</span> <span class='rbrace'>}</span>
-    <span class='id trail'>trail</span><span class='period'>.</span><span class='id unshift'>unshift</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span>
-    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id current_identifier'>current_identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span>
-    <span class='id current_identifier'>current_identifier</span> <span class='op'>=</span> <span class='id current_identifier'>current_identifier</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^\/]+\/$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/breadcrumbs.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id item_with_identifier'>item_with_identifier</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='ivar'>@identifier_cache</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@identifier_cache</span><span class='lbracket'>[</span><span class='id identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier'>identifier</span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
-
-  <span class='id trail'>trail</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -187,9 +286,9 @@ will contain a <code>nil</code> element.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:33 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

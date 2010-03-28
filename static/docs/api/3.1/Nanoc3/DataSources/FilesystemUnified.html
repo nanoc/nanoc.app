@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::DataSources::FilesystemUnified</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -77,6 +77,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/data_sources/filesystem_unified.rb</dd>
   
@@ -97,11 +98,13 @@ found, metadata is read from that file. Alternatively, the content file
 itself can start with a metadata section: it can be stored at the top of
 the file, between <code>---</code> (three dashes) separators. For example:</p>
 
-<pre class="code">---
-title: &quot;Moo!&quot;
----
-h1. Hello!
-</pre>
+<hr />
+
+<p>  title: "Moo!"</p>
+
+<hr />
+
+<p>  h1. Hello!</p>
 
 <p>The metadata section can be omitted. If the file does not start with
 three or five dashes, the entire file will be considered as content.</p>
@@ -110,8 +113,7 @@ three or five dashes, the entire file will be considered as content.</p>
 an <code>index.*</code> filename, such as <code>index.txt</code>, will have the filesystem path
 with the <code>index.*</code> part stripped as a identifier. For example:</p>
 
-<pre class="code">foo/bar/index.html → /foo/bar/
-</pre>
+<p>  foo/bar/index.html → /foo/bar/</p>
 
 <p>In other cases, the identifier is calculated by stripping the extension.
 If the <code>allow_periods_in_identifiers</code> attribute in the configuration is
@@ -119,26 +121,24 @@ true, only the last extension will be stripped if the file has multiple
 extensions; if it is false or unset, all extensions will be stripped.
 For example:</p>
 
-<pre class="code">(`allow_periods_in_identifiers` set to true)
-foo.entry.html → /foo.entry/
+<p>  (<code>allow_periods_in_identifiers</code> set to true)
+  foo.entry.html → /foo.entry/</p>
 
-(`allow_periods_in_identifiers` set to false)
-foo.html.erb → /foo/
-</pre>
+<p>  (<code>allow_periods_in_identifiers</code> set to false)
+  foo.html.erb → /foo/</p>
 
 <p>Note that it is possible for two different, separate files to have the
 same identifier. It is recommended to avoid such situations.</p>
 
 <p>Some more examples:</p>
 
-<pre class="code">content/index.html          → /
-content/foo.html            → /foo/
-content/foo/index.html      → /foo/
-content/foo/bar.html        → /foo/bar/
-content/foo/bar.baz.html    → /foo/bar/ OR /foo/bar.baz/
-content/foo/bar/index.html  → /foo/bar/
-content/foo.bar/index.html  → /foo.bar/
-</pre>
+<p>  content/index.html          → /
+  content/foo.html            → /foo/
+  content/foo/index.html      → /foo/
+  content/foo/bar.html        → /foo/bar/
+  content/foo/bar.baz.html    → /foo/bar/ OR /foo/bar.baz/
+  content/foo/bar/index.html  → /foo/bar/
+  content/foo.bar/index.html  → /foo.bar/</p>
 
 <p>The file extension does not determine the filters to run on items; the
 Rules file is used to specify processing instructors for each item.</p>
@@ -157,11 +157,18 @@ Rules file is used to specify processing instructors for each item.</p>
   
   
   
+  
+  
+  
+  
+
 
   
   
   
   
+  
+  <h2>Method Summary</h2>
   
   <h3 class="inherited">Methods included from <a href="Filesystem.html" title="Nanoc3::DataSources::Filesystem (module)">Filesystem</a></h3>
   <p class="inherited"><a href="Filesystem.html#create_item-instance_method" title="Nanoc3::DataSources::Filesystem#create_item (method)">#create_item</a>, <a href="Filesystem.html#create_layout-instance_method" title="Nanoc3::DataSources::Filesystem#create_layout (method)">#create_layout</a>, <a href="Filesystem.html#down-instance_method" title="Nanoc3::DataSources::Filesystem#down (method)">#down</a>, <a href="Filesystem.html#items-instance_method" title="Nanoc3::DataSources::Filesystem#items (method)">#items</a>, <a href="Filesystem.html#layouts-instance_method" title="Nanoc3::DataSources::Filesystem#layouts (method)">#layouts</a>, <a href="Filesystem.html#setup-instance_method" title="Nanoc3::DataSources::Filesystem#setup (method)">#setup</a>, <a href="Filesystem.html#up-instance_method" title="Nanoc3::DataSources::Filesystem#up (method)">#up</a></p>
@@ -171,8 +178,20 @@ Rules file is used to specify processing instructors for each item.</p>
   
   
   
+  
+  
   <h3 class="inherited">Methods inherited from <a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></h3>
   <p class="inherited"><a href="../DataSource.html#create_item-instance_method" title="Nanoc3::DataSource#create_item (method)">#create_item</a>, <a href="../DataSource.html#create_layout-instance_method" title="Nanoc3::DataSource#create_layout (method)">#create_layout</a>, <a href="../DataSource.html#down-instance_method" title="Nanoc3::DataSource#down (method)">#down</a>, <a href="../DataSource.html#initialize-instance_method" title="Nanoc3::DataSource#initialize (method)">#initialize</a>, <a href="../DataSource.html#items-instance_method" title="Nanoc3::DataSource#items (method)">#items</a>, <a href="../DataSource.html#layouts-instance_method" title="Nanoc3::DataSource#layouts (method)">#layouts</a>, <a href="../DataSource.html#loading-instance_method" title="Nanoc3::DataSource#loading (method)">#loading</a>, <a href="../DataSource.html#setup-instance_method" title="Nanoc3::DataSource#setup (method)">#setup</a>, <a href="../DataSource.html#unuse-instance_method" title="Nanoc3::DataSource#unuse (method)">#unuse</a>, <a href="../DataSource.html#up-instance_method" title="Nanoc3::DataSource#up (method)">#up</a>, <a href="../DataSource.html#update-instance_method" title="Nanoc3::DataSource#update (method)">#update</a>, <a href="../DataSource.html#use-instance_method" title="Nanoc3::DataSource#use (method)">#use</a></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="../PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">Nanoc3::PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="../PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">#identifier</a>, <a href="../PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">#identifiers</a>, <a href="../PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">#named</a>, <a href="../PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">#register</a></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -184,9 +203,9 @@ Rules file is used to specify processing instructors for each item.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:35 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

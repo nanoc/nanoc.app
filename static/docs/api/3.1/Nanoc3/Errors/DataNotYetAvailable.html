@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Exception: Nanoc3::Errors::DataNotYetAvailable</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/errors.rb</dd>
   
@@ -98,11 +99,12 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (DataNotYetAvailable) <strong>initialize</strong>(type, plural) </a>
@@ -119,12 +121,14 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
   
 
   
-    <span class="summary_desc">A new instance of DataNotYetAvailable.</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of DataNotYetAvailable.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
   
   
@@ -161,7 +165,8 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
       
       
         &mdash;
-        The name of the data type that is not yet available. For example: <code>"site"</code>, <code>"items"</code>.
+        <div class='inline'><p>The name of the data type that is not yet
+available. For example: <code>"site"</code>, <code>"items"</code>.</p></div>
       
     </li>
   
@@ -175,7 +180,10 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
       
       
         &mdash;
-        True if the given type is plural, false otherwise. This only has an effect on the exception message. For example, if the given type is <code>"site"</code>, plural would be <code>false</code>; if the given type is <code>"items"</code>, plural would be <code>true</code>.
+        <div class='inline'><p>True if the given type is plural, false
+otherwise. This only has an effect on the exception message. For
+example, if the given type is <code>"site"</code>, plural would be <code>false</code>; if
+the given type is <code>"items"</code>, plural would be <code>true</code>.</p></div>
       
     </li>
   
@@ -195,7 +203,7 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
       <pre class="code"><span class="info file"># File 'lib/nanoc3/base/errors.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id type'>type</span><span class='comma'>,</span> <span class='id plural'>plural</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id plural'>plural</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>are</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>is</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'> not available yet. You may be missing a Nanoc3::Site#load_data call.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id type'>type</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id plural'>plural</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>are</span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>is</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_content'> not available yet. You may be missing a Nanoc3::Site#load_data call.</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id make_compatible_with_env'>make_compatible_with_env</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -208,9 +216,9 @@ available (possibly due to a missing <tt><a href="../Site.html#load_data-instanc
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:27 2010 by 
+  Generated on Sun Mar 28 19:25:39 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

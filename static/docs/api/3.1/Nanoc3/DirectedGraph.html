@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::DirectedGraph</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/directed_graph.rb</dd>
   
@@ -79,10 +80,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Nanoc3::DirectedGraph represents a directed graph. It is used by the
-dependency tracker for storing and querying dependencies between items.
-Internally, the graph will be stored as an adjacency matrix. For this,
-the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::DirectedGraph::SquareBooleanMatrix (class)">Nanoc3::DirectedGraph::SquareBooleanMatrix</a></tt> class is used.</p>
+    <p>Represents a directed graph. It is used by the dependency tracker for
+storing and querying dependencies between items.</p>
 
   </div>
 </div>
@@ -91,30 +90,30 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Creating and using a directed graph</h4>
+      <h4><div class='inline'><p>Creating and using a directed graph</p></div></h4>
       <pre class="example code">
-  <span class='comment'># Create a graph with three vertices
-</span>  <span class='id graph'>graph</span> <span class='op'>=</span> <span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w( </span><span class='tstring_content'>a</span><span class='words_sep'> </span><span class='tstring_content'>b</span><span class='words_sep'> </span><span class='tstring_content'>c</span><span class='words_sep'> </span><span class='tstring_content'>d</span><span class='words_sep'> )</span><span class='rparen'>)</span>
+<span class='comment'># Create a graph with three vertices
+</span><span class='id graph'>graph</span> <span class='op'>=</span> <span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w( </span><span class='tstring_content'>a</span><span class='words_sep'> </span><span class='tstring_content'>b</span><span class='words_sep'> </span><span class='tstring_content'>c</span><span class='words_sep'> </span><span class='tstring_content'>d</span><span class='words_sep'> )</span><span class='rparen'>)</span>
 
-  <span class='comment'># Add edges
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># Add edges
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='id graph'>graph</span><span class='period'>.</span><span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>c</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 
-  <span class='comment'># Get (direct) predecessors
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
-    <span class='comment'># =&gt; %w( c )
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
-    <span class='comment'># =&gt; %w( a b c )
+<span class='comment'># Get (direct) predecessors
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='comment'># =&gt; %w( c )
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='comment'># =&gt; %w( a b c )
 </span>
-  <span class='comment'># Modify edges
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># Modify edges
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>a</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>b</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 
-  <span class='comment'># Get (direct) predecessors again
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
-    <span class='comment'># =&gt; %w( c )
-</span>  <span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
-    <span class='comment'># =&gt; %w( b c )</span></pre>
+<span class='comment'># Get (direct) predecessors again
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='comment'># =&gt; %w( c )
+</span><span class='id graph'>graph</span><span class='period'>.</span><span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort'>sort</span>
+  <span class='comment'># =&gt; %w( b c )</span></pre>
     
   </div>
 
@@ -141,7 +140,7 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">The list of vertices in this graph.</span>
+    <span class="summary_desc"><div class='inline'><p>The list of vertices in this graph.</p></div></span>
   
 </li>
 
@@ -149,11 +148,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#add_edge-instance_method" title="#add_edge (instance method)">- (void) <strong>add_edge</strong>(from, to) </a>
@@ -168,12 +168,32 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Adds an edge from the first vertex to the second vertex.</span>
+    <span class="summary_desc"><div class='inline'><p>Adds an edge from the first vertex to the second vertex.</p></div></span>
   
 </li>
 
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-      <li class="public ">
+      <a href="#delete_edges_to-instance_method" title="#delete_edges_to (instance method)">- (void) <strong>delete_edges_to</strong>(to) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Deletes all edges going to the given vertex.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#direct_predecessors_of-instance_method" title="#direct_predecessors_of (instance method)">- (Array) <strong>direct_predecessors_of</strong>(to) </a>
@@ -188,12 +208,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Returns the direct predecessors of the given vertex, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the direct predecessors of the given vertex, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#direct_successors_of-instance_method" title="#direct_successors_of (instance method)">- (Array) <strong>direct_successors_of</strong>(from) </a>
@@ -208,12 +228,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Returns the direct successors of the given vertex, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the direct successors of the given vertex, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#edges-instance_method" title="#edges (instance method)">- (Array) <strong>edges</strong> </a>
@@ -228,12 +248,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Returns an array of tuples representing the edges.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns an array of tuples representing the edges.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (DirectedGraph) <strong>initialize</strong>(vertices) </a>
@@ -250,12 +270,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Creates a new directed graph with the given vertices.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new directed graph with the given vertices.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#predecessors_of-instance_method" title="#predecessors_of (instance method)">- (Array) <strong>predecessors_of</strong>(to) </a>
@@ -270,12 +290,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Returns the predecessors of the given vertex, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the predecessors of the given vertex, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#remove_edge-instance_method" title="#remove_edge (instance method)">- (void) <strong>remove_edge</strong>(from, to) </a>
@@ -290,12 +310,12 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Removes the edge from the first vertex to the second vertex.</span>
+    <span class="summary_desc"><div class='inline'><p>Removes the edge from the first vertex to the second vertex.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#successors_of-instance_method" title="#successors_of (instance method)">- (Array) <strong>successors_of</strong>(from) </a>
@@ -310,33 +330,14 @@ the <tt><a href="DirectedGraph/SquareBooleanMatrix.html" title="Nanoc3::Directed
   
 
   
-    <span class="summary_desc">Returns the successors of the given vertex, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the successors of the given vertex, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
+      
+    </ul>
   
 
-  
-    <span class="summary_desc">Returns a string representing this graph in ASCII art (or, to be more
-precise, the string representation of the matrix backing this graph).</span>
-  
-</li>
-
-    
-  </ul>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -361,19 +362,35 @@ precise, the string representation of the matrix backing this graph).</span>
       <pre class="lines">
 
 
-115
-116
-117
-118
-119</pre>
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id vertices'>vertices</span><span class='rparen'>)</span>
   <span class='ivar'>@vertices</span> <span class='op'>=</span> <span class='id vertices'>vertices</span>
 
-  <span class='ivar'>@matrix</span> <span class='op'>=</span> <span class='const'>SquareBooleanMatrix</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='ivar'>@vertices</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span>
+  <span class='ivar'>@from_graph</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@to_graph</span>   <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+
+  <span class='ivar'>@vertice_indexes</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id vertices'>vertices</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span>
+    <span class='ivar'>@vertice_indexes</span><span class='lbracket'>[</span><span class='id v'>v</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id i'>i</span>
+  <span class='kw'>end</span>
+
+  <span class='id invalidate_caches'>invalidate_caches</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -422,12 +439,12 @@ precise, the string representation of the matrix backing this graph).</span>
       <pre class="lines">
 
 
-112
-113
-114</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id vertices'>vertices</span>
   <span class='ivar'>@vertices</span>
@@ -471,7 +488,7 @@ precise, the string representation of the matrix backing this graph).</span>
       
       
         &mdash;
-        Vertex where the edge should start
+        <div class='inline'><p>Vertex where the edge should start</p></div>
       
     </li>
   
@@ -485,7 +502,7 @@ precise, the string representation of the matrix backing this graph).</span>
       
       
         &mdash;
-        Vertex where the edge should end
+        <div class='inline'><p>Vertex where the edge should end</p></div>
       
     </li>
   
@@ -497,17 +514,89 @@ precise, the string representation of the matrix backing this graph).</span>
       <pre class="lines">
 
 
-127
-128
-129
-130</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id add_edge'>add_edge</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id to'>to</span>
+
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span>  <span class='op'>&lt;&lt;</span> <span class='id from'>from</span>
+
+  <span class='id invalidate_caches'>invalidate_caches</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_edges_to-instance_method">
+  
+    - (<tt>void</tt>) <strong>delete_edges_to</strong>(to) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Deletes all edges going to the given vertex.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'>to</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Vertex to which all edges should be removed</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id delete_edges_to'>delete_edges_to</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id from'>from</span><span class='op'>|</span>
+    <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@to_graph</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -542,7 +631,7 @@ x where there is an edge from x to the given vertex y.</p>
       
       
         &mdash;
-        The vertex of which the predecessors should be calculated
+        <div class='inline'><p>The vertex of which the predecessors should be calculated</p></div>
       
     </li>
   
@@ -558,7 +647,7 @@ x where there is an edge from x to the given vertex y.</p>
       
       
         &mdash;
-        Direct predecessors of the given vertex
+        <div class='inline'><p>Direct predecessors of the given vertex</p></div>
       
     </li>
   
@@ -570,21 +659,15 @@ x where there is an edge from x to the given vertex y.</p>
       <pre class="lines">
 
 
-150
-151
-152
-153
-154
-155</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id from'>from</span><span class='op'>|</span>
-    <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-    <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_a'>to_a</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -619,7 +702,7 @@ where there is an edge from the given vertex x to y.</p>
       
       
         &mdash;
-        The vertex of which the successors should be calculated
+        <div class='inline'><p>The vertex of which the successors should be calculated</p></div>
       
     </li>
   
@@ -635,7 +718,7 @@ where there is an edge from the given vertex x to y.</p>
       
       
         &mdash;
-        Direct successors of the given vertex
+        <div class='inline'><p>Direct successors of the given vertex</p></div>
       
     </li>
   
@@ -647,21 +730,15 @@ where there is an edge from the given vertex x to y.</p>
       <pre class="lines">
 
 
-163
-164
-165
-166
-167
-168</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id direct_successors_of'>direct_successors_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='rparen'>)</span>
-  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id to'>to</span><span class='op'>|</span>
-    <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-    <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>true</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id to_a'>to_a</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -694,7 +771,7 @@ method may take a while to compute and should be cached if possible.</p>
       
       
         &mdash;
-        The list of all edges in this graph.
+        <div class='inline'><p>The list of all edges in this graph.</p></div>
       
     </li>
   
@@ -706,36 +783,26 @@ method may take a while to compute and should be cached if possible.</p>
       <pre class="lines">
 
 
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207</pre>
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id edges'>edges</span>
   <span class='id result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
-  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id from'>from</span><span class='op'>|</span>
-    <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id to'>to</span><span class='op'>|</span>
-      <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>false</span>
-
-      <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='rbracket'>]</span>
+  <span class='ivar'>@vertices</span><span class='period'>.</span><span class='id each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id i'>i</span><span class='op'>|</span>
+    <span class='id direct_successors_of'>direct_successors_of</span><span class='lparen'>(</span><span class='id v'>v</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id v2'>v2</span><span class='op'>|</span> <span class='ivar'>@vertice_indexes</span><span class='lbracket'>[</span><span class='id v2'>v2</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i2'>i2</span><span class='op'>|</span>
+      <span class='id result'>result</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='id i'>i</span><span class='comma'>,</span> <span class='id i2'>i2</span> <span class='rbracket'>]</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-
   <span class='id result'>result</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -771,7 +838,7 @@ which there is a path from x to the given vertex y.</p>
       
       
         &mdash;
-        The vertex of which the predecessors should be calculated
+        <div class='inline'><p>The vertex of which the predecessors should be calculated</p></div>
       
     </li>
   
@@ -787,7 +854,7 @@ which there is a path from x to the given vertex y.</p>
       
       
         &mdash;
-        Predecessors of the given vertex
+        <div class='inline'><p>Predecessors of the given vertex</p></div>
       
     </li>
   
@@ -799,15 +866,15 @@ which there is a path from x to the given vertex y.</p>
       <pre class="lines">
 
 
-176
-177
-178</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id to'>to</span><span class='comma'>,</span> <span class='symbol'>:direct_predecessors_of</span><span class='rparen'>)</span>
+  <span class='ivar'>@predecessors</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id to'>to</span><span class='comma'>,</span> <span class='symbol'>:direct_predecessors_of</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -842,7 +909,7 @@ edge does not exist, nothing is done.</p>
       
       
         &mdash;
-        Start vertex of the edge
+        <div class='inline'><p>Start vertex of the edge</p></div>
       
     </li>
   
@@ -856,7 +923,7 @@ edge does not exist, nothing is done.</p>
       
       
         &mdash;
-        End vertex of the edge
+        <div class='inline'><p>End vertex of the edge</p></div>
       
     </li>
   
@@ -868,17 +935,27 @@ edge does not exist, nothing is done.</p>
       <pre class="lines">
 
 
-139
-140
-141
-142</pre>
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span> <span class='op'>=</span> <span class='id indices_of'>indices_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='id to'>to</span><span class='rparen'>)</span>
-  <span class='ivar'>@matrix</span><span class='lbracket'>[</span><span class='id from_index'>from_index</span><span class='comma'>,</span> <span class='id to_index'>to_index</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@from_graph</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id to'>to</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span>
+  <span class='ivar'>@to_graph</span><span class='lbracket'>[</span><span class='id to'>to</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id from'>from</span><span class='rparen'>)</span>
+
+  <span class='id invalidate_caches'>invalidate_caches</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -913,7 +990,7 @@ which there is a path from the given vertex x to y.</p>
       
       
         &mdash;
-        The vertex of which the successors should be calculated
+        <div class='inline'><p>The vertex of which the successors should be calculated</p></div>
       
     </li>
   
@@ -929,7 +1006,7 @@ which there is a path from the given vertex x to y.</p>
       
       
         &mdash;
-        Successors of the given vertex
+        <div class='inline'><p>Successors of the given vertex</p></div>
       
     </li>
   
@@ -941,68 +1018,15 @@ which there is a path from the given vertex x to y.</p>
       <pre class="lines">
 
 
-186
-187
-188</pre>
+138
+139
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id successors_of'>successors_of</span><span class='lparen'>(</span><span class='id from'>from</span><span class='rparen'>)</span>
-  <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='symbol'>:direct_successors_of</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="to_s-instance_method">
-  
-    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>to_s</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>Returns a string representing this graph in ASCII art (or, to be more
-precise, the string representation of the matrix backing this graph).</p>
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
-      
-      
-      
-      
-        &mdash;
-        The string representation of this graph
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-213
-214
-215</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/directed_graph.rb', line 213</span>
-
-<span class='kw'>def</span> <span class='id to_s'>to_s</span>
-  <span class='ivar'>@matrix</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+  <span class='ivar'>@successors</span><span class='lbracket'>[</span><span class='id from'>from</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id recursively_find_vertices'>recursively_find_vertices</span><span class='lparen'>(</span><span class='id from'>from</span><span class='comma'>,</span> <span class='symbol'>:direct_successors_of</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1014,9 +1038,9 @@ precise, the string representation of the matrix backing this graph).</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:32 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

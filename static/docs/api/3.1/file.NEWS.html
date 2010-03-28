@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>File: NEWS</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -45,20 +45,18 @@
 
 <h2>3.1</h2>
 
-<p>New:</p>
-
 <ul>
-<li>An <code>Item#rep(name)</code> function for quickly getting a certain rep</li>
+<li>An <code>Item#rep_named(name)</code> function for quickly getting a certain rep</li>
 <li>An <code>Item#compiled_content</code> function for quickly getting compiled content</li>
 <li>An <code>Item#path</code> function for quickly getting the path of an item rep</li>
 <li>A new “+” wildcard in rule patterns that matches one or more characters</li>
 <li>A <code>view</code> command that starts a web server in the output directory</li>
 <li>A <code>debug</code> command that shows information about the items, reps and layouts</li>
 <li>A <code>kramdown</code> filter (<a href="http://kramdown.rubyforge.org/">kramdown site</a>)</li>
-<li>A plugin-loading system</li>
 <li>A diff between the previously compiled content and the last compiled content
 is now written to <code>output.diff</code></li>
 <li>Assigns, such as <code>@items</code>, <code>@layouts</code>, <code>@item</code>, … are accessible without <code>@</code></li>
+<li>Support for binary items</li>
 </ul>
 
 
@@ -91,6 +89,24 @@ Eppstein]</li>
 <li><code>ItemRep#content_at_snapshot</code>; use <code>#compiled_content</code> instead</li>
 <li>The <code>last_fm</code>, <code>delicious</code> and <code>twitter</code> data sources; fetch online content
 into a cache by a rake task and load data from this cache instead</li>
+</ul>
+
+
+<h2>3.0.9</h2>
+
+<ul>
+<li>Fixed 1.8.x parsing bug due to lack of parens which could cause “undefined
+method <code>to_iso8601_time</code> for #&lt;String:0x…>” errors</li>
+</ul>
+
+
+<h2>3.0.8</h2>
+
+<ul>
+<li><code>#atom_tag_for</code> now works with base_urls that contain a path [Eric Sunshine]</li>
+<li>Generated root URLs in <code>#atom_feed</code> now end with a slash [Eric Sunshine]</li>
+<li>Autocompiler now recognises requests to index files</li>
+<li><code>Blogging</code> helper now allows created_at to be a Time instance</li>
 </ul>
 
 
@@ -553,9 +569,9 @@ when the template existed but compiling it would raise an exception</li>
 </div></div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:25 2010 by 
+  Generated on Sun Mar 28 19:25:38 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

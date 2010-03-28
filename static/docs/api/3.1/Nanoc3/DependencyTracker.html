@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::DependencyTracker</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/dependency_tracker.rb</dd>
   
@@ -107,7 +108,15 @@ incompatible version is found, it is ignored.</p>
     <dl class="constants">
       
         <dt id="STORE_VERSION-constant" class="">STORE_VERSION =
-            <span class="summary_desc">The version of the file format used to store dependencies.</span>
+          <div class="docstring">
+  <div class="discussion">
+    <p>The version of the file format used to store dependencies.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
         </dt>
         <dd><pre class="code"><span class='int'>2</span></pre></dd>
       
@@ -136,7 +145,32 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">The name of the file in which dependency information is stored.</span>
+    <span class="summary_desc"><div class='inline'><p>The name of the file in which dependency information is
+stored.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#items-instance_method" title="#items (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>items</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The list of items that is being tracked
+by the dependency tracker.</p></div></span>
   
 </li>
 
@@ -144,11 +178,12 @@ incompatible version is found, it is ignored.</p>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#direct_predecessors_of-instance_method" title="#direct_predecessors_of (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>direct_predecessors_of</strong>(item) </a>
@@ -163,12 +198,12 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">Returns the direct dependencies for <code>item</code>.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the direct dependencies for <code>item</code>.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#direct_successors_of-instance_method" title="#direct_successors_of (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>direct_successors_of</strong>(item) </a>
@@ -183,12 +218,12 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">Returns the direct inverse dependencies for <code>item</code>.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the direct inverse dependencies for <code>item</code>.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#forget_dependencies_for-instance_method" title="#forget_dependencies_for (instance method)">- (void) <strong>forget_dependencies_for</strong>(item) </a>
@@ -203,12 +238,12 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">Empties the list of dependencies for the given item.</span>
+    <span class="summary_desc"><div class='inline'><p>Empties the list of dependencies for the given item.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (DependencyTracker) <strong>initialize</strong>(items) </a>
@@ -225,12 +260,12 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">Creates a new dependency tracker for the given items.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new dependency tracker for the given items.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#load_graph-instance_method" title="#load_graph (instance method)">- (void) <strong>load_graph</strong> </a>
@@ -245,16 +280,16 @@ incompatible version is found, it is ignored.</p>
   
 
   
-    <span class="summary_desc">Loads the dependency graph from the file specified by the <tt><a href="#filename-instance_method" title="Nanoc3::DependencyTracker#filename (method)">#filename</a></tt>
-attribute.</span>
+    <span class="summary_desc"><div class='inline'><p>Loads the dependency graph from the file specified by the <tt><a href="#filename-instance_method" title="Nanoc3::DependencyTracker#filename (method)">#filename</a></tt>
+attribute.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public deprecated">
   <span class="summary_signature">
     
-      <a href="#mark_outdated_items-instance_method" title="#mark_outdated_items (instance method)">- (void) <strong>mark_outdated_items</strong> </a>
+      <a href="#mark_outdated_items-instance_method" title="#mark_outdated_items (instance method)">- (Object) <strong>mark_outdated_items</strong> </a>
     
 
     
@@ -263,16 +298,15 @@ attribute.</span>
   
   
   
-  
+  <span class="deprecated note title">Deprecated</span>
 
   
-    <span class="summary_desc">Traverses the dependency graph and marks all items that (directly or
-indirectly) depend on an outdated item as outdated.</span>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#propagate_outdatedness-instance_method" title="Nanoc3::DependencyTracker#propagate_outdatedness (method)">#propagate_outdatedness</a></tt> instead.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#predecessors_of-instance_method" title="#predecessors_of (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>predecessors_of</strong>(item) </a>
@@ -287,12 +321,12 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Returns all dependencies (direct and indirect) for <code>item</code>.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns all dependencies (direct and indirect) for <code>item</code>.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#print_graph-instance_method" title="#print_graph (instance method)">- (void) <strong>print_graph</strong> </a>
@@ -307,12 +341,33 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Prints the dependency graph in human-readable form.</span>
+    <span class="summary_desc"><div class='inline'><p>Prints the dependency graph in human-readable form.</p></div></span>
   
 </li>
 
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-      <li class="public ">
+      <a href="#propagate_outdatedness-instance_method" title="#propagate_outdatedness (instance method)">- (void) <strong>propagate_outdatedness</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Traverses the dependency graph and marks all items that (directly or
+indirectly) depend on an outdated item as outdated.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#record_dependency-instance_method" title="#record_dependency (instance method)">- (void) <strong>record_dependency</strong>(src, dst) </a>
@@ -327,12 +382,12 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Records a dependency from <code>src</code> to <code>dst</code> in the dependency graph.</span>
+    <span class="summary_desc"><div class='inline'><p>Records a dependency from <code>src</code> to <code>dst</code> in the dependency graph.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#start-instance_method" title="#start (instance method)">- (void) <strong>start</strong> </a>
@@ -347,13 +402,13 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Starts listening for dependency messages (<code>:visit_started</code> and
-<code>:visit_ended</code>) and start recording dependencies.</span>
+    <span class="summary_desc"><div class='inline'><p>Starts listening for dependency messages (<code>:visit_started</code> and
+<code>:visit_ended</code>) and start recording dependencies.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#stop-instance_method" title="#stop (instance method)">- (void) <strong>stop</strong> </a>
@@ -368,12 +423,12 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Stop listening for dependency messages and stop recording dependencies.</span>
+    <span class="summary_desc"><div class='inline'><p>Stop listening for dependency messages and stop recording dependencies.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#store_graph-instance_method" title="#store_graph (instance method)">- (void) <strong>store_graph</strong> </a>
@@ -388,13 +443,13 @@ indirectly) depend on an outdated item as outdated.</span>
   
 
   
-    <span class="summary_desc">Stores the dependency graph into the file specified by the <tt><a href="#filename-instance_method" title="Nanoc3::DependencyTracker#filename (method)">#filename</a></tt>
-attribute.</span>
+    <span class="summary_desc"><div class='inline'><p>Stores the dependency graph into the file specified by the <tt><a href="#filename-instance_method" title="Nanoc3::DependencyTracker#filename (method)">#filename</a></tt>
+attribute.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#successors_of-instance_method" title="#successors_of (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>successors_of</strong>(item) </a>
@@ -409,12 +464,14 @@ attribute.</span>
   
 
   
-    <span class="summary_desc">Returns all inverse dependencies (direct and indirect) for <code>item</code>.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns all inverse dependencies (direct and indirect) for <code>item</code>.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -445,7 +502,8 @@ attribute.</span>
       
       
         &mdash;
-        The list of items whose dependencies should be managed
+        <div class='inline'><p>The list of items whose dependencies
+should be managed</p></div>
       
     </li>
   
@@ -457,15 +515,15 @@ attribute.</span>
       <pre class="lines">
 
 
-37
-38
-39
-40
 41
-42</pre>
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id items'>items</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span>          <span class='op'>=</span> <span class='id items'>items</span>
@@ -495,7 +553,8 @@ attribute.</span>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The name of the file in which dependency information is stored</p>
+    <p>The name of the file in which dependency information is
+stored</p>
 
   </div>
 </div>
@@ -511,7 +570,8 @@ attribute.</span>
       
       
         &mdash;
-        The name of the file in which dependency information is stored
+        <div class='inline'><p>The name of the file in which dependency information is
+stored</p></div>
       
     </li>
   
@@ -532,6 +592,63 @@ attribute.</span>
 
 <span class='kw'>def</span> <span class='id filename'>filename</span>
   <span class='ivar'>@filename</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="items-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="items-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>) <strong>items</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The list of items that is being tracked
+by the dependency tracker</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of items that is being tracked
+by the dependency tracker</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id items'>items</span>
+  <span class='ivar'>@items</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -577,7 +694,8 @@ direct dependencies of A do not include C).</p>
       
       
         &mdash;
-        The item for which to fetch the direct predecessors
+        <div class='inline'><p>The item for which to fetch the direct
+predecessors</p></div>
       
     </li>
   
@@ -593,7 +711,7 @@ direct dependencies of A do not include C).</p>
       
       
         &mdash;
-        The direct predecessors of the given item
+        <div class='inline'><p>The direct predecessors of the given item</p></div>
       
     </li>
   
@@ -652,7 +770,8 @@ direct inverse dependencies of C do not include A).</p>
       
       
         &mdash;
-        The item for which to fetch the direct successors
+        <div class='inline'><p>The item for which to fetch the direct
+successors</p></div>
       
     </li>
   
@@ -668,7 +787,7 @@ direct inverse dependencies of C do not include A).</p>
       
       
         &mdash;
-        The direct successors of the given item
+        <div class='inline'><p>The direct successors of the given item</p></div>
       
     </li>
   
@@ -725,7 +844,7 @@ removes all incoming edges for the given vertex.</p>
       
       
         &mdash;
-        The item for which to forget all dependencies
+        <div class='inline'><p>The item for which to forget all dependencies</p></div>
       
     </li>
   
@@ -737,19 +856,15 @@ removes all incoming edges for the given vertex.</p>
       <pre class="lines">
 
 
-235
-236
-237
-238
-239</pre>
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 243</span>
 
 <span class='kw'>def</span> <span class='id forget_dependencies_for'>forget_dependencies_for</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span>
-  <span class='ivar'>@graph</span><span class='period'>.</span><span class='id vertices'>vertices</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id v'>v</span><span class='op'>|</span>
-    <span class='ivar'>@graph</span><span class='period'>.</span><span class='id remove_edge'>remove_edge</span><span class='lparen'>(</span><span class='id v'>v</span><span class='comma'>,</span> <span class='id item'>item</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='ivar'>@graph</span><span class='period'>.</span><span class='id delete_edges_to'>delete_edges_to</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -842,14 +957,14 @@ attribute. This method will overwrite an existing dependency graph.</p>
       <div class="method_details ">
   <p class="signature " id="mark_outdated_items-instance_method">
   
-    - (<tt>void</tt>) <strong>mark_outdated_items</strong> 
+    - (<tt>Object</tt>) <strong>mark_outdated_items</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p class="note returns_void">This method returns an undefined value.</p><p>Traverses the dependency graph and marks all items that (directly or
-indirectly) depend on an outdated item as outdated.</p>
+    <p class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#propagate_outdatedness-instance_method" title="Nanoc3::DependencyTracker#propagate_outdatedness (method)">#propagate_outdatedness</a></tt> instead.</p></div></p>
+
 
   </div>
 </div>
@@ -861,51 +976,15 @@ indirectly) depend on an outdated item as outdated.</p>
       <pre class="lines">
 
 
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225</pre>
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 205</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id mark_outdated_items'>mark_outdated_items</span>
-  <span class='comment'># Unmark everything
-</span>  <span class='ivar'>@items</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='rbrace'>}</span>
-
-  <span class='comment'># Mark new items as outdated
-</span>  <span class='id added_items'>added_items</span> <span class='op'>=</span> <span class='ivar'>@items</span> <span class='op'>-</span> <span class='ivar'>@previous_items</span>
-  <span class='id added_items'>added_items</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
-
-  <span class='comment'># Mark successors of nil as outdated
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id successors_of'>successors_of</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
-    <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='kw'>end</span>
-
-  <span class='comment'># For each outdated item...
-</span>  <span class='ivar'>@items</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated?'>outdated?</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id outdated_item'>outdated_item</span><span class='op'>|</span>
-    <span class='comment'># ... mark all its successors as outdated
-</span>    <span class='kw'>self</span><span class='period'>.</span><span class='id successors_of'>successors_of</span><span class='lparen'>(</span><span class='id outdated_item'>outdated_item</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
-      <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
+  <span class='id propagate_outdatedness'>propagate_outdatedness</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -942,7 +1021,8 @@ cause <code>item</code> to be marked as outdated.</p>
       
       
         &mdash;
-        The item for which to fetch all direct and indirect predecessors
+        <div class='inline'><p>The item for which to fetch all direct and
+indirect predecessors</p></div>
       
     </li>
   
@@ -958,7 +1038,7 @@ cause <code>item</code> to be marked as outdated.</p>
       
       
         &mdash;
-        The predecessors of the given item
+        <div class='inline'><p>The predecessors of the given item</p></div>
       
     </li>
   
@@ -1006,21 +1086,21 @@ cause <code>item</code> to be marked as outdated.</p>
       <pre class="lines">
 
 
-244
-245
-246
-247
-248
-249
 250
 251
 252
 253
 254
-255</pre>
+255
+256
+257
+258
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 250</span>
 
 <span class='kw'>def</span> <span class='id print_graph'>print_graph</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
@@ -1032,6 +1112,95 @@ cause <code>item</code> to be marked as outdated.</p>
     <span class='kw'>end</span>
     <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    (nothing!)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id predecessors'>predecessors</span><span class='period'>.</span><span class='id empty?'>empty?</span>
     <span class='id puts'>puts</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="propagate_outdatedness-instance_method">
+  
+    - (<tt>void</tt>) <strong>propagate_outdatedness</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Traverses the dependency graph and marks all items that (directly or
+indirectly) depend on an outdated item as outdated.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 205</span>
+
+<span class='kw'>def</span> <span class='id propagate_outdatedness'>propagate_outdatedness</span>
+  <span class='comment'># Unmark everything
+</span>  <span class='ivar'>@items</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># Mark new items as outdated
+</span>  <span class='id added_items'>added_items</span> <span class='op'>=</span> <span class='ivar'>@items</span> <span class='op'>-</span> <span class='ivar'>@previous_items</span>
+  <span class='id added_items'>added_items</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># Mark successors of nil as outdated
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id successors_of'>successors_of</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+    <span class='id i'>i</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Mark successors of outdated items as outdated
+</span>  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>set</span><span class='tstring_end'>'</span></span>
+  <span class='id unprocessed'>unprocessed</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id outdated?'>outdated?</span> <span class='rbrace'>}</span>
+  <span class='id seen'>seen</span>        <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id unprocessed'>unprocessed</span><span class='rparen'>)</span>
+  <span class='kw'>until</span> <span class='id unprocessed'>unprocessed</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id item'>item</span> <span class='op'>=</span> <span class='id unprocessed'>unprocessed</span><span class='period'>.</span><span class='id shift'>shift</span>
+
+    <span class='kw'>self</span><span class='period'>.</span><span class='id direct_successors_of'>direct_successors_of</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id successor'>successor</span><span class='op'>|</span>
+      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id seen'>seen</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id successor'>successor</span><span class='rparen'>)</span>
+      <span class='id seen'>seen</span> <span class='op'>&lt;&lt;</span> <span class='id successor'>successor</span>
+
+      <span class='id successor'>successor</span><span class='period'>.</span><span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='id unprocessed'>unprocessed</span> <span class='op'>&lt;&lt;</span> <span class='id successor'>successor</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1067,7 +1236,8 @@ cause <code>item</code> to be marked as outdated.</p>
       
       
         &mdash;
-        The source of the dependency, i.e. the item that will become outdated if dst is outdated
+        <div class='inline'><p>The source of the dependency, i.e. the item
+that will become outdated if dst is outdated</p></div>
       
     </li>
   
@@ -1081,7 +1251,9 @@ cause <code>item</code> to be marked as outdated.</p>
       
       
         &mdash;
-        The destination of the dependency, i.e. the item that will cause the source to become outdated if the destination is outdated
+        <div class='inline'><p>The destination of the dependency, i.e. the
+item that will cause the source to become outdated if the destination
+is outdated</p></div>
       
     </li>
   
@@ -1132,10 +1304,6 @@ cause <code>item</code> to be marked as outdated.</p>
       <pre class="lines">
 
 
-48
-49
-50
-51
 52
 53
 54
@@ -1160,7 +1328,7 @@ cause <code>item</code> to be marked as outdated.</p>
 73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/dependency_tracker.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id start'>start</span>
   <span class='comment'># Initialize dependency stack. An item will be pushed onto this stack
@@ -1170,11 +1338,9 @@ cause <code>item</code> to be marked as outdated.</p>
 
   <span class='comment'># Register start of visits
 </span>  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id on'>on</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
-    <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*** IN stack.size=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'> item=</span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
-
     <span class='comment'># Record possible dependency
 </span>    <span class='kw'>unless</span> <span class='ivar'>@stack</span><span class='period'>.</span><span class='id empty?'>empty?</span>
-      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*** Recording dependency </span><span class='embexpr_beg'>#{</span><span class='ivar'>@stack</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> -&gt; </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*** Recording dependency on </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
       <span class='kw'>self</span><span class='period'>.</span><span class='id record_dependency'>record_dependency</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id item'>item</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
@@ -1183,8 +1349,6 @@ cause <code>item</code> to be marked as outdated.</p>
 
   <span class='comment'># Register end of visits
 </span>  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id on'>on</span><span class='lparen'>(</span><span class='symbol'>:visit_ended</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
-    <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*** OUT stack.size=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id size'>size</span><span class='rbrace'>}</span><span class='tstring_content'> item=</span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
-
     <span class='ivar'>@stack</span><span class='period'>.</span><span class='id pop'>pop</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -1312,7 +1476,8 @@ as outdated when <code>item</code> is outdated.</p>
       
       
         &mdash;
-        The item for which to fetch all direct and indirect successors
+        <div class='inline'><p>The item for which to fetch all direct and
+indirect successors</p></div>
       
     </li>
   
@@ -1328,7 +1493,7 @@ as outdated when <code>item</code> is outdated.</p>
       
       
         &mdash;
-        The successors of the given item
+        <div class='inline'><p>The successors of the given item</p></div>
       
     </li>
   
@@ -1360,9 +1525,9 @@ as outdated when <code>item</code> is outdated.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:34 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

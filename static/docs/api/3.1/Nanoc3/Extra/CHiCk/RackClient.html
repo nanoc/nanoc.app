@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Extra::CHiCk::RackClient</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -45,7 +45,7 @@
     
     <div id="content"><h1>Class: Nanoc3::Extra::CHiCk::RackClient 
   
-  
+  <span class="deprecated note title">Deprecated</span>
 </h1>
 
 <dl class="box">
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/extra/chick.rb</dd>
   
@@ -79,8 +80,10 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>CHiCk::RackClient performs the actual HTTP requests. It does not perform
-any caching.</p>
+    <p class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use a HTTP library such as
+<a href="http://ruby-doc.org/stdlib/libdoc/net/http/rdoc/">Net::HTTP</a> or
+<a href="http://curb.rubyforge.org/">Curb</a> instead.</p></div></p>
+
 
   </div>
 </div>
@@ -92,7 +95,7 @@ any caching.</p>
     <dl class="constants">
       
         <dt id="METHOD_TO_CLASS_MAPPING-constant" class="">METHOD_TO_CLASS_MAPPING =
-            <span class="summary_desc"></span>
+          
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DELETE</span><span class='tstring_end'>'</span></span>  <span class='op'>=&gt;</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Delete</span><span class='comma'>,</span>
@@ -107,11 +110,12 @@ any caching.</p>
 
 
 
-  <h2>Class Method Summary</h2>
+  
+    <h2>Class Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#call-class_method" title="call (class method)">+ (Object) <strong>call</strong>(env) </a>
@@ -126,12 +130,14 @@ any caching.</p>
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
 
   <div id="class_method_details" class="method_details_list">
@@ -172,12 +178,6 @@ any caching.</p>
       <pre class="lines">
 
 
-88
-89
-90
-91
-92
-93
 94
 95
 96
@@ -197,10 +197,16 @@ any caching.</p>
 110
 111
 112
-113</pre>
+113
+114
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id env'>env</span><span class='rparen'>)</span>
   <span class='comment'># Build request
@@ -238,9 +244,9 @@ any caching.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:28 2010 by 
+  Generated on Sun Mar 28 19:25:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

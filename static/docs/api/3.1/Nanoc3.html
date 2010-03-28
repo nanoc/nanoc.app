@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -56,9 +56,10 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3.rb<span class="defines">,<br />
-  lib/nanoc3/base.rb,<br /> lib/nanoc3/base/site.rb,<br /> lib/nanoc3/base/item.rb,<br /> lib/nanoc3/base/rule.rb,<br /> lib/nanoc3/base/filter.rb,<br /> lib/nanoc3/base/layout.rb,<br /> lib/nanoc3/base/errors.rb,<br /> lib/nanoc3/base/context.rb,<br /> lib/nanoc3/base/compiler.rb,<br /> lib/nanoc3/base/item_rep.rb,<br /> lib/nanoc3/base/data_source.rb,<br /> lib/nanoc3/base/code_snippet.rb,<br /> lib/nanoc3/base/rule_context.rb,<br /> lib/nanoc3/base/compiler_dsl.rb,<br /> lib/nanoc3/base/directed_graph.rb,<br /> lib/nanoc3/base/plugin_registry.rb,<br /> lib/nanoc3/base/dependency_tracker.rb,<br /> lib/nanoc3/base/notification_center.rb</span>
+  lib/nanoc3/base.rb,<br /> lib/nanoc3/base/rule.rb,<br /> lib/nanoc3/base/site.rb,<br /> lib/nanoc3/base/item.rb,<br /> lib/nanoc3/base/errors.rb,<br /> lib/nanoc3/base/layout.rb,<br /> lib/nanoc3/base/filter.rb,<br /> lib/nanoc3/base/context.rb,<br /> lib/nanoc3/base/item_rep.rb,<br /> lib/nanoc3/base/compiler.rb,<br /> lib/nanoc3/base/data_source.rb,<br /> lib/nanoc3/base/rule_context.rb,<br /> lib/nanoc3/base/compiler_dsl.rb,<br /> lib/nanoc3/base/code_snippet.rb,<br /> lib/nanoc3/base/directed_graph.rb,<br /> lib/nanoc3/base/plugin_registry.rb,<br /> lib/nanoc3/base/dependency_tracker.rb,<br /> lib/nanoc3/base/notification_center.rb</span>
 </dd>
   
 </dl>
@@ -76,7 +77,7 @@
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <a href="Nanoc3/ArrayExtensions.html" title="Nanoc3::ArrayExtensions (module)">ArrayExtensions</a>, <a href="Nanoc3/CLI.html" title="Nanoc3::CLI (module)">CLI</a>, <a href="Nanoc3/DataSources.html" title="Nanoc3::DataSources (module)">DataSources</a>, <a href="Nanoc3/EnumerableExtensions.html" title="Nanoc3::EnumerableExtensions (module)">EnumerableExtensions</a>, <a href="Nanoc3/Errors.html" title="Nanoc3::Errors (module)">Errors</a>, <a href="Nanoc3/Extra.html" title="Nanoc3::Extra (module)">Extra</a>, <a href="Nanoc3/Filters.html" title="Nanoc3::Filters (module)">Filters</a>, <a href="Nanoc3/HashExtensions.html" title="Nanoc3::HashExtensions (module)">HashExtensions</a>, <a href="Nanoc3/Helpers.html" title="Nanoc3::Helpers (module)">Helpers</a>, <a href="Nanoc3/StringExtensions.html" title="Nanoc3::StringExtensions (module)">StringExtensions</a>, <a href="Nanoc3/Tasks.html" title="Nanoc3::Tasks (module)">Tasks</a>
+      <strong class="modules">Modules:</strong> <a href="Nanoc3/ArrayExtensions.html" title="Nanoc3::ArrayExtensions (module)">ArrayExtensions</a>, <a href="Nanoc3/CLI.html" title="Nanoc3::CLI (module)">CLI</a>, <a href="Nanoc3/DataSources.html" title="Nanoc3::DataSources (module)">DataSources</a>, <a href="Nanoc3/Errors.html" title="Nanoc3::Errors (module)">Errors</a>, <a href="Nanoc3/Extra.html" title="Nanoc3::Extra (module)">Extra</a>, <a href="Nanoc3/Filters.html" title="Nanoc3::Filters (module)">Filters</a>, <a href="Nanoc3/HashExtensions.html" title="Nanoc3::HashExtensions (module)">HashExtensions</a>, <a href="Nanoc3/Helpers.html" title="Nanoc3::Helpers (module)">Helpers</a>, <a href="Nanoc3/StringExtensions.html" title="Nanoc3::StringExtensions (module)">StringExtensions</a>, <a href="Nanoc3/Tasks.html" title="Nanoc3::Tasks (module)">Tasks</a>
     
    
     
@@ -90,12 +91,29 @@
     <dl class="constants">
       
         <dt id="VERSION-constant" class="">VERSION =
-            <span class="summary_desc">The current nanoc version.</span>
+          <div class="docstring">
+  <div class="discussion">
+    <p>The current nanoc version.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>3.1.0a2</span><span class='tstring_end'>'</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>3.1.0rc1</span><span class='tstring_end'>'</span></span></pre></dd>
       
         <dt id="Plugin-constant" class="deprecated">Plugin =
-            <span class="summary_desc"></span>
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt>Nanoc3::PluginRegistry.instace</tt> instead</p></div></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
         </dt>
         <dd><pre class="code"><span class='const'>PluginRegistry</span><span class='period'>.</span><span class='id instance'>instance</span></pre></dd>
       
@@ -104,120 +122,14 @@
 
 
 
-  <h2>Class Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#load_plugins-class_method" title="load_plugins (class method)">+ (Boolean) <strong>load_plugins</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc">Loads all nanoc3 plugins, i.e.</span>
-  
-</li>
-
-    
-  </ul>
-
-
-  <div id="class_method_details" class="method_details_list">
-    <h2>Class Method Details</h2>
-    
-    
-      <div class="method_details first">
-  <p class="signature first" id="load_plugins-class_method">
-  
-    + (<tt>Boolean</tt>) <strong>load_plugins</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>Loads all nanoc3 plugins, i.e. requires all ruby gems whose name start
-with <code>nanoc3-</code>.</p>
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-      
-        &mdash;
-        true if all plugins were loaded successfully, false if rubygems isn’t loaded.
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3.rb', line 13</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id load_plugins'>load_plugins</span>
-  <span class='comment'># Don’t load if there’s no rubygems
-</span>  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='rparen'>)</span>
-
-  <span class='const'>Gem</span><span class='period'>.</span><span class='id source_index'>source_index</span><span class='period'>.</span><span class='id find_name'>find_name</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id gem'>gem</span><span class='op'>|</span>
-    <span class='comment'># Skip irrelevant ones
-</span>    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id gem'>gem</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^nanoc3-</span><span class='regexp_end'>/</span></span>
-
-    <span class='comment'># Load plugin
-</span>    <span class='id require'>require</span> <span class='id gem'>gem</span><span class='period'>.</span><span class='id name'>name</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:25 2010 by 
+  Generated on Sun Mar 28 19:25:38 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

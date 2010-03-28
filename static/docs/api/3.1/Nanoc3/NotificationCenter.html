@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::NotificationCenter</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/notification_center.rb</dd>
   
@@ -94,14 +95,15 @@ the notification center.</p>
 </div>
 
 
-  <h2>Class Method Summary</h2>
+  
+    <h2>Class Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on-class_method" title="on (class method)">+ (void) <strong>on</strong>(name, id = nil, &amp;block) {|*args| ... }</a>
+      <a href="#on-class_method" title="on (class method)">+ (void) <strong>on</strong>(name, id = nil) {|*args| ... }</a>
     
 
     
@@ -113,13 +115,13 @@ the notification center.</p>
   
 
   
-    <span class="summary_desc">Adds the given block to the list of blocks that should be called when
-the notification with the given name is received.</span>
+    <span class="summary_desc"><div class='inline'><p>Adds the given block to the list of blocks that should be called when
+the notification with the given name is received.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#post-class_method" title="post (class method)">+ (void) <strong>post</strong>(name, *args) </a>
@@ -134,12 +136,12 @@ the notification with the given name is received.</span>
   
 
   
-    <span class="summary_desc">Posts a notification with the given name and the given arguments.</span>
+    <span class="summary_desc"><div class='inline'><p>Posts a notification with the given name and the given arguments.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#remove-class_method" title="remove (class method)">+ (void) <strong>remove</strong>(name, id) </a>
@@ -154,14 +156,16 @@ the notification with the given name is received.</span>
   
 
   
-    <span class="summary_desc">Removes the block with the given identifier from the list of blocks
+    <span class="summary_desc"><div class='inline'><p>Removes the block with the given identifier from the list of blocks
 that should be called when the notification with the given name is
-posted.</span>
+posted.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
 
   <div id="class_method_details" class="method_details_list">
@@ -171,7 +175,7 @@ posted.</span>
       <div class="method_details first">
   <p class="signature first" id="on-class_method">
   
-    + (<tt>void</tt>) <strong>on</strong>(name, id = nil, &amp;block) {|*args| ... }
+    + (<tt>void</tt>) <strong>on</strong>(name, id = nil) {|*args| ... }
   
 
   
@@ -196,7 +200,8 @@ the notification with the given name is received.</p>
       
       
         &mdash;
-        The name of the notification that will cause the given block to be called.
+        <div class='inline'><p>The name of the notification that will
+cause the given block to be called.</p></div>
       
     </li>
   
@@ -212,7 +217,10 @@ the notification with the given name is received.</p>
       
       
         &mdash;
-        An identifier for the block. This is only used to be able to remove the block (using the remove method) later. Can be nil, but this is not recommended because it prevents the given notification block from being unregistered.
+        <div class='inline'><p>An identifier for the block. This is
+only used to be able to remove the block (using the remove method)
+later. Can be nil, but this is not recommended because it prevents
+the given notification block from being unregistered.</p></div>
       
     </li>
   
@@ -228,7 +236,7 @@ the notification with the given name is received.</p>
       
       
         &mdash;
-        Will be executed with the arguments passed to <tt><a href="#post-class_method" title="Nanoc3::NotificationCenter.post (method)">.post</a></tt>
+        <div class='inline'><p>Will be executed with the arguments passed to <tt><a href="#post-class_method" title="Nanoc3::NotificationCenter.post (method)">.post</a></tt></p></div>
       
     </li>
   
@@ -288,7 +296,8 @@ the notification with the given name is received.</p>
       
       
         &mdash;
-        The name of the notification that should be posted.
+        <div class='inline'><p>The name of the notification that should
+be posted.</p></div>
       
     </li>
   
@@ -302,7 +311,8 @@ the notification with the given name is received.</p>
       
       
         &mdash;
-        Arguments that wil be passed to the blocks handling the notification.
+        <div class='inline'><p>Arguments that wil be passed to the blocks handling the
+notification.</p></div>
       
     </li>
   
@@ -368,7 +378,8 @@ posted.</p>
       
       
         &mdash;
-        The name of the notification that should no longer be registered.
+        <div class='inline'><p>The name of the notification that should
+no longer be registered.</p></div>
       
     </li>
   
@@ -382,7 +393,8 @@ posted.</p>
       
       
         &mdash;
-        The identifier of the block that should be removed.
+        <div class='inline'><p>The identifier of the block that should be
+removed.</p></div>
       
     </li>
   
@@ -420,9 +432,9 @@ posted.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:34 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::DataSource</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/base/data_source.rb</dd>
   
@@ -85,7 +86,10 @@
   <div class="discussion">
     <p class="note abstract">
   <strong>This class is abstract.</strong> 
-  Subclasses should at least implement <tt><a href="#items-instance_method" title="Nanoc3::DataSource#items (method)">#items</a></tt> and <tt><a href="#layouts-instance_method" title="Nanoc3::DataSource#layouts (method)">#layouts</a></tt>. If the data source should support creating items and layouts using the <code>create_item</code> and <code>create_layout</code> CLI commands, the <tt><a href="#setup-instance_method" title="Nanoc3::DataSource#setup (method)">#setup</a></tt>, <tt><a href="#create_item-instance_method" title="Nanoc3::DataSource#create_item (method)">#create_item</a></tt> and <tt><a href="#create_layout-instance_method" title="Nanoc3::DataSource#create_layout (method)">#create_layout</a></tt> methods should be implemented as well.
+  <div class='inline'><p>Subclasses should at least implement <tt><a href="#items-instance_method" title="Nanoc3::DataSource#items (method)">#items</a></tt> and <tt><a href="#layouts-instance_method" title="Nanoc3::DataSource#layouts (method)">#layouts</a></tt>. If
+the data source should support creating items and layouts using the
+<code>create_item</code> and <code>create_layout</code> CLI commands, the <tt><a href="#setup-instance_method" title="Nanoc3::DataSource#setup (method)">#setup</a></tt>,
+<tt><a href="#create_item-instance_method" title="Nanoc3::DataSource#create_item (method)">#create_item</a></tt> and <tt><a href="#create_layout-instance_method" title="Nanoc3::DataSource#create_layout (method)">#create_layout</a></tt> methods should be implemented as well.</p></div>
 </p>
 <p>Responsible for loading site data. It is the (abstract) superclass for all
 data sources. Subclasses must at least implement the data reading methods
@@ -115,6 +119,10 @@ first time.</p>
 </div>
 
 
+  
+  
+  
+  
   <h2>Instance Attribute Summary</h2>
   <ul class="summary">
     
@@ -136,7 +144,7 @@ first time.</p>
   
 
   
-    <span class="summary_desc">The configuration for this data source.</span>
+    <span class="summary_desc"><div class='inline'><p>The configuration for this data source.</p></div></span>
   
 </li>
 
@@ -159,7 +167,8 @@ first time.</p>
   
 
   
-    <span class="summary_desc">The root path where items returned by this data source should be mounted.</span>
+    <span class="summary_desc"><div class='inline'><p>The root path where items returned by this data source
+should be mounted.</p></div></span>
   
 </li>
 
@@ -182,7 +191,8 @@ first time.</p>
   
 
   
-    <span class="summary_desc">The root path where layouts returned by this data source should be mounted.</span>
+    <span class="summary_desc"><div class='inline'><p>The root path where layouts returned by this data
+source should be mounted.</p></div></span>
   
 </li>
 
@@ -190,11 +200,12 @@ first time.</p>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#create_item-instance_method" title="#create_item (instance method)">- (void) <strong>create_item</strong>(content, attributes, identifier, params = {}) </a>
@@ -209,12 +220,12 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Creates a new item with the given content, attributes and identifier.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new item with the given content, attributes and identifier.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#create_layout-instance_method" title="#create_layout (instance method)">- (void) <strong>create_layout</strong>(content, attributes, identifier, params = {}) </a>
@@ -229,12 +240,12 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Creates a new layout with the given content, attributes and identifier.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new layout with the given content, attributes and identifier.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#down-instance_method" title="#down (instance method)">- (void) <strong>down</strong> </a>
@@ -249,12 +260,12 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Brings down the connection to the data.</span>
+    <span class="summary_desc"><div class='inline'><p>Brings down the connection to the data.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (DataSource) <strong>initialize</strong>(site, items_root, layouts_root, config) </a>
@@ -271,12 +282,12 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Creates a new data source for the given site.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new data source for the given site.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#items-instance_method" title="#items (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>items</strong> </a>
@@ -291,12 +302,12 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Returns the list of items (represented by <tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>) in this site.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the list of items (represented by <tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>) in this site.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#layouts-instance_method" title="#layouts (instance method)">- (Array&lt;Nanoc3::Layout&gt;) <strong>layouts</strong> </a>
@@ -311,13 +322,13 @@ first time.</p>
   
 
   
-    <span class="summary_desc">Returns the list of layouts (represented by <tt><a href="Layout.html" title="Nanoc3::Layout (class)">Nanoc3::Layout</a></tt>) in this
-site.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the list of layouts (represented by <tt><a href="Layout.html" title="Nanoc3::Layout (class)">Nanoc3::Layout</a></tt>) in this
+site.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#loading-instance_method" title="#loading (instance method)">- (void) <strong>loading</strong> </a>
@@ -332,14 +343,14 @@ site.</span>
   
 
   
-    <span class="summary_desc">Loads the data source when necessary (calling <tt><a href="#up-instance_method" title="Nanoc3::DataSource#up (method)">#up</a></tt>), yields, and
+    <span class="summary_desc"><div class='inline'><p>Loads the data source when necessary (calling <tt><a href="#up-instance_method" title="Nanoc3::DataSource#up (method)">#up</a></tt>), yields, and
 unloads (using <tt><a href="#down-instance_method" title="Nanoc3::DataSource#down (method)">#down</a></tt>) the data source when it is not being used
-elsewhere.</span>
+elsewhere.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#setup-instance_method" title="#setup (instance method)">- (void) <strong>setup</strong> </a>
@@ -354,12 +365,12 @@ elsewhere.</span>
   
 
   
-    <span class="summary_desc">Creates the bare minimum essentials for this data source to work.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates the bare minimum essentials for this data source to work.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#unuse-instance_method" title="#unuse (instance method)">- (void) <strong>unuse</strong> </a>
@@ -374,12 +385,12 @@ elsewhere.</span>
   
 
   
-    <span class="summary_desc">Marks the data source as unused by the caller.</span>
+    <span class="summary_desc"><div class='inline'><p>Marks the data source as unused by the caller.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#up-instance_method" title="#up (instance method)">- (void) <strong>up</strong> </a>
@@ -394,12 +405,12 @@ elsewhere.</span>
   
 
   
-    <span class="summary_desc">Brings up the connection to the data.</span>
+    <span class="summary_desc"><div class='inline'><p>Brings up the connection to the data.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#update-instance_method" title="#update (instance method)">- (void) <strong>update</strong> </a>
@@ -414,12 +425,12 @@ elsewhere.</span>
   
 
   
-    <span class="summary_desc">Updated the content stored in this site to a newer version.</span>
+    <span class="summary_desc"><div class='inline'><p>Updated the content stored in this site to a newer version.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#use-instance_method" title="#use (instance method)">- (void) <strong>use</strong> </a>
@@ -434,12 +445,24 @@ elsewhere.</span>
   
 
   
-    <span class="summary_desc">Marks the data source as used by the caller.</span>
+    <span class="summary_desc"><div class='inline'><p>Marks the data source as used by the caller.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">identifier</a>, <a href="PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">identifiers</a>, <a href="PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">named</a>, <a href="PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">register</a></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -470,7 +493,7 @@ elsewhere.</span>
       
       
         &mdash;
-        The site this data source belongs to.
+        <div class='inline'><p>The site this data source belongs to.</p></div>
       
     </li>
   
@@ -484,7 +507,9 @@ elsewhere.</span>
       
       
         &mdash;
-        The prefix that should be given to all items returned by the #items method (comparable to mount points for filesystems in Unix-ish OSes).
+        <div class='inline'><p>The prefix that should be given to all items
+returned by the #items method (comparable to mount points for
+filesystems in Unix-ish OSes).</p></div>
       
     </li>
   
@@ -498,7 +523,9 @@ elsewhere.</span>
       
       
         &mdash;
-        The prefix that should be given to all layouts returned by the #layouts method (comparable to mount points for filesystems in Unix-ish OSes).
+        <div class='inline'><p>The prefix that should be given to all
+layouts returned by the #layouts method (comparable to mount points
+for filesystems in Unix-ish OSes).</p></div>
       
     </li>
   
@@ -512,7 +539,7 @@ elsewhere.</span>
       
       
         &mdash;
-        The configuration for this data source.
+        <div class='inline'><p>The configuration for this data source.</p></div>
       
     </li>
   
@@ -566,7 +593,8 @@ elsewhere.</span>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The configuration for this data source. For example, online data sources could contain authentication details.</p>
+    <p>The configuration for this data source. For example,
+online data sources could contain authentication details.</p>
 
   </div>
 </div>
@@ -582,7 +610,8 @@ elsewhere.</span>
       
       
         &mdash;
-        The configuration for this data source. For example, online data sources could contain authentication details.
+        <div class='inline'><p>The configuration for this data source. For example,
+online data sources could contain authentication details.</p></div>
       
     </li>
   
@@ -621,7 +650,8 @@ elsewhere.</span>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The root path where items returned by this data source should be mounted.</p>
+    <p>The root path where items returned by this data source
+should be mounted.</p>
 
   </div>
 </div>
@@ -637,7 +667,8 @@ elsewhere.</span>
       
       
         &mdash;
-        The root path where items returned by this data source should be mounted.
+        <div class='inline'><p>The root path where items returned by this data source
+should be mounted.</p></div>
       
     </li>
   
@@ -676,7 +707,8 @@ elsewhere.</span>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The root path where layouts returned by this data source should be mounted.</p>
+    <p>The root path where layouts returned by this data
+source should be mounted.</p>
 
   </div>
 </div>
@@ -692,7 +724,8 @@ elsewhere.</span>
       
       
         &mdash;
-        The root path where layouts returned by this data source should be mounted.
+        <div class='inline'><p>The root path where layouts returned by this data
+source should be mounted.</p></div>
       
     </li>
   
@@ -737,7 +770,7 @@ elsewhere.</span>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Creates a new item with the given content, attributes and identifier. No
 instance of <tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt> will be created; this method creates the item
@@ -795,7 +828,10 @@ in the data source so that it can be loaded and turned into a
       
       
         &mdash;
-        Extra parameters to give to the data source. This can be used to influence the way items are stored. For example, filesystem data sources could use this to pass the extension of the files that should be generated.
+        <div class='inline'><p>Extra parameters to give to the data source. This
+can be used to influence the way items are stored. For example,
+filesystem data sources could use this to pass the extension of the
+files that should be generated.</p></div>
       
     </li>
   
@@ -833,7 +869,7 @@ in the data source so that it can be loaded and turned into a
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Creates a new layout with the given content, attributes and identifier.
 No instance of <tt><a href="Layout.html" title="Nanoc3::Layout (class)">Nanoc3::Layout</a></tt> will be created; this method creates the
@@ -891,7 +927,10 @@ layout in the data source so that it can be loaded and turned into a
       
       
         &mdash;
-        Extra parameters to give to the data source. This can be used to influence the way items are stored. For example, filesystem data sources could use this to pass the extension of the files that should be generated.
+        <div class='inline'><p>Extra parameters to give to the data source. This
+can be used to influence the way items are stored. For example,
+filesystem data sources could use this to pass the extension of the
+files that should be generated.</p></div>
       
     </li>
   
@@ -989,7 +1028,7 @@ default implementation simply does nothing.</p>
       
       
         &mdash;
-        A list of items
+        <div class='inline'><p>A list of items</p></div>
       
     </li>
   
@@ -1048,7 +1087,7 @@ default implementation simply does nothing.</p>
       
       
         &mdash;
-        A list of layouts
+        <div class='inline'><p>A list of layouts</p></div>
       
     </li>
   
@@ -1133,7 +1172,7 @@ while it is still being used elsewhere.</p>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Creates the bare minimum essentials for this data source to work. This
 action will likely be destructive. This method should not create sample
@@ -1179,7 +1218,7 @@ tables for the data source to function properly.</p>
 
 <p>Calling this method decreases the internal reference count. When the
 reference count reaches zero, i.e. when the data source is not used any
-more, the data soruce will be unloaded (<tt><a href="#down-instance_method" title="Nanoc3::DataSource#down (method)">#down</a></tt> will be called).</p>
+more, the data source will be unloaded (<tt><a href="#down-instance_method" title="Nanoc3::DataSource#down (method)">#down</a></tt> will be called).</p>
 
   </div>
 </div>
@@ -1333,9 +1372,9 @@ source will be loaded (<tt><a href="#up-instance_method" title="Nanoc3::DataSour
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:29 2010 by 
+  Generated on Sun Mar 28 19:25:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Blogging</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -56,6 +56,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/helpers/blogging.rb</dd>
   
@@ -72,14 +73,17 @@ the following attributes:</p>
 
 <ul>
 <li><p><code>kind</code> — Set to <code>"article"</code></p></li>
-<li><p><code>created_at</code> — The article’s publication timestamp. This timestamp can
-be in any format parseable by <code>Time.parse</code>.</p></li>
+<li><p><code>created_at</code> — The article’s publication timestamp</p></li>
 </ul>
 
 
 <p>Some functions in this blogging helper, such as the <tt><a href="#atom_feed-instance_method" title="Nanoc3::Helpers::Blogging#atom_feed (method)">#atom_feed</a></tt> function,
 require additional attributes to be set; these attributes are described in
 the documentation for these functions.</p>
+
+<p>All “time” item attributes, site configuration attributes or method
+parameters can either be a <code>Time</code> instance or a string in any format
+parseable by <code>Time.parse</code>.</p>
 
 <p>The two main functions are <tt><a href="#sorted_articles-instance_method" title="Nanoc3::Helpers::Blogging#sorted_articles (method)">#sorted_articles</a></tt> and <tt><a href="#atom_feed-instance_method" title="Nanoc3::Helpers::Blogging#atom_feed (method)">#atom_feed</a></tt>.</p>
 
@@ -90,11 +94,12 @@ the documentation for these functions.</p>
 </div>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#articles-instance_method" title="#articles (instance method)">- (Array) <strong>articles</strong> </a>
@@ -109,12 +114,12 @@ the documentation for these functions.</p>
   
 
   
-    <span class="summary_desc">Returns an unsorted list of articles, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns an unsorted list of articles, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#atom_feed-instance_method" title="#atom_feed (instance method)">- (String) <strong>atom_feed</strong>(params = {}) </a>
@@ -129,13 +134,13 @@ the documentation for these functions.</p>
   
 
   
-    <span class="summary_desc">Returns a string representing the atom feed containing recent articles,
-sorted by descending creation date.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a string representing the atom feed containing recent articles,
+sorted by descending creation date.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#atom_tag_for-instance_method" title="#atom_tag_for (instance method)">- (String) <strong>atom_tag_for</strong>(item) </a>
@@ -150,12 +155,12 @@ sorted by descending creation date.</span>
   
 
   
-    <span class="summary_desc">Returns an URI containing an unique ID for the given item.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns an URI containing an unique ID for the given item.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#feed_url-instance_method" title="#feed_url (instance method)">- (String) <strong>feed_url</strong> </a>
@@ -170,12 +175,12 @@ sorted by descending creation date.</span>
   
 
   
-    <span class="summary_desc">Returns the URL of the feed.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the URL of the feed.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#sorted_articles-instance_method" title="#sorted_articles (instance method)">- (Array) <strong>sorted_articles</strong> </a>
@@ -190,12 +195,12 @@ sorted by descending creation date.</span>
   
 
   
-    <span class="summary_desc">Returns a sorted list of articles, i.e.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a sorted list of articles, i.e.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#url_for-instance_method" title="#url_for (instance method)">- (String) <strong>url_for</strong>(item) </a>
@@ -210,12 +215,14 @@ sorted by descending creation date.</span>
   
 
   
-    <span class="summary_desc">Returns the URL for the given item.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the URL for the given item.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -248,7 +255,7 @@ attribute is set to <code>"article"</code>.</p>
       
       
         &mdash;
-        An array containing all articles
+        <div class='inline'><p>An array containing all articles</p></div>
       
     </li>
   
@@ -260,12 +267,12 @@ attribute is set to <code>"article"</code>.</p>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id articles'>articles</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:kind</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>article</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
@@ -305,13 +312,15 @@ lines long.</p></li>
 normal path in the feed. This can be useful when including
 non-outputted items in a feed; such items could have their custom feed
 path set to the blog path instead, for example.</p></li>
+<li><p><code>custom_url_in_feed</code> — The url that will be used instead of the
+normal url in the feed (generated from the site’s base url + the item
+rep’s path). This can be useful when building a link-blog where the
+URL of article is a remote location.</p></li>
+<li><p><code>updated_at</code> — The time when the article was last modified. If this
+attribute is not present, the <code>created_at</code> attribute will be used as
+the time when the article was last modified.</p></li>
 </ul>
 
-
-<p>The feed will also include dates on which the articles were updated.
-These are generated automatically; the way this happens depends on the
-used data source (the filesystem data source checks the file mtimes, for
-instance).</p>
 
 <p>The site configuration will need to have the following attributes:</p>
 
@@ -322,7 +331,11 @@ would be “http://example.com”.</li>
 </ul>
 
 
-<p>The feed item will need to have the following attributes:</p>
+<p>The feed item will need to know about the feed title, the feed author
+name, and the URI corresponding to the author. These can be specified
+using parameters, as attributes in the feed item, or in the site
+configuration. <br/>
+</p>
 
 <ul>
 <li><p><code>title</code> — The title of the feed, which is usually also the title of
@@ -356,19 +369,19 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Defining compilation and routing rules for a feed item</h4>
+      <h4><div class='inline'><p>Defining compilation and routing rules for a feed item</p></div></h4>
       <pre class="example code">
-  <span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-    <span class='id filter'>filter</span> <span class='symbol'>:erb</span>
-  <span class='kw'>end</span>
+<span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='id filter'>filter</span> <span class='symbol'>:erb</span>
+<span class='kw'>end</span>
 
-  <span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog.xml</span><span class='tstring_end'>'</span></span>
-  <span class='kw'>end</span></pre>
+<span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog.xml</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
     
-      <h4>Limiting the number of items in a feed</h4>
+      <h4><div class='inline'><p>Limiting the number of items in a feed</p></div></h4>
       <pre class="example code">
-  &lt;%= atom_feed :limit =&gt; 5 %&gt;</pre>
+&lt;%= atom_feed :limit =&gt; 5 %&gt;</pre>
     
   </div>
 
@@ -387,7 +400,8 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
               <tt>5</tt>
             
           </span>
-          &mdash;The maximum number of articles to show
+          &mdash;<div class='inline'><p>The maximum number of articles to
+show</p></div>
         </tr>
       
         <li>
@@ -399,7 +413,8 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
               <tt>sorted_articles</tt>
             
           </span>
-          &mdash;A list of articles to include in the feed
+          &mdash;<div class='inline'><p>A list of articles to
+include in the feed</p></div>
         </tr>
       
         <li>
@@ -408,10 +423,13 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
           <span class="default">
             
               &mdash; default:
-              <tt>-&gt;{ |article| article.compiled_content(:snapshot =&gt; :pre) }</tt>
+              <tt>-&gt;{ |article|
+article.compiled_content(:snapshot =&gt; :pre) }</tt>
             
           </span>
-          &mdash;A proc that returns the content of the given article, which is passed as a parameter. This function may not return nil.
+          &mdash;<div class='inline'><p>A proc that returns the
+content of the given article, which is passed as a parameter. This
+function may not return nil.</p></div>
         </tr>
       
         <li>
@@ -423,7 +441,44 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
               <tt>-&gt;{ |article| article[:excerpt] }</tt>
             
           </span>
-          &mdash;A proc that returns the excerpt of the given article, passed as a parameter. This function should return nil if there is no excerpt.
+          &mdash;<div class='inline'><p>A proc that returns the excerpt of the given article, passed as a
+parameter. This function should return nil if there is no excerpt.</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:title</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>The feed’s title, if it is not given in
+the item attributes.</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:author_name</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the feed’s author, if
+it is not given in the item attributes.</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:author_uri</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>The URI of the feed’s author, if it
+is not given in the item attributes.</p></div>
         </tr>
       
     </ul>
@@ -439,7 +494,7 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
       
       
         &mdash;
-        The generated feed content
+        <div class='inline'><p>The generated feed content</p></div>
       
     </li>
   
@@ -451,28 +506,6 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
       <pre class="lines">
 
 
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
 147
 148
 149
@@ -544,10 +577,41 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
 215
 216
 217
-218</pre>
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id atom_feed'>atom_feed</span><span class='lparen'>(</span><span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>builder</span><span class='tstring_end'>'</span></span>
@@ -565,14 +629,17 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
   <span class='kw'>end</span>
 
   <span class='comment'># Check feed item attributes
-</span>  <span class='kw'>if</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
-    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: feed item has no title</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+</span>  <span class='id title'>title</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id title'>title</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: no title in params, item or site config</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='kw'>if</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
-    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: feed item has no author_name</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id author_name'>author_name</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:author_name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_name</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:author_name</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id author_name'>author_name</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: no author_name in params, item or site config</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='kw'>if</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_uri</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
-    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: feed item has no author_uri</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id author_uri'>author_uri</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:author_uri</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_uri</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:author_uri</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id author_uri'>author_uri</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: no author_uri in params, item or site config</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='comment'># Check article attributes
@@ -584,7 +651,10 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
   <span class='kw'>end</span>
 
   <span class='comment'># Get sorted relevant articles
-</span>  <span class='id sorted_relevant_articles'>sorted_relevant_articles</span> <span class='op'>=</span> <span class='id relevant_articles'>relevant_articles</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id reverse'>reverse</span><span class='period'>.</span><span class='id first'>first</span><span class='lparen'>(</span><span class='id limit'>limit</span><span class='rparen'>)</span>
+</span>  <span class='id sorted_relevant_articles'>sorted_relevant_articles</span> <span class='op'>=</span> <span class='id relevant_articles'>relevant_articles</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+    <span class='id time'>time</span> <span class='op'>=</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+    <span class='id time'>time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id time'>time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id time'>time</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id reverse'>reverse</span><span class='period'>.</span><span class='id first'>first</span><span class='lparen'>(</span><span class='id limit'>limit</span><span class='rparen'>)</span>
 
   <span class='comment'># Get most recent article
 </span>  <span class='id last_article'>last_article</span> <span class='op'>=</span> <span class='id sorted_relevant_articles'>sorted_relevant_articles</span><span class='period'>.</span><span class='id first'>first</span>
@@ -600,10 +670,11 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
 
     <span class='comment'># Add primary attributes
 </span>    <span class='id xml'>xml</span><span class='period'>.</span><span class='id id'>id</span>      <span class='id root_url'>root_url</span>
-    <span class='id xml'>xml</span><span class='period'>.</span><span class='id title'>title</span>   <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span>
+    <span class='id xml'>xml</span><span class='period'>.</span><span class='id title'>title</span>   <span class='id title'>title</span>
 
     <span class='comment'># Add date
-</span>    <span class='id xml'>xml</span><span class='period'>.</span><span class='id updated'>updated</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id last_article'>last_article</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span>
+</span>    <span class='id time'>time</span> <span class='op'>=</span> <span class='id last_article'>last_article</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+    <span class='id xml'>xml</span><span class='period'>.</span><span class='id updated'>updated</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id time'>time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id time'>time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id time'>time</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span><span class='rparen'>)</span>
 
     <span class='comment'># Add links
 </span>    <span class='id xml'>xml</span><span class='period'>.</span><span class='id link'>link</span><span class='lparen'>(</span><span class='symbol'>:rel</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>alternate</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:href</span> <span class='op'>=&gt;</span> <span class='id root_url'>root_url</span><span class='rparen'>)</span>
@@ -611,8 +682,8 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
 
     <span class='comment'># Add author information
 </span>    <span class='id xml'>xml</span><span class='period'>.</span><span class='id author'>author</span> <span class='kw'>do</span>
-      <span class='id xml'>xml</span><span class='period'>.</span><span class='id name'>name</span>  <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_name</span><span class='rbracket'>]</span>
-      <span class='id xml'>xml</span><span class='period'>.</span><span class='id uri'>uri</span>   <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:author_uri</span><span class='rbracket'>]</span>
+      <span class='id xml'>xml</span><span class='period'>.</span><span class='id name'>name</span>  <span class='id author_name'>author_name</span>
+      <span class='id xml'>xml</span><span class='period'>.</span><span class='id uri'>uri</span>   <span class='id author_uri'>author_uri</span>
     <span class='kw'>end</span>
 
     <span class='comment'># Add articles
@@ -627,8 +698,10 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
         <span class='id xml'>xml</span><span class='period'>.</span><span class='id title'>title</span>     <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:title</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>html</span><span class='tstring_end'>'</span></span>
 
         <span class='comment'># Add dates
-</span>        <span class='id xml'>xml</span><span class='period'>.</span><span class='id published'>published</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span>
-        <span class='id xml'>xml</span><span class='period'>.</span><span class='id updated'>updated</span>   <span class='id a'>a</span><span class='period'>.</span><span class='id mtime'>mtime</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span>
+</span>        <span class='id create_time'>create_time</span> <span class='op'>=</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+        <span class='id update_time'>update_time</span> <span class='op'>=</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:updated_at</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+        <span class='id xml'>xml</span><span class='period'>.</span><span class='id published'>published</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id create_time'>create_time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id create_time'>create_time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id create_time'>create_time</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span><span class='rparen'>)</span>
+        <span class='id xml'>xml</span><span class='period'>.</span><span class='id updated'>updated</span><span class='lparen'>(</span>  <span class='lparen'>(</span><span class='id update_time'>update_time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id update_time'>update_time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id update_time'>update_time</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_time'>to_iso8601_time</span><span class='rparen'>)</span>
 
         <span class='comment'># Add link
 </span>        <span class='id xml'>xml</span><span class='period'>.</span><span class='id link'>link</span><span class='lparen'>(</span><span class='symbol'>:rel</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>alternate</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:href</span> <span class='op'>=&gt;</span> <span class='id url'>url</span><span class='rparen'>)</span>
@@ -679,7 +752,7 @@ created using a procedure suggested by Mark Pilgrim and described in his
       
       
         &mdash;
-        The item for which to create an atom tag
+        <div class='inline'><p>The item for which to create an atom tag</p></div>
       
     </li>
   
@@ -695,7 +768,7 @@ created using a procedure suggested by Mark Pilgrim and described in his
       
       
         &mdash;
-        The atom tag for the given item
+        <div class='inline'><p>The atom tag for the given item</p></div>
       
     </li>
   
@@ -707,23 +780,27 @@ created using a procedure suggested by Mark Pilgrim and described in his
       <pre class="lines">
 
 
-262
-263
-264
-265
-266
-267
-268
-269</pre>
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 262</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 295</span>
 
 <span class='kw'>def</span> <span class='id atom_tag_for'>atom_tag_for</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>time</span><span class='tstring_end'>'</span></span>
 
   <span class='id hostname'>hostname</span><span class='comma'>,</span> <span class='id base_dir'>base_dir</span> <span class='op'>=</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^.+?://([^/]+)(.*)$</span><span class='regexp_end'>}</span></span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='int'>2</span><span class='rbracket'>]</span>
-  <span class='id formatted_date'>formatted_date</span>     <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_date'>to_iso8601_date</span>
+
+  <span class='id time'>time</span> <span class='op'>=</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+  <span class='id formatted_date'>formatted_date</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id time'>time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id time'>time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id time'>time</span><span class='rparen'>)</span><span class='period'>.</span><span class='id to_iso8601_date'>to_iso8601_date</span>
 
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tag:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id hostname'>hostname</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id formatted_date'>formatted_date</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id base_dir'>base_dir</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id item'>item</span><span class='period'>.</span><span class='id path'>path</span> <span class='op'>||</span> <span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -758,7 +835,7 @@ or otherwise the normal feed URL.</p>
       
       
         &mdash;
-        The URL of the feed
+        <div class='inline'><p>The URL of the feed</p></div>
       
     </li>
   
@@ -770,17 +847,17 @@ or otherwise the normal feed URL.</p>
       <pre class="lines">
 
 
-244
-245
-246
-247
-248
-249
-250
-251</pre>
+277
+278
+279
+280
+281
+282
+283
+284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id feed_url'>feed_url</span>
   <span class='comment'># Check attributes
@@ -822,7 +899,7 @@ creation date, so newer articles appear before older articles.</p>
       
       
         &mdash;
-        A sorted array containing all articles
+        <div class='inline'><p>A sorted array containing all articles</p></div>
       
     </li>
   
@@ -834,17 +911,23 @@ creation date, so newer articles appear before older articles.</p>
       <pre class="lines">
 
 
-36
-37
-38
-39</pre>
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id sorted_articles'>sorted_articles</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>time</span><span class='tstring_end'>'</span></span>
-  <span class='id articles'>articles</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span> <span class='id t'>t</span> <span class='op'>=</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span> <span class='semicolon'>;</span> <span class='id t'>t</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id t'>t</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id t'>t</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id reverse'>reverse</span>
+  <span class='id articles'>articles</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id a'>a</span><span class='op'>|</span>
+    <span class='id time'>time</span> <span class='op'>=</span> <span class='id a'>a</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span>
+    <span class='id time'>time</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id parse'>parse</span><span class='lparen'>(</span><span class='id time'>time</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id time'>time</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id reverse'>reverse</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -879,7 +962,7 @@ the custom path in the feed if possible, otherwise the normal path.</p>
       
       
         &mdash;
-        The item for which to fetch the URL.
+        <div class='inline'><p>The item for which to fetch the URL.</p></div>
       
     </li>
   
@@ -895,7 +978,7 @@ the custom path in the feed if possible, otherwise the normal path.</p>
       
       
         &mdash;
-        The URL of the given item
+        <div class='inline'><p>The URL of the given item</p></div>
       
     </li>
   
@@ -907,22 +990,24 @@ the custom path in the feed if possible, otherwise the normal path.</p>
       <pre class="lines">
 
 
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238</pre>
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/blogging.rb', line 257</span>
 
 <span class='kw'>def</span> <span class='id url_for'>url_for</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span>
   <span class='comment'># Check attributes
@@ -930,12 +1015,14 @@ the custom path in the feed if possible, otherwise the normal path.</p>
     <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: site configuration has no base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Get path
-</span>  <span class='id path'>path</span> <span class='op'>=</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:custom_path_in_feed</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id item'>item</span><span class='period'>.</span><span class='id path'>path</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id path'>path</span><span class='period'>.</span><span class='id nil?'>nil?</span>
-
   <span class='comment'># Build URL
-</span>  <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id path'>path</span>
+</span>  <span class='kw'>if</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:custom_url_in_feed</span><span class='rbracket'>]</span>
+    <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:custom_url_in_feed</span><span class='rbracket'>]</span>
+  <span class='kw'>elsif</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:custom_path_in_feed</span><span class='rbracket'>]</span>
+    <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id item'>item</span><span class='lbracket'>[</span><span class='symbol'>:custom_path_in_feed</span><span class='rbracket'>]</span>
+  <span class='kw'>elsif</span> <span class='id item'>item</span><span class='period'>.</span><span class='id path'>path</span>
+    <span class='ivar'>@site</span><span class='period'>.</span><span class='id config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id item'>item</span><span class='period'>.</span><span class='id path'>path</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -947,9 +1034,9 @@ the custom path in the feed if possible, otherwise the normal path.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:30 2010 by 
+  Generated on Sun Mar 28 19:25:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

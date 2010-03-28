@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Capturing</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -56,8 +56,13 @@
     
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/nanoc3/helpers/capturing.rb</dd>
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><a href="Filtering.html" title="Nanoc3::Helpers::Filtering (module)">Filtering</a>, <a href="Rendering.html" title="Nanoc3::Helpers::Rendering (module)">Rendering</a></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/helpers/capturing.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -81,27 +86,30 @@ the sidebar layout.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Capturing content into a <code>content_for_summary</code> attribute</h4>
-      <pre class="example code">  &lt;% content_for :summary do %&gt;
-    &lt;p&gt;On this item, nanoc is introduced, blah blah.&lt;/p&gt;
-  &lt;% end %&gt;</pre>
+      <h4><div class='inline'><p>Capturing content into a <code>content_for_summary</code> attribute</p></div></h4>
+      <pre class="example code">
+&lt;% content_for :summary do %&gt;
+  &lt;p&gt;On this item, nanoc is introduced, blah blah.&lt;/p&gt;
+&lt;% end %&gt;</pre>
     
-      <h4>Showing captured content in a sidebar</h4>
-      <pre class="example code">  &lt;div id=&quot;sidebar&quot;&gt;
-    &lt;h3&gt;Summary&lt;/h3&gt;
-    &lt;%= @item[:content_for_summary] || '(no summary)' %&gt;
-  &lt;/div&gt;</pre>
+      <h4><div class='inline'><p>Showing captured content in a sidebar</p></div></h4>
+      <pre class="example code">
+&lt;div id=&quot;sidebar&quot;&gt;
+  &lt;h3&gt;Summary&lt;/h3&gt;
+  &lt;%= @item[:content_for_summary] || '(no summary)' %&gt;
+&lt;/div&gt;</pre>
     
   </div>
 
 </div>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#capture-instance_method" title="#capture (instance method)">- (String) <strong>capture</strong>(&amp;block) </a>
@@ -116,12 +124,12 @@ the sidebar layout.</p>
   
 
   
-    <span class="summary_desc">Evaluates the given block and returns the result.</span>
+    <span class="summary_desc"><div class='inline'><p>Evaluates the given block and returns the result.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#content_for-instance_method" title="#content_for (instance method)">- (void) <strong>content_for</strong>(name, &amp;block) </a>
@@ -136,13 +144,15 @@ the sidebar layout.</p>
   
 
   
-    <span class="summary_desc">Captures the content inside the block and stores it in an item
-attribute named <code>content_for_</code> followed by the given name.</span>
+    <span class="summary_desc"><div class='inline'><p>Captures the content inside the block and stores it in an item
+attribute named <code>content_for_</code> followed by the given name.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -178,7 +188,7 @@ work correctly.</p>
       
       
         &mdash;
-        The captured result
+        <div class='inline'><p>The captured result</p></div>
       
     </li>
   
@@ -190,8 +200,6 @@ work correctly.</p>
       <pre class="lines">
 
 
-46
-47
 48
 49
 50
@@ -206,10 +214,12 @@ work correctly.</p>
 59
 60
 61
-62</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/capturing.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/capturing.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id capture'>capture</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Get erbout so far
@@ -262,7 +272,8 @@ content of the block itself will not be outputted.</p>
       
       
         &mdash;
-        base name of the attribute into which the content should be stored
+        <div class='inline'><p>base name of the attribute into which the
+content should be stored</p></div>
       
     </li>
   
@@ -274,12 +285,12 @@ content of the block itself will not be outputted.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/capturing.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/capturing.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id content_for'>content_for</span><span class='lparen'>(</span><span class='id name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@item[:content_for_</span><span class='embexpr_beg'>#{</span><span class='id name'>name</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'>] = capture(&amp;block)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -294,9 +305,9 @@ content of the block itself will not be outputted.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:31 2010 by 
+  Generated on Sun Mar 28 19:25:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

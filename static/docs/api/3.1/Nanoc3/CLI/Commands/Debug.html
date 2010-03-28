@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::CLI::Commands::Debug</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -73,6 +73,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/cli/commands/debug.rb</dd>
   
@@ -83,11 +84,12 @@
 
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#aliases-instance_method" title="#aliases (instance method)">- (Object) <strong>aliases</strong> </a>
@@ -102,12 +104,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#long_desc-instance_method" title="#long_desc (instance method)">- (Object) <strong>long_desc</strong> </a>
@@ -122,12 +124,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
@@ -142,12 +144,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#option_definitions-instance_method" title="#option_definitions (instance method)">- (Object) <strong>option_definitions</strong> </a>
@@ -162,12 +164,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>(options, arguments) </a>
@@ -182,12 +184,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#short_desc-instance_method" title="#short_desc (instance method)">- (Object) <strong>short_desc</strong> </a>
@@ -202,12 +204,12 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#usage-instance_method" title="#usage (instance method)">- (Object) <strong>usage</strong> </a>
@@ -222,12 +224,14 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
   
 
@@ -405,7 +409,28 @@
 72
 73
 74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/debug.rb', line 32</span>
@@ -423,35 +448,56 @@
   <span class='id reps'>reps</span>    <span class='op'>=</span> <span class='id items'>items</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id reps'>reps</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id flatten'>flatten</span>
   <span class='id layouts'>layouts</span> <span class='op'>=</span> <span class='ivar'>@base</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id layouts'>layouts</span>
 
-  <span class='comment'># Calculate prettification data
-</span>  <span class='id identifier_length'>identifier_length</span> <span class='op'>=</span> <span class='id items'>items</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id max'>max</span>
-  <span class='id rep_name_length'>rep_name_length</span>   <span class='op'>=</span> <span class='id reps'>reps</span><span class='period'>.</span><span class='id map'>map</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id max'>max</span>
+  <span class='comment'># Get dependency tracker
+</span>  <span class='comment'># FIXME clean this up
+</span>  <span class='id dependency_tracker'>dependency_tracker</span> <span class='op'>=</span> <span class='ivar'>@base</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id compiler'>compiler</span><span class='period'>.</span><span class='id send'>send</span><span class='lparen'>(</span><span class='symbol'>:dependency_tracker</span><span class='rparen'>)</span>
+  <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id load_graph'>load_graph</span>
 
-  <span class='comment'># Print items
-</span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=== Items</span><span class='tstring_end'>'</span></span>
+  <span class='comment'># Print item dependencies
+</span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=== Item dependencies =======================================================</span><span class='tstring_end'>'</span></span>
   <span class='id puts'>puts</span>
-  <span class='id row'>row</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id items'>items</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'> depends on:</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id predecessors'>predecessors</span> <span class='op'>=</span> <span class='id dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='id item'>item</span><span class='rparen'>)</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='rbrace'>}</span>
+    <span class='id predecessors'>predecessors</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id pred'>pred</span><span class='op'>|</span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id pred'>pred</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  (nothing)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id predecessors'>predecessors</span><span class='period'>.</span><span class='id empty?'>empty?</span>
+    <span class='id puts'>puts</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Print representation paths
+</span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=== Representation paths ====================================================</span><span class='tstring_end'>'</span></span>
+  <span class='id puts'>puts</span>
   <span class='id items'>items</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
     <span class='id item'>item</span><span class='period'>.</span><span class='id reps'>reps</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rep'>rep</span><span class='op'>|</span>
-      <span class='comment'># Determine filler
-</span>      <span class='id filler'>filler</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id row'>row</span> <span class='op'>%</span> <span class='int'>3</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>· </span><span class='tstring_end'>'</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-      <span class='id row'>row</span> <span class='op'>+=</span> <span class='int'>1</span>
-
-      <span class='comment'># Print rep
-</span>      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>* %s %s -&gt; %s</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
-        <span class='id fill'>fill</span><span class='lparen'>(</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier_length'>identifier_length</span><span class='comma'>,</span> <span class='id filler'>filler</span><span class='rparen'>)</span><span class='comma'>,</span>
-        <span class='id fill'>fill</span><span class='lparen'>(</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='comma'>,</span>   <span class='id rep_name_length'>rep_name_length</span><span class='comma'>,</span>   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-        <span class='id rep'>rep</span><span class='period'>.</span><span class='id raw_path'>raw_path</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span>
-      <span class='rbracket'>]</span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>, rep </span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id raw_path'>raw_path</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>(not written)</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
+    <span class='id puts'>puts</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Print representation outdatedness
+</span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=== Representation outdatedness =============================================</span><span class='tstring_end'>'</span></span>
   <span class='id puts'>puts</span>
+  <span class='id items'>items</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id item'>item</span><span class='op'>|</span>
+    <span class='id item'>item</span><span class='period'>.</span><span class='id reps'>reps</span><span class='period'>.</span><span class='id sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span><span class='period'>.</span><span class='id to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id rep'>rep</span><span class='op'>|</span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item </span><span class='embexpr_beg'>#{</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>, rep </span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id outdatedness_reason'>outdatedness_reason</span> <span class='op'>=</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id outdatedness_reason'>outdatedness_reason</span>
+      <span class='kw'>if</span> <span class='id outdatedness_reason'>outdatedness_reason</span>
+        <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  is outdated: </span><span class='embexpr_beg'>#{</span><span class='id outdatedness_reason'>outdatedness_reason</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id outdatedness_reason'>outdatedness_reason</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>else</span>
+        <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  is not outdated</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id puts'>puts</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># Print layouts
 </span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=== Layouts</span><span class='tstring_end'>'</span></span>
   <span class='id puts'>puts</span>
   <span class='id layouts'>layouts</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id layout'>layout</span><span class='op'>|</span>
-    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>* </span><span class='embexpr_beg'>#{</span><span class='id layout'>layout</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>layout </span><span class='embexpr_beg'>#{</span><span class='id layout'>layout</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -520,9 +566,9 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:32 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

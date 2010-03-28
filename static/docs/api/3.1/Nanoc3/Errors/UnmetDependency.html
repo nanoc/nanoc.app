@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Exception: Nanoc3::Errors::UnmetDependency</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/errors.rb</dd>
   
@@ -118,7 +119,8 @@ on other representations.</p>
   
 
   
-    <span class="summary_desc">The item representation that cannot yet be compiled.</span>
+    <span class="summary_desc"><div class='inline'><p>The item representation that cannot yet be
+compiled.</p></div></span>
   
 </li>
 
@@ -126,11 +128,12 @@ on other representations.</p>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (UnmetDependency) <strong>initialize</strong>(rep) </a>
@@ -147,12 +150,14 @@ on other representations.</p>
   
 
   
-    <span class="summary_desc">A new instance of UnmetDependency.</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of UnmetDependency.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
   
   
@@ -189,7 +194,8 @@ on other representations.</p>
       
       
         &mdash;
-        item representation that cannot yet be compiled
+        <div class='inline'><p>item representation that cannot yet be
+compiled</p></div>
       
     </li>
   
@@ -211,7 +217,7 @@ on other representations.</p>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id rep'>rep</span><span class='rparen'>)</span>
   <span class='ivar'>@rep</span> <span class='op'>=</span> <span class='id rep'>rep</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The '</span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>' item (rep '</span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>') cannot currently be compiled yet due to an unmet dependency.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The current item cannot be compiled yet because of an unmet dependency on the “</span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>” item (rep “</span><span class='embexpr_beg'>#{</span><span class='id rep'>rep</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>”).</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id make_compatible_with_env'>make_compatible_with_env</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -235,7 +241,8 @@ on other representations.</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>The item representation that cannot yet be compiled</p>
+    <p>The item representation that cannot yet be
+compiled</p>
 
   </div>
 </div>
@@ -251,7 +258,8 @@ on other representations.</p>
       
       
         &mdash;
-        The item representation that cannot yet be compiled
+        <div class='inline'><p>The item representation that cannot yet be
+compiled</p></div>
       
     </li>
   
@@ -284,9 +292,9 @@ on other representations.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:27 2010 by 
+  Generated on Sun Mar 28 19:25:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

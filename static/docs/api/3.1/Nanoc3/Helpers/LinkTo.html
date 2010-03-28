@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::LinkTo</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -60,8 +60,13 @@
     
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/nanoc3/helpers/link_to.rb</dd>
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><a href="../Filters/RelativizePaths.html" title="Nanoc3::Filters::RelativizePaths (class)">Nanoc3::Filters::RelativizePaths</a></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/nanoc3/helpers/link_to.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -81,11 +86,12 @@
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#link_to-instance_method" title="#link_to (instance method)">- (String) <strong>link_to</strong>(text, target, attributes = {}) </a>
@@ -100,13 +106,13 @@
   
 
   
-    <span class="summary_desc">Creates a HTML link to the given path or item representation, and with
-the given text.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a HTML link to the given path or item representation, and with
+the given text.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#link_to_unless_current-instance_method" title="#link_to_unless_current (instance method)">- (String) <strong>link_to_unless_current</strong>(text, target, attributes = {}) </a>
@@ -121,13 +127,13 @@ the given text.</span>
   
 
   
-    <span class="summary_desc">Creates a HTML link using link_to, except when the linked item is the
-current one.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a HTML link using link_to, except when the linked item is the
+current one.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#relative_path_to-instance_method" title="#relative_path_to (instance method)">- (String) <strong>relative_path_to</strong>(target) </a>
@@ -142,14 +148,18 @@ current one.</span>
   
 
   
-    <span class="summary_desc">Returns the relative path from the current item to the given path or
-item representation.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the relative path from the current item to the given path or
+item representation.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
@@ -185,23 +195,27 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Linking to a path</h4>
-      <pre class="example code">  <span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;a href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking to a path</p></div></h4>
+      <pre class="example code">
+<span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;a href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
     
-      <h4>Linking to an item</h4>
-      <pre class="example code">  <span class='id about'>about</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/about/</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
-  <span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>About Me</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id about'>about</span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;a href=&quot;/about.html&quot;&gt;About Me&lt;/a&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking to an item</p></div></h4>
+      <pre class="example code">
+<span class='id about'>about</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/about/</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
+<span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>About Me</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id about'>about</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;a href=&quot;/about.html&quot;&gt;About Me&lt;/a&gt;'</span></pre>
     
-      <h4>Linking to an item representation</h4>
-      <pre class="example code">  <span class='id about'>about</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/about/</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
-  <span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>My vCard</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id about'>about</span><span class='period'>.</span><span class='id rep'>rep</span><span class='lparen'>(</span><span class='symbol'>:vcard</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;a href=&quot;/about.vcf&quot;&gt;My vCard&lt;/a&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking to an item representation</p></div></h4>
+      <pre class="example code">
+<span class='id about'>about</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/about/</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
+<span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>My vCard</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id about'>about</span><span class='period'>.</span><span class='id rep'>rep</span><span class='lparen'>(</span><span class='symbol'>:vcard</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;a href=&quot;/about.vcf&quot;&gt;My vCard&lt;/a&gt;'</span></pre>
     
-      <h4>Linking with custom attributes</h4>
-      <pre class="example code">  <span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>My super cool blog</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;a title=&quot;My super cool blog&quot; href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking with custom attributes</p></div></h4>
+      <pre class="example code">
+<span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>My super cool blog</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;a title=&quot;My super cool blog&quot; href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -217,7 +231,7 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
       
       
         &mdash;
-        The visible link text
+        <div class='inline'><p>The visible link text</p></div>
       
     </li>
   
@@ -231,7 +245,8 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
       
       
         &mdash;
-        The path/URL, item or item representation that should be linked to
+        <div class='inline'><p>The path/URL,
+item or item representation that should be linked to</p></div>
       
     </li>
   
@@ -247,7 +262,8 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
       
       
         &mdash;
-        A hash containing HTML attributes (e.g. <code>rel</code>, <code>title</code>, …) that will be added to the link.
+        <div class='inline'><p>A hash containing HTML attributes (e.g.
+<code>rel</code>, <code>title</code>, …) that will be added to the link.</p></div>
       
     </li>
   
@@ -263,7 +279,7 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
       
       
         &mdash;
-        The link text
+        <div class='inline'><p>The link text</p></div>
       
     </li>
   
@@ -275,10 +291,6 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
       <pre class="lines">
 
 
-44
-45
-46
-47
 48
 49
 50
@@ -286,10 +298,14 @@ using <tt><a href="HTMLEscape.html#html_escape-instance_method" title="Nanoc3::H
 52
 53
 54
-55</pre>
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id link_to'>link_to</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='id target'>target</span><span class='comma'>,</span> <span class='id attributes'>attributes</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Find path
@@ -329,13 +345,15 @@ the given text will be returned. The HTML-escaping rules for
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Linking to a different page</h4>
-      <pre class="example code">  <span class='id link_to_unless_current'>link_to_unless_current</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;a href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking to a different page</p></div></h4>
+      <pre class="example code">
+<span class='id link_to_unless_current'>link_to_unless_current</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Blog</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;a href=&quot;/blog/&quot;&gt;Blog&lt;/a&gt;'</span></pre>
     
-      <h4>Linking to the same page</h4>
-      <pre class="example code">  <span class='id link_to_unless_current'>link_to_unless_current</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>This Item</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@item</span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '&lt;span class=&quot;active&quot; title=&quot;You\'re here.&quot;&gt;This Item&lt;/span&gt;'</span></pre>
+      <h4><div class='inline'><p>Linking to the same page</p></div></h4>
+      <pre class="example code">
+<span class='id link_to_unless_current'>link_to_unless_current</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>This Item</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='ivar'>@item</span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '&lt;span class=&quot;active&quot; title=&quot;You\'re here.&quot;&gt;This Item&lt;/span&gt;'</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -351,7 +369,7 @@ the given text will be returned. The HTML-escaping rules for
       
       
         &mdash;
-        The visible link text
+        <div class='inline'><p>The visible link text</p></div>
       
     </li>
   
@@ -365,7 +383,8 @@ the given text will be returned. The HTML-escaping rules for
       
       
         &mdash;
-        The path/URL, item or item representation that should be linked to
+        <div class='inline'><p>The path/URL,
+item or item representation that should be linked to</p></div>
       
     </li>
   
@@ -381,7 +400,8 @@ the given text will be returned. The HTML-escaping rules for
       
       
         &mdash;
-        A hash containing HTML attributes (e.g. <code>rel</code>, <code>title</code>, …) that will be added to the link.
+        <div class='inline'><p>A hash containing HTML attributes (e.g.
+<code>rel</code>, <code>title</code>, …) that will be added to the link.</p></div>
       
     </li>
   
@@ -397,7 +417,7 @@ the given text will be returned. The HTML-escaping rules for
       
       
         &mdash;
-        The link text
+        <div class='inline'><p>The link text</p></div>
       
     </li>
   
@@ -409,20 +429,20 @@ the given text will be returned. The HTML-escaping rules for
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
 85
 86
 87
 88
-89</pre>
+89
+90
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id link_to_unless_current'>link_to_unless_current</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='id target'>target</span><span class='comma'>,</span> <span class='id attributes'>attributes</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Find path
@@ -459,10 +479,11 @@ item representation. The returned path will not be HTML-escaped.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4></h4>
-      <pre class="example code">  <span class='comment'># if the current item's path is /foo/bar/
-</span>  <span class='id relative_path_to'>relative_path_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/qux/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-  <span class='comment'># =&gt; '../qux/'</span></pre>
+      <h4><div class='inline'></div></h4>
+      <pre class="example code">
+<span class='comment'># if the current item's path is /foo/bar/
+</span><span class='id relative_path_to'>relative_path_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/qux/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; '../qux/'</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -478,7 +499,9 @@ item representation. The returned path will not be HTML-escaped.</p>
       
       
         &mdash;
-        The path/URL, item or item representation to which the relative path should be generated
+        <div class='inline'><p>The path/URL,
+item or item representation to which the relative path should be
+generated</p></div>
       
     </li>
   
@@ -494,7 +517,7 @@ item representation. The returned path will not be HTML-escaped.</p>
       
       
         &mdash;
-        The relative path to the target
+        <div class='inline'><p>The relative path to the target</p></div>
       
     </li>
   
@@ -506,13 +529,6 @@ item representation. The returned path will not be HTML-escaped.</p>
       <pre class="lines">
 
 
-104
-105
-106
-107
-108
-109
-110
 111
 112
 113
@@ -531,10 +547,17 @@ item representation. The returned path will not be HTML-escaped.</p>
 126
 127
 128
-129</pre>
+129
+130
+131
+132
+133
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/link_to.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id relative_path_to'>relative_path_to</span><span class='lparen'>(</span><span class='id target'>target</span><span class='rparen'>)</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pathname</span><span class='tstring_end'>'</span></span>
@@ -572,9 +595,9 @@ item representation. The returned path will not be HTML-escaped.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:29 2010 by 
+  Generated on Sun Mar 28 19:25:41 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

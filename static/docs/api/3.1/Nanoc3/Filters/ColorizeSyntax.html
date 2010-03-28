@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Filters::ColorizeSyntax</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/filters/colorize_syntax.rb</dd>
   
@@ -87,12 +88,21 @@
     <dl class="constants">
       
         <dt id="DEFAULT_COLORIZER-constant" class="">DEFAULT_COLORIZER =
-            <span class="summary_desc"></span>
+          <div class="docstring">
+  <div class="discussion">
+    <p>The default colorizer to use for a language if the colorizer for that
+language is not overridden.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
         </dt>
         <dd><pre class="code"><span class='symbol'>:coderay</span></pre></dd>
       
         <dt id="KNOWN_COLORIZERS-constant" class="">KNOWN_COLORIZERS =
-            <span class="summary_desc"></span>
+          
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span> <span class='symbol'>:coderay</span><span class='comma'>,</span> <span class='symbol'>:dummy</span><span class='comma'>,</span> <span class='symbol'>:pygmentize</span> <span class='rbracket'>]</span></pre></dd>
       
@@ -104,19 +114,27 @@
   
   
   
+  <h3 class="inherited">Constants inherited from <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></h3>
+  <p class="inherited"><a href="../Filter.html#TMP_BINARY_ITEMS_DIR-constant" title="Nanoc3::Filter::TMP_BINARY_ITEMS_DIR (constant)">TMP_BINARY_ITEMS_DIR</a></p>
+
+  
+  
+  
+  
   
   
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>(content, params = {}) </a>
+      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content, params = {}) </a>
     
 
     
@@ -128,21 +146,37 @@
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'><p>Syntax-highlights code blocks in the given content.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
   
   
   <h3 class="inherited">Methods inherited from <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></h3>
-  <p class="inherited"><a href="../Filter.html#filename-instance_method" title="Nanoc3::Filter#filename (method)">#filename</a>, <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">#initialize</a></p>
+  <p class="inherited"><a href="../Filter.html#filename-instance_method" title="Nanoc3::Filter#filename (method)">#filename</a>, <a href="../Filter.html#from_binary%3F-class_method" title="Nanoc3::Filter.from_binary? (method)">from_binary?</a>, <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">#initialize</a>, <a href="../Filter.html#output_filename-instance_method" title="Nanoc3::Filter#output_filename (method)">#output_filename</a>, <a href="../Filter.html#to_binary%3F-class_method" title="Nanoc3::Filter.to_binary? (method)">to_binary?</a>, <a href="../Filter.html#type-class_method" title="Nanoc3::Filter.type (method)">type</a></p>
 
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="../PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">Nanoc3::PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="../PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">#identifier</a>, <a href="../PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">#identifiers</a>, <a href="../PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">#named</a>, <a href="../PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">#register</a></p>
+
+  
+  
   
   
   
@@ -165,39 +199,140 @@
       <div class="method_details first">
   <p class="signature first" id="run-instance_method">
   
-    - (<tt>Object</tt>) <strong>run</strong>(content, params = {}) 
+    - (<tt><a href="../../String.html" title="String (class)">String</a></tt>) <strong>run</strong>(content, params = {}) 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Syntax-highlights code blocks in the given content. Code blocks should
+be enclosed in <code>pre</code> elements that contain a <code>code</code> element. The code
+element should have a class starting with <code>language-</code> and followed by
+the programming language, as specified by HTML5.</p>
+
+<p>Options for individual colorizers will be taken from the <tt><a href="#run-instance_method" title="Nanoc3::Filters::ColorizeSyntax#run (method)">#run</a></tt>
+options’ value for the given colorizer. For example, if the filter is
+invoked with a <code>:coderay =&gt; coderay_options_hash</code> option, the
+<code>coderay_options_hash</code> hash will be passed to the CodeRay colorizer.</p>
+
+<p>Currently, only the <code>:coderay</code> and <code>:pygmentize</code> colorizers are
+implemented. Additional colorizer implementations are welcome!</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Content that will be highlighted</p></div></h4>
+      <pre class="example code">
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;
+def foo
+  &quot;asdf&quot;
+end
+&lt;/code&gt;&lt;/pre&gt;</pre>
+    
+      <h4><div class='inline'><p>Invoking the filter with custom parameters</p></div></h4>
+      <pre class="example code">
+<span class='id filter'>filter</span> <span class='symbol'>:colorize_syntax</span><span class='comma'>,</span>
+       <span class='symbol'>:colorizers</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:ruby</span> <span class='op'>=&gt;</span> <span class='symbol'>:coderay</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+       <span class='symbol'>:coderay</span>    <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:line_numbers</span> <span class='op'>=&gt;</span> <span class='symbol'>:list</span> <span class='rbrace'>}</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>content</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The content to filter</p></div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+          <span class="name">:colorizers</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>DEFAULT_COLORIZER</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>A hash containing
+a mapping of programming languages (symbols, not strings) onto
+colorizers (symbols).</p></div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The filtered content</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27</pre>
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/filters/colorize_syntax.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/filters/colorize_syntax.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id content'>content</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nokogiri</span><span class='tstring_end'>'</span></span>
@@ -210,11 +345,15 @@
 
   <span class='comment'># Colorize
 </span>  <span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>HTML</span><span class='period'>.</span><span class='id fragment'>fragment</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
-  <span class='id doc'>doc</span><span class='period'>.</span><span class='id css'>css</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pre &gt; code[class^=&quot;lang&quot;]</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
-    <span class='id language'>language</span> <span class='op'>=</span> <span class='id element'>element</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>class</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>lang-([^ ]+)</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^lang-</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-    <span class='id element'>element</span><span class='period'>.</span><span class='id parent'>parent</span><span class='period'>.</span><span class='id replace'>replace</span><span class='lparen'>(</span>
-      <span class='const'>Nokogiri</span><span class='period'>.</span><span class='id make'>make</span><span class='lparen'>(</span><span class='id highlight'>highlight</span><span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id inner_text'>inner_text</span><span class='comma'>,</span> <span class='id language'>language</span><span class='comma'>,</span> <span class='id params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='rparen'>)</span>
+  <span class='id doc'>doc</span><span class='period'>.</span><span class='id css'>css</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pre &gt; code[class*=&quot;language-&quot;]</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='comment'># Get language
+</span>    <span class='id match'>match</span> <span class='op'>=</span> <span class='id element'>element</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>class</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(^| )language-([^ ]+)</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id match'>match</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id language'>language</span> <span class='op'>=</span> <span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+
+    <span class='comment'># Highlight
+</span>    <span class='id highlighted_code'>highlighted_code</span> <span class='op'>=</span> <span class='id highlight'>highlight</span><span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id inner_text'>inner_text</span><span class='comma'>,</span> <span class='id language'>language</span><span class='comma'>,</span> <span class='id params'>params</span><span class='rparen'>)</span>
+    <span class='id element'>element</span><span class='period'>.</span><span class='id inner_html'>inner_html</span> <span class='op'>=</span> <span class='id highlighted_code'>highlighted_code</span>
   <span class='kw'>end</span>
 
   <span class='id doc'>doc</span><span class='period'>.</span><span class='id to_s'>to_s</span>
@@ -229,9 +368,9 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:34 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

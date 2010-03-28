@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Extra::VCS</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/extra/vcs.rb</dd>
   
@@ -85,7 +86,8 @@
   <div class="discussion">
     <p class="note abstract">
   <strong>This class is abstract.</strong> 
-  Subclass and override <tt><a href="#add-instance_method" title="Nanoc3::Extra::VCS#add (method)">#add</a></tt>, <tt><a href="#remove-instance_method" title="Nanoc3::Extra::VCS#remove (method)">#remove</a></tt> and <tt><a href="#move-instance_method" title="Nanoc3::Extra::VCS#move (method)">#move</a></tt> to implement a custom VCS.
+  <div class='inline'><p>Subclass and override <tt><a href="#add-instance_method" title="Nanoc3::Extra::VCS#add (method)">#add</a></tt>, <tt><a href="#remove-instance_method" title="Nanoc3::Extra::VCS#remove (method)">#remove</a></tt> and <tt><a href="#move-instance_method" title="Nanoc3::Extra::VCS#move (method)">#move</a></tt> to implement
+a custom VCS.</p></div>
 </p>
 <p>A very simple representation of a version control system (VCS) that
 abstracts the add, remove and move operations. It does not commit. This
@@ -102,12 +104,17 @@ the disk.</p>
 </div>
 
 
+  
+  
+  
+  
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#add-instance_method" title="#add (instance method)">- (void) <strong>add</strong>(filename) </a>
@@ -122,12 +129,12 @@ the disk.</p>
   
 
   
-    <span class="summary_desc">Adds the file with the given filename to the working copy.</span>
+    <span class="summary_desc"><div class='inline'><p>Adds the file with the given filename to the working copy.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#move-instance_method" title="#move (instance method)">- (void) <strong>move</strong>(src, dst) </a>
@@ -142,12 +149,12 @@ the disk.</p>
   
 
   
-    <span class="summary_desc">Moves the file with the given filename to a new location.</span>
+    <span class="summary_desc"><div class='inline'><p>Moves the file with the given filename to a new location.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#remove-instance_method" title="#remove (instance method)">- (void) <strong>remove</strong>(filename) </a>
@@ -162,12 +169,24 @@ the disk.</p>
   
 
   
-    <span class="summary_desc">Removes the file with the given filename from the working copy.</span>
+    <span class="summary_desc"><div class='inline'><p>Removes the file with the given filename from the working copy.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="../PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">Nanoc3::PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="../PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">identifier</a>, <a href="../PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">identifiers</a>, <a href="../PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">named</a>, <a href="../PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">register</a></p>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -185,7 +204,7 @@ the disk.</p>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Adds the file with the given filename to the working copy.</p>
 
@@ -205,7 +224,7 @@ the disk.</p>
       
       
         &mdash;
-        The name of the file to add
+        <div class='inline'><p>The name of the file to add</p></div>
       
     </li>
   
@@ -243,7 +262,7 @@ the disk.</p>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Moves the file with the given filename to a new location. When this
 method is executed, the original file should no longer be present on the
@@ -265,7 +284,7 @@ disk.</p>
       
       
         &mdash;
-        The old filename
+        <div class='inline'><p>The old filename</p></div>
       
     </li>
   
@@ -279,7 +298,7 @@ disk.</p>
       
       
         &mdash;
-        The new filename
+        <div class='inline'><p>The new filename</p></div>
       
     </li>
   
@@ -317,7 +336,7 @@ disk.</p>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
 <p class="note returns_void">This method returns an undefined value.</p><p>Removes the file with the given filename from the working copy. When
 this method is executed, the file should no longer be present on the
@@ -339,7 +358,7 @@ disk.</p>
       
       
         &mdash;
-        The name of the file to remove
+        <div class='inline'><p>The name of the file to remove</p></div>
       
     </li>
   
@@ -371,9 +390,9 @@ disk.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:26 2010 by 
+  Generated on Sun Mar 28 19:25:39 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

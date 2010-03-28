@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Layout</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/layout.rb</dd>
   
@@ -109,7 +110,7 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">This layout's attributes.</span>
+    <span class="summary_desc"><div class='inline'><p>This layout's attributes.</p></div></span>
   
 </li>
 
@@ -132,7 +133,8 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">This layout's identifier, starting and ending with a slash.</span>
+    <span class="summary_desc"><div class='inline'><p>This layout's identifier, starting and ending with a
+slash.</p></div></span>
   
 </li>
 
@@ -155,7 +157,7 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">The time when this layout was last modified.</span>
+    <span class="summary_desc"><div class='inline'><p>The time when this layout was last modified.</p></div></span>
   
 </li>
 
@@ -178,7 +180,7 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">The raw content of this layout.</span>
+    <span class="summary_desc"><div class='inline'><p>The raw content of this layout.</p></div></span>
   
 </li>
 
@@ -201,7 +203,7 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">The site this layout belongs to.</span>
+    <span class="summary_desc"><div class='inline'><p>The site this layout belongs to.</p></div></span>
   
 </li>
 
@@ -209,11 +211,12 @@ identifier and a modification time (to speed up compilation).</p>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(key) </a>
@@ -228,15 +231,15 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">Requests the attribute with the given key.</span>
+    <span class="summary_desc"><div class='inline'><p>Requests the attribute with the given key.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Layout) <strong>initialize</strong>(raw_content, attributes, identifier, mtime = nil) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Layout) <strong>initialize</strong>(raw_content, attributes, identifier, params_or_mtime = nil) </a>
     
 
     
@@ -250,12 +253,12 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc">Creates a new layout.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new layout.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
@@ -270,19 +273,21 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <p class="signature first" id="initialize-instance_method">
   
-    - (<tt><a href="" title="Nanoc3::Layout (class)">Layout</a></tt>) <strong>initialize</strong>(raw_content, attributes, identifier, mtime = nil) 
+    - (<tt><a href="" title="Nanoc3::Layout (class)">Layout</a></tt>) <strong>initialize</strong>(raw_content, attributes, identifier, params_or_mtime = nil) 
   
 
   
@@ -301,12 +306,12 @@ identifier and a modification time (to speed up compilation).</p>
         <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
       
       
-        <span class='name'>content</span>
+        <span class='name'>raw_content</span>
       
       
       
         &mdash;
-        The raw content of this layout.
+        <div class='inline'><p>The raw content of this layout.</p></div>
       
     </li>
   
@@ -320,7 +325,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        A hash containing this layout's attributes.
+        <div class='inline'><p>A hash containing this layout's attributes.</p></div>
       
     </li>
   
@@ -334,27 +339,56 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        This layout's identifier.
+        <div class='inline'><p>This layout's identifier.</p></div>
       
     </li>
   
     <li>
       
-        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>, <tt>nil</tt>)</span>
+        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>, <tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>, <tt>nil</tt>)</span>
       
       
-        <span class='name'>mtime</span>
+        <span class='name'>params_or_mtime</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
       
       
         &mdash;
-        The time when this layout was last modified.
+        <div class='inline'><p>Extra parameters for the
+layout, or the time when this layout was last modified (deprecated).</p></div>
       
     </li>
   
 </ul>
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params_or_mtime</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>, <tt>nil</tt>)</span>
+          <span class="name">:mtime</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The time when this
+layout was last modified</p></div>
+        </tr>
+      
+    </ul>
+  
 
 </div><table class="source_code">
   <tr>
@@ -362,21 +396,39 @@ identifier and a modification time (to speed up compilation).</p>
       <pre class="lines">
 
 
-34
-35
-36
-37
 38
-39</pre>
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id raw_content'>raw_content</span><span class='comma'>,</span> <span class='id attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id mtime'>mtime</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id raw_content'>raw_content</span><span class='comma'>,</span> <span class='id attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='comment'># Get params and mtime
+</span>  <span class='comment'># TODO [in nanoc 4.0] clean this up
+</span>  <span class='kw'>if</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Time</span><span class='rparen'>)</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='ivar'>@mtime</span> <span class='op'>=</span> <span class='id params_or_mtime'>params_or_mtime</span>
+  <span class='kw'>elsif</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='id params_or_mtime'>params_or_mtime</span>
+    <span class='ivar'>@mtime</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:mtime</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
   <span class='ivar'>@raw_content</span>  <span class='op'>=</span> <span class='id raw_content'>raw_content</span>
   <span class='ivar'>@attributes</span>   <span class='op'>=</span> <span class='id attributes'>attributes</span><span class='period'>.</span><span class='id symbolize_keys'>symbolize_keys</span>
   <span class='ivar'>@identifier</span>   <span class='op'>=</span> <span class='id identifier'>identifier</span><span class='period'>.</span><span class='id cleaned_identifier'>cleaned_identifier</span>
-  <span class='ivar'>@mtime</span>        <span class='op'>=</span> <span class='id mtime'>mtime</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -416,7 +468,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        This layout's attributes
+        <div class='inline'><p>This layout's attributes</p></div>
       
     </li>
   
@@ -455,7 +507,8 @@ identifier and a modification time (to speed up compilation).</p>
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>This layout's identifier, starting and ending with a slash</p>
+    <p>This layout's identifier, starting and ending with a
+slash</p>
 
   </div>
 </div>
@@ -471,7 +524,8 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        This layout's identifier, starting and ending with a slash
+        <div class='inline'><p>This layout's identifier, starting and ending with a
+slash</p></div>
       
     </li>
   
@@ -526,7 +580,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        The time when this layout was last modified
+        <div class='inline'><p>The time when this layout was last modified</p></div>
       
     </li>
   
@@ -581,7 +635,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        The raw content of this layout
+        <div class='inline'><p>The raw content of this layout</p></div>
       
     </li>
   
@@ -636,7 +690,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        The site this layout belongs to
+        <div class='inline'><p>The site this layout belongs to</p></div>
       
     </li>
   
@@ -697,7 +751,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        The name of the attribute to fetch.
+        <div class='inline'><p>The name of the attribute to fetch.</p></div>
       
     </li>
   
@@ -713,7 +767,7 @@ identifier and a modification time (to speed up compilation).</p>
       
       
         &mdash;
-        The value of the requested attribute.
+        <div class='inline'><p>The value of the requested attribute.</p></div>
       
     </li>
   
@@ -725,12 +779,12 @@ identifier and a modification time (to speed up compilation).</p>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id key'>key</span><span class='rparen'>)</span>
   <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span>
@@ -753,12 +807,12 @@ identifier and a modification time (to speed up compilation).</p>
       <pre class="lines">
 
 
-50
-51
-52</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/layout.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> identifier=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
@@ -773,9 +827,9 @@ identifier and a modification time (to speed up compilation).</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:27 2010 by 
+  Generated on Sun Mar 28 19:25:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

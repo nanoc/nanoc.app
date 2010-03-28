@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::CompilerDSL</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/compiler_dsl.rb</dd>
   
@@ -88,14 +89,15 @@
 </div>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#compile-instance_method" title="#compile (instance method)">- (void) <strong>compile</strong>(identifier, params = {}, &amp;block) { ... }</a>
+      <a href="#compile-instance_method" title="#compile (instance method)">- (void) <strong>compile</strong>(identifier, params = {}) { ... }</a>
     
 
     
@@ -107,14 +109,14 @@
   
 
   
-    <span class="summary_desc">Creates a compilation rule for all items whose identifier match the
+    <span class="summary_desc"><div class='inline'><p>Creates a compilation rule for all items whose identifier match the
 given identifier, which may either be a string containing the *
-wildcard, or a regular expression.</span>
+wildcard, or a regular expression.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (CompilerDSL) <strong>initialize</strong>(site) </a>
@@ -131,12 +133,12 @@ wildcard, or a regular expression.</span>
   
 
   
-    <span class="summary_desc">Creates a new compiler DSL for the given compiler.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new compiler DSL for the given compiler.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(identifier, filter_name, params = {}) </a>
@@ -151,17 +153,17 @@ wildcard, or a regular expression.</span>
   
 
   
-    <span class="summary_desc">Creates a layout rule for all layouts whose identifier match the given
+    <span class="summary_desc"><div class='inline'><p>Creates a layout rule for all layouts whose identifier match the given
 identifier, which may either be a string containing the * wildcard, or a
-regular expression.</span>
+regular expression.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#preprocess-instance_method" title="#preprocess (instance method)">- (void) <strong>preprocess</strong>(&amp;block) { ... }</a>
+      <a href="#preprocess-instance_method" title="#preprocess (instance method)">- (void) <strong>preprocess</strong> { ... }</a>
     
 
     
@@ -173,16 +175,16 @@ regular expression.</span>
   
 
   
-    <span class="summary_desc">Creates a preprocessor block that will be executed after all data is
-loaded, but before the site is compiled.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a preprocessor block that will be executed after all data is
+loaded, but before the site is compiled.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#route-instance_method" title="#route (instance method)">- (void) <strong>route</strong>(identifier, params = {}, &amp;block) { ... }</a>
+      <a href="#route-instance_method" title="#route (instance method)">- (void) <strong>route</strong>(identifier, params = {}) { ... }</a>
     
 
     
@@ -194,14 +196,16 @@ loaded, but before the site is compiled.</span>
   
 
   
-    <span class="summary_desc">Creates a routing rule for all items whose identifier match the
+    <span class="summary_desc"><div class='inline'><p>Creates a routing rule for all items whose identifier match the
 given identifier, which may either be a string containing the <code>*</code>
-wildcard, or a regular expression.</span>
+wildcard, or a regular expression.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -232,7 +236,7 @@ wildcard, or a regular expression.</span>
       
       
         &mdash;
-        The site this DSL belongs to
+        <div class='inline'><p>The site this DSL belongs to</p></div>
       
     </li>
   
@@ -269,7 +273,7 @@ wildcard, or a regular expression.</span>
       <div class="method_details first">
   <p class="signature first" id="compile-instance_method">
   
-    - (<tt>void</tt>) <strong>compile</strong>(identifier, params = {}, &amp;block) { ... }
+    - (<tt>void</tt>) <strong>compile</strong>(identifier, params = {}) { ... }
   
 
   
@@ -292,15 +296,17 @@ rep as a block argument.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Compiling the default rep of the <code>/foo/</code> item</h4>
-      <pre class="example code">    <span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-      <span class='id rep'>rep</span><span class='period'>.</span><span class='id filter'>filter</span> <span class='symbol'>:erb</span>
-    <span class='kw'>end</span></pre>
+      <h4><div class='inline'><p>Compiling the default rep of the <code>/foo/</code> item</p></div></h4>
+      <pre class="example code">
+<span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='id rep'>rep</span><span class='period'>.</span><span class='id filter'>filter</span> <span class='symbol'>:erb</span>
+<span class='kw'>end</span></pre>
     
-      <h4>Compiling the <code>:raw</code> rep of the <code>/bar/</code> item</h4>
-      <pre class="example code">    <span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
-      <span class='comment'># do nothing
-</span>    <span class='kw'>end</span></pre>
+      <h4><div class='inline'><p>Compiling the <code>:raw</code> rep of the <code>/bar/</code> item</p></div></h4>
+      <pre class="example code">
+<span class='id compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
+  <span class='comment'># do nothing
+</span><span class='kw'>end</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -316,7 +322,8 @@ rep as a block argument.</p>
       
       
         &mdash;
-        A pattern matching identifiers of items that should be compiled using this rule
+        <div class='inline'><p>A pattern matching identifiers of items that
+should be compiled using this rule</p></div>
       
     </li>
   
@@ -339,13 +346,12 @@ rep as a block argument.</p>
               <tt>:default</tt>
             
           </span>
-          &mdash;The name of the representation that should be compiled using this rule
+          &mdash;<div class='inline'><p>The name of the representation
+that should be compiled using this rule</p></div>
         </tr>
       
     </ul>
   
-    
-    
 <h3>Yields:</h3>
 <ul class="yield">
   
@@ -357,7 +363,8 @@ rep as a block argument.</p>
       
       
         
-        The block that will be executed when an item matching this compilation rule needs to be compiled
+        <div class='inline'><p>The block that will be executed when an item matching this
+compilation rule needs to be compiled</p></div>
       
     </li>
   
@@ -382,8 +389,6 @@ rep as a block argument.</p>
       <pre class="lines">
 
 
-55
-56
 57
 58
 59
@@ -392,10 +397,12 @@ rep as a block argument.</p>
 62
 63
 64
-65</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id compile'>compile</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Require block
@@ -435,11 +442,13 @@ contains filter arguments that will be passed to the filter.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Specifying the filter to use for a layout</h4>
-      <pre class="example code">    <span class='id layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/default/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:erb</span></pre>
+      <h4><div class='inline'><p>Specifying the filter to use for a layout</p></div></h4>
+      <pre class="example code">
+<span class='id layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/default/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:erb</span></pre>
     
-      <h4>Using custom filter arguments for a layout</h4>
-      <pre class="example code">    <span class='id layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/custom/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>  <span class='symbol'>:haml</span><span class='comma'>,</span> <span class='symbol'>:format</span> <span class='op'>=&gt;</span> <span class='symbol'>:html5</span></pre>
+      <h4><div class='inline'><p>Using custom filter arguments for a layout</p></div></h4>
+      <pre class="example code">
+<span class='id layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/custom/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>  <span class='symbol'>:haml</span><span class='comma'>,</span> <span class='symbol'>:format</span> <span class='op'>=&gt;</span> <span class='symbol'>:html5</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -455,7 +464,8 @@ contains filter arguments that will be passed to the filter.</p>
       
       
         &mdash;
-        A pattern matching identifiers of layouts that should be filtered using this rule
+        <div class='inline'><p>A pattern matching identifiers of layouts
+that should be filtered using this rule</p></div>
       
     </li>
   
@@ -469,7 +479,8 @@ contains filter arguments that will be passed to the filter.</p>
       
       
         &mdash;
-        The name of the filter that should be run when processing the layout
+        <div class='inline'><p>The name of the filter that should be run
+when processing the layout</p></div>
       
     </li>
   
@@ -485,7 +496,8 @@ contains filter arguments that will be passed to the filter.</p>
       
       
         &mdash;
-        Extra filter arguments that should be passed to the filter when processing the layout (see <tt><a href="Filter.html#run-instance_method" title="Nanoc3::Filter#run (method)">Nanoc3::Filter#run</a></tt>)
+        <div class='inline'><p>Extra filter arguments that should be passed to the
+filter when processing the layout (see <tt><a href="Filter.html#run-instance_method" title="Nanoc3::Filter#run (method)">Nanoc3::Filter#run</a></tt>)</p></div>
       
     </li>
   
@@ -497,12 +509,12 @@ contains filter arguments that will be passed to the filter.</p>
       <pre class="lines">
 
 
-131
-132
-133</pre>
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id layout'>layout</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@site</span><span class='period'>.</span><span class='id compiler'>compiler</span><span class='period'>.</span><span class='id layout_filter_mapping'>layout_filter_mapping</span><span class='lbracket'>[</span><span class='id identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id filter_name'>filter_name</span><span class='comma'>,</span> <span class='id params'>params</span> <span class='rbracket'>]</span>
@@ -515,7 +527,7 @@ contains filter arguments that will be passed to the filter.</p>
       <div class="method_details ">
   <p class="signature " id="preprocess-instance_method">
   
-    - (<tt>void</tt>) <strong>preprocess</strong>(&amp;block) { ... }
+    - (<tt>void</tt>) <strong>preprocess</strong> { ... }
   
 
   
@@ -538,7 +550,7 @@ loaded, but before the site is compiled.</p>
       
       
         
-        The block that will be executed before site compilation starts
+        <div class='inline'><p>The block that will be executed before site compilation starts</p></div>
       
     </li>
   
@@ -568,7 +580,7 @@ loaded, but before the site is compiled.</p>
       <div class="method_details ">
   <p class="signature " id="route-instance_method">
   
-    - (<tt>void</tt>) <strong>route</strong>(identifier, params = {}, &amp;block) { ... }
+    - (<tt>void</tt>) <strong>route</strong>(identifier, params = {}) { ... }
   
 
   
@@ -591,15 +603,17 @@ and passing the rep as a block argument.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Routing the default rep of the <code>/foo/</code> item</h4>
-      <pre class="example code">    <span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-      <span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span>
-    <span class='kw'>end</span></pre>
+      <h4><div class='inline'><p>Routing the default rep of the <code>/foo/</code> item</p></div></h4>
+      <pre class="example code">
+<span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
     
-      <h4>Routing the <code>:raw</code> rep of the <code>/bar/</code> item</h4>
-      <pre class="example code">    <span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
-      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/raw</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.txt</span><span class='tstring_end'>'</span></span>
-    <span class='kw'>end</span></pre>
+      <h4><div class='inline'><p>Routing the <code>:raw</code> rep of the <code>/bar/</code> item</p></div></h4>
+      <pre class="example code">
+<span class='id route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/raw</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.txt</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -615,7 +629,8 @@ and passing the rep as a block argument.</p>
       
       
         &mdash;
-        A pattern matching identifiers of items that should be routed using this rule
+        <div class='inline'><p>A pattern matching identifiers of items that
+should be routed using this rule</p></div>
       
     </li>
   
@@ -638,13 +653,12 @@ and passing the rep as a block argument.</p>
               <tt>:default</tt>
             
           </span>
-          &mdash;The name of the representation that should be routed using this rule
+          &mdash;<div class='inline'><p>The name of the representation
+that should be routed using this rule</p></div>
         </tr>
       
     </ul>
   
-    
-    
 <h3>Yields:</h3>
 <ul class="yield">
   
@@ -656,7 +670,8 @@ and passing the rep as a block argument.</p>
       
       
         
-        The block that will be executed when an item matching this compilation rule needs to be routed
+        <div class='inline'><p>The block that will be executed when an item matching this
+compilation rule needs to be routed</p></div>
       
     </li>
   
@@ -681,20 +696,20 @@ and passing the rep as a block argument.</p>
       <pre class="lines">
 
 
-97
-98
-99
-100
 101
 102
 103
 104
 105
 106
-107</pre>
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id route'>route</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Require block
@@ -717,9 +732,9 @@ and passing the rep as a block argument.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:31 2010 by 
+  Generated on Sun Mar 28 19:25:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Filter</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -77,6 +77,7 @@
     
   
   
+  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/nanoc3/base/filter.rb</dd>
   
@@ -87,10 +88,13 @@
   <div class="discussion">
     <p class="note abstract">
   <strong>This class is abstract.</strong> 
-  Subclass and override <tt><a href="#run-instance_method" title="Nanoc3::Filter#run (method)">#run</a></tt> to implement a custom filter.
+  <div class='inline'><p>Subclass and override <tt><a href="#run-instance_method" title="Nanoc3::Filter#run (method)">#run</a></tt> to implement a custom filter.</p></div>
 </p>
 <p>Nanoc3::Filter is responsible for filtering items. It is the superclass
 for all textual filters.</p>
+
+<p>A filter instance should only be used once. Filters should not be reused
+since they store state.</p>
 
 <p>When creating a filter with a hash containing assigned variables, those
 variables will be made available in the <code>@assigns</code> instance variable and
@@ -104,17 +108,17 @@ instance variables and instance methods.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Accessing assigns in different ways</h4>
+      <h4><div class='inline'><p>Accessing assigns in different ways</p></div></h4>
       <pre class="example code">
-    <span class='id filter'>filter</span> <span class='op'>=</span> <span class='const'>SomeFilter</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span>
-    <span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@assigns</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-      <span class='comment'># =&gt; 'bar'
-</span>    <span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='id assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-      <span class='comment'># =&gt; 'bar'
-</span>    <span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@foo</span> <span class='rbrace'>}</span>
-      <span class='comment'># =&gt; 'bar'
-</span>    <span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='id foo'>foo</span> <span class='rbrace'>}</span>
-      <span class='comment'># =&gt; 'bar'</span></pre>
+<span class='id filter'>filter</span> <span class='op'>=</span> <span class='const'>SomeFilter</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@assigns</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='comment'># =&gt; 'bar'
+</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='id assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='comment'># =&gt; 'bar'
+</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@foo</span> <span class='rbrace'>}</span>
+  <span class='comment'># =&gt; 'bar'
+</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='id foo'>foo</span> <span class='rbrace'>}</span>
+  <span class='comment'># =&gt; 'bar'</span></pre>
     
   </div>
 
@@ -123,7 +127,31 @@ instance variables and instance methods.</p>
   <p class="children"><a href="Filters/BlueCloth.html" title="Nanoc3::Filters::BlueCloth (class)">Filters::BlueCloth</a>, <a href="Filters/CodeRay.html" title="Nanoc3::Filters::CodeRay (class)">Filters::CodeRay</a>, <a href="Filters/ColorizeSyntax.html" title="Nanoc3::Filters::ColorizeSyntax (class)">Filters::ColorizeSyntax</a>, <a href="Filters/ERB.html" title="Nanoc3::Filters::ERB (class)">Filters::ERB</a>, <a href="Filters/Erubis.html" title="Nanoc3::Filters::Erubis (class)">Filters::Erubis</a>, <a href="Filters/Haml.html" title="Nanoc3::Filters::Haml (class)">Filters::Haml</a>, <a href="Filters/Kramdown.html" title="Nanoc3::Filters::Kramdown (class)">Filters::Kramdown</a>, <a href="Filters/Less.html" title="Nanoc3::Filters::Less (class)">Filters::Less</a>, <a href="Filters/Markaby.html" title="Nanoc3::Filters::Markaby (class)">Filters::Markaby</a>, <a href="Filters/Maruku.html" title="Nanoc3::Filters::Maruku (class)">Filters::Maruku</a>, <a href="Filters/RDiscount.html" title="Nanoc3::Filters::RDiscount (class)">Filters::RDiscount</a>, <a href="Filters/RDoc.html" title="Nanoc3::Filters::RDoc (class)">Filters::RDoc</a>, <a href="Filters/Rainpress.html" title="Nanoc3::Filters::Rainpress (class)">Filters::Rainpress</a>, <a href="Filters/RedCloth.html" title="Nanoc3::Filters::RedCloth (class)">Filters::RedCloth</a>, <a href="Filters/RelativizePaths.html" title="Nanoc3::Filters::RelativizePaths (class)">Filters::RelativizePaths</a>, <a href="Filters/RubyPants.html" title="Nanoc3::Filters::RubyPants (class)">Filters::RubyPants</a>, <a href="Filters/Sass.html" title="Nanoc3::Filters::Sass (class)">Filters::Sass</a></p>
 </div>
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="TMP_BINARY_ITEMS_DIR-constant" class="">TMP_BINARY_ITEMS_DIR =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The path to the directory where temporary binary items are stored</p>
 
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tmp/binary_items</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
   
   
   
@@ -149,8 +177,8 @@ instance variables and instance methods.</p>
   
 
   
-    <span class="summary_desc">A hash containing variables that will be made available during
-filtering.</span>
+    <span class="summary_desc"><div class='inline'><p>A hash containing variables that will be made available during
+filtering.</p></div></span>
   
 </li>
 
@@ -158,11 +186,80 @@ filtering.</span>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Class Method Summary</h2>
 
-  <ul class="summary">
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
     
-      <li class="public ">
+      <a href="#from_binary%3F-class_method" title="from_binary? (class method)">+ (Boolean) <strong>from_binary?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this filter can be applied to binary item
+representations, false otherwise.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_binary%3F-class_method" title="to_binary? (class method)">+ (Boolean) <strong>to_binary?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this filter results in a binary item
+representation, false otherwise.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-class_method" title="type (class method)">+ (void) <strong>type</strong>(arg) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the new type for the filter.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#filename-instance_method" title="#filename (instance method)">- (String) <strong>filename</strong> </a>
@@ -177,12 +274,12 @@ filtering.</span>
   
 
   
-    <span class="summary_desc">Returns the filename associated with the item that is being filtered.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the filename associated with the item that is being filtered.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Filter) <strong>initialize</strong>(hash = {}) </a>
@@ -199,15 +296,35 @@ filtering.</span>
   
 
   
-    <span class="summary_desc">Creates a new filter that has access to the given assigns.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new filter that has access to the given assigns.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content, params = {}) </a>
+      <a href="#output_filename-instance_method" title="#output_filename (instance method)">- (String) <strong>output_filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns a filename that is used to write data to.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content_or_filename, params = {}) </a>
     
 
     
@@ -219,13 +336,27 @@ filtering.</span>
   
 
   
-    <span class="summary_desc">Runs the filter on the given content.</span>
+    <span class="summary_desc"><div class='inline'><p>Runs the filter on the given content or filename.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">identifier</a>, <a href="PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">identifiers</a>, <a href="PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">named</a>, <a href="PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">register</a></p>
+
+  
+  
   
   
   
@@ -258,12 +389,15 @@ filtering.</span>
         <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
       
       
-        <span class='name'>a_assigns</span>
+        <span class='name'>hash</span>
       
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
         &mdash;
-        A hash containing variables that should be made available during filtering.
+        <div class='inline'><p>A hash containing variables that should be made
+available during filtering.</p></div>
       
     </li>
   
@@ -275,13 +409,13 @@ filtering.</span>
       <pre class="lines">
 
 
-40
-41
-42
-43</pre>
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id hash'>hash</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@assigns</span> <span class='op'>=</span> <span class='id hash'>hash</span>
@@ -335,12 +469,12 @@ filtering.</p>
       <pre class="lines">
 
 
-32
-33
-34</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id assigns'>assigns</span>
   <span class='ivar'>@assigns</span>
@@ -352,6 +486,198 @@ filtering.</p>
     
   </div>
 
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="from_binary?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>from_binary?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this filter can be applied to binary item
+representations, false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>True if this filter can be applied to binary item
+representations, false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id from_binary?'>from_binary?</span>
+  <span class='lparen'>(</span><span class='ivar'>@from</span> <span class='op'>||</span> <span class='symbol'>:text</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='symbol'>:binary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_binary?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>to_binary?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this filter results in a binary item
+representation, false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>True if this filter results in a binary item
+representation, false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id to_binary?'>to_binary?</span>
+  <span class='lparen'>(</span><span class='ivar'>@to</span> <span class='op'>||</span> <span class='symbol'>:text</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='symbol'>:binary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="type-class_method">
+  
+    + (<tt>void</tt>) <strong>type</strong>(arg) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Sets the new type for the filter. The type can be <code>:binary</code> (default)
+or <code>:text</code>. The given argument can either be a symbol indicating both
+“from” and “to” types, or a hash where the only key is the “from” type
+and the only value is the “to” type.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Specifying a text-to-text filter</p></div></h4>
+      <pre class="example code">
+<span class='id type'>type</span> <span class='symbol'>:text</span></pre>
+    
+      <h4><div class='inline'><p>Specifying a text-to-binary filter</p></div></h4>
+      <pre class="example code">
+<span class='id type'>type</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='symbol'>:binary</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+        <span class='name'>arg</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The new type of this filter</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id type'>type</span><span class='lparen'>(</span><span class='id arg'>arg</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='ivar'>@from</span><span class='comma'>,</span> <span class='ivar'>@to</span> <span class='op'>=</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id keys'>keys</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id arg'>arg</span><span class='period'>.</span><span class='id values'>values</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@from</span><span class='comma'>,</span> <span class='ivar'>@to</span> <span class='op'>=</span> <span class='id arg'>arg</span><span class='comma'>,</span> <span class='id arg'>arg</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -383,7 +709,7 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
       
       
         &mdash;
-        The filename
+        <div class='inline'><p>The filename</p></div>
       
     </li>
   
@@ -395,18 +721,18 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
-68
-69
-70
-71</pre>
+131
+132
+133
+134
+135
+136
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id filename'>filename</span>
   <span class='kw'>if</span> <span class='id assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='rbracket'>]</span>
@@ -423,9 +749,81 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="output_filename-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>output_filename</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns a filename that is used to write data to. This method is only
+used on binary items. When running a binary filter on a file, the
+resulting file must end up in the location returned by this method.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The output filename</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id output_filename'>output_filename</span>
+  <span class='ivar'>@output_filename</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tempfile</span><span class='tstring_end'>'</span></span>
+
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='const'>TMP_BINARY_ITEMS_DIR</span><span class='rparen'>)</span>
+    <span class='id tempfile'>tempfile</span> <span class='op'>=</span> <span class='const'>Tempfile</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id filename'>filename</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^a-z]</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>-</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>TMP_BINARY_ITEMS_DIR</span><span class='rparen'>)</span>
+    <span class='id new_filename'>new_filename</span> <span class='op'>=</span> <span class='id tempfile'>tempfile</span><span class='period'>.</span><span class='id path'>path</span>
+    <span class='id tempfile'>tempfile</span><span class='period'>.</span><span class='id close!'>close!</span>
+
+    <span class='id new_filename'>new_filename</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="run-instance_method">
   
-    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>run</strong>(content, params = {}) 
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>run</strong>(content_or_filename, params = {}) 
   
 
   
@@ -433,9 +831,9 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
   <div class="discussion">
     <p class="note abstract">
   <strong>This method is abstract.</strong> 
-  
+  <div class='inline'></div>
 </p>
-<p>Runs the filter on the given content.</p>
+<p>Runs the filter on the given content or filename.</p>
 
   </div>
 </div>
@@ -448,12 +846,14 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
         <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
       
       
-        <span class='name'>content</span>
+        <span class='name'>content_or_filename</span>
       
       
       
         &mdash;
-        The unprocessed content that should be filtered.
+        <div class='inline'><p>The unprocessed content that should
+be filtered (if the item is a textual item) or the path to the file that
+should be fitlered (if the item is a binary item)</p></div>
       
     </li>
   
@@ -469,7 +869,8 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
       
       
         &mdash;
-        A hash containing parameters. Filter subclasses can use these parameters to allow modifying the filter's behaviour.
+        <div class='inline'><p>A hash containing parameters. Filter subclasses can
+use these parameters to allow modifying the filter's behaviour.</p></div>
       
     </li>
   
@@ -485,7 +886,9 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
       
       
         &mdash;
-        The filtered content
+        <div class='inline'><p>The filtered content (if the item is a textual item) or
+a path to a newly generated file containing the filtered content (if the
+item is a binary item)</p></div>
       
     </li>
   
@@ -510,14 +913,14 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/filter.rb', line 105</span>
 
-<span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id content'>content</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id content_or_filename'>content_or_filename</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nanoc3::Filter subclasses must implement #run</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -530,9 +933,9 @@ It is in the format <code>item &lt;identifier&gt; (rep &lt;name&gt;)</code>.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:27 2010 by 
+  Generated on Sun Mar 28 19:25:40 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

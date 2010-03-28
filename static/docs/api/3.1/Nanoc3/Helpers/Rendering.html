@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Rendering</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -60,6 +60,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/helpers/rendering.rb</dd>
   
@@ -81,11 +82,12 @@
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#render-instance_method" title="#render (instance method)">- (String) <strong>render</strong>(identifier, other_assigns = {}, &amp;block) </a>
@@ -100,13 +102,17 @@
   
 
   
-    <span class="summary_desc">Returns a string containing the rendered given layout.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a string containing the rendered given layout.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
@@ -138,19 +144,19 @@
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Rendering a head and a foot partial around some text</h4>
+      <h4><div class='inline'><p>Rendering a head and a foot partial around some text</p></div></h4>
       <pre class="example code">
-  &lt;%= render 'head' %&gt; - MIDDLE - &lt;%= render 'foot' %&gt;
-  # =&gt; &quot;HEAD - MIDDLE - FOOT&quot; </pre>
+&lt;%= render 'head' %&gt; - MIDDLE - &lt;%= render 'foot' %&gt;
+# =&gt; &quot;HEAD - MIDDLE - FOOT&quot; </pre>
     
-      <h4>Rendering a head partial with a custom title</h4>
+      <h4><div class='inline'><p>Rendering a head partial with a custom title</p></div></h4>
       <pre class="example code">
-  # The 'head' layout
-  &lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
+# The 'head' layout
+&lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
 
-  # The item/layout where the partial is rendered
-  &lt;%= render 'head', :title =&gt; 'Foo' %&gt;
-  # =&gt; &quot;&lt;h1&gt;Foo&lt;/h1&gt;&quot;</pre>
+# The item/layout where the partial is rendered
+&lt;%= render 'head', :title =&gt; 'Foo' %&gt;
+# =&gt; &quot;&lt;h1&gt;Foo&lt;/h1&gt;&quot;</pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -166,7 +172,8 @@
       
       
         &mdash;
-        The identifier of the layout that should be rendered
+        <div class='inline'><p>The identifier of the layout that should be
+rendered</p></div>
       
     </li>
   
@@ -182,7 +189,8 @@
       
       
         &mdash;
-        A hash containing assigns that will be made available as instance variables in the partial
+        <div class='inline'><p>A hash containing assigns that will be made
+available as instance variables in the partial</p></div>
       
     </li>
   
@@ -198,7 +206,7 @@
       
       
         &mdash;
-        The rendered partial
+        <div class='inline'><p>The rendered partial</p></div>
       
     </li>
   
@@ -214,7 +222,8 @@
       
       
         &mdash;
-        if the given layout does not exist
+        <div class='inline'><p>if the given layout does not
+exist</p></div>
       
     </li>
   
@@ -226,7 +235,6 @@
       <pre class="lines">
 
 
-35
 36
 37
 38
@@ -270,10 +278,11 @@
 76
 77
 78
-79</pre>
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/rendering.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/rendering.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id render'>render</span><span class='lparen'>(</span><span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id other_assigns'>other_assigns</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Find layout
@@ -330,9 +339,9 @@
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:30 2010 by 
+  Generated on Sun Mar 28 19:25:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

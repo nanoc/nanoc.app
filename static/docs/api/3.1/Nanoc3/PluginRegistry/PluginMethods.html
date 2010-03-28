@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::PluginRegistry::PluginMethods</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -56,8 +56,13 @@
     
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/nanoc3/base/plugin_registry.rb</dd>
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><a href="../DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a>, <a href="../Extra/VCS.html" title="Nanoc3::Extra::VCS (class)">Nanoc3::Extra::VCS</a>, <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/plugin_registry.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -75,11 +80,12 @@ classes should extend this module.</p>
 </div>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#identifier-instance_method" title="#identifier (instance method)">- (void) <strong>identifier</strong>(identifier) </a>
@@ -94,12 +100,12 @@ classes should extend this module.</p>
   
 
   
-    <span class="summary_desc">Sets the identifier for this plugin.</span>
+    <span class="summary_desc"><div class='inline'><p>Sets the identifier for this plugin.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#identifiers-instance_method" title="#identifiers (instance method)">- (void) <strong>identifiers</strong>(*identifiers) </a>
@@ -114,12 +120,12 @@ classes should extend this module.</p>
   
 
   
-    <span class="summary_desc">Sets the identifiers for this plugin.</span>
+    <span class="summary_desc"><div class='inline'><p>Sets the identifiers for this plugin.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#named-instance_method" title="#named (instance method)">- (Class) <strong>named</strong>(name) </a>
@@ -134,12 +140,12 @@ classes should extend this module.</p>
   
 
   
-    <span class="summary_desc">Returns the plugin with the given name (identifier).</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the plugin with the given name (identifier).</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#register-instance_method" title="#register (instance method)">- (void) <strong>register</strong>(class_or_name, *identifiers) </a>
@@ -154,12 +160,14 @@ classes should extend this module.</p>
   
 
   
-    <span class="summary_desc">Registers the given class as a plugin with the given identifier.</span>
+    <span class="summary_desc"><div class='inline'><p>Registers the given class as a plugin with the given identifier.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -193,7 +201,7 @@ classes should extend this module.</p>
       
       
         &mdash;
-        An identifier to assign to this plugin.
+        <div class='inline'><p>An identifier to assign to this plugin.</p></div>
       
     </li>
   
@@ -247,7 +255,8 @@ classes should extend this module.</p>
       
       
         &mdash;
-        A list of identifiers to assign to this plugin.
+        <div class='inline'><p>A list of identifiers to assign to
+this plugin.</p></div>
       
     </li>
   
@@ -301,7 +310,7 @@ classes should extend this module.</p>
       
       
         &mdash;
-        The name of the plugin class to find
+        <div class='inline'><p>The name of the plugin class to find</p></div>
       
     </li>
   
@@ -317,7 +326,7 @@ classes should extend this module.</p>
       
       
         &mdash;
-        The plugin class with the given name
+        <div class='inline'><p>The plugin class with the given name</p></div>
       
     </li>
   
@@ -371,7 +380,8 @@ classes should extend this module.</p>
       
       
         &mdash;
-        The class to register, or a string containing the class name to register.
+        <div class='inline'><p>The class to register, or a
+string containing the class name to register.</p></div>
       
     </li>
   
@@ -385,7 +395,8 @@ classes should extend this module.</p>
       
       
         &mdash;
-        A list of identifiers to assign to this plugin.
+        <div class='inline'><p>A list of identifiers to assign to
+this plugin.</p></div>
       
     </li>
   
@@ -429,9 +440,9 @@ classes should extend this module.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:33 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

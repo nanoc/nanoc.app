@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Nanoc3::Helpers::Filtering</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -60,6 +60,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/helpers/filtering.rb</dd>
   
@@ -81,11 +82,12 @@
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#filter-instance_method" title="#filter (instance method)">- (void) <strong>filter</strong>(filter_name, arguments = {}, &amp;block) </a>
@@ -100,13 +102,17 @@
   
 
   
-    <span class="summary_desc">Filters the content in the given block and outputs it.</span>
+    <span class="summary_desc"><div class='inline'><p>Filters the content in the given block and outputs it.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
@@ -143,11 +149,12 @@ work correctly.</p>
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Running a filter on a part of an item or layout</h4>
-      <pre class="example code">  &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-  &lt;% filter :rubypants do %&gt;
-    &lt;p&gt;Consectetur adipisicing elit...&lt;/p&gt;
-  &lt;% end %&gt;</pre>
+      <h4><div class='inline'><p>Running a filter on a part of an item or layout</p></div></h4>
+      <pre class="example code">
+&lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+&lt;% filter :rubypants do %&gt;
+  &lt;p&gt;Consectetur adipisicing elit...&lt;/p&gt;
+&lt;% end %&gt;</pre>
     
   </div>
 <h3>Parameters:</h3>
@@ -163,7 +170,8 @@ work correctly.</p>
       
       
         &mdash;
-        The name of the filter to run on the contents of the block
+        <div class='inline'><p>The name of the filter to run on the
+contents of the block</p></div>
       
     </li>
   
@@ -177,7 +185,7 @@ work correctly.</p>
       
       
         &mdash;
-        Arguments to pass to the filter
+        <div class='inline'><p>Arguments to pass to the filter</p></div>
       
     </li>
   
@@ -202,7 +210,6 @@ work correctly.</p>
       <pre class="lines">
 
 
-30
 31
 32
 33
@@ -217,10 +224,11 @@ work correctly.</p>
 42
 43
 44
-45</pre>
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/filtering.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/filtering.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id filter_name'>filter_name</span><span class='comma'>,</span> <span class='id arguments'>arguments</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Capture block
@@ -248,9 +256,9 @@ work correctly.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:31 2010 by 
+  Generated on Sun Mar 28 19:25:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

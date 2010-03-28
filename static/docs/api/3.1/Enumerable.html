@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Module: Enumerable</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -54,16 +54,11 @@
     
   
     
-      <dt class="r1">Includes:</dt>
-      <dd class="r1"><a href="Nanoc3/EnumerableExtensions/GroupBy.html" title="Nanoc3::EnumerableExtensions::GroupBy (module)">Nanoc3::EnumerableExtensions::GroupBy</a></dd>
-      
-    
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/nanoc3/extra/core_ext/enumerable.rb<span class="defines">,<br />
-  lib/nanoc3/base/core_ext/enumerable.rb</span>
-</dd>
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/nanoc3/extra/core_ext/enumerable.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -78,16 +73,13 @@
   
 </div>
 
-  
-  
-  
-  
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#group_by-instance_method" title="#group_by (instance method)">- (Hash) <strong>group_by</strong> {|obj| ... }</a>
@@ -102,19 +94,16 @@
   
 
   
-    <span class="summary_desc">Returns a hash, which keys are evaluated result from the block, and
-values are arrays of elements in enum corresponding to the key.</span>
+    <span class="summary_desc"><div class='inline'><p>Returns a hash, which keys are evaluated result from the block, and
+values are arrays of elements in enum corresponding to the key.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
-  
-  
-  
-  
-  
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -141,10 +130,10 @@ since <tt><a href="#group_by-instance_method" title="Enumerable#group_by (method
   <div class="examples">
     <h3>Examples:</h3>
     
-      <h4>Grouping integers by rest by division through 3</h4>
+      <h4><div class='inline'><p>Grouping integers by rest by division through 3</p></div></h4>
       <pre class="example code">
-  <span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>6</span><span class='rparen'>)</span><span class='period'>.</span><span class='id group_by'>group_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span> <span class='op'>%</span> <span class='int'>3</span> <span class='rbrace'>}</span>
-  <span class='comment'># =&gt; { 0 =&gt; [3, 6], 1 =&gt; [1, 4], 2 =&gt; [2, 5] }</span></pre>
+<span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>6</span><span class='rparen'>)</span><span class='period'>.</span><span class='id group_by'>group_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id i'>i</span> <span class='op'>%</span> <span class='int'>3</span> <span class='rbrace'>}</span>
+<span class='comment'># =&gt; { 0 =&gt; [3, 6], 1 =&gt; [1, 4], 2 =&gt; [2, 5] }</span></pre>
     
   </div>
 <h3>Yield Parameters:</h3>
@@ -160,7 +149,7 @@ since <tt><a href="#group_by-instance_method" title="Enumerable#group_by (method
       
       
         &mdash;
-        The object to classify
+        <div class='inline'><p>The object to classify</p></div>
       
     </li>
   
@@ -219,9 +208,9 @@ since <tt><a href="#group_by-instance_method" title="Enumerable#group_by (method
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:34 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

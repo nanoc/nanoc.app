@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::CodeSnippet</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/code_snippet.rb</dd>
   
@@ -110,7 +111,7 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">A string containing the actual code in this code snippet.</span>
+    <span class="summary_desc"><div class='inline'><p>A string containing the actual code in this code snippet.</p></div></span>
   
 </li>
 
@@ -133,7 +134,7 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">The filename corresponding to this code snippet.</span>
+    <span class="summary_desc"><div class='inline'><p>The filename corresponding to this code snippet.</p></div></span>
   
 </li>
 
@@ -156,7 +157,7 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">The time where this code snippet was last modified.</span>
+    <span class="summary_desc"><div class='inline'><p>The time where this code snippet was last modified.</p></div></span>
   
 </li>
 
@@ -179,7 +180,7 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">The <tt><a href="Site.html" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt> this code snippet belongs to.</span>
+    <span class="summary_desc"><div class='inline'><p>The <tt><a href="Site.html" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt> this code snippet belongs to.</p></div></span>
   
 </li>
 
@@ -187,11 +188,12 @@ speed up site compilation.</p>
   </ul>
 
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (CodeSnippet) <strong>initialize</strong>(data, filename, mtime = nil) </a>
@@ -208,12 +210,12 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">Creates a new code snippet.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new code snippet.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#load-instance_method" title="#load (instance method)">- (void) <strong>load</strong> </a>
@@ -228,12 +230,14 @@ speed up site compilation.</p>
   
 
   
-    <span class="summary_desc">Loads the code by executing it.</span>
+    <span class="summary_desc"><div class='inline'><p>Loads the code by executing it.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -264,7 +268,8 @@ speed up site compilation.</p>
       
       
         &mdash;
-        The raw source code which will be executed before compilation
+        <div class='inline'><p>The raw source code which will be executed before
+compilation</p></div>
       
     </li>
   
@@ -278,7 +283,7 @@ speed up site compilation.</p>
       
       
         &mdash;
-        The filename corresponding to this code snippet
+        <div class='inline'><p>The filename corresponding to this code snippet</p></div>
       
     </li>
   
@@ -294,7 +299,8 @@ speed up site compilation.</p>
       
       
         &mdash;
-        The time when the code was last modified (can be nil)
+        <div class='inline'><p>The time when the code was last modified (can be
+nil)</p></div>
       
     </li>
   
@@ -306,14 +312,14 @@ speed up site compilation.</p>
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+39
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/code_snippet.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/code_snippet.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id data'>data</span><span class='comma'>,</span> <span class='id filename'>filename</span><span class='comma'>,</span> <span class='id mtime'>mtime</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@data</span>     <span class='op'>=</span> <span class='id data'>data</span>
@@ -566,12 +572,12 @@ speed up site compilation.</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/code_snippet.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/code_snippet.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id load'>load</span>
   <span class='id eval'>eval</span><span class='lparen'>(</span><span class='ivar'>@data</span><span class='comma'>,</span> <span class='const'>TOPLEVEL_BINDING</span><span class='comma'>,</span> <span class='ivar'>@filename</span><span class='rparen'>)</span>
@@ -586,9 +592,9 @@ speed up site compilation.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:30 2010 by 
+  Generated on Sun Mar 28 19:25:43 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

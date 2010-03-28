@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::Extra::Validators::Links</title>
 <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -71,6 +71,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/extra/validators/links.rb</dd>
   
@@ -86,17 +87,28 @@ location that exists.</p>
 </div>
 <div class="tags">
   
-</div>
-
-
-  <h2>Instance Method Summary</h2>
-
-  <ul class="summary">
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
     
-      <li class="public ">
+   
+    
+      <strong class="classes">Classes:</strong> <a href="Links/EachPairEnumerator.html" title="Nanoc3::Extra::Validators::Links::EachPairEnumerator (class)">EachPairEnumerator</a>
+    
+  
+</p>
+
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Links) <strong>initialize</strong>(dir, index_filenames) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Links) <strong>initialize</strong>(dir, index_filenames, params = {}) </a>
     
 
     
@@ -110,12 +122,12 @@ location that exists.</p>
   
 
   
-    <span class="summary_desc">A new instance of Links.</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Links.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#run-instance_method" title="#run (instance method)">- (void) <strong>run</strong> </a>
@@ -130,19 +142,21 @@ location that exists.</p>
   
 
   
-    <span class="summary_desc">Starts the validator.</span>
+    <span class="summary_desc"><div class='inline'><p>Starts the validator.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
   <p class="signature first" id="initialize-instance_method">
   
-    - (<tt><a href="" title="Nanoc3::Extra::Validators::Links (class)">Links</a></tt>) <strong>initialize</strong>(dir, index_filenames) 
+    - (<tt><a href="" title="Nanoc3::Extra::Validators::Links (class)">Links</a></tt>) <strong>initialize</strong>(dir, index_filenames, params = {}) 
   
 
   
@@ -166,7 +180,8 @@ location that exists.</p>
       
       
         &mdash;
-        The directory that will be searched for HTML files to validate
+        <div class='inline'><p>The directory that will be searched for HTML files
+to validate</p></div>
       
     </li>
   
@@ -180,11 +195,52 @@ location that exists.</p>
       
       
         &mdash;
-        An array of index filenames that will be appended to URLs by web servers if a directory is requested instead of a file
+        <div class='inline'><p>An array of index filenames that
+will be appended to URLs by web servers if a directory is requested
+instead of a file</p></div>
       
     </li>
   
 </ul>
+
+  
+    
+    
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="name">:internal</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>True if internal links should
+be checked; false if they should not</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="name">:external</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>false</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>True if external links should
+be checked; false if they should not</p></div>
+        </tr>
+      
+    </ul>
+  
 
 </div><table class="source_code">
   <tr>
@@ -192,17 +248,21 @@ location that exists.</p>
       <pre class="lines">
 
 
-15
-16
-17
-18</pre>
+21
+22
+23
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/validators/links.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/validators/links.rb', line 21</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='comma'>,</span> <span class='id index_filenames'>index_filenames</span><span class='rparen'>)</span>
-  <span class='ivar'>@dir</span>             <span class='op'>=</span> <span class='id dir'>dir</span>
-  <span class='ivar'>@index_filenames</span> <span class='op'>=</span> <span class='id index_filenames'>index_filenames</span>
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id dir'>dir</span><span class='comma'>,</span> <span class='id index_filenames'>index_filenames</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@dir</span>              <span class='op'>=</span> <span class='id dir'>dir</span>
+  <span class='ivar'>@index_filenames</span>  <span class='op'>=</span> <span class='id index_filenames'>index_filenames</span>
+  <span class='ivar'>@include_internal</span> <span class='op'>=</span> <span class='id params'>params</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:internal</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:internal</span><span class='rbracket'>]</span>
+  <span class='ivar'>@include_external</span> <span class='op'>=</span> <span class='id params'>params</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:external</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:external</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -237,31 +297,41 @@ location that exists.</p>
       <pre class="lines">
 
 
-23
-24
-25
-26
-27
-28
-29
-30
 31
 32
 33
-34</pre>
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/validators/links.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/validators/links.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id run'>run</span>
   <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nokogiri</span><span class='tstring_end'>'</span></span>
 
-  <span class='id links'>links</span> <span class='op'>=</span> <span class='id all_broken_links'>all_broken_links</span>
+  <span class='ivar'>@delegate</span> <span class='op'>=</span> <span class='kw'>self</span>
+  <span class='id links'>links</span> <span class='op'>=</span> <span class='id all_broken_hrefs'>all_broken_hrefs</span>
   <span class='kw'>if</span> <span class='id links'>links</span><span class='period'>.</span><span class='id empty?'>empty?</span>
     <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No broken links found!</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>else</span>
-    <span class='id links'>links</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id link'>link</span><span class='op'>|</span>
-      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id link'>link</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id link'>link</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id links'>links</span><span class='period'>.</span><span class='id each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id href'>href</span><span class='comma'>,</span> <span class='id origins'>origins</span><span class='op'>|</span>
+      <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Broken link: </span><span class='embexpr_beg'>#{</span><span class='id href'>href</span><span class='rbrace'>}</span><span class='tstring_content'> -- referenced from:</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id origins'>origins</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id origin'>origin</span><span class='op'>|</span>
+        <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    </span><span class='embexpr_beg'>#{</span><span class='id origin'>origin</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id puts'>puts</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -275,9 +345,9 @@ location that exists.</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:33 2010 by 
+  Generated on Sun Mar 28 19:25:44 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

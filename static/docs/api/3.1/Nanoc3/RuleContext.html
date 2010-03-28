@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Class: Nanoc3::RuleContext</title>
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -73,6 +73,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/rule_context.rb</dd>
   
@@ -108,11 +109,12 @@ routed.</p>
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#filter-instance_method" title="#filter (instance method)">- (void) <strong>filter</strong>(filter_name, filter_args = {}) </a>
@@ -127,13 +129,13 @@ routed.</p>
   
 
   
-    <span class="summary_desc">Filters the current representation (calls <tt><a href="ItemRep.html#filter-instance_method" title="Nanoc3::ItemRep#filter (method)">Nanoc3::ItemRep#filter</a></tt> with
-the given arguments on the rep).</span>
+    <span class="summary_desc"><div class='inline'><p>Filters the current representation (calls <tt><a href="ItemRep.html#filter-instance_method" title="Nanoc3::ItemRep#filter (method)">Nanoc3::ItemRep#filter</a></tt> with
+the given arguments on the rep).</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (RuleContext) <strong>initialize</strong>(rep) </a>
@@ -150,12 +152,12 @@ the given arguments on the rep).</span>
   
 
   
-    <span class="summary_desc">Creates a new rule context for the given iterm representation.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a new rule context for the given iterm representation.</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(layout_identifier) </a>
@@ -170,13 +172,13 @@ the given arguments on the rep).</span>
   
 
   
-    <span class="summary_desc">Layouts the current representation (calls <tt><a href="ItemRep.html#layout-instance_method" title="Nanoc3::ItemRep#layout (method)">Nanoc3::ItemRep#layout</a></tt> with
-the given arguments on the rep).</span>
+    <span class="summary_desc"><div class='inline'><p>Layouts the current representation (calls <tt><a href="ItemRep.html#layout-instance_method" title="Nanoc3::ItemRep#layout (method)">Nanoc3::ItemRep#layout</a></tt> with
+the given arguments on the rep).</p></div></span>
   
 </li>
 
-    
-      <li class="public ">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#snapshot-instance_method" title="#snapshot (instance method)">- (void) <strong>snapshot</strong>(snapshot_name) </a>
@@ -191,13 +193,17 @@ the given arguments on the rep).</span>
   
 
   
-    <span class="summary_desc">Creates a snapshot of the current compiled item content.</span>
+    <span class="summary_desc"><div class='inline'><p>Creates a snapshot of the current compiled item content.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
 
+
+  
+  
   
   
   
@@ -235,7 +241,8 @@ the given arguments on the rep).</span>
       
       
         &mdash;
-        The item representation for which to create a new rule context.
+        <div class='inline'><p>The item representation for which to create
+a new rule context.</p></div>
       
     </li>
   
@@ -323,7 +330,8 @@ the given arguments on the rep).</p>
       
       
         &mdash;
-        The name of the filter to run the item representations' content through
+        <div class='inline'><p>The name of the filter to run the item
+representations' content through</p></div>
       
     </li>
   
@@ -339,7 +347,8 @@ the given arguments on the rep).</p>
       
       
         &mdash;
-        The filter arguments that should be passed to the filter's #run method
+        <div class='inline'><p>The filter arguments that should be passed to
+the filter's #run method</p></div>
       
     </li>
   
@@ -401,7 +410,8 @@ the given arguments on the rep).</p>
       
       
         &mdash;
-        The identifier of the layout the ite should be laid out with
+        <div class='inline'><p>The identifier of the layout the item
+should be laid out with</p></div>
       
     </li>
   
@@ -463,7 +473,7 @@ the given arguments on the rep).</p>
       
       
         &mdash;
-        The name of the snapshot to create
+        <div class='inline'><p>The name of the snapshot to create</p></div>
       
     </li>
   
@@ -502,9 +512,9 @@ the given arguments on the rep).</p>
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:30 2010 by 
+  Generated on Sun Mar 28 19:25:42 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>

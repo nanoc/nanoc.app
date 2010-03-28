@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
 <title>Exception: Nanoc3::Errors::CannotDetermineFilter</title>
 <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
 <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
@@ -75,6 +75,7 @@
     
   
   
+  
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/nanoc3/base/errors.rb</dd>
   
@@ -99,11 +100,12 @@ for which the filter cannot be determined. This is similar to the
   
   
 
-  <h2>Instance Method Summary</h2>
+  
+    <h2>Instance Method Summary</h2>
 
-  <ul class="summary">
-    
-      <li class="public ">
+    <ul class="summary">
+      
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (CannotDetermineFilter) <strong>initialize</strong>(layout_identifier) </a>
@@ -120,12 +122,14 @@ for which the filter cannot be determined. This is similar to the
   
 
   
-    <span class="summary_desc">A new instance of CannotDetermineFilter.</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of CannotDetermineFilter.</p></div></span>
   
 </li>
 
-    
-  </ul>
+      
+    </ul>
+  
+
 
   
   
@@ -162,7 +166,8 @@ for which the filter cannot be determined. This is similar to the
       
       
         &mdash;
-        The identifier of the layout for which the filter could not be determined
+        <div class='inline'><p>The identifier of the layout for
+which the filter could not be determined</p></div>
       
     </li>
   
@@ -182,7 +187,7 @@ for which the filter cannot be determined. This is similar to the
       <pre class="code"><span class="info file"># File 'lib/nanoc3/base/errors.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id layout_identifier'>layout_identifier</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The filter to be used for the '</span><span class='embexpr_beg'>#{</span><span class='id layout_identifier'>layout_identifier</span><span class='rbrace'>}</span><span class='tstring_content'>' could not be determined. Make sure the layout does have a filter.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The filter to be used for the “</span><span class='embexpr_beg'>#{</span><span class='id layout_identifier'>layout_identifier</span><span class='rbrace'>}</span><span class='tstring_content'>” layout could not be determined. Make sure the layout does have a filter.</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id make_compatible_with_env'>make_compatible_with_env</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -195,9 +200,9 @@ for which the filter cannot be determined. This is similar to the
 </div>
     
     <div id="footer">
-  Generated on Sun Feb 21 17:17:27 2010 by 
+  Generated on Sun Mar 28 19:25:39 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
-  0.5.3 (ruby-1.9.1).
+  0.5.4 (ruby-1.9.1).
 </div>
 
   </body>
