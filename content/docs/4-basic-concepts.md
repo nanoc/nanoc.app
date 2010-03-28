@@ -132,7 +132,9 @@ Items are the basic building blocks of a nanoc-powered site. An item consist of 
 
 Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one “root” or “home” page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
 
-To get the raw, uncompiled content of an item, use [`Nanoc3::Item#raw_content`](/docs/api/3.1/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below.
+Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio fiels and movies should probably be binary.
+
+To get the raw, uncompiled content of a (textual) item, use [`Nanoc3::Item#raw_content`](/docs/api/3.1/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
 To get the path of the compiled item, use [`Nanoc3::Item#path`](/docs/api/3.1/Nanoc3/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
 
@@ -194,6 +196,8 @@ The following snapshots are generated automatically:
 : The most recent compiled content
 
 The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot; items that are not laid out will not have one.
+
+Binary items cannot have snapshots.
 
 ### Variables
 
@@ -547,6 +551,8 @@ Filters
 -------
 
 Filters are used for transforming an item’s content. For example, the ERB filter interprets the item’s content as text with embedded Ruby, executes the embedded Ruby and returns the result. Each filter has an identifier (a symbol), which is used in the call to `#filter` in a compilation rule.
+
+Filters can be applied to binary items as well. For example, thumbnail generation for a gallery page can be handled by nanoc. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
 The following is a list of filters that are built into nanoc. The links lead to their documentation page, describing how they can be used and what parameters they take (if any).
 

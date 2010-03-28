@@ -101,7 +101,7 @@ Filters that output textual content should return the filtered content at the en
 
 Filters have access to `@item`, `@item_rep`, `@items`, `@layouts`, `@config` and `@site`, just like during the compilation process.
 
-Here are two complete example of filter that transforms textual and binary content:
+Here are trhee complete example of filter that transforms textual and binary content:
 
 <pre><code class="language-ruby">
 class CensorFilter &lt; Nanoc3::Filter
@@ -124,6 +124,15 @@ class ResizeFilter &lt; Nanoc3::Filter
       filename
     )
   end
+end
+
+class SynthesiseAudio &lt; Nanoc3::Filter 
+  identifier :synthesise_audio 
+  type :text => :binary
+
+  def run(content, params={}) 
+    system('say', content, '-o', output_filename)
+  end 
 end
 </code></pre>
 
