@@ -10,7 +10,7 @@ module Nanoc3::Helpers
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.find { |item| item.identifier == '/release-notes/' }.reps[0].content_at_snapshot(:pre)
+      content = @items.find { |i| i.identifier == '/release-notes/' }.compiled_content
       doc = Nokogiri::HTML(content)
 
       # Parse title
@@ -21,44 +21,6 @@ module Nanoc3::Helpers
 
       # Done
       { :version => $1, :date => Date.parse($3) }
-    end
-
-    def latest_release_notes
-      require 'nokogiri'
-
-      # Get release notes page
-      content = @items.find { |item| item.identifier == '/release-notes/' }.reps[0].content_at_snapshot(:before_sections)
-      doc = Nokogiri::HTML(content)
-
-      # Get latest header
-      header = doc.search('h2').first
-
-      # Get all siblings
-      siblings = header.parent.children
-
-      # Remove previous siblings
-      siblings_after = []
-      should_include = false
-      siblings.each do |sibling|
-        if sibling == header
-          should_include = true
-        elsif should_include
-          siblings_after << sibling
-        end
-      end
-
-      # Remove next siblings that should not be part of this section
-      siblings_in_between = []
-      siblings_after.each do |sibling|
-        if sibling.name =~ /^h(\d)/ && $1.to_i <= 2
-          break
-        else
-          siblings_in_between << sibling
-        end
-      end
-
-      # Done
-      siblings_in_between.join
     end
 
   end
