@@ -19,6 +19,11 @@ route '/assets/style/_*/' do
   nil
 end
 
+route '/assets/fonts/*/' do
+  # Strip extension
+  item.identifier.chop.sub(/-eot$|-otf$|-ttf$/, '') + '.' + item[:extension]
+end
+
 route '/assets/style/*/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
