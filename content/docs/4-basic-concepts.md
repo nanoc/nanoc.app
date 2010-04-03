@@ -136,6 +136,12 @@ Items can be textual or binary. If the extension of the item is included in the 
 
 To get the raw, uncompiled content of a (textual) item, use [`Nanoc3::Item#raw_content`](/docs/api/3.1/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
+Whether an item is considered textual or binary depends on the extension of the file. If it is included in the `text_extensions` array in the site configuration, it is considered textual; if not, it is considered binary. The default list of text extensions is the following:
+
+<pre><code class="language-yaml">
+text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'php', 'rb', 'sass', 'txt' ]
+</code></pre>
+
 To get the path of the compiled item, use [`Nanoc3::Item#path`](/docs/api/3.1/Nanoc3/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
 
 ### Creating an Item
