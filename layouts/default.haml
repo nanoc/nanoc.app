@@ -49,9 +49,9 @@
           .section.odd
             %p Install nanoc using <kbd>gem install nanoc</kbd> and take the <a href="/docs/2-installation/">tutorial</a>.
 
-          .section.even
-            / FIXME get right version and release date automatically
-            %p The current version of nanoc is 3.0.7, released on January 29th. See the <a href="release-notes/">release notes</a> for details.
+          - if @item.identifier != '/release-notes/'
+            .section.even
+              %p= 'The current version of nanoc is ' + latest_release_info[:version] + ', released on ' + latest_release_info[:date].format_as_date + '. See the <a href="release-notes/">release notes</a> for details.'
 
           .section.odd
             %p Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.
