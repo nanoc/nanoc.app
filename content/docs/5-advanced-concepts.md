@@ -141,7 +141,7 @@ When writing filters that apply to binary data, make sure that you check the exi
 Writing Data Sources
 --------------------
 
-Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the ([`Nanoc3::DataSource` source code documentation](/docs/api/3.1/Nanoc3/DataSource.html).
+Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the [`Nanoc3::DataSource` source code documentation](/docs/api/3.1/Nanoc3/DataSource.html).
 
 Each data source has an identifier. This is a unique name that is used in a site’s ’s configuration file to specify which data source should be used to fetch data. It is specified like this:
 
