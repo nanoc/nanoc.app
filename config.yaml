@@ -44,5 +44,4 @@ base_url: http://nanoc.stoneship.org/
 
 deploy:
   default:
-    dst:     "ectype:sites/nanoc/public/new"
-    options: [ '-gpPrtvz', '--delete-after', '--exclude=".hg"' ]
+    dst: "ectype:sites/nanoc/public"
