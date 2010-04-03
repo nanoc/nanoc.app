@@ -338,7 +338,7 @@ This will make all functions defined in the `Nanoc3::Helpers::Tagging` module av
 
 Now compile the site again, and you’ll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
 
-nanoc comes with quite a few useful helpers. The [API documentation](/docs/3.1/) describes each one of them.
+nanoc comes with quite a few useful helpers. The [API documentation](/docs/api/3.1/) describes each one of them.
 
 That’s it!
 ----------
