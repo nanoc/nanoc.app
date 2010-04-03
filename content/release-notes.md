@@ -5,6 +5,62 @@ markdown:  basic
 
 ---
 
+## 3.1 (2010-04-04)
+
+New:
+
+* An `Item#rep_named(name)` function for quickly getting a certain rep
+* An `Item#compiled_content` function for quickly getting compiled content
+* An `Item#path` function for quickly getting the path of an item rep
+* A new “+” wildcard in rule patterns that matches one or more characters
+* A `view` command that starts a web server in the output directory
+* A `debug` command that shows information about the items, reps and layouts
+* A `kramdown` filter ([kramdown site](http://kramdown.rubyforge.org/))
+* A diff between the previously compiled content and the last compiled content
+  is now written to `output.diff` if the `enable_output_diff` site
+  configuration attribute is true
+* Assigns, such as `@items`, `@layouts`, `@item`, … are accessible without `@`
+* Support for binary items
+
+Changed:
+
+* New sites now come with a stylesheet item instead of a `style.css` file in
+  the output directory
+* The `deploy:rsync` task now use sensible default options
+* The `deploy:rsync` task now accepts a config environment variable
+* The `deploy:rsync` task now uses a lowercase `dry_run` environment variable
+* The `maruku` filter now accepts parameters
+* The `rainpress` filter now accepts parameters
+* The `filesystem` data source is now known as `filesystem_verbose`
+* Meta files and content files are now optional
+* The `filesystem_compact` and `filesystem_combined` data sources have been
+  merged into a new `filesystem_unified` data source
+* The metadata section in `filesystem_unified` is now optional [Christopher
+  Eppstein]
+* The `--server` autocompile option is now known as `--handler`
+* Assigns in filters are now available as instance variables and methods
+* The `#breadcrumbs_trail` function now allows missing parents
+* The `sass` filter now properly handles `@import` dependencies
+
+Deprecated:
+
+* `Nanoc3::FileProxy`; use one of the filename attributes instead
+* `ItemRep#content_at_snapshot`; use `#compiled_content` instead
+* The `last_fm`, `delicious` and `twitter` data sources; fetch online content
+  into a cache by a rake task and load data from this cache instead
+
+## 3.0.9 (2010-02-24)
+
+* Fixed 1.8.x parsing bug due to lack of parens which could cause “undefined
+  method `to_iso8601_time` for #<String:0x…>” errors
+
+## 3.0.8 (2010-02-24)
+
+* `#atom_tag_for` now works with base_urls that contain a path [Eric Sunshine]
+* Generated root URLs in `#atom_feed` now end with a slash [Eric Sunshine]
+* Autocompiler now recognises requests to index files
+* `Blogging` helper now allows created_at to be a Time instance
+
 ## 3.0.7 (2010-01-29)
 
 * Fixed bug which could cause layout rules not be matched in order
