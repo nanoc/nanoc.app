@@ -210,5 +210,5 @@ Rules
 nanoc 3.0 does not use attributes in metadata files (the `.yaml` files) in
 order to figure out how to compile an item. Instead, processing instructions
 are located in a new file called `Rules` which lives at the top level of the
-nanoc site directory. See the [Rules section](/manual/#rules) of the manual
-for details.
+nanoc site directory. See the [Rules section](/docs/4-basic-concepts/#rules)
+of the manual for details.
