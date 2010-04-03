@@ -1,0 +1,56 @@
+<div style="margin: 1.8em 0; text-align: center;">
+	<img src="/assets/images/whats-new-in-nanoc-21-small.png" alt="What’s New in nanoc 2.1">
+</div>
+
+<p>Welcome to installment two of <i>What’s New in nanoc 2.1</i>! This installment discusses the technical, code-wise differences between this new version and the old 2.0 release.</p>
+
+<p>The first big improvement is that nanoc <strong>is a lot more modular</strong> now. The commandline interface (which was discussed <a href="#wnin-1-improved-cli-tool-july-12th-2008">before</a>) is now very loosely coupled with the backend. This means that it should be fairly easy to rip out the commandline frontend and replace it with something else&mdash;a web frontend (based off Rails or something similar) jumps to mind.</p>
+
+<p>Also important is that nanoc <strong>has a public API now</strong>, which makes manipulating sites a lot easier. For example, it’s now possible to programmatically generate pages. If you have a blog where all articles are tagged, you can generate tag index pages easily using something like this:</p>
+
+<pre><code class="language-ruby"># Load nanoc site
+site = Nanoc::Site.new(YAML.load_file('config.yaml'))
+site.load_data
+pages = site.pages
+
+# Get all tags used on the site
+all_tags = pages.map { |p| p.attribute_named(:tags) }.flatten.compact.uniq
+
+# Get tags for which an index page exists
+tags_with_pages = pages.map { |p| p.attribute_named(:tag) }
+
+# Get tags for which no index page exists
+tags_without_pages = all_tags - tags_with_pages
+
+# Build pages for each tag
+tags_without_pages.each do |t|
+  # Buid page
+  page = Nanoc::Page.new("Tag: #{tag}", { :tag => t }, "/blog/tags/#{t}")
+  page.site = site
+
+  # Store page
+  page.save
+end</code></pre>
+
+<p>If that example above confused you, don’t worry, because&hellip;</p>
+
+<p>The nanoc <strong>source code is now really, really well-documented</strong>. Every class and every method now has thorough documentation. Check out the source documentation <a href="/docs/api/3.1/">over here</a>. It should now be a lot easier to tweak nanoc to your own liking (but be sure to submit patches!).</p>
+
+<p>At least as important as the documentation is the <strong>greatly expanded test suite</strong>, which now features 319 unit tests and over 1200 assertions. Test coverage is about 85%. There are still a few tests missing, but once they have been implemented, the test suite will be really strong. The goal is to make sure nanoc is virtually bug free, and to make regression bugs a thing of the past.</p>
+
+<p>Just because I like showing off, here’s what the test suite run looks like at the moment:</p>
+
+<pre><samp>.......................................................................
+.......................................................................
+.......................................................................
+.......................................................................
+...................................
+Finished in 9.640952 seconds.
+
+319 tests, 1222 assertions, 0 failures, 0 errors</samp></pre>
+
+<p>Sweet, is it not?</p>
+
+<p>In unrelated (but still useful) news, the nanoc repository is now <a href="http://bitbucket.org/ddfreyne/nanoc/">mirrored over at Bitbucket</a>, which is github-like hosting for Mercurial instead of git. There’s also an issue tracker over there, which you can use in case you dislike Trac.</p>
+
+<p>That’s it for installment two. The next installment will briefly describe the changes to the data source API. Stay tuned!</p>

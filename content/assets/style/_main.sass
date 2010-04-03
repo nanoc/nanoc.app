@@ -1,0 +1,465 @@
+*
+  margin: 0
+  padding: 0
+
+body
+  background: #fff
+  border-top: 10px solid #299bf8
+  font-family: "Gentium Basic", Gentium, Palatino, Georgia, serif
+
+.wrapper
+  width: 940px
+  margin: 0 auto
+  position: relative
+
+.nav
+  position: absolute
+  top:  0
+  left: 0
+
+  li
+    display: inline
+
+  a, .active
+    margin:  0 2px
+    padding: 43px 3px 3px 13px
+
+    background: url(/assets/images/triangle-left.gif) bottom left no-repeat
+
+    font-family: Helvetica, Arial, "Trebuchet MS", sans-serif
+    font-weight: bold
+    font-size: 12px
+
+    text-transform: uppercase
+
+    line-height: 18px
+    
+    span
+      padding: 5px
+
+  a
+    text-decoration: none
+
+    &:link,
+    &:visited
+      color: #fff
+      background-color: #1b67a5
+
+    &:hover
+      color: #fff
+      background-color: #000
+
+      position: relative
+      top: 9px
+
+    &:active
+      color: #fff
+      background-color: #299bf8
+
+      position: relative
+      top: 9px
+
+  .active
+    color: #fff
+    background-color: #000
+
+    position: relative
+
+    top: 9px
+
+.side
+  position: fixed
+
+  margin:  90px 0 0    660px
+  padding: 0 20px
+
+  top:   -20px
+  width: 260px
+
+  .section
+    margin:  0 0 20px 0
+    padding: 20px
+    background-color: #feefdb
+
+  p
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif
+    font-size: 13px
+    color: darken(#feefdb, 80%)
+
+    kbd
+      font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
+      font-size: 14px
+      font-weight: bold
+      color: #000
+
+    a
+
+      &:link, &:visited
+        color: #000
+
+      &:hover
+        color: #f89b29
+
+  .figure
+    text-align: center
+
+    img
+      border: 0
+
+  ol
+    margin-bottom: 5px
+
+  li
+    list-style-type: none
+    width: 260px
+    margin: 0 0 10px 0
+
+    a, .active
+      display: block
+      padding: 0 5px
+      font-family: Helvetica, Arial, sans-serif
+      font-weight: bold
+      font-size: 12px
+      text-decoration: none
+      text-transform: uppercase
+      text-align: left
+      line-height: 18px
+      white-space: nowrap
+      overflow: hidden
+      background-color: #dbeffe
+      background-image: url(/assets/images/triangle-right.gif)
+      background-position: bottom right
+      background-repeat: no-repeat
+
+    a
+
+      &:link, &:visited
+        color: #299bf8
+
+      &:hover
+        color: #fff
+        background-color: #299bf8
+
+      &:active
+        color: #fff
+        background-color: #000
+
+    .active
+      color: #fff
+      background-color: #f89b29
+
+    li
+      margin:  0
+      padding: 0
+      width: 280px
+
+      a, .active
+        margin: 0
+        padding: 0 5px
+        text-transform: none
+        font-weight: normal
+        background: #fff
+
+      a
+
+        &:link, &:visited
+          color: #f89b29
+
+        &:hover
+          color: #000
+          font-weight: bold
+          background: transparent
+
+.body
+  padding: 40px 0
+  width:   640px
+
+  a
+    padding: 2px 0
+    text-decoration: underline
+
+    &:link, &:visited
+      color: #1b67a5
+
+    &:hover
+      color: #000
+
+    &.permalink
+      margin: 0 5px
+      font-weight: normal
+      text-decoration: none
+
+      &:link, &:visited
+        color: #ccc
+        background: none
+
+      &:hover
+        color: #299bf8
+
+#intro
+  width: 640px
+
+  h1
+    font-family: "Graublau Web", Helvetica, Arial, sans-serif
+    font-size: 39px
+    font-weight: normal
+    line-height: 42px
+    letter-spacing: -1px
+    padding: 20px 0 16px 0
+    color: #000
+
+    strong
+      font-weight: bold
+      letter-spacing: 0
+      color: #f89b29
+
+  p
+    margin: 0
+    font-size: 18px
+    font-family: "Gentium Basic", Gentium, Palatino, Georgia, serif
+    line-height: 20px
+
+  img
+    margin: 40px 0
+    width:  640px
+    height: 400px
+    -webkit-box-shadow: 3px 3px 14px #999
+    -moz-box-shadow:    3px 3px 14px #999
+
+.warning
+  font-family: "Lucida Sans", Helvetica, Arial, sans-serif
+  font-size: 13px
+  margin: 20px 0
+  padding: 10px
+  color: #900
+  background: #fcc
+
+.article
+
+  .header
+    margin: 20px 0 40px 0
+
+  h1
+    margin: 0
+    font-family: "Graublau Web", Helvetica, Arial, sans-serif
+    font-weight: bold
+    font-size: 46px
+    line-height: 60px
+    color: #299bf8
+    color: #f89b29
+
+  h2
+    margin: 40px 0 0 0
+    font-family: "Graublau Web", Helvetica, Arial, sans-serif
+    font-weight: normal
+    font-size: 26px
+    line-height: 40px
+    letter-spacing: -1px
+    color: #000
+
+    span
+      color: #ccc
+      margin-left: 10px
+      letter-spacing: 1px
+      font-family: "Graublau Web", Helvetica, Arial, sans-serif
+      font-size: 75%
+      text-transform: uppercase
+
+  .section:target > h2
+    color: #f89b29
+
+  .section:target > h2:after
+    padding: 0 20px
+    font-size: 34px
+    line-height: 40px
+    position: relative
+    top: 5px
+    content: "☜"
+
+  h3
+    margin: 20px 0
+    font-family: "Graublau Web", Helvetica, Arial, sans-serif
+    font-weight: normal
+    font-size: 18px
+    line-height: 20px
+    position: relative
+    top: 8px
+    color: #000
+
+  p
+    font-size: 15px
+    line-height: 20px
+    margin: 20px 0 0 0
+    padding: 0
+
+  p.fixme
+    margin: 20px 0
+    color: #c00
+
+  p.fixme:before
+    content: "FIXME"
+    padding: 2px 4px
+    margin: 0 5px 0 0
+    font-family: Helvetica, Arial, sans-serif
+    font-size: 15px
+    line-height: 20px
+    background: #f00
+    color: #fff
+
+  table
+    margin: 36px auto
+    border-collapse: collapse
+
+  tr
+    &.head th
+      border-top: 2px solid #000
+      border-bottom: 1px solid #666
+      padding-top: 5px
+      padding-bottom: 5px
+
+    &.first
+      td, th
+        padding-top: 5px
+
+    &.last
+      td, th
+        padding-bottom: 5px
+        border-bottom: 2px solid #000
+
+  th
+    padding: 2px 10px
+    font-family: Helvetica, Arial, sans-serif
+    font-size: 12px
+    text-align: left
+
+    &.row
+      text-align: right
+
+  td
+    padding: 2px 10px
+    font-family: Helvetica, Arial, sans-serif
+    font-size: 12px
+    text-align: left
+
+  th
+    font-weight: bold
+    text-transform: uppercase
+
+  ul, ol
+    margin:  20px 0 0 0
+    padding: 0 0 0 1em
+
+  ul ul, ol ol
+    margin: 0 20px
+    padding: 0
+
+  li
+    font-size: 15px
+    line-height: 20px
+
+    p
+      margin: 18px 0
+      padding: 0
+
+  ul li
+    list-style-type: square
+
+  ol.toc
+    margin: 20px 0 0 0
+
+    > li
+      font-weight: bold
+      list-style-type: upper-roman
+
+      li
+        font-weight: normal
+
+  dl
+    margin: 20px 0
+
+    dt, dd
+      font-size:   15px
+      line-height: 20px
+
+    dt
+      font-weight: bold
+
+    dd
+      margin: 0 0 18px 18px
+
+      p
+        margin: 20px 0
+        padding: 0
+
+      .see
+        font-style: italic
+
+      a
+        font-style: normal
+
+  .figure
+    margin:  20px 0
+    padding: 15px 0
+    border-top:    5px solid #ccc
+    border-bottom: 5px solid #ccc
+    text-align: center
+
+  q, .path
+    font-style: italic
+
+  code, kbd, samp, var
+    font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
+    font-size: 12px
+    line-height: 20px
+    padding: 0 2px
+
+  code, samp
+    font-style: normal
+
+  kbd
+    font-weight: bold
+
+  var
+    font-style: italic
+
+  pre
+    margin: 20px 0 0 0
+    padding: 10px 15px 10px 15px
+    padding: 10px
+    white-space: pre-wrap
+    white-space: -moz-pre-wrap
+    white-space: -pre-wrap
+    white-space: -o-pre-wrap
+    word-wrap: break-word
+    font-family: "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
+    font-size: 12px
+    line-height: 20px
+    border: 1px solid #ccc
+
+    code, kbd, samp, var
+      background: transparent
+      padding: 0
+
+    .prompt
+      color: #999
+
+#footer
+  margin: 0 auto
+  padding: 100px 0 40px 0
+
+  p
+    width: 620px
+    padding-right: 320px
+    margin: 0 auto
+    font-size: 14px
+    line-height: 20px
+    color: #666
+
+  a
+    text-decoration: underline
+
+    &:link, &:visited
+      color: #666
+
+    &:hover
+      color: #000

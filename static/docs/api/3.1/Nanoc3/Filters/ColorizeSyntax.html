@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Nanoc3::Filters::ColorizeSyntax</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><a href="../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../Filters.html" title="Nanoc3::Filters (module)">Filters</a></span>
+     &raquo; 
+    <span class="title">ColorizeSyntax</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Filters::ColorizeSyntax 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><a href="../Context.html" title="Nanoc3::Context (class)">Nanoc3::Context</a></li>
+          
+            <li class="next"><a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></li>
+          
+            <li class="next">Nanoc3::Filters::ColorizeSyntax</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/filters/colorize_syntax.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_COLORIZER-constant" class="">DEFAULT_COLORIZER =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The default colorizer to use for a language if the colorizer for that
+language is not overridden.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='symbol'>:coderay</span></pre></dd>
+      
+        <dt id="KNOWN_COLORIZERS-constant" class="">KNOWN_COLORIZERS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span> <span class='symbol'>:coderay</span><span class='comma'>,</span> <span class='symbol'>:dummy</span><span class='comma'>,</span> <span class='symbol'>:pygmentize</span> <span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  <h3 class="inherited">Constants inherited from <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></h3>
+  <p class="inherited"><a href="../Filter.html#TMP_BINARY_ITEMS_DIR-constant" title="Nanoc3::Filter::TMP_BINARY_ITEMS_DIR (constant)">TMP_BINARY_ITEMS_DIR</a></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content, params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Syntax-highlights code blocks in the given content.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../Filter.html" title="Nanoc3::Filter (class)">Nanoc3::Filter</a></h3>
+  <p class="inherited"><a href="../Filter.html#filename-instance_method" title="Nanoc3::Filter#filename (method)">#filename</a>, <a href="../Filter.html#from_binary%3F-class_method" title="Nanoc3::Filter.from_binary? (method)">from_binary?</a>, <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">#initialize</a>, <a href="../Filter.html#output_filename-instance_method" title="Nanoc3::Filter#output_filename (method)">#output_filename</a>, <a href="../Filter.html#to_binary%3F-class_method" title="Nanoc3::Filter.to_binary? (method)">to_binary?</a>, <a href="../Filter.html#type-class_method" title="Nanoc3::Filter.type (method)">type</a></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <a href="../PluginRegistry/PluginMethods.html" title="Nanoc3::PluginRegistry::PluginMethods (module)">Nanoc3::PluginRegistry::PluginMethods</a></h3>
+  <p class="inherited"><a href="../PluginRegistry/PluginMethods.html#identifier-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifier (method)">#identifier</a>, <a href="../PluginRegistry/PluginMethods.html#identifiers-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#identifiers (method)">#identifiers</a>, <a href="../PluginRegistry/PluginMethods.html#named-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#named (method)">#named</a>, <a href="../PluginRegistry/PluginMethods.html#register-instance_method" title="Nanoc3::PluginRegistry::PluginMethods#register (method)">#register</a></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <a href="../Context.html" title="Nanoc3::Context (class)">Nanoc3::Context</a></h3>
+  <p class="inherited"><a href="../Context.html#get_binding-instance_method" title="Nanoc3::Context#get_binding (method)">#get_binding</a>, <a href="../Context.html#initialize-instance_method" title="Nanoc3::Context#initialize (method)">#initialize</a></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <a href="../Filter.html#initialize-instance_method" title="Nanoc3::Filter#initialize (method)">Nanoc3::Filter</a></p>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="run-instance_method">
+  
+    - (<tt><a href="../../String.html" title="String (class)">String</a></tt>) <strong>run</strong>(content, params = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Syntax-highlights code blocks in the given content. Code blocks should
+be enclosed in <code>pre</code> elements that contain a <code>code</code> element. The code
+element should have a class starting with <code>language-</code> and followed by
+the programming language, as specified by HTML5.</p>
+
+<p>Options for individual colorizers will be taken from the <tt><a href="#run-instance_method" title="Nanoc3::Filters::ColorizeSyntax#run (method)">#run</a></tt>
+options’ value for the given colorizer. For example, if the filter is
+invoked with a <code>:coderay =&gt; coderay_options_hash</code> option, the
+<code>coderay_options_hash</code> hash will be passed to the CodeRay colorizer.</p>
+
+<p>Currently, only the <code>:coderay</code> and <code>:pygmentize</code> colorizers are
+implemented. Additional colorizer implementations are welcome!</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Content that will be highlighted</p></div></h4>
+      <pre class="example code">
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;
+def foo
+  &quot;asdf&quot;
+end
+&lt;/code&gt;&lt;/pre&gt;</pre>
+    
+      <h4><div class='inline'><p>Invoking the filter with custom parameters</p></div></h4>
+      <pre class="example code">
+<span class='id filter'>filter</span> <span class='symbol'>:colorize_syntax</span><span class='comma'>,</span>
+       <span class='symbol'>:colorizers</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:ruby</span> <span class='op'>=&gt;</span> <span class='symbol'>:coderay</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+       <span class='symbol'>:coderay</span>    <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:line_numbers</span> <span class='op'>=&gt;</span> <span class='symbol'>:list</span> <span class='rbrace'>}</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>content</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The content to filter</p></div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+          <span class="name">:colorizers</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>DEFAULT_COLORIZER</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>A hash containing
+a mapping of programming languages (symbols, not strings) onto
+colorizers (symbols).</p></div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The filtered content</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/filters/colorize_syntax.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id run'>run</span><span class='lparen'>(</span><span class='id content'>content</span><span class='comma'>,</span> <span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nokogiri</span><span class='tstring_end'>'</span></span>
+
+  <span class='comment'># Take colorizers from parameters
+</span>  <span class='ivar'>@colorizers</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='const'>DEFAULT_COLORIZER</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:colorizers</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id language'>language</span><span class='comma'>,</span> <span class='id colorizer'>colorizer</span><span class='op'>|</span>
+    <span class='ivar'>@colorizers</span><span class='lbracket'>[</span><span class='id language'>language</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id colorizer'>colorizer</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Colorize
+</span>  <span class='id doc'>doc</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>HTML</span><span class='period'>.</span><span class='id fragment'>fragment</span><span class='lparen'>(</span><span class='id content'>content</span><span class='rparen'>)</span>
+  <span class='id doc'>doc</span><span class='period'>.</span><span class='id css'>css</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pre &gt; code[class*=&quot;language-&quot;]</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id element'>element</span><span class='op'>|</span>
+    <span class='comment'># Get language
+</span>    <span class='id match'>match</span> <span class='op'>=</span> <span class='id element'>element</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>class</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(^| )language-([^ ]+)</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id match'>match</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id language'>language</span> <span class='op'>=</span> <span class='id match'>match</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+
+    <span class='comment'># Highlight
+</span>    <span class='id highlighted_code'>highlighted_code</span> <span class='op'>=</span> <span class='id highlight'>highlight</span><span class='lparen'>(</span><span class='id element'>element</span><span class='period'>.</span><span class='id inner_text'>inner_text</span><span class='comma'>,</span> <span class='id language'>language</span><span class='comma'>,</span> <span class='id params'>params</span><span class='rparen'>)</span>
+    <span class='id element'>element</span><span class='period'>.</span><span class='id inner_html'>inner_html</span> <span class='op'>=</span> <span class='id highlighted_code'>highlighted_code</span>
+  <span class='kw'>end</span>
+
+  <span class='id doc'>doc</span><span class='period'>.</span><span class='id to_s'>to_s</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Mar 28 19:25:44 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

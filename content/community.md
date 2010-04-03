@@ -6,7 +6,7 @@ The Trac-powered [wiki](http://projects.stoneship.org/trac/nanoc) contains a col
 Discussion Groups
 -----
 
-nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you're having trouble. In addition to that, there is a [Spanish discussion group](http://groups.google.com/group/nanoc-es) for those who prefer to speak Spanish. (I won't be able to join the discussion there though, as I don't speak Spanish.)
+nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble. In addition to that, there is a [Spanish discussion group](http://groups.google.com/group/nanoc-es) for those who prefer to speak Spanish. (I won’t be able to join the discussion there though, as I don’t speak Spanish.)
 
 IRC Channel
 -----

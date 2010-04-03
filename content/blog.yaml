@@ -1,0 +1,4 @@
+title:                 "The nanoc Blog"
+short_title:           "Blog"
+is_dynamic:            true
+toc_includes_children: true

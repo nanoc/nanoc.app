@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Nanoc3::CLI::Commands::CreateSite</title>
+<link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><a href="../../../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span> &raquo; <span class='title'><a href="../../CLI.html" title="Nanoc3::CLI (module)">CLI</a></span> &raquo; <span class='title'><a href="../Commands.html" title="Nanoc3::CLI::Commands (module)">Commands</a></span>
+     &raquo; 
+    <span class="title">CreateSite</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::CLI::Commands::CreateSite 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Cri::Command</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Cri::Command</li>
+          
+            <li class="next">Nanoc3::CLI::Commands::CreateSite</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/cli/commands/create_site.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_CONFIG-constant" class="">DEFAULT_CONFIG =
+          
+        </dt>
+        <dd><pre class="code">&lt;&lt;EOS
+# A list of file extensions that nanoc will consider to be textual rather than
+# binary. If an item with an extension not in this list is found,  the file
+# will be considered as binary.
+text_extensions: #{array_to_yaml(Nanoc3::Site::DEFAULT_CONFIG[:text_extensions])}
+
+# The path to the directory where all generated files will be written to. This
+# can be an absolute path starting with a slash, but it can also be path
+# relative to the site directory.
+output_dir: #{Nanoc3::Site::DEFAULT_CONFIG[:output_dir]}
+
+# A list of index filenames, i.e. names of files that will be served by a web
+# server when a directory is requested. Usually, index files are named
+# “index.hml”, but depending on the web server, this may be something else,
+# such as “default.htm”. This list is used by nanoc to generate pretty URLs.
+index_filenames: #{array_to_yaml(Nanoc3::Site::DEFAULT_CONFIG[:index_filenames])}
+
+# Whether or not to generate a diff of the compiled content when compiling a
+# site. The diff will contain the differences between the compiled content
+# before and after the last site compilation.
+enable_output_diff: false
+
+# The data sources where nanoc loads its data from. This is an array of
+# hashes; each array element represents a single data source. By default,
+# there is only a single data source that reads data from the “content/” and
+# “layout/” directories in the site directory.
+data_sources:
+  -
+    # The type is the identifier of the data source. By default, this will be
+    # `filesystem_unified`.
+    type: #{Nanoc3::Site::DEFAULT_DATA_SOURCE_CONFIG[:type]}
+
+    # The path where items should be mounted (comparable to mount points in
+    # Unix-like systems). This is “/” by default, meaning that items will have
+    # “/” prefixed to their identifiers. If the items root were “/en/”
+    # instead, an item at content/about.html would have an identifier of
+    # “/en/about/” instead of just “/about/”.
+    items_root: #{Nanoc3::Site::DEFAULT_DATA_SOURCE_CONFIG[:items_root]}
+
+    # The path where layouts should be mounted. The layouts root behaves the
+    # same as the items root, but applies to layouts rather than items.
+    layouts_root: #{Nanoc3::Site::DEFAULT_DATA_SOURCE_CONFIG[:layouts_root]}
+EOS
+
+    DEFAULT_RULES = &lt;&lt;EOS
+#!/usr/b</pre></dd>
+      
+        <dt id="DEFAULT_RULES-constant" class="">DEFAULT_RULES =
+          
+        </dt>
+        <dd><pre class="code">elpful tips about the Rules file:
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+compile '/stylesheet/' do
+  # don’t filter or layout
+end
+
+compile '*' do
+  filter :erb
+  layout 'default'
+end
+
+route '/stylesheet/' do
+  '/style.css'
+end
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+layout '*', :erb
+EOS
+
+    DEFAULT_ITEM = &lt;&lt;EOS
+&lt;h1&gt;A Brand New nanoc Site&lt;/h1&gt;</pre></dd>
+      
+        <dt id="DEFAULT_ITEM-constant" class="">DEFAULT_ITEM =
+          
+        </dt>
+        <dd><pre class="code">d a new nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Change this page’s content&lt;/strong&gt; by editing the “index.html” file in the “content” directory. This is the actual page content, and therefore doesn’t include the header, sidebar or style information (those are part of the layout).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Change the layout&lt;/strong&gt;, which is the “default.html” file in the “layouts” directory, and create something unique (and hopefully less bland).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you need any help with customizing your nanoc web site, be sure to check out the documentation (see sidebar), and be sure to subscribe to the discussion group (also see sidebar). Enjoy!&lt;/p&gt;
+EOS
+
+  DEFAULT_STYLESHEET = &lt;&lt;EOS
+* {
+margin: 0;
+padding: 0;
+
+font-family: Ge</pre></dd>
+      
+        <dt id="DEFAULT_STYLESHEET-constant" class="">DEFAULT_STYLESHEET =
+          
+        </dt>
+        <dd><pre class="code"><span class='id mes'>mes</span> <span class='const'>New</span> <span class='const'>Roman</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>, sans-serif;
+}
+
+body {
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+#main {
+  position: absolute;
+
+  top: 40px;
+  left: 280px;
+
+  width: 500px;
+}
+
+#main h1 {
+  font-size: 40px;
+  font-weight: normal;
+
+  line-height: 40px;
+
+  letter-spacing: -1px;
+}
+
+#main p {
+  margin: 20px 0;
+  
+  font-size: 15px;
+  
+  line-height: 20px;
+}
+
+#main ul {
+  margin: 20px;
+}
+
+#main li {
+  list-style-type: square;
+
+  font-size: 15px;
+  
+  line-height: 20px;
+}
+
+#sidebar {
+  position: absolute;
+
+  top: 40px;
+  left: 20px;
+  width: 200px;
+
+  padding: 20px 20px 0 0;
+
+  border-right: 1px solid #ccc;
+
+  text-align: right;
+}
+
+#sidebar h2 {
+  text-transform: uppercase;
+
+  font-size: 13px;
+
+  color: #333;
+
+  letter-spacing: 1px;
+
+  line-height: 20px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+
+  margin: 20px 0;
+}
+
+#sidebar li {
+  font-size: 14px;
+
+  line-height: 20px;
+}
+EOS
+
+DEFAULT_LAYOUT = &lt;&lt;EOS
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+</span></span><span class='tstring_end'>&lt;meta c</span></span></pre></dd>
+      
+        <dt id="DEFAULT_LAYOUT-constant" class="">DEFAULT_LAYOUT =
+          
+        </dt>
+        <dd><pre class="code">tle&gt;A Brand New nanoc Site - &lt;%= @item[:title] %&gt;&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; media=&quot;screen&quot;&gt;
+&lt;meta name=&quot;generator&quot; content=&quot;nanoc #{Nanoc3::VERSION}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+&lt;div id=&quot;main&quot;&gt;
+  &lt;%= yield %&gt;
+&lt;/div&gt;
+&lt;div id=&quot;sidebar&quot;&gt;
+  &lt;h2&gt;Documentation&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://nanoc.stoneship.org/docs/&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://nanoc.stoneship.org/docs/3-getting-started/&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h2&gt;Community&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://groups.google.com/group/nanoc/&quot;&gt;Discussion Group&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;irc://chat.freenode.net/#nanoc&quot;&gt;IRC Channel&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://projects.stoneship.org/trac/nanoc/&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+EOS
+
+def name
+  'create_site'
+end
+
+def aliases
+  [ 'cs' ]
+end</pre></dd>
+      
+    </dl>
+  
+
+
+  
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#aliases-instance_method" title="#aliases (instance method)">- (Object) <strong>aliases</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#long_desc-instance_method" title="#long_desc (instance method)">- (Object) <strong>long_desc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#option_definitions-instance_method" title="#option_definitions (instance method)">- (Object) <strong>option_definitions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong>( $stder, puts &quot;usa) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#short_desc-instance_method" title="#short_desc (instance method)">- (Object) <strong>short_desc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#usage-instance_method" title="#usage (instance method)">- (Object) <strong>usage</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="aliases-instance_method">
+  
+    - (<tt>Object</tt>) <strong>aliases</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 244</span>
+
+nd
+
+    def long_desc
+'Creat</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="long_desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>long_desc</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 252</span>
+
++
+  'filesystem_unified data source by default, but this can be ' +
+  'changed using the --datasource commandline option.'
+end
+
+def usage
+  &quot;nanoc3 create_site [options] path&quot;
+end
+
+def option_</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+240
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 240</span>
+
+def short_desc
+'create a site'</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="option_definitions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>option_definitions</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264
+265
+266
+267
+268
+269
+270</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 262</span>
+
+ 'datasource', :short =&gt; 'd', :argument =&gt; :required,
+    :desc =&gt; 'specify the data source for the new site'
+  }
+]
+    end
+
+    def run(options, arguments)
+# Check arguments
+if arguments.lengt</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run</strong>( $stder, puts &quot;usa) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 272</span>
+
+
+    $stderr.puts &quot;usage: #{usage}&quot;
+    exit 1
+  end
+
+  # Extract arguments and options
+  path        = arguments[0]
+  data_source = options[:datasource] || 'filesystem_unified'
+
+  # Check whether site exists
+  if File.exist?(path)
+    $stderr.puts &quot;A site at '#{path}' already exists.&quot;
+    exit 1
+  end
+
+  # Check whether data source exists
+  if Nanoc3::DataSource.named(data_source).nil?
+    $stderr.puts &quot;Unrecognised data source: #{data_source}&quot;
+    exit 1
+  end
+
+  # Setup notifications
+  Nanoc3::NotificationCenter.on(:file_created) do |file_path|
+    Nanoc3::CLI::Logger.instance.file(:high, :create, file_path)
+  end
+
+  # Build entire site
+  FileUtils.mkdir_p(path)
+  FileUtils.cd(File.join(path)) do
+    site_create_minimal(data_source)
+    site_setup
+    site_populate
+  end
+
+  puts &quot;Created a blank nanoc site at '#{path}'. Enjoy!&quot;
+end
+
+  protected
+
+# Creates a configuration file and a output directory for this </pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="short_desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>short_desc</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 248</span>
+
+<span class='id w'>w</span> <span class='id site'>site</span> <span class='id at'>at</span> <span class='id the'>the</span> <span class='id given'>given</span> <span class='id path'>path</span><span class='period'>.</span> <span class='const'>The</span> <span class='id site'>site</span> <span class='id will'>will</span> <span class='id use'>use</span> </pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="usage-instance_method">
+  
+    - (<tt>Object</tt>) <strong>usage</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+258
+259
+260
+261
+262</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/commands/create_site.rb', line 258</span>
+
+tions
+      [
+        # --datasource
+        {
+:l</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Mar 28 19:25:44 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

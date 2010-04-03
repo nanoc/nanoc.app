@@ -1,6 +1,6 @@
 module Nanoc3::Filters
 
-  # This filters adds section div's based on headers. For example, this:
+  # This filters adds section div’s based on headers. For example, this:
   #
   # h1
   # p
@@ -40,13 +40,12 @@ module Nanoc3::Filters
       require 'nokogiri'
 
       # Parse
-      doc = Nokogiri::HTML(content)
-      root = doc.root
+      doc = Nokogiri::HTML.fragment(content)
 
       # Add sections for all headers
       (1..6).each do |level|
         # For each header on this level
-        root.css("h#{level}").each do |header|
+        doc.css("h#{level}").each do |header|
           # Get all siblings
           siblings = header.parent.children
 

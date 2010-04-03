@@ -1,0 +1,1250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Nanoc3::Site</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span>
+     &raquo; 
+    <span class="title">Site</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Site 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::Site</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/site.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The in-memory representation of a nanoc site. It holds references to the
+following site data:</p>
+
+<ul>
+<li><tt><a href="#items-instance_method" title="Nanoc3::Site#items (method)">#items</a></tt>         - the list of items         (<tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>)</li>
+<li><tt><a href="#layouts-instance_method" title="Nanoc3::Site#layouts (method)">#layouts</a></tt>       - the list of layouts       (<tt><a href="Layout.html" title="Nanoc3::Layout (class)">Nanoc3::Layout</a></tt>)</li>
+<li><tt><a href="#code_snippets-instance_method" title="Nanoc3::Site#code_snippets (method)">#code_snippets</a></tt> - the list of code snippets (<tt><a href="CodeSnippet.html" title="Nanoc3::CodeSnippet (class)">Nanoc3::CodeSnippet</a></tt>)</li>
+</ul>
+
+
+<p>In addition, each site has a <tt><a href="#config-instance_method" title="Nanoc3::Site#config (method)">#config</a></tt> hash which stores the site
+configuration.</p>
+
+<p>A site also has several helper classes:</p>
+
+<ul>
+<li><p><tt><a href="#data_sources-instance_method" title="Nanoc3::Site#data_sources (method)">#data_sources</a></tt> (array of <tt><a href="DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></tt>) - A list of data sources
+that are used for loading site data</p></li>
+<li><p><tt><a href="#compiler-instance_method" title="Nanoc3::Site#compiler (method)">#compiler</a></tt> (<tt><a href="Compiler.html" title="Nanoc3::Compiler (class)">Nanoc3::Compiler</a></tt>) - The compiler that is used for
+compiling items and their representations</p></li>
+</ul>
+
+
+<p>The physical representation of a <tt><a href="" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt> is usually a directory
+that contains a configuration file, site data, a rakefile, a rules file,
+etc. The way site data is stored depends on the data source.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_DATA_SOURCE_CONFIG-constant" class="">DEFAULT_DATA_SOURCE_CONFIG =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The default configuration for a data source. A data source's
+configuration overrides these options.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:type</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_unified</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:items_root</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:layouts_root</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:config</span>       <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="DEFAULT_CONFIG-constant" class="">DEFAULT_CONFIG =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The default configuration for a site. A site's configuration overrides
+these options: when a <tt><a href="" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt> is created with a configuration
+that lacks some options, the default value will be taken from
+<code>DEFAULT_CONFIG</code>.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:text_extensions</span>    <span class='op'>=&gt;</span> <span class='qwords_beg'>%w( </span><span class='tstring_content'>css</span><span class='words_sep'> </span><span class='tstring_content'>erb</span><span class='words_sep'> </span><span class='tstring_content'>haml</span><span class='words_sep'> </span><span class='tstring_content'>htm</span><span class='words_sep'> </span><span class='tstring_content'>html</span><span class='words_sep'> </span><span class='tstring_content'>js</span><span class='words_sep'> </span><span class='tstring_content'>less</span><span class='words_sep'> </span><span class='tstring_content'>markdown</span><span class='words_sep'> </span><span class='tstring_content'>md</span><span class='words_sep'> </span><span class='tstring_content'>php</span><span class='words_sep'> </span><span class='tstring_content'>rb</span><span class='words_sep'> </span><span class='tstring_content'>sass</span><span class='words_sep'> </span><span class='tstring_content'>txt</span><span class='words_sep'> )</span><span class='comma'>,</span>
+  <span class='symbol'>:output_dir</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>output</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:data_sources</span>       <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:index_filenames</span>    <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:enable_output_diff</span> <span class='op'>=&gt;</span> <span class='kw'>false</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config-instance_method" title="#config (instance method)">- (Hash) <strong>config</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The site configuration.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config_mtime-instance_method" title="#config_mtime (instance method)">- (Time) <strong>config_mtime</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The timestamp when the site configuration was last
+modified.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preprocessor-instance_method" title="#preprocessor (instance method)">- (Proc) <strong>preprocessor</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The code block that will be executed after all data is
+loaded but before the site is compiled.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rules_mtime-instance_method" title="#rules_mtime (instance method)">- (Time) <strong>rules_mtime</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The timestamp when the rules were last modified.</p></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#code_snippets-instance_method" title="#code_snippets (instance method)">- (Array&lt;Nanoc3::CodeSnippet&gt;) <strong>code_snippets</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns this site’s code snippets.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiler-instance_method" title="#compiler (instance method)">- (Nanoc3::Compiler) <strong>compiler</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the compiler for this site.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#data_sources-instance_method" title="#data_sources (instance method)">- (Array&lt;Nanoc3::DataSource&gt;) <strong>data_sources</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the data sources for this site.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Site) <strong>initialize</strong>(dir_or_config_hash) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a site object for the site specified by the given
+<code>dir_or_config_hash</code> argument.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#items-instance_method" title="#items (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>items</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns this site’s items.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#layouts-instance_method" title="#layouts (instance method)">- (Array&lt;Nanoc3::Layouts&gt;) <strong>layouts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns this site’s layouts.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_data-instance_method" title="#load_data (instance method)">- (void) <strong>load_data</strong>(force = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Loads the site data.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Nanoc3::Site (class)">Site</a></tt>) <strong>initialize</strong>(dir_or_config_hash) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a site object for the site specified by the given
+<code>dir_or_config_hash</code> argument.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>, <tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>dir_or_config_hash</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>If a string, contains the path
+to the site directory; if a hash, contains the site configuration.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id dir_or_config_hash'>dir_or_config_hash</span><span class='rparen'>)</span>
+  <span class='id build_config'>build_config</span><span class='lparen'>(</span><span class='id dir_or_config_hash'>dir_or_config_hash</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@code_snippets_loaded</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@items_loaded</span>         <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@layouts_loaded</span>       <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="config-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="config-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) <strong>config</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The site configuration. The configuration has the following keys:</p>
+
+<ul>
+<li><p><code>text_extensions</code> (<tt>Array<String></tt>) - A list of file extensions that
+will cause nanoc to threat the file as textual instead of binary. When
+the data source finds a content file with an extension that is
+included in this list, it will be marked as textual.</p></li>
+<li><p><code>output_dir</code> (<tt><a href="../String.html" title="String (class)">String</a></tt>) - The directory to which compiled items will
+be written. This path is relative to the current working directory,
+but can also be an absolute path.</p></li>
+<li><p><code>data_sources</code> (<tt>Array<Hash></tt>) - A list of data sources for this site.
+See below for documentation on the structure of this list. By default,
+there is only one data source of the filesystem  type mounted at <code>/</code>.</p></li>
+<li><p><code>index_filenames</code> (<tt>Array<String></tt>) - A list of filenames that will be
+stripped off full item paths to create cleaner URLs. For example,
+<code>/about/</code> will be used instead of <code>/about/index.html</code>). The default
+value should be okay in most cases.</p></li>
+<li><p><code>enable_output_diff</code> (<tt>Boolean</tt>) - True when diffs should be generated
+for the compiled content of this site; false otherwise.</p></li>
+</ul>
+
+
+<p>The list of data sources consists of hashes with the following keys:</p>
+
+<ul>
+<li><p><code>:type</code> (<tt><a href="../String.html" title="String (class)">String</a></tt>) - The type of data source, i.e. its identifier.</p></li>
+<li><p><code>:items_root</code> (<tt><a href="../String.html" title="String (class)">String</a></tt>) - The prefix that should be given to all
+items returned by the <tt><a href="#items-instance_method" title="Nanoc3::Site#items (method)">#items</a></tt> method (comparable to mount points
+for filesystems in Unix-ish OSes).</p></li>
+<li><p><code>:layouts_root</code> (<tt><a href="../String.html" title="String (class)">String</a></tt>) - The prefix that should be given to all
+layouts returned by the <tt><a href="#layouts-instance_method" title="Nanoc3::Site#layouts (method)">#layouts</a></tt> method (comparable to mount
+points for filesystems in Unix-ish OSes).</p></li>
+<li><p><code>:config</code> (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) - A hash containing the configuration for this data
+source. nanoc itself does not use this hash. This is especially
+useful for online data sources; for example, a Twitter data source
+would need the username of the account from which to fetch tweets.</p></li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The site configuration</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id config'>config</span>
+  <span class='ivar'>@config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="config_mtime-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="config_mtime-instance_method">
+  
+    - (<tt><a href="../Time.html" title="Time (class)">Time</a></tt>) <strong>config_mtime</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The timestamp when the site configuration was last
+modified</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The timestamp when the site configuration was last
+modified</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id config_mtime'>config_mtime</span>
+  <span class='ivar'>@config_mtime</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="preprocessor=-instance_method"></span>
+      <span id="preprocessor-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="preprocessor-instance_method">
+  
+    - (<tt>Proc</tt>) <strong>preprocessor</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The code block that will be executed after all data is
+loaded but before the site is compiled</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Proc</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The code block that will be executed after all data is
+loaded but before the site is compiled</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id preprocessor'>preprocessor</span>
+  <span class='ivar'>@preprocessor</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="rules_mtime-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="rules_mtime-instance_method">
+  
+    - (<tt><a href="../Time.html" title="Time (class)">Time</a></tt>) <strong>rules_mtime</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The timestamp when the rules were last modified</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The timestamp when the rules were last modified</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id rules_mtime'>rules_mtime</span>
+  <span class='ivar'>@rules_mtime</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="code_snippets-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="CodeSnippet.html" title="Nanoc3::CodeSnippet (class)">Nanoc3::CodeSnippet</a>&gt;</tt>) <strong>code_snippets</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns this site’s code snippets.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="CodeSnippet.html" title="Nanoc3::CodeSnippet (class)">Nanoc3::CodeSnippet</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of code snippets in this
+site</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/DataNotYetAvailable.html" title="Nanoc3::Errors::DataNotYetAvailable (class)">Nanoc3::Errors::DataNotYetAvailable</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the site data hasn’t
+been loaded yet (call <tt><a href="#load_data-instance_method" title="Nanoc3::Site#load_data (method)">#load_data</a></tt> to load the site data)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id code_snippets'>code_snippets</span>
+  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>DataNotYetAvailable</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Code snippets</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@code_snippets_loaded</span>
+  <span class='ivar'>@code_snippets</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="compiler-instance_method">
+  
+    - (<tt><a href="Compiler.html" title="Nanoc3::Compiler (class)">Nanoc3::Compiler</a></tt>) <strong>compiler</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the compiler for this site. Will create a new compiler if none
+exists yet.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Compiler.html" title="Nanoc3::Compiler (class)">Nanoc3::Compiler</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The compiler for this site</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id compiler'>compiler</span>
+  <span class='ivar'>@compiler</span> <span class='op'>||=</span> <span class='const'>Compiler</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="data_sources-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a>&gt;</tt>) <strong>data_sources</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the data sources for this site. Will create a new data source if
+none exists yet.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of data sources for this
+site</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/UnknownDataSource.html" title="Nanoc3::Errors::UnknownDataSource (class)">Nanoc3::Errors::UnknownDataSource</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the site configuration
+specifies an unknown data source</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 132</span>
+
+<span class='kw'>def</span> <span class='id data_sources'>data_sources</span>
+  <span class='ivar'>@data_sources</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:data_sources</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id data_source_hash'>data_source_hash</span><span class='op'>|</span>
+      <span class='comment'># Get data source class
+</span>      <span class='id data_source_class'>data_source_class</span> <span class='op'>=</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>DataSource</span><span class='period'>.</span><span class='id named'>named</span><span class='lparen'>(</span><span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>UnknownDataSource</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id data_source_class'>data_source_class</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+
+      <span class='comment'># Warn about deprecated data sources
+</span>      <span class='comment'># TODO [in nanoc 4.0] remove me
+</span>      <span class='kw'>case</span> <span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span>
+        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>'</span></span>
+          <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem' data source has been renamed to 'filesystem_verbose'. Using 'filesystem' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem' with 'filesystem_verbose'.</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_combined</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_compact</span><span class='tstring_end'>'</span></span>
+          <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem_combined' and 'filesystem_compact' data source has been merged into the new 'filesystem_unified' data source. Using 'filesystem_combined' and 'filesystem_compact' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem_combined' and 'filesystem_compact with 'filesystem_unified'.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Create data source
+</span>      <span class='id data_source_class'>data_source_class</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span>
+        <span class='kw'>self</span><span class='comma'>,</span>
+        <span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:items_root</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:layouts_root</span><span class='rbracket'>]</span><span class='comma'>,</span>
+        <span class='id data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:config</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+      <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="items-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>) <strong>items</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns this site’s items.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of items in this site</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/DataNotYetAvailable.html" title="Nanoc3::Errors::DataNotYetAvailable (class)">Nanoc3::Errors::DataNotYetAvailable</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the site data hasn’t
+been loaded yet (call <tt><a href="#load_data-instance_method" title="Nanoc3::Site#load_data (method)">#load_data</a></tt> to load the site data)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id items'>items</span>
+  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>DataNotYetAvailable</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Items</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@items_loaded</span>
+  <span class='ivar'>@items</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="layouts-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;Nanoc3::Layouts&gt;</tt>) <strong>layouts</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns this site’s layouts.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;Nanoc3::Layouts&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of layout in this site</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/DataNotYetAvailable.html" title="Nanoc3::Errors::DataNotYetAvailable (class)">Nanoc3::Errors::DataNotYetAvailable</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>if the site data hasn’t
+been loaded yet (call <tt><a href="#load_data-instance_method" title="Nanoc3::Site#load_data (method)">#load_data</a></tt> to load the site data)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+221
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 221</span>
+
+<span class='kw'>def</span> <span class='id layouts'>layouts</span>
+  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>DataNotYetAvailable</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Layouts</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@layouts_loaded</span>
+  <span class='ivar'>@layouts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_data-instance_method">
+  
+    - (<tt>void</tt>) <strong>load_data</strong>(force = false) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Loads the site data. This will query the <tt><a href="DataSource.html" title="Nanoc3::DataSource (class)">Nanoc3::DataSource</a></tt> associated
+with the site and fetch all site data. The site data is cached, so
+calling this method will not have any effect the second time, unless
+the <code>force</code> parameter is true.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <span class='name'>force</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>If true, will force load the site data even if it
+has been loaded before, to circumvent caching issues</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/site.rb', line 168</span>
+
+<span class='kw'>def</span> <span class='id load_data'>load_data</span><span class='lparen'>(</span><span class='id force'>force</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='comment'># Don't load data twice
+</span>  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id instance_variable_defined?'>instance_variable_defined?</span><span class='lparen'>(</span><span class='symbol'>:@data_loaded</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@data_loaded</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id force'>force</span>
+
+  <span class='comment'># Load all data
+</span>  <span class='id load_code_snippets'>load_code_snippets</span><span class='lparen'>(</span><span class='id force'>force</span><span class='rparen'>)</span>
+  <span class='id data_sources'>data_sources</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ds'>ds</span><span class='op'>|</span> <span class='id ds'>ds</span><span class='period'>.</span><span class='id use'>use</span> <span class='rbrace'>}</span>
+  <span class='id load_rules'>load_rules</span>
+  <span class='id load_items'>load_items</span>
+  <span class='id load_layouts'>load_layouts</span>
+  <span class='id data_sources'>data_sources</span><span class='period'>.</span><span class='id each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id ds'>ds</span><span class='op'>|</span> <span class='id ds'>ds</span><span class='period'>.</span><span class='id unuse'>unuse</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># Preprocess
+</span>  <span class='id setup_child_parent_links'>setup_child_parent_links</span>
+  <span class='id preprocessor_context'>preprocessor_context</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id preprocessor'>preprocessor</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id preprocessor'>preprocessor</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+  <span class='id link_everything_to_site'>link_everything_to_site</span>
+  <span class='id setup_child_parent_links'>setup_child_parent_links</span>
+  <span class='id build_reps'>build_reps</span>
+  <span class='id route_reps'>route_reps</span>
+
+  <span class='comment'># Done
+</span>  <span class='ivar'>@data_loaded</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Mar 28 19:25:39 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

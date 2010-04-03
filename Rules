@@ -1,58 +1,37 @@
 #!/usr/bin/env ruby
 
-### Preprocessing ############################################################
+require 'compass'
 
-preprocess do
-  def paginate_articles
-    require 'time'
-
-    # Get articles
-    articles = items.select { |i| i[:kind] == 'article' }.sort_by { |a| Time.parse(a[:created_at]) }
-
-    # Paginate articles
-    article_groups = []
-    article_groups << articles.slice!(0..config[:page_size]-1) until articles.empty?
-
-    # Create pagination pages
-    article_groups.each_with_index do |articles, i|
-      # Create item
-      items << Nanoc3::Item.new(
-        "<%= render 'pagination_page', :articles_per_item => #{config[:page_size]}, :item_id => #{i} %>",
-        {
-          :title      => "News Archive (posts #{i*config[:page_size]}–#{(i+1)*config[:page_size]})",
-          :is_dynamic => true
-        },
-        "/news/#{i+1}/"
-      )
-    end
-  end
-
-  paginate_articles
-end
+Compass.configuration.parse('compass_config.rb')
 
 ### Routing ##################################################################
+
+route '/pub/*/' do
+  item.identifier.chop + '.' + item[:extension]
+end
 
 route '/404/' do
   '/error-404.php'
 end
 
-route '/assets/style/' do
+route '/assets/style/_*/' do
+  # Don't output partials, so return nil
+  nil
+end
+
+route '/assets/style/*/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
 
-route '/news/feed_private/' do
+route '/blog/feed_private/' do
   rep.item.identifier + 'index.xml'
 end
 
-[ '/manual/', '/migrating/' ].each do |pattern|
-  route pattern, :rep => 'notoc' do
-    nil
-  end
-end
-
 route '*' do
-  if item[:is_partial]
+  if item.binary?
+    item.identifier.chop + '.' + item[:extension]
+  elsif item[:is_partial] || item[:kind] == 'article'
     # Don’t output partial items (e.g. sub-stylesheets)
     nil
   else
@@ -63,26 +42,24 @@ end
 
 ### Compilation ##############################################################
 
-compile '/assets/style/' do
-  filter :erb
+# Don’t compile static stuff
+compile '/assets/fonts/*/'  do ; end
+compile '/assets/images/*/' do ; end
+compile '/docs/api/*/'      do ; end
+compile '/pub/*/'           do ; end
+
+compile '/assets/style/_*/' do
+  # Don’t compile partials
+end
+
+compile '/assets/style/*/' do
+  filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
 end
 
-compile '/assets/style/*' do
-  # don't filter partial stylesheets
-end
-
-compile '/news/feed_private/' do
+compile '/blog/feed_private/' do
   filter :erb
-end
-
-[ '/manual/', '/migrating/' ].each do |pattern|
-  compile pattern, :rep => 'notoc' do
-    filter :erb
-    filter :kramdown, :auto_ids => false
-    filter :add_sections
-  end
 end
 
 compile '/404/' do
@@ -107,16 +84,16 @@ compile '*' do
     filter :rdiscount
   end
 
-  filter :syntax_colorize
+  filter :colorize_syntax
 
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
-  filter :add_links_to_headers
-  filter :relativize_paths, :type => :html
-  filter :rubypants
+  filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
 end
 
 ### Layouting ################################################################
+
+layout '/default/', :haml, :format => :html5, :ugly => true
 
 layout '*', :erb

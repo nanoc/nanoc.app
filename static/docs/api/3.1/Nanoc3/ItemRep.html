@@ -1,0 +1,2379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Nanoc3::ItemRep</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo; 
+    <span class='title'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span>
+     &raquo; 
+    <span class="title">ItemRep</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::ItemRep 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::ItemRep</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/item_rep.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>A single representation (rep) of an item (<tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>). An item can
+have multiple representations. A representation has its own output file.
+A single item can therefore have multiple output files, each run through
+a different set of filters with a different layout.</p>
+
+<p>An item representation is observable. The following events will be
+notified:</p>
+
+<ul>
+<li><code>:compilation_started</code></li>
+<li><code>:compilation_ended</code></li>
+<li><code>:filtering_started</code></li>
+<li><code>:filtering_ended</code></li>
+</ul>
+
+
+<p>The compilation-related events have one parameters (the item
+representation); the filtering-related events have two (the item
+representation, and a symbol containing the filter class name).</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="OUTDATEDNESS_REASON_DESCRIPTIONS-constant" class="">OUTDATEDNESS_REASON_DESCRIPTIONS =
+          <div class="docstring">
+  <div class="discussion">
+    <p>The descriptive strings for each outdatedness reason. This hash is used
+by the <tt><a href="#outdatedness_reason-instance_method" title="Nanoc3::ItemRep#outdatedness_reason (method)">#outdatedness_reason</a></tt> method.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:no_mtime</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>No file modification time is available.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:forced</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>All pages are recompiled because of a `--force` flag given to the compilation command.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:no_raw_path</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The routing rules do not specify a path where this item should be written to, i.e. the item representation will never be written to the output directory.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:not_written</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>This item representation has not yet been written to the output directory (but it does have a path).</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:source_modified</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The source file of this item has been modified since the last time this item representation was compiled.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:layouts_outdated</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The source of one or more layouts has been modified since the last time this item representation was compiled.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:code_outdated</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The code snippets in the `lib/` directory have been modified since the last time this item representation was compiled.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:config_outdated</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The site configuration has been modified since the last time this item representation was compiled.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:rules_outdated</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The rules file has been modified since the last time this item representation was compiled.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#binary-instance_method" title="#binary (instance method)">- (Boolean) <strong>binary</strong> </a>
+    
+
+    
+      (also: #binary?)
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this rep is currently binary; false otherwise.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiled-instance_method" title="#compiled (instance method)">- (Boolean) <strong>compiled</strong> </a>
+    
+
+    
+      (also: #compiled?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this representation has already been compiled
+during the current or last compilation session; false otherwise.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#created-instance_method" title="#created (instance method)">- (Boolean) <strong>created</strong> </a>
+    
+
+    
+      (also: #created?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this rep’s output file was created during the
+current or last compilation session; false otherwise.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#force_outdated-instance_method" title="#force_outdated (instance method)">- (Boolean) <strong>force_outdated</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this rep is forced to be dirty (e.g. because
+of the <code>--force</code> commandline option); false otherwise.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#item-instance_method" title="#item (instance method)">- (Nanoc3::Item) <strong>item</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The item to which this rep belongs.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#modified-instance_method" title="#modified (instance method)">- (Boolean) <strong>modified</strong> </a>
+    
+
+    
+      (also: #modified?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this rep’s output file has changed since the
+last time it was compiled; false otherwise.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Symbol) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The representation's unique name.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (String) <strong>path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The item rep's path, as used when being linked to.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raw_path-instance_method" title="#raw_path (instance method)">- (String) <strong>raw_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The item rep's raw path.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#written-instance_method" title="#written (instance method)">- (Boolean) <strong>written</strong> </a>
+    
+
+    
+      (also: #written?)
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this representation’s compiled content has
+been written during the current or last compilation session; false
+otherwise.</p></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#assigns-instance_method" title="#assigns (instance method)">- (Hash) <strong>assigns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The assignments that should be available when compiling
+the content.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiled_content-instance_method" title="#compiled_content (instance method)">- (String) <strong>compiled_content</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the compiled content from a given snapshot.</p></div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#content_at_snapshot-instance_method" title="#content_at_snapshot (instance method)">- (Object) <strong>content_at_snapshot</strong>(snapshot = :pre) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  <span class="deprecated note title">Deprecated</span>
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#compiled_content-instance_method" title="Nanoc3::ItemRep#compiled_content (method)">Nanoc3::ItemRep#compiled_content</a></tt> instead.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#diff-instance_method" title="#diff (instance method)">- (String<sup>?</sup>) <strong>diff</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates and returns a diff between the compiled content before the
+current compilation session and the content compiled in the current
+compilation session.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filter-instance_method" title="#filter (instance method)">- (void) <strong>filter</strong>(filter_name, filter_args = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Runs the item content through the given filter with the given arguments.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ItemRep) <strong>initialize</strong>(item, name) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new item representation for the given item.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(layout_identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Lays out the item using the given layout.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outdated%3F-instance_method" title="#outdated? (instance method)">- (Boolean) <strong>outdated?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if this item rep's output file is outdated and
+must be regenerated, false otherwise.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outdatedness_reason-instance_method" title="#outdatedness_reason (instance method)">- (Hash<sup>?</sup>) <strong>outdatedness_reason</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Calculates the reason why this item representation is outdated.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#snapshot-instance_method" title="#snapshot (instance method)">- (void) <strong>snapshot</strong>(snapshot_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a snapshot of the current compiled item content.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#write-instance_method" title="#write (instance method)">- (void) <strong>write</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Writes the item rep's compiled content to the rep's output file.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Nanoc3::ItemRep (class)">ItemRep</a></tt>) <strong>initialize</strong>(item, name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new item representation for the given item.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>)</span>
+      
+      
+        <span class='name'>item</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The item to which the new representation will
+belong.</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The unique name for the new item representation.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id item'>item</span><span class='comma'>,</span> <span class='id name'>name</span><span class='rparen'>)</span>
+  <span class='comment'># Set primary attributes
+</span>  <span class='ivar'>@item</span>   <span class='op'>=</span> <span class='id item'>item</span>
+  <span class='ivar'>@name</span>   <span class='op'>=</span> <span class='id name'>name</span>
+
+  <span class='comment'># Set binary
+</span>  <span class='ivar'>@binary</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+
+  <span class='comment'># Initialize content and filenames
+</span>  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='ivar'>@filenames</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='symbol'>:raw</span>  <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id raw_filename'>raw_filename</span><span class='comma'>,</span>
+      <span class='symbol'>:last</span> <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id raw_filename'>raw_filename</span>
+    <span class='rbrace'>}</span>
+    <span class='ivar'>@content</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@content</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='symbol'>:raw</span>  <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id raw_content'>raw_content</span><span class='comma'>,</span>
+      <span class='symbol'>:last</span> <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id raw_content'>raw_content</span><span class='comma'>,</span>
+      <span class='symbol'>:pre</span>  <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id raw_content'>raw_content</span>
+    <span class='rbrace'>}</span>
+    <span class='ivar'>@filenames</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@old_content</span> <span class='op'>=</span> <span class='kw'>nil</span>
+
+  <span class='comment'># Reset flags
+</span>  <span class='ivar'>@compiled</span>       <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@modified</span>       <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@created</span>        <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@written</span>        <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@force_outdated</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="binary-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="binary-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>binary</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='binary?-instance_method'>binary?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this rep is currently binary; false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this rep is currently binary; false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id binary'>binary</span>
+  <span class='ivar'>@binary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="compiled=-instance_method"></span>
+      <span id="compiled-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="compiled-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>compiled</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='compiled?-instance_method'>compiled?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this representation has already been compiled
+during the current or last compilation session; false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this representation has already been compiled
+during the current or last compilation session; false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id compiled'>compiled</span>
+  <span class='ivar'>@compiled</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="created=-instance_method"></span>
+      <span id="created-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="created-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>created</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='created?-instance_method'>created?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this rep’s output file was created during the
+current or last compilation session; false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this rep’s output file was created during the
+current or last compilation session; false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id created'>created</span>
+  <span class='ivar'>@created</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="force_outdated=-instance_method"></span>
+      <span id="force_outdated-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="force_outdated-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>force_outdated</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this rep is forced to be dirty (e.g. because
+of the <code>--force</code> commandline option); false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this rep is forced to be dirty (e.g. because
+of the <code>--force</code> commandline option); false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id force_outdated'>force_outdated</span>
+  <span class='ivar'>@force_outdated</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="item-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="item-instance_method">
+  
+    - (<tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>) <strong>item</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The item to which this rep belongs</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Item.html" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The item to which this rep belongs</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id item'>item</span>
+  <span class='ivar'>@item</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="modified=-instance_method"></span>
+      <span id="modified-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="modified-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>modified</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='modified?-instance_method'>modified?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this rep’s output file has changed since the
+last time it was compiled; false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this rep’s output file has changed since the
+last time it was compiled; false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id modified'>modified</span>
+  <span class='ivar'>@modified</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="name-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="name-instance_method">
+  
+    - (<tt>Symbol</tt>) <strong>name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The representation's unique name</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The representation's unique name</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='id name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="path=-instance_method"></span>
+      <span id="path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The item rep's path, as used when being linked to. It
+starts with a slash and it is relative to the output directory. It does
+not include the path to the output directory. It will not include the
+filename if the filename is an index filename.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The item rep's path, as used when being linked to. It
+starts with a slash and it is relative to the output directory. It does
+not include the path to the output directory. It will not include the
+filename if the filename is an index filename.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span>
+  <span class='ivar'>@path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="raw_path=-instance_method"></span>
+      <span id="raw_path-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="raw_path-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>raw_path</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The item rep's raw path. It is relative to the current
+working directory and includes the path to the output directory. It also
+includes the filename, even if it is an index filename.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The item rep's raw path. It is relative to the current
+working directory and includes the path to the output directory. It also
+includes the filename, even if it is an index filename.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id raw_path'>raw_path</span>
+  <span class='ivar'>@raw_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="written-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="written-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>written</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='written?-instance_method'>written?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this representation’s compiled content has
+been written during the current or last compilation session; false
+otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this representation’s compiled content has
+been written during the current or last compilation session; false
+otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id written'>written</span>
+  <span class='ivar'>@written</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="assigns-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) <strong>assigns</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The assignments that should be available when compiling
+the content.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The assignments that should be available when compiling
+the content.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 192</span>
+
+<span class='kw'>def</span> <span class='id assigns'>assigns</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='id content_or_filename_assigns'>content_or_filename_assigns</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:filename</span> <span class='op'>=&gt;</span> <span class='ivar'>@filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='id content_or_filename_assigns'>content_or_filename_assigns</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:content</span> <span class='op'>=&gt;</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
+  <span class='id content_or_filename_assigns'>content_or_filename_assigns</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+    <span class='symbol'>:item</span>       <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='comma'>,</span>
+    <span class='symbol'>:item_rep</span>   <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='symbol'>:items</span>      <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id items'>items</span><span class='comma'>,</span>
+    <span class='symbol'>:layouts</span>    <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id layouts'>layouts</span><span class='comma'>,</span>
+    <span class='symbol'>:config</span>     <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id config'>config</span><span class='comma'>,</span>
+    <span class='symbol'>:site</span>       <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id site'>site</span>
+  <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="compiled_content-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>compiled_content</strong>(params = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the compiled content from a given snapshot.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:snapshot</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the snapshot from which to
+fetch the compiled content. By default, the returned compiled content
+will be the content compiled right before the first layout call (if
+any).</p></div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The compiled content at the given snapshot (or the
+default snapshot if no snapshot is specified)</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/UnmetDependency.html" title="Nanoc3::Errors::UnmetDependency (class)">Nanoc3::Errors::UnmetDependency</a></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 218</span>
+
+<span class='kw'>def</span> <span class='id compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># Notify
+</span>  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_ended</span><span class='comma'>,</span>   <span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='rparen'>)</span>
+
+  <span class='comment'># Debug
+</span>  <span class='id puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*** Attempting to fetch content for </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
+
+  <span class='comment'># Require compilation
+</span>  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>UnmetDependency</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id compiled?'>compiled?</span>
+
+  <span class='comment'># Get name of last pre-layout snapshot
+</span>  <span class='id snapshot_name'>snapshot_name</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:snapshot</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:pre</span><span class='rbracket'>]</span>
+    <span class='id snapshot_name'>snapshot_name</span> <span class='op'>||=</span> <span class='symbol'>:pre</span>
+  <span class='kw'>else</span>
+    <span class='id snapshot_name'>snapshot_name</span> <span class='op'>||=</span> <span class='symbol'>:last</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Check presence of snapshot
+</span>  <span class='kw'>if</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='id snapshot_name'>snapshot_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>WARNING: The “</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>” item (rep “</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>”) does not have the requested snapshot named </span><span class='embexpr_beg'>#{</span><span class='id snapshot_name'>snapshot_name</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'>.\n\n* Make sure that you are requesting the correct snapshot.\n* It is not possible to request the compiled content of a binary item representation; if this item is marked as binary even though you believe it should be textual, you may need to add the extension of this item to the site configuration’s `text_extensions` array.</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id make_compatible_with_env'>make_compatible_with_env</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get content
+</span>  <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='id snapshot_name'>snapshot_name</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="content_at_snapshot-instance_method">
+  
+    - (<tt>Object</tt>) <strong>content_at_snapshot</strong>(snapshot = :pre) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <tt><a href="#compiled_content-instance_method" title="Nanoc3::ItemRep#compiled_content (method)">Nanoc3::ItemRep#compiled_content</a></tt> instead.</p></div></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 247</span>
+
+<span class='kw'>def</span> <span class='id content_at_snapshot'>content_at_snapshot</span><span class='lparen'>(</span><span class='id snapshot'>snapshot</span><span class='op'>=</span><span class='symbol'>:pre</span><span class='rparen'>)</span>
+  <span class='id compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='symbol'>:snapshot</span> <span class='op'>=&gt;</span> <span class='id snapshot'>snapshot</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="diff-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt><sup>?</sup>) <strong>diff</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates and returns a diff between the compiled content before the
+current compilation session and the content compiled in the current
+compilation session.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The difference between the old and new compiled
+content in <code>diff(1)</code> format, or nil if there is no previous compiled
+content</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+398
+399
+400
+401
+402
+403
+404
+405</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 398</span>
+
+<span class='kw'>def</span> <span class='id diff'>diff</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+     <span class='ivar'>@diff_thread</span><span class='period'>.</span><span class='id join'>join</span> <span class='kw'>if</span> <span class='ivar'>@diff_thread</span>
+    <span class='ivar'>@diff</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="filter-instance_method">
+  
+    - (<tt>void</tt>) <strong>filter</strong>(filter_name, filter_args = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Runs the item content through the given filter with the given arguments.
+This method will replace the content of the <code>:last</code> snapshot with the
+filtered content of the last snapshot.</p>
+
+<p>This method is supposed to be called only in a compilation rule block
+(see <tt><a href="CompilerDSL.html#compile-instance_method" title="Nanoc3::CompilerDSL#compile (method)">Nanoc3::CompilerDSL#compile</a></tt>).</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>filter_name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the filter to run the item
+representations' content through</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+        <span class='name'>filter_args</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>The filter arguments that should be passed to
+the filter's #run method</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/UnknownFilter.html" title="Nanoc3::Errors::UnknownFilter (class)">Nanoc3::Errors::UnknownFilter</a></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 265</span>
+
+<span class='kw'>def</span> <span class='id filter'>filter</span><span class='lparen'>(</span><span class='id filter_name'>filter_name</span><span class='comma'>,</span> <span class='id filter_args'>filter_args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># Get filter class
+</span>  <span class='id klass'>klass</span> <span class='op'>=</span> <span class='id filter_named'>filter_named</span><span class='lparen'>(</span><span class='id filter_name'>filter_name</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>UnknownFilter</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id filter_name'>filter_name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+
+  <span class='comment'># Check whether filter can be applied
+</span>  <span class='kw'>if</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id from_binary?'>from_binary?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>CannotUseBinaryFilter</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='op'>!</span><span class='id klass'>klass</span><span class='period'>.</span><span class='id from_binary?'>from_binary?</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>CannotUseTextualFilter</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id klass'>klass</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Create filter
+</span>  <span class='id filter'>filter</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id assigns'>assigns</span><span class='rparen'>)</span>
+
+  <span class='comment'># Run filter
+</span>  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='rparen'>)</span>
+  <span class='id source'>source</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span> <span class='op'>?</span> <span class='ivar'>@filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span>
+  <span class='id result'>result</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='period'>.</span><span class='id run'>run</span><span class='lparen'>(</span><span class='id source'>source</span><span class='comma'>,</span> <span class='id filter_args'>filter_args</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id to_binary?'>to_binary?</span>
+    <span class='ivar'>@filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='period'>.</span><span class='id output_filename'>output_filename</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id result'>result</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@binary</span> <span class='op'>=</span> <span class='id klass'>klass</span><span class='period'>.</span><span class='id to_binary?'>to_binary?</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_ended</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='rparen'>)</span>
+
+  <span class='comment'># Check whether file was written
+</span>  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id output_filename'>output_filename</span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='const'>RuntimeError</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The </span><span class='embexpr_beg'>#{</span><span class='id filter_name'>filter_name</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> filter did not write anything to the required output file, </span><span class='embexpr_beg'>#{</span><span class='id filter'>filter</span><span class='period'>.</span><span class='id output_filename'>output_filename</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Create snapshot
+</span>  <span class='id snapshot'>snapshot</span><span class='lparen'>(</span><span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:post</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='symbol'>:post</span> <span class='op'>:</span> <span class='symbol'>:pre</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> name=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> binary=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span><span class='rbrace'>}</span><span class='tstring_content'> raw_path=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rbrace'>}</span><span class='tstring_content'> item.identifier=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id item'>item</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="layout-instance_method">
+  
+    - (<tt>void</tt>) <strong>layout</strong>(layout_identifier) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Lays out the item using the given layout. This method will replace the
+content of the <code>:last</code> snapshot with the laid out content of the last
+snapshot.</p>
+
+<p>This method is supposed to be called only in a compilation rule block
+(see <tt><a href="CompilerDSL.html#compile-instance_method" title="Nanoc3::CompilerDSL#compile (method)">Nanoc3::CompilerDSL#compile</a></tt>).</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>layout_identifier</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The identifier of the layout the item
+should be laid out with</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Errors/CannotLayoutBinaryItem.html" title="Nanoc3::Errors::CannotLayoutBinaryItem (class)">Nanoc3::Errors::CannotLayoutBinaryItem</a></tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 313</span>
+
+<span class='kw'>def</span> <span class='id layout'>layout</span><span class='lparen'>(</span><span class='id layout_identifier'>layout_identifier</span><span class='rparen'>)</span>
+  <span class='comment'># Check whether item can be laid out
+</span>  <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>CannotLayoutBinaryItem</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+
+  <span class='comment'># Create &quot;pre&quot; snapshot
+</span>  <span class='id snapshot'>snapshot</span><span class='lparen'>(</span><span class='symbol'>:pre</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:pre</span><span class='rbracket'>]</span>
+
+  <span class='comment'># Create filter
+</span>  <span class='id layout'>layout</span> <span class='op'>=</span> <span class='id layout_with_identifier'>layout_with_identifier</span><span class='lparen'>(</span><span class='id layout_identifier'>layout_identifier</span><span class='rparen'>)</span>
+  <span class='id filter'>filter</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='comma'>,</span> <span class='id filter_args'>filter_args</span> <span class='op'>=</span> <span class='id filter_for_layout'>filter_for_layout</span><span class='lparen'>(</span><span class='id layout'>layout</span><span class='rparen'>)</span>
+
+  <span class='comment'># Layout
+</span>  <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id compiler'>compiler</span><span class='period'>.</span><span class='id stack'>stack</span><span class='period'>.</span><span class='id push'>push</span><span class='lparen'>(</span><span class='id layout'>layout</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id filter'>filter</span><span class='period'>.</span><span class='id run'>run</span><span class='lparen'>(</span><span class='id layout'>layout</span><span class='period'>.</span><span class='id raw_content'>raw_content</span><span class='comma'>,</span> <span class='id filter_args'>filter_args</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_ended</span><span class='comma'>,</span>   <span class='kw'>self</span><span class='comma'>,</span> <span class='id filter_name'>filter_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id compiler'>compiler</span><span class='period'>.</span><span class='id stack'>stack</span><span class='period'>.</span><span class='id pop'>pop</span>
+
+  <span class='comment'># Create &quot;post&quot; snapshot
+</span>  <span class='id snapshot'>snapshot</span><span class='lparen'>(</span><span class='symbol'>:post</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="outdated?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>outdated?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if this item rep's output file is outdated and
+must be regenerated, false otherwise</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if this item rep's output file is outdated and
+must be regenerated, false otherwise</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id outdated?'>outdated?</span>
+  <span class='op'>!</span><span class='id outdatedness_reason'>outdatedness_reason</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="outdatedness_reason-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt><sup>?</sup>) <strong>outdatedness_reason</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Calculates the reason why this item representation is outdated. The
+output will be a hash with a <code>:type</code> key, containing the reason why the
+item is outdated in the form of a symbol, and a <code>:description</code> key,
+containing a descriptive string that can be printed if necessary.</p>
+
+<p>For documentation on the types that this method can return, check the
+<tt><a href="#OUTDATEDNESS_REASON_DESCRIPTIONS-constant" title="Nanoc3::ItemRep::OUTDATEDNESS_REASON_DESCRIPTIONS (constant)">OUTDATEDNESS_REASON_DESCRIPTIONS</a></tt> hash in this class.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing the reason why this item rep is
+outdated, both in the form of a symbol and as a descriptive string, or
+nil if the item representation is not outdated.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id outdatedness_reason'>outdatedness_reason</span>
+  <span class='comment'># Get reason symbol
+</span>  <span class='id reason'>reason</span> <span class='op'>=</span> <span class='id lambda'>lambda</span> <span class='kw'>do</span>
+    <span class='comment'># Outdated if we don't know
+</span>    <span class='kw'>return</span> <span class='symbol'>:no_mtime</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id mtime'>mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+
+    <span class='comment'># Outdated if the dependency tracker says so
+</span>    <span class='kw'>return</span> <span class='symbol'>:forced</span> <span class='kw'>if</span> <span class='ivar'>@force_outdated</span>
+
+    <span class='comment'># Outdated if compiled file doesn't exist (yet)
+</span>    <span class='kw'>return</span> <span class='symbol'>:no_raw_path</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='symbol'>:not_written</span> <span class='kw'>if</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+
+    <span class='comment'># Get compiled mtime
+</span>    <span class='id compiled_mtime'>compiled_mtime</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id stat'>stat</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id mtime'>mtime</span>
+
+    <span class='comment'># Outdated if file too old
+</span>    <span class='kw'>return</span> <span class='symbol'>:source_modified</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id mtime'>mtime</span> <span class='op'>&gt;</span> <span class='id compiled_mtime'>compiled_mtime</span>
+
+    <span class='comment'># Outdated if layouts outdated
+</span>    <span class='kw'>return</span> <span class='symbol'>:layouts_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id layouts'>layouts</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id l'>l</span><span class='op'>|</span>
+      <span class='id l'>l</span><span class='period'>.</span><span class='id mtime'>mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id l'>l</span><span class='period'>.</span><span class='id mtime'>mtime</span> <span class='op'>&gt;</span> <span class='id compiled_mtime'>compiled_mtime</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Outdated if code outdated
+</span>    <span class='kw'>return</span> <span class='symbol'>:code_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id code_snippets'>code_snippets</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id cs'>cs</span><span class='op'>|</span>
+      <span class='id cs'>cs</span><span class='period'>.</span><span class='id mtime'>mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id cs'>cs</span><span class='period'>.</span><span class='id mtime'>mtime</span> <span class='op'>&gt;</span> <span class='id compiled_mtime'>compiled_mtime</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Outdated if config outdated
+</span>    <span class='kw'>return</span> <span class='symbol'>:config_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id config_mtime'>config_mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='symbol'>:config_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id config_mtime'>config_mtime</span> <span class='op'>&gt;</span> <span class='id compiled_mtime'>compiled_mtime</span>
+
+    <span class='comment'># Outdated if rules outdated
+</span>    <span class='kw'>return</span> <span class='symbol'>:rules_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id rules_mtime'>rules_mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>return</span> <span class='symbol'>:rules_outdated</span> <span class='kw'>if</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id site'>site</span><span class='period'>.</span><span class='id rules_mtime'>rules_mtime</span> <span class='op'>&gt;</span> <span class='id compiled_mtime'>compiled_mtime</span>
+
+    <span class='kw'>return</span> <span class='kw'>nil</span>
+  <span class='kw'>end</span><span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='comment'># Build reason symbol and description
+</span>  <span class='kw'>if</span> <span class='id reason'>reason</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='lbrace'>{</span>
+      <span class='symbol'>:type</span>        <span class='op'>=&gt;</span> <span class='id reason'>reason</span><span class='comma'>,</span>
+      <span class='symbol'>:description</span> <span class='op'>=&gt;</span> <span class='const'>OUTDATEDNESS_REASON_DESCRIPTIONS</span><span class='lbracket'>[</span><span class='id reason'>reason</span><span class='rbracket'>]</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="snapshot-instance_method">
+  
+    - (<tt>void</tt>) <strong>snapshot</strong>(snapshot_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Creates a snapshot of the current compiled item content.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>snapshot_name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the snapshot to create</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342
+343</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 340</span>
+
+<span class='kw'>def</span> <span class='id snapshot'>snapshot</span><span class='lparen'>(</span><span class='id snapshot_name'>snapshot_name</span><span class='rparen'>)</span>
+  <span class='id target'>target</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span> <span class='op'>?</span> <span class='ivar'>@filenames</span> <span class='op'>:</span> <span class='ivar'>@content</span>
+  <span class='id target'>target</span><span class='lbracket'>[</span><span class='id snapshot_name'>snapshot_name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id target'>target</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="write-instance_method">
+  
+    - (<tt>void</tt>) <strong>write</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Writes the item rep's compiled content to the rep's output file.</p>
+
+<p>This method should not be called directly, even in a compilation block;
+the compiler is responsible for calling this method.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item_rep.rb', line 351</span>
+
+<span class='kw'>def</span> <span class='id write'>write</span>
+  <span class='comment'># Create parent directory
+</span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id dirname'>dirname</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='comment'># Check if file will be created
+</span>  <span class='ivar'>@created</span> <span class='op'>=</span> <span class='op'>!</span><span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span>
+    <span class='comment'># Calculate hash of old content
+</span>    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+      <span class='id hash_old'>hash_old</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+      <span class='id size_old'>size_old</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id size'>size</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Copy
+</span>    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id cp'>cp</span><span class='lparen'>(</span><span class='ivar'>@filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+    <span class='ivar'>@written</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+    <span class='comment'># Check if file was modified
+</span>    <span class='id size_new'>size_new</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id size'>size</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+    <span class='id hash_new'>hash_new</span> <span class='op'>=</span> <span class='id hash'>hash</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id size_old'>size_old</span> <span class='op'>==</span> <span class='id size_new'>size_new</span>
+    <span class='ivar'>@modified</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id size_old'>size_old</span> <span class='op'>!=</span> <span class='id size_new'>size_new</span> <span class='op'>||</span> <span class='id hash_old'>hash_old</span> <span class='op'>!=</span> <span class='id hash_new'>hash_new</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='comment'># Remember old content
+</span>    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id file?'>file?</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+      <span class='ivar'>@old_content</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Write
+</span>    <span class='const'>File</span><span class='period'>.</span><span class='id open'>open</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>w</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id io'>io</span><span class='op'>|</span> <span class='id io'>io</span><span class='period'>.</span><span class='id write'>write</span><span class='lparen'>(</span><span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='ivar'>@written</span> <span class='op'>=</span> <span class='kw'>true</span>
+
+    <span class='comment'># Generate diff
+</span>    <span class='id generate_diff'>generate_diff</span>
+
+    <span class='comment'># Check if file was modified
+</span>    <span class='ivar'>@modified</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id read'>read</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id raw_path'>raw_path</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='ivar'>@old_content</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Mar 28 19:25:41 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>

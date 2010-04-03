@@ -1,0 +1,79 @@
+!!!
+%html{ :lang => "en" }
+
+  %head
+    %meta{ "charset" => "UTF-8" }
+    %title= @item[:has_full_title] ? @item[:title] : "nanoc &rsaquo; #{@item[:title]}"
+    %link{ :rel => "stylesheet", :href => item_named('/assets/style/screen/').path, :type => "text/css", :media => "screen" }
+    %link{ :rel => "alternate", :type => "application/atom+xml", :title => "The nanoc Blog", :href => "http://feeds.feedburner.com/nanoc" }
+
+  %body
+    .wrapper
+
+      / ***** navigation *****
+      .nav
+        %ol
+          = nav_item_for('/',           :include_children => false)
+          = nav_item_for('/blog/',      :include_children => false)
+          = nav_item_for('/docs/',      :include_children => false)
+          = nav_item_for('/community/', :include_children => false)
+
+      / ***** sidebar *****
+      .side
+
+        - if @item.identifier =~ %r[^/docs/]
+
+          %ol
+            = nav_item_for('/docs/1-introduction/'     )
+            = nav_item_for('/docs/2-installation/'     )
+            = nav_item_for('/docs/3-getting-started/'  )
+            = nav_item_for('/docs/4-basic-concepts/'   )
+            = nav_item_for('/docs/5-advanced-concepts/')
+            = nav_item_for('/docs/6-guides/'           )
+            = nav_item_for('/docs/7-glossary/'         )
+            = nav_item_for('/docs/8-faq/'              )
+            = nav_item_for('/docs/9-migrating-to-30/'  )
+            %li <a href="/docs/api/3.1/"><span>API documentation</span></a>
+            %li <a href="http://projects.stoneship.org/trac/nanoc"><span>Wiki</span></a>
+
+        - elsif @item.identifier =~ %r[^/blog/]
+
+          %ol
+            = nav_item_for('/blog/31/')
+            = nav_item_for('/blog/30/')
+            = nav_item_for('/blog/22/')
+            = nav_item_for('/blog/21/')
+            = nav_item_for('/blog/20/')
+
+        - else
+
+          .section.odd
+            %p Install nanoc using <kbd>gem install nanoc</kbd> and take the <a href="/docs/2-installation/">tutorial</a>.
+
+          - if @item.identifier != '/release-notes/'
+            .section.even
+              %p= 'The current version of nanoc is ' + latest_release_info[:version] + ', released on ' + latest_release_info[:date].format_as_date + '. See the <a href="/release-notes/">release notes</a> for details.'
+
+          .section.odd
+            %p Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.
+
+          .section.even
+            .figure
+              %a{ :href => "http://www.pledgie.com/campaigns/9282" }
+                %img{ :alt => "Click here to lend your support to: nanoc and make a donation at pledgie.com!", :src => "http://pledgie.com/campaigns/9282.png?skin_name=chrome" }
+
+      / ***** body *****
+      .body
+        - if @item[:raw_layout]
+          = yield
+        - else
+          .article
+            .header
+              %h1= @item[:short_title] || @item[:title]
+            = yield
+
+    / ***** footer *****
+    #footer
+      %p nanoc &copy; 2007–2010 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence. This site uses the awesome <a href="http://www.fonts.info/info/press/free-fonts-for-font-face-embedding.htm">Graublau</a> web font.
+
+    = %Q[<script type="text/javascript">\nvar gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");\ndocument.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));\n</script>\n<script type="text/javascript">\ntry{\nvar pageTracker = _gat._getTracker("UA-xxxxxx-x");\npageTracker._trackPageview();\n} catch(err) {}\n</script>]

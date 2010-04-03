@@ -1,0 +1,1874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: Nanoc3::Item</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo; 
+    <span class='title'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span>
+     &raquo; 
+    <span class="title">Item</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::Item 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::Item</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/item.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Represents a compileable item in a site. It has content and attributes, as
+well as an identifier (which starts and ends with a slash). It can also
+store the modification time to speed up compilation.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#attributes-instance_method" title="#attributes (instance method)">- (Hash) <strong>attributes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>This item's attributes.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#children-instance_method" title="#children (instance method)">- (Array&lt;Nanoc3::Item&gt;) <strong>children</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The child items of this item.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#identifier-instance_method" title="#identifier (instance method)">- (String) <strong>identifier</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>This item's identifier.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mtime-instance_method" title="#mtime (instance method)">- (Time) <strong>mtime</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The time when this item was last modified.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outdated_due_to_dependencies-instance_method" title="#outdated_due_to_dependencies (instance method)">- (Boolean) <strong>outdated_due_to_dependencies</strong> </a>
+    
+
+    
+      (also: #outdated_due_to_dependencies?)
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether or not this item is outdated because of its
+dependencies are outdated.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parent-instance_method" title="#parent (instance method)">- (Nanoc3::Item<sup>?</sup>) <strong>parent</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The parent item of this item.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raw_content-instance_method" title="#raw_content (instance method)">- (String) <strong>raw_content</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>This item's raw, uncompiled content of this item (only
+available for textual items).</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raw_filename-instance_method" title="#raw_filename (instance method)">- (String) <strong>raw_filename</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The filename pointing to the file containing this
+item’s content (only available for binary items).</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reps-instance_method" title="#reps (instance method)">- (Array&lt;Nanoc3::ItemRep&gt;) <strong>reps</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>This item’s list of item reps.</p></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#site-instance_method" title="#site (instance method)">- (Nanoc3::Site) <strong>site</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The site this item belongs to.</p></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>Instance Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D-instance_method" title="#[] (instance method)">- (Object) <strong>[]</strong>(key) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Requests the attribute with the given key.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%5B%5D%3D-instance_method" title="#[]= (instance method)">- (Object) <strong>[]=</strong>(key, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the attribute with the given key to the given value.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#binary%3F-instance_method" title="#binary? (instance method)">- (Boolean) <strong>binary?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if the item is binary; false if it is not.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compiled_content-instance_method" title="#compiled_content (instance method)">- (String) <strong>compiled_content</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the compiled content from a given representation and a given
+snapshot.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Item) <strong>initialize</strong>(raw_content_or_raw_filename, attributes, identifier, params_or_mtime = nil) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new item with the given content or filename, attributes and
+identifier.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#outdated%3F-instance_method" title="#outdated? (instance method)">- (Boolean) <strong>outdated?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Determines whether this item (or rather, its reps) is outdated and
+should be recompiled (or rather, its reps should be recompiled).</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#path-instance_method" title="#path (instance method)">- (String) <strong>path</strong>(params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the path from a given representation.</p></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rep_named-instance_method" title="#rep_named (instance method)">- (Nanoc3::ItemRep) <strong>rep_named</strong>(rep_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the rep with the given name.</p></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="Nanoc3::Item (class)">Item</a></tt>) <strong>initialize</strong>(raw_content_or_raw_filename, attributes, identifier, params_or_mtime = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new item with the given content or filename, attributes and
+identifier.</p>
+
+<p>Note that the API in 3.1 has changed a bit since 3.0; the API remains
+backwards compatible, however. Passing the modification time as the 4th
+parameter is deprecated; pass it as the <code>:mtime</code> method option instead.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>raw_content_or_raw_filename</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The uncompiled item content
+(if it is a textual item) or the path to the filename containing the
+content (if it is a binary item).</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+        <span class='name'>attributes</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing this item's attributes.</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+        <span class='name'>identifier</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item's identifier.</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>, <tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>, <tt>nil</tt>)</span>
+      
+      
+        <span class='name'>params_or_mtime</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Extra parameters for the item,
+or the time when this item was last modified (deprecated).</p></div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params_or_mtime</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>, <tt>nil</tt>)</span>
+          <span class="name">:mtime</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>nil</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The time when this item
+was last modified</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt>Symbol</tt>, <tt>nil</tt>)</span>
+          <span class="name">:binary</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>true</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>Whether or not this
+item is binary</p></div>
+        </tr>
+      
+    </ul>
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id raw_content_or_raw_filename'>raw_content_or_raw_filename</span><span class='comma'>,</span> <span class='id attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier'>identifier</span><span class='comma'>,</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='comment'># Get params and mtime
+</span>  <span class='comment'># TODO [in nanoc 4.0] clean this up
+</span>  <span class='kw'>if</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id nil?'>nil?</span> <span class='op'>||</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Time</span><span class='rparen'>)</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='ivar'>@mtime</span> <span class='op'>=</span> <span class='id params_or_mtime'>params_or_mtime</span>
+  <span class='kw'>elsif</span> <span class='id params_or_mtime'>params_or_mtime</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='id params'>params</span> <span class='op'>=</span> <span class='id params_or_mtime'>params_or_mtime</span>
+    <span class='ivar'>@mtime</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:mtime</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get type and raw content or raw filename
+</span>  <span class='ivar'>@is_binary</span> <span class='op'>=</span> <span class='id params'>params</span><span class='period'>.</span><span class='id has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:binary</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:binary</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>false</span>
+  <span class='kw'>if</span> <span class='ivar'>@is_binary</span>
+    <span class='ivar'>@raw_filename</span> <span class='op'>=</span> <span class='id raw_content_or_raw_filename'>raw_content_or_raw_filename</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@raw_content</span>  <span class='op'>=</span> <span class='id raw_content_or_raw_filename'>raw_content_or_raw_filename</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get rest of params
+</span>  <span class='ivar'>@attributes</span>   <span class='op'>=</span> <span class='id attributes'>attributes</span><span class='period'>.</span><span class='id symbolize_keys'>symbolize_keys</span>
+  <span class='ivar'>@identifier</span>   <span class='op'>=</span> <span class='id identifier'>identifier</span><span class='period'>.</span><span class='id cleaned_identifier'>cleaned_identifier</span>
+
+  <span class='ivar'>@parent</span>       <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@children</span>     <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@reps</span>         <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="attributes=-instance_method"></span>
+      <span id="attributes-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="attributes-instance_method">
+  
+    - (<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>) <strong>attributes</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>This item's attributes</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Hash.html" title="Hash (class)">Hash</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item's attributes</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id attributes'>attributes</span>
+  <span class='ivar'>@attributes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="children=-instance_method"></span>
+      <span id="children-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="children-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>) <strong>children</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The child items of this item</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="" title="Nanoc3::Item (class)">Nanoc3::Item</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The child items of this item</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id children'>children</span>
+  <span class='ivar'>@children</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="identifier=-instance_method"></span>
+      <span id="identifier-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="identifier-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>identifier</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>This item's identifier</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item's identifier</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier'>identifier</span>
+  <span class='ivar'>@identifier</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="mtime-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="mtime-instance_method">
+  
+    - (<tt><a href="../Time.html" title="Time (class)">Time</a></tt>) <strong>mtime</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The time when this item was last modified</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Time.html" title="Time (class)">Time</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The time when this item was last modified</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id mtime'>mtime</span>
+  <span class='ivar'>@mtime</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="outdated_due_to_dependencies=-instance_method"></span>
+      <span id="outdated_due_to_dependencies-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="outdated_due_to_dependencies-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>outdated_due_to_dependencies</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='outdated_due_to_dependencies?-instance_method'>outdated_due_to_dependencies?</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Whether or not this item is outdated because of its
+dependencies are outdated</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Whether or not this item is outdated because of its
+dependencies are outdated</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id outdated_due_to_dependencies'>outdated_due_to_dependencies</span>
+  <span class='ivar'>@outdated_due_to_dependencies</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="parent=-instance_method"></span>
+      <span id="parent-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="parent-instance_method">
+  
+    - (<tt><a href="" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt><sup>?</sup>) <strong>parent</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The parent item of this item. This can be
+nil even for non-root items.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" title="Nanoc3::Item (class)">Nanoc3::Item</a></tt>, <tt>nil</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The parent item of this item. This can be
+nil even for non-root items.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id parent'>parent</span>
+  <span class='ivar'>@parent</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="raw_content-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="raw_content-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>raw_content</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>This item's raw, uncompiled content of this item (only
+available for textual items)</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item's raw, uncompiled content of this item (only
+available for textual items)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id raw_content'>raw_content</span>
+  <span class='ivar'>@raw_content</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="raw_filename-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="raw_filename-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>raw_filename</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The filename pointing to the file containing this
+item’s content (only available for binary items)</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The filename pointing to the file containing this
+item’s content (only available for binary items)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id raw_filename'>raw_filename</span>
+  <span class='ivar'>@raw_filename</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="reps-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="reps-instance_method">
+  
+    - (<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="ItemRep.html" title="Nanoc3::ItemRep (class)">Nanoc3::ItemRep</a>&gt;</tt>) <strong>reps</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>This item’s list of item reps</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../Array.html" title="Array (class)">Array</a>&lt;<a href="ItemRep.html" title="Nanoc3::ItemRep (class)">Nanoc3::ItemRep</a>&gt;</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item’s list of item reps</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id reps'>reps</span>
+  <span class='ivar'>@reps</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="site=-instance_method"></span>
+      <span id="site-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="site-instance_method">
+  
+    - (<tt><a href="Site.html" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt>) <strong>site</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>The site this item belongs to</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="Site.html" title="Nanoc3::Site (class)">Nanoc3::Site</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The site this item belongs to</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id site'>site</span>
+  <span class='ivar'>@site</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="[]-instance_method">
+  
+    - (<tt>Object</tt>) <strong>[]</strong>(key) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Requests the attribute with the given key.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>key</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the attribute to fetch</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The value of the requested attribute</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165
+166
+167
+168
+169
+170</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 165</span>
+
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id key'>key</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_ended</span><span class='comma'>,</span>   <span class='kw'>self</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="[]=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>[]=</strong>(key, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Sets the attribute with the given key to the given value.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>key</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the attribute to set</p></div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+        <span class='name'>value</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The value of the attribute to set</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+177
+178
+179</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 177</span>
+
+<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@attributes</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="binary?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>binary?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>True if the item is binary; false if it is not</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>True if the item is binary; false if it is not</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='id binary?'>binary?</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='ivar'>@is_binary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="compiled_content-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>compiled_content</strong>(params = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the compiled content from a given representation and a given
+snapshot. This is a convenience method that makes fetching compiled
+content easier.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:rep</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:default</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the representation
+from which the compiled content should be fetched. By default, the
+compiled content will be fetched from the default representation.</p></div>
+        </tr>
+      
+        <li>
+          <span class="type">(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:snapshot</span>
+          <span class="default">
+            
+              <span class="na">N/A</span>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the snapshot from which to
+fetch the compiled content. By default, the returned compiled content
+will be the content compiled right before the first layout call (if
+any).</p></div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The compiled content of the given rep (or the default
+rep if no rep is specified) at the given snapshot (or the default
+snapshot if no snapshot is specified)</p></div>
+      
+    </li>
+  
+</ul>
+
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><a href="ItemRep.html#compiled_content-instance_method" title="Nanoc3::ItemRep#compiled_content (method)">ItemRep#compiled_content</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># Get rep
+</span>  <span class='id rep_name'>rep_name</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
+  <span class='id rep'>rep</span> <span class='op'>=</span> <span class='id reps'>reps</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id rep_name'>rep_name</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>Generic</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id rep_name'>rep_name</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get rep's content
+</span>  <span class='id rep'>rep</span><span class='period'>.</span><span class='id compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='id params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='rbrace'>}</span><span class='tstring_content'>:0x</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id object_id'>object_id</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='lparen'>(</span><span class='int'>16</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'> identifier=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'> binary?=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id binary?'>binary?</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="outdated?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>outdated?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Determines whether this item (or rather, its reps) is outdated and
+should be recompiled (or rather, its reps should be recompiled).</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if any reps are outdated; false otherwise.</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id outdated?'>outdated?</span>
+  <span class='ivar'>@reps</span><span class='period'>.</span><span class='id any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id outdated?'>outdated?</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="path-instance_method">
+  
+    - (<tt><a href="../String.html" title="String (class)">String</a></tt>) <strong>path</strong>(params = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the path from a given representation. This is a convenience
+method that makes fetching the path of a rep easier.</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="type">(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+          <span class="name">:rep</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:default</tt>
+            
+          </span>
+          &mdash;<div class='inline'><p>The name of the representation
+from which the path should be fetched. By default, the path will be
+fetched from the default representation.</p></div>
+        </tr>
+      
+    </ul>
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="../String.html" title="String (class)">String</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The path of the given rep ( or the default rep if no
+rep is specified)</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 146</span>
+
+<span class='kw'>def</span> <span class='id path'>path</span><span class='lparen'>(</span><span class='id params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id rep_name'>rep_name</span> <span class='op'>=</span> <span class='id params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
+
+  <span class='comment'># Get rep
+</span>  <span class='id rep'>rep</span> <span class='op'>=</span> <span class='id reps'>reps</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id rep_name'>rep_name</span> <span class='rbrace'>}</span>
+  <span class='kw'>if</span> <span class='id rep'>rep</span><span class='period'>.</span><span class='id nil?'>nil?</span>
+    <span class='id raise'>raise</span> <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>Generic</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id rep_name'>rep_name</span><span class='period'>.</span><span class='id inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get rep's path
+</span>  <span class='id rep'>rep</span><span class='period'>.</span><span class='id path'>path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rep_named-instance_method">
+  
+    - (<tt><a href="ItemRep.html" title="Nanoc3::ItemRep (class)">Nanoc3::ItemRep</a></tt>) <strong>rep_named</strong>(rep_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Returns the rep with the given name.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+        <span class='name'>rep_name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the representation to return</p></div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="ItemRep.html" title="Nanoc3::ItemRep (class)">Nanoc3::ItemRep</a></tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The representation with the given name</p></div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/item.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id rep_named'>rep_named</span><span class='lparen'>(</span><span class='id rep_name'>rep_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@reps</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id r'>r</span><span class='op'>|</span> <span class='id r'>r</span><span class='period'>.</span><span class='id name'>name</span> <span class='op'>==</span> <span class='id rep_name'>rep_name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Mar 28 19:25:39 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>
