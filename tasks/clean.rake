@@ -2,8 +2,6 @@
 
 desc 'Removes all stray files from the output directory'
 task :clean_all do
-  puts '=== Removing stray files from output directory…'
-
   # Get compiled files
   site = Nanoc3::Site.new('.')
   site.load_data
@@ -20,5 +18,17 @@ task :clean_all do
   stray_files = present_files - compiled_files
   stray_files.each { |f| FileUtils.rm(f) }
 
-  # TODO Remove empty directories
+  # Remove empty directories
+  loop do
+    changed = false
+    Dir['output/**/*'].select { |f| File.directory?(f) }.each do |dir|
+      is_empty = !Dir.foreach(dir) { |n| break true if n !~ /\A\.\.?\z/ }
+      next if !is_empty
+
+      puts "Deleting empty directory #{dir}"
+      Dir.rmdir(dir)
+      changed = true
+    end
+    break if !changed
+  end
 end
