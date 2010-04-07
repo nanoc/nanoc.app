@@ -21,7 +21,7 @@ markdown: basic
 	<dt id="glossary-content-file">content file</dt>
 	<dd>A file containing the actual content of an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. Usually, there will also be a <a href="#glossary-meta-file">meta-file</a> containing <a href="#glossary-metadata">metadata</a> about that item or layout, although some <a href="#glossary-data-source">data sources</a> (e.g. <code>filesystem_combined</code>) merge the content file and the meta-file into a single file.</dd>
 
-	<dt id="glossary-data source">data source</dt>
+	<dt id="glossary-data-source">data source</dt>
 	<dd>An object that reads data from a given location and turns this data into <a href="#glossary-item">items</a> and/or <a href="#glossary-layout">layouts</a>. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.</dd>
 
 	<dt id="glossary-filter">filter</dt>
