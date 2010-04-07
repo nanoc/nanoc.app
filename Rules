@@ -10,6 +10,11 @@ route '/pub/*/' do
   item.identifier.chop + '.' + item[:extension]
 end
 
+route '/static/*' do
+  # /static/foo.html/ → /foo.html
+  item.identifier[7..-2]
+end
+
 route '/404/' do
   '/error-404.php'
 end
@@ -61,6 +66,9 @@ compile '/assets/style/*/' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
+end
+
+compile '/static/*' do
 end
 
 compile '/blog/feed_private/' do
