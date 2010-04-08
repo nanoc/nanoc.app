@@ -562,21 +562,21 @@ Filters can be applied to binary items as well. For example, thumbnail generatio
 
 The following is a list of filters that are built into nanoc. The links lead to their documentation page, describing how they can be used and what parameters they take (if any).
 
-* [`:bluecloth`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/BlueCloth.html)
-* [`:colorize_syntax`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/ColorizeSyntax.html)
-* [`:erb`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/ERB.html)
-* [`:erubis`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Erubis.html)
-* [`:haml`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Haml.html)
-* [`:less`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Less.html)
-* [`:markaby`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Markaby.html)
-* [`:maruku`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Maruku.html)
-* [`:rainpress`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Rainpress.html)
-* [`:rdiscount`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/RDiscount.html)
-* [`:rdoc`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/RDoc.html)
-* [`:redcloth`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/RedCloth.html)
-* [`:relativize_paths`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/RelativizePaths.html)
-* [`:rubypants`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/RubyPants.html)
-* [`:sass`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Filters/Sass.html)
+* [`:bluecloth`](/docs/api/3.1/Nanoc3/Filters/BlueCloth.html)
+* [`:colorize_syntax`](/docs/api/3.1/Nanoc3/Filters/ColorizeSyntax.html)
+* [`:erb`](/docs/api/3.1/Nanoc3/Filters/ERB.html)
+* [`:erubis`](/docs/api/3.1/Nanoc3/Filters/Erubis.html)
+* [`:haml`](/docs/api/3.1/Nanoc3/Filters/Haml.html)
+* [`:less`](/docs/api/3.1/Nanoc3/Filters/Less.html)
+* [`:markaby`](/docs/api/3.1/Nanoc3/Filters/Markaby.html)
+* [`:maruku`](/docs/api/3.1/Nanoc3/Filters/Maruku.html)
+* [`:rainpress`](/docs/api/3.1/Nanoc3/Filters/Rainpress.html)
+* [`:rdiscount`](/docs/api/3.1/Nanoc3/Filters/RDiscount.html)
+* [`:rdoc`](/docs/api/3.1/Nanoc3/Filters/RDoc.html)
+* [`:redcloth`](/docs/api/3.1/Nanoc3/Filters/RedCloth.html)
+* [`:relativize_paths`](/docs/api/3.1/Nanoc3/Filters/RelativizePaths.html)
+* [`:rubypants`](/docs/api/3.1/Nanoc3/Filters/RubyPants.html)
+* [`:sass`](/docs/api/3.1/Nanoc3/Filters/Sass.html)
 
 Helpers
 -------
@@ -591,16 +591,16 @@ include Nanoc3::Helpers::Blogging
 
 The following is a list of helpers that are built into nanoc. The links lead to their documentation page, describing how they can be used.
 
-* [`Blogging`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Blogging.html)
-* [`Breadcrumbs`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Breadcrumbs.html)
-* [`Capturing`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Capturing.html)
-* [`Filtering`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Filtering.html)
-* [`HTMLEscape`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/HTMLEscape.html)
-* [`LinkTo`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/LinkTo.html)
-* [`Rendering`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Rendering.html)
-* [`Tagging`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Tagging.html)
-* [`Text`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/Text.html)
-* [`XMLSitemap`](http://nanoc.stoneship.org/new/docs/api/3.1/Nanoc3/Helpers/XMLSitemap.html)
+* [`Blogging`](/docs/api/3.1/Nanoc3/Helpers/Blogging.html)
+* [`Breadcrumbs`](/docs/api/3.1/Nanoc3/Helpers/Breadcrumbs.html)
+* [`Capturing`](/docs/api/3.1/Nanoc3/Helpers/Capturing.html)
+* [`Filtering`](/docs/api/3.1/Nanoc3/Helpers/Filtering.html)
+* [`HTMLEscape`](/docs/api/3.1/Nanoc3/Helpers/HTMLEscape.html)
+* [`LinkTo`](/docs/api/3.1/Nanoc3/Helpers/LinkTo.html)
+* [`Rendering`](/docs/api/3.1/Nanoc3/Helpers/Rendering.html)
+* [`Tagging`](/docs/api/3.1/Nanoc3/Helpers/Tagging.html)
+* [`Text`](/docs/api/3.1/Nanoc3/Helpers/Text.html)
+* [`XMLSitemap`](/docs/api/3.1/Nanoc3/Helpers/XMLSitemap.html)
 
 Rake Tasks
 ----------
