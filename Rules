@@ -6,10 +6,6 @@ Compass.configuration.parse('compass_config.rb')
 
 ### Routing ##################################################################
 
-route '/pub/*/' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
 route '/static/*' do
   # /static/foo.html/ → /foo.html
   item.identifier[7..-2]
@@ -22,11 +18,6 @@ end
 route '/assets/style/_*/' do
   # Don't output partials, so return nil
   nil
-end
-
-route '/assets/fonts/*/' do
-  # Strip extension
-  item.identifier.chop.sub(/-eot$|-otf$|-ttf$/, '') + '.' + item[:extension]
 end
 
 route '/assets/style/*/' do
@@ -51,12 +42,6 @@ route '*' do
 end
 
 ### Compilation ##############################################################
-
-# Don’t compile static stuff
-compile '/assets/fonts/*/'  do ; end
-compile '/assets/images/*/' do ; end
-compile '/docs/api/*/'      do ; end
-compile '/pub/*/'           do ; end
 
 compile '/assets/style/_*/' do
   # Don’t compile partials
