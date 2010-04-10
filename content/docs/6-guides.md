@@ -140,8 +140,8 @@ You can use this attribute in the Rules file. If you want to run filters based o
 <pre title="A sample compilation rule that filters based on file extension"><code class="language-ruby">compile '*' do
   case item[:extension]
     when 'md'
-	  filter :rdiscount
-	when 'haml'
-	  filter :haml
+      filter :rdiscount
+    when 'haml'
+      filter :haml
   end
 end</code></pre>
