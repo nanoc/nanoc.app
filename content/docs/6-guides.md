@@ -15,7 +15,7 @@ There are quite a few ways to deploy a site to a web host. The most traditional 
 
 If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately nanoc provides a “deploy:rsync” rake task that can make this quite a bit easier: a simple <kbd>rake deploy:rsync</kbd> will deploy your site.
 
-To use the deploy:rsyn task, open the config.yaml file and add a `deploy` hash. Inside, add a `default` hash, which will correspond to the default configuration to use when invoking the rake task without extra arguments. Inside the default hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded. Here’s what it will look like:
+To use the deploy:rsync task, open the config.yaml file and add a `deploy` hash. Inside, add a `default` hash, which will correspond to the default configuration to use when invoking the rake task without extra arguments. Inside the default hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded. Here’s what it will look like:
 
 <pre title="A simple deployment configuration"><code class="language-yaml">deploy:
   default:
