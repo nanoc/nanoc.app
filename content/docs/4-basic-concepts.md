@@ -104,16 +104,48 @@ nanoc will load all Ruby source files in the `lib` directory before it starts co
 
 ### Site configuration
 
-The site configuration is defined by the `config.yaml` file at the top level of the site directory. The file is in YAML format.
+The site configuration is defined by the `config.yaml` file at the top level of the site directory. The file is in YAML format. The configuration has the following predefined values (check the [API documentation for `Nanoc3::Site`](/docs/api/3.1/Nanoc3/Site.html) for details about the default values):
 
-`data_sources`
-: A list of data sources configurations. For documentation on what the data source configuration hash looks like, see the [Data Sources](#data-sources) section.
-
-`index_filenames`
-: A list of filenames that should be stripped off paths. This list will usually contain only “index.html”, but depending on the production web server used, this may differ. Defaults to a list containing only “index.html”.
+`text_extensions`
+: A list of file extensions that nanoc will consider to be textual rather than binary. If an item with an extension not in this list is found, the file will be considered as binary.
 
 `output_dir`
-: The path to the output directory. If the path does not start with a slash, it is assumed to be a path relative to the nanoc site directory. It defaults to `output`.
+: The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be path relative to the site directory.
+
+`index_filenames`
+: A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named “index.hml”, but depending on the web server, this may be something else, such as “default.htm”. This list is used by nanoc to generate pretty URLs.
+
+`enable_output_diff`
+: Whether or not to generate a diff of the compiled content when compiling a site. The diff will contain the differences between the compiled content before and after the last site compilation.
+
+`data_sources`
+: The data sources where nanoc loads its data from. This is an array of hashes; each array element represents a single data source. By default, there is only a single data source that reads data from the “content/” and “layout/” directories in the site directory. See below for details.
+
+`watcher`
+: Configuration for the “watch” command, which watches a site for changes and recompiles if necessary. See below for details.
+
+The data source configuration is an array of hashes with the following keys:
+
+`type`
+: The type is the identifier of the data source. By default, this will be `filesystem_unified`.
+
+`items_root`
+: The path where items should be mounted (comparable to mount points in Unix-like systems). This is “/” by default, meaning that items will have “/” prefixed to their identifiers. If the items root were “/en/” instead, an item at content/about.html would have an identifier of “/en/about/” instead of just “/about/”.
+
+`layouts_root`
+: The path where layouts should be mounted. The layouts root behaves the same as the items root, but applies to layouts rather than items.
+
+<!--
+
+The watcher configuration has the following keys:
+
+`dirs_to_watch`
+: A list of directories to watch for changes. When editing this, make sure that the “output/” and “tmp/” directories are _not_ included in this list, because recompiling the site will cause these directories to change, which will cause the site to be recompiled, which will cause these directories to change, which will cause the site to be recompiled again, and so on.
+
+`files_to_watch`
+: A list of single files to watch for changes. As mentioned above, don’t put any files from the “output/” or “tmp/” directories in here.
+
+-->
 
 ### (Auto)compiling a Site
 
