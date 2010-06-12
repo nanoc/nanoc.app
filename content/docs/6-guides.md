@@ -25,6 +25,10 @@ By default, the rake task will upload all files in the output directory to the g
 
 <pre title="Deploying"><span class="prompt">%</span> <kbd>rake deploy:rsync</kbd></pre>
 
+If you want to check whether the executed `rsync` command is really correct, you can perform a dry run by setting the `dry_run` variable (doesn’t matter to what, as long as it’s not empty). The rsync command will be printed, but not executed. For example:
+
+<pre title="Performing a dry run"><span class="prompt">%</span> <kbd>rake deploy:rsync dry_run=true</kbd></pre>
+
 You can override the options that nanoc uses for invoking rsync in the deploy:rsync task. The following example will make sure that all existing files on the remote server are deleted after uploading (warning! use with caution!).
 
 <pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-gpPrtvz', '--delete-after' ]</code></pre>
