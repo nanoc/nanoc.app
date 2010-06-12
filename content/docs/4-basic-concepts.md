@@ -399,7 +399,7 @@ To take a snapshot of an item representation, call `#snapshot` and pass the snap
 <pre title="Creating a snapshot named “foo” of the current compiled content"><code class="language-ruby">
 snapshot :foo</code></pre>
 
-You’ll usually call `#filter`, `#layout` and `#snapshot` without explicit received, but you can also call them on the `@rep` object if you want. The following actions are equivalent:
+You’ll usually call `#filter`, `#layout` and `#snapshot` without explicit receiver, but you can also call them on the `@rep` object if you want. The following actions are equivalent:
 
 <pre title="Some examples of equivalent calls (with and without explicit receiver)"><code class="language-ruby">
 filter :erb
