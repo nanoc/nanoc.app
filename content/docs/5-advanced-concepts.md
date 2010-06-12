@@ -9,7 +9,7 @@ markdown:              advanced
 Writing Helpers
 ---------------
 
-Helpers are modules that can be `include`d to provide additional functionality. The functions in these modules will then be callable from items and layouts. Such helpers need to be located in the `lib/` directory; often, it is a god idea to place them in `lib/helpers/`.
+Helpers are modules that can be `include`d to provide additional functionality. The functions in these modules will then be callable from items and layouts. Such helpers need to be located in the `lib/` directory; often, it is a good idea to place them in `lib/helpers/`.
 
 For example, the file `lib/helpers/random_text.rb` could contain this:
 
