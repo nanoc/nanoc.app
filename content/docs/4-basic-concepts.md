@@ -310,7 +310,7 @@ Each item has exactly one compilation rule and one routing rule. Similarly, each
 A routing rule looks like this:
 
 <pre title="An example (incomplete) routing rule"><code class="language-ruby">route '/foo/' do
-  # … routing code here …
+  # (routing code here)
 end</code></pre>
 
 The argument for the [`#route`](/docs/api/3.1/Nanoc3/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
@@ -350,7 +350,7 @@ end</code></pre>
 A compilation rule looks like this:
 
 <pre title="An example (incomplete) compilation rule"><code class="language-ruby">compile "/foo/" do
-  # … compilation code here …
+  # (compilation code here)
 end</code></pre>
 
 The argument for the `#compile` command is exactly the same as the argument
@@ -457,7 +457,7 @@ and only to textual representations (with name equal to `text`):
 
 <pre><code class="language-ruby">
 compile '/people/*', :rep => :text do
-  # don’t filter or layout
+  # don't filter or layout
 end
 </code></pre>
 
@@ -523,7 +523,7 @@ After the data is loaded, it is _preprocessed_ if a preprocessor block exists. A
 
 <pre title="A sample preprocessor block"><code class="language-ruby">
 preprocess do
-  # …
+  # (preprocessing code here)
 end
 </code></pre>
 
@@ -542,15 +542,15 @@ Once the data is loaded and preprocessed, item representations are built for eac
 For example, the following code will cause the item `/foo/` to have only one rep (`default`), while the item `/bar/` will have two reps (`raw` and `full`):
 
 <pre title="A sample Rules file with compilation rules for different representations"><code class="language-ruby">compile '/foo/' do
-  # …
+  # (compilation code for the default rep here)
 end
 
 compile '/bar/', :rep => :raw do
-  # …
+  # (compilation code for the :raw rep here)
 end
 
 compile '/bar/', :rep => :full do
-  # …
+  # (compilation code for the :full rep here)
 end</code></pre>
 
 ### Routing the Item Representations

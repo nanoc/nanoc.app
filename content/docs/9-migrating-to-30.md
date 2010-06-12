@@ -108,7 +108,7 @@ two: the content and a hash of arguments. For example:
 <pre><code class="language-ruby">
 class MyNanoc3Filter &lt; Nanoc3::Filter
   def run(content, arguments={})
-    # … code goes here …
+    # (filter code here)
   end
 end
 </code></pre>

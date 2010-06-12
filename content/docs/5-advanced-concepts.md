@@ -44,7 +44,7 @@ A filter has an identifier, which is an unique name that is used in calls to `#f
 class CensorFilter &lt; Nanoc3::Filter
   identifier :censor
 
-  # … other code goes here …
+  # (other code here)
 end
 </code></pre>
 
@@ -57,7 +57,7 @@ class SampleTextualFilter &lt; Nanoc3::Filter
   # also possible:
   #   type :text => :text
 
-  # …
+  # (other code here)
 end
 
 class SampleBinaryFilter &lt; Nanoc3::Filter
@@ -66,14 +66,14 @@ class SampleBinaryFilter &lt; Nanoc3::Filter
   # also possible:
   #   type :binary => :binary
 
-  # …
+  # (other code here)
 end
 
 class SampleTextualToBinaryFilter &lt; Nanoc3::Filter
   identifier :sample_textual_to_binary
   type :text => :binary
 
-  # …
+  # (other code here)
 end
 </code></pre>
 
@@ -84,7 +84,7 @@ class SampleTextualFilter &lt; Nanoc3::Filter
   identifier :sample_textual
   type :text
   def run(content, params={})
-    # …
+    # (filter code here)
   end
 end
 
@@ -92,7 +92,7 @@ class SampleBinaryFilter &lt; Nanoc3::Filter
   identifier :sample_binary
   type :binary
   def run(filename, params={})
-    # …
+    # (filter code here)
   end
 end
 </code></pre>
@@ -148,7 +148,7 @@ Each data source has an identifier. This is a unique name that is used in a site
 <pre><code class="language-ruby">
 class SampleDataSource &lt; Nanoc3::DataSource
   identifier :sample
-  # … other code goes here …
+  # (other code here)
 end
 </code></pre>
 
