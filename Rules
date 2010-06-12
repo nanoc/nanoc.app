@@ -2,7 +2,7 @@
 
 require 'compass'
 
-Compass.configuration.parse('compass_config.rb')
+Compass.add_project_configuration('compass_config.rb')
 
 ### Routing ##################################################################
 
