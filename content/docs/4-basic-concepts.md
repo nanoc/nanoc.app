@@ -386,6 +386,14 @@ To lay out an item representation, call `#layout` and pass the layout identifier
 <pre title="Laying out the item with the “default” layout"><code class="language-ruby">
 layout 'default'</code></pre>
 
+You can run multiple filters and layouts sequentially, like this:
+
+<pre title="Calling multiple filters"><code class="language-ruby">
+filter :erb
+filter :kramdown
+layout 'default'
+filter :rubypants</code></pre>
+
 To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument. For example, the following will create a `:foo` snapshot of the item representation that can later be referred to:
 
 <pre title="Creating a snapshot named “foo” of the current compiled content"><code class="language-ruby">
