@@ -33,6 +33,8 @@ It’s likely that you have Rubygems installed already. If you want to check whe
 
 To install Rubygems, go to the [Rubygems download page](http://rubygems.org/pages/download) and follow the instructions there.
 
+If you have Rubygems installed already, make sure you have a fairly recent version. I’ve tested nanoc with Rubygems 1.3.5 and up, so consider upgrading if you’re experiencing issues with an older Rubygems. The [Rubygems download page](http://rubygems.org/pages/download) also contains instructions for upgrading Rubygems.
+
 Installing nanoc
 ----------------
 
