@@ -105,7 +105,7 @@ The pages in a nanoc site are stored in the `content` directory. Currently, that
 Let’s change the content of the home page. Open `index.html` and add a paragraph somewhere in the file. I recommend something like this:
 
 <pre title="Sample content to be added to index.html"><code class="language-html">
-&lt;p>This is a brand new paragraph which I’ve just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
+&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
 </code></pre>
 
 To view the changes, the site must be recompiled first. So, run the <kbd>compile</kbd> command. You should see something like this:
@@ -174,11 +174,11 @@ As you probably have noticed already, the page’s content files are not complet
 
 Take a look at the `default.html` file in the `layouts` directory. Just like items, it contains a metadata section at the top of the file. Open it in your text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
 
-<pre title="Extract from the default layout showing the body"><code class="language-html">…
+<pre title="Extract from the default layout showing the body"><code class="language-html">...
 &lt;div id="main">
   &lt;%= yield %>
 &lt;/div>
-…
+...
 </code></pre>
 
 The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%= yield %>` instruction will be replaced with the item’s compiled content when compiling.
@@ -228,7 +228,7 @@ the aid of their country. This is just a
 regular paragraph.
 
 The quick brown fox jumped over the lazy
-dog’s back.
+dog's back.
 
 ### Header 3
 
@@ -275,7 +275,7 @@ the aid of their country. This is just a
 regular paragraph.&lt;/p>
 
 &lt;p>The quick brown fox jumped over the lazy
-dog’s back.&lt;/p>
+dog's back.&lt;/p>
 
 &lt;h3>Header 3&lt;/h3>
 
