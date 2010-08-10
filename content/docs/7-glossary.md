@@ -10,7 +10,7 @@ markdown: basic
 	<dd><span class="see">see <a href="#glossary-item">item</a></span></dd>
 
 	<dt id="glossary-attribute">attribute</dt>
-	<dd>A key-value pair that contains extra <a href="#glossary-metadata">metadata</a> about an <a href="#glossary-item">item</a>.</dd>
+	<dd>A key-value pair that contains extra <a href="#glossary-metadata">metadata</a> about an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>.</dd>
 
 	<dt id="glossary-compilation">compilation</dt>
 	<dd>The act of <a href="#glossary-filter">filtering</a> and <a href="#glossary-layout">laying out</a> all <a href="#glossary-item">items</a> in a <a href="#glossary-site">site</a>, according to <a href="#glossary-routing-rule">routing rules</a>, <a href="#glossary-compilation-rule">compilation rules</a> and <a href="#glossary-layout-rule">layout rules</a>.</dd>
@@ -25,7 +25,7 @@ markdown: basic
 	<dd>An object that reads data from a given location and turns this data into <a href="#glossary-item">items</a> and/or <a href="#glossary-layout">layouts</a>. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.</dd>
 
 	<dt id="glossary-filter">filter</dt>
-	<dd>An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (<code>erb</code>, <code>haml</code>), filters that transform from text to HTML (<code>bluecloth</code>, <code>redcloth</code>), filters that "clean" HTML (<code>rubypants</code>), and more.</dd>
+	<dd>An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (<code>erb</code>, <code>haml</code>), filters that transform from text to HTML (<code>bluecloth</code>, <code>redcloth</code>), filters that “clean” HTML (<code>rubypants</code>), and more.</dd>
 
 	<dt id="glossary-helper">helper</dt>
 	<dd>A module that, when included, offers additional functionality such as easy linking to pages, building XML sitemaps or Atom web feeds.</dd>
@@ -46,7 +46,7 @@ markdown: basic
 	<dd>A collection of <a href="#glossary-attribute">attributes</a>, usually stored in a <a href="#glossary-meta-file">meta-file</a>, for an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>.</dd>
 
 	<dt id="glossary-meta-file">meta-file</dt>
-	<dd>A file containing <a href="#glossary-metadata">metadata</a> about an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is usually paired with a <a href="#glossary-content-file">content file</a>, although some <a href="#glossary-data-source">data sources</a> put the metadata and the content in a single file.</dd>
+	<dd>A file containing <a href="#glossary-metadata">metadata</a> about an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is usually paired with a <a href="#glossary-content-file">content file</a>. Some <a href="#glossary-data-source">data sources</a> put the metadata and the content in a single file.</dd>
 
 	<dt id="glossary-output-directory">output directory</dt>
 	<dd>The directory to which compiled <a href="#glossary-representation">item representations</a> are written.</dd>
