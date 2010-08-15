@@ -50,7 +50,7 @@ Paginating articles
 
 First, a word of caution: I am not a fan of paginating items. Even though pagination is fairly easy to do in nanoc, I recommend not doing it, for one specific reason. Every time an object is added to a paginated collection, one object shifts from one page to the next. When a paginated page is bookmarked, it may show entirely different content a month later, and when a paginated page turns up as a result on a search engine, it may no longer contain the content that the person was looking for anymore. To avoid these issues, I recommend creating separate pages for each category, tag or year. Having said all this, I’ll nonetheless show you how to do pagination in nanoc, so you can get an idea of how it can be done.
 
-To paginate articles, we’ll use the preprocessor block in the Rules file. This preprocessor block will look like this:
+To paginate articles, we’ll use the preprocessor block in the Rules file. The preprocessor contains code that will be executed before the site is compiled, but after the site data (items, layouts, etc) have been loaded. This is the ideal moment to create new items (which is what we will be doing) or modify or delete existing ones. The preprocessor block will look like this:
 
 <pre title="A preprocessor block that still needs to be filled in"><code class="language-ruby">preprocess do
   def paginate_articles
