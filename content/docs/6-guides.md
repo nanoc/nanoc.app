@@ -313,7 +313,7 @@ class Ffmpeg2TheoraFilter &lt; Nanoc3::Filter
   end
 
 end
-<code></pre>
+</code></pre>
 
 Note that it is a good idea to add error checking to the `#run` method here: if the executed command exits with a non-zero exit status, indicating failure, or if no output file is written, the filter should raise an exception. For clarity, this error-handling code has been left out.
 
@@ -328,6 +328,6 @@ route '/movies/*/', :rep => :theora do
   # Make sure that "/movies/rick/" becomes "/movies/rick.ogg"
   item.identifier.chop + '.ogg'
 end
-<code></pre>
+</code></pre>
 
 When the site is compiled, you should find two new files the output directory: `output/movies/rick.mp4` and `output/movies/rick.ogg`, which you can now [use in HTML5 video](http://diveintohtml5.org/video.html)!
