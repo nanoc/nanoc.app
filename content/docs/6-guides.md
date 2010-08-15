@@ -291,7 +291,7 @@ compile '/movies/*/' do
 end
 
 route '/movies/*/' do
-  # Make sure that “/movies/rick/” becomes “/movies/rick.mp4”
+  # Make sure that "/movies/rick/" becomes "/movies/rick.mp4"
   item.identifier.chop + '.' + item[:extension]
 end
 </code></pre>
@@ -325,7 +325,7 @@ compile '/movies/*/', :rep => :theora do
 end
 
 route '/movies/*/', :rep => :theora do
-  # Make sure that “/movies/rick/” becomes “/movies/rick.ogg”
+  # Make sure that "/movies/rick/" becomes "/movies/rick.ogg"
   item.identifier.chop + '.ogg'
 end
 <code></pre>
