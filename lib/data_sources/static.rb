@@ -1,3 +1,5 @@
+require 'digest'
+
 module Nanoc3::DataSources
 
   class Static < Nanoc3::DataSource
