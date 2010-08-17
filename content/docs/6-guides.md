@@ -445,6 +445,34 @@ It is best to prevent linking to the active page, so you should check whether th
 &lt;/ul&gt;
 </code></pre>
 
+One extra enhancement would be to indicate the language of the link destinations as well as the language of the link text itself. For this, the `hreflang` resp. the `lang` attributes are used. Here’s what the code could look like:
+
+<pre title="Listing all translations of a given item, improved implementation bis"><code class="language-rhtml">
+&lt;ul>
+  &lt;% translations_of(@item).each do |t| %>
+    &lt;li>
+      &lt;% if @item == t %>
+        &lt;span class="active" lang="&lt;%= language_code_of(t) %>">
+          &lt;%= language_name_of(t) %>
+        &lt;/span>
+      &lt;% else %>
+        &lt;a href="&lt;%= t.path %>"
+           lang="&lt;%= language_code_of(t) %>"
+           hreflang="&lt;%= language_code_of(t) %>">
+          &lt;%= language_name_of(t) %>
+        &lt;/a>
+      &lt;% end %>
+    &lt;/li>
+  &lt;% end %>
+&lt;/ul>
+</code></pre>
+
+The language of the links and the link destinations are now indicated, but the language of the document itself isn’t yet. The `html` element should get a `lang` attribute that contains the language code. Here’s what it could look like in the layout:
+
+<pre title="Setting the document’s language code"><code class="language-rhtml">
+&lt;html lang="&lt;%= language_code_of(@item) %>">
+</code></pre>
+
 At this point, the site is already a lot friendlier for people from different languages. One thing is still missing , though: a landing page that redirects people to the language of their choice. This means that the landing page will require server-side scripting. For the Myst Online site, I used PHP as this is a widely available scripting language for creating web sites, but other languages such as Ruby would have worked as well. A good way of redirecting visitors is to check the contents of the `Accept-Language` HTTP header, find the preferred language, and then redirect them to the appropriate page.
 
 Here’s the PHP code for parsing the header and returning a list of language codes requested by the user agent, sorted by decreasing preference (“qval”):
