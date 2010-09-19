@@ -35,6 +35,6 @@ Content excluded from this licensing scheme includes:
 * Any other content explicitly marked as not part of the license 
 * nanoc itself 
 
-The source code for this web site is made available for demonstration purposes
-only. Neither the content nor the design should be used as a starting point
-for your own web site.
+The source code located in the lib/ directory is public domain. The design of
+this web site should not be reused: it is not a template for you to take, so
+create your own design!
