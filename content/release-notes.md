@@ -5,6 +5,10 @@ markdown:  basic
 
 ---
 
+## 3.1.6 (2010-11-21)
+
+* Fixed issues with incompatible encodings
+
 ## 3.1.5 (2010-08-24)
 
 * Improved `#render` documentation
