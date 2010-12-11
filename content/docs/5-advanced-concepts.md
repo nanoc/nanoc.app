@@ -13,8 +13,7 @@ Helpers are modules that can be `include`d to provide additional functionality. 
 
 For example, the file `lib/helpers/random_text.rb` could contain this:
 
-<pre title="Defining the RandomTextHelper helper"><code class="language-ruby">
-module RandomTextHelper
+<pre title="Defining the RandomTextHelper helper"><code class="language-ruby">module RandomTextHelper
   def random_text
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   end
@@ -23,14 +22,12 @@ end
 
 To allow the `#random_text` method to be called, it can be `include`d. This is often done in `lib/helpers_.rb` (the underscore is necessary to ensure that the file is loaded _after_ the helpers are loaded, which is necessary because files in `lib/` are loaded in alphabetical order). For example:
 
-<pre title="Loading the RandomTextHelper helper"><code class="language-ruby">
-include RandomTextHelper
+<pre title="Loading the RandomTextHelper helper"><code class="language-ruby">include RandomTextHelper
 </code></pre>
 
 Now, in an item or layout, the methods provided by this helper can be used. For example, the default layout, assuming it is filtered using ERB, can call the method like this:
 
-<pre title="Calling the random_text method after having loaded the RandomTextHelper helper"><code class="language-html">
-&lt;p>&lt;%= random_text %>&lt;/p>
+<pre title="Calling the random_text method after having loaded the RandomTextHelper helper"><code class="language-html">&lt;p>&lt;%= random_text %>&lt;/p>
 </code></pre>
 
 Writing Filters
@@ -40,8 +37,7 @@ Filters are classes that inherit from `Nanoc3::Filter`. Writing custom filters i
 
 A filter has an identifier, which is an unique name that is used in calls to `#filter` in a compilation rule. A filter identifier is set using `#identifier`, like this:
 
-<pre><code class="language-ruby">
-class CensorFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class CensorFilter &lt; Nanoc3::Filter
   identifier :censor
 
   # (other code here)
@@ -50,8 +46,7 @@ end
 
 By default, filters will take textual content as input, and output text as well. Filters can be applied to binary content as well, and they can even tranform text into binary content and vice versa. To identify the type of the input and the output, declare the type in the class, like this:
 
-<pre><code class="language-ruby">
-class SampleTextualFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc3::Filter
   identifier :sample_textual
   type :text
   # also possible:
@@ -79,8 +74,7 @@ end
 
 The `#run` method looks a bit different for filters that apply to textual items than filters that apply to binary items. Filters that apply to textual items have a `content` argument; a string that contains the content to filter. Filters that apply to binary items, on the other hand, have a `filename` argument instead, containing the location of the file to be filtered. For example:
 
-<pre><code class="language-ruby">
-class SampleTextualFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc3::Filter
   identifier :sample_textual
   type :text
   def run(content, params={})
@@ -103,8 +97,7 @@ Filters have access to `@item`, `@item_rep`, `@items`, `@layouts`, `@config` and
 
 Here are three complete examples of filters that transform textual and binary content:
 
-<pre><code class="language-ruby">
-class CensorFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class CensorFilter &lt; Nanoc3::Filter
   identifier :censor
 
   def run(content, params={})
@@ -145,8 +138,7 @@ Data sources are responsible for loading and storing a site’s data: items, lay
 
 Each data source has an identifier. This is a unique name that is used in a site’s ’s configuration file to specify which data source should be used to fetch data. It is specified like this:
 
-<pre><code class="language-ruby">
-class SampleDataSource &lt; Nanoc3::DataSource
+<pre><code class="language-ruby">class SampleDataSource &lt; Nanoc3::DataSource
   identifier :sample
   # (other code here)
 end
