@@ -335,7 +335,7 @@ The code block should return the routed path for the relevant item. The code blo
 
 In the code block, you have access to `@rep`, which is the item representation that is currently being processed, and `@item`, which is an alias for `@rep.item`.
 
-**Example #1**: The following rule will give the item with identifier `/404/` the path `/error/404.php`:
+**Example #1**: The following rule will give the item with identifier `/404/` the path `/errors/404.php`:
 
 <pre title="Routing the “/404/” item to “/errors/404.php”"><code class="language-ruby">route "/404/" do
   "/errors/404.php"
@@ -349,7 +349,7 @@ end</code></pre>
 
 **Example #3**: The following rule will prevent all items with identifiers starting with `/links/`, including the `/links/` item itself, from being written (the items will still be compiled so that they can be included in other items, however):
 
-<pre title="Preventing the “/links/” item and its sub-items from being written"><code class="language-ruby">route "/link/*" do
+<pre title="Preventing the “/links/” item and its sub-items from being written"><code class="language-ruby">route "/links/*" do
   nil
 end</code></pre>
 
