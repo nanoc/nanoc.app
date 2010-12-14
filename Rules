@@ -81,12 +81,12 @@ compile '*' do
   when 'basic'
     filter :rdiscount
   end
-
-  filter :colorize_syntax
+  filter :remove_spacing_around_pre
 
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
+  filter :colorize_syntax
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
 end
 
