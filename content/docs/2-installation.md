@@ -18,7 +18,7 @@ You may have Ruby installed already. To check whether Ruby is installed on your 
 ruby-1.9.1-p378 > <kbd>quit</kbd>
 <span class="prompt">%</span> </pre>
 
-If Ruby is not installed on your system yet, check out the [Ruby downloads page](http://www.ruby-lang.org/en/downloads/) to download a Ruby version for your system.
+If Ruby is not installed on your system yet, check out the [Ruby downloads page](http://www.ruby-lang.org/en/downloads/) to download a Ruby version for your system. Alternatively, if you have a Unix-like operating system, consider using [rvm](http://rvm.beginrescueend.com/), a tool that makes managing your Ruby installation(s) a whole lot easier.
 
 Installing Rubygems
 -------------------
