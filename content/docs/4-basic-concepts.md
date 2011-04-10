@@ -164,7 +164,7 @@ Items are the basic building blocks of a nanoc-powered site. An item consist of 
 
 Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one “root” or “home” page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
 
-Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio fiels and movies should probably be binary.
+Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should probably be binary.
 
 To get the raw, uncompiled content of a (textual) item, use [`Nanoc3::Item#raw_content`](/docs/api/3.1/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
