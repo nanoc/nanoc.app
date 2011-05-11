@@ -19,7 +19,7 @@ Unlike many CMSes and blog engines, nanoc runs on your local computer, and not o
 Why use nanoc?
 --------------
 
-nanoc is suitable for all sorts of sites. It is usable for small personal weblogs, portfolios, product web sites and more. It has been used in production for such sites. All web sites that do not need to allow user-contributed content through a web interface can can be built with nanoc.
+nanoc is suitable for all sorts of sites. It is usable for small personal weblogs, portfolios, product web sites and more. It has been used in production for such sites. All web sites that do not need to allow user-contributed content through a web interface can be built with nanoc.
 
 nanoc is not a simplistic web site publishing tool. It is aimed at being both powerful and flexible. While other static web site publishing tools focus on providing only a handful of features, nanoc aims to be capable of building all sorts of sites.
 
