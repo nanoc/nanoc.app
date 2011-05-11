@@ -135,18 +135,6 @@ The data source configuration is an array of hashes with the following keys:
 `layouts_root`
 : The path where layouts should be mounted. The layouts root behaves the same as the items root, but applies to layouts rather than items.
 
-<!--
-
-The watcher configuration has the following keys:
-
-`dirs_to_watch`
-: A list of directories to watch for changes. When editing this, make sure that the “output/” and “tmp/” directories are _not_ included in this list, because recompiling the site will cause these directories to change, which will cause the site to be recompiled, which will cause these directories to change, which will cause the site to be recompiled again, and so on.
-
-`files_to_watch`
-: A list of single files to watch for changes. As mentioned above, don’t put any files from the “output/” or “tmp/” directories in here.
-
--->
-
 ### (Auto)compiling a Site
 
 To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. This will write the compiled site to the output directory as specified in the site configuration file. For example:
