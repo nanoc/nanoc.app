@@ -101,7 +101,7 @@ The final step involves generating pages for each individual sub-list. This is d
   last  = (i+1)*config[:page_size]
 
   @items &lt;&lt; Nanoc3::Item.new(
-    "... page content here ...",
+    "… page content here …",
     { :title => "Archive (articles #{first} to #{last})" },
     "/blog/archive/#{i+1}/"
   )

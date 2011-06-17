@@ -174,11 +174,11 @@ As you probably have noticed already, the page’s content files are not complet
 
 Take a look at the `default.html` file in the `layouts` directory. Just like items, it contains a metadata section at the top of the file. Open it in your text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
 
-<pre title="Extract from the default layout showing the body"><code class="language-html">...
+<pre title="Extract from the default layout showing the body"><code class="language-html">…
 &lt;div id="main">
   &lt;%= yield %>
 &lt;/div>
-...
+…
 </code></pre>
 
 The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%= yield %>` instruction will be replaced with the item’s compiled content when compiling.

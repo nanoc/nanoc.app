@@ -182,7 +182,7 @@ When using a filesystem-based data source, attributes are stored as YAML in eith
 title: "Some Page"
 ---</code>
 
-<code class="language-html">&lt;p>Lorem ipsum dolor sit amet...&lt;/p></code></pre>
+<code class="language-html">&lt;p>Lorem ipsum dolor sit amet…&lt;/p></code></pre>
 
 If you are using the default data source (`filesystem_unified`), then each item will automatically receive some extra attributes that may be useful. These are:
 
