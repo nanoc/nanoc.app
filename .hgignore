@@ -3,3 +3,5 @@ syntax: glob
 output.diff
 *.tmproj
 tmp
+output
+.sass-cache
