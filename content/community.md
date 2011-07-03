@@ -12,3 +12,13 @@ IRC Channel
 ----------
 
 There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development.
+
+Issue Tracker
+-------------
+
+If you’ve encountered an issue in nanoc, please do let me know on the [issue tracker](http://github.com/ddfreyne/nanoc/issues) at GitHub.
+
+Repositories
+------------
+
+There’s a [nanoc Mercurial repository](http://projects.stoneship.org/hg/nanoc) as well as a [nanoc Git repository](http://github.com/ddfreyne/nanoc). The latter is located at GitHub and you’re fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
