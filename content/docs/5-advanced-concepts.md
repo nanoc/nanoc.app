@@ -134,7 +134,7 @@ When writing filters that apply to binary data, make sure that you check the exi
 Writing Data Sources
 --------------------
 
-Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the [`Nanoc3::DataSource` source code documentation](/docs/api/3.1/Nanoc3/DataSource.html).
+Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the [`Nanoc3::DataSource` source code documentation](/docs/api/3.2/Nanoc3/DataSource.html).
 
 Each data source has an identifier. This is a unique name that is used in a site’s ’s configuration file to specify which data source should be used to fetch data. It is specified like this:
 
@@ -152,8 +152,8 @@ The `#setup` method is used to create the initial site structure. For example, a
 
 You may also want to implement the optional `#update` method, which is used by the `update` command to update the data source to a newer version. This is very useful if the data source changes the way data is stored.
 
-The three main methods in a data source are `#items`, `#layouts` and `#code_snippets`. These load items ([`Nanoc3::Item`](/docs/api/3.1/Nanoc3/Item.html)), layouts ([`Nanoc3::Layout`](/docs/api/3.1/Nanoc3/Layout.html)) and code snippets ([`Nanoc3::CodeSnippet`](/docs/api/3.1/Nanoc3/CodeSnippet.html)), respectively. Implementing these methods is optional, so if you have a data source that only returns items, there’s no need to implement `#layouts` or `#code_snippets`.
+The two main methods in a data source are `#items` and `#layouts`. These load items ([`Nanoc3::Item`](/docs/api/3.2/Nanoc3/Item.html)) and layouts ([`Nanoc3::Layout`](/docs/api/3.2/Nanoc3/Layout.html)) respectively. Implementing these methods is optional, so if you e.g. have a data source that only returns items, there’s no need to implement `#layouts`.
 
 If your data source can create items and/or layouts, then `#create_item` and `#create_layout` are methods you will want to implement. These will be used by the `create_site`, `create_item` and `create_layout` commands.
 
-If all this sounds a bit vague, check out the [documentation for `Nanoc3::DataSource`](/docs/api/3.1/Nanoc3/DataSource.html). You may also want to take a look at the code for some of the data sources; the code is well-documented and should help you to get started quickly.
+If all this sounds a bit vague, check out the [documentation for `Nanoc3::DataSource`](/docs/api/3.2/Nanoc3/DataSource.html). You may also want to take a look at the code for some of the data sources; the code is well-documented and should help you to get started quickly.

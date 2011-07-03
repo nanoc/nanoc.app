@@ -104,7 +104,7 @@ nanoc will load all Ruby source files in the `lib` directory before it starts co
 
 ### Site configuration
 
-The site configuration is defined by the `config.yaml` file at the top level of the site directory. The file is in YAML format. The configuration has the following predefined values (check the [API documentation for `Nanoc3::Site`](/docs/api/3.1/Nanoc3/Site.html) for details about the default values):
+The site configuration is defined by the `config.yaml` file at the top level of the site directory. The file is in YAML format. The configuration has the following predefined values (check the [API documentation for `Nanoc3::Site`](/docs/api/3.2/Nanoc3/Site.html) for details about the default values):
 
 `text_extensions`
 : A list of file extensions that nanoc will consider to be textual rather than binary. If an item with an extension not in this list is found, the file will be considered as binary.
@@ -154,7 +154,7 @@ Items are structured hierarchically. Each item has an identifier that consists o
 
 Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should probably be binary.
 
-To get the raw, uncompiled content of a (textual) item, use [`Nanoc3::Item#raw_content`](/docs/api/3.1/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
+To get the raw, uncompiled content of a (textual) item, use [`Nanoc3::Item#raw_content`](/docs/api/3.2/Nanoc3/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc3::Item#compiled_content`](/docs/api/3.2/Nanoc3/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
 Whether an item is considered textual or binary depends on the extension of the file. If it is included in the `text_extensions` array in the site configuration, it is considered textual; if not, it is considered binary. The default list of text extensions is the following:
 
@@ -162,7 +162,7 @@ Whether an item is considered textual or binary depends on the extension of the 
 text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'php', 'rb', 'sass', 'txt' ]
 </code></pre>
 
-To get the path of the compiled item, use [`Nanoc3::Item#path`](/docs/api/3.1/Nanoc3/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
+To get the path of the compiled item, use [`Nanoc3::Item#path`](/docs/api/3.2/Nanoc3/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
 
 ### Creating an Item
 
@@ -204,7 +204,7 @@ An item representation (or “rep” for short) is a compiled version of an item
 
 Multiple representations are useful when items need to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn’t compiled at all—just the raw, unfiltered, non-laid out content. Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
 
-An item’s list of representation can be fetched by calling [`Nanoc3::Item#reps`](/docs/api/3.1/Nanoc3/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc3::Item#rep_named`](/docs/api/3.1/Nanoc3/Item.html#rep_named-instance_method) with the rep name, like this:
+An item’s list of representation can be fetched by calling [`Nanoc3::Item#reps`](/docs/api/3.2/Nanoc3/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc3::Item#rep_named`](/docs/api/3.2/Nanoc3/Item.html#rep_named-instance_method) with the rep name, like this:
 
 <pre title="Finding the item rep with the given name"><code class="language-ruby">
 rep = @item.rep_named(:default)
@@ -214,7 +214,7 @@ rep = @item.rep_named(:default)
 
 A snapshot is the compiled content at a specific point during the compilation process. Snapshots can be generated manually, but some snapshots are generated automatically (see below).
 
-To get the compiled content of a specific snapshot, use the `:snapshot` option of [`Nanoc3::Item#compiled_content`](/docs/api/3.1/Nanoc3/Item.html#compiled_content-instance_method) or [`Nanoc3::ItemRep#compiled_content`](/docs/api/3.1/Nanoc3/ItemRep.html#compiled_content-instance_method). For example:
+To get the compiled content of a specific snapshot, use the `:snapshot` option of [`Nanoc3::Item#compiled_content`](/docs/api/3.2/Nanoc3/Item.html#compiled_content-instance_method) or [`Nanoc3::ItemRep#compiled_content`](/docs/api/3.2/Nanoc3/ItemRep.html#compiled_content-instance_method). For example:
 
 <pre title="Getting the compiled content at a certain snapshot"><code class="language-ruby">
 stuff = some_item.compiled_content(:snapshot => :pre)
@@ -264,7 +264,7 @@ When compiling items with filters that support adding code to the item or the la
 `@site`
 : The site.
 
-To get an item attribute, use the [`Nanoc3::Item#[]`](/docs/api/3.1/Nanoc3/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
+To get an item attribute, use the [`Nanoc3::Item#[]`](/docs/api/3.2/Nanoc3/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
 
 Layouts
 -------
@@ -290,7 +290,7 @@ Layouts can also be used as *partials*: a specific layout can be rendered into a
 
 <pre title="Rendering the “head” layout as a partial"><code class="language-html">&lt;%= render 'head' %></code></pre>
 
-To use this helper, activate the [Rendering](/docs/api/3.1/Nanoc3/Helpers/Rendering.html) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+To use this helper, activate the [Rendering](/docs/api/3.2/Nanoc3/Helpers/Rendering.html) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
 
 <pre title="Activating the Rendering helper"><code class="language-ruby">include Nanoc3::Helpers::Rendering</code></pre>
 
@@ -315,9 +315,9 @@ A routing rule looks like this:
   # (routing code here)
 end</code></pre>
 
-The argument for the [`#route`](/docs/api/3.1/Nanoc3/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
+The argument for the [`#route`](/docs/api/3.2/Nanoc3/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
 
-A `:rep` argument can be passed to the [`#route`](/docs/api/3.1/Nanoc3/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
+A `:rep` argument can be passed to the [`#route`](/docs/api/3.2/Nanoc3/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
@@ -604,21 +604,26 @@ Filters can be applied to binary items as well. For example, thumbnail generatio
 
 The following is a list of filters that are built into nanoc. The links lead to their documentation page, describing how they can be used and what parameters they take (if any).
 
-* [`:bluecloth`](/docs/api/3.1/Nanoc3/Filters/BlueCloth.html)
-* [`:colorize_syntax`](/docs/api/3.1/Nanoc3/Filters/ColorizeSyntax.html)
-* [`:erb`](/docs/api/3.1/Nanoc3/Filters/ERB.html)
-* [`:erubis`](/docs/api/3.1/Nanoc3/Filters/Erubis.html)
-* [`:haml`](/docs/api/3.1/Nanoc3/Filters/Haml.html)
-* [`:less`](/docs/api/3.1/Nanoc3/Filters/Less.html)
-* [`:markaby`](/docs/api/3.1/Nanoc3/Filters/Markaby.html)
-* [`:maruku`](/docs/api/3.1/Nanoc3/Filters/Maruku.html)
-* [`:rainpress`](/docs/api/3.1/Nanoc3/Filters/Rainpress.html)
-* [`:rdiscount`](/docs/api/3.1/Nanoc3/Filters/RDiscount.html)
-* [`:rdoc`](/docs/api/3.1/Nanoc3/Filters/RDoc.html)
-* [`:redcloth`](/docs/api/3.1/Nanoc3/Filters/RedCloth.html)
-* [`:relativize_paths`](/docs/api/3.1/Nanoc3/Filters/RelativizePaths.html)
-* [`:rubypants`](/docs/api/3.1/Nanoc3/Filters/RubyPants.html)
-* [`:sass`](/docs/api/3.1/Nanoc3/Filters/Sass.html)
+* [`:asciidoc`](/docs/api/3.2/Nanoc3/Filters/AsciiDoc.html)
+* [`:bluecloth`](/docs/api/3.2/Nanoc3/Filters/BlueCloth.html)
+* [`:colorize_syntax`](/docs/api/3.2/Nanoc3/Filters/ColorizeSyntax.html)
+* [`:erb`](/docs/api/3.2/Nanoc3/Filters/ERB.html)
+* [`:erubis`](/docs/api/3.2/Nanoc3/Filters/Erubis.html)
+* [`:haml`](/docs/api/3.2/Nanoc3/Filters/Haml.html)
+* [`:less`](/docs/api/3.2/Nanoc3/Filters/Less.html)
+* [`:markaby`](/docs/api/3.2/Nanoc3/Filters/Markaby.html)
+* [`:maruku`](/docs/api/3.2/Nanoc3/Filters/Maruku.html)
+* [`:rainpress`](/docs/api/3.2/Nanoc3/Filters/Rainpress.html)
+* [`:redcarpet`](/docs/api/3.2/Nanoc3/Filters/Redcarpet.html)
+* [`:rdiscount`](/docs/api/3.2/Nanoc3/Filters/RDiscount.html)
+* [`:rdoc`](/docs/api/3.2/Nanoc3/Filters/RDoc.html)
+* [`:redcloth`](/docs/api/3.2/Nanoc3/Filters/RedCloth.html)
+* [`:relativize_paths`](/docs/api/3.2/Nanoc3/Filters/RelativizePaths.html)
+* [`:rubypants`](/docs/api/3.2/Nanoc3/Filters/RubyPants.html)
+* [`:typogruby`](/docs/api/3.2/Nanoc3/Filters/Typogruby.html)
+* [`:sass`](/docs/api/3.2/Nanoc3/Filters/Sass.html)
+* [`:slim`](/docs/api/3.2/Nanoc3/Filters/Slim.html)
+* [`:uglifyjs`](/docs/api/3.2/Nanoc3/Filters/UglifyJS.html)
 
 Helpers
 -------
@@ -633,16 +638,16 @@ include Nanoc3::Helpers::Blogging
 
 The following is a list of helpers that are built into nanoc. The links lead to their documentation page, describing how they can be used.
 
-* [`Blogging`](/docs/api/3.1/Nanoc3/Helpers/Blogging.html)
-* [`Breadcrumbs`](/docs/api/3.1/Nanoc3/Helpers/Breadcrumbs.html)
-* [`Capturing`](/docs/api/3.1/Nanoc3/Helpers/Capturing.html)
-* [`Filtering`](/docs/api/3.1/Nanoc3/Helpers/Filtering.html)
-* [`HTMLEscape`](/docs/api/3.1/Nanoc3/Helpers/HTMLEscape.html)
-* [`LinkTo`](/docs/api/3.1/Nanoc3/Helpers/LinkTo.html)
-* [`Rendering`](/docs/api/3.1/Nanoc3/Helpers/Rendering.html)
-* [`Tagging`](/docs/api/3.1/Nanoc3/Helpers/Tagging.html)
-* [`Text`](/docs/api/3.1/Nanoc3/Helpers/Text.html)
-* [`XMLSitemap`](/docs/api/3.1/Nanoc3/Helpers/XMLSitemap.html)
+* [`Blogging`](/docs/api/3.2/Nanoc3/Helpers/Blogging.html)
+* [`Breadcrumbs`](/docs/api/3.2/Nanoc3/Helpers/Breadcrumbs.html)
+* [`Capturing`](/docs/api/3.2/Nanoc3/Helpers/Capturing.html)
+* [`Filtering`](/docs/api/3.2/Nanoc3/Helpers/Filtering.html)
+* [`HTMLEscape`](/docs/api/3.2/Nanoc3/Helpers/HTMLEscape.html)
+* [`LinkTo`](/docs/api/3.2/Nanoc3/Helpers/LinkTo.html)
+* [`Rendering`](/docs/api/3.2/Nanoc3/Helpers/Rendering.html)
+* [`Tagging`](/docs/api/3.2/Nanoc3/Helpers/Tagging.html)
+* [`Text`](/docs/api/3.2/Nanoc3/Helpers/Text.html)
+* [`XMLSitemap`](/docs/api/3.2/Nanoc3/Helpers/XMLSitemap.html)
 
 Rake Tasks
 ----------
@@ -674,7 +679,7 @@ Data Sources
 
 Each site has one or more _data sources_: objects that can load site data (items and layouts) from certain locations, and even create new items and layouts.
 
-New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](http://nanoc.stoneship.org/docs/api/3.1/Nanoc3/DataSources/FilesystemUnified.html).
+New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](http://nanoc.stoneship.org/docs/api/3.2/Nanoc3/DataSources/FilesystemUnified.html).
 
 The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
@@ -704,8 +709,8 @@ For example, the configuration of a site that uses many data sources could look 
 
 nanoc comes bundled with the following two data sources:
 
-[`filesystem_unified`](/docs/api/3.1/Nanoc3/DataSources/FilesystemUnified.html)
+[`filesystem_unified`](/docs/api/3.2/Nanoc3/DataSources/FilesystemUnified.html)
 : Reads data from files on the disk. It is the default data source for new sites.
 
-[`filesystem_verbose`](/docs/api/3.1/Nanoc3/DataSources/FilesystemVerbose.html)
+[`filesystem_verbose`](/docs/api/3.2/Nanoc3/DataSources/FilesystemVerbose.html)
 : Reads data from files on the disk. Older versions of nanoc used this data source as the default one.
