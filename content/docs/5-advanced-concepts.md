@@ -158,7 +158,7 @@ As of nanoc 3.2, it is possible to write custom commands. Create a `commands/` d
 	  end
 	end
 
-The name of the command is derived from the filename. For example, a command defined in `commands/dostuff.rb` will have the name `dostuff` and to invoke it you’d type “nanoc dostuff”.
+The name of the command is derived from the filename. For example, a command defined in `commands/dostuff.rb` will have the name `dostuff` and to invoke it you’d type “nanoc dostuff”. You can have nested commands by defining subcommands in subdirectories. For example, the command at `commands/foo/bar.rb` will be a subcommand of the command at `commands/foo.rb`.
 
 For details on how to create such commands, check out the documentation for [Cri](http://rubydoc.info/gems/cri/2.0.0/file/README.md), the framework used by nanoc for generating commands.
 
