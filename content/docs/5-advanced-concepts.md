@@ -147,7 +147,7 @@ As of nanoc 3.2, it is possible to write custom commands. Create a `commands/` d
 	  exit 0
 	end
 	flag   :m, :more,  'do even more stuff'
-	option :s, :stuff, 'specify stuff to do', :argument => :required
+	option :s, :stuff, 'specify stuff to do', :argument => :optional
     
 	run do |opts, args, cmd|
 	  stuff = opts[:stuff] || 'generic stuff'
