@@ -47,6 +47,8 @@ base_url: http://nanoc.stoneship.org/
 
 deploy:
   final:
+    kind: rsync
     dst: "ectype:sites/nanoc/public"
   staging:
+    kind: rsync
     dst: "ectype:sites/nanoc/public/staging"
