@@ -164,6 +164,8 @@ text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown'
 
 To get the path of the compiled item, use [`Nanoc3::Item#path`](/docs/api/3.2/Nanoc3/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
 
+During compilation, items cannot be modified. You can, however, adjust the item content and attributes in the preprocessor.
+
 ### Creating an Item
 
 Items are stored as plaintext files on the hard drive (unless you’re using esoteric data sources), so it’s easy to manually create items. nanoc provides a `create_item` (or `ci`) command for making item generation easier, though. This command looks like this:
@@ -283,6 +285,8 @@ For a layout to be useful, it must output the item’s content at a certain poin
 &lt;/html></code></pre>
 
 An item is put into a layout by calling the `layout` function in a compilation rule. See the [Compilation Rules](#compilation-rules) section for details.
+
+During compilation, layouts cannot be modified. You can, however, adjust the layout content and attributes in the preprocessor.
 
 ### As Partials
 
