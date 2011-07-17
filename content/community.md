@@ -1,14 +1,24 @@
-Wiki
-----
-
-The Trac-powered [wiki](http://projects.stoneship.org/trac/nanoc) contains a collection of useful tips and tricks. It also contains a list of sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu.
-
 Discussion Groups
 -----------------
 
-nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble. In addition to that, there is a [Spanish discussion group](http://groups.google.com/group/nanoc-es) for those who prefer to speak Spanish. (I won’t be able to join the discussion there though, as I don’t speak Spanish.)
+nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble.
+
+Issue Tracker
+-------------
+
+If you’ve encountered an issue in nanoc, please do let me know on the [issue tracker](http://github.com/ddfreyne/nanoc/issues) at GitHub.
 
 IRC Channel
 ----------
 
-There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development.
+There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the [nanoc discussion group](http://groups.google.com/group/nanoc) instead (see above).
+
+Wiki
+----
+
+The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
+
+Repositories
+------------
+
+There’s a [nanoc Mercurial repository](http://projects.stoneship.org/hg/nanoc) as well as a [nanoc Git repository](http://github.com/ddfreyne/nanoc). The latter is located at GitHub and you’re fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!

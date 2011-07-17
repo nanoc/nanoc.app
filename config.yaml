@@ -46,7 +46,9 @@ data_sources:
 base_url: http://nanoc.stoneship.org/
 
 deploy:
-  final:
+  public:
+    kind: rsync
     dst: "ectype:sites/nanoc/public"
   staging:
+    kind: rsync
     dst: "ectype:sites/nanoc/public/staging"
