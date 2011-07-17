@@ -9,15 +9,6 @@ server anyway.
 Also check out the Stoneship site source, available in the Mercurial
 repository at <http://nanoc.stoneship.org/hg/sites-stoneship>.
 
-Requirements
-------------
-
-You will need nanoc 3.0.0 or higher, as well as:
-
-* builder
-* rubypants
-* nokogiri
-
 Legal
 -----
 
