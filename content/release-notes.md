@@ -5,6 +5,31 @@ markdown:  basic
 
 ---
 
+## 3.2 (2011-07-24)
+
+Base:
+
+* Sped up nanoc quite a bit
+* Added progress indicator for long-running filters
+* Made all source data, such as item attributes, frozen during compilation
+* Added --color option to force color on
+* Cleaned up internals, deprecating several parts and/or marking them as
+  private in the progress
+* Allowed custom commands in commands/
+
+Extensions:
+
+* Added AsciiDoc filter
+* Added Redcarpet filter [Peter Aronoff]
+* Added Slim filter [Zaiste de Grengolada]
+* Added Typogruby filter
+* Added UglifyJS filter [Justin Hileman]
+* Added `:items` parameter for the XML site map [Justin Hileman]
+* Added support for params to ERB
+* Added `:default_colorizer` parameter to the `:colorize_syntax` filter
+* Allowed for passing arbitrary options to pygmentize [Matthias Vallentin]
+* Exposed RedCloth parameters in the filter [Vincent Driessen]
+
 ## 3.1.9 (2011-06-30)
 
 * Really fixed dependency generation between Sass partials this time
