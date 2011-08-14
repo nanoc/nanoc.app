@@ -5,6 +5,15 @@ markdown:  basic
 
 ---
 
+## 3.2.1 (2011-07-27)
+
+* Made `@config` available in rules file
+* Fixed `#readpartial` issue on JRuby [Matt Keveney]
+* Fixed possible `@cache` name clash in memoization module
+* Fixed options with required arguments (such as `--port` and `--host`)
+* Fixed broken `#check_availability`
+* Fixed error handling in watch command
+
 ## 3.2 (2011-07-24)
 
 Base:
