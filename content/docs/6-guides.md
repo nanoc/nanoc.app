@@ -70,7 +70,7 @@ end</code></pre>
 
 The `#paginate_articles` method will have to do three things: fetch a list of all articles to paginate, split the entire list of articles in a list of sub-lists (read: “pages”), and finally generate a `Nanoc3::Item` for each of these sub-lists.
 
-The first step, getting all articles to paginate, is quite easy. It will probaly look a bit like this:
+The first step, getting all articles to paginate, is quite easy. It will probably look a bit like this:
 
 <pre title="Fetching all articles to paginate"><code class="language-ruby">articles_to_paginate = items.select { |i| i[:kind] == 'article' }.
   sort_by { |a| Time.parse(a[:created_at]) }</code></pre>
