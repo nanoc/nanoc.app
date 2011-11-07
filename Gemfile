@@ -1,3 +1,5 @@
+source :rubygems
+
 gem 'coderay'   # for syntax highlighting
 gem 'compass'   # for advanced CSS
 gem 'haml'      # for layouts with clean sources
