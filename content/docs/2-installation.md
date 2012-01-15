@@ -59,5 +59,5 @@ You can also install nanoc from the repository if you want to take advantage of 
 
 <pre title="Installing nanoc from the git repository"><span class="prompt">~%</span> <kbd>git clone git://github.com/ddfreyne/nanoc.git</kbd>
 <span class="prompt">~%</span> <kbd>cd nanoc</kbd>
-<span class="prompt">~/nanoc%</span> <kbd>gem build nanoc3.gemspec</kbd>
-<span class="prompt">~/nanoc%</span> <kbd>gem install nanoc3-*.gem</kbd></pre>
+<span class="prompt">~/nanoc%</span> <kbd>gem build nanoc.gemspec</kbd>
+<span class="prompt">~/nanoc%</span> <kbd>gem install nanoc-*.gem</kbd></pre>
