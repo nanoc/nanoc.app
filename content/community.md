@@ -21,4 +21,4 @@ The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a col
 Repositories
 ------------
 
-There’s a [nanoc Mercurial repository](http://projects.stoneship.org/hg/nanoc) as well as a [nanoc Git repository](http://github.com/ddfreyne/nanoc). The latter is located at GitHub and you’re fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
+There’s a [nanoc Git repository](http://github.com/ddfreyne/nanoc) as well as a [nanoc Mercurial repository](http://nanoc.stoneship.org/hg/nanoc). The former is located at GitHub where you can easily fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
