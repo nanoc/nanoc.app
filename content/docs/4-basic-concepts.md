@@ -588,28 +588,7 @@ Filters are used for transforming an item’s content. For example, the ERB filt
 
 Filters can be applied to binary items as well. For example, thumbnail generation for a gallery page can be handled by nanoc. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
-The following is a list of filters that are built into nanoc. The links lead to their documentation page, describing how they can be used and what parameters they take (if any).
-
-* [`:asciidoc`](/docs/api/3.2/Nanoc/Filters/AsciiDoc.html)
-* [`:bluecloth`](/docs/api/3.2/Nanoc/Filters/BlueCloth.html)
-* [`:colorize_syntax`](/docs/api/3.2/Nanoc/Filters/ColorizeSyntax.html)
-* [`:erb`](/docs/api/3.2/Nanoc/Filters/ERB.html)
-* [`:erubis`](/docs/api/3.2/Nanoc/Filters/Erubis.html)
-* [`:haml`](/docs/api/3.2/Nanoc/Filters/Haml.html)
-* [`:less`](/docs/api/3.2/Nanoc/Filters/Less.html)
-* [`:markaby`](/docs/api/3.2/Nanoc/Filters/Markaby.html)
-* [`:maruku`](/docs/api/3.2/Nanoc/Filters/Maruku.html)
-* [`:rainpress`](/docs/api/3.2/Nanoc/Filters/Rainpress.html)
-* [`:redcarpet`](/docs/api/3.2/Nanoc/Filters/Redcarpet.html)
-* [`:rdiscount`](/docs/api/3.2/Nanoc/Filters/RDiscount.html)
-* [`:rdoc`](/docs/api/3.2/Nanoc/Filters/RDoc.html)
-* [`:redcloth`](/docs/api/3.2/Nanoc/Filters/RedCloth.html)
-* [`:relativize_paths`](/docs/api/3.2/Nanoc/Filters/RelativizePaths.html)
-* [`:rubypants`](/docs/api/3.2/Nanoc/Filters/RubyPants.html)
-* [`:typogruby`](/docs/api/3.2/Nanoc/Filters/Typogruby.html)
-* [`:sass`](/docs/api/3.2/Nanoc/Filters/Sass.html)
-* [`:slim`](/docs/api/3.2/Nanoc/Filters/Slim.html)
-* [`:uglifyjs`](/docs/api/3.2/Nanoc/Filters/UglifyJS.html)
+nanoc comes with quite a handful of filters. [Here’s a list](http://nanoc.stoneship.org/docs/api/3.3/Nanoc/Filters.html).
 
 Helpers
 -------
@@ -622,18 +601,7 @@ Helpers need to be activated before they can be used. To activate a helper, `inc
 include Nanoc::Helpers::Blogging
 </code></pre>
 
-The following is a list of helpers that are built into nanoc. The links lead to their documentation page, describing how they can be used.
-
-* [`Blogging`](/docs/api/3.2/Nanoc/Helpers/Blogging.html)
-* [`Breadcrumbs`](/docs/api/3.2/Nanoc/Helpers/Breadcrumbs.html)
-* [`Capturing`](/docs/api/3.2/Nanoc/Helpers/Capturing.html)
-* [`Filtering`](/docs/api/3.2/Nanoc/Helpers/Filtering.html)
-* [`HTMLEscape`](/docs/api/3.2/Nanoc/Helpers/HTMLEscape.html)
-* [`LinkTo`](/docs/api/3.2/Nanoc/Helpers/LinkTo.html)
-* [`Rendering`](/docs/api/3.2/Nanoc/Helpers/Rendering.html)
-* [`Tagging`](/docs/api/3.2/Nanoc/Helpers/Tagging.html)
-* [`Text`](/docs/api/3.2/Nanoc/Helpers/Text.html)
-* [`XMLSitemap`](/docs/api/3.2/Nanoc/Helpers/XMLSitemap.html)
+Here’s a [list of helpers that come with nanoc](http://nanoc.stoneship.org/docs/api/3.3/Nanoc/Helpers.html).
 
 Rake Tasks
 ----------
