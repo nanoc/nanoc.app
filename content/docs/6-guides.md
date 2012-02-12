@@ -13,37 +13,32 @@ There are quite a few ways to deploy a site to a web host. The most traditional 
 
 ### With rsync
 
-If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately nanoc provides a “deploy:rsync” rake task that can make this quite a bit easier: a simple <kbd>rake deploy:rsync</kbd> will deploy your site.
+If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately nanoc provides a “deploy” command that can make this quite a bit easier: a simple <kbd>nanoc deploy</kbd> will deploy your site.
 
-To use the deploy:rsync task, open the config.yaml file and add a `deploy` hash. Inside, add a `default` hash, which will correspond to the default configuration to use when invoking the rake task without extra arguments. Inside the default hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded. Here’s what it will look like:
+To use the deploy command, open the config.yaml file and add a `deploy` hash. Inside, add a hash with a key that describes the destination (for example, `public` or `staging`). Inside this hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set `kind` to `rsync`. Here’s what it will look like:
 
-<pre title="A simple deployment configuration"><code class="language-yaml">deploy:
-  default:
-    dst: "stoneship.org:/var/www/sites/example.com"</code></pre>
+	#!yaml
+	deploy:
+	  public:
+	    kind: rsync
+	    dst:  "stoneship.org:/var/www/sites/example.com/public"
+	  staging:
+	    kind: rsync
+	    dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
 
-By default, the rake task will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. You can run the deployment task like this:
+By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it a `--target` option, like this:
 
-<pre title="Deploying"><span class="prompt">%</span> <kbd>rake deploy:rsync</kbd></pre>
+<pre title="Deploying"><span class="prompt">%</span> <kbd>nanoc deploy --target staging</kbd></pre>
 
-If you want to check whether the executed `rsync` command is really correct, you can perform a dry run by setting the `dry_run` variable (doesn’t matter to what, as long as it’s not empty). The rsync command will be printed, but not executed. For example:
+This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
 
-<pre title="Performing a dry run"><span class="prompt">%</span> <kbd>rake deploy:rsync dry_run=true</kbd></pre>
+If you want to check whether the executed `rsync` command is really correct, you can perform a dry run by passing `--dry-run`. The rsync command will be printed, but not executed. For example:
 
-You can override the options that nanoc uses for invoking rsync in the deploy:rsync task. The following example will make sure that all existing files on the remote server are deleted after uploading (warning! use with caution!).
+<pre title="Performing a dry run"><span class="prompt">%</span> <kbd>nanoc deploy --target public --dry-run</kbd></pre>
+
+You can override the options that nanoc uses for invoking rsync. The following example will make sure that all existing files on the remote server are deleted after uploading (use with caution!).
 
 <pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-gpPrtvz', '--delete-after' ]</code></pre>
-
-As you have seen, the `deploy` hash in the site configuration file can have multiple sub-hashes for different deployment configurations. For example, I could have “public” and “staging” configurations that deploy the site to different locations. Here’s what the corresponding configuration file would look like in that case:
-
-<pre title="Multiple deployment configurations in config.yaml"><code class="language-yaml">deploy:
-  public:
-    dst: "stoneship.org:/var/www/sites/example.com"
-  staging:
-    dst: "stoneship.org:/var/www/sites/staging.example.com"</code></pre>
-
-Now, the deploy:rsync task can be invoked using a `config` argument that corresponds to the deployment configuration that you want to use. For example, to deploy using the staging configuration, I’d invoke the task like this:
-
-<pre title="Deploying with a custom configuration"><span class="prompt">%</span> <kbd>rake deploy:rsync config=staging</kbd></pre>
 
 Paginating articles
 -------------------
