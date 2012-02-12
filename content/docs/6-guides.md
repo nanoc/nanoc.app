@@ -63,7 +63,7 @@ end</code></pre>
 
 …but if your preprocessor block grows, it’s quite useful to separate different tasks in different methods. It’s also possible to store the method definitions in the lib/ directory somewhere, allowing the preprocessor block to be quite small and easy to understand.
 
-The `#paginate_articles` method will have to do three things: fetch a list of all articles to paginate, split the entire list of articles in a list of sub-lists (read: “pages”), and finally generate a `Nanoc3::Item` for each of these sub-lists.
+The `#paginate_articles` method will have to do three things: fetch a list of all articles to paginate, split the entire list of articles in a list of sub-lists (read: “pages”), and finally generate a `Nanoc::Item` for each of these sub-lists.
 
 The first step, getting all articles to paginate, is quite easy. It will probably look a bit like this:
 
@@ -72,7 +72,7 @@ The first step, getting all articles to paginate, is quite easy. It will probabl
 
 However, you can use the blogging helper to make this a bit cleaner. The blogging helper has a #sorted_articles method, which does exactly that. Here’s the cleaned-up version:
 
-<pre title="Fetching all articles to paginate (alternative approach)"><code class="language-ruby">include Nanoc3::Helpers::Blogging
+<pre title="Fetching all articles to paginate (alternative approach)"><code class="language-ruby">include Nanoc::Helpers::Blogging
 articles_to_paginate = sorted_articles</code></pre>
 
 The next step involves splitting the list of articles into sub-arrays. Here’s an easy way to do it:
@@ -89,13 +89,13 @@ until articles_to_paginate.empty?
   article_groups &lt;&lt; articles_to_paginate.slice!(0..@config[:page_size]-1)
 end</code></pre>
 
-The final step involves generating pages for each individual sub-list. This is done by constructing `Nanoc3::Item` objects and adding them to the `@items` array, like this:
+The final step involves generating pages for each individual sub-list. This is done by constructing `Nanoc::Item` objects and adding them to the `@items` array, like this:
 
 <pre title="Generating items for each of the sub-lists"><code class="language-ruby">article_groups.each_with_index do |subarticles, i|
   first = i*config[:page_size] + 1
   last  = (i+1)*config[:page_size]
 
-  @items &lt;&lt; Nanoc3::Item.new(
+  @items &lt;&lt; Nanoc::Item.new(
     "… page content here …",
     { :title => "Archive (articles #{first} to #{last})" },
     "/blog/archive/#{i+1}/"
@@ -184,7 +184,7 @@ end
 To generate the image thumbnails, a custom filter will be necessary. Depending on what OS you are on, and what software you have installed, you may need to use different filters. On Mac OS X, you can use `sips`, so place this in `lib/filters/thumbnailize.rb`:
 
 <pre title="Filter for generating thumbnails using sips"><code class="language-ruby">
-class Thumbnailize &lt; Nanoc3::Filter
+class Thumbnailize &lt; Nanoc::Filter
 
   identifier :thumbnailize
   type       :binary
@@ -206,7 +206,7 @@ end
 On platforms that have `convert`, which is part of [ImageMagick](http://www.imagemagick.org/) and [GraphicsMagick](http://www.graphicsmagick.org/), you can use the following filter instead:
 
 <pre title="Filter for generating thumbnails using convert"><code class="language-ruby">
-class Thumbnailize &lt; Nanoc3::Filter
+class Thumbnailize &lt; Nanoc::Filter
 
   identifier :thumbnailize
   type       :binary
@@ -298,7 +298,7 @@ We’ll use the <a href="http://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a> comm
 The conversion will be handled by a filter. The code for this filter is listed below. This filter should be stored somewhere in the `lib/` directory—I recommend `lib/filters/ffmpeg2theora.rb`. Note how the filter writes the generated file to the filename returned by the `#output_filename` method; this is necessary for nanoc to find the generated file.
 
 <pre title="Filter that wraps ffmpeg2theora"><code class="language-ruby">
-class Ffmpeg2TheoraFilter &lt; Nanoc3::Filter
+class Ffmpeg2TheoraFilter &lt; Nanoc::Filter
 
   identifier :ffmpeg2theora
   type       :binary

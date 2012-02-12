@@ -329,10 +329,10 @@ Recompile the site, and take a look at both HTML files in the `output` directory
 Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete `tags.rb` and create a `helper.rb` file (again, the filename doesn’t really matter) and put this inside:
 
 <pre title="Code snippet to be added to the lib directory"><code class="language-ruby">
-include Nanoc3::Helpers::Tagging
+include Nanoc::Helpers::Tagging
 </code></pre>
 
-This will make all functions defined in the `Nanoc3::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/3.2/Nanoc3/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
+This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/3.2/Nanoc/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
 
 <pre title="Code snippet to be added to the default layout"><code class="language-html">
 &lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>

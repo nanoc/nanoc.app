@@ -33,11 +33,11 @@ Now, in an item or layout, the methods provided by this helper can be used. For 
 Writing Filters
 ---------------
 
-Filters are classes that inherit from `Nanoc3::Filter`. Writing custom filters is done by subclassing said superclass and overriding the `#run` method, which is responsible for transforming the content.
+Filters are classes that inherit from `Nanoc::Filter`. Writing custom filters is done by subclassing said superclass and overriding the `#run` method, which is responsible for transforming the content.
 
 A filter has an identifier, which is an unique name that is used in calls to `#filter` in a compilation rule. A filter identifier is set using `#identifier`, like this:
 
-<pre><code class="language-ruby">class CensorFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class CensorFilter &lt; Nanoc::Filter
   identifier :censor
 
   # (other code here)
@@ -46,7 +46,7 @@ end
 
 By default, filters will take textual content as input, and output text as well. Filters can be applied to binary content as well, and they can even tranform text into binary content and vice versa. To identify the type of the input and the output, declare the type in the class, like this:
 
-<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc::Filter
   identifier :sample_textual
   type :text
   # also possible:
@@ -55,7 +55,7 @@ By default, filters will take textual content as input, and output text as well.
   # (other code here)
 end
 
-class SampleBinaryFilter &lt; Nanoc3::Filter
+class SampleBinaryFilter &lt; Nanoc::Filter
   identifier :sample_binary
   type :binary
   # also possible:
@@ -64,7 +64,7 @@ class SampleBinaryFilter &lt; Nanoc3::Filter
   # (other code here)
 end
 
-class SampleTextualToBinaryFilter &lt; Nanoc3::Filter
+class SampleTextualToBinaryFilter &lt; Nanoc::Filter
   identifier :sample_textual_to_binary
   type :text => :binary
 
@@ -74,7 +74,7 @@ end
 
 The `#run` method looks a bit different for filters that apply to textual items than filters that apply to binary items. Filters that apply to textual items have a `content` argument; a string that contains the content to filter. Filters that apply to binary items, on the other hand, have a `filename` argument instead, containing the location of the file to be filtered. For example:
 
-<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class SampleTextualFilter &lt; Nanoc::Filter
   identifier :sample_textual
   type :text
   def run(content, params={})
@@ -82,7 +82,7 @@ The `#run` method looks a bit different for filters that apply to textual items 
   end
 end
 
-class SampleBinaryFilter &lt; Nanoc3::Filter
+class SampleBinaryFilter &lt; Nanoc::Filter
   identifier :sample_binary
   type :binary
   def run(filename, params={})
@@ -97,7 +97,7 @@ Filters have access to `@item`, `@item_rep`, `@items`, `@layouts`, `@config` and
 
 Here are three complete examples of filters that transform textual and binary content:
 
-<pre><code class="language-ruby">class CensorFilter &lt; Nanoc3::Filter
+<pre><code class="language-ruby">class CensorFilter &lt; Nanoc::Filter
   identifier :censor
 
   def run(content, params={})
@@ -105,7 +105,7 @@ Here are three complete examples of filters that transform textual and binary co
   end
 end
 
-class ResizeFilter &lt; Nanoc3::Filter
+class ResizeFilter &lt; Nanoc::Filter
   identifier :resize
   type :binary
 
@@ -119,7 +119,7 @@ class ResizeFilter &lt; Nanoc3::Filter
   end
 end
 
-class SynthesiseAudio &lt; Nanoc3::Filter 
+class SynthesiseAudio &lt; Nanoc::Filter 
   identifier :synthesise_audio 
   type :text => :binary
 
@@ -165,11 +165,11 @@ For details on how to create such commands, check out the documentation for [Cri
 Writing Data Sources
 --------------------
 
-Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc3::DataSource`. A very useful reference is the [`Nanoc3::DataSource` source code documentation](/docs/api/3.2/Nanoc3/DataSource.html).
+Data sources are responsible for loading and storing a site’s data: items, layouts and code snippets. They inherit from `Nanoc::DataSource`. A very useful reference is the [`Nanoc::DataSource` source code documentation](/docs/api/3.2/Nanoc/DataSource.html).
 
 Each data source has an identifier. This is a unique name that is used in a site’s ’s configuration file to specify which data source should be used to fetch data. It is specified like this:
 
-<pre><code class="language-ruby">class SampleDataSource &lt; Nanoc3::DataSource
+<pre><code class="language-ruby">class SampleDataSource &lt; Nanoc::DataSource
   identifier :sample
   # (other code here)
 end
@@ -183,8 +183,8 @@ The `#setup` method is used to create the initial site structure. For example, a
 
 You may also want to implement the optional `#update` method, which is used by the `update` command to update the data source to a newer version. This is very useful if the data source changes the way data is stored.
 
-The two main methods in a data source are `#items` and `#layouts`. These load items ([`Nanoc3::Item`](/docs/api/3.2/Nanoc3/Item.html)) and layouts ([`Nanoc3::Layout`](/docs/api/3.2/Nanoc3/Layout.html)) respectively. Implementing these methods is optional, so if you e.g. have a data source that only returns items, there’s no need to implement `#layouts`.
+The two main methods in a data source are `#items` and `#layouts`. These load items ([`Nanoc::Item`](/docs/api/3.2/Nanoc/Item.html)) and layouts ([`Nanoc::Layout`](/docs/api/3.2/Nanoc/Layout.html)) respectively. Implementing these methods is optional, so if you e.g. have a data source that only returns items, there’s no need to implement `#layouts`.
 
 If your data source can create items and/or layouts, then `#create_item` and `#create_layout` are methods you will want to implement. These will be used by the `create_site`, `create_item` and `create_layout` commands.
 
-If all this sounds a bit vague, check out the [documentation for `Nanoc3::DataSource`](/docs/api/3.2/Nanoc3/DataSource.html). You may also want to take a look at the code for some of the data sources; the code is well-documented and should help you to get started quickly.
+If all this sounds a bit vague, check out the [documentation for `Nanoc::DataSource`](/docs/api/3.2/Nanoc/DataSource.html). You may also want to take a look at the code for some of the data sources; the code is well-documented and should help you to get started quickly.
