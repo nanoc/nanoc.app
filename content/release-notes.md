@@ -5,6 +5,27 @@ markdown:  basic
 
 ---
 
+## 3.3 (2012-02-12)
+
+Base:
+
+* Dropped the “3” suffix on nanoc3/Nanoc3
+* Turned Rake tasks into proper nanoc commands
+* Improved dependency tracking
+* Added support for locals in filters and layouts
+
+Extensions:
+
+* Added support for deployment using Fog [Jack Chu]
+* Added CoffeeScript filter [Riley Goodside]
+* Added XSL filter [Arnau Siches]
+* Added YUICompress filter [Matt Keveney]
+* Added pygments.rb to supported syntax colorizers
+* Allowed syntax colorizer to colorize outside `pre` elements [Kevin Lynagh]
+* Added support for HTTPS link validation [Fabian Buch]
+* Added support for (automatically) pruning stray output files [Justin Hileman]
+* Added deploy command
+
 ## 3.2.4 (2012-01-09)
 
 * Fixed bug which would cause some reps not to be compiled when invoking nanoc programmatically
