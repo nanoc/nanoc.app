@@ -40,24 +40,6 @@ If you want general help, such as a list of available commands and global option
 
 So, if you’re ever stuck, consult the the commandline help which (hopefully) will put you back on track.
 
-### Selecting a different version
-
-By default, `nanoc` will invoke nanoc 3.x. If you want to use nanoc 2.x instead, you can select this version using the `nanoc-select` commandline tool, which works like this:
-
-<pre title="Using nanoc-select to pick a version"><span class="prompt">%</span> <kbd>nanoc-select 3</kbd>
-Switched to nanoc version 3.
-
-<span class="prompt">%</span> <kbd>nanoc --version</kbd>
-nanoc 3.1.0 (c) 2007-2010 Denis Defreyne.
-Ruby 1.9.1 (2010-01-10) running on i386-darwin10.2.0
-
-<span class="prompt">%</span> <kbd>nanoc-select 2</kbd>
-Switched to nanoc version 2.
-
-<span class="prompt">%</span> <kbd>nanoc --version</kbd>
-nanoc 2.2.3 (c) 2007-2010 Denis Defreyne.
-Ruby 1.9.1 (2010-01-10) running on i386-darwin10.2.0</pre>
-
 Sites
 -----
 
