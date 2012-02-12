@@ -1,25 +1,23 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    chunky_png (1.2.0)
-    coderay (0.9.8)
-    compass (0.11.5)
+    chunky_png (1.2.5)
+    coderay (1.0.5)
+    compass (0.11.7)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    cri (2.0.1)
-    fssm (0.2.7)
-    haml (3.1.2)
-    kramdown (0.13.3)
-    nanoc (3.1.9)
-      nanoc3 (>= 3.1.9)
-    nanoc3 (3.2.0b2)
-      cri (~> 2.0)
+    cri (2.2.0)
+    fssm (0.2.8.1)
+    haml (3.1.4)
+    kramdown (0.13.4)
+    nanoc (3.3.0)
+      cri (~> 2.1)
     nokogiri (1.5.0)
     rainpress (1.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)
-    sass (3.1.4)
+    sass (3.1.15)
 
 PLATFORMS
   ruby
@@ -30,7 +28,6 @@ DEPENDENCIES
   haml
   kramdown
   nanoc
-  nanoc3
   nokogiri
   rainpress
   rdiscount
