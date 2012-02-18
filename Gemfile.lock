@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    builder (3.0.0)
     chunky_png (1.2.5)
     coderay (1.0.5)
     compass (0.11.7)
@@ -11,7 +12,7 @@ GEM
     fssm (0.2.8.1)
     haml (3.1.4)
     kramdown (0.13.4)
-    nanoc (3.3.0)
+    nanoc (3.3.1)
       cri (~> 2.1)
     nokogiri (1.5.0)
     rainpress (1.0)
@@ -23,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  builder
   coderay
   compass
   haml
