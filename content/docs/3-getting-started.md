@@ -332,7 +332,7 @@ Writing your own functions for handling tags is not really necessary, though, as
 include Nanoc::Helpers::Tagging
 </code></pre>
 
-This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/3.2/Nanoc/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
+This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/3.3/Nanoc/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
 
 <pre title="Code snippet to be added to the default layout"><code class="language-html">
 &lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>

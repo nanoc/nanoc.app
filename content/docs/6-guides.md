@@ -325,7 +325,7 @@ route '/movies/*/', :rep => :theora do
 end
 </code></pre>
 
-When the site is compiled, you should find two new files the output directory: `output/movies/rick.mp4` and `output/movies/rick.ogg`, which you can now [use in HTML5 video](http://diveintohtml5.org/video.html)!
+When the site is compiled, you should find two new files the output directory: `output/movies/rick.mp4` and `output/movies/rick.ogg`, which you can now [use in HTML5 video](http://diveintohtml5.info/video.html)!
 
 Creating multilingual sites
 ---------------------------
