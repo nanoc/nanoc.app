@@ -4,6 +4,13 @@ require 'compass'
 
 Compass.add_project_configuration('compass_config.rb')
 
+### Preprocessing ############################################################
+
+preprocess do
+  config[:nanoc_version_info] = `nanoc --version`.strip
+  config[:gem_version_info]   = `gem --version`.strip
+end
+
 ### Routing ##################################################################
 
 route '/static/*' do
