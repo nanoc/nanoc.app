@@ -123,7 +123,7 @@ To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command
 
 <pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc co</kbd></pre>
 
-nanoc will not compile items that are not outdated. You can tell nanoc to compile all items to pass the `--force` or `-f` flag. Also useful is the `--verbose` or `-V` flag, which turns on extra output.
+nanoc will not compile items that are not outdated. If you want to force nanoc to recompile everything, delete the output directory and re-run the compile command.
 
 It is possible to let nanoc run a local web server, the _autocompiler_, that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. To run the autocompiler, use `nanoc autocompile` or `nanoc aco`. The autocompiler will run on port 3000 by default; this can be changed using the `--port` commandline switch. Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
 
