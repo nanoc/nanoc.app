@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    adsf (1.0.1)
+      rack (>= 1.0.0)
     builder (3.0.0)
     chunky_png (1.2.5)
     coderay (1.0.5)
@@ -15,6 +17,7 @@ GEM
     nanoc (3.3.1)
       cri (~> 2.1)
     nokogiri (1.5.0)
+    rack (1.4.1)
     rainpress (1.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)
@@ -25,6 +28,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  adsf
   builder
   coderay
   compass

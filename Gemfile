@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'adsf'      # for viewing
 gem 'builder'   # for feeds
 gem 'coderay'   # for syntax highlighting
 gem 'compass'   # for advanced CSS

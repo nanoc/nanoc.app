@@ -3,6 +3,7 @@
 title:                 "Basic Concepts"
 markdown:              advanced
 toc_includes_sections: true
+is_dynamic:            true
 
 ---
 
@@ -117,15 +118,48 @@ The data source configuration is an array of hashes with the following keys:
 `layouts_root`
 : The path where layouts should be mounted. The layouts root behaves the same as the items root, but applies to layouts rather than items.
 
+The watcher configuration is a hash with the following options:
+
+`dirs_to_watch`
+: A list of directories to watch for changes. When editing this, make sure that the “output/” and “tmp/” directories are _not_ included in this list, because recompiling the site will cause these directories to change, which  will cause the site to be recompiled, which will cause these directories to change, which will cause the site to be recompiled again, and so on. By default, this contains `content`, `layouts` and `lib`.
+
+`files_to_watch`
+: A list of single files to watch for changes. As mentioned above, don’t put any files from the “output/” or “tmp/” directories in here. By default, this contains `config.yaml` and `Rules`.
+
+`notify_on_compilation_success`
+: Whether or not to send a Growl or `notify-send` notification when compilation succeeds.
+
+`notify_on_compilation_failure`
+: Whether or not to send a Growl or `notify-send` notification when compilation fails.
+
+The prune configuration is a hash with the following options:
+
+`auto_prune`
+: Whether to automatically remove files not managed by nanoc from the output directory. For safety reasons, this is turned off by default.
+
+`exclude`
+: Which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as `.git`, `.svn` etc. By default, the directories `.git`, `.hg`, `.svn` and `CVS` will be ignored. 
+
 ### (Auto)compiling a Site
 
 To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. This will write the compiled site to the output directory as specified in the site configuration file. For example:
 
-<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc co</kbd></pre>
+<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc compile</kbd>
+<span class="prompt">%</span> <kbd>nanoc co</kbd></pre>
 
 nanoc will not compile items that are not outdated. If you want to force nanoc to recompile everything, delete the output directory and re-run the compile command.
 
-It is possible to let nanoc run a local web server, the _autocompiler_, that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. To run the autocompiler, use `nanoc autocompile` or `nanoc aco`. The autocompiler will run on port 3000 by default; this can be changed using the `--port` commandline switch. Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
+It is possible to let nanoc run a local web server, the _autocompiler_, that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. You can run the autocompiler like this:
+
+<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc autocompile</kbd>
+<span class="prompt">%</span> <kbd>nanoc aco</kbd></pre>
+
+The autocompiler will run on port 3000 by default; this can be changed using the `--port` commandline switch. Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
+
+An alternative is the watcher, which will recompile whenever a change to the site is detected. The watcher does not run a web server (you can run one with `nanoc view`). You can use it like this:
+
+<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc watch &amp;</kbd>
+<span class="prompt">%</span> <kbd>nanoc view</kbd></pre>
 
 Items
 -----
@@ -141,7 +175,7 @@ To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_co
 Whether an item is considered textual or binary depends on the extension of the file. If it is included in the `text_extensions` array in the site configuration, it is considered textual; if not, it is considered binary. The default list of text extensions is the following:
 
 <pre><code class="language-yaml">
-text_extensions: [ 'css', 'erb', 'haml', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'php', 'rb', 'sass', 'txt' ]
+text_extensions: [ <%= Nanoc::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
 </code></pre>
 
 To get the path of the compiled item, use [`Nanoc::Item#path`](/docs/api/3.3/Nanoc/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
