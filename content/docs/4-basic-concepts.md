@@ -142,10 +142,11 @@ The prune configuration is a hash with the following options:
 
 ### (Auto)compiling a Site
 
-To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. This will write the compiled site to the output directory as specified in the site configuration file. For example:
+To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. The compile command is the default command, so it will be invoked if you don’t pass anything. The compile command will write the compiled site to the output directory as specified in the site configuration file. For example:
 
 <pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc compile</kbd>
-<span class="prompt">%</span> <kbd>nanoc co</kbd></pre>
+<span class="prompt">%</span> <kbd>nanoc co</kbd>
+<span class="prompt">%</span> <kbd>nanoc</kbd></pre>
 
 nanoc will not compile items that are not outdated. If you want to force nanoc to recompile everything, delete the output directory and re-run the compile command.
 

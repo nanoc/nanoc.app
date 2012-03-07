@@ -72,6 +72,10 @@ Every new nanoc site already has a bit of content. It comes with one simple page
 
 <pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd></pre>
 
+Or, if you want it short, just type <kbd>nanoc</kbd>:
+
+<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
+
 This is what’ll appear in the terminal while nanoc is compiling:
 
 <pre title="Compiling the new site (with command output)"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
