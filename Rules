@@ -4,6 +4,9 @@ require 'compass'
 
 Compass.add_project_configuration('compass_config.rb')
 
+#PantsFilter = :rubypants
+PantsFilter = :ultrapants
+
 ### Preprocessing ############################################################
 
 preprocess do
@@ -70,13 +73,14 @@ end
 compile '/404/' do
   filter :erb
   layout '/default/'
+  filter PantsFilter
 end
 
 compile '/' do
   filter :erb
   layout '/default/'
   filter :relativize_paths, :type => :html
-  filter :rubypants
+  filter PantsFilter
 end
 
 compile '*' do
@@ -95,6 +99,7 @@ compile '*' do
   layout '/default/'
   filter :colorize_syntax
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
+  filter PantsFilter
 end
 
 ### Layouting ################################################################
