@@ -169,11 +169,11 @@ Items are the basic building blocks of a nanoc-powered site. An item consist of 
 
 Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one “root” or “home” page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
 
-Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should probably be binary.
+Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
 
 To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_content`](/docs/api/3.3/Nanoc/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc::Item#compiled_content`](/docs/api/3.3/Nanoc/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
-Whether an item is considered textual or binary depends on the extension of the file. If it is included in the `text_extensions` array in the site configuration, it is considered textual; if not, it is considered binary. The default list of text extensions is the following:
+The default list of text extensions is the following:
 
 <pre><code class="language-yaml">
 text_extensions: [ <%= Nanoc::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]

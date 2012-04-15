@@ -4,8 +4,8 @@ require 'compass'
 
 Compass.add_project_configuration('compass_config.rb')
 
-#PantsFilter = :rubypants
-PantsFilter = :ultrapants
+PantsFilter = :rubypants
+#PantsFilter = :ultrapants
 
 ### Preprocessing ############################################################
 
