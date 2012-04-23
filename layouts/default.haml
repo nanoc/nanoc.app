@@ -6,6 +6,7 @@
     %title= @item[:has_full_title] ? @item[:title] : "nanoc &rsaquo; #{@item[:title]}"
     %link{ :rel => "stylesheet", :href => item_named('/assets/style/screen/').path, :type => "text/css", :media => "screen" }
     %link{ :rel => "alternate", :type => "application/atom+xml", :title => "The nanoc Blog", :href => "http://feeds.feedburner.com/nanoc" }
+    = %Q[<script type="text/javascript"> var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>]
 
   %body
     .wrapper
@@ -75,5 +76,3 @@
     / ***** footer *****
     #footer
       %p nanoc &copy; 2007–2012 Denis Defreyne. The content of the nanoc web site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/be/">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence. This site uses the awesome <a href="http://www.fonts.info/info/press/free-fonts-for-font-face-embedding.htm">Graublau</a> and <a href="http://scripts.sil.org/Gentium">Gentium</a> fonts.
-
-    = %Q[<script type="text/javascript">\nvar gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");\ndocument.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));\n</script>\n<script type="text/javascript">\ntry {\nvar pageTracker = _gat._getTracker("UA-15639968-1");\npageTracker._trackPageview();\n} catch(err) {}</script>]
