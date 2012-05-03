@@ -167,7 +167,7 @@ Items
 
 Items are the basic building blocks of a nanoc-powered site. An item consist of content and metadata attributes.
 
-Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one “root” or “home” page which has path `/`; other items will have paths such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
+Items are structured hierarchically. Each item has an identifier that consists of slash-separated parts, which reflects this hierarchy. There is one “root” or “home” page which has identifier `/`; other items will have identifiers such as `/journal/2008/some-article/`. The hierarchy of files in the `content` directory reflects this hierarchy.
 
 Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
 
