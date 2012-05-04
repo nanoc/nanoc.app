@@ -11,11 +11,10 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     cri (2.2.1)
-    ffi (1.0.11)
     fssm (0.2.9)
     haml (3.1.4)
     kramdown (0.13.5)
-    nanoc (3.3.5)
+    nanoc (3.3.6)
       cri (~> 2.2)
     nokogiri (1.5.2)
     rack (1.4.1)
@@ -24,7 +23,6 @@ GEM
     rubypants (0.2.0)
     sass (3.1.16)
     systemu (2.5.0)
-    ultrapants (0.1)
 
 PLATFORMS
   ruby
@@ -34,7 +32,6 @@ DEPENDENCIES
   builder
   coderay
   compass
-  ffi
   haml
   kramdown
   nanoc
@@ -43,4 +40,3 @@ DEPENDENCIES
   rdiscount
   rubypants
   systemu
-  ultrapants
