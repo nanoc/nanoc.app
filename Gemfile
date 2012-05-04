@@ -12,3 +12,8 @@ gem 'rainpress' # for compact CSS
 gem 'rdiscount' # for fast Markdown
 gem 'rubypants' # for pretty typography
 gem 'systemu'   # for invoking rsync etc
+
+# Enable this if you want to use fast-aleck
+# Commented out because fast-aleck has not been released yet
+# and because building it is not trivial.
+#gem 'fast-aleck'
