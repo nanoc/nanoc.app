@@ -12,6 +12,5 @@ gem 'rainpress' # for compact CSS
 gem 'rdiscount' # for fast Markdown
 gem 'rubypants' # for pretty typography
 gem 'systemu'   # for invoking rsync etc
-gem 'ultrapants' # for pretty typography
 
 gem 'ffi' #should not be necessary
