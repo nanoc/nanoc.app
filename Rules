@@ -1,11 +1,27 @@
 #!/usr/bin/env ruby
 
+### Configuration ############################################################
+
+UseFastAleck = false
+
+### Loading ##################################################################
+
+if UseFastAleck
+  begin
+    require 'fast-aleck'
+  rescue LoadError
+    $stderr.puts "Cannot load fast-aleck. Either install it and add it to the Gemfile, " +
+      "or disable UseFastAleck in the Rules file."
+    exit 1
+  end
+  TypographicalImprovementFilter = :fast_aleck
+else
+  TypographicalImprovementFilter = :rubypants
+end
+
 require 'compass'
 
 Compass.add_project_configuration('compass_config.rb')
-
-PantsFilter = :rubypants
-#PantsFilter = :ultrapants
 
 ### Preprocessing ############################################################
 
@@ -73,14 +89,14 @@ end
 compile '/404/' do
   filter :erb
   layout '/default/'
-  filter PantsFilter
+  filter TypographicalImprovementFilter
 end
 
 compile '/' do
   filter :erb
   layout '/default/'
   filter :relativize_paths, :type => :html
-  filter PantsFilter
+  filter TypographicalImprovementFilter
 end
 
 compile '*' do
@@ -99,7 +115,7 @@ compile '*' do
   layout '/default/'
   filter :colorize_syntax
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
-  filter PantsFilter
+  filter TypographicalImprovementFilter
 end
 
 ### Layouting ################################################################
