@@ -2,13 +2,14 @@
 
 ### Configuration ############################################################
 
-UseFastAleck = false
+UseFastAleck = true
 
 ### Loading ##################################################################
 
 if UseFastAleck
   begin
     require 'fast-aleck'
+    require 'fast-aleck/nanoc'
   rescue LoadError
     $stderr.puts "Cannot load fast-aleck. Either install it and add it to the Gemfile, " +
       "or disable UseFastAleck in the Rules file."
