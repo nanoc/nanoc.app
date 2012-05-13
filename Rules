@@ -121,7 +121,7 @@ compile '*' do
   snapshot :before_sections
   filter :add_sections
   layout '/default/'
-  filter :colorize_syntax
+  filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
