@@ -16,4 +16,4 @@ gem 'systemu'   # for invoking rsync etc
 # Enable this if you want to use fast-aleck
 # Commented out because fast-aleck has not been released yet
 # and because building it is not trivial.
-#gem 'fast-aleck'
+gem 'fast-aleck'
