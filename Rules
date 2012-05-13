@@ -16,8 +16,15 @@ if UseFastAleck
     exit 1
   end
   TypographicalImprovementFilter = :fast_aleck
+  TypographicalImprovementFilterParams = {
+    :wrap_quotes => true,
+    :wrap_amps   => true,
+    :wrap_caps   => true,
+    :widont      => true
+  }
 else
   TypographicalImprovementFilter = :rubypants
+  TypographicalImprovementFilterParams = {}
 end
 
 require 'compass'
@@ -90,14 +97,14 @@ end
 compile '/404/' do
   filter :erb
   layout '/default/'
-  filter TypographicalImprovementFilter
+  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '/' do
   filter :erb
   layout '/default/'
   filter :relativize_paths, :type => :html
-  filter TypographicalImprovementFilter
+  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '*' do
@@ -116,7 +123,7 @@ compile '*' do
   layout '/default/'
   filter :colorize_syntax
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
-  filter TypographicalImprovementFilter
+  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 ### Layouting ################################################################
