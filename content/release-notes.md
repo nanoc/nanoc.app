@@ -5,6 +5,21 @@ markdown:  basic
 
 ---
 
+## 3.4 (2012-06-09)
+
+* Improved error output and added crash log
+* Renamed `debug` and `info` commands to `show-data` and `show-plugins`, respectively 
+* Added `show-rules` command (aka `explain`)
+
+Extensions:
+
+* Added `:yield` key for Mustache filter
+* Added Handebars filter
+* Added Pandoc filter
+* Made the deployer use the `default` target if no target is specified
+* Converted HTML/CSS/link validation tasks to commands
+* Made link validator follow relative redirects
+
 ## 3.3.7 (2012-05-28)
 
 * Added filename to YAML parser errors
