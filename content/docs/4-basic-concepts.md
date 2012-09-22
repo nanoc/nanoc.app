@@ -503,6 +503,17 @@ compile '/foo/' do
 end
 </code></pre>
 
+**Example #8**: The following rule will be matched using a regular expression
+instead of with a string. It uses the `%r<>` syntax to define a regular
+expression, which avoids escaping slashes, but you could use `//` as well (with
+escaping):
+
+<pre><code class="language-ruby">
+compile %r</blog/\d{4}/.*/> do
+  filter :kramdown
+end
+</code></pre>
+
 ### Layouting Rules
 
 To specify the filter used for a layout, use the `#layout` method.
