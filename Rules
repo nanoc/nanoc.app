@@ -27,15 +27,13 @@ else
   TypographicalImprovementFilterParams = {}
 end
 
-require 'compass'
-
-Compass.add_project_configuration('compass_config.rb')
-
 ### Preprocessing ############################################################
 
 preprocess do
   config[:nanoc_version_info] = `nanoc --version`.strip
   config[:gem_version_info]   = `gem --version`.strip
+
+  # TODO stylesheets -> is_hidden and is_partial
 end
 
 ### Routing ##################################################################
@@ -82,7 +80,7 @@ compile '/assets/style/_*/' do
 end
 
 compile '/assets/style/*/' do
-  filter :sass, Compass.sass_engine_options
+  filter :sass, :syntax => :scss
   filter :relativize_paths, :type => :css
   filter :rainpress
 end
@@ -127,7 +125,5 @@ compile '*' do
 end
 
 ### Layouting ################################################################
-
-layout '/default/', :haml, :format => :html5, :ugly => true
 
 layout '*', :erb

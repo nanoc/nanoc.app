@@ -1,0 +1,43 @@
+pre {
+  .log-create {
+    font-weight: bold;
+    color: #44aa00;
+  }
+  .log-update {
+    font-weight: bold;
+    color: #ccbb00;
+  }
+  .comment {
+    color: #666666;
+  }
+  .key {
+    color: #66aa00;
+  }
+  .string, .value {
+    color: #777722;
+    background: #ffffcc;
+  }
+  .constant, .class, .symbol {
+    color: #cc6600;
+  }
+  .function {
+    color: #ee2211;
+  }
+  .instance-variable, .local_variable {
+    color: #66aa00;
+  }
+  .reserved, .predefined, .predefined-constant {
+    color: #0099cc;
+  }
+  .tag, .keyword {
+    color: #88cc55;
+  }
+  .integer, .attribute_name {
+    color: #aa5500;
+  }
+  .m {
+    padding: 0 0.1em;
+    background: #555555;
+    color: white;
+  }
+}
