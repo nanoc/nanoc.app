@@ -26,9 +26,11 @@
         </header>
         <div class="body">
             <div class="body-contents">
-                <nav>
-                    <ol class="top">
-                        <li class="top"><span>Book</span>
+                <div class="sidebar">
+<% if item.identifier.start_with?('/docs/') %>
+                    <section>
+                        <h3>Book</h3>
+                        <div class="section-contents">
                             <ol>
                                 <li><a href="#">Preface</a></li>
                                 <li><a href="#">Getting Started</a></li>
@@ -36,16 +38,33 @@
                                 <li><a href="#">Extending nanoc</a></li>
                                 <li><a href="#">Guides</a></li>
                             </ol>
-                        </li>
-                        <li class="top"><span>Reference</span>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Reference</h3>
+                        <div class="section-contents">
                             <ol>
                                 <li><a href="#">Helpers</a></li>
                                 <li><a href="#">Filters</a></li>
                                 <li><a href="#">API</a></li>
                             </ol>
-                        </li>
-                    </ol>
-                </nav>
+                        </div>
+                    </section>
+<% else %>
+                    <section>
+                        <h3>Help!</h3>
+                        <div class="section-contents">
+                            <p>Need assistance? There’s a <a href="http://groups.google.com/group/nanoc/">discussion group</a> and a <a href="irc://chat.freenode.net/#nanoc">#nanoc IRC channel</a> on freenode.</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Donate</h3>
+                        <div class="section-contents">
+                            <p>If you like nanoc and can spare a few dollars, please consider showing your support by making a donation.<br><a href="http://www.pledgie.com/campaigns/9282"><img alt="Click here to lend your support to: nanoc and make a donation at pledgie.com!" src="http://pledgie.com/campaigns/9282.png?skin_name=chrome"></a></p>
+                        </div>
+                    </section>
+<% end %>
+                </div>
                 <article>
                     <h1><%= @item[:short_title] || @item[:title] %></h1>
                     <%= yield %>
@@ -57,7 +76,11 @@
                 <div class="footer-contents2">
                     <section>
                         <h3>Current release</h3>
-                        <p>3.4.1 (august 13th): Enhanced foo, rewrote baz, etc, lots of interesting stuff really. <a href="#">Detailed release notes</a></p>
+                        <% if item.identifier != '/release-notes/' %>
+                        <p><%= 'The current version of nanoc is ' + latest_release_info[:version] + ', released on ' + latest_release_info[:date].format_as_date + '. See the <a href="/release-notes/">release notes</a> for details.' %></p>
+                        <% else %>
+                        <p>The current version of nanoc is&hellip; hm, you're already on the release notes page. Why do you ask? :)</p>
+                        <% end %>
                     </section>
                     <section>
                         <h3>Site map</h3>

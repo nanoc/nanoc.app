@@ -21,18 +21,16 @@ header li a {
 
 /* BODY - NAV */
 
-.body nav li {
-    list-style-type: none;
-
+.body .sidebar p {
     line-height: 1.2;
 }
 
-.body nav li li {
+.body .sidebar li {
     padding-left: 10px;
     text-indent: -10px;
+    list-style-type: none;
 }
-
-.body nav .top > span {
+.body .sidebar h3 {
     text-transform: uppercase;
 
     font-family: "Open Sans";
@@ -40,7 +38,7 @@ header li a {
     font-weight: bold;
 }
 
-.body nav a {
+.body .sidebar a {
     font-family: "Open Sans";
     font-size: 13px;
 
