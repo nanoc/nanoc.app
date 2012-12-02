@@ -3,3 +3,6 @@ http_path    = '/'
 output_style = :compressed
 sass_dir     = 'content/assets/style'
 css_dir      = 'output/assets/style'
+sass_options = {
+  :syntax => :scss
+}

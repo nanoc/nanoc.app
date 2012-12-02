@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>nanoc: a static site generator in Ruby</title>
+        <link href="<%= item_named('/assets/style/screen/').path %>" media="screen" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,800' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    </head>
+    <body class="page">
+        <header>
+            <div class="header-content">
+                <nav class="main">
+                    <ol>
+                        <li class="home"><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/download/">Download</a></li>
+                        <li><a href="/docs/">Documentation</a></li>
+                        <li><a href="/community/">Community</a></li>
+                        <li><a href="/donate/">Donate</a></li>
+                    </ol>
+                </nav>
+                <div class="search">
+                    <input type="text" value="Search...">
+                </div>
+            </div>
+        </header>
+        <div class="intro">
+            <div class="intro-content">
+                <% if @item.parent && @item.parent[:child_desc] %>
+                    <div class="section"><%= @item.parent[:child_desc] %> ▸</div>
+                <% end %>
+                <h1><%= @item[:title] %></h1>
+                <% if @item[:intro] %>
+                    <p><%= @item[:intro] %></p>
+                <% end %>
+            </div>
+        </div>
+        <div class="content">
+            <article>
+                <div class="details">
+                    <h3>FOSDEM 2013</h3>
+                    <dl>
+                        <dt>Technologies used</dt>
+                        <dd>nanoc, Sinatra, Solr</dd>
+                        <dt>Web site</dt>
+                        <dd><a href="#">http://fosdem.org/</a></dd>
+                        <dt>Open source repository</dt>
+                        <dd><a href="#">github.com/pbleser/fosdem</a></dd>
+                        <dt>Further project details</dt>
+                        <dd><a href="#">Announcement</a></dd>
+                    </dl>
+                </div>
+                <div class="article-content">
+                    <%= yield %>
+                    <figure class="fullwidth">
+                        <img src="">
+                        <figcaption>↑ The new FOSDEM web site, built with nanoc. Highlights include a site-wide full-text search powered by Sinatra and Solr. The entire workflow, even the updating of the search index, is managed by nanoc.</figcaption>
+                    </figure>
+                    <h2>Lorem ipsum</h2>
+                    <p>Amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <h2>Dolored eos qui</h2>
+                    <p>error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernat ur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ip sum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora</p>
+                </div>
+            </article>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <nav>
+                    <section>
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Showcase</a></li>
+                            <li><a href="#">Five Reasons</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Alternatives</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Download</h3>
+                        <ul>
+                            <li><a href="#">Showcase</a></li>
+                            <li><a href="#">Five Reasons</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Alternatives</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Download</h3>
+                        <ul>
+                            <li><a href="#">Showcase</a></li>
+                            <li><a href="#">Five Reasons</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Alternatives</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Download</h3>
+                        <ul>
+                            <li><a href="#">Showcase</a></li>
+                            <li><a href="#">Five Reasons</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Alternatives</a></li>
+                        </ul>
+                    </section>
+                </nav>
+                <div class="copyright">
+                    <p>nanoc © 2007–2012 Denis Defreyne. The content of the nanoc web site is licensed under a <a href="#">Creative Commons Attribution-ShareAlike 2.0 Belgium License</a>. nanoc is licenced under the MIT licence.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+

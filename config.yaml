@@ -51,4 +51,4 @@ deploy:
     dst: "ectype:sites/nanoc/public"
   staging:
     kind: rsync
-    dst: "ectype:sites/nanoc/public/staging"
+    dst: "ectype:sites/nanoc-staging/public"

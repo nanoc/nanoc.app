@@ -1,209 +1,461 @@
-/* derived from Simple Grid - http://thisisdallas.github.com/Simple-Grid/ */
+@import "susy";
+@import "compass/css3/border-radius";
 
-*, *:after, *:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+$total-columns: 12;
+$column-width:  60px;
+$gutter-width:  20px;
+$grid-padding:  0; // 20px;
+
+@include border-box-sizing;
+
+strong {
+    font-weight: bold;
 }
 
-header,
-.body,
+body {
+    background: rgb(244, 235, 229);
+
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 20px;
+}
+
+body.page header {
+    background: #554f4b;
+
+    padding: 0 20px;
+
+    .header-content {
+        @media (min-width: 800px) {
+            @include container;
+        }
+
+        background: #222 top left;
+
+        .search {
+            @media (min-width: 800px) {
+                @include span-columns(2 omega, 12);
+
+                text-align: right;
+            }
+            @media (max-width: 800px) {
+                text-align: center;
+            }
+
+            padding: 0 10px;
+
+            input {
+                width: 100%;
+                text-size: 16px;
+                margin: 8px 0;
+                padding: 4px 10px;
+                background: #444;
+                color: #ddd6d4;
+                border: none;
+                @include border-radius(10px);
+                
+                :focus {
+                    outline: none
+                }
+            }
+        }
+
+        nav {
+            @media (min-width: 800px) {
+                @include span-columns(10, 12);
+            }
+
+            ol {
+                text-align: center;
+                list-style-type: none;
+
+                @media (min-width: 800px) {
+                    li {
+                        float: left;
+                        zoom: 1;
+                        padding: 10px 0;
+                        border-right: 1px solid #444;
+
+                        a {
+                            padding: 10px 18px;
+                        }
+                    }
+                }
+
+                @media (max-width: 800px) {
+                    li {
+                        padding: 10px 0;
+                        border-bottom: 1px solid #444;
+                    }
+
+                    a {
+                        padding: 10px 20px;
+                    }
+                }
+
+                li {
+                    a {
+                        font-size: 15px;
+                        text-decoration: none;
+                    }
+
+                    a:link, a:visited {
+                        color: #ddd6d4;
+                    }
+
+                    a:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.page .intro {
+    background: rgba(0, 0, 0, 0.075);
+
+    .intro-content {
+        @media (min-width: 800px) {
+            @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
+                @include container;
+            }
+        }
+
+        @media (max-width: 800px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .section {
+            font-size: 20px;
+            color: rgb(210, 67, 27);
+        }
+
+        h1 {
+            font-size: 36px;
+            line-height: 40px;
+            color: rgb(210, 67, 27);
+        }
+
+        p {
+            @media (min-width: 800px) {
+                @include span-columns(8, 12);
+            }
+
+            font-size: 15px;
+            padding-top: 40px;
+        }
+    }
+}
+
+body.page .content {
+    article {
+        @media (min-width: 800px) {
+            @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
+                @include container;
+            }
+        }
+
+        @media (max-width: 800px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .article-content {
+            @media (min-width: 800px) {
+                @include span-columns(8, 12);
+            }
+
+            //background: url(/assets/images/grid-40.png) top left;
+
+            ul, ol, pre, p, h2 {
+                margin-bottom: 20px;
+            }
+
+            .section {
+                margin-bottom: 40px;
+            }
+
+            h2 {
+                font-size: 20px;
+                font-weight: normal;
+
+                color: rgb(210, 67, 27);
+            }
+
+            figure.fullwidth {
+                img {
+                    width: 100%;
+                    height: 200px;
+
+                    display: block;
+
+                    border: none;
+
+                    background: rgba(0, 0, 0, 0.1);
+                }
+
+                figcaption {
+                    padding: 5px;
+                    margin: 10px 0 20px 0;
+
+                    background: rgba(0, 0, 0, 0.1);
+
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .details {
+            @media (min-width: 800px) {
+                @include span-columns(4 omega, 12);
+
+                position: relative;
+                top: -100px;
+
+            }
+
+            @media (max-width: 800px) {
+                margin-bottom: 40px;
+            }
+
+            background: rgba(255, 255, 255, 0.7);
+
+            padding: 20px;
+
+            h3 {
+                font-size: 20px;
+                padding-bottom: 20px;
+                color: rgb(210, 67, 27);
+            }
+
+            dt {
+                color: rgb(210, 67, 27);
+            }
+
+            dt {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+body.home header {
+    @include container;
+
+    margin-top: 20px;
+    padding: 0 20px;
+
+    .title {
+        @include span-columns(6, 12);
+
+        line-height: 30px;
+        font-size: 30px;
+        font-weight: 900;
+        color: rgb(210, 67, 27);
+        padding: 20px 0;
+        background: url(/assets/images/logo-header.png) center left no-repeat;
+
+        span {
+            padding-left: 80px;
+        }
+    }
+
+    .search {
+        @include span-columns(6 omega, 12);
+        line-height: 20px;
+        padding: 15px 0;
+        text-align: right;
+    }
+}
+
+body.home nav.main {
+    @include container;
+
+    padding: 0 20px;
+
+    ol {
+        text-align: center;
+        list-style-type: none;
+        position: relative;
+        top: 18px;
+
+        li {
+            float: left;
+            zoom: 1;
+            padding: 10px 0;
+            background: #222;
+            border-right: 1px solid #444;
+
+            a {
+                font-size: 15px;
+                padding: 10px 18px;
+                text-decoration: none;
+            }
+
+            a:link, a:visited {
+                color: #ddd6d4;
+            }
+
+            a:hover {
+                color: #fff;
+            }
+        }
+
+        li:last-child {
+            border-left: none;
+        }
+    }
+}
+
+body.home .hero {
+    background: #ccc;
+
+    .hero-content {
+        @include container;
+        height: 300px;
+    }
+}
+
+body.home .chooser {
+    @include container;
+
+    padding: 40px 20px;
+
+    .chooser-unit {
+        padding-top: 160px;
+        background: url(/assets/images/chooser-tour.png) top center no-repeat;
+        @include span-columns(4, 12);
+        
+        h2 {
+            padding-bottom: 20px;
+            font-size: 20px;
+            font-style: normal;
+            color: rgb(37, 110, 219);
+        }
+    }
+
+    .chooser-unit:last-child {
+        @include span-columns(4 omega, 12);
+    }
+}
+
+body.home .testimonial {
+    @include container;
+
+    padding: 0 20px;
+
+    .testimonial-content {
+        border-top: 1px solid #a89c93;
+        background: url(/assets/images/quote.png) 20px 40px no-repeat;
+        text-align: right;
+
+        padding: 40px;
+
+        blockquote {
+            line-height: 40px;
+            font-size: 30px;
+            font-style: italic;
+            padding-left: 60px;
+        }
+
+        .source:before {
+            content: "– ";
+        }
+
+        .source {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a89c93;
+        }
+    }
+}
+
+body.home .support {
+    @include container;
+
+    padding: 0 20px;
+
+    .support-content {
+        border-top: 1px solid #a89c93;
+
+        background: url(/assets/images/heart.png) 50px center no-repeat;
+
+        font-size: 16px;
+        font-weight: 600;
+        padding: 60px 40px 60px 200px;
+
+        strong {
+            color: rgb(210, 67, 27);
+        }
+    }
+}
+
 footer {
-    padding: 0 10px;
-}
-
-.header-contents:after,
-.body-contents:after,
-.footer-contents2:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.col-1-12 {
-    float: left;
-    width: 8.33%;
-}
-
-header .search,
-.col-2-12 {
-    float: left;
-    width: 16.67%;
-}
-
-header .title,
-body .sidebar,
-.col-3-12 {
-    float: left;
-    width: 25%;
-}
-
-footer section,
-.col-4-12 {
-    float: left;
-    width: 33.33%;
-}
-
-.col-5-12 {
-    float: left;
-    width: 41.66%;
-}
-
-.col-6-12 {
-    float: left;
-    width: 50%;
-}
-
-header nav,
-.body article,
-.col-7-12 {
-    float: left;
-    width: 58.33%
-}
-
-.col-8-12 {
-    float: left;
-    width: 66.66%;
-}
-
-.col-9-12 {
-    float: left;
-    width: 75%;
-}
-
-.col-10-12 {
-    float: left;
-    width: 83.333%;
-}
-
-.col-11-12 {
-    float: left;
-    width: 91.66%
-}
-
-header .header-contents {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-header nav ol {
-    padding-top: 5px;
-}
-
-header nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
-header .search {
-    text-align: right;
-}
-
-header .search input {
-    width: 100%;
-}
-
-.body .body-contents {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.body .sidebar {
-    padding-right: 20px;
-}
-
-.body .sidebar section {
-    margin-bottom: 20px;
-}
-
-.body .sidebar h3 {
-    padding: 10px 10px;
-}
-
-.body .sidebar .sidebar-contents {
-    padding: 20px 10px 0 10px;
-}
-
-.body .sidebar .section-contents {
-    padding: 10px;
-}
-
-.body .sidebar section {
-}
-
-.body article {
-    position: relative;
-}
-
-.body article aside.side {
-    position: absolute;
-
-    margin: 15px 0;
-    padding: 0 10px;
-    right: -26.67%;
-    width: 26.67%;
-}
-
-footer .footer-contents {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-footer .footer-contents2 {
-    padding-left: 25%;
-    padding-right: 16.67%;
-}
-
-footer section {
-    padding-right: 10px;
-}
-
-@media handheld, only screen and (max-width: 700px) {
-
-    header .title,
-    header nav,
-    header .search,
-    .body .sidebar,
-    .body article,
-    footer section {
-        float: none;
-        min-width: 0;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+    p {
+        font-size: 12px;
     }
 
-    .body article aside.side {
-        position: static;
-
-        right: 0;
-
-        margin: 20px 0;
-        padding: 10px;
-
-        background: #eee;
-
-        width: 100%;
+    a:link, a:visited {
+        color: #ddd6d4;
     }
 
-    footer .footer-contents {
-        width: 100%;
-        padding: 10px 0 0 0;
+    a:hover {
+        color: #fff;
     }
-
-    footer .footer-contents2 {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    footer .footer-contents section {
-        float: none;
-        margin: 0 0 10px 0;
-        padding: 10px;
-    }
-
 }
 
+footer {
+    margin: 60px 0 0 0;
+    padding: 40px 0;
+    background: #554f4b;
+
+    .footer-content {
+        @include container;
+
+        padding: 0 20px;
+
+        nav {
+            @include container;
+
+            font-weight: 400px;
+            font-size: 13px;
+
+            section {
+                @include span-columns(3, 12);
+
+                h3 {
+                    font-size: 14px;
+                    color: #ddd6d4;
+                    margin-bottom: 20px;
+                }
+            }
+
+            section:last-child {
+                @include span-columns(3 omega, 12);
+            }
+        }
+
+        .copyright {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #a89c93;
+            color: #ddd6d4;
+
+            p {
+                max-width: 600px;
+                padding-left: 55px;
+                background: url(/assets/images/logo-footer.png) top left no-repeat;
+            }
+        }
+    }
+}

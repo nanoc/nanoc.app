@@ -4,6 +4,7 @@ title:                 "Installation"
 markdown:              basic
 toc_includes_sections: true
 is_dynamic:            true
+intro:                 "<strong>The FOSDEM team</strong> got tired of maintaining their web site with a PHP CMS. With the brand new web site for the upcoming 2013 edition of FOSDEM, they wanted to start from scratch and build a web site that fit their workflow and reduced maintenance times and costs. They decided to rebuild their site with nanoc, and here’s how they did it."
 
 ---
 

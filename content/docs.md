@@ -2,6 +2,7 @@
 
 title:    "Documentation"
 markdown: basic
+child_desc: "nanoc documentation"
 
 ---
 

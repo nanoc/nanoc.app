@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+require 'compass'
+require 'susy'
+
+Compass.add_project_configuration 'compass_config.rb'
+
 ### Configuration ############################################################
 
 UseFastAleck = false
@@ -80,7 +85,7 @@ compile '/assets/style/_*/' do
 end
 
 compile '/assets/style/*/' do
-  filter :sass, :syntax => :scss
+  filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
 end
@@ -94,13 +99,13 @@ end
 
 compile '/404/' do
   filter :erb
-  layout '/default/'
+  layout '/page/'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '/' do
   filter :erb
-  layout '/default/'
+  layout '/home/'
   filter :relativize_paths, :type => :html
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
@@ -118,7 +123,7 @@ compile '*' do
 
   snapshot :before_sections
   filter :add_sections
-  layout '/default/'
+  layout '/page/'
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams

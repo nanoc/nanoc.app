@@ -1,5 +1,10 @@
-@import "reset.scss";
+---
+version:    19
+is_hidden:  true
+is_dynamic: true
+---
+
+@import "compass/reset";
+
 @import "layout.scss";
-@import "text.scss";
-@import "colors.scss";
 @import "code.scss";

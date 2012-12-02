@@ -3,9 +3,9 @@ GEM
   specs:
     adsf (1.1.1)
       rack (>= 1.0.0)
-    builder (3.1.3)
+    builder (3.1.4)
     chunky_png (1.2.6)
-    coderay (1.0.7)
+    coderay (1.0.8)
     colored (1.2)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -13,11 +13,10 @@ GEM
       sass (~> 3.1)
     cri (2.3.0)
       colored (>= 1.2)
-    fast-aleck (0.1)
     fssm (0.2.9)
     haml (3.1.7)
-    kramdown (0.14.0)
-    nanoc (3.4.1)
+    kramdown (0.14.1)
+    nanoc (3.4.2)
       cri (~> 2.2)
     nokogiri (1.5.5)
     rack (1.4.1)
@@ -25,6 +24,9 @@ GEM
     rdiscount (1.6.8)
     rubypants (0.2.0)
     sass (3.2.1)
+    susy (1.0.5)
+      compass (>= 0.12.2)
+      sass (>= 3.2.0)
     systemu (2.5.2)
 
 PLATFORMS
@@ -35,7 +37,6 @@ DEPENDENCIES
   builder
   coderay
   compass
-  fast-aleck
   haml
   kramdown
   nanoc
@@ -43,4 +44,5 @@ DEPENDENCIES
   rainpress
   rdiscount
   rubypants
+  susy
   systemu
