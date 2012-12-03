@@ -8,14 +8,30 @@ $grid-padding:  0; // 20px;
 
 @include border-box-sizing;
 
-strong {
+i, em {
+    font-style: italic;
+}
+
+b, strong {
     font-weight: bold;
+}
+
+dl.glossary {
+}
+
+dl.glossary dt {
+    color: rgb(210, 67, 27);
+}
+
+dl.glossary dd {
+    margin: 0 0 20px 20px;
 }
 
 body {
     background: rgb(244, 235, 229);
 
     font-family: "Open Sans";
+    font-weight: normal;
     font-size: 14px;
     line-height: 20px;
 }
@@ -175,7 +191,7 @@ body.page .content {
 
             //background: url(/assets/images/grid-40.png) top left;
 
-            ul, ol, pre, p, h2 {
+            ul, ol, pre, p, h2, h3 {
                 margin-bottom: 20px;
             }
 
@@ -188,6 +204,28 @@ body.page .content {
                 font-weight: normal;
 
                 color: rgb(210, 67, 27);
+            }
+
+            h3 {
+                font-size: 15px;
+                font-weight: normal;
+
+                letter-spacing: 1px;
+                text-transform: uppercase;
+
+                color: rgb(210, 67, 27);
+            }
+
+            ul, ol {
+                margin-left: 20px;
+            }
+
+            ol li {
+                list-style-type: decimal;
+            }
+
+            ul li {
+                list-style-type: square;
             }
 
             figure.fullwidth {
@@ -242,6 +280,14 @@ body.page .content {
 
             dt {
                 margin-top: 20px;
+            }
+
+            ol {
+                margin-left: 20px;
+            }
+
+            ol li {
+                list-style-type: decimal;
             }
         }
     }
@@ -330,16 +376,33 @@ body.home .chooser {
     padding: 40px 20px;
 
     .chooser-unit {
-        padding-top: 160px;
-        background: url(/assets/images/chooser-tour.png) top center no-repeat;
         @include span-columns(4, 12);
-        
+
+        padding-top: 150px;
+
+        background-position: left top;
+        background-repeat: no-repeat;
+
         h2 {
             padding-bottom: 20px;
             font-size: 20px;
             font-style: normal;
             color: rgb(37, 110, 219);
         }
+    }
+
+    .install-nanoc {
+        background-image: url(/assets/images/chooser-download.png);
+        background-position: left 24px;
+    }
+
+    .take-the-tutorial {
+        background-image: url(/assets/images/chooser-tour.png);
+    }
+
+    .learn-more {
+        background-position: left 7px;
+        background-image: url(/assets/images/chooser-help.png);
     }
 
     .chooser-unit:last-child {
@@ -388,13 +451,14 @@ body.home .support {
     .support-content {
         border-top: 1px solid #a89c93;
 
-        background: url(/assets/images/heart.png) 50px center no-repeat;
+        height: 200px;
+        background: url(/assets/images/heart.png) 60px center no-repeat;
 
-        font-size: 16px;
-        font-weight: 600;
-        padding: 60px 40px 60px 200px;
+        padding: 40px 80px 40px 200px;
 
-        strong {
+        h3 {
+            font-size: 20px;
+            line-height: 40px;
             color: rgb(210, 67, 27);
         }
     }
@@ -452,7 +516,7 @@ footer {
             color: #ddd6d4;
 
             p {
-                max-width: 600px;
+                max-width: 640px;
                 padding-left: 55px;
                 background: url(/assets/images/logo-footer.png) top left no-repeat;
             }

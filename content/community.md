@@ -1,3 +1,8 @@
+---
+title:    "Community"
+markdown: basic
+---
+
 Discussion Groups
 -----------------
 

@@ -1,9 +1,8 @@
 ---
 
-title:                 "Introduction to nanoc"
+title:                 "About nanoc"
 markdown:              basic
 is_dynamic:            true
-toc_includes_sections: true
 
 ---
 

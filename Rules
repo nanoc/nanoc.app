@@ -99,13 +99,13 @@ end
 
 compile '/404/' do
   filter :erb
-  layout '/page/'
+  layout '/default/'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '/' do
   filter :erb
-  layout '/home/'
+  layout '/default/'
   filter :relativize_paths, :type => :html
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
@@ -123,7 +123,7 @@ compile '*' do
 
   snapshot :before_sections
   filter :add_sections
-  layout '/page/'
+  layout '/default/'
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams

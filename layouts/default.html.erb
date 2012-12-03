@@ -4,57 +4,54 @@
         <meta charset="UTF-8">
         <title>nanoc: a static site generator in Ruby</title>
         <link href="<%= item_named('/assets/style/screen/').path %>" media="screen" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width; initial-scale=1.0">
     </head>
-    <body class="home">
+    <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
+<% if @item[:has_basic_layout] %>
+    <%= yield %>
+<% else %>
         <header>
-            <div class="header-contents">
-                <span class="title"><span>nanoc</span></span>
+            <div class="header-content">
+                <nav class="main">
+                    <ol>
+                        <li class="home"><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/download/">Download</a></li>
+                        <li><a href="/docs/">Documentation</a></li>
+                        <li><a href="/community/">Community</a></li>
+                        <li><a href="/donate/">Donate</a></li>
+                    </ol>
+                </nav>
                 <div class="search">
                     <input type="text" value="Search...">
                 </div>
             </div>
         </header>
-        <nav class="main">
-            <ol>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/download/">Download</a></li>
-                <li><a href="/docs/">Documentation</a></li>
-                <li><a href="/community/">Community</a></li>
-                <li><a href="/donate/">Donate</a></li>
-            </ol>
-        </nav>
-        <div class="hero">
-            <div class="hero-content">
+        <div class="intro">
+            <div class="intro-content">
+                <% if @item.parent && @item.parent[:child_desc] %>
+                    <div class="section"><%= @item.parent[:child_desc] %> ▸</div>
+                <% end %>
+                <h1><%= @item[:title] %></h1>
+                <% if @item[:intro] %>
+                    <p><%= @item[:intro] %></p>
+                <% end %>
             </div>
         </div>
-        <div class="chooser">
-            <div class="chooser-unit">
-                <h2>Install nanoc</h2>
-                <p>Using Rubygems: <kbd>gem install nanoc</kbd> but we’ve provided detailed instructions for those who are unfamiliar with Rby.</p>
-            </div>
-            <div class="chooser-unit">
-                <h2>Install nanoc</h2>
-                <p>Using Rubygems: <kbd>gem install nanoc</kbd> but we’ve provided detailed instructions for those who are unfamiliar with Rby.</p>
-            </div>
-            <div class="chooser-unit">
-                <h2>Install nanoc</h2>
-                <p>Using Rubygems: <kbd>gem install nanoc</kbd> but we’ve provided detailed instructions for those who are unfamiliar with Rby.</p>
-            </div>
+        <div class="content">
+            <article>
+                <% if content_for(@item, :details) %>
+                    <div class="details">
+                        <%= content_for(@item, :details) %>
+                    </div>
+                <% end %>
+                <div class="article-content">
+                    <%= yield %>
+                </div>
+            </article>
         </div>
-        <div class="testimonial">
-            <div class="testimonial-content">
-                <blockquote>I’m singing the praises of nanoc to everyone I come across.</blockquote>
-                <div class="source">Wayne E. Seguin, author of RVM</div>
-            </div>
-        </div>
-        <div class="support">
-            <div class="support-content">
-                <p><strong>nanoc needs your support!</strong> nanoc is, and always will be, provided free of charge. Development is voluntary and happens entirely in free time. If you use nanoc and like it, please consider showing your token of support by <a href="#">making a donation</a>.</p>
-            </div>
-        </div>
+<% end %>
         <footer>
             <div class="footer-content">
                 <nav>
@@ -102,4 +99,3 @@
         </footer>
     </body>
 </html>
-

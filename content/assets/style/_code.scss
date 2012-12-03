@@ -1,8 +1,64 @@
+@import "compass/typography/text/force-wrap";
+
+code, kbd, var {
+    padding: 0 3px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+pre code, pre kbd, pre var {
+    padding: 0;
+    border: none;
+    background: inherit;
+}
+
+pre, code, kbd, var {
+    font-family: Consolas, Inconsolata, Monaco;
+    font-size: 13px;
+}
+
+kbd {
+    font-weight: bold;
+}
+
+var {
+    font-style: italic;
+}
+
+.prompt {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+pre {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+pre:after {
+    content: attr(title);
+    display: block;
+    margin: 10px -10px -10px -10px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    font-style: italic;
+    font-family: "Open Sans";
+}
+
 pre {
   .log-create {
     font-weight: bold;
     color: #44aa00;
   }
+
   .log-update {
     font-weight: bold;
     color: #ccbb00;
