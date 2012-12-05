@@ -1,0 +1,171 @@
+// background
+$bg-color:            rgb(244, 240, 229);
+$top-bg-color:        #554f4b;
+$footer-bg-color:     $top-bg-color;
+$nav-bg-color:        shade($top-bg-color, 40%);
+$nav-spacing-color:   shade($top-bg-color, 20%);
+
+// foreground
+$emph-color:          rgb(210, 67, 27);
+$light-fg-color:      #ddd6d4;
+$emph-light-fg-color: #fff;
+$link-color-a:        #2366ad;
+$link-color-b:        #fff;
+$footer-link-color-a: $light-fg-color;
+$footer-link-color-b: shade($footer-bg-color, 40%);
+
+
+body {
+    background: $bg-color;
+}
+
+article {
+    a {
+        background-color: tint($bg-color, 70%);
+    }
+
+    a:link, a:visited {
+        color: $link-color-a;
+    }
+
+    a:hover {
+        background-color: $link-color-a;
+        color:            $link-color-b;
+    }
+}
+
+footer {
+    a {
+        background-color: tint($footer-bg-color, 10%);
+    }
+}
+
+h1, h2, h3, h4, h5, h6, dt,
+body.home header .title {
+    color: $emph-color;
+}
+
+figure.fullwidth {
+    background: #fff;
+
+    img {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background: #fff;
+    }
+
+    figcaption {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+pre {
+    border: 1px solid shade($bg-color, 20%);
+    background: tint($bg-color, 50%);
+}
+
+pre:after {
+    background: shade($bg-color, 20%);
+}
+
+body.page header {
+    background: $top-bg-color;
+
+    .header-content {
+        background: shade($top-bg-color, 60%);
+
+        input {
+            background: shade($top-bg-color, 30%);
+            color: $light-fg-color;
+        }
+
+        nav li {
+            border-color: $nav-spacing-color;
+
+            a:link, a:visited {
+                color: $light-fg-color;
+            }
+
+            a:hover {
+                color: $emph-light-fg-color;
+            }
+        }
+    }
+}
+
+body.page .intro {
+    background: shade($bg-color, 10%);
+}
+
+body.page .details {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+body.home nav.main li {
+    background: #222;
+    border-color: #444;
+
+    a:link, a:visited {
+        color: #ddd6d4;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+}
+
+body.home .hero {
+    background: shade($bg-color, 20%);
+}
+
+body.home .chooser h2 {
+    color: rgb(37, 110, 219);
+}
+
+body.home .testimonial {
+    .testimonial-content {
+        border-color: #a89c93;
+
+        .source {
+            color: #a89c93;
+        }
+    }
+}
+
+body.home .support {
+    .support-content {
+        border-color: #a89c93;
+
+        h3 {
+            color: $emph-color;
+        }
+    }
+}
+
+footer {
+    background: #554f4b;
+
+    a:link, a:visited {
+        color: #ddd6d4;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+
+    a:link, a:visited {
+        color: $footer-link-color-a;
+    }
+
+    a:hover {
+        background-color: $footer-link-color-a;
+        color:            $footer-link-color-b;
+    }
+    h3 {
+        color: #ddd6d4;
+    }
+
+    .copyright {
+        border-color: #a89c93;
+        color: #ddd6d4;
+    }
+}
