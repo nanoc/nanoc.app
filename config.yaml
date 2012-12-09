@@ -55,3 +55,4 @@ deploy:
   staging:
     kind: rsync
     dst: "ectype:sites/nanoc-staging/public"
+    options: [ '-aP', '--delete-after' ]
