@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+.warning {
+  padding: 20px;
+  margin: 0 0 20px 0;
+
+  background: #fee;
+  border: 3px solid #fcc;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.warning strong {
+  text-transform: uppercase;
+}
+
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+
+  font-family: Inconsolata, Consolas, Courier, monospace;
+  font-size: 13px;
+}
+
+pre pre {
+  margin-left: 40px;
+}
+
+body > pre > code {
+  padding: 1px 2px;
+  background: #ddd;
+}

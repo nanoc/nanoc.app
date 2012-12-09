@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Global Captures</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Global Captures</h1>
+
+This plugin allows you to capture content on one page and use it on any other page. Please see write up here: http://www.dseifert.net/archive/2008-09/.
+
+<h2>Usage</h2>
+
+Add the source below to your lib directory as, say, lib/global_captures.rb.
+
+Then, on the page that has the global content, wrap the content as follows:
+
+<pre><code>
+<% global_content_for :foo do %>
+This is the FOO stuff.
+<% end %>
+</code></pre>
+
+Everything in the block will be captured and saved under the global tag :foo.
+
+Then, in any page you want to see the :foo content, just use markup like the following.
+
+<pre><code>
+<%= global_content_for :foo %>
+</code></pre>
+
+<h1>Source</h1>
+
+<pre><code>
+module Nanoc
+  #Raised in the event of an unsatisified global capture dependency
+  class UnsatisfiedGlobalCaptureReference < StandardError
+  end
+  class Compiler
+    attr_accessor :recompiles
+    alias :old_run :run
+    def run(objects = nil, params = {})
+      # Track recursion depth.  We allow a depth of no more
+      # than 2. If greater, we have unsatisfied global capture
+      # references
+      (@depth ||= 0)
+      @depth += 1
+      if @depth > 2
+        raise UnsatisfiedGlobalCaptureReference.new("The following pages have unsatisfied global capture references: #{@recompiles.join(', ')}") 
+      end
+     
+      @recompiles = []
+      old_run(objects, params)
+
+      # Recompile stuff that had a global capture miss
+      recompile_pages = @recompiles.map do |path|
+        @site.pages.find do |site_page|
+          check_path = path.gsub('.html', '/')
+          site_page.path == check_path
+        end
+      end
+      if recompile_pages.size > 0
+        run(recompile_pages, :also_layout => params[:also_layout], :even_when_not_outdated => true, :from_scratch => true)
+      end
+    end  
+  end
+end
+
+module GlobalCapturing
+  CAPTURES = {}
+  def global_content_for(name, &block)
+    if !block.nil?
+      global_captures[name] = global_capture(&block)
+    end
+    if !global_captures.has_key?(name)
+      # TODO: Is this possible
+      # Need to somehow signal the compiler that this page should be skipped for now
+      # HACK: For some reason '==' does not work on @page objects, so use the path as the
+      # equality check
+      @site.compiler.recompiles << @page.path
+    end
+    global_captures[name]
+  end
+
+  def global_captures
+    CAPTURES
+  end
+
+  private
+
+  def global_capture(*args, &block)
+    buffer = eval('_erbout', block.binding)
+
+    pos = buffer.length
+    block.call(*args)
+
+    data = buffer[pos..-1]
+
+    buffer[pos..-1] = ''
+
+    data
+  end
+end
+
+include GlobalCapturing
+</code></pre>
+
+</pre>
+  </body>
+</html>

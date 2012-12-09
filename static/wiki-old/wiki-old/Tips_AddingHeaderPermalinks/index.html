@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Adding Permalinks To Headers</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Adding Permalinks To Headers</h1>
+
+You can let nanoc add permalinks to headers, so that linking to specific sections of a HTML document is a lot easier. Rather than generating these links by hand, you can let nanoc do this automatically.
+
+The easiest way to do this is using a custom filter. For this, you'll need <a href="http://code.whytheluckystiff.net/hpricot/">Hpricot</a>.
+
+This tip assumes that your HTML file is structured in a certain way (similar to HTML5's usage of <section> and <h1-6>). First of all, each section should be a div with a "section" class. Each section should have a header. Additionally, each section must have an id. For example:
+
+<pre><code>
+#!text/html
+<div class="section" id="foo">
+    <h1>Foo</h1>
+    ...
+    <div class="section" id="foo-bar">
+        <h2>Bar</h2>
+        ...
+    </div>
+    <div class="section" id="foo-baz">
+        <h2>Baz</h2>
+        ...
+        <div class="section" id="foo-baz-quux">
+            <h3>Quux</h3>
+            ...
+        </div>
+    </div>
+</div>
+</code></pre>
+
+This filter should do the following:
+
+ 1. Find all sections
+ 2. For all sections:
+   1. Get the section ID
+   2. Find the section header
+   3. Append the permalink to the section with the given ID to the header
+
+Its implementation looks like this:
+
+<pre><code>
+#!ruby
+class AddLinksToHeadersFilter < Nanoc3::Filter
+
+  identifiers :add_links_to_headers
+
+  def run(content)
+    require 'hpricot'
+
+    # Parse with Hpricot
+    doc = Hpricot(content)
+
+    # Find all sections
+    doc.search('.section').each do |section|
+      # Find ID
+      section_id = section['id']
+      next if section_id.nil?
+
+      # Add permalink to header
+      section_header = section.search((1..6).map { |i| "> h#{i}" }.join(', '))
+      section_header.append(permalink_for(section_id))
+    end
+
+    doc.to_s
+  end
+
+private
+
+  # Creates a permalink for the given section ID
+  def permalink_for(section_id)
+    %[ <a class="permalink" rel="bookmark" href="##{section_id}" title="Permanent link to this section">&#182;</a>]
+  end
+
+end
+</code></pre>
+
+Some remarks/ideas/tips:
+
+ * This code returns XHTML, not HTML (seems to be a bug or a feature in Hpricot). If you need HTML, you need to manually fix Hpricot's output. You can do so by replacing <code>doc.to_s</code> with <code>doc.to_s.gsub(' />', '>')</code>. (This is not really an elegant solution, so I'm open for feedback!)
+
+ * If you're one of those HTML5 geeks, you can easy adapt the code to use the HTML5 <section> element instead of div's with a "section" class. Simply replace <code>doc.search('.section')</code> with <code>doc.search('section')</code>.
+
+ * The permalink uses the <a href="http://microformats.org/wiki/rel-design-pattern#rel.3D.22bookmark.22">rel-bookmark</a> microformat.
+
+ * If you don't like manually assigning section IDs, you could let nanoc automatically generate the section IDs based off the text of the section header.
+
+ * The permalink uses the paragraph symbol (&#182;). You may want to change this into something else, or even replace it with an image.
+</pre>
+  </body>
+</html>

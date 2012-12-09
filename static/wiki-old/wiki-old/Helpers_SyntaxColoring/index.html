@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Syntax coloring</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Syntax coloring</h1>
+
+<b>Important:</b> nanoc 3.x comes with a syntax coloring filter that supports CodeRay, pygments and more. It is recommended that you use this filter. See the <a href="http://nanoc.stoneship.org/docs/api/3.1/Nanoc3/Filters/ColorizeSyntax.html">API documentation</a> for details.
+
+<h2>Approach 1: CodeRay</h2>
+
+You can use <a href="http://coderay.rubychan.de/">CodeRay</a> to let nanoc color your code. Create a file, <i>syntax_coloring_plugin.rb</i> or so, and put the following code in it:
+
+<pre><code>
+#!ruby
+require 'coderay'
+
+def code(*args, &block)
+  buffer = eval('_erbout', block.binding)
+  
+  lang = args.first || :ruby
+  pos = buffer.length
+  block.call(*args)
+  data = buffer[pos..-1]
+  buffer[pos..-1] = codify(data, lang)
+end
+
+def codify(str, lang)
+  %{<pre><code class="#{lang}">#{CodeRay.scan(str, lang).html}</code></pre>}
+end
+</code></pre>
+
+To use this, put the code you want to color in a Ruby 'code' block, like this:
+
+<pre><code>
+<% code(:ruby) do %>
+  #!/usr/bin/env ruby
+  
+  def some_function
+    x = blah.foo
+    x.bar "xyzzy
+  end
+<% end %>
+</code></pre>
+
+<h2>Approach 2: pygmentize</h2>
+
+I use this to highlight code, it uses an external application to do the actual code highlighting (but that can be changed to anything). The plugin is used as a filter, and turns <code>-blocks into highlighted code.
+
+<h3>Usage</h3>
+
+Add the <code>codify</code> filter to your meta-file. Then it's as simple as this:
+
+<pre><code>
+<code lang="ruby" file="example.rb">
+def example
+    "Hello"
+end
+</code>
+</code></pre>
+
+<h3>Source</h3>
+
+<pre><code>
+def codify(str, lang)
+    lang ||= 'ruby'
+    html_coded = ""
+
+    # Use pygmentize, it's very nice
+    open("|/usr/bin/pygmentize -f html -l #{lang}", "w+") do |f|
+        # Write the code to standard input of pygmentize.
+        f.puts(str)
+
+        # Close standard input so that we get some output.
+        f.close_write
+
+        # Read the output of pygmentize.
+        html_coded = f.read
+    end
+
+    if html_coded.empty?
+        html_coded = '<pre><code>' + str.strip + '</code></pre>'
+    end
+
+    html_coded.strip
+end
+
+def copy_text_to_file(str, identifier, dir)
+    File.open(File.join(dir, identifier), 'w+') do |f|
+        f.write(str)
+        puts "*** Wrote plaintext file '#{File.join(dir, identifier)}'"
+    end
+    File.join(dir, identifier)
+end
+
+register_filter 'codify' do |page, pages, config|
+    while page.content =~ %r{((<pre>\s*)?(<code lang="(\w+)"( file="(.+?[^"])")?>(.+?[^(</code>)])</code>)(\s*</pre>)?)}m
+        orginal, code, lang, filename = $1, $7, $4, $6
+        
+        # Create a plaintext file version to.
+        if filename
+            code_path = File.join(config[:output_dir], page.path, 'code')
+            url = page.path + 'code/' + filename
+            FileUtils.mkdir_p(code_path)
+            copy_text_to_file(code, filename, code_path)
+            page.content.gsub!(orginal, %{<a class="file" href="#{url}">#{filename}</a>\n} + orginal)
+        end
+
+        # Substitute the un-highlighted code with the highlighted code from
+        # pygmentize.
+        page.content.gsub!(orginal, codify(code, lang))
+    end
+    page.content
+end
+</code></pre>
+
+----
+
+I'm not sure I like the use of pygmentize here... I'd much rather use a plugin which uses either CodeRay or Ultraviolet (two Ruby libraries for syntax highlighting). I'm also not happy about the way the HTML-like <code> tag is parsed—it's probably a better idea to use Hpricot for this instead.
+</pre>
+  </body>
+</html>

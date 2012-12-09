@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): nanoc 3.1 better gem and executable names</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>nanoc 3.1 better gem and executable names</h1>
+
+There are currently two nanoc gems: “nanoc” and “nanoc3,” which naturally leads to confusion: people issuing a “gem install nanoc” expect to get the latest nanoc version, but are instead stuck with an outdated nanoc 2.x. This needs to be fixed.
+
+<h2>Solution 1: do nothing</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc     || nanoc3    || nanoc4                   ||
+|| executable name || nanoc     || nanoc3    || nanoc4                   ||
+|| module name     || Nanoc     || Nanoc3    || nanoc4                   ||
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+ * <b>Con:</b>
+   * Confusion remains
+
+<b>Verdict:</b> Bad solution.
+
+<h2>Solution 2: rename nanoc to nanoc2</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc2    || nanoc3    || nanoc4                   ||
+|| executable name || nanoc2    || nanoc3    || nanoc4                   ||
+|| module name     || Nanoc2    || Nanoc3    || nanoc4                   ||
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+   * Confusion is resolved
+ * <b>Con:</b>
+   * What will happen if people install the “nanoc” gem?
+
+<b>Verdict:</b> Good solution.
+
+<h2>Solution 3: rename nanoc to nanoc2 and nanoc3 to nanoc</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc2    || nanoc     || ???                      ||
+|| executable name || nanoc2    || nanoc     || ???                      ||
+|| module name     || Nanoc2    || Nanoc     || ???                      ||
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+   * Confusion is resolved
+ * <b>Con:</b>
+   * Running a “gem update” could suddenly cause a nanoc2 site be compiled with nanoc3.
+   * When nanoc 4.0 will be released, there will be exactly the same problem.
+
+<b>Verdict:</b> Bad solution.
+
+<h2>Solution 4: rename both to nanoc</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc     || nanoc     || nanoc                    ||
+|| executable name || nanoc     || nanoc     || nanoc                    ||
+|| module name     || Nanoc     || Nanoc     || nanoc                    ||
+
+ * <b>Pro:</b>
+   * Confusion is resolved
+ * <b>Con:</b>
+   * Different versions cannot be used simultaneously
+   * Running a “gem update” could suddenly cause a nanoc2 site be compiled with nanoc3.
+
+<b>Verdict:</b> Bad solution.
+
+<h2>Solution 5: rename nanoc to nanoc2 and create a dummy “nanoc” gem/executable/namespace</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x || latest ||
+|| gem name        || nanoc2    || nanoc3    || nanoc4                   || nanoc  ||
+|| executable name || nanoc2    || nanoc3    || nanoc4                   || nanoc  ||
+|| module name     || Nanoc2    || Nanoc3    || Nanoc4                   || Nanoc  ||
+
+The “nanoc” executable is a proxy for the latest executable (nanoc3 in this case). Similarly, the “nanoc” gem is a dummy gem that depends on the latest nanoc (nanoc3 in this case). The Nanoc namespace is an alias for the latest nanoc namespace (again, Nanoc3 in this case).
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+   * Confusion is resolved
+ * <b>Con:</b>
+   * The meta-package may be confusing. What if people are used to typing “nanoc” to compile their nanoc 3.x site, and nanoc 4.x is released? What if people are used to using the Nanoc namespace and there’s a new major version of nanoc out?
+
+<b>Verdict:</b> Good solution.
+
+<h2>Solution 6: rename nanoc to nanoc2 and create a “nanoc-select” package</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc2    || nanoc3    || nanoc4                   ||
+|| executable name || nanoc2    || nanoc3    || nanoc4                   ||
+|| module name     || Nanoc2    || Nanoc3    || Nanoc4                   ||
+
+This solution would come with a <code>nanoc-select</code> tool, which makes the <code>nanoc</code> executable point to the selected nanoc executable. It also changes the <code>Nanoc</code> to point to the selected nanoc module.
+
+Below is an example of two sites; one is a nanoc 2.x site and the other one is a nanoc 3.x site. Both use the <code>Nanoc</code> namespace, but in the former case it’ll point to <code>Nanoc2</code> and in the latter case it’ll point to <code>Nanoc3</code>.
+
+<pre><code>
+% cd mynanoc2site
+% nanoc-select 2
+% nanoc co
+% cd ..
+
+% cd mynanoc3site
+% nanoc-select 3
+% nanoc co
+% cd ..
+</code></pre>
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+   * Confusion is resolved
+   * The “nanoc” executable and “Nanoc” module can keep on being used
+ * <b>Con:</b>
+   * Using a <code>Nanoc</code> makes it hard to determine whether code belongs to nanoc 2.x or 3.x
+   * Additional complexity because of the “nanoc-select” package
+
+<b>Verdict:</b> Good solution.
+
+<h2>Solution 7: rename nanoc to nanoc2 and create a “nanoc-select” package without <code>Nanoc</code> module</h2>
+
+||                 || nanoc 2.x || nanoc 3.x || (hypothetical) nanoc 4.x ||
+|| gem name        || nanoc2    || nanoc3    || nanoc4                   ||
+|| executable name || nanoc2    || nanoc3    || nanoc4                   ||
+|| module name     || Nanoc2    || Nanoc3    || Nanoc4                   ||
+
+This solution would come with a <code>nanoc-select</code> tool, which makes the <code>nanoc</code> executable point to the selected nanoc executable. As opposed to solution 6, this solution does *not* create a <code>Nanoc</code> namespace that is an alias for <code>Nanoc2</code> or <code>Nanoc3</code>.
+
+ * <b>Pro:</b>
+   * Different versions can be used simultaneously
+   * Confusion is resolved
+   * The “nanoc” executable and “Nanoc” module can keep on being used
+ * <b>Con:</b>
+   * Additional complexity because of the “nanoc-select” package
+
+<b>Verdict:</b> Best solution?
+</pre>
+  </body>
+</html>

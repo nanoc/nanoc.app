@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): nanoc Trac</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre>
+
+<h1>nanoc Trac</h1>
+
+Welcome to the Trac for nanoc! This trac contains a wiki (which you are viewing now) as well as an issue tracker. You're encouraged to contribute to this wiki—simply start writing!
+
+<h2>Contributing to this wiki</h2>
+
+Feel free to add anything you want to this wiki, as long as it is relevant to nanoc. Please use the following namespaces for pages you create:
+
+  * <code>Helpers/</code> for helpers (functions you put in the lib directory)
+  * <code>Development/</code> for pages regarding development of future versions of nanoc
+  * <code>Filters/</code> for filters
+  * <code>Samples/</code> for sample web sites (web sites whose source is publicly available)
+  * <code>Tips/</code> for tips and tricks
+
+<h2>Development</h2>
+
+These pages are related to development of nanoc. Brainstorming happens here. If you have ideas or opinions on anything described on these pages, feel free to add your thoughts—that’s what a wiki is for, after all.
+
+ * <a href="Development_Wishlist/">Wishlist</a> (add features you want nanoc to have here)
+ * <a href="Development_4.0/">4.0</a> (won’t be released for quite some time)
+   * <a href="Development_4.0_ModularisingNanoc/">Modularising nanoc</a>
+ * <a href="Development_3.2/">3.2</a> (not yet released)
+   * <a href="Development_3.2_ImprovedPerformance/">Improved performance</a>
+   * <a href="Development_3.2_ArchitecturalChanges/">Architectural changes</a>
+ * <a href="Development_3.1/">3.1</a> (released)
+   * <a href="Development_3.1_BinaryAssets/">Binary assets</a>
+   * <a href="Development_3.1_BetterGemAndExecutableNames/">Better gem and executable names</a>
+   * <a href="Development_3.1_Logo/">Logo</a>
+ * <a href="Development_3.0/">3.0</a> (released)
+   * <a href="Development_3.0_DSL/">Compilation/mapping DSL</a>
+
+<h2>Sample sites</h2>
+
+These pages describe fully-featured and open-source sample nanoc web sites, which you can check out to see how some stuff is implemented. Also check out the <a href="Showcase/">showcase</a> for a (small) list of nanoc-powered sites.
+
+  * <a href="Samples_MystOnline/">Myst Online</a>
+  * <a href="Samples_NanocSite/">The nanoc web site</a>
+  * <a href="Samples_Stoneship/">Stoneship</a>
+  * <a href="Samples_H3RALD/">H3RALD</a> by Fabio Cevasco
+  * <a href="Samples_LeafStorm/">leafstorm.us</a>
+  * nanoc3_blog by <a href="http://github.com/mgutz">mgutz</a>: <a href="http://github.com/mgutz/nanoc3_blog">source code</a>
+  * <a href="http://schof.org">sch0f.com</a> by John Mark Schofield
+  * <a href="http://seconddrawer.com.au">seconddrawer</a> by Felix Hanley
+  * <a href="http://sickill.net">sickill.net</a> with <a href="http://github.com/sickill/homepage">source</a> by Marcin Kulik
+  * <a href="http://netzke.org">netzke.org</a> with <a href="http://github.com/skozlov/netzke.org">source</a> by <a href="http://twitter.com/nomadcoder">NomadCoder</a>
+
+<h2>Tips & Tricks</h2>
+
+  * <a href="Tips_LastModifiedDate/">Put a "last modified on/at" line on your site</a>
+  * <a href="Tips_EnhancingSiteTypography/">Enhancing your site typography</a>
+  * <a href="Tips_HidingPages/">Hiding pages</a>
+  * <a href="Tips_CreatingDynamicPages/">Creating dynamic pages</a>
+  * <a href="Tips_Previewing/">Previewing</a>
+  * <a href="Tips_AddingHeaderPermalinks/">Adding header permalinks</a>
+  * <a href="Tips_UsingSass/">Using Sass</a>
+  * <a href="Tips_UsingCompass/">Using Compass</a>
+  * <a href="Tips_FindingSimilarItems/">Finding similar items</a>
+  * <a href="Tips_ConvertingFromWordPress/">Converting from WordPress</a>
+  * <a href="http://gist.github.com/504775">Converting from Posterous</a>
+  * <a href="http://github.com/ericgj/posterous2nanoc">Converting from Posterous API v2</a>
+  * <a href="Tips_ExtendAtomFeed/">Extend the Atom Feed with tags and a PubSubHubbub link</a>
+  * Rakefiles
+    * <a href="Tips_CreatingItemsUsingTemplates/">Creating items using templates</a>
+    * <a href="Tips_UsingAnUploadTask/">Using an "upload" task</a>
+    * <a href="Tips_UsingAnOmnipotentRakefile/">Using an omnipotent rakefile</a>
+  * Old
+    * <a href="Tips_EasilyAccessingCompiledContent/">Easily accessing compiled content</a> (is included in nanoc 3.1.0)
+    * <a href="Tips_CopyingAssetsIntelligently/">Copying assets intelligently</a> (use binary assets instead)
+
+<h2>Third-party Extensions</h2>
+
+  * Filters
+    * <a href="http://rhnh.net/2010/04/25/nanoc3-and-coffeescript">CoffeeScript</a>
+    * <a href="http://github.com/cboone/nanoc-escaped-erubis">Escaped Erubis</a>
+    * <a href="http://pastie.org/1147711">Pipe through arbitrary shell command</a>
+  * Helpers
+    * <a href="Helpers_SyntaxColoring/">Syntax coloring plugin</a> — is included in nanoc 3.0
+    * <a href="Helpers_MenuSupport/">Automatic menu generation</a>
+    * <a href="Helpers_BreadcrumbNavigation/">Breadcrumb navigation ("You are here:")</a> — is included in nanoc 3.0
+    * <a href="Helpers_BreadcrumbNavigationNanoc2/">Breadcrumb navigation for nanoc 2.x</a>
+    * <a href="Helpers_GlobalCapturing/">Plugin for making captures that are available on all other pages of your site</a>
+  * Data sources
+    * <a href="DataSources_LastFm/">Last.fm</a>
+    * <a href="DataSources_Delicious/">Delicious</a>
+    * <a href="DataSources_Twitter/">Twitter</a>
+  * Other
+    * <a href="http://github.com/bomberstudios/nanoc_extensions/tree/master">bomberstudios' nanoc_extensions</a>
+    * <a href="http://github.com/arnau/Nutils">Nutils</a>, a set of utilities for nanoc
+
+<h2>Other resources</h2>
+
+ * English
+   * The <a href="http://nanoc.stoneship.org/">official site</a> is no doubt the best resource for nanoc-related material.
+   * <a href="http://www.remerson.plus.com/articles/nanoc-rake/">Expanding the Power of nanoc with Rake</a> is a useful resource for rake addicts.
+   * <a href="http://www.remerson.plus.com/articles/nanoc-tags/">nanoc and tagging</a> explains how to create tag pages.
+   * <a href="http://groups.google.com/group/nanoc">Google group</a> for discussion.
+ * Spanish
+   * <a href="http://nanoc.jottit.com/">Maquetación Ágil con Ruby: nanoc y heel</a> is a nanoc tutorial in the Spanish language by Ale Muñoz.
+   * <a href="http://nanoc2.jottit.com/">Maquetación Ágil con nanoc 2.1</a> is a more up-to-date version of the Spanish tutorial linked to above.
+   * <a href="http://groups.google.com/group/nanoc-es">Spanish Google group</a> for discussion in Spanish.
+ * German
+   * <a href="http://de.wikibooks.org/wiki/Ruby_on_Rails:_Seitengenerierung_mit_nanoc">de.wikibooks.org: Seitengenerierung mit nanoc</a> An article/short how to for nanoc 2 written in German.</pre>
+  </body>
+</html>

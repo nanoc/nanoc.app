@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Creating dynamic pages</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Creating dynamic pages</h1>
+
+nanoc is a tool aimed at generating static pages, but that does not mean it prevents you from creating dynamic pages. For example, it is possible to create a contact page with a form, which sends a mail when submitted.
+
+<h2>Using PHP</h2>
+
+If your web hosting service does not offer support for running Ruby, you can always fall back to good old fashioned PHP. To let nanoc create files with a "php" extension, change the routing rule for the file so that it routes to a PHP file, like this:
+
+<pre><code>
+route '/some/page/' do
+  item.identifier + 'index.php'
+end
+</code></pre>
+
+Then, you can simply put your PHP code in the page. nanoc will write an index.php file that contains the PHP code. (If nanoc already created an index.html file before, you'll probably want to remove it.)
+
+<h2>Using embedded Ruby</h2>
+
+You can use the PHP technique mentioned above for embedded Ruby as well. Change the file extension to "rhtml", and put your embedded Ruby code on the page. (You may also need to set up your web server to handle .rhtml files correctly, if you haven't done so before.)
+
+If your page is already filtered through ERB, things get a bit trickier. In that case, all embedded Ruby code will be executed when compiling the page, which may not be what you want.
+
+There is a neat trick if you use ERB (It doesn't work with Erubis, but since ERB is the default it should probably not be an issue). If you add a second % to the ERB tag, it will not be executed, and will instead be outputted with one % less.
+
+For example:
+
+<pre><code>
+#!ruby
+ERB.new('<%= "foo" %>').result
+</code></pre>
+
+will return
+
+<pre><code>
+#!ruby
+'foo'
+</code></pre>
+
+(obviously), and
+
+<pre><code>
+#!ruby
+ERB.new('<%%= "foo" %>').result
+</code></pre>
+
+will return
+
+<pre><code>
+#!ruby
+'<%= "foo" %>'
+</code></pre>
+
+You can use this trick to make sure that the code is executed on the server, and not executed by nanoc.
+</pre>
+  </body>
+</html>

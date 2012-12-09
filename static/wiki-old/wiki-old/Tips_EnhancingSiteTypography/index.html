@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Enhancing the typography on your site</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Enhancing the typography on your site</h1>
+
+!RubyPants (a Ruby port of !SmartyPants) can be used to improve the typography of a HTML page by replacing "--" with proper em dashes, replacing "..." with proper ellipsises, converting straight quotation marks into proper curly quotation marks, and more.
+
+To use this filter with nanoc, add <code>filter :rubypants</code> to the compilation block in the Rules file, like this:
+
+<pre><code>
+compile '/some/item/' do
+  filter :rubypants
+end
+</code></pre>
+
+Note that some filters provide this functionality out of the box. At least <a href="http://www.textism.com/tools/textile/">Textile</a>(<a href="http://whytheluckystiff.net/ruby/redcloth/">RedCloth</a>) is known to do so. <a href="http://daringfireball.net/projects/markdown/">Markdown</a>(<a href="http://github.com/rtomayko/rdiscount/tree/master">RDiscount</a>) does not. (Here is a <a href="http://nanoc.stoneship.org/manual/#filters">List of Built-in Filters</a>.)</pre>
+  </body>
+</html>

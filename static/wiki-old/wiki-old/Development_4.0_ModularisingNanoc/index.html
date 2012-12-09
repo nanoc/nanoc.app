@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Modularising nanoc</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Modularising nanoc</h1>
+
+<h2>Glossary</h2>
+
+ * <b>module</b>: A bit of functionality that is currently part of the main nanoc distribution, but could be extracted into a plugin and live in on its own
+
+ * <b>plugin</b>: A bit of functionality that used to be part of the main nanoc distribution, but was split into its own separate project
+
+<h2>Problem</h2>
+
+ * <b>nanoc is monolithic</b>: nanoc is currently a monolithic distribution: the distribution includes the core of nanoc itself, all filters, all helpers, all data sources, all rake tasks, etc.
+
+ * <b>New modules are only introduced in the next minor release</b>: nanoc uses the Semantic Versioning scheme, which means that new backwards-compatible functionality is only added in minor releases (x.Y.z). With nanoc, the time between individual minor releases is usually rather large (6 months or more is not uncommon), and having to wait for the next minor release is therefore a pain.
+
+ * <b>There’s no standard way for third parties to release plugins</b>: It is possible for other developers to release gems and let users of nanoc require this gem in order to use it, but there is no standardized approach here. There is no list of available plugins, and no uniform way of installing plugins.
+
+<h2>Goals</h2>
+
+ * <b>nanoc should be lighter</b>: The main distribution should ideally only contain the most essential plugins (e.g. only the erb filter, no helpers, no tasks, …).
+
+ * <b>Plugin ownership should be passed on easily</b>: It should be easy to give pass on ownership of plugins to other developers, which then become the plugin’s maintainer.
+
+ * <b>It should not be necessary to wait to get new modules</b>: When a new module is written and does not depend on features that are only available in the next minor release, it should be able to be installed right away.
+
+ * <b>There should be a central plugin repository</b>: To make plugins easy to install, there needs to be a central place where such plugins can be stored. Such a central repository should allow installing plugins, searching for plugins, adding new plugins, etc.
+
+ * <b>Third parties should be able to release plugins</b>: Third-party developers should be able to write plugins and make immediately them available for all nanoc users.
+
+ * <b>It should be easy to distinguish official from non-official plugins</b>: In order to guarantee the quality of plugins, there should be a clear distinction between official and non-official plug-ins. Official plugins are either maintained by myself or a trusted developer. Unofficial plugins can (and should) become official plugins after a review.
+
+<h2>Possible solutions</h2>
+
+<h3>Using Rubygems</h3>
+
+Ruby already comes with a package manager called Rubygems. Since this is a tried-and-true tool for distributing Ruby software, it is a natural choice for distributing nanoc plugins as well.
+
+The major advantage is that when using Rubygems, no plugin distribution system needs to be written anymore, because it already exists. Rubygems allows most of the goals mentioned above to be fulfilled.
+
+It does not, however, allow a distinction to be made between official and non-official plugins. Rubygems (or, perhaps more precisely: Gemcutter) does not allow namespaces to be reserved; there is no way to claim ownership of all current and future gems named “nanoc3-*”.
+
+<h3>Using Rubygems with a custom index</h3>
+
+In order to solve the issue of not being able to distinguish between official and non-official gems, the nanoc site could host its own gem index for official plugins.
+
+This still would not ensure a distinction between official and non-official gems, because after installation, it would be impossible to determine the source of a plugin.
+
+<h3>Using a custom plugin manager</h3>
+
+Another possibility is to write a custom plugin/package manager with support for distinguishing between official and non-official plugins, and with more strictly enforceable rules ownership rules. All of the goals mentioned above can be achieved this way.
+
+The main disadvantage of this approach is that it takes time and effort to implement and test.
+</pre>
+  </body>
+</html>

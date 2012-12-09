@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Breadcrumb Navigation</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Breadcrumb Navigation</h1>
+
+<i>Breadcrumbs or breadcrumb trail is a navigation aid used in user interfaces. It gives users a way to keep track of their location within programs or documents. The term comes from the trail of breadcrumbs left by Hansel and Gretel in the popular fairytale.</i> (<a href="http://en.wikipedia.org/wiki/Breadcrumb_(navigation)">Wikipedia</a>)
+
+Helps you to add such 'You are here: Home >> About >> Me' link lists. 
+
+This article describes usage for nanoc 3 which has a helper for breadcrumbs built-in. See [wiki:Helpers/BreadcrumbNavigationNanoc2] for usage with older versions.
+
+<h2>Usage</h2>
+
+nanoc 3.0 includes a breadcrumbs helper: it provides a <code>#breadcrumbs_trail</code> method that just returns the array of breadcrumbs (items) so you can display the breadcrumbs as you like.
+
+Use the helper in your <code>layouts/default.html</code> for example:
+
+<pre><code>
+...
+<% unless @item.reps[0].path == "/" %>
+<span class="breadcrumbs"><% breadcrumbs_trail.each do |b| %>
+	<%= link_to(  b[:title] , b.reps[0].path ) if b %> 
+	<%= b != @item ? '»' : '' %> 
+	<%end%>
+</span>
+<% end %>
+...
+</code></pre>
+
+<h2>Hints</h2>
+
+Don't forget to enable the helper in your <code>helpers.rb</code>. (<a href="http://nanoc.stoneship.org/help/manual/chapter-2/#helpers">Manual</a>)
+<pre><code>
+include Nanoc3::Helpers::Breadcrumbs
+</code></pre>
+</pre>
+  </body>
+</html>

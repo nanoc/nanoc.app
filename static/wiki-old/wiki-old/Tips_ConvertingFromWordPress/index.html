@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Converting a WordPress blog to a nanoc site</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Converting a WordPress blog to a nanoc site</h1>
+
+There are three ways of converting a Wordpress-powered site to a nanoc one. These three converters only convert posts; templates, comments etc will not be converted. The convertors are in <b>draft quality</b> which means that they are hard to use and are not feature-complete. Use with caution!
+
+<h2>Method 1</h2>
+
+See ticket #2 for a (rather outdated) way of converting a WordPress blog to nanoc. The conversion script has not been tested in a while and it may not work well.
+
+<h2>Method 2</h2>
+
+See <a href="http://pastie.textmate.org/private/hlxc0mwukcqwhb2ldfnbg">this piece of code</a>. Save it to a file, and run it inside the nanoc site directory where you want to create the post items. Edit the database connection details in the call to <code>DBI.connect</code>. Post item identifiers will have the format "/posts/year/month/slug".
+
+<h2>Method 3</h2>
+The easiest way to migrate is by using Export feature of WordPress 3 (and I think there's a plugin for WP2). 
+
+  * Go to your WP3 admin panel, find Export on the left menu and save the XML file with all your data.
+  * Then run <code>gem install wpxml_parser</code> and download <a href="http://gist.github.com/526571">this ruby script</a>. 
+
+The parser gem you installed can read data from wordpress xml file, and makes it easy to turn your blog into any format you like. The importer gist is an example of how you can create a nanoc blog using that parser gem. Before running the script, make sure you look over it and customize it to the way you want your blog to be imported. 
+
+  * Change the XML_PATH to the name of the xml file you downloaded, and NANOC_PATH to the directory where you have your nanoc config file (the site should be created already). 
+  * Look at <code>build_post_attributes</code> method, since the stuff you see there is going to be your yaml metadata (e.g. categories become your tags).
+  * The <code>build_post_identifier</code> method is going to be the url.
+
+If you want to use years, months, or other data from your blog to generate yaml data or identifier, check out the <a href="http://github.com/maxim/wpxml_parser">wpxml_parser readme</a> on github to find out how to get all kinds of different pieces of data out of your xml file. It's very easy. Once you adjust the script to your liking, run it, and you should have all your blog posts extracted as nanoc items.</pre>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Putting a "last modified on/at" line on your site</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Putting a "last modified on/at" line on your site</h1>
+
+Pages have a 'mtime' attribute which can be used to get the last modified date/time, like this:
+
+<pre><code>
+<p>This page was last updated at <%= @item.mtime %>.</p>
+</code></pre>
+
+which could be compiled to
+
+<pre><code>
+<p>This page was last modified at Mon Oct 01 15:57:30 +0200 2007.</p>
+</code></pre>
+
+A nicely-formatted timestamp can be obtained by using the following code:
+
+<pre><code>
+<%= @item.mtime.strftime("%A %B %d, %Y at %H:%M:%S %Z") %>
+</code></pre>
+
+which would yield something like:
+
+<pre><code>
+"Wednesday December 19, 2007 at 02:45:42 CST"
+</code></pre>
+</pre>
+  </body>
+</html>

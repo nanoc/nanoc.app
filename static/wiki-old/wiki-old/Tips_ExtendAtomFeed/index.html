@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): content/Tips_ExtendAtomFeed.html</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+
+<h2>Extending the Atom Feed with tags and a PubSubHubbub link</h2>
+
+<h3>Adding tags to the feed</h3>
+
+The nanoc helpers provide for tags and an atom feed. It might be useful to integrate the tags into the atom feed, for use on metablogs etc. To do that, copy the blogging.rb from the nanoc sources into your projects /lib and look for the <i>xml.entry</i> loop inside the <i>atom_feed</i> definition. In front of the <i>#Add content</i> commentary is a good place to add this:
+
+<pre><code>
+# Add tags as described in http://edward.oconnor.cx/2007/02/representing-tags-in-atom
+ if a[:tags].nil? or a[:tags].empty?
+    # Do nothing
+  else
+    a[:tags].each do |tag|             
+                xml.category(:scheme => @site.config[:base_url] +  '/tag/', :term => tag.to_sym, :label => tag.to_sym)
+                end
+  end
+</code></pre>
+
+
+<h3>Adding a PubSubHubbub reference</h3>
+If you want to publish your Atom feed using PubSubHubbub, you can add a link to it to the header of your atom file by adding the following lines to blogging.rb, in the part of the <i>atom_feed</i> definition that writes the general data. Right in front of the <i># Add author information</i> comment might be a good place.
+        
+<pre><code>
+# Include pusubhubbub link if available
+        if @site.config[:pubsubhubbub].nil? or @site.config[:pubsubhubbub].empty?
+          # Do nothing
+        else
+          @site.config[:pubsubhubbub].each do |hub|             
+                xml.link(:rel => 'hub', :href => hub)
+                end
+        end
+</code></pre>
+
+Using this, you can set one or more hubs in your <i>config.yaml</i> by adding 
+<pre><code>
+pubsubhubbub: [hub1.com, hub2.net]
+</code></pre>
+
+</pre>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): nanoc 3.1 Brainstorming</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>nanoc 3.1 Brainstorming</h1>
+
+This page collects ideas and discussions about nanoc 3.1. Also see the sub-pages: <a href="../Development_3.1_BinaryAssets/">binary assets</a>, <a href="../Development_3.1_BetterGemAndExecutableNames/">better gem and executable names</a>, <a href="../Development_3.1_Logo/">logo</a>.
+
+<h2>Compatibility</h2>
+
+nanoc 3.1 will remain compatible with nanoc 3.0. Sites built with nanoc 3.0 should be compileable without issues on nanoc 3.1.
+
+<h2>Requirements</h2>
+
+ <b>must</b> (requirement must be fulfilled)::
+   * #32: The <code>output</code> directory should behave like a build directory
+   * #66: Support for binary items
+ <b>should</b> (requirement should be fulfilled but is not a show stopper)::
+   * #76: Content and metadata files should be optional
+   * #82: Give gem and executable better names
+   * #91: Hide item rep complexity
+ <b>nice to have</b> (requirement is purely optional)::
+   * #68: Link validation task
+   * #84: Logo
+   * #88: Syntax coloring filter
+   * #79: @-vars for filters
+   * #96: Let <code>atom_feed</code> take attributes from params and configuration
+   * #97: Make atom_feed use updated_at attribute
+ <b>future</b> (this might be a good idea for a later release but should not influence the current version)::
+   * (nothing)
+
+<h2>Tickets</h2>
+
+ * [query:status=accepted|assigned|new|reopened&milestone=3.1&order=priority&col=id|summary|type|priority|component|status open tickets]
+ * [query:milestone=3.1&order=priority&col=id|summary|type|priority|component|status all tickets]
+</pre>
+  </body>
+</html>

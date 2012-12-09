@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): The nanoc 3 compilation/mapping DSL</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>The nanoc 3 compilation/mapping DSL</h1>
+
+nanoc 3.0 will have a Rake-like DSL for compiling and mapping items. This DSL will make it easier to work with multiple representations and filters with arguments.
+
+This approach has quite a few advantages:
+
+ * <b>Much more DRY processing</b>: Items no longer need their own list of processing instructions, which eliminates a lot of duplication of processing instructions between items. In nanoc 2.x, even when a hundred items need the same processing instructions, it will need to be written a hundred times.
+
+ * <b>Separation of metadata and processing instructions</b>: The metadata for each item contains both real metadata (<code>title</code>, <code>author</code>, ...) as well as processing instructions (<code>layout</code>, <code>filters_pre</code>, ...). This makes it hard to add new processing instructions, since these can cause namespace collisions that are hard to track down and solve.
+
+ * <b>Cleaner multiple representations</b>: Multiple representations are purely on the processing side and there should not be a need to tell a item to build its reps.
+
+ * <b>Cleaner filter arguments</b>: Filter arguments can simply be function arguments, because calling a filter will simply be the same as calling a function.
+
+<h2>Elements</h2>
+
+The DSL performs three tasks:
+
+ 1. Determine the representations for each item (using the compilation rules).
+ 2. Map the representations onto output paths (using the mapping rules).
+ 3. Compile the representations (using the compilation rules).
+
+<h2>Compilation</h2>
+
+<pre><code>
+#!ruby
+# Item is copied
+compile '/style/print' do
+  # do nothing (except write)
+end
+
+# Item is compiled (multiple reps)
+compile '/style/screen', :rep => 'default' do
+  filter :sass
+end
+compile '/style/screen', :rep => 'raw' do
+  # do nothing (except write)
+end
+
+# Layout is filtered
+layout '/default', :erb
+
+# Item is filtered (single rep)
+compile '/' do
+  filter :erb
+  layout 'default'
+  filter :rubypants
+end
+
+# Item is filtered (single rep; conditionals)
+compile '/sitemap' do
+  # run the item through a PHP filter if we're in development mode (so that the
+  # autocompiler acts as a web server that supports PHP) to emulate what the
+  # site would look like on a real production server that supports PHP
+  filter :php unless ENV['NANOC_ENV'] == 'production'
+  layout 'default'
+  filter :rubypants
+end
+
+# Item is filtered (multiple reps)
+compile '/about', :rep => 'html' do
+  layout 'default'
+  filter :rubypants
+end
+compile '/about', :rep => 'raw' do
+  # do nothing (except write)
+end
+
+# Multiple items
+compile '/journal/*/*' do
+  filter :erb
+  layout 'article'
+end
+</code></pre>
+
+To process items based on metadata, it is best to create a general rule and then conditionally process items.
+
+<h2>Layouts</h2>
+
+To tell a layout which filter it should use, something like this will be used:
+
+<pre><code>
+#!ruby
+layout '/default/', :haml
+layout '/foo/'    , :haml
+layout '/bar/'    , :haml
+layout '*'        , :erb
+</code></pre>
+
+<h2>Snapshots</h2>
+
+Because this DSL allows a item to be laid out multiple times, the terms "pre-compilation content" and "post-compilation content" (<code>:pre</code> and <code>:post</code>) have lost their meaning. It may therefore be useful to add support for "snapshots" which mark certain points in the compilation process. For example:
+
+<pre><code>
+#!ruby
+compile '/test' do
+  snapshot :raw
+
+  filter :first_filter
+  filter :second_filter
+  filter :third_filter
+
+  snapshot :before_first_layout
+
+  layout 'article'
+  filter :another_filter
+
+  snapshot :after_first_layout
+  snapshot :before_second_layout
+
+  filter :yet_another_filter
+  filter :last_filter
+
+  snapshot :after_second_layout
+end
+</code></pre>
+
+To prevent having to explicitly define all snapshots, some predefined snapshots could be created:
+
+ * <code>:raw</code>: uncompiled
+ * <code>:pre</code>: right before the item is laid out for the last time
+ * <code>:post</code>: after the item has been laid out for the last time and filtered (i.e. at the end of the compilation process)
+
+<h2>Mapping</h2>
+
+The <code>#write</code> method cannot have arguments such as <code>:path</code>, <code>:filename</code> and <code>:extension</code> to tell where items should be written to. This is because the output path of an item is only known after that item has been compiled; therefore, all items would have to be recompiled even when they are not outdated.
+
+One way to solve this would mean specifying items' output path using a sort of "map", similar to routing functionality found in common Ruby web frameworks. If flexible enough, this could replace routers. There are a few different possibilities for what this could look like. nanoc3 uses a <code>route</code> function that takes an identifier, a rep name and returns the path as a string, like this:
+
+<pre><code>
+#!ruby
+route '/bar/', :rep => 'xyzzy' do
+  if item[:version]
+    "/bar-v#{item[:version]}/index.html"
+  else 
+    "/bar/index.html"
+  end
+end
+</code></pre>
+</pre>
+  </body>
+</html>
