@@ -1,0 +1,851 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Nanoc3::CompilerDSL
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+    <link rel="canonical" href="http://nanoc.stoneship.org/docs/api/3.3/Nanoc/CompilerDSL.html"/>
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Nanoc3.html" title="Nanoc3 (module)">Nanoc3</a></span></span>
+     &raquo; 
+    <span class="title">CompilerDSL</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+      <div style="margin: 30px 0; padding: 10px; border: 2px solid red; background: #fee"><strong>WARNING:</strong> This documentation applies to nanoc 3.1, which is not the latest version. Please consult the <a href="http://nanoc.stoneship.org/docs/api/3.3/Nanoc/CompilerDSL.html">up-to-date API documentation</a> instead.</div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Nanoc3::CompilerDSL
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc3::CompilerDSL</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc3/base/compiler_dsl.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Contains methods that will be executed by the site’s <code>Rules</code> file.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#compile-instance_method" title="#compile (instance method)">- (void) <strong>compile</strong>(identifier, params = {}) { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a compilation rule for all items whose identifier match the
+given identifier, which may either be a string containing the *
+wildcard, or a regular expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CompilerDSL) <strong>initialize</strong>(site) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new compiler DSL for the given compiler.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(identifier, filter_name, params = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a layout rule for all layouts whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preprocess-instance_method" title="#preprocess (instance method)">- (void) <strong>preprocess</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a preprocessor block that will be executed after all data is
+loaded, but before the site is compiled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#route-instance_method" title="#route (instance method)">- (void) <strong>route</strong>(identifier, params = {}) { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a routing rule for all items whose identifier match the
+given identifier, which may either be a string containing the <code>*</code>
+wildcard, or a regular expression.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Nanoc3::CompilerDSL (class)">CompilerDSL</a></span></tt>) <strong>initialize</strong>(site) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new compiler DSL for the given compiler.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>site</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Site.html" title="Nanoc3::Site (class)">Nanoc3::Site</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The site this DSL belongs to</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='rparen'>)</span>
+  <span class='ivar'>@site</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="compile-instance_method">
+  
+    - (<tt>void</tt>) <strong>compile</strong>(identifier, params = {}) { ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Creates a compilation rule for all items whose identifier match the
+given identifier, which may either be a string containing the *
+wildcard, or a regular expression.</p>
+
+<p>This rule will be applicable to reps with a name equal to <code>:default</code>;
+this can be changed by giving an explicit <code>:rep</code> parameter.</p>
+
+<p>An item rep will be compiled by calling the given block and passing the
+rep as a block argument.</p>
+
+<p>should be compiled using this rule</p>
+
+<p>that should be compiled using this rule</p>
+
+<p>compilation rule needs to be compiled</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Compiling the default rep of the <code>/foo/</code> item</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_filter'>filter</span> <span class='symbol'>:erb</span>
+<span class='kw'>end</span></pre>
+    
+      <h4><div class='inline'><p>Compiling the <code>:raw</code> rep of the <code>/bar/</code> item</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
+  <span class='comment'># do nothing
+</span><span class='kw'>end</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A pattern matching identifiers of items that</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:rep</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:default</tt>
+            
+          </span>
+          &mdash; <div class='inline'><p>The name of the representation</p>
+</div>
+        </li>
+      
+    </ul>
+  
+
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>The block that will be executed when an item matching this</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_compile'>compile</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='comment'># Require block
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#compile requires a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+
+  <span class='comment'># Get rep name
+</span>  <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
+
+  <span class='comment'># Create rule
+</span>  <span class='id identifier rubyid_rule'>rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_item_compilation_rules'>item_compilation_rules</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_rule'>rule</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="layout-instance_method">
+  
+    - (<tt>void</tt>) <strong>layout</strong>(identifier, filter_name, params = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Creates a layout rule for all layouts whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression. The layouts matching the identifier will be filtered
+using the filter specified in the second argument. The params hash
+contains filter arguments that will be passed to the filter.</p>
+
+<p>that should be filtered using this rule</p>
+
+<p>when processing the layout</p>
+
+<p>filter when processing the layout (see <span class='object_link'><a href="Filter.html#run-instance_method" title="Nanoc3::Filter#run (method)">Filter#run</a></span>)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Specifying the filter to use for a layout</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/default/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:erb</span></pre>
+    
+      <h4><div class='inline'><p>Using custom filter arguments for a layout</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/custom/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>  <span class='symbol'>:haml</span><span class='comma'>,</span> <span class='symbol'>:format</span> <span class='op'>=&gt;</span> <span class='symbol'>:html5</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A pattern matching identifiers of layouts</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>filter_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the filter that should be run</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Extra filter arguments that should be passed to the</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_layout_filter_mapping'>layout_filter_mapping</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="preprocess-instance_method">
+  
+    - (<tt>void</tt>) <strong>preprocess</strong> { ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Creates a preprocessor block that will be executed after all data is
+loaded, but before the site is compiled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>The block that will be executed before site compilation starts</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_preprocess'>preprocess</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_preprocessor'>preprocessor</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="route-instance_method">
+  
+    - (<tt>void</tt>) <strong>route</strong>(identifier, params = {}) { ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Creates a routing rule for all items whose identifier match the
+given identifier, which may either be a string containing the <code>*</code>
+wildcard, or a regular expression.</p>
+
+<p>This rule will be applicable to reps with a name equal to <code>:default</code>;
+this can be changed by giving an explicit <code>:rep</code> parameter.</p>
+
+<p>The path of an item rep will be determined by calling the given block
+and passing the rep as a block argument.</p>
+
+<p>should be routed using this rule</p>
+
+<p>that should be routed using this rule</p>
+
+<p>compilation rule needs to be routed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'><p>Routing the default rep of the <code>/foo/</code> item</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/foo/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    
+      <h4><div class='inline'><p>Routing the <code>:raw</code> rep of the <code>/bar/</code> item</p>
+</div></h4>
+      <pre class="example code">
+<span class='id identifier rubyid_route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/bar/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:rep</span> <span class='op'>=&gt;</span> <span class='symbol'>:raw</span> <span class='kw'>do</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/raw</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.txt</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A pattern matching identifiers of items that</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <h3>Options Hash (<tt>params</tt>):</h3>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:rep</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>:default</tt>
+            
+          </span>
+          &mdash; <div class='inline'><p>The name of the representation</p>
+</div>
+        </li>
+      
+    </ul>
+  
+
+<h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>The block that will be executed when an item matching this</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_route'>route</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='comment'># Require block
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#route requires a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+
+  <span class='comment'># Get rep name
+</span>  <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
+
+  <span class='comment'># Create rule
+</span>  <span class='id identifier rubyid_rule'>rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_item_routing_rules'>item_routing_rules</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_rule'>rule</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15639968-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

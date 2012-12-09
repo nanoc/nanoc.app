@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Extra::CHiCk::Client</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Extra_CHiCk_Client">
+  <h1 class="title">Class: Nanoc3::Extra::CHiCk::Client</h1>
+  <div class="section docstring">
+  <p>
+CHiCk::Client provides a simple API for issuing HTTP requests.
+</p>
+
+</div><div class="section constants">
+  <div class="thisclass">
+  <h1>Constants</h1>
+  <dl>
+    
+      <dt id="DEFAULT_OPTIONS-constant">DEFAULT_OPTIONS</dt>
+      <dd>{
+  :cache =&gt; {
+    :metastore   =&gt; 'file:tmp/rack/cache.meta', 
+    :entitystore =&gt; 'file:tmp/rack/cache.body'
+  },
+  :cache_controller =&gt; {
+    :max_age =&gt; 60
+  }
+}</dd>
+    
+  </dl>
+</div>
+
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(options = {})</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 23</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='comment val'># Get options</span>
+  <span class='@options ivar id'>@options</span> <span class='assign token'>=</span> <span class='DEFAULT_OPTIONS constant id'>DEFAULT_OPTIONS</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='rparen token'>)</span>
+  <span class='@options ivar id'>@options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='DEFAULT_OPTIONS constant id'>DEFAULT_OPTIONS</span><span class='lbrack token'>[</span><span class='symbol val'>:cache</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='@options ivar id'>@options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='@options ivar id'>@options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_controller</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='DEFAULT_OPTIONS constant id'>DEFAULT_OPTIONS</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_controller</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='@options ivar id'>@options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_controller</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#get-instance_method" title="#get">#get</a></span><span class='args'>(url)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>get</h3>
+</div><div id="get-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>get</span><span class='args'>(url)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='rparen token'>)</span>
+  <span class='comment val'># Build app</span>
+  <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='@options ivar id'>@options</span>
+  <span class='@app ivar id'>@app</span> <span class='opasgn op'>||=</span> <span class='Rack constant id'>Rack</span><span class='colon2 op'>::</span><span class='Builder constant id'>Builder</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='lbrace token'>{</span>
+    <span class='use identifier id'>use</span> <span class='Rack constant id'>Rack</span><span class='colon2 op'>::</span><span class='Cache constant id'>Cache</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:verbose</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span>
+    <span class='use identifier id'>use</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='CHiCk constant id'>CHiCk</span><span class='colon2 op'>::</span><span class='CacheController constant id'>CacheController</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:cache_controller</span><span class='rbrack token'>]</span>
+    <span class='run identifier id'>run</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='CHiCk constant id'>CHiCk</span><span class='colon2 op'>::</span><span class='RackClient constant id'>RackClient</span>
+  <span class='rbrace token'>}</span>
+
+  <span class='comment val'># Build environment for request</span>
+  <span class='env identifier id'>env</span> <span class='assign token'>=</span> <span class='Rack constant id'>Rack</span><span class='colon2 op'>::</span><span class='MockRequest constant id'>MockRequest</span><span class='dot token'>.</span><span class='env_for identifier id'>env_for</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='symbol val'>:method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'GET'</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Fetch</span>
+  <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;[CHiCk] Fetching #{url}...&quot;</span> <span class='if if_mod kw'>if</span> <span class='$DEBUG gvar id'>$DEBUG</span>
+  <span class='status identifier id'>status</span><span class='comma token'>,</span> <span class='headers identifier id'>headers</span><span class='comma token'>,</span> <span class='body_parts identifier id'>body_parts</span> <span class='assign token'>=</span> <span class='@app ivar id'>@app</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='env identifier id'>env</span><span class='rparen token'>)</span>
+  <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;[CHiCk] #{url}: #{headers['X-Rack-Cache']}&quot;</span> <span class='if if_mod kw'>if</span> <span class='$DEBUG gvar id'>$DEBUG</span>
+
+  <span class='comment val'># Join body</span>
+  <span class='body identifier id'>body</span> <span class='assign token'>=</span> <span class='string val'>''</span>
+  <span class='body_parts identifier id'>body_parts</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='part identifier id'>part</span><span class='bitor op'>|</span> <span class='body identifier id'>body</span> <span class='lshft op'>&lt;&lt;</span> <span class='part identifier id'>part</span> <span class='rbrace token'>}</span>
+
+  <span class='comment val'># Done</span>
+  <span class='lbrack token'>[</span> <span class='status identifier id'>status</span><span class='comma token'>,</span> <span class='headers identifier id'>headers</span><span class='comma token'>,</span> <span class='body identifier id'>body</span> <span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:06 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

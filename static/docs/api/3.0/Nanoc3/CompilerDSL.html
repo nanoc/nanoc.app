@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::CompilerDSL</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_CompilerDSL">
+  <h1 class="title">Class: Nanoc3::CompilerDSL</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::CompilerDSL contains methods that will be executed by the
+site&#8217;s rules file.
+</p>
+
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(site)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new compiler DSL for the given compiler.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+10
+11
+12</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='site identifier id'>site</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span> <span class='assign token'>=</span> <span class='site identifier id'>site</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#compile-instance_method" title="#compile">#compile</a></span><span class='args'>(identifier, params = {}, &amp;block)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a compilation rule for all items whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#layout-instance_method" title="#layout">#layout</a></span><span class='args'>(identifier, filter_name, params = {})</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a layout rule for all layouts whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#preprocess-instance_method" title="#preprocess">#preprocess</a></span><span class='args'>(&amp;block)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a preprocessor block that will be executed after all data is
+loaded, but before the site is compiled.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#route-instance_method" title="#route">#route</a></span><span class='args'>(identifier, params = {}, &amp;block)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a routing rule for all items whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>compile</h3>
+</div><div id="compile-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>compile</span><span class='args'>(identifier, params = {}, &amp;block)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a compilation rule for all items whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.
+</p>
+<p>
+This rule will be applicable to reps with a name equal to
+&quot;default&quot; unless an explicit :rep parameter is given.
+</p>
+<p>
+An item rep will be compiled by calling the given block and passing the rep
+as a block argument.
+</p>
+<p>
+Example:
+</p>
+<pre class="code">
+  <span class='compile identifier id'>compile</span> <span class='string val'>'/foo/*'</span> <span class='do do kw'>do</span>
+    <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='filter identifier id'>filter</span> <span class='symbol val'>:erb</span>
+  <span class='end end kw'>end</span>
+
+  <span class='compile identifier id'>compile</span> <span class='string val'>'/bar/*'</span><span class='comma token'>,</span> <span class='symbol val'>:rep</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'raw'</span> <span class='do do kw'>do</span>
+    <span class='comment val'># do nothing</span>
+  <span class='end end kw'>end</span>
+</pre>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>ArgumentError</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 39</span>
+
+<span class='def def kw'>def</span> <span class='compile identifier id'>compile</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='comment val'># Require block</span>
+  <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;#compile requires a block&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='block_given? fid id'>block_given?</span>
+
+  <span class='comment val'># Get rep name</span>
+  <span class='rep_name identifier id'>rep_name</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:rep</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:default</span>
+
+  <span class='comment val'># Create rule</span>
+  <span class='rule identifier id'>rule</span> <span class='assign token'>=</span> <span class='Rule constant id'>Rule</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='identifier_to_regex identifier id'>identifier_to_regex</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rep_name identifier id'>rep_name</span><span class='comma token'>,</span> <span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='compiler identifier id'>compiler</span><span class='dot token'>.</span><span class='item_compilation_rules identifier id'>item_compilation_rules</span> <span class='lshft op'>&lt;&lt;</span> <span class='rule identifier id'>rule</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>layout</h3>
+</div><div id="layout-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>layout</span><span class='args'>(identifier, filter_name, params = {})</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a layout rule for all layouts whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression. The layouts matching the identifier will be filtered
+using the filter specified in the second argument. The params hash contains
+filter arguments that will be passed to the filter.
+</p>
+<p>
+Example:
+</p>
+<pre class="code">
+  <span class='layout identifier id'>layout</span> <span class='string val'>'/default/'</span><span class='comma token'>,</span> <span class='symbol val'>:erb</span>
+  <span class='layout identifier id'>layout</span> <span class='string val'>'/custom/'</span><span class='comma token'>,</span>  <span class='symbol val'>:haml</span><span class='comma token'>,</span> <span class='symbol val'>:format</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:html5</span>
+</pre>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+92
+93
+94</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 92</span>
+
+<span class='def def kw'>def</span> <span class='layout identifier id'>layout</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='filter_name identifier id'>filter_name</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='compiler identifier id'>compiler</span><span class='dot token'>.</span><span class='layout_filter_mapping identifier id'>layout_filter_mapping</span><span class='lbrack token'>[</span><span class='identifier_to_regex identifier id'>identifier_to_regex</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='filter_name identifier id'>filter_name</span><span class='comma token'>,</span> <span class='params identifier id'>params</span> <span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>preprocess</h3>
+</div><div id="preprocess-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>preprocess</span><span class='args'>(&amp;block)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a preprocessor block that will be executed after all data is
+loaded, but before the site is compiled.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+16
+17
+18</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='preprocess identifier id'>preprocess</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='preprocessor identifier id'>preprocessor</span> <span class='assign token'>=</span> <span class='block identifier id'>block</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>route</h3>
+</div><div id="route-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>route</span><span class='args'>(identifier, params = {}, &amp;block)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a routing rule for all items whose identifier match the given
+identifier, which may either be a string containing the * wildcard, or a
+regular expression.
+</p>
+<p>
+This rule will be applicable to reps with a name equal to
+&quot;default&quot;; this can be changed by givign an explicit :rep
+parameter.
+</p>
+<p>
+The path of an item rep will be determined by calling the given block and
+passing the rep as a block argument.
+</p>
+<p>
+Example:
+</p>
+<pre class="code">
+  <span class='route identifier id'>route</span> <span class='string val'>'/foo/*'</span> <span class='do do kw'>do</span>
+    <span class='string val'>'/blahblah'</span> <span class='plus op'>+</span> <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='item identifier id'>item</span><span class='dot token'>.</span><span class='identifier identifier id'>identifier</span> <span class='plus op'>+</span> <span class='string val'>'index.html'</span>
+  <span class='end end kw'>end</span>
+
+  <span class='route identifier id'>route</span> <span class='string val'>'/bar/*'</span><span class='comma token'>,</span> <span class='symbol val'>:rep</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'raw'</span> <span class='do do kw'>do</span>
+    <span class='string val'>'/blahblah'</span> <span class='plus op'>+</span> <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='item identifier id'>item</span><span class='dot token'>.</span><span class='identifier identifier id'>identifier</span> <span class='plus op'>+</span> <span class='string val'>'index.txt'</span>
+  <span class='end end kw'>end</span>
+</pre>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>ArgumentError</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler_dsl.rb', line 70</span>
+
+<span class='def def kw'>def</span> <span class='route identifier id'>route</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='comment val'># Require block</span>
+  <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>&quot;#route requires a block&quot;</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='block_given? fid id'>block_given?</span>
+
+  <span class='comment val'># Get rep name</span>
+  <span class='rep_name identifier id'>rep_name</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:rep</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='symbol val'>:default</span>
+
+  <span class='comment val'># Create rule</span>
+  <span class='rule identifier id'>rule</span> <span class='assign token'>=</span> <span class='Rule constant id'>Rule</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='identifier_to_regex identifier id'>identifier_to_regex</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rep_name identifier id'>rep_name</span><span class='comma token'>,</span> <span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='compiler identifier id'>compiler</span><span class='dot token'>.</span><span class='item_routing_rules identifier id'>item_routing_rules</span> <span class='lshft op'>&lt;&lt;</span> <span class='rule identifier id'>rule</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:09 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

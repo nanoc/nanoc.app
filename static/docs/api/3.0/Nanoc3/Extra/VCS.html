@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Extra::VCS</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Extra_VCS">
+  <h1 class="title">Class: Nanoc3::Extra::VCS</h1>
+  <div class="section inheritance">
+  <ul>
+  <li><a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></li><ul><li>Nanoc3::Extra::VCS</li>
+  </ul></ul>
+</div><div class="section docstring">
+  <p>
+Nanoc3::Extra::VCS is a very simple representation of a version control
+system that abstracts the add, remove and move operations. It does not
+commit. This class is primarily used by data sources that store data as
+flat files on the disk.
+</p>
+<p>
+This is the abstract superclass for all VCSes. Subclasses should implement
+the indicated methods.
+</p>
+
+</div><div class="section constants">
+  <div class="inherited">
+  
+  <div>
+    <h1>Constants Inherited from <a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="../Plugin.html#MAP-constant" title="MAP">MAP</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <h1>Public Class Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#identifier-class_method" title="identifier">identifier</a></span><span class='args'>(identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the identifier for this VCS.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#identifiers-class_method" title="identifiers">identifiers</a></span><span class='args'>(*identifiers)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the identifiers for this VCS.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#register-class_method" title="register">register</a></span><span class='args'>(class_or_name, *identifiers)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Registers the given class as a VCS with the given identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+<div class="inherited">
+  
+  <div>
+    <h1>Public Class Methods Inherited from <a href="../Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="../Plugin.html#all-class_method" title="all">all</a></span>, <span class='name'><a href="../Plugin.html#named-class_method" title="named">named</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#add-instance_method" title="#add">#add</a></span><span class='args'>(filename)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Adds the file with the given filename to the working copy.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#move-instance_method" title="#move">#move</a></span><span class='args'>(src, dst)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Moves the file with the given filename to a new location.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#remove-instance_method" title="#remove">#remove</a></span><span class='args'>(filename)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Removes the file with the given filename from the working copy.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails class public">
+  <h1>Public Class Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>identifier</h3>
+</div><div id="identifier-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>identifier</span><span class='args'>(identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Sets the identifier for this VCS.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+20
+21
+22</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 20</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='identifier identifier id'>identifier</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='VCS constant id'>VCS</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>identifiers</h3>
+</div><div id="identifiers-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>identifiers</span><span class='args'>(*identifiers)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Sets the identifiers for this VCS.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+15
+16
+17</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='identifiers identifier id'>identifiers</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='VCS constant id'>VCS</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>register</h3>
+</div><div id="register-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>register</span><span class='args'>(class_or_name, *identifiers)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Registers the given class as a VCS with the given identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+25
+26
+27</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 25</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='class_or_name identifier id'>class_or_name</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Plugin constant id'>Plugin</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='VCS constant id'>VCS</span><span class='comma token'>,</span> <span class='class_or_name identifier id'>class_or_name</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>add</h3>
+</div><div id="add-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>add</span><span class='args'>(filename)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Adds the file with the given filename to the working copy.
+</p>
+<p>
+Subclasses must implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+32
+33
+34</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 32</span>
+
+<span class='def def kw'>def</span> <span class='add identifier id'>add</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'add'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>move</h3>
+</div><div id="move-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>move</span><span class='args'>(src, dst)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Moves the file with the given filename to a new location. When this method
+is executed, the original file should no longer be present on the disk.
+</p>
+<p>
+Subclasses must implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+50
+51
+52</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 50</span>
+
+<span class='def def kw'>def</span> <span class='move identifier id'>move</span><span class='lparen token'>(</span><span class='src identifier id'>src</span><span class='comma token'>,</span> <span class='dst identifier id'>dst</span><span class='rparen token'>)</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'move'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>remove</h3>
+</div><div id="remove-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>remove</span><span class='args'>(filename)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Removes the file with the given filename from the working copy. When this
+method is executed, the file should no longer be present on the disk.
+</p>
+<p>
+Subclasses must implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+41
+42
+43</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/vcs.rb', line 41</span>
+
+<span class='def def kw'>def</span> <span class='remove identifier id'>remove</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'remove'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:15 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

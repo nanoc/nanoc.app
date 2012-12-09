@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Extra::AutoCompiler</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Extra_AutoCompiler">
+  <h1 class="title">Class: Nanoc3::Extra::AutoCompiler</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::Extra::AutoCompiler is a web server that will automatically compile
+items as they are requested. It also serves static files such as
+stylesheets and images.
+</p>
+
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(site)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new autocompiler for the given site.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/auto_compiler.rb', line 11</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='site identifier id'>site</span><span class='rparen token'>)</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'rack'</span>
+  <span class='require identifier id'>require</span> <span class='string val'>'mime/types'</span>
+
+  <span class='comment val'># Set site</span>
+  <span class='@site ivar id'>@site</span> <span class='assign token'>=</span> <span class='site identifier id'>site</span>
+
+  <span class='comment val'># Create mutex to prevent parallel requests</span>
+  <span class='@mutex ivar id'>@mutex</span> <span class='assign token'>=</span> <span class='Mutex constant id'>Mutex</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#call-instance_method" title="#call">#call</a></span><span class='args'>(env)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>call</h3>
+</div><div id="call-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>call</span><span class='args'>(env)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/auto_compiler.rb', line 22</span>
+
+<span class='def def kw'>def</span> <span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='env identifier id'>env</span><span class='rparen token'>)</span>
+  <span class='@mutex ivar id'>@mutex</span><span class='dot token'>.</span><span class='synchronize identifier id'>synchronize</span> <span class='do do kw'>do</span>
+    <span class='comment val'># Reload site data</span>
+    <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='load_data identifier id'>load_data</span><span class='lparen token'>(</span><span class='true true kw'>true</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Find rep</span>
+    <span class='path identifier id'>path</span> <span class='assign token'>=</span> <span class='env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>'PATH_INFO'</span><span class='rbrack token'>]</span>
+    <span class='reps identifier id'>reps</span> <span class='assign token'>=</span> <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='items identifier id'>items</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span> <span class='i identifier id'>i</span><span class='dot token'>.</span><span class='reps identifier id'>reps</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span>
+    <span class='rep identifier id'>rep</span> <span class='assign token'>=</span> <span class='reps identifier id'>reps</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='path identifier id'>path</span> <span class='eq op'>==</span> <span class='path identifier id'>path</span> <span class='rbrace token'>}</span>
+
+    <span class='if if kw'>if</span> <span class='rep identifier id'>rep</span>
+      <span class='serve identifier id'>serve</span><span class='lparen token'>(</span><span class='rep identifier id'>rep</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='comment val'># Get paths by appending index filenames</span>
+      <span class='if if kw'>if</span> <span class='path identifier id'>path</span> <span class='match op'>=~</span> <span class='regexp val'>/\/$/</span>
+        <span class='possible_paths identifier id'>possible_paths</span> <span class='assign token'>=</span> <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='symbol val'>:index_filenames</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='path identifier id'>path</span> <span class='plus op'>+</span> <span class='f identifier id'>f</span> <span class='rbrace token'>}</span>
+      <span class='else else kw'>else</span>
+        <span class='possible_paths identifier id'>possible_paths</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='path identifier id'>path</span> <span class='rbrack token'>]</span>
+      <span class='end end kw'>end</span>
+
+      <span class='comment val'># Find matching file</span>
+      <span class='modified_path identifier id'>modified_path</span> <span class='assign token'>=</span> <span class='possible_paths identifier id'>possible_paths</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='file? fid id'>file?</span><span class='lparen token'>(</span><span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='symbol val'>:output_dir</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='f identifier id'>f</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+      <span class='modified_path identifier id'>modified_path</span> <span class='opasgn op'>||=</span> <span class='path identifier id'>path</span>
+
+      <span class='comment val'># Serve using Rack::File</span>
+      <span class='file_server identifier id'>file_server</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='env identifier id'>env</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='string val'>'PATH_INFO'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='modified_path identifier id'>modified_path</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='rescue rescue kw'>rescue</span> <span class='StandardError constant id'>StandardError</span><span class='comma token'>,</span> <span class='ScriptError constant id'>ScriptError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+  <span class='comment val'># Add compilation stack to env</span>
+  <span class='env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>'nanoc.stack'</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='compiler identifier id'>compiler</span><span class='dot token'>.</span><span class='stack identifier id'>stack</span><span class='dot token'>.</span><span class='reverse identifier id'>reverse</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='obj identifier id'>obj</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='ItemRep constant id'>ItemRep</span><span class='rparen token'>)</span> <span class='comment val'># item rep</span>
+      <span class='env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>'nanoc.stack'</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;[item] #{obj.item.identifier} (rep #{obj.name})&quot;</span>
+    <span class='else else kw'>else</span> <span class='comment val'># layout</span>
+      <span class='env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>'nanoc.stack'</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;[layout] #{obj.identifier}&quot;</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='comment val'># Re-raise error</span>
+  <span class='raise identifier id'>raise</span> <span class='e identifier id'>e</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:14 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
