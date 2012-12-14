@@ -2,9 +2,24 @@
 
 title:                 "Getting Started"
 markdown:              advanced
+is_dynamic:            true
 toc_includes_sections: true
 
 ---
+
+<% content_for :details do %>
+    <h3><span style="font-weight: normal">Getting Started</span></h3>
+    <p>↓</p>
+    <h3>Getting Started</h3>
+    <ol>
+	<li><a href="#">Requirements</a></li>
+	<li><a href="#">Requirements</a></li>
+	<li><a href="#">Requirements</a></li>
+	<li><a href="#">Requirements</a></li>
+	<li><a href="#">Requirements</a></li>
+	<li><a href="#">Requirements</a></li>
+    </ol>
+<% end %>
 
 Requirements
 ------------
@@ -235,7 +250,7 @@ the aid of their country. This is just a
 regular paragraph.
 
 The quick brown fox jumped over the lazy
-dog's back.
+dog’s back.
 
 ### Header 3
 
@@ -245,7 +260,42 @@ dog's back.
 >
 > ## This is an H2 in a blockquote</code></pre>
 
-To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies all processing instructions for all items. It consists of a series of rules, which in turn consist of three parts:
+To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items. 
+
+The `Rules` file contains a bit of Ruby code like this:
+
+<pre title="The original compilation rule"><code class="language-ruby">
+compile '*' do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :erb
+    layout 'default'
+  end
+end</code></pre>
+
+This is a _compilation_ rule, which means it will define how an item is processed. The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, all items will be processed using this rule. Inside the block, there is a check whether the item is binary (e.g. an image) or not (e.g. a HTML page or a CSS stylesheet). If the item is binary, nothing happens--the item is left unchanged. If the item is not binary, the `:erb` filter is run, after which the `default` layout is applied.
+
+The `Rules` file also contains a call to `route`, and it looks similar to the call to `compile`:
+
+<pre title="The original routing rule"><code class="language-ruby">
+route '*' do
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end</code></pre>
+
+This is a _routing_ rule, and therefore it defines where an item is written to once it is processed. Again, the string argument defines which items will be processed using this rule, and the `*` wildcard means it will apply to all items.
+
+Inside the block, we check whether the item is binary or not. None of the items in the site are, so the items will be written to identifier + 'index.html'`
+
+* * *
+
+The `Rules` file consists of a series of rules, which in turn consist of three parts:
 
 *rule type*
 : This can be `compile` (which specifies the filters and layouts to apply), `route` (which specifies where a compiled page should be written to) or `layout` (which specifies the filter to use for a given layout).

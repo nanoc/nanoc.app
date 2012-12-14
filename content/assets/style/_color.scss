@@ -2,11 +2,14 @@
 $bg-color:            rgb(244, 240, 229);
 $top-bg-color:        #554f4b;
 $footer-bg-color:     $top-bg-color;
-$nav-bg-color:        shade($top-bg-color, 40%);
+$nav-bg-color:        shade($top-bg-color, 60%);
+$search-bg-color:     shade($top-bg-color, 40%);
 $nav-spacing-color:   shade($top-bg-color, 20%);
 
 // foreground
 $emph-color:          rgb(210, 67, 27);
+$tagline-color:       tint($top-bg-color, 40%);
+$big-color:           $search-bg-color;
 $light-fg-color:      #ddd6d4;
 $emph-light-fg-color: #fff;
 $link-color-a:        #2366ad;
@@ -16,7 +19,12 @@ $footer-link-color-b: shade($footer-bg-color, 40%);
 
 
 body {
-    background: $bg-color;
+    background: $bg-color url(/assets/images/background.png);
+}
+
+.search input {
+    background: $search-bg-color;
+    color: $light-fg-color;
 }
 
 article {
@@ -43,6 +51,10 @@ footer {
 h1, h2, h3, h4, h5, h6, dt,
 body.home header .title {
     color: $emph-color;
+
+    .tagline {
+        color: $tagline-color;
+    }
 }
 
 figure.fullwidth {
@@ -71,12 +83,7 @@ body.page header {
     background: $top-bg-color;
 
     .header-content {
-        background: shade($top-bg-color, 60%);
-
-        input {
-            background: shade($top-bg-color, 30%);
-            color: $light-fg-color;
-        }
+        background: $nav-bg-color;
 
         nav li {
             border-color: $nav-spacing-color;
@@ -93,7 +100,7 @@ body.page header {
 }
 
 body.page .intro {
-    background: shade($bg-color, 10%);
+    background: shade($bg-color, 15%);
 }
 
 body.page .details {
@@ -114,7 +121,11 @@ body.home nav.main li {
 }
 
 body.home .hero {
-    background: shade($bg-color, 20%);
+    background: shade($bg-color, 20%) url(/assets/images/hero-background.png);
+}
+
+body.home .explanation {
+    color: $big-color;
 }
 
 body.home .chooser h2 {
@@ -142,7 +153,7 @@ body.home .support {
 }
 
 footer {
-    background: #554f4b;
+    background: #554f4b url(/assets/images/background-dark.png);
 
     a:link, a:visited {
         color: #ddd6d4;
