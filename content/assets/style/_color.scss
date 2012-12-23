@@ -1,6 +1,6 @@
 // background
-$bg-color:            rgb(244, 240, 229);
-$top-bg-color:        #554f4b;
+$bg-color:            #f1f0eb; // #fbfaf3; //rgb(244, 240, 229);
+$top-bg-color:        shade($bg-color, 70%); //#554f4b;
 $footer-bg-color:     $top-bg-color;
 $nav-bg-color:        shade($top-bg-color, 60%);
 $search-bg-color:     shade($top-bg-color, 40%);
@@ -19,7 +19,7 @@ $footer-link-color-b: shade($footer-bg-color, 40%);
 
 
 body {
-    background: $bg-color url(/assets/images/background.png);
+    background: $bg-color;
 }
 
 .search input {
@@ -121,7 +121,7 @@ body.home nav.main li {
 }
 
 body.home .hero {
-    background: shade($bg-color, 20%) url(/assets/images/hero-background.png);
+    background: shade($bg-color, 20%);
 }
 
 body.home .explanation {
@@ -130,16 +130,6 @@ body.home .explanation {
 
 body.home .chooser h2 {
     color: rgb(37, 110, 219);
-}
-
-body.home .testimonial {
-    .testimonial-content {
-        border-color: #a89c93;
-
-        .source {
-            color: #a89c93;
-        }
-    }
 }
 
 body.home .support {

@@ -393,41 +393,21 @@ body.home .explanation {
     }
 }
 
-body.home .reasons {
-    @include container;
-
-    padding: 0 20px;
-
-    .reasons-content {
-        border-top: 1px solid #a89c93;
-        padding: 40px;
-    }
-
-    li {
-        display: inline;
-    }
-
-    li::after {
-        content: " — ";
-    }
-
-    li:last-of-type::after {
-        content: "";
-    }
-}
-
 body.home .chooser {
     @include container;
 
-    padding: 0 20px 40px 20px;
+    padding: 40px 20px 40px 20px;
 
     .chooser-unit {
         @include span-columns(4, 12);
 
         padding-top: 100px;
 
-        background-position: left top;
+        font-size: 13px;
+
         background-repeat: no-repeat;
+
+        text-align: center;
 
         h2 {
             padding-bottom: 20px;
@@ -437,21 +417,21 @@ body.home .chooser {
     }
 
     .install-nanoc {
-        background-position: left 17px;
         background-image: url(/assets/images/chooser-download.png);
+        background-position: center 17px;
         background-size: 25%;
     }
 
     .take-the-tutorial {
-        background-position: left 0;
         background-image: url(/assets/images/chooser-tour.png);
+        background-position: center 0;
         background-size: 25%;
     }
 
     .learn-more {
-        background-position: left 0;
-        background-size: 25%;
         background-image: url(/assets/images/chooser-help.png);
+        background-position: center 0;
+        background-size: 25%;
     }
 
     .chooser-unit:last-child {
