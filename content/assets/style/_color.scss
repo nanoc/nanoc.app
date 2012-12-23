@@ -6,14 +6,14 @@ $bg-color:            #f1f0eb;
 $top-bg-color:        shade($bg-color, 70%);
 $footer-bg-color:     $top-bg-color;
 $nav-bg-color:        shade($top-bg-color, 60%);
-$search-bg-color:     shade($top-bg-color, 40%);
+$search-bg-color:     shade($top-bg-color, 30%);
 $nav-spacing-color:   shade($top-bg-color, 20%);
 $explanation-bg-color: shade($emph-color, 10%);
 $ticker-bg-color:     shade($bg-color, 70%);
 
 // foreground
 $tagline-color:       tint($top-bg-color, 40%);
-$big-color:           $search-bg-color;
+$dark-fg-color:       $search-bg-color;
 $light-fg-color:      #ddd6d4;
 $emph-light-fg-color: #fff;
 $link-color-a:        #2366ad;
@@ -116,6 +116,14 @@ body.home .explanation {
 
 body.home .hero {
     background: shade($bg-color, 20%);
+
+    .caption {
+        background: shade($bg-color, 5%);
+
+        p {
+            color: $dark-fg-color;
+        }
+    }
 }
 
 @mixin dark-background-links {

@@ -158,6 +158,10 @@ body.page .intro {
     }
 }
 
+a {
+    padding: 0 2px;
+}
+
 body.page .content {
     article {
         @media (min-width: 800px) {
@@ -189,10 +193,6 @@ body.page .content {
                 margin-bottom: 40px;
             }
 
-            a {
-                padding: 0 2px;
-            }
-
             h2 {
                 font-size: 20px;
                 font-weight: normal;
@@ -216,6 +216,15 @@ body.page .content {
 
             ul li {
                 list-style-type: square;
+            }
+
+            .donate {
+                text-align: center;
+                padding: 20px 0;
+
+                a, a:hover {
+                    background: none;
+                }
             }
 
             figure.fullwidth {
@@ -296,14 +305,13 @@ body.home .hero {
 
             .caption {
                 padding: 10px 20px;
-                background: rgba(255, 255, 255, 0.4);
                 position: absolute;
                 top: 50px;
                 width: 300px;
 
                 p {
                     padding: 10px 0;
-                    font-size: 13px;
+                    font-size: 14px;
                     font-style: italic;
                 }
             }
