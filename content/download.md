@@ -6,10 +6,14 @@ is_dynamic:            true
 
 ---
 
-Instruction For The Impatient
+Instructions For The Impatient
 -----------------------------
 
-All you need is a `gem install nanoc`.
+Install nanoc using Rubygems, like this:
+
+<pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
+
+For detailed instructions, read on!
 
 Installing Ruby
 ---------------
@@ -57,6 +61,8 @@ If you get a “command not found” error when trying to run `nanoc`, you may h
 The current version of nanoc is is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find the release notes for this version as well as release notes for older versions on the [release notes](/release-notes/) page.
 
 If you’re on Windows and are using the Windows console, it’s probably a good idea to install the `win32console` gem using <kbd>gem install win32console</kbd> to allow nanoc to use pretty colors when writing stuff to the terminal.
+
+### From git
 
 You can also install nanoc from the repository if you want to take advantage of the latest features and improvements in nanoc. Be warned that the versions from the repository may be unstable, so it is recommended to install nanoc from rubygems if you want to stay safe. You can install nanoc from the git repository like this:
 
