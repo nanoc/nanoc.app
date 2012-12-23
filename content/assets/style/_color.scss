@@ -79,7 +79,7 @@ pre:after {
     background: shade($bg-color, 20%);
 }
 
-body.page header {
+body header {
     background: $top-bg-color;
 
     .header-content {
@@ -105,19 +105,6 @@ body.page .intro {
 
 body.page .details {
     background: rgba(255, 255, 255, 0.7);
-}
-
-body.home nav.main li {
-    background: #222;
-    border-color: #444;
-
-    a:link, a:visited {
-        color: #ddd6d4;
-    }
-
-    a:hover {
-        color: #fff;
-    }
 }
 
 body.home .hero {

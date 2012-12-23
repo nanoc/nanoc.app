@@ -8,9 +8,6 @@
         <meta name="viewport" content="width=device-width; initial-scale=1.0">
     </head>
     <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
-<% if @item[:has_basic_layout] %>
-    <%= yield %>
-<% else %>
         <header>
             <div class="header-content">
                 <nav class="main">
@@ -28,6 +25,9 @@
                 </div>
             </div>
         </header>
+<% if @item[:has_basic_layout] %>
+    <%= yield %>
+<% else %>
         <div class="intro">
             <div class="intro-content">
                 <% if @item.parent && @item.parent[:child_desc] %>
