@@ -160,6 +160,7 @@ body.page .intro {
 
 a {
     padding: 0 2px;
+    @include border-radius(3px);
 }
 
 body.page .content {
