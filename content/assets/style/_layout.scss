@@ -287,18 +287,35 @@ body.home .hero {
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 
     .hero-content {
-        width: 1200px;
+        @include container;
         height: 300px;
-        margin: 0 auto;
         overflow: hidden;
-        position: relative;
 
-        img {
-            display: block;
-            position: absolute;
-            top: 0;
-            @include transform-origin(top, right);
-            @include transform(scale(0.6, 0.6) rotate(-5deg));
+        .slide-1 {
+            position: relative;
+
+            .caption {
+                padding: 10px 20px;
+                background: rgba(255, 255, 255, 0.4);
+                position: absolute;
+                top: 50px;
+                width: 300px;
+
+                p {
+                    padding: 10px 0;
+                    font-size: 13px;
+                    font-style: italic;
+                }
+            }
+
+            img {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 300px;
+                @include transform-origin(top, left);
+                @include transform(scale(0.8, 0.8));
+            }
         }
 
         .hero-img-1 {
