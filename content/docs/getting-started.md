@@ -26,17 +26,7 @@ Requirements
 
 This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Installation](/docs/2-installation/) page.
 
-This tutorial requires [kramdown](http://kramdown.rubyforge.org/). Kramdown is a Ruby implementation of [Markdown](http://daringfireball.net/projects/markdown/), which allows you to write HTML in a easy-to-use plain text format. If you haven’t used Markdown before, don’t fear—it’s quite easy to use. To install kramdown, jump to your terminal and type:
-
-<pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
-
-You should also install [adsf](http://stoneship.org/software/adsf/), a tool that allows you to fire up a web server in any directory, which is very useful for previewing compiled nanoc sites. nanoc’s <kbd>view</kbd> command, used in this tutorial, requires adsf to be installed. Install adsf like this:
-
-<pre title="Installing adsf"><span class="prompt">%</span> <kbd>gem install adsf</kbd></pre>
-
-Be sure to install _adsf_, not _asdf_. No, that’s not a tyop!
-
-nanoc also requires a basic level of experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
+nanoc also requires some experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
 
 Creating a Site
 ---------------
@@ -45,11 +35,11 @@ nanoc is a command-line application. This means that in order to use nanoc, you 
 
 A nanoc-powered site is a directory with a specific structure. In this tutorial, we’ll create a site named `tutorial`. To create this site, type into the terminal:
 
-<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc create_site tutorial</kbd></pre>
+<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
 
 If you did that right, you should see something like this in the terminal:
 
-<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create_site tutorial</kbd>
+<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
       <span class="log-create">create</span>  config.yaml
       <span class="log-create">create</span>  Rakefile
       <span class="log-create">create</span>  Rules
@@ -78,7 +68,7 @@ What all those files and directories are for will all become clear soon.
 Compiling the Site
 ------------------
 
-Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create_site</kbd>, require the current working directory to be a nanoc site. So, if you haven’t done it before:
+Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create-site</kbd>, require the current working directory to be a nanoc site. So, if you haven’t done it before:
 
 <pre title="Going into the site directory"><span class="prompt">%</span> <kbd>cd tutorial</kbd>
 <span class="prompt">tutorial%</span></pre>
@@ -101,7 +91,11 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-A file named `index.html` has been created in the `output` directory. Start a web server using the <kbd>view</kbd> command, like this:
+A file named `index.html` has been created in the `output` directory. The preferred way of previewing a site is using the <kbd>view</kbd> command, but we’ll need to install the `adsf` gem (_not_ `asdf`!) before we can preview:
+
+<pre title="Installing adsf"><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
+
+Now we can start a web server, like this:
 
 <pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
 
@@ -159,13 +153,13 @@ Adding a Page
 
 In nanoc, pages are sometimes referred to as "items." This is because items don’t necessarily have to be pages: JavaScript and CSS files aren’t pages, but they are items.
 
-To create a new page or item in the site, use the `create_item` command (or `ci` for short). Let’s create an "about" page like this:
+To create a new page or item in the site, use the `create-item` command (or `ci` for short). Let’s create an "about" page like this:
 
-<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc create_item about</kbd></pre>
+<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd></pre>
 
 You should see this:
 
-<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc create_item about</kbd>
+<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd>
       <span class="log-create">create</span>  content/about.html
 <span class="prompt">tutorial%</span> </pre>
 
@@ -259,6 +253,10 @@ dog’s back.
 > This is the second paragraph in the blockquote.
 >
 > ## This is an H2 in a blockquote</code></pre>
+
+We’ll use [kramdown](http://kramdown.rubyforge.org/) for converting Markdown into HTML. Before we can use kramdown, we need to install the gem, like this:
+
+<pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
 To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items. 
 
