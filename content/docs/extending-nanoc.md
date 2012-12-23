@@ -1,9 +1,7 @@
 ---
-
-title:                 "Advanced Concepts"
-toc_includes_sections: true
-markdown:              advanced
-
+title:    "Advanced Concepts"
+has_toc:  true
+markdown: advanced
 ---
 
 Writing Helpers

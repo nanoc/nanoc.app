@@ -1,10 +1,8 @@
 ---
-
-title:                 "Basic Concepts"
-markdown:              advanced
-toc_includes_sections: true
-is_dynamic:            true
-
+title:      "Basic Concepts"
+markdown:   advanced
+has_toc:    true
+is_dynamic: true
 ---
 
 The Commandline Tool

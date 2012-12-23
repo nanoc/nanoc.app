@@ -1,17 +1,9 @@
 ---
-
-title:                 "Getting Started"
-markdown:              advanced
-is_dynamic:            true
-toc_includes_sections: true
-
+title:      "Getting Started"
+markdown:   advanced
+is_dynamic: true
+has_toc:    true
 ---
-
-<% content_for :details do %>
-    <h3>Getting Started</h3>
-    <p>↑ <%= link_to "Back to #{@item.parent[:title]}", @item.parent %></p>
-    {{TOC}}
-<% end %>
 
 Requirements
 ------------

@@ -1,9 +1,7 @@
 ---
-
-title:                 "Guides"
-toc_includes_sections: true
-markdown:              basic
-
+title:    "Guides"
+has_toc:  true
+markdown: basic
 ---
 
 Deploying sites
