@@ -406,38 +406,6 @@ body.home .chooser {
     }
 }
 
-body.home .testimonial {
-    @include container;
-
-    padding: 0 20px;
-
-    .testimonial-content {
-        border-top: 1px solid #a89c93;
-        background: url(/assets/images/quote.png) 20px 40px no-repeat;
-        text-align: right;
-
-        padding: 40px;
-
-        blockquote {
-            line-height: 40px;
-            font-size: 30px;
-            font-style: italic;
-            padding-left: 60px;
-        }
-
-        .source:before {
-            content: "– ";
-        }
-
-        .source {
-            padding-top: 20px;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    }
-}
-
 body.home .support {
     @include container;
 
