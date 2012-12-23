@@ -330,18 +330,15 @@ body.home .explanation {
 }
 
 body.home .ticker {
-    background: #333; // TODO move this to colors
-
     .ticker-content {
         @include container;
 
-        color: #999;
         padding: 10px 0;
         font-size: 13px;
         text-align: center;
 
         span {
-            color: #ccc;
+            font-weight: bold;
         }
     }
 }

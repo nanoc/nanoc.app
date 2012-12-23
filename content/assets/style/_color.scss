@@ -1,14 +1,17 @@
+// Reusable colors
+$emph-color:          rgb(210, 67, 27);
+
 // background
-$bg-color:            #f1f0eb; // #fbfaf3; //rgb(244, 240, 229);
-$top-bg-color:        shade($bg-color, 70%); //#554f4b;
+$bg-color:            #f1f0eb;
+$top-bg-color:        shade($bg-color, 70%);
 $footer-bg-color:     $top-bg-color;
 $nav-bg-color:        shade($top-bg-color, 60%);
 $search-bg-color:     shade($top-bg-color, 40%);
 $nav-spacing-color:   shade($top-bg-color, 20%);
-$explanation-bg-color: rgb(210, 67, 27);
+$explanation-bg-color: shade($emph-color, 10%);
+$ticker-bg-color:     shade($bg-color, 70%);
 
 // foreground
-$emph-color:          rgb(210, 67, 27);
 $tagline-color:       tint($top-bg-color, 40%);
 $big-color:           $search-bg-color;
 $light-fg-color:      #ddd6d4;
@@ -18,6 +21,8 @@ $link-color-b:        #fff;
 $footer-link-color-a: $light-fg-color;
 $footer-link-color-b: shade($footer-bg-color, 40%);
 $explanation-fg-color: #fff;
+$ticker-fg-color:     shade($light-fg-color, 20%);
+$ticker-fg-emph-color: tint($ticker-fg-color, 60%);
 
 
 
@@ -42,12 +47,6 @@ article {
     a:hover {
         background-color: $link-color-a;
         color:            $link-color-b;
-    }
-}
-
-footer {
-    a {
-        background-color: tint($footer-bg-color, 10%);
     }
 }
 
@@ -110,13 +109,47 @@ body.page .details {
     background: rgba(255, 255, 255, 0.7);
 }
 
+body.home .explanation {
+    background: $explanation-bg-color;
+    color: $explanation-fg-color;
+}
+
 body.home .hero {
     background: shade($bg-color, 20%);
 }
 
-body.home .explanation {
-    background: $explanation-bg-color;
-    color: $explanation-fg-color;
+@mixin dark-background-links {
+    a {
+        background-color: tint($footer-bg-color, 10%);
+    }
+
+    a:link, a:visited {
+        color: #ddd6d4;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+
+    a:link, a:visited {
+        color: $footer-link-color-a;
+    }
+
+    a:hover {
+        background-color: $footer-link-color-a;
+        color:            $footer-link-color-b;
+    }
+}
+
+body.home .ticker {
+    background: $ticker-bg-color;
+    color: $ticker-fg-color;
+
+    @include dark-background-links;
+
+    span {
+        color: $ticker-fg-emph-color;
+    }
 }
 
 body.home .chooser h2 {
@@ -136,22 +169,8 @@ body.home .support {
 footer {
     background: #554f4b url(/assets/images/background-dark.png);
 
-    a:link, a:visited {
-        color: #ddd6d4;
-    }
+    @include dark-background-links;
 
-    a:hover {
-        color: #fff;
-    }
-
-    a:link, a:visited {
-        color: $footer-link-color-a;
-    }
-
-    a:hover {
-        background-color: $footer-link-color-a;
-        color:            $footer-link-color-b;
-    }
     h3 {
         color: #ddd6d4;
     }
