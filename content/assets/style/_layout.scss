@@ -175,7 +175,7 @@ body.page .content {
             padding-right: 20px;
         }
 
-        padding-top: 40px;
+        padding-top: 0;
         padding-bottom: 40px;
 
         .article-content {
@@ -196,6 +196,7 @@ body.page .content {
             h2 {
                 font-size: 20px;
                 font-weight: normal;
+                margin-top: 40px;
             }
 
             h3 {
@@ -258,12 +259,12 @@ body.page .content {
                 @include span-columns(4 omega, 12);
 
                 position: relative;
-                top: -100px;
+                top: -60px;
 
             }
 
             @media (max-width: 800px) {
-                margin-bottom: 40px;
+                margin: 40px 0;
             }
 
             background: rgba(255, 255, 255, 0.7);
