@@ -8,17 +8,9 @@ toc_includes_sections: true
 ---
 
 <% content_for :details do %>
-    <h3><span style="font-weight: normal">Getting Started</span></h3>
-    <p>↓</p>
     <h3>Getting Started</h3>
-    <ol>
-	<li><a href="#">Requirements</a></li>
-	<li><a href="#">Requirements</a></li>
-	<li><a href="#">Requirements</a></li>
-	<li><a href="#">Requirements</a></li>
-	<li><a href="#">Requirements</a></li>
-	<li><a href="#">Requirements</a></li>
-    </ol>
+    <p>↑ <%= link_to "Back to #{@item.parent[:title]}", @item.parent %></p>
+    {{TOC}}
 <% end %>
 
 Requirements
@@ -197,7 +189,7 @@ Take a look at the `default.html` file in the `layouts` directory. Just like ite
 …
 </code></pre>
 
-The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The `<%= yield %>` instruction will be replaced with the item’s compiled content when compiling.
+The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling.
 
 If you are not familiar with embedded Ruby (also known as eRuby), take a look at the [eRuby article on Wikipedia](http://en.wikipedia.org/wiki/ERuby), or the [<i>Embedding Ruby in HTML</i> section](http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2) of the <i>Ruby and the Web</i> chapter of the online <i>Programming Ruby</i> book.
 
@@ -371,7 +363,7 @@ def tags
 end
 </code></pre>
 
-This function will take the current page’s tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the `<%= yield %>` line:
+This function will take the current page’s tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= yield %></code> line:
 
 <pre title="Code snippet to be added to the default layout"><code class="language-html">
 &lt;p>Tags: &lt;%= tags %>&lt;/p>
