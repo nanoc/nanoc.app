@@ -3,6 +3,7 @@ $emph-color:          rgb(210, 67, 27);
 
 // background
 $bg-color:            #f1f0eb;
+$semilight-bg-color:  adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
 $top-bg-color:        shade($bg-color, 70%);
 $footer-bg-color:     $top-bg-color;
 $nav-bg-color:        shade($top-bg-color, 60%);
@@ -102,7 +103,7 @@ body header {
 }
 
 body.page .intro {
-    background: shade($bg-color, 15%);
+    background: $semilight-bg-color;
 }
 
 body.page .details {
@@ -115,7 +116,7 @@ body.home .explanation {
 }
 
 body.home .hero {
-    background: shade($bg-color, 20%);
+    background: $semilight-bg-color;
 
     .caption {
         background: shade($bg-color, 5%);
