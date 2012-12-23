@@ -35,9 +35,13 @@ If you want to check whether the executed `rsync` command is really correct, you
 
 <pre title="Performing a dry run"><span class="prompt">%</span> <kbd>nanoc deploy --target public --dry-run</kbd></pre>
 
-You can override the options that nanoc uses for invoking rsync. The following example will make sure that all existing files on the remote server are deleted after uploading (use with caution!).
+### Deleting stray files
 
-<pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-gpPrtvz', '--delete-after' ]</code></pre>
+nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you _do_ want to let <kbd>nanoc deploy</kbd> remove any files on the destination that are not part of the nanoc site, you can modify the options used for rsync to include `--delete-after`, like this:
+
+<pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-aP', '--delete-after' ]</code></pre>
+
+Use this with caution!
 
 With git
 --------
