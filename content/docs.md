@@ -10,7 +10,7 @@ child_desc: "nanoc documentation"
 <% content_for :details do %>
     <h3>Documentation Index</h3>
     <ol>
-	<li><%= link_to_id '/docs/getting-started/' %></li>
+	<li><%= link_to_id '/docs/tutorial/' %></li>
 	<li><%= link_to_id '/docs/using-nanoc/' %></li>
 	<li><%= link_to_id '/docs/extending-nanoc/' %></li>
 	<li><%= link_to_id '/docs/guides/' %></li>
@@ -24,7 +24,7 @@ How to use the documentation
 
 The documentation for nanoc is organised in a couple of parts:
 
-1. The [Getting Started](/docs/getting-started/) chapter is meant for first-time users of nanoc, who want to get an impression of what nanoc can do and how it’s done. After reading this part, you should be able to get a basic site up and running.
+1. The [Tutorial](/docs/tutorial/) chapter is meant for first-time users of nanoc, who want to get an impression of what nanoc can do and how it’s done. After reading this part, you should be able to get a basic site up and running.
 
 2. The [Using nanoc](/docs/using-nanoc/) chapter describes how to use nanoc in great detail. Everything that nanoc can do, you will find in here.
 

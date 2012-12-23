@@ -1,5 +1,5 @@
 ---
-title:      "Getting Started"
+title:      "Tutorial"
 markdown:   advanced
 is_dynamic: true
 has_toc:    true
