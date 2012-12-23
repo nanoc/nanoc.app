@@ -316,14 +316,33 @@ body.home .hero {
 }
 
 body.home .explanation {
-    @include container;
-    
-    padding: 40px 20px;
+    .explanation-content {
+        @include container;
 
-    p {
-        font-size: 32px;
-        line-height: 40px;
+        p {
+            padding: 40px 20px;
+
+            font-size: 32px;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+}
+
+body.home .ticker {
+    background: #333; // TODO move this to colors
+
+    .ticker-content {
+        @include container;
+
+        color: #999;
+        padding: 10px 0;
+        font-size: 13px;
         text-align: center;
+
+        span {
+            color: #ccc;
+        }
     }
 }
 

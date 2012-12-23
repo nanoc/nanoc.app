@@ -5,6 +5,7 @@ $footer-bg-color:     $top-bg-color;
 $nav-bg-color:        shade($top-bg-color, 60%);
 $search-bg-color:     shade($top-bg-color, 40%);
 $nav-spacing-color:   shade($top-bg-color, 20%);
+$explanation-bg-color: rgb(210, 67, 27);
 
 // foreground
 $emph-color:          rgb(210, 67, 27);
@@ -16,6 +17,8 @@ $link-color-a:        #2366ad;
 $link-color-b:        #fff;
 $footer-link-color-a: $light-fg-color;
 $footer-link-color-b: shade($footer-bg-color, 40%);
+$explanation-fg-color: #fff;
+
 
 
 body {
@@ -112,7 +115,8 @@ body.home .hero {
 }
 
 body.home .explanation {
-    color: $big-color;
+    background: $explanation-bg-color;
+    color: $explanation-fg-color;
 }
 
 body.home .chooser h2 {
