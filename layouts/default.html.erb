@@ -30,9 +30,6 @@
 <% else %>
         <div class="intro">
             <div class="intro-content">
-                <% if @item.parent && @item.parent[:child_desc] %>
-                    <div class="section"><%= @item.parent[:child_desc] %> ▸</div>
-                <% end %>
                 <h1><%= @item[:title] %></h1>
                 <% if @item[:intro] %>
                     <p><%= @item[:intro] %></p>
