@@ -2,7 +2,17 @@ require 'time'
 
 # Returns the item with the given identifier.
 def item_named(identifier)
-  @items.find { |item| item.identifier == identifier }
+  @_item_named_cache ||= {}
+  res = @_item_named_cache[identifier]
+  if res.nil?
+    res = @items.find { |item| item.identifier == identifier }
+    @_item_named_cache[identifier] = res
+  end
+  res
+end
+
+def api_doc_root
+  '/docs/api/' + latest_release_info[:version][0..-3] + '/'
 end
 
 class Date
