@@ -1,7 +1,11 @@
 ---
 title:    "Glossary"
 markdown: basic
+has_toc:  true
 ---
+
+Glossary
+--------
 
 <dl class="glossary">
 	<dt id="glossary-asset">asset</dt>
