@@ -25,12 +25,12 @@ The two links above show code to do this with old versions of nanoc. The code sh
 See <a href="http://groups.google.com/group/nanoc/browse_thread/thread/a4b843ef917891bd">here</a> for the post on the group from Denis about this.
 
 <pre><code>
-<% home_page = @items.find { |i| i.reps[0].path == '/' } %>
+&lt;% home_page = @items.find { |i| i.reps[0].path == '/' } %>
 <ul>
-    <li><%= link_to(home_page[:title], home_page.reps[0]) %></li>
-    <% home_page.children.each do |page| %>
-        <li><%= link_to(page[:title], page.reps[0]) %></li>
-    <% end %>
+    <li>&lt;%= link_to(home_page[:title], home_page.reps[0]) %></li>
+    &lt;% home_page.children.each do |page| %>
+        <li>&lt;%= link_to(page[:title], page.reps[0]) %></li>
+    &lt;% end %>
 </ul>
 </code></pre>
  

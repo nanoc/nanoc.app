@@ -37,7 +37,7 @@ For example:
 
 <pre><code>
 #!ruby
-ERB.new('<%= "foo" %>').result
+ERB.new('&lt;%= "foo" %>').result
 </code></pre>
 
 will return
@@ -51,14 +51,14 @@ will return
 
 <pre><code>
 #!ruby
-ERB.new('<%%= "foo" %>').result
+ERB.new('&lt;%%= "foo" %>').result
 </code></pre>
 
 will return
 
 <pre><code>
 #!ruby
-'<%= "foo" %>'
+'&lt;%= "foo" %>'
 </code></pre>
 
 You can use this trick to make sure that the code is executed on the server, and not executed by nanoc.

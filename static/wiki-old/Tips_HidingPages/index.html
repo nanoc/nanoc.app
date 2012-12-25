@@ -18,13 +18,13 @@ To do this, add <code>is_hidden: "true"</code> to the item’s meta file. By its
 For example, a <a href="../Plugins_XmlSitemap/">sitemap</a> can be told to skip hidden pages by replacing the line…
 
 <pre><code>
-<% @items.each do |item| %>
+&lt;% @items.each do |item| %>
 </code></pre>
 
 by…
 
 <pre><code>
-<% @items.reject { |i| i[:is_hidden] }.each do |item| %>
+&lt;% @items.reject { |i| i[:is_hidden] }.each do |item| %>
 </code></pre>
 
 The same can be applied to feeds, where you get all <code>@items</code>, select the articles, and reject the hidden items. nanoc's built-in helpers automatically ignore items that have <code>is_hidden</code> set to <code>true</code>.

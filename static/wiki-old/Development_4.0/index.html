@@ -59,7 +59,7 @@ end
 A drawback of this approach is that, when linking to an item, you must be sure to include the extension, like this:
 
 <pre><code>
-<%= link_to "The About Page", @items.find { |i| i.identifier == '/about.html' } %>
+&lt;%= link_to "The About Page", @items.find { |i| i.identifier == '/about.html' } %>
 </code></pre>
 
 … which is pretty ugly. What if you’d want to rename <code>about.html</code> to <code>about.html.erb</code>, or <code>about.md</code>? You’d have to update all links, which is not pretty. Also: since items can still be routed, there is no clear distinction between item paths and item rep paths: <code>/about.html</code> could suddenly become <code>/about/index.html</code>, leading to more confusion that it’s worth.
@@ -67,7 +67,7 @@ A drawback of this approach is that, when linking to an item, you must be sure t
 There could be a method which returns a string equivalent to the nanoc3 identifier (something like File.dirname + File.basename where all semantic extensions have been removed)
 
 <pre><code>
-<%= link_to "The About Page", @items.find { |i| i.stem == '/about' } %>
+&lt;%= link_to "The About Page", @items.find { |i| i.stem == '/about' } %>
 </code></pre>
 
 This would have application in routing rules too: 

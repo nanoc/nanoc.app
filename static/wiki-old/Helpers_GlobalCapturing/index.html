@@ -20,9 +20,9 @@ Add the source below to your lib directory as, say, lib/global_captures.rb.
 Then, on the page that has the global content, wrap the content as follows:
 
 <pre><code>
-<% global_content_for :foo do %>
+&lt;% global_content_for :foo do %>
 This is the FOO stuff.
-<% end %>
+&lt;% end %>
 </code></pre>
 
 Everything in the block will be captured and saved under the global tag :foo.
@@ -30,7 +30,7 @@ Everything in the block will be captured and saved under the global tag :foo.
 Then, in any page you want to see the :foo content, just use markup like the following.
 
 <pre><code>
-<%= global_content_for :foo %>
+&lt;%= global_content_for :foo %>
 </code></pre>
 
 <h1>Source</h1>

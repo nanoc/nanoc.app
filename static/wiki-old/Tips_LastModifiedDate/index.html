@@ -14,7 +14,7 @@
 Pages have a 'mtime' attribute which can be used to get the last modified date/time, like this:
 
 <pre><code>
-<p>This page was last updated at <%= @item.mtime %>.</p>
+<p>This page was last updated at &lt;%= @item.mtime %>.</p>
 </code></pre>
 
 which could be compiled to
@@ -26,7 +26,7 @@ which could be compiled to
 A nicely-formatted timestamp can be obtained by using the following code:
 
 <pre><code>
-<%= @item.mtime.strftime("%A %B %d, %Y at %H:%M:%S %Z") %>
+&lt;%= @item.mtime.strftime("%A %B %d, %Y at %H:%M:%S %Z") %>
 </code></pre>
 
 which would yield something like:

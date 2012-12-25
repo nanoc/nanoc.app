@@ -1,2 +1,13 @@
+#!/usr/bin/env ruby
+
+check :no_unprocessed_erb, "Should not contain any unprocessed ERB instructions" do
+  self.output_filenames.each do |fn|
+    if fn =~ /html$/ && File.read(fn).match(/<%/)
+      self.add_issue("erb detected", :subject => fn)
+    end
+  end
+end
+
 #deploy_check :ilinks
 deploy_check :stale
+deploy_check :no_unprocessed_erb

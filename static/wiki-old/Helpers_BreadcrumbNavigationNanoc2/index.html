@@ -22,11 +22,11 @@ This article describes usage for nanoc 2. nanoc 3 a helper for breadcrumbs built
 Use the helper in your <code>layouts/default.html</code> for example:
 <pre><code>
 ...
-<% unless @page.path == "/" %>
+&lt;% unless @page.path == "/" %>
       <div id="breadcrumb">
-        <%= breadcrumb_for(@page) %>
+        &lt;%= breadcrumb_for(@page) %>
       </div>
-<% end %>
+&lt;% end %>
 ...
 </code></pre>
 
