@@ -377,37 +377,45 @@ body.home .chooser {
     .chooser-unit {
         @include span-columns(4, 12);
 
-        padding-top: 100px;
-
-        font-size: 13px;
-
-        background-repeat: no-repeat;
-
         text-align: center;
 
         h2 {
-            padding-bottom: 20px;
+            a {
+                padding: 4px 8px;
+            }
+
+            padding: 20px 0;
             font-size: 20px;
             font-style: normal;
         }
     }
 
-    .install-nanoc {
+    .chooser-unit:before {
+        content: "";
+
+        display: block;
+        width: 100px;
+        height: 100px;
+
+        margin: 0 auto;
+
+        border: 12px double #000;
+        @include border-radius(100px);
+
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .install-nanoc:before {
         background-image: url(/assets/images/chooser-download.png);
-        background-position: center 17px;
-        background-size: 25%;
     }
 
-    .take-the-tutorial {
+    .take-the-tutorial:before {
         background-image: url(/assets/images/chooser-tour.png);
-        background-position: center 0;
-        background-size: 25%;
     }
 
-    .learn-more {
-        background-image: url(/assets/images/chooser-help.png);
-        background-position: center 0;
-        background-size: 25%;
+    .learn-more:before {
+        background-image: url(/assets/images/chooser-learn.png);
     }
 
     .chooser-unit:last-child {

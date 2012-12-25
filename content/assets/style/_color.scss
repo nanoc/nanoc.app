@@ -11,12 +11,14 @@ $search-bg-color:     shade($top-bg-color, 30%);
 $nav-spacing-color:   shade($top-bg-color, 20%);
 $explanation-bg-color: shade($emph-color, 10%);
 $ticker-bg-color:     shade($bg-color, 70%);
+$chooser-unit-bg-color: $emph-color;
 
 // foreground
 $tagline-color:       tint($top-bg-color, 40%);
 $dark-fg-color:       $search-bg-color;
 $light-fg-color:      #ddd6d4;
 $emph-light-fg-color: #fff;
+$chooser-unit-fg-color: #fff;
 $link-color-a:        #2366ad;
 $link-color-b:        #fff;
 $footer-link-color-a: $light-fg-color;
@@ -161,8 +163,16 @@ body.home .ticker {
     }
 }
 
-body.home .chooser h2 {
-    color: rgb(37, 110, 219);
+body.home .chooser {
+    h2 {
+        color: rgb(37, 110, 219);
+    }
+
+    .chooser-unit:before {
+        color: $chooser-unit-fg-color;
+        border-color: $bg-color;
+        background-color: $chooser-unit-bg-color;
+    }
 }
 
 body.home .support {
