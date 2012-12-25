@@ -26,7 +26,7 @@ $footer-link-color-b: shade($footer-bg-color, 40%);
 $explanation-fg-color: #fff;
 $ticker-fg-color:     shade($light-fg-color, 20%);
 $ticker-fg-emph-color: tint($ticker-fg-color, 60%);
-
+$hr-color:            mix($bg-color, $emph-color, 50%);
 
 
 body {
@@ -169,15 +169,18 @@ body.home .chooser {
     }
 
     .chooser-unit:before {
-        color: $chooser-unit-fg-color;
         border-color: $bg-color;
         background-color: $chooser-unit-bg-color;
     }
 }
 
 body.home .support {
+    border-color: $hr-color;
+
     .support-content {
-        border-color: #a89c93;
+        h3:before {
+            border-color: $chooser-unit-bg-color;
+        }
 
         h3 {
             color: $emph-color;

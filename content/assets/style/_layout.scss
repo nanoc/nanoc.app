@@ -426,15 +426,31 @@ body.home .chooser {
 body.home .support {
     @include container;
 
-    padding: 0 20px;
+    border-top: 1px solid #a89c93;
+    padding: 40px 20px;
 
     .support-content {
-        border-top: 1px solid #a89c93;
-
         height: 200px;
-        background: url(/assets/images/heart.png) 60px center no-repeat;
+        padding: 0 60px 0 240px;
+        position: relative;
 
-        padding: 40px 80px 40px 200px;
+        h3:before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 60px;
+            display: block;
+            width: 120px;
+            height: 120px;
+
+            border: 8px solid #000;
+            @include border-radius(100px);
+
+            background-position: center 30px;
+            background-repeat: no-repeat;
+            background-image: url(/assets/images/heart.png);
+        }
 
         h3 {
             font-size: 20px;
