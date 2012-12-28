@@ -309,7 +309,7 @@ Layouts can also be used as *partials*: a specific layout can be rendered into a
 
 <pre title="Rendering the “head” layout as a partial"><code class="language-html">&lt;%= render 'head' %></code></pre>
 
-To use this helper, activate the [Rendering](<%= api_doc_root %>Nanoc/Helpers/Rendering.html) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+To use this helper, activate the [Rendering](/docs/helpers/rendering/) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
 
 <pre title="Activating the Rendering helper"><code class="language-ruby">include Nanoc::Helpers::Rendering</code></pre>
 
@@ -632,7 +632,7 @@ Filters are used for transforming an item’s content. For example, the ERB filt
 
 Filters can be applied to binary items as well. For example, thumbnail generation for a gallery page can be handled by nanoc. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
-nanoc comes with quite a handful of filters. [Here’s a list](http://nanoc.stoneship.org<%= api_doc_root %>Nanoc/Filters.html).
+nanoc comes with quite a handful of filters. Check out the [filters reference](/docs/filters/) for a list of filters bundled with nanoc.
 
 Helpers
 -------
@@ -645,7 +645,7 @@ Helpers need to be activated before they can be used. To activate a helper, `inc
 include Nanoc::Helpers::Blogging
 </code></pre>
 
-Here’s a [list of helpers that come with nanoc](http://nanoc.stoneship.org<%= api_doc_root %>Nanoc/Helpers.html).
+Take a look at the [helpers reference](/docs/helpers/) for a list of helpers that are included with nanoc.
 
 Rake Tasks
 ----------
