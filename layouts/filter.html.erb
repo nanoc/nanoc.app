@@ -1,0 +1,31 @@
+<% content_for :title do %><%= @item[:name] %><% end %>
+
+<% content_for :details do %>
+    <h3><%= @item[:name] %></h3>
+    <dl>
+        <dt>Name</dt>
+        <dd><%= @item[:name] %></dd>
+
+        <% if @item[:identifiers] && @item[:identifiers].size > 0 %>
+            <dt>Identifier<%= @item[:identifiers].size > 1 ? 's' : '' %></dt>
+            <dd><%= @item[:identifiers].map { |i| "<code>:#{i}</code>" }.join(', ') %></dd>
+        <% end %>
+
+        <dt>API documentation</dt>
+        <dd><a href="<%= api_doc_root + @item[:full_name].gsub('::', '/') + '.html' %>"><%= @item[:full_name] %></a></dd>
+    </dl>
+<% end %>
+
+<h2>Summary</h2>
+
+<% filter :rdiscount do %>
+<%= @item[:summary] %>
+<% end %>
+
+<h2>Options</h2>
+
+<p>Write me please.</p>
+
+<h2>Links</h2>
+
+<p>Write me please.</p>

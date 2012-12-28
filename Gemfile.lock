@@ -28,6 +28,7 @@ GEM
       compass (>= 0.12.2)
       sass (>= 3.2.0)
     systemu (2.5.2)
+    yard (0.8.3)
 
 PLATFORMS
   ruby
@@ -46,3 +47,4 @@ DEPENDENCIES
   rubypants
   susy
   systemu
+  yard
