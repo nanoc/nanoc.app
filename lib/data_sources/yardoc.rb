@@ -21,6 +21,7 @@ class YARDDataSource < Nanoc3::DataSource
       items << Nanoc::Item.new(
         '-',
         {
+          :type        => 'filter',
           :name        => filter.name,
           :full_name   => filter.path,
           :summary     => summary,
@@ -30,6 +31,20 @@ class YARDDataSource < Nanoc3::DataSource
     end
 
     # TODO Add helpers
+    YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
+      slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
+      summary = helper.docstring.summary
+
+      items << Nanoc::Item.new(
+        '-',
+        {
+          :type        => 'helper',
+          :name        => helper.name,
+          :full_name   => helper.path,
+          :summary     => summary
+        },
+        "/helpers/#{slug}")
+    end
 
     items
   end

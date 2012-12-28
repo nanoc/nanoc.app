@@ -110,16 +110,16 @@ compile '/' do
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
-compile '/docs/filters/*/' do
+compile %r{^/docs/(filters|helpers)/.*/$} do
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
 
-  layout '/filter/'
+  layout '/autodoc/'
   layout '/default/'
 
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
-  filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
+  filter :relativize_paths, :type => :html
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
