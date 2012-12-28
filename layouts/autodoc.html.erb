@@ -1,4 +1,4 @@
-<% content_for :title do %><%= @item[:name] %><% end %>
+<% content_for :title do %><%= @item[:name] %> <%= @item[:type].capitalize %><% end %>
 
 <% content_for :details do %>
     <h3><%= @item[:type].capitalize %> details</h3>
@@ -17,10 +17,18 @@
     </dl>
 <% end %>
 
-<h2>Summary</h2>
+<h2>Description</h2>
 
 <% filter :rdiscount do %>
-<%= @item[:summary] %>
+<%= @item[:description] %>
+<% end %>
+
+<% if @item[:examples] %>
+<h2>Examples</h2>
+
+<% @item[:examples].each do |example| %>
+    <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
+<% end %>
 <% end %>
 
 <h2>Options</h2>

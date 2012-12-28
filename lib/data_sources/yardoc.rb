@@ -14,9 +14,10 @@ class YARDDataSource < Nanoc3::DataSource
 
     # Add filters
     YARD::Registry.at('Nanoc::Filters').children.each do |filter|
-      slug    = filter.name.to_s.downcase.gsub(/^a-z0-9/, '')
-      summary = filter.meths.detect { |m| m.name == :run }.docstring.summary
+      slug        = filter.name.to_s.downcase.gsub(/^a-z0-9/, '')
+      method      = filter.meths.detect { |m| m.name == :run }
       identifiers = filter['nanoc_identifiers']
+      examples = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
 
       items << Nanoc::Item.new(
         '-',
@@ -24,16 +25,17 @@ class YARDDataSource < Nanoc3::DataSource
           :type        => 'filter',
           :name        => filter.name,
           :full_name   => filter.path,
-          :summary     => summary,
-          :identifiers => identifiers
+          :summary     => method.docstring.summary,
+          :description => method.docstring,
+          :identifiers => identifiers,
+          :examples    => examples
         },
         "/filters/#{slug}")
     end
 
-    # TODO Add helpers
+    # Add helpers
     YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
       slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
-      summary = helper.docstring.summary
 
       items << Nanoc::Item.new(
         '-',
@@ -41,7 +43,8 @@ class YARDDataSource < Nanoc3::DataSource
           :type        => 'helper',
           :name        => helper.name,
           :full_name   => helper.path,
-          :summary     => summary
+          :summary     => helper.docstring.summary,
+          :description => helper.docstring
         },
         "/helpers/#{slug}")
     end
