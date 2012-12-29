@@ -273,26 +273,9 @@ end</code></pre>
 
 This is a _routing_ rule, and therefore it defines where an item is written to once it is processed. Again, the string argument defines which items will be processed using this rule, and the `*` wildcard means it will apply to all items.
 
-Inside the block, we check whether the item is binary or not. None of the items in the site are, so the items will be written to identifier + 'index.html'`
+Inside the block, we check whether the item is binary or not. None of the items in the site are, so the items will be written to identifier + 'index.html', so an item with identifier `'/foo/'` is written to `'/foo/index.html'`.
 
-* * *
-
-The `Rules` file consists of a series of rules, which in turn consist of three parts:
-
-*rule type*
-: This can be `compile` (which specifies the filters and layouts to apply), `route` (which specifies where a compiled page should be written to) or `layout` (which specifies the filter to use for a given layout).
-
-*selector*
-: This determines what items or layouts the rule applies to. It can contain the `*` wildcard, which matches anything. The default rules file has three rules of each type, and they all apply to all items or layouts.
-
-*instructions*
-: This is the code inside the `do…end` block and specifies what exactly should be done with the items that match this rule.
-
-These rules are quite powerful and are not fully explained in this tutorial. I recommend checking out the manual for a more in-depth explanation of the rules file.
-
-Take a look at the default compilation rule (the `compile '*' do … end` one). This rule applies to all items due to the `*` wildcard. When this rule is applied to an item, the item will first be filtered through the `erb` filter and will then be laid out using the `default` layout.
-
-To make sure that the home page (but not any other page) is run through the `kramdown` filter, add this piece of code *before* the existing compilation rule:.
+To make sure that the home page (but not any other page) is run through the `kramdown` filter, we add a compilation rule *before* the existing compilation rule. It should look like this:
 
 <pre title="The new compilation rule"><code class="language-ruby">
 compile '/' do
@@ -301,6 +284,8 @@ compile '/' do
 end</code></pre>
 
 It is important that this rule comes *before* the existing one (`compile '*' do … end`). When compiling a page, nanoc will use the first and only the first matching rule; if the new compilation rule were *below* the existing one, it would never have been used.
+
+The default routing rule still matches out needs, so we’ll keep that one intact.
 
 Now that we’ve told nanoc to filter this page using kramdown, let’s recompile the site. The `output/index.html` page source should now contain this text (header and footer omited):
 
