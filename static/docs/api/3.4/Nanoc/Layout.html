@@ -676,7 +676,7 @@ attribute instead.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@raw_content</span>  <span class='op'>=</span> <span class='id identifier rubyid_raw_content'>raw_content</span>
-  <span class='ivar'>@attributes</span>   <span class='op'>=</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span>
+  <span class='ivar'>@attributes</span>   <span class='op'>=</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
   <span class='ivar'>@identifier</span>   <span class='op'>=</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_cleaned_identifier'>cleaned_identifier</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
 
   <span class='comment'># Set mtime

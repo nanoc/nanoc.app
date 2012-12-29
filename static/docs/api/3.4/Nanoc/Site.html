@@ -1166,15 +1166,15 @@ specifies an unknown data source</p>
       <pre class="lines">
 
 
+217
+218
+219
+220
 221
-222
-223
-224
-225
-226</pre>
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_freeze_recursively'>freeze_recursively</span>
@@ -1335,6 +1335,10 @@ it will be called when it is necessary.</p>
       <pre class="lines">
 
 
+236
+237
+238
+239
 240
 241
 242
@@ -1353,14 +1357,10 @@ it will be called when it is necessary.</p>
 255
 256
 257
-258
-259
-260
-261
-262</pre>
+258</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 236</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@loaded</span> <span class='op'>||</span> <span class='ivar'>@loading</span>
@@ -1418,12 +1418,12 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
       <pre class="lines">
 
 
-230
-231
-232</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_data'>load_data</span><span class='lparen'>(</span><span class='id identifier rubyid_force'>force</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It is no longer necessary to call Nanoc::Site#load_data. This method no longer has any effect. All calls to this method can be safely removed.</span><span class='tstring_end'>'</span></span>
@@ -1479,11 +1479,7 @@ manually; it will be called when appropriate.</p>
 197
 198
 199
-200
-201
-202
-203
-204</pre>
+200</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 181</span>
@@ -1491,25 +1487,21 @@ manually; it will be called when appropriate.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_setup_child_parent_links'>setup_child_parent_links</span>
   <span class='id identifier rubyid_teardown_child_parent_links'>teardown_child_parent_links</span>
 
-  <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
-    <span class='comment'># Get parent
-</span>    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_index'>index</span> <span class='op'>==</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_parent_identifier'>parent_identifier</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^\/]+\/$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='kw'>nil</span>
-    <span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downto'>downto</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_candidate_index'>candidate_index</span><span class='op'>|</span>
-      <span class='id identifier rubyid_candidate'>candidate</span> <span class='op'>=</span> <span class='id identifier rubyid_items'>items</span><span class='lbracket'>[</span><span class='id identifier rubyid_candidate_index'>candidate_index</span><span class='rbracket'>]</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_candidate'>candidate</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_parent_identifier'>parent_identifier</span>
-        <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_candidate'>candidate</span>
-      <span class='kw'>elsif</span> <span class='id identifier rubyid_candidate'>candidate</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_parent_identifier'>parent_identifier</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='id identifier rubyid_parent_identifier'>parent_identifier</span>
-        <span class='kw'>break</span>
+  <span class='id identifier rubyid_item_map'>item_map</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='id identifier rubyid_item_map'>item_map</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='id identifier rubyid_parent_id_end'>parent_id_end</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>2</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_parent_id_end'>parent_id_end</span>
+      <span class='id identifier rubyid_parent_id'>parent_id</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_parent_id_end'>parent_id_end</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_item_map'>item_map</span><span class='lbracket'>[</span><span class='id identifier rubyid_parent_id'>parent_id</span><span class='rbracket'>]</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_parent'>parent</span>
+        <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_parent'>parent</span>
+        <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_item'>item</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-
-    <span class='comment'># Link
-</span>    <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_parent'>parent</span>
-    <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_item'>item</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1546,15 +1538,15 @@ manually; it will be called when appropriate.</p>
       <pre class="lines">
 
 
+207
+208
+209
+210
 211
-212
-213
-214
-215
-216</pre>
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 207</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_teardown_child_parent_links'>teardown_child_parent_links</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
@@ -1596,6 +1588,10 @@ manually; it will be called when appropriate.</p>
       <pre class="lines">
 
 
+263
+264
+265
+266
 267
 268
 269
@@ -1607,14 +1603,10 @@ manually; it will be called when appropriate.</p>
 275
 276
 277
-278
-279
-280
-281
-282</pre>
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@unloading</span>

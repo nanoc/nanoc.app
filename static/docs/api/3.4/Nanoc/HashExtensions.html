@@ -149,10 +149,33 @@
 </li>
 
       
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#stringify_keys-instance_method" title="#stringify_keys (instance method)">- (Object) <strong>stringify_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Renamed to <span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span></p>
+</div></span>
+  
+</li>
+
+      
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stringify_keys-instance_method" title="#stringify_keys (instance method)">- (Hash) <strong>stringify_keys</strong> </a>
+      <a href="#stringify_keys_recursively-instance_method" title="#stringify_keys_recursively (instance method)">- (Hash) <strong>stringify_keys_recursively</strong> </a>
     
 
     
@@ -167,8 +190,31 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Returns a new hash where all keys are recursively converted to strings by
-calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-instance_method" title="Nanoc::ArrayExtensions#stringify_keys (method)">ArrayExtensions#stringify_keys</a></span> or
-<span class='object_link'><a href="#stringify_keys-instance_method" title="Nanoc::HashExtensions#stringify_keys (method)">#stringify_keys</a></span>.</p>
+calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#stringify_keys_recursively (method)">ArrayExtensions#stringify_keys_recursively</a></span> or
+<span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#symbolize_keys-instance_method" title="#symbolize_keys (instance method)">- (Object) <strong>symbolize_keys</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Renamed to <span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span></p>
 </div></span>
   
 </li>
@@ -177,7 +223,7 @@ calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-i
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbolize_keys-instance_method" title="#symbolize_keys (instance method)">- (Hash) <strong>symbolize_keys</strong> </a>
+      <a href="#symbolize_keys_recursively-instance_method" title="#symbolize_keys_recursively (instance method)">- (Hash) <strong>symbolize_keys_recursively</strong> </a>
     
 
     
@@ -192,8 +238,8 @@ calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-i
 
   
     <span class="summary_desc"><div class='inline'><p>Returns a new hash where all keys are recursively converted to symbols by
-calling <span class='object_link'><a href="ArrayExtensions.html#symbolize_keys-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys (method)">ArrayExtensions#symbolize_keys</a></span> or
-<span class='object_link'><a href="#symbolize_keys-instance_method" title="Nanoc::HashExtensions#symbolize_keys (method)">#symbolize_keys</a></span>.</p>
+calling <span class='object_link'><a href="ArrayExtensions.html#symbolize_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys_recursively (method)">ArrayExtensions#symbolize_keys_recursively</a></span> or
+<span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span>.</p>
 </div></span>
   
 </li>
@@ -255,13 +301,13 @@ in a different checksum.</p>
       <pre class="lines">
 
 
-54
-55
-56
-57</pre>
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_checksum'>checksum</span>
   <span class='id identifier rubyid_array'>array</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_kv'>kv</span><span class='op'>|</span> <span class='id identifier rubyid_kv'>kv</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='rbrace'>}</span>
@@ -321,20 +367,20 @@ that message, or #freeze if they do not.</p>
       <pre class="lines">
 
 
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46</pre>
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_freeze_recursively'>freeze_recursively</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_frozen?'>frozen?</span>
@@ -355,7 +401,49 @@ that message, or #freeze if they do not.</p>
       <div class="method_details ">
   <h3 class="signature " id="stringify_keys-instance_method">
   
-    - (<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>) <strong>stringify_keys</strong> 
+    - (<tt>Object</tt>) <strong>stringify_keys</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Renamed to <span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span></p>
+</div></div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys'>stringify_keys</span>
+  <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stringify_keys_recursively-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>) <strong>stringify_keys_recursively</strong> 
   
 
   
@@ -364,8 +452,8 @@ that message, or #freeze if they do not.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Returns a new hash where all keys are recursively converted to strings by
-calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-instance_method" title="Nanoc::ArrayExtensions#stringify_keys (method)">ArrayExtensions#stringify_keys</a></span> or
-<span class='object_link'><a href="#stringify_keys-instance_method" title="Nanoc::HashExtensions#stringify_keys (method)">#stringify_keys</a></span>.</p>
+calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#stringify_keys_recursively (method)">ArrayExtensions#stringify_keys_recursively</a></span> or
+<span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span>.</p>
 
 
   </div>
@@ -396,18 +484,18 @@ calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-i
       <pre class="lines">
 
 
-21
-22
-23
-24
-25</pre>
+26
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 26</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys'>stringify_keys</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
   <span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_hash'>hash</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='op'>|</span>
-    <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys'>stringify_keys</span> <span class='op'>:</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -418,7 +506,49 @@ calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-i
       <div class="method_details ">
   <h3 class="signature " id="symbolize_keys-instance_method">
   
-    - (<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>) <strong>symbolize_keys</strong> 
+    - (<tt>Object</tt>) <strong>symbolize_keys</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Renamed to <span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span></p>
+</div></div>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span>
+  <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="symbolize_keys_recursively-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../Hash.html" title="Hash (class)">Hash</a></span></tt>) <strong>symbolize_keys_recursively</strong> 
   
 
   
@@ -427,8 +557,8 @@ calling <span class='object_link'><a href="ArrayExtensions.html#stringify_keys-i
 </h3><div class="docstring">
   <div class="discussion">
     <p>Returns a new hash where all keys are recursively converted to symbols by
-calling <span class='object_link'><a href="ArrayExtensions.html#symbolize_keys-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys (method)">ArrayExtensions#symbolize_keys</a></span> or
-<span class='object_link'><a href="#symbolize_keys-instance_method" title="Nanoc::HashExtensions#symbolize_keys (method)">#symbolize_keys</a></span>.</p>
+calling <span class='object_link'><a href="ArrayExtensions.html#symbolize_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys_recursively (method)">ArrayExtensions#symbolize_keys_recursively</a></span> or
+<span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span>.</p>
 
 
   </div>
@@ -468,9 +598,9 @@ calling <span class='object_link'><a href="ArrayExtensions.html#symbolize_keys-i
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/hash.rb', line 10</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
   <span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_hash'>hash</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='op'>|</span>
-    <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbolize_keys</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span> <span class='op'>:</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbolize_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

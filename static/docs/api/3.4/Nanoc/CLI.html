@@ -209,6 +209,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#root_command-class_method" title="root_command (class method)">+ (Cri::Command) <strong>root_command</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The root command, i.e.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#run-class_method" title="run (class method)">+ (void) <strong>run</strong>(args) </a>
     
 
@@ -282,12 +305,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_command'>add_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_root_command'>root_command</span><span class='period'>.</span><span class='id identifier rubyid_add_command'>add_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
@@ -438,6 +461,63 @@ false if it should not</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_debug?'>debug?</span>
   <span class='ivar'>@debug</span> <span class='op'>||</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="root_command-class_method">
+  
+    + (<tt>Cri::Command</tt>) <strong>root_command</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The root command, i.e. the commandline tool itself</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Cri::Command</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The root command, i.e. the commandline tool itself</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_root_command'>root_command</span>
+  <span class='ivar'>@root_command</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
