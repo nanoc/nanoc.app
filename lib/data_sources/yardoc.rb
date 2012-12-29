@@ -14,23 +14,26 @@ class YARDDataSource < Nanoc3::DataSource
 
     # Add filters
     YARD::Registry.at('Nanoc::Filters').children.each do |filter|
-      slug        = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
-      method      = filter.meths.detect { |m| m.name == :run }
-      identifiers = filter['nanoc_identifiers']
-      examples = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
+      slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
+      method        = filter.meths.detect { |m| m.name == :run }
+      identifiers   = filter['nanoc_identifiers']
+      examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
+      is_deprecated = !method.tags('deprecated').empty?
 
-      items << Nanoc::Item.new(
-        '-',
-        {
-          :type        => 'filter',
-          :name        => filter.name,
-          :full_name   => filter.path,
-          :summary     => method.docstring.summary,
-          :description => method.docstring,
-          :identifiers => identifiers,
-          :examples    => examples
-        },
-        "/filters/#{slug}")
+      unless is_deprecated
+        items << Nanoc::Item.new(
+          '-',
+          {
+            :type        => 'filter',
+            :name        => filter.name,
+            :full_name   => filter.path,
+            :summary     => method.docstring.summary,
+            :description => method.docstring,
+            :identifiers => identifiers,
+            :examples    => examples
+          },
+          "/filters/#{slug}")
+      end
     end
 
     # Add helpers
