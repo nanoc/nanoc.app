@@ -8,6 +8,6 @@ check :no_unprocessed_erb, "Should not contain any unprocessed ERB instructions"
   end
 end
 
-#deploy_check :ilinks
+deploy_check :ilinks
 deploy_check :stale
 deploy_check :no_unprocessed_erb
