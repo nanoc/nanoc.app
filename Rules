@@ -110,24 +110,6 @@ compile '/' do
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
-compile %r{^/docs/(filters|helpers|commands)/.*/$} do
-  filter :remove_spacing_around_pre
-  filter :add_ids_to_headers
-
-  case item[:type]
-  when 'command'
-    layout '/command/'
-  else
-    layout '/autodoc/'
-  end
-  layout '/default/'
-
-  filter :add_toc
-  filter :colorize_syntax, :is_fullpage => true
-  filter :relativize_paths, :type => :html
-  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
-end
-
 compile '*' do
   filter :erb if item[:is_dynamic]
   case item[:markdown]
@@ -139,6 +121,12 @@ compile '*' do
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
 
+  case item[:type]
+  when 'command'
+    layout '/command/'
+  when 'filter', 'helper'
+    layout '/autodoc/'
+  end
   layout '/default/'
 
   filter :add_toc
