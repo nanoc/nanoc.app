@@ -44,7 +44,7 @@ module Nanoc::Helpers
       @hist = ""
         @p = @page
         while(1)
-          @hist = " &raquo; <a href=\"" + @p.path + "\">" + @p.title + "</a>" + @hist
+          @hist = " &raquo; &lt;a href=\"" + @p.path + "\">" + @p.title + "&lt;/a>" + @hist
           break if (@p.path == "/")
           @p = @p.parent
         end

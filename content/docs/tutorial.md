@@ -8,7 +8,7 @@ has_toc:    true
 Requirements
 ------------
 
-This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Installation](/docs/2-installation/) page.
+This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Download](/download/) page.
 
 nanoc also requires some experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
 
@@ -327,7 +327,7 @@ dog's back.&lt;/p>
 &lt;/blockquote>
 </code></pre>
 
-The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/4-basic-concepts/#list-of-built-in-filters). You can also write your own filters—read the [Writing Filters](/docs/5-advanced-concepts/#writing-filters) section in the manual for details.
+The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/filters/). You can also write your own filters—read the [Writing Filters](/docs/extending-nanoc/#writing-filters) section in the manual for details.
 
 Writing some Custom Code
 ------------------------

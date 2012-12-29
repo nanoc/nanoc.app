@@ -221,7 +221,7 @@ An item representation (or “rep” for short) is a compiled version of an item
 
 Multiple representations are useful when items need to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn’t compiled at all—just the raw, unfiltered, non-laid out content. Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
 
-An item’s list of representation can be fetched by calling [`Nanoc::Item#reps`](/docs/api//Nanoc/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc::Item#rep_named`](<%= api_doc_root %>Nanoc/Item.html#rep_named-instance_method) with the rep name, like this:
+An item’s list of representation can be fetched by calling [`Nanoc::Item#reps`](<%= api_doc_root %>Nanoc/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc::Item#rep_named`](<%= api_doc_root %>Nanoc/Item.html#rep_named-instance_method) with the rep name, like this:
 
 <pre title="Finding the item rep with the given name"><code class="language-ruby">
 rep = @item.rep_named(:default)
