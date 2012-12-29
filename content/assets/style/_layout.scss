@@ -29,19 +29,23 @@ a {
     text-decoration: none;
 }
 
-dl.compact {
-    dt {
-        clear: left;
-        float: left;
-    }
-
-    dd {
-        margin-left: 200px;
-    }
-}
-
 dd {
     margin: 0 0 20px 20px;
+}
+
+table.dl {
+    td {
+        padding: 5px 10px 5px 0;
+        vertical-align: top;
+    }
+
+    td.summary {
+        width: 100%;
+    }
+
+    td.name {
+        white-space: nowrap;
+    }
 }
 
 body {

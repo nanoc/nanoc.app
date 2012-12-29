@@ -6,9 +6,11 @@ is_dynamic: true
 
 <h2>Commands index</h2>
 
-<dl class="compact">
+<table class="dl">
 <% @item.children.sort_by { |i| i[:name] }.each do |c| %>
-	<dt><%= link_to c[:name], c %></dt>
-	<dd><%= c[:summary] %></dd>
+	<tr>
+		<td class="name"><%= link_to c[:name], c %></td>
+		<td class="summary"><%= c[:summary] %></td>
+	</tr>
 <% end %>
-</dl>
+</table>

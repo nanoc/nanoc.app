@@ -8,9 +8,11 @@ is_dynamic: true
 
 <h2>Filters index</h2>
 
-<dl class="compact">
+<table class="dl">
 <% @item.children.sort_by { |i| i[:name] }.each do |f| %>
-	<dt><%= link_to f[:name], f %></dt>
-	<dd><%= !f[:summary].empty? ? Kramdown::Document.new(f[:summary]).to_html.gsub(/<\/?p>/, '') : '(no summary available)' %></dd>
+	<tr>
+		<td class="name"><%= link_to f[:name], f %></td>
+		<td class="summary"><%= Kramdown::Document.new(f[:summary]).to_html.gsub(/<\/?p>/, '') %></td>
+	</tr>
 <% end %>
-</dl>
+</table>
