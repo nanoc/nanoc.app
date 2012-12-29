@@ -29,6 +29,17 @@ a {
     text-decoration: none;
 }
 
+dl.compact {
+    dt {
+        clear: left;
+        float: left;
+    }
+
+    dd {
+        margin-left: 200px;
+    }
+}
+
 dd {
     margin: 0 0 20px 20px;
 }
@@ -467,9 +478,7 @@ footer {
     a {
         padding: 0 2px;
     }
-}
 
-footer {
     background: #554f4b;
 
     padding: 40px 0 80px 0;
