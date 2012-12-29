@@ -130,7 +130,7 @@ title: "My New Home Page"
 
 The metadata section at the top of the file is formatted as YAML. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page’s author, the language the page is written in, etc.
 
-Recompile the site and once again load [http://localhost:3000/](http://localhost:3000/) in your browser. You will see that the browser’s title bar displays the page’s title now. If you’re wondering how exactly nanoc knew that it had to update the stuff between the `<title>` and `</title>` tags: don’t worry. There’s no magic involved. It’ll all become crystal clear in a minute. (Take a peek at `layouts/default.html` if you’re curious.)
+Recompile the site and once again load [http://localhost:3000/](http://localhost:3000/) in your browser. You will see that the browser’s title bar displays the page’s title now. How the page title ends up between `<title>` and `</title>` will be explained below!
 
 Adding a Page
 -------------
@@ -181,11 +181,18 @@ Take a look at the `default.html` file in the `layouts` directory. Just like ite
 …
 </code></pre>
 
-The odd construct in the middle of that piece of code is an *embedded Ruby* instruction. The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling.
+The odd construct in the middle of that piece of code is an *eRuby* instruction. Here’s a cheat sheet in case you’re not familar with eRuby:
 
-If you are not familiar with embedded Ruby (also known as eRuby), take a look at the [eRuby article on Wikipedia](http://en.wikipedia.org/wiki/ERuby), or the [<i>Embedding Ruby in HTML</i> section](http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2) of the <i>Ruby and the Web</i> chapter of the online <i>Programming Ruby</i> book.
+<dl>
+<dt><code>&lt;% code %></code></dt>
+<dd>Runs the code between <code>&lt;%</code> and <code>%></code></dd>
+<dt><code>&lt;%= code %></code></dt>
+<dd>Runs the code between <code>&lt;%=</code> and <code>%></code>, and displays the return value on the web page</dd>
+</dl>
 
-There is another important piece of embedded Ruby code near the top of the file:
+By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/filters/haml/) and [Mustache](/docs/filters/mustache/) filters (filters will be explained below).
+
+The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling. There is another important piece of eRuby code near the top of the file:
 
 <pre title="Extract from the default layout showing the title"><code class="language-html">
 &lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
