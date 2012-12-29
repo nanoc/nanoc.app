@@ -78,7 +78,7 @@ similar_projects = [
   { :name => 'Korma',        :lang => 'Ruby', :url => 'http://github.com/sandal/korma' },
   { :name => 'Machined',     :lang => 'Ruby', :url => 'http://github.com/petebrowne/machined' },
   { :name => 'Magneto',      :lang => 'Ruby', :url => 'http://github.com/donmelton/magneto' },
-  { :name => 'Middleman',    :lang => 'Ruby', :url => 'http://github.com/tdreyno/middleman' },
+  { :name => 'Middleman',    :lang => 'Ruby', :url => 'http://github.com/middleman/middleman' },
   { :name => 'Pith',         :lang => 'Ruby', :url => 'http://github.com/mdub/pith' },
   { :name => 'RakeWeb',      :lang => 'Ruby', :url => 'http://rubyforge.org/projects/rakeweb/' },
   { :name => 'Rassmalog',    :lang => 'Ruby', :url => 'http://rassmalog.rubyforge.org/' },
