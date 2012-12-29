@@ -14,7 +14,7 @@ class YARDDataSource < Nanoc3::DataSource
 
     # Add filters
     YARD::Registry.at('Nanoc::Filters').children.each do |filter|
-      slug        = filter.name.to_s.downcase.gsub(/^a-z0-9/, '')
+      slug        = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
       method      = filter.meths.detect { |m| m.name == :run }
       identifiers = filter['nanoc_identifiers']
       examples = method.tags('example').map { |e| { :title => e.name, :code => e.text } }

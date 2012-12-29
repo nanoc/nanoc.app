@@ -20,7 +20,7 @@ class CLIDataSource < Nanoc::DataSource
   protected
 
   def cmd_to_item(cmd)
-    slug = cmd.name.downcase.gsub(/[^a-z0-9-]+/, '')
+    slug = cmd.name.downcase.gsub(/[^a-z0-9]+/, '-')
     opt_defs = cmd.option_definitions.map do |od|
       od.reject { |k,v| k == :block }
     end
