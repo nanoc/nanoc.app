@@ -23,7 +23,7 @@ Wiki
 
 The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
 
-Repositories
-------------
+Code
+----
 
-There’s a [nanoc Git repository](http://github.com/ddfreyne/nanoc) over at GitHub, where you can easily fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
+The development details are described on the [development page](/community/development/). Go there for information on report bugs, suggesting features, getting the code and contributing!
