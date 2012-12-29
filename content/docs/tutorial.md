@@ -185,7 +185,7 @@ The odd construct in the middle of that piece of code is an *embedded Ruby* inst
 
 If you are not familiar with embedded Ruby (also known as eRuby), take a look at the [eRuby article on Wikipedia](http://en.wikipedia.org/wiki/ERuby), or the [<i>Embedding Ruby in HTML</i> section](http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2) of the <i>Ruby and the Web</i> chapter of the online <i>Programming Ruby</i> book.
 
-The is another important piece of embedded Ruby code near the top of the file:
+There is another important piece of embedded Ruby code near the top of the file:
 
 <pre title="Extract from the default layout showing the title"><code class="language-html">
 &lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
