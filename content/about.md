@@ -65,7 +65,7 @@ When nanoc compiles a site, the compiled site goes into the `output` directory o
 
 The source files for a nanoc site are stored as flat text files by default. This means that you can easily store the site in a versioned repository (Subversion, Mercurial, git, darcs, Bazaar, etc.).
 
-Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](/community/development/) section for details).
+Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](/development/) section for details).
 
 Similar Projects
 ----------------

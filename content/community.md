@@ -23,8 +23,3 @@ Wiki
 ----
 
 The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
-
-Code
-----
-
-The development details are described on the [development page](/community/development/). Go there for information on report bugs, suggesting features, getting the code and contributing!
