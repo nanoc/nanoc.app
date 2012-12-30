@@ -390,10 +390,6 @@ body.home .chooser {
     padding: 40px 20px 40px 20px;
 
     .chooser-unit {
-        @include span-columns(4, 12);
-
-        text-align: center;
-
         h2 {
             a {
                 padding: 4px 8px;
@@ -405,20 +401,63 @@ body.home .chooser {
         }
     }
 
-    .chooser-unit:before {
-        content: "";
+    @media (min-width: 720px) {
+        .chooser-unit {
+            @include span-columns(4, 12);
+            text-align: center;
+        }
 
-        display: block;
-        width: 100px;
-        height: 100px;
+        .chooser-unit:last-child {
+            @include span-columns(4 omega, 12);
+        }
 
-        margin: 0 auto;
+        .chooser-unit:before {
+            content: "";
 
-        border: 12px double #000;
-        @include border-radius(100px);
+            display: block;
+            width: 100px;
+            height: 100px;
 
-        background-position: center center;
-        background-repeat: no-repeat;
+            margin: 0 auto;
+
+            border: 12px double #000;
+            @include border-radius(100px);
+
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+
+    @media (max-width: 719px) {
+        .chooser-unit {
+            @include span-columns(12, 12);
+            margin: 0 0 20px 0;
+        }
+
+        .chooser-unit:last-child {
+            @include span-columns(12 omega, 12);
+        }
+
+        h2, p {
+            margin-left: 140px;
+        }
+
+        .chooser-unit:before {
+            content: "";
+
+            display: block;
+            width: 100px;
+            height: 100px;
+
+            clear: left;
+            float: left;
+
+            border: 12px double #000;
+            @include border-radius(100px);
+
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
     }
 
     .install-nanoc:before {
@@ -431,10 +470,6 @@ body.home .chooser {
 
     .learn-more:before {
         background-image: url(/assets/images/chooser-learn.png);
-    }
-
-    .chooser-unit:last-child {
-        @include span-columns(4 omega, 12);
     }
 }
 
