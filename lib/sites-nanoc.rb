@@ -15,6 +15,10 @@ def api_doc_root
   '/docs/api/' + latest_release_info[:version][0..-3] + '/'
 end
 
+def array_to_yaml(array)
+  '[ ' + array.map { |s| "'" + s + "'" }.join(', ') + ' ]'
+end
+
 class Date
   def format_as_date
     %[#{Date::MONTHNAMES[self.mon]} #{self.mday.ordinal}, #{self.year}]

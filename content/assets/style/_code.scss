@@ -5,6 +5,10 @@ pre, code, kbd, var {
     font-size: 13px;
 }
 
+h2 code {
+    font-size: inherit;
+}
+
 kbd {
     font-weight: bold;
 }

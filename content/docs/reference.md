@@ -11,6 +11,7 @@ is_dynamic: true
 	<li><%= link_to_id '/docs/reference/filters/' %></li>
 	<li><%= link_to_id '/docs/reference/helpers/' %></li>
 	<li><%= link_to_id '/docs/reference/commands/' %></li>
+	<li><%= link_to_id '/docs/reference/config/' %></li>
     </ol>
 <% end %>
 
@@ -22,3 +23,4 @@ This Reference section contains detailed documentation of the following concepts
 * [Filters](/docs/reference/filters/)
 * [Helpers](/docs/reference/helpers/)
 * [Commands](/docs/reference/commands/)
+* [Site configuration](/docs/reference/config/)

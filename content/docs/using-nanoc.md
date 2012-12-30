@@ -83,61 +83,6 @@ A site has the following files and directories:
 
 nanoc will load all Ruby source files in the `lib` directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helpers, filters, data sources, etc.
 
-### Site configuration
-
-The site configuration is defined by the `config.yaml` file at the top level of the site directory. The file is in YAML format. The configuration has the following predefined values (check the [API documentation for `Nanoc::Site`](<%= api_doc_root %>Nanoc/Site.html) for details about the default values):
-
-`text_extensions`
-: A list of file extensions that nanoc will consider to be textual rather than binary. If an item with an extension not in this list is found, the file will be considered as binary.
-
-`output_dir`
-: The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be path relative to the site directory.
-
-`index_filenames`
-: A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named “index.hml”, but depending on the web server, this may be something else, such as “default.htm”. This list is used by nanoc to generate pretty URLs.
-
-`enable_output_diff`
-: Whether or not to generate a diff of the compiled content when compiling a site. The diff will contain the differences between the compiled content before and after the last site compilation.
-
-`data_sources`
-: The data sources where nanoc loads its data from. This is an array of hashes; each array element represents a single data source. By default, there is only a single data source that reads data from the “content/” and “layout/” directories in the site directory. See below for details.
-
-`watcher`
-: Configuration for the “watch” command, which watches a site for changes and recompiles if necessary. See below for details.
-
-The data source configuration is an array of hashes with the following keys:
-
-`type`
-: The type is the identifier of the data source. By default, this will be `filesystem_unified`.
-
-`items_root`
-: The path where items should be mounted (comparable to mount points in Unix-like systems). This is “/” by default, meaning that items will have “/” prefixed to their identifiers. If the items root were “/en/” instead, an item at content/about.html would have an identifier of “/en/about/” instead of just “/about/”.
-
-`layouts_root`
-: The path where layouts should be mounted. The layouts root behaves the same as the items root, but applies to layouts rather than items.
-
-The watcher configuration is a hash with the following options:
-
-`dirs_to_watch`
-: A list of directories to watch for changes. When editing this, make sure that the “output/” and “tmp/” directories are _not_ included in this list, because recompiling the site will cause these directories to change, which  will cause the site to be recompiled, which will cause these directories to change, which will cause the site to be recompiled again, and so on. By default, this contains `content`, `layouts` and `lib`.
-
-`files_to_watch`
-: A list of single files to watch for changes. As mentioned above, don’t put any files from the “output/” or “tmp/” directories in here. By default, this contains `config.yaml` and `Rules`.
-
-`notify_on_compilation_success`
-: Whether or not to send a Growl or `notify-send` notification when compilation succeeds.
-
-`notify_on_compilation_failure`
-: Whether or not to send a Growl or `notify-send` notification when compilation fails.
-
-The prune configuration is a hash with the following options:
-
-`auto_prune`
-: Whether to automatically remove files not managed by nanoc from the output directory. For safety reasons, this is turned off by default.
-
-`exclude`
-: Which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as `.git`, `.svn` etc. By default, the directories `.git`, `.hg`, `.svn` and `CVS` will be ignored. 
-
 ### (Auto)compiling a Site
 
 To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. The compile command is the default command, so it will be invoked if you don’t pass anything. The compile command will write the compiled site to the output directory as specified in the site configuration file. For example:
