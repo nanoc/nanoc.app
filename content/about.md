@@ -15,6 +15,13 @@ nanoc is not a true content management system (CMS), as it does not manage conte
 
 Unlike many CMSes and blog engines, nanoc runs on your local computer, and not on the server. It doesn’t need to—nanoc produces static HTML files that can be uploaded to any web server. This also means that the server doesn’t need to have anything “special” installed at all—it just needs to be able to serve static files, which every web server can.
 
+History
+-------
+
+Around 2006, I was looking for a Ruby blog engine. However, having a VPS with ony 96 MB of RAM, any Ruby-based CMS ran _extremely_ slowly. When a friend of mine showed his web site consisting only of static files, I decided to take that route as well, and ended up with a script with basic Markdown and ERB support; the first version of nanoc, released in April 2007.
+
+nanoc has grown quite a bit since then. While the first version of nanoc could be considered more as a set of interacting scripts, nanoc 2.0 was designed to be an actual application, while retaining the spirit of nanoc 1.0. A bit later, in 2009, nanoc 3.0 followed, introducing the concept of the `Rules` file, allowing filters and layouts to be specified in a DRYer and more flexible way. nanoc 3.x is still actively being developed, with feature releases every six months and bug fix releases whenever they are necessary.
+
 Why use nanoc?
 --------------
 
