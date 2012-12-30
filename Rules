@@ -44,10 +44,11 @@ preprocess do
     if i.identifier !~ %r{^/community/development/neps/NEP-}
       items.delete(i)
     else
-      i.identifier.sub!(':', '')
       i[:number]   = i.identifier.match(/NEP-(\d+)/)[1].to_i
-      i[:title]    = i.identifier.match(/\d+-(.*)\/$/)[1].gsub('-', ' ')
+      i[:title]    = i.identifier.match(/NEP-\d+:-(.*)\/$/)[1].gsub('-', ' ')
       i[:markdown] = 'basic'
+      i[:type]     = 'nep'
+      i.identifier = "/community/development/neps/#{i[:number]}/"
     end
   end
 
@@ -135,6 +136,8 @@ compile '*' do
   filter :add_ids_to_headers
 
   case item[:type]
+  when 'nep'
+    layout '/nep/'
   when 'command'
     layout '/command/'
   when 'filter', 'helper'

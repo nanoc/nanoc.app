@@ -1,0 +1,29 @@
+<% content_for :title do %><%= @item[:name] %> <%= @item[:type].capitalize %><% end %>
+
+<%
+
+    status_map = {
+        'new'         => 'NEP contains good ideas, but needs more investigation before it can be accepted',
+        'accepted'    => 'NEP contains refined ideas and will be developed at some point',
+        'started'     => 'NEP is in the progress of being implemented',
+        'implemented' => 'NEP has been implemented but is not yet available in a released nanoc version',
+        'released'    => 'NEP has been implemented and is available in a released version'
+    }
+
+%>
+
+<% content_for :details do %>
+    <h3>NEP details</h3>
+    <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
+    <dl>
+        <dt>ID</dt>
+        <dd>NEP-<%= @item[:number] %></dd>
+
+        <dt>Status</dt>
+        <dd><strong><%= @item[:status] %></strong> - <%= status_map[@item[:status]] %></dd>
+    </dl>
+<% end %>
+
+<h2>Summary</h2>
+
+<%= yield %>

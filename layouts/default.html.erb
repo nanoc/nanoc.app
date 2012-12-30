@@ -39,9 +39,9 @@
             <article>
                 <% if @item[:has_toc] %>
                     <div class="details">
-                        <h3><%= @item[:title] %></h3>
+                        <h3><%= @item[:short_title] || @item[:title] %></h3>
                         <% unless @item.parent.identifier == '/' %>
-                            <p>↑ <%= link_to "Back to #{@item.parent[:title]}", @item.parent %></p>
+                            <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
                         <% end %>
                         {{TOC}}
                     </div>
