@@ -38,6 +38,19 @@ preprocess do
   config[:nanoc_version_info] = `nanoc --version`.strip
   config[:gem_version_info]   = `gem --version`.strip
 
+  # Cleanup NEPs
+  nep_candidates = items.detect { |i| i.identifier == '/community/development/neps/' }.children
+  nep_candidates.each do |i|
+    if i.identifier !~ %r{^/community/development/neps/NEP-}
+      items.delete(i)
+    else
+      i.identifier.sub!(':', '')
+      i[:number]   = i.identifier.match(/NEP-(\d+)/)[1].to_i
+      i[:title]    = i.identifier.match(/\d+-(.*)\/$/)[1].gsub('-', ' ')
+      i[:markdown] = 'basic'
+    end
+  end
+
   # TODO stylesheets -> is_hidden and is_partial
 end
 

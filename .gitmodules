@@ -1,0 +1,3 @@
+[submodule "content/community/development/neps"]
+	path = content/community/development/neps
+	url = git://github.com/ddfreyne/neps
