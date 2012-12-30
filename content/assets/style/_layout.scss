@@ -442,10 +442,9 @@ body.home .support {
     @include container;
 
     border-top: 1px solid #a89c93;
-    padding: 40px 20px 0 20px;
+    padding: 40px 20px 40px 20px;
 
     .support-content {
-        height: 200px;
         padding: 0 60px 0 240px;
         position: relative;
 
