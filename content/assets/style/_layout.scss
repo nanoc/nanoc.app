@@ -71,17 +71,17 @@ body header {
     padding: 0 20px;
 
     .header-content {
-        @media (min-width: 800px) {
+        @media (min-width: 720px) {
             @include container;
         }
 
         .search {
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 @include span-columns(2 omega, 12);
 
                 text-align: right;
             }
-            @media (max-width: 800px) {
+            @media (max-width: 719px) {
                 text-align: center;
             }
 
@@ -93,7 +93,7 @@ body header {
         }
 
         nav {
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 @include span-columns(10, 12);
             }
 
@@ -101,7 +101,7 @@ body header {
                 text-align: center;
                 list-style-type: none;
 
-                @media (min-width: 800px) {
+                @media (min-width: 720px) {
                     li {
                         float: left;
                         zoom: 1;
@@ -114,7 +114,7 @@ body header {
                     }
                 }
 
-                @media (max-width: 800px) {
+                @media (max-width: 719px) {
                     li {
                         padding: 10px 0;
                         border-bottom: 1px solid #444;
@@ -139,13 +139,13 @@ body.page .intro {
     background: rgba(0, 0, 0, 0.075);
 
     .intro-content {
-        @media (min-width: 800px) {
+        @media (min-width: 720px) {
             @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
                 @include container;
             }
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 719px) {
             padding-left: 20px;
             padding-right: 20px;
         }
@@ -163,7 +163,7 @@ body.page .intro {
         }
 
         p {
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 @include span-columns(8, 12);
             }
 
@@ -180,13 +180,13 @@ a {
 
 body.page .content {
     article {
-        @media (min-width: 800px) {
+        @media (min-width: 720px) {
             @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
                 @include container;
             }
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 719px) {
             padding-left: 20px;
             padding-right: 20px;
         }
@@ -195,7 +195,7 @@ body.page .content {
         padding-bottom: 40px;
 
         .article-content {
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 @include span-columns(8, 12);
             }
 
@@ -274,7 +274,7 @@ body.page .content {
         }
 
         .details {
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 @include span-columns(4 omega, 12);
 
                 position: relative;
@@ -282,7 +282,7 @@ body.page .content {
 
             }
 
-            @media (max-width: 800px) {
+            @media (max-width: 719px) {
                 margin: 40px 0;
             }
 
@@ -499,7 +499,7 @@ footer {
             font-weight: 400px;
             font-size: 13px;
 
-            @media (min-width: 800px) {
+            @media (min-width: 720px) {
                 section {
                     @include span-columns(3, 12);
                 }
@@ -508,7 +508,7 @@ footer {
                     @include span-columns(3 omega, 12);
                 }
             }
-            @media (max-width: 800px) {
+            @media (max-width: 719px) {
                 section {
                     @include span-columns(6, 12);
                 }
