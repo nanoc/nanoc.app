@@ -190,7 +190,7 @@ The odd construct in the middle of that piece of code is an *eRuby* instruction.
 <dd>Runs the code between <code>&lt;%=</code> and <code>%></code>, and displays the return value on the web page</dd>
 </dl>
 
-By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/filters/haml/) and [Mustache](/docs/filters/mustache/) filters (filters will be explained below).
+By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/reference/filters/haml/) and [Mustache](/docs/reference/filters/mustache/) filters (filters will be explained below).
 
 The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling. There is another important piece of eRuby code near the top of the file:
 
@@ -319,7 +319,7 @@ dog's back.&lt;/p>
 &lt;/blockquote>
 </code></pre>
 
-The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/filters/). You can also write your own filters—read the [Writing Filters](/docs/extending-nanoc/#writing-filters) section in the manual for details.
+The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/reference/filters/). You can also write your own filters—read the [Writing Filters](/docs/extending-nanoc/#writing-filters) section in the manual for details.
 
 Writing some Custom Code
 ------------------------
