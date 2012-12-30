@@ -40,7 +40,9 @@
                 <% if @item[:has_toc] %>
                     <div class="details">
                         <h3><%= @item[:title] %></h3>
-                        <p>↑ <%= link_to "Back to #{@item.parent[:title]}", @item.parent %></p>
+                        <% unless @item.parent.identifier == '/' %>
+                            <p>↑ <%= link_to "Back to #{@item.parent[:title]}", @item.parent %></p>
+                        <% end %>
                         {{TOC}}
                     </div>
                 <% elsif content_for(@item, :details) %>

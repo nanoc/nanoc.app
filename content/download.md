@@ -1,9 +1,8 @@
 ---
-
-title:                 "Download"
-markdown:              basic
-is_dynamic:            true
-
+title:      "Download"
+markdown:   basic
+is_dynamic: true
+has_toc:    true
 ---
 
 Instructions For The Impatient
