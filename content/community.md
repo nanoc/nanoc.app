@@ -9,11 +9,6 @@ Discussion Groups
 
 nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble.
 
-Issue Tracker
--------------
-
-If you’ve encountered an issue in nanoc, please do let me know on the [issue tracker](http://github.com/ddfreyne/nanoc/issues) at GitHub.
-
 IRC Channel
 ----------
 
