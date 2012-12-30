@@ -480,26 +480,28 @@ body.home .support {
     padding: 40px 20px 40px 20px;
 
     .support-content {
-        padding: 0 60px 0 240px;
-        position: relative;
+        @media (min-width: 720px) {
+            padding: 0 60px 0 240px;
+            position: relative;
 
-        h3:before {
-            content: "";
+            h3:before {
+                content: "";
 
-            position: absolute;
-            top: 0;
-            left: 60px;
-            display: block;
-            width: 120px;
-            height: 120px;
+                position: absolute;
+                top: 0;
+                left: 60px;
+                display: block;
+                width: 120px;
+                height: 120px;
 
-            border: 8px solid #000;
-            @include border-radius(100px);
+                border: 8px solid #000;
+                @include border-radius(100px);
 
-            background-position: center 30px;
-            background-repeat: no-repeat;
-            background-image: url(/assets/images/heart.png);
-        }
+                background-position: center 30px;
+                background-repeat: no-repeat;
+                background-image: url(/assets/images/heart.png);
+            }
+        } 
 
         h3 {
             font-size: 20px;
