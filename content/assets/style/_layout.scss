@@ -487,7 +487,9 @@ footer {
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 
     .footer-content {
-        @include container;
+        @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
+            @include container;
+        }
 
         padding: 0 20px;
 
