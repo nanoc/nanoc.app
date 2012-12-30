@@ -39,16 +39,16 @@ preprocess do
   config[:gem_version_info]   = `gem --version`.strip
 
   # Cleanup NEPs
-  nep_candidates = items.detect { |i| i.identifier == '/community/development/neps/' }.children
+  nep_candidates = items.detect { |i| i.identifier == '/development/neps/' }.children
   nep_candidates.each do |i|
-    if i.identifier !~ %r{^/community/development/neps/NEP-}
+    if i.identifier !~ %r{^/development/neps/NEP-}
       items.delete(i)
     else
       i[:number]   = i.identifier.match(/NEP-(\d+)/)[1].to_i
       i[:title]    = i.identifier.match(/NEP-\d+:-(.*)\/$/)[1].gsub('-', ' ')
       i[:markdown] = 'basic'
       i[:type]     = 'nep'
-      i.identifier = "/community/development/neps/#{i[:number]}/"
+      i.identifier = "/development/neps/#{i[:number]}/"
     end
   end
 
