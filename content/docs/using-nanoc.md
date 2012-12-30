@@ -1,5 +1,5 @@
 ---
-title:      "Basic Concepts"
+title:      "Using nanoc"
 markdown:   advanced
 has_toc:    true
 is_dynamic: true

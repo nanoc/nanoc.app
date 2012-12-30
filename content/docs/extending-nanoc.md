@@ -1,5 +1,5 @@
 ---
-title:    "Advanced Concepts"
+title:    "Extending nanoc"
 has_toc:  true
 markdown: advanced
 ---
