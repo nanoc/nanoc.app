@@ -66,7 +66,7 @@ When nanoc compiles a site, the compiled site goes into the `output` directory o
 
 The source files for a nanoc site are stored as flat text files by default. This means that you can easily store the site in a versioned repository (Subversion, Mercurial, git, darcs, Bazaar, etc.).
 
-Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](#development) section for details).
+Both the nanoc site and my personal web site, which are both built with nanoc, are versioned this way (they are publicly available from the nanoc repository—check the [Development](/community/development/) section for details).
 
 Similar Projects
 ----------------
@@ -159,8 +159,3 @@ end
 There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these Ruby ones do: <%= join_with_and(similar_projects.select { |p| p[:lang] == 'Ruby' }.sort_by { |p| p[:name].downcase }.map { |p| %[<a href="#{p[:url]}">#{p[:name]}</a>] }) %>.
 
 There are some non-Ruby ones around too: <%= join_with_and(similar_projects.select { |p| p[:lang] != 'Ruby' }.sort_by { |p| p[:name].downcase }.map { |p| %[<a href="#{p[:url]}">#{p[:name]}</a> (#{p[:lang]})] }) %>.
-
-Development
------------
-
-nanoc uses git as its VCS, and its main repository is located [on GitHub here](http://github.com/ddfreyne/nanoc). If you have any patches to share, I’d be happy to accept them!
