@@ -10,10 +10,10 @@ data_sources:
     layouts_root: /
   -
     type:         cli
-    items_root:   /docs/commands/
+    items_root:   /docs/reference/commands/
   -
     type:         yard
-    items_root:   /docs/
+    items_root:   /docs/reference/
   -
     type:         static
     items_root:   /static/
