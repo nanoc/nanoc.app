@@ -439,15 +439,15 @@ body.home .chooser {
         }
 
         h2, p {
-            margin-left: 140px;
+            margin-left: 110px;
         }
 
         .chooser-unit:before {
             content: "";
 
             display: block;
-            width: 100px;
-            height: 100px;
+            width:  70px;
+            height: 70px;
 
             clear: left;
             float: left;
@@ -457,6 +457,7 @@ body.home .chooser {
 
             background-position: center center;
             background-repeat: no-repeat;
+            background-size: 40px auto;
         }
     }
 
