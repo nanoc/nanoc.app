@@ -2,31 +2,32 @@
 $emph-color:          rgb(210, 67, 27);
 
 // background
-$bg-color:            #f1f0eb;
-$semilight-bg-color:  adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
-$top-bg-color:        shade($bg-color, 70%);
-$footer-bg-color:     $top-bg-color;
-$nav-bg-color:        shade($top-bg-color, 60%);
-$search-bg-color:     shade($top-bg-color, 30%);
-$nav-spacing-color:   shade($top-bg-color, 20%);
-$explanation-bg-color: shade($emph-color, 10%);
-$ticker-bg-color:     shade($bg-color, 70%);
+$bg-color:              #f1f0eb;
+$semilight-bg-color:    adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
+$top-bg-color:          shade($bg-color, 70%);
+$footer-bg-color:       $top-bg-color;
+$nav-bg-color:          shade($top-bg-color, 60%);
+$search-bg-color:       shade($top-bg-color, 30%);
+$nav-spacing-color:     $top-bg-color;
+$explanation-bg-color:  shade($emph-color, 10%);
+$ticker-bg-color:       shade($bg-color, 70%);
 $chooser-unit-bg-color: $emph-color;
 
 // foreground
-$tagline-color:       tint($top-bg-color, 40%);
-$dark-fg-color:       $search-bg-color;
-$light-fg-color:      #ddd6d4;
-$emph-light-fg-color: #fff;
+$tagline-color:         tint($top-bg-color, 40%);
+$dark-fg-color:         $search-bg-color;
+$light-fg-color:        #ddd6d4;
+$emph-light-fg-color:   #fff;
 $chooser-unit-fg-color: #fff;
-$link-color-a:        #2366ad;
-$link-color-b:        #fff;
-$footer-link-color-a: $light-fg-color;
-$footer-link-color-b: shade($footer-bg-color, 40%);
-$explanation-fg-color: #fff;
-$ticker-fg-color:     shade($light-fg-color, 20%);
-$ticker-fg-emph-color: tint($ticker-fg-color, 60%);
-$hr-color:            mix($bg-color, $emph-color, 50%);
+$link-color-a:          #2366ad;
+$link-color-b:          #fff;
+$footer-link-color-a:   $light-fg-color;
+$footer-link-color-b:   shade($footer-bg-color, 40%);
+$explanation-fg-color:  #fff;
+$ticker-fg-color:       shade($light-fg-color, 20%);
+$ticker-fg-emph-color:  tint($ticker-fg-color, 60%);
+$hr-color:              mix($bg-color, $emph-color, 50%);
+
 
 
 body {

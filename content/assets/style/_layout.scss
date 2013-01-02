@@ -106,7 +106,8 @@ body header {
                         float: left;
                         zoom: 1;
                         padding: 10px 0;
-                        border-right: 1px solid #444;
+                        border-right-width: 1px;
+                        border-right-style: solid;
 
                         a {
                             padding: 10px 18px;
@@ -117,7 +118,8 @@ body header {
                 @media (max-width: 719px) {
                     li {
                         padding: 10px 0;
-                        border-bottom: 1px solid #444;
+                        border-bottom-width: 1px;
+                        border-bottom-style: solid;
                     }
 
                     a {
