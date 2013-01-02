@@ -273,7 +273,7 @@ body.page .content {
             }
         }
 
-        .details {
+        .side {
             @media (min-width: 720px) {
                 @include span-columns(4 omega, 12);
 
@@ -286,25 +286,38 @@ body.page .content {
                 margin: 40px 0;
             }
 
-            background: rgba(255, 255, 255, 0.7);
+            .details, .open-source-site {
+                background: rgba(255, 255, 255, 0.7);
 
-            padding: 20px;
-
-            h3 {
-                font-size: 20px;
-                padding-bottom: 20px;
+                padding: 20px;
+                margin-bottom: 20px;
             }
 
-            dt, ol, ul, p {
-                margin-top: 20px;
+            .details {
+                h3 {
+                    font-size: 20px;
+                    padding-bottom: 20px;
+                }
+
+                dt, ol, ul, p {
+                    margin-top: 20px;
+                }
+
+                ol {
+                    margin-left: 20px;
+                }
+
+                ol li {
+                    list-style-type: decimal;
+                }
             }
 
-            ol {
-                margin-left: 20px;
-            }
+            .open-source-site {
+                border: 6px solid #fff;
 
-            ol li {
-                list-style-type: decimal;
+                p {
+                    padding: 0;
+                }
             }
         }
     }

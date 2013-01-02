@@ -38,19 +38,24 @@
         </div>
         <div class="content">
             <article>
-                <% if @item[:has_toc] %>
-                    <div class="details">
-                        <h3><%= @item[:short_title] || @item[:title] %></h3>
-                        <% unless @item.parent.identifier == '/' %>
-                            <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
-                        <% end %>
-                        {{TOC}}
+                <div class="side">
+                    <% if @item[:has_toc] %>
+                        <div class="details">
+                            <h3><%= @item[:short_title] || @item[:title] %></h3>
+                            <% unless @item.parent.identifier == '/' %>
+                                <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
+                            <% end %>
+                            {{TOC}}
+                        </div>
+                    <% elsif content_for(@item, :details) %>
+                        <div class="details">
+                            <%= content_for(@item, :details) %>
+                        </div>
+                    <% end %>
+                    <div class="open-source-site">
+                        <p>This site is <a href="http://github.com/ddfreyne/nanoc-site">hosted on GitHub</a>. If you want to help out, do report issues and submit pull requests!</p>
                     </div>
-                <% elsif content_for(@item, :details) %>
-                    <div class="details">
-                        <%= content_for(@item, :details) %>
-                    </div>
-                <% end %>
+                </div>
                 <div class="article-content">
                     <%= yield %>
                 </div>
