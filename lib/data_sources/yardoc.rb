@@ -12,7 +12,15 @@ class YARDDataSource < Nanoc3::DataSource
   def items
     items = []
 
-    # Add filters
+    add_filters_to(items)
+    add_helpers_to(items)
+
+    items
+  end
+
+  protected
+
+  def add_filters_to(items)
     YARD::Registry.at('Nanoc::Filters').children.each do |filter|
       slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
       method        = filter.meths.detect { |m| m.name == :run }
@@ -35,8 +43,9 @@ class YARDDataSource < Nanoc3::DataSource
           "/filters/#{slug}")
       end
     end
+  end
 
-    # Add helpers
+  def add_helpers_to(items)
     YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
       slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
 
@@ -51,8 +60,6 @@ class YARDDataSource < Nanoc3::DataSource
         },
         "/helpers/#{slug}")
     end
-
-    items
   end
 
 end
