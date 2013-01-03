@@ -91,8 +91,25 @@ In the `preprocess` block, you can access `items`, `layouts`, `config` and `site
 
 ## Textual filters cannot be used on binary items
 
-Write me.
+There are two item types in nanoc: textual and binary. Most filters that come with nanoc, such as `:erb` and `:haml`, are textual, meaning they take text as input and produce new text. It is also possible to define binary filters, such as an image thumbnail filter.
+
+It is not possible to run a textual filter on binary items; for example, running `:erb` on an item with filename `content/assets/images/puppy.jpg` will cause the “Textual filters cannot be used on binary items” error.
+
+When you are getting this error unexpectedly, double-check your Rules file and make sure that no binary item is filtered through a textual filter. Remember that nanoc will use the first matching rule only!
 
 ## Pass through an item
 
-Write me.
+If you want to copy an item from `content/` to `output/` without doing any processing at all, then you can use the `#passthrough` method, like this:
+
+	#!ruby
+	passthrough '/assets/stylesheets/*/'
+
+This is a shorthand for the following:
+
+	#!ruby
+	route '/assets/stylesheets/*/' do
+	  item.identifier.chop + item[:extension]
+	end
+
+	compile '/assets/stylesheets/*/' do
+	end
