@@ -23,7 +23,7 @@
 <%= @item[:description] %>
 <% end %>
 
-<% if @item[:examples] %>
+<% if @item[:examples] && !@item[:examples].empty? %>
 <h2>Examples</h2>
 
 <% @item[:examples].each do |example| %>
