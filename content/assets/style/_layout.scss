@@ -17,6 +17,15 @@ $grid-padding:  0;
     hyphens: auto;
 }
 
+// GENERAL STYLING
+
+body {
+    font-family: "Open Sans";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
 i, em {
     font-style: italic;
 }
@@ -27,11 +36,54 @@ b, strong {
 
 a {
     text-decoration: none;
+    padding: 0 2px;
+    @include border-radius(3px);
 }
 
 dd {
     margin: 0 0 20px 20px;
 }
+
+pre, code, kbd, var {
+    font-family: Consolas, Inconsolata, Monaco, monospace;
+    font-size: 13px;
+}
+
+h2 code {
+    font-size: inherit;
+}
+
+kbd {
+    font-weight: bold;
+}
+
+var {
+    font-style: italic;
+}
+
+pre {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+pre[title]:after {
+    content: attr(title);
+    display: block;
+    margin: 10px -10px -10px -10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-style: italic;
+    font-family: "Open Sans";
+}
+
+// SPECIAL STYLING
 
 table.dl {
     td {
@@ -48,13 +100,6 @@ table.dl {
     }
 }
 
-body {
-    font-family: "Open Sans";
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-}
-
 .search input {
     font-size: 13px;
     margin: 8px 0;
@@ -66,6 +111,8 @@ body {
         outline: none
     }
 }
+
+// SPECIFIC STYLING
 
 body header {
     padding: 0 20px;
@@ -127,10 +174,8 @@ body header {
                     }
                 }
 
-                li {
-                    a {
-                        font-size: 15px;
-                    }
+                li a {
+                    font-size: 15px;
                 }
             }
         }
@@ -173,11 +218,6 @@ body.page .intro {
             padding-top: 40px;
         }
     }
-}
-
-a {
-    padding: 0 2px;
-    @include border-radius(3px);
 }
 
 body.page .content {
@@ -290,7 +330,6 @@ body.page .content {
 
             .details, .open-source-site {
                 background: rgba(255, 255, 255, 0.7);
-
                 padding: 20px;
                 margin-bottom: 20px;
             }
@@ -318,6 +357,7 @@ body.page .content {
                 border: 6px solid #fff;
 
                 p {
+                    font-size: 12px;
                     padding: 0;
                 }
             }

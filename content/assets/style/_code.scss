@@ -1,89 +1,54 @@
 @import "compass/typography/text/force-wrap";
 
-pre, code, kbd, var {
-    font-family: Consolas, Inconsolata, Monaco, monospace;
-    font-size: 13px;
-}
-
-h2 code {
-    font-size: inherit;
-}
-
-kbd {
-    font-weight: bold;
-}
-
-var {
-    font-style: italic;
-}
-
 .prompt {
     color: rgba(0, 0, 0, 0.5);
 }
 
 pre {
-    padding: 10px;
-    margin: 0 0 20px 0;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    .log-create {
+        font-weight: bold;
+        color: #44aa00;
+    }
 
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
-}
+    .log-update {
+        font-weight: bold;
+        color: #ccbb00;
+    }
 
-pre[title]:after {
-    content: attr(title);
-    display: block;
-    margin: 10px -10px -10px -10px;
-    padding: 5px 10px;
-    font-size: 12px;
-    font-style: italic;
-    font-family: "Open Sans";
-}
+    .comment {
+        color: #666666;
+    }
 
-pre {
-  .log-create {
-    font-weight: bold;
-    color: #44aa00;
-  }
+    .key {
+        color: #66aa00;
+    }
 
-  .log-update {
-    font-weight: bold;
-    color: #ccbb00;
-  }
-  .comment {
-    color: #666666;
-  }
-  .key {
-    color: #66aa00;
-  }
-  .string, .value {
-    color: #777722;
-    background: #ffffcc;
-  }
-  .constant, .class, .symbol {
-    color: #cc6600;
-  }
-  .function {
-    color: #ee2211;
-  }
-  .instance-variable, .local_variable {
-    color: #66aa00;
-  }
-  .reserved, .predefined, .predefined-constant {
-    color: #0099cc;
-  }
-  .tag, .keyword {
-    color: #88cc55;
-  }
-  .integer, .attribute_name {
-    color: #aa5500;
-  }
-  .m {
-    padding: 0 0.1em;
-    background: #555555;
-    color: white;
-  }
+    .string, .value {
+        color: #777722;
+        background: #ffffcc;
+    }
+
+    .constant, .class, .symbol {
+        color: #cc6600;
+    }
+
+    .function {
+        color: #ee2211;
+    }
+
+    .instance-variable, .local_variable {
+        color: #66aa00;
+    }
+
+    .reserved, .predefined, .predefined-constant {
+        color: #0099cc;
+    }
+
+    .tag, .keyword {
+        color: #88cc55;
+    }
+
+    .integer, .attribute_name {
+        color: #aa5500;
+    }
 }
