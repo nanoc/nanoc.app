@@ -69,7 +69,25 @@ And that’s it!
 
 ## Error: “can’t modify frozen X”
 
-Write me.
+Once the compilation process has started, content and attributes of layouts and items are _frozen_, which means they cannot be modified anymore. For example, the following rule is invalid and will cause a “can’t modify frozen Item” error:
+
+	#!ruby
+	compile '/blog/*/'
+	  item[:date] = Date.parse(item.identifier[/\d{4}-\d{2}-\d{2}/])
+	  filter :erb
+	  layout 'default'
+	end
+
+What _is_ possible, is modifying content and attributes in the preprocess phase. The preprocess phase is defined using the `preprocess` block in Rules. For example:
+
+	#!ruby
+	preprocess do
+	  items.select { |i| i.identifier.start_with?('/blog/') }.each do |i|
+	    i[:date] = Date.parse(i.identifier[/\d{4}-\d{2}-\d{2}/])
+	  end
+	end
+
+In the `preprocess` block, you can access `items`, `layouts`, `config` and `site`.
 
 ## Textual filters cannot be used on binary items
 
