@@ -33,7 +33,7 @@ pre {
     word-wrap: break-word;
 }
 
-pre:after {
+pre[title]:after {
     content: attr(title);
     display: block;
     margin: 10px -10px -10px -10px;
