@@ -112,6 +112,27 @@ table.dl {
     }
 }
 
+figure {
+    img {
+        display: block;
+
+        width: 100%;
+
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    figcaption {
+        padding: 5px 10px;
+        margin: 0 0 20px 0;
+
+        display: block;
+
+        font-size: 12px;
+        font-style: italic;
+    }
+}
+
 // SPECIFIC STYLING
 
 body header {
@@ -289,30 +310,7 @@ body.page .content {
                 }
             }
 
-            figure.fullwidth {
-                background: #fff;
-                img {
-                    width: 100%;
 
-                    display: block;
-
-                    border: 1px solid rgba(0, 0, 0, 0.2);
-
-                    background: #fff;
-                }
-
-                figcaption {
-                    padding: 5px 10px;
-                    margin: 0 0 20px 0;
-
-                    display: block;
-
-                    background: rgba(0, 0, 0, 0.2);
-
-                    font-size: 12px;
-                    font-style: italic;
-                }
-            }
         }
 
         .side {
@@ -354,7 +352,8 @@ body.page .content {
             }
 
             .open-source-site {
-                border: 6px solid #fff;
+                border-width: 6px;
+                border-style: solid;
 
                 p {
                     font-size: 12px;
@@ -456,6 +455,23 @@ body.home .chooser {
         }
     }
 
+    .chooser-unit:before {
+        content: "";
+
+        display: block;
+        width: 100px;
+        height: 100px;
+
+        margin: 0 auto;
+
+        border-width: 12px;
+        border-style: double;
+        @include border-radius(100px);
+
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
     @media (min-width: 720px) {
         .chooser-unit {
             @include span-columns(4, 12);
@@ -467,19 +483,10 @@ body.home .chooser {
         }
 
         .chooser-unit:before {
-            content: "";
-
-            display: block;
             width: 100px;
             height: 100px;
 
             margin: 0 auto;
-
-            border: 12px double #000;
-            @include border-radius(100px);
-
-            background-position: center center;
-            background-repeat: no-repeat;
         }
     }
 
@@ -498,20 +505,12 @@ body.home .chooser {
         }
 
         .chooser-unit:before {
-            content: "";
-
-            display: block;
             width:  70px;
             height: 70px;
 
             clear: left;
             float: left;
 
-            border: 12px double #000;
-            @include border-radius(100px);
-
-            background-position: center center;
-            background-repeat: no-repeat;
             background-size: 40px auto;
         }
     }
@@ -532,7 +531,8 @@ body.home .chooser {
 body.home .support {
     @include container;
 
-    border-top: 1px solid #a89c93;
+    border-top-width: 1px;
+    border-top-style: solid;
     padding: 40px 20px 40px 20px;
 
     .support-content {
@@ -550,7 +550,8 @@ body.home .support {
                 width: 120px;
                 height: 120px;
 
-                border: 8px solid #000;
+                border-width: 8px;
+                border-style: solid;
                 @include border-radius(100px);
 
                 background-position: center 30px;
