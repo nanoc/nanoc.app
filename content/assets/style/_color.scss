@@ -30,6 +30,29 @@ $hr-color:              mix($bg-color, $emph-color, 50%);
 
 
 
+@mixin dark-background-links {
+    a {
+        background-color: tint($footer-bg-color, 10%);
+    }
+
+    a:link, a:visited {
+        color: #ddd6d4;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+
+    a:link, a:visited {
+        color: $footer-link-color-a;
+    }
+
+    a:hover {
+        background-color: $footer-link-color-a;
+        color:            $footer-link-color-b;
+    }
+}
+
 body {
     background: $bg-color;
 }
@@ -105,90 +128,71 @@ body header {
     }
 }
 
-body.page .intro {
-    background: $semilight-bg-color;
+body.page {
+    .intro {
+        background: $semilight-bg-color;
+    }
+
+    .details, .open-source-site {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .open-source-site {
+        border-color: #fff;
+    }
 }
 
-body.page .details {
-    background: rgba(255, 255, 255, 0.7);
-}
+body.home {
+    .explanation {
+        background: $explanation-bg-color;
+        color: $explanation-fg-color;
+    }
 
-body.page .open-source-site {
-    border-color: #fff;
-}
+    .hero {
+        background: $semilight-bg-color;
 
-body.home .explanation {
-    background: $explanation-bg-color;
-    color: $explanation-fg-color;
-}
+        .caption {
+            background: shade($bg-color, 5%);
 
-body.home .hero {
-    background: $semilight-bg-color;
-
-    .caption {
-        background: shade($bg-color, 5%);
-
-        p {
-            color: $dark-fg-color;
+            p {
+                color: $dark-fg-color;
+            }
         }
     }
-}
 
-@mixin dark-background-links {
-    a {
-        background-color: tint($footer-bg-color, 10%);
+    .ticker {
+        background: $ticker-bg-color;
+        color: $ticker-fg-color;
+
+        @include dark-background-links;
+
+        span {
+            color: $ticker-fg-emph-color;
+        }
     }
 
-    a:link, a:visited {
-        color: #ddd6d4;
-    }
-
-    a:hover {
-        color: #fff;
-    }
-
-    a:link, a:visited {
-        color: $footer-link-color-a;
-    }
-
-    a:hover {
-        background-color: $footer-link-color-a;
-        color:            $footer-link-color-b;
-    }
-}
-
-body.home .ticker {
-    background: $ticker-bg-color;
-    color: $ticker-fg-color;
-
-    @include dark-background-links;
-
-    span {
-        color: $ticker-fg-emph-color;
-    }
-}
-
-body.home .chooser {
-    h2 {
-        color: rgb(37, 110, 219);
-    }
-
-    .chooser-unit:before {
-        border-color: $bg-color;
-        background-color: $chooser-unit-bg-color;
-    }
-}
-
-body.home .support {
-    border-color: $hr-color;
-
-    .support-content {
-        h3:before {
-            border-color: $chooser-unit-bg-color;
+    .chooser {
+        h2 {
+            color: rgb(37, 110, 219);
         }
 
-        h3 {
-            color: $emph-color;
+        .chooser-unit:before {
+            border-color: $bg-color;
+            background-color: $chooser-unit-bg-color;
+        }
+    }
+
+    .support {
+        border-color: $hr-color;
+
+        .support-content {
+            h3:before {
+                border-color: $chooser-unit-bg-color;
+            }
+
+            h3 {
+                color: $emph-color;
+            }
         }
     }
 }

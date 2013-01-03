@@ -327,7 +327,6 @@ body.page .content {
             }
 
             .details, .open-source-site {
-                background: rgba(255, 255, 255, 0.7);
                 padding: 20px;
                 margin-bottom: 20px;
             }
@@ -626,7 +625,8 @@ footer {
         .copyright {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #a89c93;
+            border-top-width: 1px;
+            border-top-style: solid;
 
             p {
                 max-width: 640px;
