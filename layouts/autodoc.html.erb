@@ -18,35 +18,22 @@
 <% end %>
 
 <h2>Description</h2>
-
-<% filter :rdiscount do %>
-<%= @item[:description] %>
-<% end %>
+<% filter :rdiscount do %><%= @item[:description] %><% end %>
 
 <% if @item[:examples] && !@item[:examples].empty? %>
-<h2>Examples</h2>
-
-<% @item[:examples].each do |example| %>
-    <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
-<% end %>
+    <h2>Examples</h2>
+    <% @item[:examples].each do |example| %>
+        <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
+    <% end %>
 <% end %>
 
 <% if @item[:functions] && !@item[:functions].empty? %>
     <h2>Functions</h2>
     <% @item[:functions].each do |function| %>
-       <h3><code><%= function[:name] %></code></h3>
-        <p class="signature"><code><%= function[:signature] %></code></p>
+        <h3><code><%= function[:signature] %></code></h3>
         <% filter :rdiscount do %><%= function[:description] %><% end %>
         <% function[:examples].each do |example| %>
             <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
         <% end %>
     <% end %>
 <% end %>
-
-<h2>Options</h2>
-
-<p>Write me please.</p>
-
-<h2>Links</h2>
-
-<p>Write me please.</p>
