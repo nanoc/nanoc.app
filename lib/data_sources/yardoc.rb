@@ -56,7 +56,15 @@ class YARDDataSource < Nanoc3::DataSource
           :name        => helper.name,
           :full_name   => helper.path,
           :summary     => helper.docstring.summary,
-          :description => helper.docstring
+          :description => helper.docstring,
+          :functions   => helper.meths.select { |m| :public == m.visibility }.map do |m|
+            {
+              :name        => m.name,
+              :description => m.docstring,
+              :examples    => m.tags('example').map { |e| { :title => e.name, :code => e.text } },
+              :signature   => m.signature
+            }
+          end
         },
         "/helpers/#{slug}")
     end
