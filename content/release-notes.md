@@ -4,6 +4,26 @@ markdown: basic
 has_toc:  true
 ---
 
+## 3.5 (???)
+
+Major changes:
+
+* Added checkers
+
+Minor changes:
+
+* Added `#include_rules` for modularising Rules files [Justin Hileman]
+* Replaced FSSM with Listen [Takashi Uchibe]
+* Made USR1 print stack trace
+* Added ability to configure autocompiler host/port in config.yaml [Stuart Montgomery]
+* Added static data source
+* Added `:rep_select` parameter to XML sitemap to allow filtering reps
+
+Exensions:
+
+* Added support for parameters in Less filter [Ruben Verborgh]
+* Added support for icon and logo in Atom feed [Ruben Verborgh]
+
 ## 3.4.3 (2012-12-09)
 
 Improvements:
