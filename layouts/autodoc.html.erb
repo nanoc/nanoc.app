@@ -17,8 +17,9 @@
     </dl>
 <% end %>
 
-<h2>Description</h2>
-<% filter :rdiscount do %><%= @item[:description] %><% end %>
+<h2>Summary</h2>
+<% filter :rdiscount do %><%= @item[:summary] %><% end %>
+<p>For details, check out the <a href="<%= api_doc_root + @item[:full_name].gsub('::', '/') + '.html' %>"><%= @item[:fullname] %> API documentation</a>.</p>
 
 <% if @item[:examples] && !@item[:examples].empty? %>
     <h2>Examples</h2>
@@ -29,11 +30,10 @@
 
 <% if @item[:functions] && !@item[:functions].empty? %>
     <h2>Functions</h2>
-    <% @item[:functions].each do |function| %>
-        <h3><code><%= function[:signature] %></code></h3>
-        <% filter :rdiscount do %><%= function[:description] %><% end %>
-        <% function[:examples].each do |example| %>
-            <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
+    <dl>
+        <% @item[:functions].each do |function| %>
+            <dt><code><%= function[:signature] %></code></dt>
+            <dd><% filter :rdiscount do %><%= function[:summary] %><% end %></dd>
         <% end %>
-    <% end %>
+    </dl>
 <% end %>

@@ -56,15 +56,14 @@ class YARDDataSource < Nanoc3::DataSource
           :name        => helper.name,
           :full_name   => helper.path,
           :summary     => helper.docstring.summary,
-          :description => helper.docstring,
-          :functions   => helper.meths.select { |m| :public == m.visibility }.map do |m|
+          :functions   => helper.meths(:visibility => :public, :included => false).map do |m|
             signature = "#{m.name}(#{m.parameters.map { |n,v| n }.join(", ")})"
             if m.tag(:return) && !m.tag(:return).types.empty?
               signature << " &rarr; #{m.tag(:return).types.first}"
             end
             {
               :name        => m.name,
-              :description => m.docstring,
+              :summary     => m.docstring.summary,
               :examples    => m.tags('example').map { |e| { :title => e.name, :code => e.text } },
               :signature   => signature
             }
