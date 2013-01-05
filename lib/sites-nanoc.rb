@@ -12,7 +12,9 @@ def item_named(identifier)
 end
 
 def api_doc_root
-  '/docs/api/' + latest_release_info[:version][0..-3] + '/'
+  version = latest_release_info[:version]
+  api_version = version.size == 5 ? version[0..-3] : version
+  '/docs/api/' + api_version + '/'
 end
 
 def array_to_yaml(array)
