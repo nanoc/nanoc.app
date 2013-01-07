@@ -26,22 +26,22 @@ class YARDDataSource < Nanoc3::DataSource
       method        = filter.meths.detect { |m| m.name == :run }
       identifiers   = filter['nanoc_identifiers']
       examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
-      is_deprecated = !method.tags('deprecated').empty?
 
-      unless is_deprecated
-        items << Nanoc::Item.new(
-          '-',
-          {
-            :type        => 'filter',
-            :name        => filter.name,
-            :full_name   => filter.path,
-            :summary     => method.docstring.summary,
-            :description => method.docstring,
-            :identifiers => identifiers,
-            :examples    => examples
-          },
-          "/filters/#{slug}")
-      end
+      is_deprecated = !method.tags('deprecated').empty?
+      next if is_deprecated
+
+      items << Nanoc::Item.new(
+        '-',
+        {
+          :type        => 'filter',
+          :name        => filter.name,
+          :full_name   => filter.path,
+          :summary     => method.docstring.summary,
+          :description => method.docstring,
+          :identifiers => identifiers,
+          :examples    => examples
+        },
+        "/filters/#{slug}")
     end
   end
 
