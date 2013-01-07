@@ -22,13 +22,19 @@ class YARDDataSource < Nanoc3::DataSource
 
   def add_filters_to(items)
     YARD::Registry.at('Nanoc::Filters').children.each do |filter|
-      slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
       method        = filter.meths.detect { |m| m.name == :run }
-      identifiers   = filter['nanoc_identifiers']
-      examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
 
       is_deprecated = !method.tags('deprecated').empty?
       next if is_deprecated
+
+      slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
+      identifiers   = filter['nanoc_identifiers']
+      examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
+
+      options = {}
+      method.tags(:option).map do |t|
+        options[t.pair.name] = t.pair.text
+      end
 
       items << Nanoc::Item.new(
         '-',
@@ -39,7 +45,8 @@ class YARDDataSource < Nanoc3::DataSource
           :summary     => method.docstring.summary,
           :description => method.docstring,
           :identifiers => identifiers,
-          :examples    => examples
+          :examples    => examples,
+          :options     => options
         },
         "/filters/#{slug}")
     end
