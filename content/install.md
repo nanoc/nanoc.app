@@ -1,5 +1,5 @@
 ---
-title:      "Download"
+title:      "Install"
 markdown:   basic
 is_dynamic: true
 has_toc:    true

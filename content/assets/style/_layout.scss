@@ -608,7 +608,7 @@ footer {
                     @include span-columns(6, 12);
                 }
 
-                section.download, section.community {
+                section.install, section.community {
                     @include span-columns(6 omega, 12);
                 }
             }
