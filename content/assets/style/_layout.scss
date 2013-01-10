@@ -142,6 +142,7 @@ body header {
             @include container;
         }
 
+/*
         .search {
             @media (min-width: 720px) {
                 @include span-columns(2 omega, 12);
@@ -158,10 +159,10 @@ body header {
                 width: 100%;
             }
         }
-
+*/
         nav {
             @media (min-width: 720px) {
-                @include span-columns(10, 12);
+                @include span-columns(12 omega, 12);
             }
 
             ol {
