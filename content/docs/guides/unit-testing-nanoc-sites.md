@@ -37,7 +37,7 @@ Running issue checks…
 No issues found. Deploying!
 <span class="prompt">%</span></pre>
 
-To run the checks marked for deployment without actually deploying, use `nanoc check --deploy`.
+To run the checks marked for deployment without deploying, use `nanoc check --deploy`.
 
 The `Checks` file can also define custom checks. Here is a check that verifies that no compiled files contain <% and therefore likely include unprocessed ERB instructions:
 
