@@ -44,7 +44,7 @@ The `Checks` file can also define custom checks. Here is a check that verifies t
 <pre title="Defining a custom check"><code class="language-ruby">
 check :no_unprocessed_erb do
   self.output_filenames.each do |fn|
-    if fn =~ /html$/ && File.read(fn).match(/<%/)
+    if fn =~ /html$/ &amp;&amp; File.read(fn).match(/&lt;%/)
       self.add_issue("erb detected", :subject => fn)
     end
   end
