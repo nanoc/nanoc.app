@@ -43,27 +43,3 @@ The documentation for nanoc is organised in a couple of parts:
 8. The [API documentation](<%= api_doc_root %>) contains the documentation of nanoc’s internals. This is quite useful if you want to contribute to nanoc or extend it.
 
 When you’re stuck with a question or a problem the documentation doesn’t solve, considering posting to the <a href="#">discussion group</a> or joining the <a href="irc://irc.freenode.net/#nanoc">nanoc IRC channel</a>. We’ll get it sorted out in no time. Check out the [Community](/community/) page for details.
-
-Markup conventions
-------------------
-
-The nanoc documentation uses a few conventions for markup:
-
-* <i>Italic text</i> introduces new terms.
-* <code>Monospaced text</code> is used for code snippets.
-* <kbd>Monospaced, bold text</kbd> is used for commands that should be typed literally.
-* <var>Monospaced, italic text</var> is used for text that should be replaced with user-supplied values.
-
-The documentation also contains quite a few blocks of code snippets. These are marked up like this:
-
-<pre title="Title of the snippet"><code class="language-ruby">class Lorem::Ipsum
-  def dolor
-    [ :foo, "sit amet, consectetur adipisicing elit", 123 ]
-  end
-end</code></pre>
-
-Pieces of terminal input/output are marked up in a similar way. Note that the prompt is always included, but should never be typed. Here’s an example:
-
-<pre title="Title of the snippet"><span class="prompt">some-dir%</span> <kbd>echo "hello" &amp;&amp; cd other-dir</kbd>
-hello
-<span class="prompt">other-dir%</span></pre>
