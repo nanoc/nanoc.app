@@ -19,7 +19,7 @@ GEM
     nanoc (3.5.0b1)
       cri (~> 2.2)
     nokogiri (1.5.6)
-    rack (1.4.3)
+    rack (1.4.4)
     rainpress (1.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)

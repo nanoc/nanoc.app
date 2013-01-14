@@ -17,4 +17,4 @@ There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at f
 Wiki
 ----
 
-The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
+The [nanoc wiki](http://github.com/nanoc-ssg/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.

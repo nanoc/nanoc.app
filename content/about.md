@@ -100,6 +100,7 @@ similar_projects = [
   { :name => 'Yurt CMS',     :lang => 'Ruby', :url => 'http://yurtcms.roberthahn.ca/' },
   { :name => 'ZenWeb',       :lang => 'Ruby', :url => 'http://www.zenspider.com/ZSS/Products/ZenWeb/' },
 
+  { :name => 'acrylamid',               :lang => 'Python',            :url => 'https://github.com/posativ/acrylamid' },
   { :name => 'Blacksmith',              :lang => 'Node.js',           :url => 'https://github.com/flatiron/blacksmith/' },
   { :name => 'Blogofile',               :lang => 'Python',            :url => 'http://www.blogofile.com/' },
   { :name => 'Cactus',                  :lang => 'Python',            :url => 'http://github.com/koenbok/Cactus' },
