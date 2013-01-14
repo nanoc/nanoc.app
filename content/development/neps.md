@@ -11,7 +11,7 @@ What are NEPs?
 
 The nanoc enhancement proposals (NEPs, inspired by Python’s Python Enhancement Proposals or PEPs) are meant to structure ideas for features, enhancements and changes in general in a more formal way.
 
-If you want to contribute to NEPs, you can either clone the [NEPs repository](https://github.com/ddfreyne/neps), make your changes and send me a pull request, or create an issue in the NEPs repository with your remarks. All feedback is welcome!
+If you want to contribute to NEPs, you can either clone the [NEPs repository](https://github.com/nanoc-ssg/neps), make your changes and send me a pull request, or create an issue in the NEPs repository with your remarks. All feedback is welcome!
 
 Quick wins
 ----------
