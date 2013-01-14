@@ -6,7 +6,7 @@ nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at G
 Issue Tracker
 -------------
 
-If you’ve encountered an issue in nanoc, please do let me know on the [issue tracker](http://github.com/ddfreyne/nanoc/issues) at GitHub.
+If you’ve encountered an issue in nanoc, please do let me know on the [issue tracker](http://github.com/nanoc-ssg/nanoc/issues) at GitHub.
 
 IRC Channel
 ----------
@@ -16,9 +16,9 @@ There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at f
 Wiki
 ----
 
-The [nanoc wiki](http://github.com/ddfreyne/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
+The [nanoc wiki](http://github.com/nanoc-ssg/nanoc/wiki) at GitHub contains a collection of useful tips and tricks, sample nanoc sites (including this very site) which you can check out to improve your nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
 
 Repositories
 ------------
 
-There’s a [nanoc Git repository](http://github.com/ddfreyne/nanoc) over at GitHub, where you can easily fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
+There’s a [nanoc Git repository](http://github.com/nanoc-ssg/nanoc) over at GitHub, where you can easily fork and hack away at nanoc’s source code. If you have something that you’d like to be part of nanoc, send me a pull request!
