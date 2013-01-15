@@ -56,7 +56,7 @@ If you’re on Windows and are using the Windows console, it’s probably a good
 
 You can also install nanoc from the repository if you want to take advantage of the latest features and improvements in nanoc. Be warned that the versions from the repository may be unstable, so it is recommended to install nanoc from rubygems if you want to stay safe. You can install nanoc from the git repository like this:
 
-<pre title="Installing nanoc from the git repository"><span class="prompt">~%</span> <kbd>git clone git://github.com/nanoc-ssg/nanoc.git</kbd>
+<pre title="Installing nanoc from the git repository"><span class="prompt">~%</span> <kbd>git clone git://github.com/nanoc/nanoc.git</kbd>
 <span class="prompt">~%</span> <kbd>cd nanoc</kbd>
 <span class="prompt">~/nanoc%</span> <kbd>gem build nanoc.gemspec</kbd>
 <span class="prompt">~/nanoc%</span> <kbd>gem install nanoc-*.gem</kbd></pre>
