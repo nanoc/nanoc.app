@@ -198,6 +198,19 @@ body header {
                 li a {
                     font-size: 15px;
                 }
+
+                li.home {
+                    span {
+                        display: none;
+                    }
+
+                    padding: 10px 6px;
+                    background: url(/assets/images/logo-nav.png) no-repeat 10px 4px;
+                }
+
+                li.home:hover {
+                    background-image: url(/assets/images/logo-nav-hover.png);
+                }
             }
         }
     }
