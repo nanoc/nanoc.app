@@ -49,7 +49,7 @@ nanoc goes a step further than caching, and generates static files right away (y
 
 It is a lot safer to host a static web site than a dynamic one.
 
-Because nanoc does not run on the server itself, there is no way to exploit nanoc or Ruby, one way or another, in order to hack the site. Most CMSes do run on the server, which certainly does makes them a target for attacks.
+Because nanoc does not run on the server itself, there is no way to exploit nanoc or Ruby, one way or another, in order to hack the site. Most CMSes do run on the server, which certainly makes them a target for attacks.
 
 Using nanoc is not a guarantee that your site will be unhackable, though. If your FTP account has a weak password, then you’re asking for trouble. With nanoc you can still output dynamic files, such as PHP ones, and these pages could still be the cause of security issues.
 
