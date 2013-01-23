@@ -411,7 +411,7 @@ body.home .ticker {
     .ticker-content {
         @include container;
 
-        padding: 10px 0;
+        padding: 10px;
         font-size: 13px;
         text-align: center;
 
@@ -523,24 +523,9 @@ body.home .support {
             padding: 0 60px 0 240px;
             position: relative;
 
-            h3:before {
-                content: "";
-
-                position: absolute;
-                top: 0;
-                left: 60px;
-                display: block;
-                width: 120px;
-                height: 120px;
-
-                border-width: 8px;
-                border-style: solid;
-                @include border-radius(100px);
-
-                background-position: center 30px;
-                background-repeat: no-repeat;
-                background-image: url(/assets/images/heart.png);
-            }
+            background-position: 100px 15px;
+            background-repeat: no-repeat;
+            background-image: url(/assets/images/heart.png);
         } 
 
         h3 {
