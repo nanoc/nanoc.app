@@ -362,49 +362,33 @@ body.page .content {
 }
 
 body.home .hero {
-    background-image: url(/assets/images/shadow-top.png), url(/assets/images/shadow-bottom.png);
-    background-position: top left, bottom left;
-    background-repeat: repeat-x;
-
     .hero-content {
         @include container;
         height: 300px;
         overflow: hidden;
 
-        .slide-1 {
+        .slides {
             position: relative;
 
-            .caption {
-                padding: 10px 20px;
-                position: absolute;
-                top: 50px;
-                width: 300px;
-
-                p {
-                    padding: 10px 0;
-                    font-size: 14px;
-                    font-style: italic;
-                }
-            }
-
-            img {
-                display: block;
+            .slide {
                 position: absolute;
                 top: 0;
-                left: 300px;
+                left: 0;
+
+                a {
+                    display: block;
+                    background: none;
+                }
+
+                img {
+                    border: 0;
+                    display: block;
+                    width: 100%;
+                }
             }
         }
 
-        .hero-img-1 {
-            right: 400px;
-        }
-
-        .hero-img-2 {
-            right: 350px;
-        }
-
-        .hero-img-3 {
-            right: 200px;
+        #slide-1 {
         }
     }
 }

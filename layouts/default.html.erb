@@ -5,7 +5,24 @@
         <title><%= @item[:full_title] || 'nanoc &raquo; ' + (content_for(@item, :title) || @item[:title]) %></title>
         <link href="<%= item_named('/assets/style/screen/').path %>" media="screen" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+        <meta name="viewport" content="width=device-width">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $('.slides .slide:gt(0)').hide();
+                setInterval(
+                    function() {
+                        $('.slides .slide:first-child').
+                            fadeOut(1200).
+                            next('.slide').
+                            fadeIn(1200).
+                            end().
+                            appendTo('.slides');
+                    },
+                    4000
+                );
+            });
+        </script>
     </head>
     <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
         <header>
