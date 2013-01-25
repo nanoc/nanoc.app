@@ -2,6 +2,7 @@
 title:    "Extending nanoc"
 has_toc:  true
 markdown: advanced
+is_dynamic: true
 ---
 
 Writing Helpers
