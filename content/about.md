@@ -111,6 +111,7 @@ similar_projects = [
   { :name => 'FMPP',                    :lang => 'Java',              :url => 'http://fmpp.sourceforge.net/' },
   { :name => 'fugitive',                :lang => 'Shell',             :url => 'https://gitorious.org/fugitive' },
   { :name => 'Graze',                   :lang => 'C#',                :url => 'http://github.com/mikoskinen/graze' },
+  { :name => 'gostatic',                :lang => 'Go',                :url => 'http://github.com/piranha/gostatic' },
   { :name => 'Hakyll',                  :lang => 'Haskell',           :url => 'http://jaspervdj.be/hakyll/' },
   { :name => 'Hammer',                  :lang => 'language-agnostic', :url => 'http://hammerformac.com/' },
   { :name => 'Hastie',                  :lang => 'Go',                :url => 'http://github.com/mkaz/hastie' },
