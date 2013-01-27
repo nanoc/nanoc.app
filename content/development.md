@@ -7,7 +7,7 @@ has_toc:  true
 Reporting bugs
 --------------
 
-If you find a bug in nanoc, you should report it! But before you do, make sure you have the latest version of nanoc (and dependencies) installed, and see if you can still reproduce the bug there. If you can, report it!
+If you find a bug in nanoc, you should [report it](https://github.com/nanoc/nanoc/issues/new)! But before you do, make sure you have the latest version of nanoc (and dependencies) installed, and see if you can still reproduce the bug there. If you can, report it!
 
 When reporting a bug, please make sure you include as many details as you can about the bug. Some information that you should include:
 

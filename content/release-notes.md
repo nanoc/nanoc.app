@@ -8,21 +8,28 @@ has_toc:  true
 
 Major changes:
 
-* Added checkers
+* Added checks
 
 Minor changes:
 
 * Added `#include_rules` for modularising Rules files [Justin Hileman]
 * Replaced FSSM with Listen [Takashi Uchibe]
-* Made USR1 print stack trace
+* Made USR1 print stack trace (not on Windows)
 * Added ability to configure autocompiler host/port in config.yaml [Stuart Montgomery]
 * Added static data source
 * Added `:rep_select` parameter to XML sitemap to allow filtering reps
+* Removed use of bright/bold colors for compatibility with Solarized
 
 Exensions:
 
 * Added support for parameters in Less filter [Ruben Verborgh]
 * Added support for icon and logo in Atom feed [Ruben Verborgh]
+
+Fixes:
+
+* Made syntax colorizer only use the first non-empty line when extracting the
+  language comment
+* Fixed XSL filter
 
 ## 3.4.3 (2012-12-09)
 
