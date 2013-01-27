@@ -24,6 +24,7 @@ deploy:
   public:
     kind: rsync
     dst: "ectype:sites/nanoc/public"
+    options: [ '-aP', '--delete-after' ]
   staging:
     kind: rsync
     dst: "ectype:sites/nanoc-staging/public"
