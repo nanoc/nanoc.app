@@ -1,0 +1,1336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::DataSource</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_DataSource">
+  <h1 class="title">Class: Nanoc3::DataSource</h1>
+  <div class="section inheritance">
+  <ul>
+  <li><a href="Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></li><ul><li>Nanoc3::DataSource</li>
+  </ul></ul>
+</div><div class="section mixins">
+  <h1>Included Modules</h1>
+  <p><a href="Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></p>
+</div>
+<div class="section docstring">
+  <p>
+Nanoc3::DataSource is responsible for loading data. It is the (abstract)
+superclass for all data sources. Subclasses must at least implement the
+data reading methods (<tt>items</tt>, <tt>layouts</tt>, and
+<tt>code_snippets</tt>); all other methods involving data manipulation are
+optional.
+</p>
+<p>
+Apart from the methods for loading and storing data, there are the
+<tt>up</tt> and <tt>down</tt> methods for bringing up and tearing down the
+connection to the data source. These should be overridden in subclasses.
+The <tt>loading</tt> method wraps <tt>up</tt> and <tt>down</tt>.
+</p>
+<p>
+The <tt>setup</tt> method is used for setting up a site&#8217;s data source
+for the first time. This method should be overridden in subclasses.
+</p>
+
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>config</span>
+          </td>
+          <td class="readwrite">
+            [<span id='config-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+A hash containing the configuration for this data source.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>items_root</span>
+          </td>
+          <td class="readwrite">
+            [<span id='items_root-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+A string containing the root where items returned by this data source
+should be mounted.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>layouts_root</span>
+          </td>
+          <td class="readwrite">
+            [<span id='layouts_root-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+A string containing the root where layouts returned by this data source
+should be mounted.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+      </table>
+    </div>
+  
+</div>
+<div class="section constants">
+  <div class="inherited">
+  
+  <div>
+    <h1>Constants Inherited from <a href="Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="Plugin.html#MAP-constant" title="MAP">MAP</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div><div class="included">
+  
+  <div>
+    <h1>Constants Included from <a href="Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="Plugin.html#MAP-constant" title="MAP">MAP</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(site, items_root, layouts_root, config)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new data source for the given site.
+</p>
+<table>
+<tr><td valign="top"><tt>site</tt>:</td><td>The site this data source belongs to.
+
+</td></tr>
+<tr><td valign="top"><tt>items_root</tt>:</td><td>The prefix that should be given to all items returned by the #items method
+(comparable to mount points for filesystems in Unix-ish OSes).
+
+</td></tr>
+<tr><td valign="top"><tt>layouts_root</tt>:</td><td>The prefix that should be given to all layouts returned by the #layouts
+method (comparable to mount points for filesystems in Unix-ish OSes).
+
+</td></tr>
+<tr><td valign="top"><tt>config</tt>:</td><td>The configuration for this data source.
+
+</td></tr>
+</table>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 41</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='site identifier id'>site</span><span class='comma token'>,</span> <span class='items_root identifier id'>items_root</span><span class='comma token'>,</span> <span class='layouts_root identifier id'>layouts_root</span><span class='comma token'>,</span> <span class='config identifier id'>config</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span>         <span class='assign token'>=</span> <span class='site identifier id'>site</span>
+  <span class='@items_root ivar id'>@items_root</span>   <span class='assign token'>=</span> <span class='items_root identifier id'>items_root</span>
+  <span class='@layouts_root ivar id'>@layouts_root</span> <span class='assign token'>=</span> <span class='layouts_root identifier id'>layouts_root</span>
+  <span class='@config ivar id'>@config</span>       <span class='assign token'>=</span> <span class='config identifier id'>config</span>
+
+  <span class='@references ivar id'>@references</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <h1>Public Class Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#identifier-class_method" title="identifier">identifier</a></span><span class='args'>(identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the identifier for this data source.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#identifiers-class_method" title="identifiers">identifiers</a></span><span class='args'>(*identifiers)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the identifiers for this data source.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#register-class_method" title="register">register</a></span><span class='args'>(class_or_name, *identifiers)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Registers the given class as a data source with the given identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+<div class="inherited">
+  
+  <div>
+    <h1>Public Class Methods Inherited from <a href="Plugin.html" title="Nanoc3::Plugin">Nanoc3::Plugin</a></h1>
+    <p><span class='name'><a href="Plugin.html#all-class_method" title="all">all</a></span>, <span class='name'><a href="Plugin.html#named-class_method" title="named">named</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#code_snippets-instance_method" title="#code_snippets">#code_snippets</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the custom code snippets (represented by Nanoc3::CodeSnippet) for
+this site.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#create_item-instance_method" title="#create_item">#create_item</a></span><span class='args'>(content, attributes, identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creating data Creates a new item with the given content, attributes and
+identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#create_layout-instance_method" title="#create_layout">#create_layout</a></span><span class='args'>(content, attributes, identifier)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creates a new layout with the given content, attributes and identifier.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#down-instance_method" title="#down">#down</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Brings down the connection to the data.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#items-instance_method" title="#items">#items</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Loading data Returns the list of items (represented by Nanoc3::Item) in
+this site.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#layouts-instance_method" title="#layouts">#layouts</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the list of layouts (represented by Nanoc3::Layout) in this site.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#loading-instance_method" title="#loading">#loading</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Loads the data source when necessary (calling <tt>up</tt>), yields, and
+unloads the data source when it is not being used elsewhere.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#setup-instance_method" title="#setup">#setup</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Creating/updating Creates the bare minimum essentials for this data source
+to work.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#unuse-instance_method" title="#unuse">#unuse</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Marks the data source as unused by the caller.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#up-instance_method" title="#up">#up</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Loading and unloading Brings up the connection to the data.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#update-instance_method" title="#update">#update</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Updated the content stored in this site to a newer version.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#use-instance_method" title="#use">#use</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Marks the data source as used by the caller.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails class public">
+  <h1>Public Class Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>identifier</h3>
+</div><div id="identifier-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>identifier</span><span class='args'>(identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Sets the identifier for this data source.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+56
+57
+58</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 56</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='identifier identifier id'>identifier</span><span class='lparen token'>(</span><span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='DataSource constant id'>DataSource</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>identifiers</h3>
+</div><div id="identifiers-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>identifiers</span><span class='args'>(*identifiers)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Sets the identifiers for this data source.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+51
+52
+53</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 51</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='identifiers identifier id'>identifiers</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='DataSource constant id'>DataSource</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>register</h3>
+</div><div id="register-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>register</span><span class='args'>(class_or_name, *identifiers)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Registers the given class as a data source with the given identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+61
+62
+63</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 61</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='class_or_name identifier id'>class_or_name</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+  <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Plugin constant id'>Plugin</span><span class='dot token'>.</span><span class='register identifier id'>register</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='DataSource constant id'>DataSource</span><span class='comma token'>,</span> <span class='class_or_name identifier id'>class_or_name</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='identifiers identifier id'>identifiers</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>code_snippets</h3>
+</div><div id="code_snippets-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>code_snippets</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the custom code snippets (represented by Nanoc3::CodeSnippet) for
+this site. The default implementation simply returns an empty array. This
+can be code for custom filters and more, but pretty much any code can be
+put in there (global helper functions are very useful).
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+172
+173
+174</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 172</span>
+
+<span class='def def kw'>def</span> <span class='code_snippets identifier id'>code_snippets</span>
+  <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>create_item</h3>
+</div><div id="create_item-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>create_item</span><span class='args'>(content, attributes, identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creating data Creates a new item with the given content, attributes and
+identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+179
+180
+181</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 179</span>
+
+<span class='def def kw'>def</span> <span class='create_item identifier id'>create_item</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'create_item'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>create_layout</h3>
+</div><div id="create_layout-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>create_layout</span><span class='args'>(content, attributes, identifier)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new layout with the given content, attributes and identifier.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+184
+185
+186</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 184</span>
+
+<span class='def def kw'>def</span> <span class='create_layout identifier id'>create_layout</span><span class='lparen token'>(</span><span class='content identifier id'>content</span><span class='comma token'>,</span> <span class='attributes identifier id'>attributes</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='rparen token'>)</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'create_layout'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>down</h3>
+</div><div id="down-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>down</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Brings down the connection to the data. This is an abstract method
+implemented by the subclass. This method should undo the effects of
+<tt>up</tt>.
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+118
+119</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 118</span>
+
+<span class='def def kw'>def</span> <span class='down identifier id'>down</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>items</h3>
+</div><div id="items-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>items</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Loading data Returns the list of items (represented by Nanoc3::Item) in
+this site. The default implementation simply returns an empty array.
+</p>
+<p>
+Subclasses should not prepend items_root to the item&#8217;s identifiers,
+as this will be done automatically.
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+151
+152
+153</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 151</span>
+
+<span class='def def kw'>def</span> <span class='items identifier id'>items</span>
+  <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>layouts</h3>
+</div><div id="layouts-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>layouts</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the list of layouts (represented by Nanoc3::Layout) in this site.
+The default implementation simply returns an empty array.
+</p>
+<p>
+Subclasses should prepend layout_root to the layout&#8217;s identifiers,
+since this is not done automatically.
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+162
+163
+164</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 162</span>
+
+<span class='def def kw'>def</span> <span class='layouts identifier id'>layouts</span>
+  <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>loading</h3>
+</div><div id="loading-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>loading</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Loads the data source when necessary (calling <tt>up</tt>), yields, and
+unloads the data source when it is not being used elsewhere. All data
+source queries and data manipulations should be wrapped in a
+<tt>loading</tt> block; it ensures that the data source is loaded when
+necessary and makes sure the data source does not get unloaded while it is
+still being used elsewhere.
+</p>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="yield">
+  <h3>Yields:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'></span>
+      
+      
+        <span class='name'></span>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+71
+72
+73
+74
+75
+76</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='loading identifier id'>loading</span>
+  <span class='use identifier id'>use</span>
+  <span class='yield yield kw'>yield</span>
+<span class='ensure ensure kw'>ensure</span>
+  <span class='unuse identifier id'>unuse</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>setup</h3>
+</div><div id="setup-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>setup</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creating/updating Creates the bare minimum essentials for this data source
+to work. This action will likely be destructive. This method should not
+create sample data such as a default home page, a default layout, etc. For
+example, if you&#8217;re using a database, this is where you should create
+the necessary tables for the data source to function properly.
+</p>
+<p>
+Subclasses must implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+130
+131
+132</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 130</span>
+
+<span class='def def kw'>def</span> <span class='setup identifier id'>setup</span>
+  <span class='not_implemented identifier id'>not_implemented</span><span class='lparen token'>(</span><span class='string val'>'setup'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>unuse</h3>
+</div><div id="unuse-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>unuse</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Marks the data source as unused by the caller.
+</p>
+<p>
+Calling this method increases the internal reference count. When the data
+source is used for the first time (first #use call), the data source will
+be loaded (#up will be called). Similarly, when the reference count reaches
+zero, the data source will be unloaded (#down will be called).
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+97
+98
+99
+100</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 97</span>
+
+<span class='def def kw'>def</span> <span class='unuse identifier id'>unuse</span>
+  <span class='@references ivar id'>@references</span> <span class='opasgn op'>-=</span> <span class='integer val'>1</span>
+  <span class='down identifier id'>down</span> <span class='if if_mod kw'>if</span> <span class='@references ivar id'>@references</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>up</h3>
+</div><div id="up-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>up</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Loading and unloading Brings up the connection to the data. This is an
+abstract method implemented by the subclass. Depending on the way data is
+stored, this may not be necessary. This is the ideal place to connect to
+the database, for example.
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+110
+111</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 110</span>
+
+<span class='def def kw'>def</span> <span class='up identifier id'>up</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>update</h3>
+</div><div id="update-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>update</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Updated the content stored in this site to a newer version. A newer version
+of a data source may store content in a different format, and this method
+will update the stored content to this newer format.
+</p>
+<p>
+Subclasses may implement this method.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+139
+140</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 139</span>
+
+<span class='def def kw'>def</span> <span class='update identifier id'>update</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>use</h3>
+</div><div id="use-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>use</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Marks the data source as used by the caller.
+</p>
+<p>
+Calling this method increases the internal reference count. When the data
+source is used for the first time (first #use call), the data source will
+be loaded (#up will be called). Similarly, when the reference count reaches
+zero, the data source will be unloaded (#down will be called).
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+85
+86
+87
+88</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/data_source.rb', line 85</span>
+
+<span class='def def kw'>def</span> <span class='use identifier id'>use</span>
+  <span class='up identifier id'>up</span> <span class='if if_mod kw'>if</span> <span class='@references ivar id'>@references</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+  <span class='@references ivar id'>@references</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:11 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Extra::CHiCk::RackClient</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Extra_CHiCk_RackClient">
+  <h1 class="title">Class: Nanoc3::Extra::CHiCk::RackClient</h1>
+  <div class="section docstring">
+  <p>
+CHiCk::RackClient performs the actual HTTP requests. It does not perform
+any caching.
+</p>
+
+</div><div class="section constants">
+  <div class="thisclass">
+  <h1>Constants</h1>
+  <dl>
+    
+      <dt id="METHOD_TO_CLASS_MAPPING-constant">METHOD_TO_CLASS_MAPPING</dt>
+      <dd>{
+  'DELETE'  =&gt; Net::HTTP::Delete,
+  'GET'     =&gt; Net::HTTP::Get,
+  'HEAD'    =&gt; Net::HTTP::Head,
+  'POST'    =&gt; Net::HTTP::Post,
+  'PUT'     =&gt; Net::HTTP::Put
+}</dd>
+    
+  </dl>
+</div>
+
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <h1>Public Class Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#call-class_method" title="call">call</a></span><span class='args'>(env)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails class public">
+  <h1>Public Class Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>call</h3>
+</div><div id="call-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>call</span><span class='args'>(env)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="raise">
+  <h3>Raises:</h3>
+  <dl>
+  
+    <dt>
+      
+        <span class='type'>[<tt>ArgumentError</tt>]</span>
+      
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'></span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/extra/chick.rb', line 88</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='env identifier id'>env</span><span class='rparen token'>)</span>
+  <span class='comment val'># Build request</span>
+  <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='Rack constant id'>Rack</span><span class='colon2 op'>::</span><span class='Request constant id'>Request</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='env identifier id'>env</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Build headers and strip HTTP_</span>
+  <span class='request_headers identifier id'>request_headers</span> <span class='assign token'>=</span> <span class='env identifier id'>env</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='comma token'>,</span><span class='lparen token'>(</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='rparen token'>)</span><span class='bitor op'>|</span>
+    <span class='k identifier id'>k</span> <span class='match op'>=~</span> <span class='regexp val'>/^HTTP_(.*)$/</span> <span class='andop op'>&amp;&amp;</span> <span class='v identifier id'>v</span> <span class='integer val'>? </span><span class='m identifier id'>m</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='$1 nth_ref id'>$1</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='regexp val'>/_/</span><span class='comma token'>,</span> <span class='string val'>'-'</span><span class='rparen token'>)</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='v identifier id'>v</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='m identifier id'>m</span>
+  <span class='end end kw'>end</span>
+
+  <span class='comment val'># Build Net::HTTP request</span>
+  <span class='http identifier id'>http</span> <span class='assign token'>=</span> <span class='Net constant id'>Net</span><span class='colon2 op'>::</span><span class='HTTP constant id'>HTTP</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='host identifier id'>host</span><span class='comma token'>,</span> <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='port identifier id'>port</span><span class='rparen token'>)</span>
+  <span class='net_http_request_class identifier id'>net_http_request_class</span> <span class='assign token'>=</span> <span class='METHOD_TO_CLASS_MAPPING constant id'>METHOD_TO_CLASS_MAPPING</span><span class='lbrack token'>[</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='request_method identifier id'>request_method</span><span class='rbrack token'>]</span>
+  <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;Unsupported method: #{request.request_method}&quot;</span> <span class='if if_mod kw'>if</span> <span class='net_http_request_class identifier id'>net_http_request_class</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='net_http_request identifier id'>net_http_request</span> <span class='assign token'>=</span> <span class='net_http_request_class identifier id'>net_http_request_class</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='fullpath identifier id'>fullpath</span><span class='comma token'>,</span> <span class='request_headers identifier id'>request_headers</span><span class='rparen token'>)</span>
+  <span class='net_http_request identifier id'>net_http_request</span><span class='dot token'>.</span><span class='body identifier id'>body</span> <span class='assign token'>=</span> <span class='env identifier id'>env</span><span class='lbrack token'>[</span><span class='string val'>'rack.input'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='read identifier id'>read</span> <span class='if if_mod kw'>if</span> <span class='lbrack token'>[</span> <span class='string val'>'POST'</span><span class='comma token'>,</span> <span class='string val'>'PUT'</span> <span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='request_method identifier id'>request_method</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Perform request</span>
+  <span class='http identifier id'>http</span><span class='dot token'>.</span><span class='request identifier id'>request</span><span class='lparen token'>(</span><span class='net_http_request identifier id'>net_http_request</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='response identifier id'>response</span><span class='bitor op'>|</span>
+    <span class='comment val'># Build Rack response triplet</span>
+    <span class='return return kw'>return</span> <span class='lbrack token'>[</span>
+      <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='code identifier id'>code</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span><span class='comma token'>,</span>
+      <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='to_hash identifier id'>to_hash</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='comma token'>,</span><span class='lparen token'>(</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='rparen token'>)</span><span class='bitor op'>|</span> <span class='m identifier id'>m</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='k identifier id'>k</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='v identifier id'>v</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span><span class='comma token'>,</span>
+      <span class='lbrack token'>[</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='body identifier id'>body</span> <span class='rbrack token'>]</span>
+    <span class='rbrack token'>]</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:08 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

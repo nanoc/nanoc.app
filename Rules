@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+require 'compass'
+require 'susy'
+
+Compass.add_project_configuration 'compass_config.rb'
+
 ### Configuration ############################################################
 
 UseFastAleck = false
@@ -27,15 +32,27 @@ else
   TypographicalImprovementFilterParams = {}
 end
 
-require 'compass'
-
-Compass.add_project_configuration('compass_config.rb')
-
 ### Preprocessing ############################################################
 
 preprocess do
   config[:nanoc_version_info] = `nanoc --version`.strip
   config[:gem_version_info]   = `gem --version`.strip
+
+  # Cleanup NEPs
+  nep_candidates = items.detect { |i| i.identifier == '/development/neps/' }.children
+  nep_candidates.each do |i|
+    if i.identifier !~ %r{^/development/neps/NEP-}
+      items.delete(i)
+    else
+      i[:number]   = i.identifier.match(/NEP-(\d+)/)[1].to_i
+      i[:title]    = i.identifier.match(/NEP-\d+:-(.*)\/$/)[1].gsub('-', ' ')
+      i[:markdown] = 'basic'
+      i[:type]     = 'nep'
+      i.identifier = "/development/neps/#{i[:number]}/"
+    end
+  end
+
+  # TODO stylesheets -> is_hidden and is_partial
 end
 
 ### Routing ##################################################################
@@ -109,7 +126,6 @@ end
 
 compile '*' do
   filter :erb if item[:is_dynamic]
-
   case item[:markdown]
   when 'advanced'
     filter :kramdown, :auto_ids => false
@@ -117,17 +133,24 @@ compile '*' do
     filter :rdiscount
   end
   filter :remove_spacing_around_pre
+  filter :add_ids_to_headers
 
-  snapshot :before_sections
-  filter :add_sections
+  case item[:type]
+  when 'nep'
+    layout '/nep/'
+  when 'command'
+    layout '/command/'
+  when 'filter', 'helper'
+    layout '/autodoc/'
+  end
   layout '/default/'
+
+  filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 ### Layouting ################################################################
-
-layout '/default/', :haml, :format => :html5, :ugly => true
 
 layout '*', :erb

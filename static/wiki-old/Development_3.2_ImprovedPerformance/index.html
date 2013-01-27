@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): nanoc 3.2: Improved performance</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>nanoc 3.2: Improved performance</h1>
+
+This page collects ideas for improving nanoc’s performance. Also see ticket #99, which is a meta-ticket covering all performance improvement tickets.
+
+<h2>~~Autocompiler that recompiles on change~~ (#100)</h2>
+
+<b>Status: Implemented.</b>
+
+The autocompiler currently compiles items on request, but this can be very slow. An autocompiler that watches for changes on the filesystem could be a lot faster.
+
+<h2>~~Improved file outdatedness checks~~ (#70)</h2>
+
+<b>Status: Implemented.</b>
+
+Currently (in nanoc 3.1), nanoc uses the file modification time (mtime) to check whethe
+an item’s source content was updated since it was last compiled. This simple solution certainly is not the best, because it will cause pages to be needlessly recompiled if the source file was touched but not changed.
+
+There needs to be a better way to find out whether a file was changed. This improved method should certainly avoid false negatives (file was changed but nanoc doesn’t realise) because false negatives may cause parts of a compiled site to become outdated. False positives (file was not changed but nanoc thinks it has) are acceptable, but should be avoided due to the performance hit it causes.
+
+A better way of finding out whether a source file has changed is to calculate the hash of the source file and compare it with a hash (of the same file) that was calculated and stored during the latest site compilation. MD5 and SHA1 can be used for this, but they may be slow; perhaps CRC could be useful here as well.
+
+<h2>~~Improved layout dependency tracking~~ (#71)</h2>
+
+<b>Status: Implemented.</b>
+
+When layouts change, nanoc simply marks all items as outdated. This is inefficient; dependencies between layouts should be tracked as well.
+
+<h2>~~Storing already compiled content~~ (#101)</h2>
+
+<b>Status: Implemented.</b>
+
+If the compiled content of a given item is stored, it does not need to be recompiled when its compiled content is requested.
+
+<h2>Fine-grained dependency tracking (#102)</h2>
+
+<b>Status: Pending.</b>
+
+Tracking more specific dependencies (e.g. between an item and specific attributes of another item) would improve performance. The following dependencies need to be tracked:
+
+ * item depends on item content
+ * item depends on item attribute
+ * item depends on layout content
+ * item depends on layout attribute
+ * item depends on site configuration
+
+Attribute dependencies should be stored at a fairly fine-grained level. For example, if an item accesses the <code>item[:foo][:bar][:baz]</code> attribute, then changes to the attribute that do not affect <code>item[:foo][:bar][:baz]</code> should not cause the item to be considered outdated. The same applies to the site configuration, which is a hash, just like attributes.
+
+Let’s consider the following hash in the next few examples:
+
+<pre><code>
+#!ruby
+hash = {
+  :foo => {
+    :xyz => 1,
+    :bar => [
+      'hooray',
+      'whee',
+      'yeehaw'
+    ]
+  }
+}
+</code></pre>
+
+For fine-grained attribute dependency tracking to work, “access paths” for the attributes hash should be stored. Such an access path is a list of keys/indexes that were used to access certain values in this hash/array. For example, accessing <code>hash[:foo][:bar][0]</code> would result in the access path [ :foo, :bar, 0]. Such access paths can only be created if the hash/array can keep track of which values were requested; a subclass of <code>Hash</code>/<code>Array</code> or a class that proxies to <code>Hash</code>/<code>Array</code> will therefore be necessary.
+
+The raw, uncompiled attributes for each item will need to be stored for this to work. Per-attribute checksums are possible, but may be a waste of space.
+
+<h2>~~Recording actions necessary for compiling an item~~ (#103)</h2>
+
+<b>Status: Implemented.</b>
+
+A “recorder” object could record all filter and layout calls for an item in a compilation rule. The recorded calls could then be stored; when the item is recompiled again, the recorder will be used first, and if the recorded actions match the stored actions, the item does not need to be recompiled but the cached, already compiled content can be reused.
+
+<h2>~~Storing compiled snapshots~~ (#104)</h2>
+
+<b>Status: Implemented.</b>
+
+It is currently not possible to write items at different stages of their compilation process. It may be useful to allow storing snapshots as well, so that different versions of an item rep can be saved. The DSL for this could look like this:
+
+<pre><code>
+#!ruby
+compile "/stylesheet/" do
+  filter :sass
+  filter :tidy_css # not a real filter, but you get the idea
+  snapshot :debuggable
+  filter :rainpress
+end
+
+route "/stylesheet/", :snapshot => :debuggable
+  "/stylesheet-verbose.css"
+end
+
+route "/stylesheet/"
+  "/stylesheet.css"
+end
+</code></pre>
+
+<h2>~~Handling unmet dependencies more efficiently~~ (#108)</h2>
+
+<b>Status: Implemented.</b>
+
+The compiler currently uses a queue that contains all uncompiled items. When an item cannot be compiled due to an unmet dependency, items get pushed to the end of the queue to ensure that they will only be recompiled after all other pages are compiled.
+
+This strategy works, but can be inefficient in some cases. For example, if item A depends on item B, which depends on item C, and when these items are added to the queue in the given order, the first pass will cause the compilation of items A and B to fail while compilation of item C works; the second pass will then again fail to compile A because of exactly the same reason, but compilation of item B will work; only in the final pass will all items be finally compiled.
+
+A better solution would be to build a content dependency graph at compile time (not to be confused with the graph maintained by the dependency tracker). An edge from item A to item B indicates that item B cannot be compiled until item A is compiled. Such an edge is added when an item fails to be compiled due to an unmet dependency. The roots of this graph will then be items that have no known dependencies.
+
+<h2>Parallellize the compilation process (#109)</h2>
+
+<b>Status: Pending</b>
+
+The compilation process should be fairly easy parallellizable. Even though there are dependencies between items, layouts, … the compiler can currently handle this rather well. Parallellizing nanoc would make the compilation process faster, and would likely lead to a cleaner API. (For example, no more compilation stack.)
+
+This will likely not be implemented because it is very low-priority; after all, the major Ruby implementations have  a global interpreter lock (GIL) that prevent true parallellism.</pre>
+  </body>
+</html>

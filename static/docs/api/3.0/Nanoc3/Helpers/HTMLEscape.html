@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Module: Nanoc3::Helpers::HTMLEscape</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section module Nanoc3_Helpers_HTMLEscape">
+  <h1 class="title">Module: Nanoc3::Helpers::HTMLEscape</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::Helpers::HTMLEscape contains functionality for HTML-escaping
+strings.
+</p>
+
+</div><div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#html_escape-instance_method" title="#html_escape">#html_escape</a></span><span class='args'>(string)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+          <span class='alias'>#h</span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the HTML-escaped representation of the given string.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>html_escape</h3>
+</div><div id="html_escape-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>html_escape</span><span class='args'>(string)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+<p class="aliases">
+  <span class="aka">Also known as:</span>
+  
+    <tt id="h-instance_method">h</tt>
+  
+</p>
+</div><div class="section docstring">
+  <p>
+Returns the HTML-escaped representation of the given string. Only &amp;,
+&lt;, &gt; and &quot; are escaped.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/html_escape.rb', line 11</span>
+
+<span class='def def kw'>def</span> <span class='html_escape identifier id'>html_escape</span><span class='lparen token'>(</span><span class='string identifier id'>string</span><span class='rparen token'>)</span>
+  <span class='string identifier id'>string</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'&amp;'</span><span class='comma token'>,</span> <span class='string val'>'&amp;amp;'</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+         <span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'&lt;'</span><span class='comma token'>,</span> <span class='string val'>'&amp;lt;'</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+         <span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'&gt;'</span><span class='comma token'>,</span> <span class='string val'>'&amp;gt;'</span><span class='rparen token'>)</span><span class='dot token'>.</span>
+         <span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'&quot;'</span><span class='comma token'>,</span> <span class='string val'>'&amp;quot;'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:13 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Copying assets intelligently</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Copying assets intelligently</h1>
+
+You can let nanoc to copy assets into the output/ directory before compilation in a few ways:
+
+<h2>Using rsync</h2>
+
+rsync is useful because it makes sure assets are only copied when they’re not copied already, for instance. It can also prevent subversion directories from being copied. To use rsync, create a Rake task which does something along these lines:
+
+<pre><code>
+task :copy_assets do
+  sh "rsync -gprt --partial --exclude='.svn' assets/ output"
+end
+
+task :compile do
+  sh "nanoc3 co"
+end
+
+task :build => [ :compile, :copy_assets ]
+</code></pre>
+
+You may want to play with the options, but the default set of options (the one used above) is probably good enough.
+
+If you want, you can make the compile task from above be the default task, so you can simply type rake, which is even shorter than nanoc co (or nanoc compile), like this:
+
+<pre><code>
+task :default => :build
+</code></pre>
+
+<h2>Using Ruby</h2>
+
+Another way to do it is the following quick 'n dirty hack in Ruby code:
+
+<pre><code>
+%w{yaml}.each{|lib| require lib}
+# a rake task to copy any css and javascript 
+# files over to the webroot output directory
+
+config  = YAML.load(File.open("config.yaml"))
+
+def path_tree(path,to_copy=[])
+  tree = []
+  Dir.glob("#{path}/*").each do |path|
+    if File.directory?(path)
+      tree << path_tree(path)
+    else
+      tree << path 
+      path_tree(path)
+    end 
+  end 
+  tree.flatten
+end
+
+task :default do
+  config["asset_dirs"].each do |search_dir| 
+    path_tree(search_dir).each do |asset|
+      # Some vars
+      from  = asset
+      to    = [config["output_dir"],asset].join("/")
+      # Create dir for file, if necessary; 
+      # e.g., for /path/to/file.txt
+      # create /path/to, if need be
+      if !File.exist?(File.dirname(to))
+        puts "mkdir -p #{File.dirname(to)}"
+        File.makedirs(File.dirname(to))
+      end 
+      # Copy the file over, but only if it's changed or doesn't already exist
+      if !File.exist?(to) || !File.compare(from,to)
+        puts "cp #{from} #{to}"
+        File.copy(from,to)
+      end 
+    end 
+  end 
+end
+</code></pre>
+
+Put something like this in your config.yaml:
+
+<pre><code>
+asset_dirs: ["css", "js"]
+</code></pre>
+
+Where each member of the array is a subdir of the nanoc root directory that you want copied over.</pre>
+  </body>
+</html>

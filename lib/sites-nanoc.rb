@@ -1,40 +1,24 @@
 require 'time'
 
-def nav_item_for(identifier, params={})
-  # Parse params
-  params[:include_children] = true unless params.has_key?(:include_children)
-
-  # Get other item
-  other = @items.find { |i| i.identifier == identifier }
-
-  # Check whether we are in other or a child
-  in_other_tree = @item == other || @item.parent == other
-
-  res = '<li>'
-
-  # Add link itself
-  res << link_to_unless_current(
-    '<span>' + (other[:short_title] || other[:title]) + '</span>',
-    other
-  )
-
-  # Children
-  if in_other_tree && other[:toc_includes_children] && params[:include_children]
-    res << '<ol>'
-    other.children.each { |c| res << nav_item_for(c.identifier) unless c[:is_hidden] }
-    res << '</ol>'
-  elsif in_other_tree && other[:toc_includes_sections] && params[:include_children]
-    res << toc_for(@item)
+# Returns the item with the given identifier.
+def item_named(identifier)
+  @_item_named_cache ||= {}
+  res = @_item_named_cache[identifier]
+  if res.nil?
+    res = @items.find { |item| item.identifier == identifier }
+    @_item_named_cache[identifier] = res
   end
-
-  res << '</li>'
-
   res
 end
 
-# Returns the item with the given identifier.
-def item_named(identifier)
-  @items.find { |item| item.identifier == identifier }
+def api_doc_root
+  version = latest_release_info[:version]
+  api_version = version.size == 5 ? version[0..-3] : version
+  '/docs/api/' + api_version + '/'
+end
+
+def array_to_yaml(array)
+  '[ ' + array.map { |s| "'" + s + "'" }.join(', ') + ' ]'
 end
 
 class Date
@@ -65,19 +49,4 @@ class Numeric
   def to_month_name
     Date::MONTHNAMES[self]
   end
-end
-
-module Enumerable
-  def group_by
-    inject({}) do |groups, element|
-      (groups[yield(element)] ||= []) << element
-      groups
-    end
-  end
-end
-
-# This is necessary because the markdown-generated files have a doctype and
-# cannot really be used as partials.
-def strip_doctype(s)
-  s.sub(/^<!DOCTYPE.*?>\s*/, '')
 end

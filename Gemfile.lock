@@ -13,19 +13,22 @@ GEM
       sass (~> 3.1)
     cri (2.3.0)
       colored (>= 1.2)
-    fast-aleck (0.1)
-    fssm (0.2.9)
+    fssm (0.2.10)
     haml (3.1.7)
-    kramdown (0.14.1)
-    nanoc (3.4.3)
+    kramdown (0.14.2)
+    nanoc (3.5.0)
       cri (~> 2.2)
     nokogiri (1.5.6)
-    rack (1.4.4)
+    rack (1.5.0)
     rainpress (1.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)
     sass (3.2.5)
+    susy (1.0.5)
+      compass (>= 0.12.2)
+      sass (>= 3.2.0)
     systemu (2.5.2)
+    yard (0.8.3)
 
 PLATFORMS
   ruby
@@ -35,7 +38,6 @@ DEPENDENCIES
   builder
   coderay
   compass
-  fast-aleck
   haml
   kramdown
   nanoc
@@ -43,4 +45,6 @@ DEPENDENCIES
   rainpress
   rdiscount
   rubypants
+  susy
   systemu
+  yard

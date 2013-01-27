@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Compiler</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Compiler">
+  <h1 class="title">Class: Nanoc3::Compiler</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::Compiler is responsible for compiling a site&#8217;s item
+representations.
+</p>
+
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>item_compilation_rules</span>
+          </td>
+          <td class="readwrite">
+            [<span id='item_compilation_rules-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The list of compilation rules that will be used to compile items.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>item_routing_rules</span>
+          </td>
+          <td class="readwrite">
+            [<span id='item_routing_rules-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The list of routing rules that will be used to give all items a path.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>layout_filter_mapping</span>
+          </td>
+          <td class="readwrite">
+            [<span id='layout_filter_mapping-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The hash containing layout-to-filter mapping rules.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+        
+        <tr class="">
+          <th class='signature'>
+            <span class='name'>stack</span>
+          </td>
+          <td class="readwrite">
+            [<span id='stack-instance_method'>R</span>] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+The compilation stack.
+</p>
+
+            
+          </td>
+        </tr>
+        
+      
+      </table>
+    </div>
+  
+</div>
+<div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'>(site)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Creates a new compiler for the given site.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='site identifier id'>site</span><span class='rparen token'>)</span>
+  <span class='@site ivar id'>@site</span> <span class='assign token'>=</span> <span class='site identifier id'>site</span>
+
+  <span class='@stack ivar id'>@stack</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+
+  <span class='@item_compilation_rules ivar id'>@item_compilation_rules</span>  <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@item_routing_rules ivar id'>@item_routing_rules</span>      <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@layout_filter_mapping ivar id'>@layout_filter_mapping</span>   <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#compilation_rule_for-instance_method" title="#compilation_rule_for">#compilation_rule_for</a></span><span class='args'>(rep)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the first matching compilation rule for the given rep.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#filter_for_layout-instance_method" title="#filter_for_layout">#filter_for_layout</a></span><span class='args'>(layout)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns a tuple containing the filter name and the filter arguments for the
+given layout.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#routing_rule_for-instance_method" title="#routing_rule_for">#routing_rule_for</a></span><span class='args'>(rep)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the first matching routing rule for the given rep.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#run-instance_method" title="#run">#run</a></span><span class='args'>(item = nil, params = {})</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Compiles (part of) the site and writes out the compiled item
+representations.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>compilation_rule_for</h3>
+</div><div id="compilation_rule_for-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>compilation_rule_for</span><span class='args'>(rep)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the first matching compilation rule for the given rep.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+78
+79
+80
+81
+82</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 78</span>
+
+<span class='def def kw'>def</span> <span class='compilation_rule_for identifier id'>compilation_rule_for</span><span class='lparen token'>(</span><span class='rep identifier id'>rep</span><span class='rparen token'>)</span>
+  <span class='@item_compilation_rules ivar id'>@item_compilation_rules</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='rule identifier id'>rule</span><span class='bitor op'>|</span>
+    <span class='rule identifier id'>rule</span><span class='dot token'>.</span><span class='applicable_to? fid id'>applicable_to?</span><span class='lparen token'>(</span><span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='item identifier id'>item</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rule identifier id'>rule</span><span class='dot token'>.</span><span class='rep_name identifier id'>rep_name</span> <span class='eq op'>==</span> <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>filter_for_layout</h3>
+</div><div id="filter_for_layout-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>filter_for_layout</span><span class='args'>(layout)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns a tuple containing the filter name and the filter arguments for the
+given layout.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 93</span>
+
+<span class='def def kw'>def</span> <span class='filter_for_layout identifier id'>filter_for_layout</span><span class='lparen token'>(</span><span class='layout identifier id'>layout</span><span class='rparen token'>)</span>
+  <span class='@layout_filter_mapping ivar id'>@layout_filter_mapping</span><span class='dot token'>.</span><span class='each_pair identifier id'>each_pair</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='layout_identifier identifier id'>layout_identifier</span><span class='comma token'>,</span> <span class='filter_name_and_args identifier id'>filter_name_and_args</span><span class='bitor op'>|</span>
+    <span class='return return kw'>return</span> <span class='filter_name_and_args identifier id'>filter_name_and_args</span> <span class='if if_mod kw'>if</span> <span class='layout identifier id'>layout</span><span class='dot token'>.</span><span class='identifier identifier id'>identifier</span> <span class='match op'>=~</span> <span class='layout_identifier identifier id'>layout_identifier</span>
+  <span class='end end kw'>end</span>
+  <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>routing_rule_for</h3>
+</div><div id="routing_rule_for-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>routing_rule_for</span><span class='args'>(rep)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the first matching routing rule for the given rep.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+85
+86
+87
+88
+89</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 85</span>
+
+<span class='def def kw'>def</span> <span class='routing_rule_for identifier id'>routing_rule_for</span><span class='lparen token'>(</span><span class='rep identifier id'>rep</span><span class='rparen token'>)</span>
+  <span class='@item_routing_rules ivar id'>@item_routing_rules</span><span class='dot token'>.</span><span class='find identifier id'>find</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='rule identifier id'>rule</span><span class='bitor op'>|</span>
+    <span class='rule identifier id'>rule</span><span class='dot token'>.</span><span class='applicable_to? fid id'>applicable_to?</span><span class='lparen token'>(</span><span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='item identifier id'>item</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='rule identifier id'>rule</span><span class='dot token'>.</span><span class='rep_name identifier id'>rep_name</span> <span class='eq op'>==</span> <span class='rep identifier id'>rep</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>run</h3>
+</div><div id="run-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>run</span><span class='args'>(item = nil, params = {})</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Compiles (part of) the site and writes out the compiled item
+representations.
+</p>
+<table>
+<tr><td valign="top"><tt>items</tt>:</td><td>The items that should be compiled, along with their dependencies. Pass
+<tt>nil</tt> if the entire site should be compiled.
+
+</td></tr>
+</table>
+<p>
+This method also accepts a few optional parameters:
+</p>
+<table>
+<tr><td valign="top"><tt>:force</tt>:</td><td>true if the rep should be compiled even if it is not outdated, false if
+not. Defaults to false.
+
+</td></tr>
+</table>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/base/compiler.rb', line 47</span>
+
+<span class='def def kw'>def</span> <span class='run identifier id'>run</span><span class='lparen token'>(</span><span class='item identifier id'>item</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='comment val'># Create output directory if necessary</span>
+  <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='config identifier id'>config</span><span class='lbrack token'>[</span><span class='symbol val'>:output_dir</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Load dependencies</span>
+  <span class='dependency_tracker identifier id'>dependency_tracker</span><span class='dot token'>.</span><span class='load_graph identifier id'>load_graph</span>
+  <span class='print_dependency_graph identifier id'>print_dependency_graph</span> <span class='if if_mod kw'>if</span> <span class='$DEBUG gvar id'>$DEBUG</span>
+
+  <span class='comment val'># Get items and reps to compile</span>
+  <span class='if if kw'>if</span> <span class='item identifier id'>item</span>
+    <span class='items identifier id'>items</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='item identifier id'>item</span> <span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='dependency_tracker identifier id'>dependency_tracker</span><span class='dot token'>.</span><span class='all_inverse_dependencies_for identifier id'>all_inverse_dependencies_for</span><span class='lparen token'>(</span><span class='item identifier id'>item</span><span class='rparen token'>)</span>
+    <span class='items identifier id'>items</span><span class='dot token'>.</span><span class='uniq! fid id'>uniq!</span>
+  <span class='else else kw'>else</span>
+    <span class='items identifier id'>items</span> <span class='assign token'>=</span> <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='items identifier id'>items</span>
+  <span class='end end kw'>end</span>
+  <span class='reps identifier id'>reps</span> <span class='assign token'>=</span> <span class='items identifier id'>items</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span> <span class='i identifier id'>i</span><span class='dot token'>.</span><span class='reps identifier id'>reps</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span>
+
+  <span class='comment val'># Prepare dependencies</span>
+  <span class='mark_outdated_items identifier id'>mark_outdated_items</span><span class='lparen token'>(</span><span class='reps identifier id'>reps</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='dot token'>.</span><span class='has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='symbol val'>:force</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:force</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='forget_dependencies_if_outdated identifier id'>forget_dependencies_if_outdated</span><span class='lparen token'>(</span><span class='items identifier id'>items</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Compile reps</span>
+  <span class='dependency_tracker identifier id'>dependency_tracker</span><span class='dot token'>.</span><span class='start identifier id'>start</span>
+  <span class='compile_reps identifier id'>compile_reps</span><span class='lparen token'>(</span><span class='reps identifier id'>reps</span><span class='rparen token'>)</span>
+  <span class='dependency_tracker identifier id'>dependency_tracker</span><span class='dot token'>.</span><span class='stop identifier id'>stop</span>
+
+  <span class='comment val'># Store dependencies</span>
+  <span class='dependency_tracker identifier id'>dependency_tracker</span><span class='dot token'>.</span><span class='store_graph identifier id'>store_graph</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:12 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -1,36 +1,45 @@
 ---
 
-title:    "Documentation"
-markdown: basic
+title:      "Documentation"
+markdown:   basic
+is_dynamic: true
+child_desc: "nanoc documentation"
 
 ---
 
-The documentation for nanoc is organised in a couple of chapters, which you can see in the sidebar. The documentation is written with the intention to be read in-order, from the first chapter to the last.
+<% content_for :details do %>
+    <h3>Documentation Index</h3>
+    <ol>
+	<li><%= link_to_id '/docs/tutorial/' %></li>
+	<li><%= link_to_id '/docs/basics/' %></li>
+	<li><%= link_to_id '/docs/extending-nanoc/' %></li>
+	<li><%= link_to_id '/docs/guides/' %></li>
+	<li><%= link_to_id '/docs/reference/' %></li>
+	<li><%= link_to_id '/docs/troubleshooting/' %></li>
+	<li><%= link_to_id '/docs/glossary/' %></li>
+	<li><a href="<%= api_doc_root %>">API documentation</a></li>
+    </ol>
+<% end %>
 
-The first chapter, [Introduction](/docs/1-introduction/), explains what nanoc is and what it does. The [Installation](/docs/2-installation/) and [Getting Started](/docs/3-getting-started) chapters detail how to start using nanoc. The [Basic Concepts](/docs/4-basic-concepts/), [Advanced Concepts](/docs/5-advanced-concepts) and [Guides](/docs/6-guides/) chapters explain all of nanoc’s functionality in detail and provide useful tips and tricks for getting the most out of nanoc. The [Glossary](/docs/7-glossary/) is useful if you don’t know what a certain term means, and the [FAQ](/docs/8-faq/) can come in handy if you’re stuck on a certain problem.
+How to use the documentation
+----------------------------
 
-When you’re stuck with a question or a problem the documentation doesn’t solve, considering posting to the discussion group or joining the IRC channel. We’ll get it sorted out in no time. Check out the [Community](/community/) page for details.
+The documentation for nanoc is organised in a couple of parts:
 
-Markup conventions
-------------------
+1. The [Tutorial](/docs/tutorial/) chapter is meant for first-time users of nanoc, who want to get an impression of what nanoc can do and how it’s done. After reading this part, you should be able to get a basic site up and running.
 
-The nanoc documentation uses a few conventions for markup:
+2. The [Basics](/docs/basics/) chapter describes how to use nanoc in great detail. Everything that nanoc can do, you will find in here.
 
-* <i>Italic text</i> introduces new terms.
-* <code>Monospaced text</code> is used for code snippets.
-* <kbd>Monospaced, bold text</kbd> is used for commands that should be typed literally.
-* <var>Monospaced, italic text</var> is used for text that should be replaced with user-supplied values.
+3. The [Extending nanoc](/docs/extending-nanoc/) chapter shows how nanoc can be extended by writing custom helpers, filters, data sources and more. Medium-sized to large projects will certainly benefit from this chapter.
 
-The documentation also contains quite a few blocks of code snippets. These are marked up like this:
+4. The [Guides](/docs/guides/) show in detail how specific things can be achieved with nanoc. Even if they are not relevant to you, they may be an interesting read in order to get a better idea of what the nanoc way is.
 
-<pre title="Title of the snippet"><code class="language-ruby">class Lorem::Ipsum
-  def dolor
-    [ :foo, "sit amet, consectetur adipisicing elit", 123 ]
-  end
-end</code></pre>
+5. The [Reference](/docs/reference/) contains the reference documentation for filters, helpers and commands that nanoc supports out of the box.
 
-Pieces of terminal input/output are marked up in a similar way. Note that the prompt is always included, but should never be typed. Here’s an example:
+6. The [Troubleshooting](/docs/troubleshooting/) section describes some frequent error messages, what causes them and how to solve them.
 
-<pre title="Title of the snippet"><span class="prompt">some-dir%</span> <kbd>echo "hello" &amp;&amp; cd other-dir</kbd>
-hello
-<span class="prompt">other-dir%</span></pre>
+7. The [Glossary](/docs/glossary/) is a collection of terms that you may stumble upon while using nanoc or reading its documentation. If you don’t understand a term, go here!
+
+8. The [API documentation](<%= api_doc_root %>) contains the documentation of nanoc’s internals. This is quite useful if you want to contribute to nanoc or extend it.
+
+When you’re stuck with a question or a problem the documentation doesn’t solve, considering posting to the <a href="#">discussion group</a> or joining the <a href="irc://irc.freenode.net/#nanoc">nanoc IRC channel</a>. We’ll get it sorted out in no time. Check out the [Community](/community/) page for details.

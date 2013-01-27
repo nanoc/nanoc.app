@@ -1,2 +1,0 @@
-<h2><%=h @article[:title] %> <span class="date">(<%= Time.parse(article[:created_at]).localtime.format_as_date %>)</span></h2>
-<%= @article.compiled_content(:snapshot => :before_sections) %>

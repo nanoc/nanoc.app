@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Module: Nanoc3::Helpers::Tagging</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section module Nanoc3_Helpers_Tagging">
+  <h1 class="title">Module: Nanoc3::Helpers::Tagging</h1>
+  <div class="section docstring">
+  <p>
+Nanoc3::Helpers::Tagging provides some support for managing tags added to
+items. To add tags to items, set the <tt>tags</tt> attribute to an array of
+tags that should be applied to the item. For example:
+</p>
+<pre class="code">
+  <span class='tags identifier id'>tags</span><span class='colon op'>:</span> <span class='lbrack token'>[</span> <span class='string val'>'foo'</span><span class='comma token'>,</span> <span class='string val'>'bar'</span><span class='comma token'>,</span> <span class='string val'>'baz'</span> <span class='rbrack token'>]</span>
+</pre>
+<p>
+To activate this helper, <tt>include</tt> it, like this:
+</p>
+<pre class="code">
+  <span class='include identifier id'>include</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Helpers constant id'>Helpers</span><span class='colon2 op'>::</span><span class='Tagging constant id'>Tagging</span>
+</pre>
+
+</div><div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#items_with_tag-instance_method" title="#items_with_tag">#items_with_tag</a></span><span class='args'>(tag)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns all items with the given tag.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#link_for_tag-instance_method" title="#link_for_tag">#link_for_tag</a></span><span class='args'>(tag, base_url)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns a link to to the specified tag.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#tags_for-instance_method" title="#tags_for">#tags_for</a></span><span class='args'>(item, params = {})</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns a formatted list of tags for the given item as a string.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>items_with_tag</h3>
+</div><div id="items_with_tag-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>items_with_tag</span><span class='args'>(tag)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns all items with the given tag.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+40
+41
+42</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='items_with_tag identifier id'>items_with_tag</span><span class='lparen token'>(</span><span class='tag identifier id'>tag</span><span class='rparen token'>)</span>
+  <span class='@items ivar id'>@items</span><span class='dot token'>.</span><span class='select identifier id'>select</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='i identifier id'>i</span><span class='bitor op'>|</span> <span class='lparen token'>(</span><span class='i identifier id'>i</span><span class='lbrack token'>[</span><span class='symbol val'>:tags</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='tag identifier id'>tag</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>link_for_tag</h3>
+</div><div id="link_for_tag-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>link_for_tag</span><span class='args'>(tag, base_url)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns a link to to the specified tag. The link is marked up using the
+rel-tag microformat.
+</p>
+<table>
+<tr><td valign="top"><tt>tag</tt>:</td><td>The name of the tag, which should consist of letters and numbers (no
+spaces, slashes, or other special characters).
+
+</td></tr>
+<tr><td valign="top"><tt>base_url</tt>:</td><td>The URL to which the tag will be appended to construct the link URL. This
+URL must have a trailing slash.
+
+</td></tr>
+</table>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+52
+53
+54</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 52</span>
+
+<span class='def def kw'>def</span> <span class='link_for_tag identifier id'>link_for_tag</span><span class='lparen token'>(</span><span class='tag identifier id'>tag</span><span class='comma token'>,</span> <span class='base_url identifier id'>base_url</span><span class='rparen token'>)</span>
+  <span class='dstring node'>%[&lt;a href=&quot;#{base_url}#{tag}&quot; rel=&quot;tag&quot;&gt;#{tag}&lt;/a&gt;]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>tags_for</h3>
+</div><div id="tags_for-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>tags_for</span><span class='args'>(item, params = {})</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns a formatted list of tags for the given item as a string. Several
+parameters allow customization:
+</p>
+<table>
+<tr><td valign="top">:base_url:</td><td>The URL to which the tag will be appended to construct the link URL. This
+URL must have a trailing slash. Defaults to
+&quot;http://technorati.com/tag/&quot;.
+
+</td></tr>
+<tr><td valign="top">:none_text:</td><td>The text to display when the item has no tags. Defaults to
+&quot;(none)&quot;.
+
+</td></tr>
+<tr><td valign="top">:separator:</td><td>The separator to put between tags. Defaults to &quot;, &quot;.
+
+</td></tr>
+</table>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/helpers/tagging.rb', line 27</span>
+
+<span class='def def kw'>def</span> <span class='tags_for identifier id'>tags_for</span><span class='lparen token'>(</span><span class='item identifier id'>item</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='base_url identifier id'>base_url</span>  <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:base_url</span><span class='rbrack token'>]</span>  <span class='orop op'>||</span> <span class='string val'>'http://technorati.com/tag/'</span>
+  <span class='none_text identifier id'>none_text</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:none_text</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>'(none)'</span>
+  <span class='separator identifier id'>separator</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:separator</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>', '</span>
+
+  <span class='if if kw'>if</span> <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:tags</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='or or kw'>or</span> <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:tags</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+    <span class='none_text identifier id'>none_text</span>
+  <span class='else else kw'>else</span>
+    <span class='item identifier id'>item</span><span class='lbrack token'>[</span><span class='symbol val'>:tags</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='tag identifier id'>tag</span><span class='bitor op'>|</span> <span class='link_for_tag identifier id'>link_for_tag</span><span class='lparen token'>(</span><span class='tag identifier id'>tag</span><span class='comma token'>,</span> <span class='base_url identifier id'>base_url</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='separator identifier id'>separator</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:06 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

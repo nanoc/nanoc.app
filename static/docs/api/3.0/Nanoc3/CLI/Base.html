@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::CLI::Base</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_CLI_Base">
+  <h1 class="title">Class: Nanoc3::CLI::Base</h1>
+  <div class="section inheritance">
+  <ul>
+  <li>Cri::Base</li><ul><li>Nanoc3::CLI::Base</li>
+  </ul></ul>
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>initialize</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span>
+  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='string val'>'nanoc3'</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Add help command</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='help_command identifier id'>help_command</span> <span class='assign token'>=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Help constant id'>Help</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='help_command identifier id'>help_command</span><span class='rparen token'>)</span>
+
+  <span class='comment val'># Add other commands</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Autocompile constant id'>Autocompile</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Compile constant id'>Compile</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='CreateLayout constant id'>CreateLayout</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='CreateItem constant id'>CreateItem</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='CreateSite constant id'>CreateSite</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Info constant id'>Info</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='add_command identifier id'>add_command</span><span class='lparen token'>(</span><span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Commands constant id'>Commands</span><span class='colon2 op'>::</span><span class='Update constant id'>Update</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <h1>Public Class Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#shared_base-class_method" title="shared_base">shared_base</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#global_option_definitions-instance_method" title="#global_option_definitions">#global_option_definitions</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Returns the list of global option definitionss.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#handle_option-instance_method" title="#handle_option">#handle_option</a></span><span class='args'>(option)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#require_site-instance_method" title="#require_site">#require_site</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Helper function which can be called when a command is executed that
+requires a site, such as the compile command.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#set_vcs-instance_method" title="#set_vcs">#set_vcs</a></span><span class='args'>(vcs_name)</span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Sets the data source&#8217;s VCS to the VCS with the given name.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#site-instance_method" title="#site">#site</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+Gets the site (Nanoc3::Site) in the current directory and loads its data.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails class public">
+  <h1>Public Class Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>shared_base</h3>
+</div><div id="shared_base-class_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>shared_base</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+24
+25
+26</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='shared_base identifier id'>shared_base</span>
+  <span class='@shared_base ivar id'>@shared_base</span> <span class='opasgn op'>||=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div><div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>global_option_definitions</h3>
+</div><div id="global_option_definitions-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>global_option_definitions</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Returns the list of global option definitionss.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 100</span>
+
+<span class='def def kw'>def</span> <span class='global_option_definitions identifier id'>global_option_definitions</span>
+  <span class='lbrack token'>[</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'help'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'h'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'show this help message and quit'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'no-color'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'C'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'disable color'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'version'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'v'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'show version information and quit'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'verbose'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'V'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'make nanoc output more detailed'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'debug'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'d'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'enable debugging (set $DEBUG to true)'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+    <span class='lbrace token'>{</span>
+      <span class='symbol val'>:long</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'warn'</span><span class='comma token'>,</span> <span class='symbol val'>:short</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'w'</span><span class='comma token'>,</span> <span class='symbol val'>:argument</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:forbidden</span><span class='comma token'>,</span>
+      <span class='symbol val'>:desc</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'enable warnings'</span>
+    <span class='rbrace token'>}</span>
+  <span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>handle_option</h3>
+</div><div id="handle_option-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>handle_option</span><span class='args'>(option)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 129</span>
+
+<span class='def def kw'>def</span> <span class='handle_option identifier id'>handle_option</span><span class='lparen token'>(</span><span class='option identifier id'>option</span><span class='rparen token'>)</span>
+  <span class='case case kw'>case</span> <span class='option identifier id'>option</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:version</span>
+    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;nanoc #{Nanoc3::VERSION} (c) 2007-2009 Denis Defreyne.&quot;</span>
+    <span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) running on #{RUBY_PLATFORM}&quot;</span>
+    <span class='exit identifier id'>exit</span> <span class='integer val'>0</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:verbose</span>
+    <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Logger constant id'>Logger</span><span class='dot token'>.</span><span class='instance identifier id'>instance</span><span class='dot token'>.</span><span class='level identifier id'>level</span> <span class='assign token'>=</span> <span class='symbol val'>:low</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:debug</span>
+    <span class='$DEBUG gvar id'>$DEBUG</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:warn</span>
+    <span class='$-w gvar id'>$-w</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:'no-color'</span>
+    <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='CLI constant id'>CLI</span><span class='colon2 op'>::</span><span class='Logger constant id'>Logger</span><span class='dot token'>.</span><span class='instance identifier id'>instance</span><span class='dot token'>.</span><span class='color identifier id'>color</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+  <span class='when when kw'>when</span> <span class='symbol val'>:help</span>
+    <span class='show_help identifier id'>show_help</span>
+    <span class='exit identifier id'>exit</span> <span class='integer val'>0</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>require_site</h3>
+</div><div id="require_site-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>require_site</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Helper function which can be called when a command is executed that
+requires a site, such as the compile command.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='require_site identifier id'>require_site</span>
+  <span class='if if kw'>if</span> <span class='site identifier id'>site</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'The current working directory does not seem to be a '</span> <span class='plus op'>+</span>
+                 <span class='string val'>'valid/complete nanoc site directory; aborting.'</span>
+    <span class='exit identifier id'>exit</span> <span class='integer val'>1</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>set_vcs</h3>
+</div><div id="set_vcs-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>set_vcs</span><span class='args'>(vcs_name)</span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Sets the data source&#8217;s VCS to the VCS with the given name. Does
+nothing when the site&#8217;s data source does not support VCSes (i.e. does
+not implement #vcs=).
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 79</span>
+
+<span class='def def kw'>def</span> <span class='set_vcs identifier id'>set_vcs</span><span class='lparen token'>(</span><span class='vcs_name identifier id'>vcs_name</span><span class='rparen token'>)</span>
+  <span class='comment val'># Skip if not possible</span>
+  <span class='return return kw'>return</span> <span class='if if_mod kw'>if</span> <span class='vcs_name identifier id'>vcs_name</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='orop op'>||</span> <span class='site identifier id'>site</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+
+  <span class='comment val'># Find VCS</span>
+  <span class='vcs_class identifier id'>vcs_class</span> <span class='assign token'>=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Extra constant id'>Extra</span><span class='colon2 op'>::</span><span class='VCS constant id'>VCS</span><span class='dot token'>.</span><span class='named identifier id'>named</span><span class='lparen token'>(</span><span class='vcs_name identifier id'>vcs_name</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='vcs_class identifier id'>vcs_class</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;A VCS named #{vcs_name} was not found; aborting.&quot;</span>
+    <span class='exit identifier id'>exit</span> <span class='integer val'>1</span>
+  <span class='end end kw'>end</span>
+
+  <span class='site identifier id'>site</span><span class='dot token'>.</span><span class='data_sources identifier id'>data_sources</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='data_source identifier id'>data_source</span><span class='bitor op'>|</span>
+    <span class='comment val'># Skip if not possible</span>
+    <span class='next next kw'>next</span> <span class='if if_mod kw'>if</span> <span class='notop op'>!</span><span class='data_source identifier id'>data_source</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:vcs=</span><span class='rparen token'>)</span>
+
+    <span class='comment val'># Set VCS</span>
+    <span class='data_source identifier id'>data_source</span><span class='dot token'>.</span><span class='vcs identifier id'>vcs</span> <span class='assign token'>=</span> <span class='vcs_class identifier id'>vcs_class</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>site</h3>
+</div><div id="site-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>site</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+Gets the site (Nanoc3::Site) in the current directory and loads its data.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/cli/base.rb', line 39</span>
+
+<span class='def def kw'>def</span> <span class='site identifier id'>site</span>
+  <span class='comment val'># Load site if possible</span>
+  <span class='if if kw'>if</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='file? fid id'>file?</span><span class='lparen token'>(</span><span class='string val'>'config.yaml'</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='lparen token'>(</span><span class='notop op'>!</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='instance_variable_defined? fid id'>instance_variable_defined?</span><span class='lparen token'>(</span><span class='symbol val'>:@site</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='@site ivar id'>@site</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span><span class='rparen token'>)</span>
+    <span class='begin begin kw'>begin</span>
+      <span class='@site ivar id'>@site</span> <span class='assign token'>=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Site constant id'>Site</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'.'</span><span class='rparen token'>)</span>
+    <span class='rescue rescue kw'>rescue</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='Errors constant id'>Errors</span><span class='colon2 op'>::</span><span class='UnknownDataSource constant id'>UnknownDataSource</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;Unknown data source: #{e}&quot;</span>
+      <span class='exit identifier id'>exit</span> <span class='integer val'>1</span>
+    <span class='rescue rescue kw'>rescue</span> <span class='StandardError constant id'>StandardError</span><span class='comma token'>,</span> <span class='ScriptError constant id'>ScriptError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='error identifier id'>error</span>
+      <span class='comment val'># Header</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'+--- /!\ ERROR /!\ -------------------------------------------+'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'| An exception occured while loading the site. If you think   |'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'| this is a bug in nanoc, please do report it at              |'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'| &lt;http://projects.stoneship.org/trac/nanoc/newticket&gt; --     |'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'| thanks in advance!                                          |'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'+-------------------------------------------------------------+'</span>
+
+      <span class='comment val'># Exception</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'=== MESSAGE:'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='dstring node'>&quot;#{error.class}: #{error.message}&quot;</span>
+
+      <span class='comment val'># Backtrace</span>
+      <span class='require identifier id'>require</span> <span class='string val'>'enumerator'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='string val'>'=== BACKTRACE:'</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span>
+      <span class='$stderr gvar id'>$stderr</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='error identifier id'>error</span><span class='dot token'>.</span><span class='backtrace identifier id'>backtrace</span><span class='dot token'>.</span><span class='to_enum identifier id'>to_enum</span><span class='lparen token'>(</span><span class='symbol val'>:each_with_index</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='item identifier id'>item</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='bitor op'>|</span> <span class='dstring node'>&quot;  #{index}. #{item}&quot;</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>&quot;\n&quot;</span><span class='rparen token'>)</span>
+
+      <span class='exit identifier id'>exit</span> <span class='integer val'>1</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='@site ivar id'>@site</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:08 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

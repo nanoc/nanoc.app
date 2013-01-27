@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Using an upload task</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Using an upload task</h1>
+
+To upload nanoc-generated sites, I use a Rake task that invokes rsync. Depending on the OS you are using, rsync may or may not be installed yet (it is on Mac OS X). The Rake task looks like this:
+
+<pre><code>
+task :upload do
+  # This tasks uploads the content of the 'output' directory to the web
+  # server. This specific rake task is specific to the Stoneship web site, but
+  # it should be easy to adjust it to meet your own needs.
+  #
+  # This tasks requires rsync.
+  #   
+  # To configure, set 'src' to the path of the output directory on your local
+  # computer (include a trailing slash). Set 'dst' to the path to your web
+  # root (without trailing slash). Take a look at the example to see how it's
+  # done (it's just a really simple rsync wrapper though).
+
+  # Settings
+  src = '/Users/ddfreyne/Documents/Development/nanoc/sites-stoneship/output/' # trailing slash
+  dst = 'ddfreyne@ectype:/home/ddfreyne/sites/stoneship/public'               # no trailing slash
+
+  # Don't touch this!
+  puts 'Publishing site...'
+  sh('rsync', '-gpPrvz', '--exclude=".hg"', src, dst)
+  puts 'Site published.'
+end
+</code></pre>
+
+You'll have to update the <code>src</code> and <code>dst</code> variables, as explained din the comments.
+
+This task (invoked like this: <code>rake upload</code>) uploads the contents of <code>src</code> to <code>dst</code>.
+
+Depending on how you use your nanoc site, you may wish to skip any Subversion-related directories using the <code>--exclude='.svn'</code> option. There are quite a few more useful rsync options; I recommend checking out the rsync manpage.</pre>
+  </body>
+</html>

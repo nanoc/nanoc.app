@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Creating Items Using Templates</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Creating Items Using Templates</h1>
+
+Old versions of nanoc (1.x; not even 2.x if Im not mistaken) had templates which you could use to generate pages (<code>nanoc create_page /foo/ --template=article</code>) but this feature hasnt been around for a while. You can recreate this functionality using rake tasks, though. For example, in Rakefile:
+
+<pre><code>
+#!ruby
+require 'nanoc3/tasks'
+
+task :create_article do
+  # Check path
+  if ENV['path'].nil?
+    $stderr.puts('You need to specify the path, e.g. rake create_article path=/journal/foo/')
+    break
+  end
+
+  # Create item
+  site = Nanoc3::Site.new('.')
+  site.data_sources[0].create_item(
+    'Hello, I am a new article!', # the content
+    { # the attributes
+      :title => 'My New Article',
+      :published_at => Time.now
+    },
+    ENV['path'].cleaned_identifier # the path
+  )
+end 
+</code></pre>
+</pre>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+// Reusable colors
+$emph-color:          rgb(210, 67, 27);
+
+// background
+$bg-color:              #f1f0eb;
+$semilight-bg-color:    adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
+$top-bg-color:          shade($bg-color, 70%);
+$footer-bg-color:       $top-bg-color;
+$nav-bg-color:          shade($top-bg-color, 60%);
+$search-bg-color:       shade($top-bg-color, 30%);
+$nav-spacing-color:     $top-bg-color;
+$explanation-bg-color:  shade($emph-color, 10%);
+$ticker-bg-color:       shade($bg-color, 70%);
+$chooser-unit-bg-color: $emph-color;
+
+// foreground
+$tagline-color:         tint($top-bg-color, 40%);
+$dark-fg-color:         $search-bg-color;
+$light-fg-color:        #ddd6d4;
+$emph-light-fg-color:   #fff;
+$chooser-unit-fg-color: #fff;
+$link-color-a:          #2366ad;
+$link-color-b:          #fff;
+$footer-link-color-a:   $light-fg-color;
+$footer-link-color-b:   shade($footer-bg-color, 40%);
+$explanation-fg-color:  #fff;
+$ticker-fg-color:       shade($light-fg-color, 20%);
+$ticker-fg-emph-color:  tint($ticker-fg-color, 60%);
+$hr-color:              mix($bg-color, $emph-color, 50%);
+
+
+
+@mixin dark-background-links {
+    a {
+        background-color: tint($footer-bg-color, 10%);
+    }
+
+    a:link, a:visited {
+        color: #ddd6d4;
+    }
+
+    a:hover {
+        color: #fff;
+    }
+
+    a:link, a:visited {
+        color: $footer-link-color-a;
+    }
+
+    a:hover {
+        background-color: $footer-link-color-a;
+        color:            $footer-link-color-b;
+    }
+}
+
+body {
+    background: $bg-color;
+}
+
+.search input {
+    background: $search-bg-color;
+    color: $light-fg-color;
+}
+
+article {
+    a {
+        background-color: tint($bg-color, 70%);
+    }
+
+    a:link, a:visited {
+        color: $link-color-a;
+    }
+
+    a:hover {
+        background-color: $link-color-a;
+        color:            $link-color-b;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, dt,
+body.home header .title {
+    color: $emph-color;
+
+    .tagline {
+        color: $tagline-color;
+    }
+}
+
+figure {
+    background: #fff;
+
+    img {
+        border-color: rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+    }
+
+    figcaption {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+pre {
+    border: 1px solid shade($bg-color, 20%);
+    background: tint($bg-color, 50%);
+}
+
+pre:after {
+    background: shade($bg-color, 20%);
+}
+
+body header {
+    background: $top-bg-color;
+
+    .header-content {
+        background: $nav-bg-color;
+
+        nav li {
+            border-color: $nav-spacing-color;
+
+            a:link, a:visited {
+                color: $light-fg-color;
+            }
+
+            a:hover {
+                color: $emph-light-fg-color;
+            }
+        }
+    }
+}
+
+body.page {
+    .intro {
+        background: $semilight-bg-color;
+    }
+
+    .details, .open-source-site {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+    .open-source-site {
+        border-color: #fff;
+    }
+}
+
+body.home {
+    .explanation {
+        background: $explanation-bg-color;
+        color: $explanation-fg-color;
+    }
+
+    .hero {
+        background-color: $semilight-bg-color;
+
+        .caption {
+            background: shade($bg-color, 5%);
+
+            p {
+                color: $dark-fg-color;
+            }
+        }
+    }
+
+    .ticker {
+        background: $ticker-bg-color;
+        color: $ticker-fg-color;
+
+        @include dark-background-links;
+
+        span {
+            color: $ticker-fg-emph-color;
+        }
+    }
+
+    .chooser {
+        h2 {
+            color: rgb(37, 110, 219);
+        }
+
+        .chooser-unit:before {
+            border-color: $bg-color;
+            background-color: $chooser-unit-bg-color;
+        }
+    }
+
+    .support {
+        border-color: $hr-color;
+
+        .support-content {
+            h3:before {
+                border-color: $chooser-unit-bg-color;
+            }
+
+            h3 {
+                color: $emph-color;
+            }
+        }
+    }
+}
+
+footer {
+    background: #554f4b url(/assets/images/background-dark.png);
+
+    @include dark-background-links;
+
+    h3 {
+        color: #ddd6d4;
+    }
+
+    .copyright {
+        border-color: #a89c93;
+        color: #ddd6d4;
+    }
+}

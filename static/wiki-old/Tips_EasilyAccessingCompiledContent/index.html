@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Easily Accessing Compiled Content</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Easily Accessing Compiled Content</h1>
+
+In nanoc 3.0.x, to access the compiled content of an item, you have to first get hold of the right item and then fetch the content at a specific snapshot. This is cumbersome, so nanoc 3.1.0 will introduce a cleaner way to fetch compiled content from an item. It’ll work like this:
+
+<pre><code>
+#!ruby
+item.compiled_content
+item.compiled_content(:rep => :raw)
+item.compiled_content(:snapshot => :pre)
+item.compiled_content(:rep => :raw, :snapshot => :pre)
+</code></pre>
+
+You can already use this new <code>#compiled_content</code> method in 3.0.x. Put the following code somewhere in your lib/ directory (e.g. lib/compiled_content.rb):
+
+<pre><code>
+#!ruby
+class Nanoc3::Item
+
+  # Returns the compiled content from a given representation and a given
+  # snapshot. This is a convenience method that makes fetching compiled
+  # content easier.
+  #
+  # @option params [String] :rep (:default) The name of the representation
+  #   from which the compiled content should be fetched. By default, the
+  #   compiled content will be fetched from the default representation.
+  #
+  # @option params [String] :snapshot (:last) The name of the snapshot from
+  #   which to fetch the compiled content. By default, the fully compiled
+  #   content will be fetched, with all filters and layouts applied--not the
+  #   pre-layout content.
+  def compiled_content(params={})
+    rep_name      = params[:rep]      || :default
+    snapshot_name = params[:snapshot] || :last
+
+    # Get rep
+    rep = reps.find { |r| r.name == rep_name }
+    if rep.nil?
+      raise Nanoc3::Errors::Generic,
+        "No rep named #{rep_name.inspect} was found."
+    end
+
+    # Get rep's content
+    rep.content_at_snapshot(snapshot_name)
+  end
+
+end
+
+</code></pre>
+
+See <a href="http://groups.google.com/group/nanoc/browse_thread/thread/d03777d22c02018f/10e308f8d29842fb">this thread</a> for details.</pre>
+  </body>
+</html>

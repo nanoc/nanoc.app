@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nanoc wiki (archived): Hiding pages</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+  </head>
+  <body>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+    <pre><a href="../">← homepage</a>
+
+<h1>Hiding pages</h1>
+
+It is sometimes useful to compile pages, but not let them show up in a sitemap or a feed. At Stoneship, the feed is hidden, so it doesn’t show up on the sitemap: only <a href="http://feedburner.com/">FeedBurner</a> knows my hidden feed URL.
+
+To do this, add <code>is_hidden: "true"</code> to the item’s meta file. By itself, this won’t do anything, but you can tell the sitemap and the feed to skip hidden pages.
+
+For example, a sitemap can be told to skip hidden pages by replacing the line…
+
+<pre><code>
+&lt;% @items.each do |item| %>
+</code></pre>
+
+by…
+
+<pre><code>
+&lt;% @items.reject { |i| i[:is_hidden] }.each do |item| %>
+</code></pre>
+
+The same can be applied to feeds, where you get all <code>@items</code>, select the articles, and reject the hidden items. nanoc's built-in helpers automatically ignore items that have <code>is_hidden</code> set to <code>true</code>.
+</pre>
+  </body>
+</html>

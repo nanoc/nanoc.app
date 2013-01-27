@@ -1,7 +1,72 @@
-<div id="intro">
-	<h1><strong>nanoc</strong> is a Ruby web publishing system for building small to medium-sized websites.</h1>
+---
+has_basic_layout: true
+full_title:       "nanoc: a static site generator written in Ruby &raquo; home"
+short_title:      "Home"
+raw_layout:       true
+markdown:         false
+is_dynamic:       true
+---
 
-	<p>nanoc is a tool that runs on your local computer and compiles documents written in formats such as Markdown, Textile, Haml… into a static web site consisting of simple HTML files, ready for uploading to any web server. <a href="/docs/2-installation/">Get started</a>!</p>
-
-	<img src="/assets/images/screenshot-home.png" alt="Screenshot of nanoc">
-</div>
+<article>
+    <div class="explanation">
+        <div class="explanation-content">
+            <p>nanoc is a <em>static site generator</em>, fit for building anything from a small personal blog to a large corporate web site.</p>
+        </div>
+    </div>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="slides">
+                <div class="slide">
+                    <a href="http://developer.github.com/">
+                        <img src="/assets/images/hero/github-api.png">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="http://mystonline.com/">
+                        <img src="/assets/images/hero/myst-online.png">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="http://www.dadt.com/uglybetty/">
+                        <img src="/assets/images/hero/ugly-betty.png">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="http://api.spreecommerce.com/">
+                        <img src="/assets/images/hero/spree-api.png">
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="http://fosdem.org/">
+                        <img src="/assets/images/hero/fosdem.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ticker">
+        <div class="ticker-content">
+            The current release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. Check out the <a href="/release-notes/">release notes</a> for details.
+        </div>
+    </div>
+    <div class="chooser">
+        <div class="chooser-unit install-nanoc">
+            <h2><a href="/install/">Install nanoc</a></h2>
+            <p>A simple <kbd>gem install nanoc</kbd> will get you going, but we’ve provided detailed instructions for those who are unfamiliar with Ruby.</p>
+        </div>
+        <div class="chooser-unit take-the-tutorial">
+            <h2><a href="/docs/tutorial/">Take the tutorial</a></h2>
+            <p>This ten-minute tutorial will show you how nanoc works, and teach you the basics &mdash; enough to get a small web site up and running.</p>
+        </div>
+        <div class="chooser-unit learn-more">
+            <h2><a href="/docs/">Learn more</a></h2>
+            <p>nanoc comes with vast amounts of documentation, covering everything from basic usage to extending nanoc with custom filters, data sources and more.</p>
+        </div>
+    </div>
+    <div class="support">
+        <div class="support-content">
+            <h3>nanoc needs your support!</h3>
+            <p>nanoc is, and always will be, provided free of charge. Development is voluntary and happens entirely in free time. If you use nanoc and like it, please consider showing your token of support by <a href="http://www.pledgie.com/campaigns/9282">making a donation</a>.</p>
+        </div>
+    </div>
+</article>

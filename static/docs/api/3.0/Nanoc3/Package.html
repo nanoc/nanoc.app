@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../custom.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="../syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="../jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: Nanoc3::Package</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class Nanoc3_Package">
+  <h1 class="title">Class: Nanoc3::Package</h1>
+  <div class="section mixins">
+  <h1>Included Modules</h1>
+  <p>Singleton</p>
+</div>
+<div class="section docstring">
+  <p>
+Nanoc3::Package is a singleton that contains metadata about the nanoc
+project, which is used for packaging releases.
+</p>
+
+</div><div class="section constants">
+  
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#extra_rdoc_files-instance_method" title="#extra_rdoc_files">#extra_rdoc_files</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The files that are not documented by RDoc by default, but should still be
+included in the documentation.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#files-instance_method" title="#files">#files</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The files to include in the package.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#files_documented_by_default-instance_method" title="#files_documented_by_default">#files_documented_by_default</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The files that are included in the documentation by default.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#files_in_documentation-instance_method" title="#files_in_documentation">#files_in_documentation</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The files that should be included in the documentation.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#files_not_in_documentation-instance_method" title="#files_not_in_documentation">#files_not_in_documentation</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The files that should not be included in the documentation.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#gem_spec-instance_method" title="#gem_spec">#gem_spec</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The Gem::Specification used for packaging.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#main_documentation_file-instance_method" title="#main_documentation_file">#main_documentation_file</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The name of the file that should be used as entry point for the
+documentation.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        
+          <span class='overload'>
+            <span class='name'><a href="#name-instance_method" title="#name">#name</a></span><span class='args'></span>
+            <span class='block'></span>
+          </span>
+        
+        
+      </th>
+      <td class="docstring">
+        <p>
+The name of the application.
+</p>
+
+        
+      </td>
+    </tr>
+  
+</table>
+
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>extra_rdoc_files</h3>
+</div><div id="extra_rdoc_files-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>extra_rdoc_files</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The files that are not documented by RDoc by default, but should still be
+included in the documentation.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+46
+47
+48</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='extra_rdoc_files identifier id'>extra_rdoc_files</span>
+  <span class='files_in_documentation identifier id'>files_in_documentation</span> <span class='minus op'>-</span> <span class='files_documented_by_default identifier id'>files_documented_by_default</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>files</h3>
+</div><div id="files-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>files</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The files to include in the package. This is also the list of files that
+will be included in the documentation (with the exception of the files in
+undocumented_files).
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+21
+22
+23
+24
+25
+26</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 21</span>
+
+<span class='def def kw'>def</span> <span class='files identifier id'>files</span>
+  <span class='@files ivar id'>@files</span> <span class='opasgn op'>||=</span> <span class='lparen token'>(</span><span class='dstring node'>%w( ChangeLog LICENSE NEWS.rdoc Rakefile README.rdoc )</span> <span class='plus op'>+</span>
+    <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'bin/**/*'</span><span class='rbrack token'>]</span> <span class='plus op'>+</span>
+    <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'lib/**/*'</span><span class='rbrack token'>]</span> <span class='plus op'>+</span>
+    <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'vendor/**/*'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='directory? fid id'>directory?</span><span class='lparen token'>(</span><span class='f identifier id'>f</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>files_documented_by_default</h3>
+</div><div id="files_documented_by_default-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>files_documented_by_default</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The files that are included in the documentation by default.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+29
+30
+31</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 29</span>
+
+<span class='def def kw'>def</span> <span class='files_documented_by_default identifier id'>files_documented_by_default</span>
+  <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'lib/**/*'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='directory? fid id'>directory?</span><span class='lparen token'>(</span><span class='f identifier id'>f</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>files_in_documentation</h3>
+</div><div id="files_in_documentation-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>files_in_documentation</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The files that should be included in the documentation.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+40
+41
+42</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='files_in_documentation identifier id'>files_in_documentation</span>
+  <span class='files identifier id'>files</span> <span class='minus op'>-</span> <span class='files_not_in_documentation identifier id'>files_not_in_documentation</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>files_not_in_documentation</h3>
+</div><div id="files_not_in_documentation-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>files_not_in_documentation</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The files that should not be included in the documentation.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+34
+35
+36
+37</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 34</span>
+
+<span class='def def kw'>def</span> <span class='files_not_in_documentation identifier id'>files_not_in_documentation</span>
+  <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'lib/**/*.rake'</span><span class='rbrack token'>]</span> <span class='plus op'>+</span>
+  <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'vendor/**/*'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='directory? fid id'>directory?</span><span class='lparen token'>(</span><span class='f identifier id'>f</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>gem_spec</h3>
+</div><div id="gem_spec-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>gem_spec</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The Gem::Specification used for packaging.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 57</span>
+
+<span class='def def kw'>def</span> <span class='gem_spec identifier id'>gem_spec</span>
+  <span class='@gem_spec ivar id'>@gem_spec</span> <span class='opasgn op'>||=</span> <span class='Gem constant id'>Gem</span><span class='colon2 op'>::</span><span class='Specification constant id'>Specification</span><span class='dot token'>.</span><span class='new identifier id'>new</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='name identifier id'>name</span>                  <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='version identifier id'>version</span>               <span class='assign token'>=</span> <span class='Nanoc3 constant id'>Nanoc3</span><span class='colon2 op'>::</span><span class='VERSION constant id'>VERSION</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='platform identifier id'>platform</span>              <span class='assign token'>=</span> <span class='Gem constant id'>Gem</span><span class='colon2 op'>::</span><span class='Platform constant id'>Platform</span><span class='colon2 op'>::</span><span class='RUBY constant id'>RUBY</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span>               <span class='assign token'>=</span> <span class='string val'>'a tool that runs on your local computer '</span> <span class='plus op'>+</span>
+                              <span class='string val'>'and compiles Markdown, Textile, Haml, '</span> <span class='plus op'>+</span>
+                              <span class='string val'>'... documents into static web pages'</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='description identifier id'>description</span>           <span class='assign token'>=</span> <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='summary identifier id'>summary</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='homepage identifier id'>homepage</span>              <span class='assign token'>=</span> <span class='string val'>'http://nanoc.stoneship.org/'</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='rubyforge_project identifier id'>rubyforge_project</span>     <span class='assign token'>=</span> <span class='string val'>'nanoc3'</span>
+
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='author identifier id'>author</span>                <span class='assign token'>=</span> <span class='string val'>'Denis Defreyne'</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='email identifier id'>email</span>                 <span class='assign token'>=</span> <span class='string val'>'denis.defreyne@stoneship.org'</span>
+
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='post_install_message identifier id'>post_install_message</span>  <span class='assign token'>=</span> <span class='string val'>&quot;------------------------------------------------------------------------------\nThanks for installing nanoc 3.0! Here are some resources to help you get started:\n\n* The tutorial at &lt;http://nanoc.stoneship.org/help/tutorial/&gt;\n* The manual at &lt;http://nanoc.stoneship.org/help/manual/&gt;\n* The discussion group at &lt;http://groups.google.com/group/nanoc&gt;\n\nBecause nanoc 3.0 has a lot of new features, be sure to check out the nanoc blog at &lt;http://nanoc.stoneship.org/blog/&gt; for details about this release.\n\nEnjoy!\n------------------------------------------------------------------------------\n&quot;</span>
+
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='required_ruby_version identifier id'>required_ruby_version</span> <span class='assign token'>=</span> <span class='string val'>'&gt;= 1.8.5'</span>
+
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='has_rdoc identifier id'>has_rdoc</span>              <span class='assign token'>=</span> <span class='true true kw'>true</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='extra_rdoc_files identifier id'>extra_rdoc_files</span>      <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='extra_rdoc_files identifier id'>extra_rdoc_files</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='rdoc_options identifier id'>rdoc_options</span>          <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='rdoc_options identifier id'>rdoc_options</span>          <span class='opasgn op'>+=</span> <span class='lbrack token'>[</span> <span class='string val'>'--title'</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='name identifier id'>name</span>                    <span class='rbrack token'>]</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='rdoc_options identifier id'>rdoc_options</span>          <span class='opasgn op'>+=</span> <span class='lbrack token'>[</span> <span class='string val'>'--main'</span><span class='comma token'>,</span>  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='main_documentation_file identifier id'>main_documentation_file</span> <span class='rbrack token'>]</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='files_not_in_documentation identifier id'>files_not_in_documentation</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='file identifier id'>file</span><span class='bitor op'>|</span>
+      <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='rdoc_options identifier id'>rdoc_options</span>        <span class='opasgn op'>+=</span> <span class='lbrack token'>[</span> <span class='string val'>'--exclude'</span><span class='comma token'>,</span> <span class='file identifier id'>file</span> <span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='files identifier id'>files</span>                 <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='files identifier id'>files</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='executables identifier id'>executables</span>           <span class='assign token'>=</span> <span class='lbrack token'>[</span> <span class='string val'>'nanoc3'</span> <span class='rbrack token'>]</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='require_path identifier id'>require_path</span>          <span class='assign token'>=</span> <span class='string val'>'lib'</span>
+    <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='bindir identifier id'>bindir</span>                <span class='assign token'>=</span> <span class='string val'>'bin'</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>main_documentation_file</h3>
+</div><div id="main_documentation_file-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>main_documentation_file</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The name of the file that should be used as entry point for the
+documentation.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+52
+53
+54</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 52</span>
+
+<span class='def def kw'>def</span> <span class='main_documentation_file identifier id'>main_documentation_file</span>
+  <span class='string val'>'README.rdoc'</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>name</h3>
+</div><div id="name-instance_method" class="section method">
+  <div class="details_title">
+    <div class='section methodsignature'>
+    <tt class='def'>
+      <span class='visibility'>public</span>
+      <span class='return_types'></span>
+      <span class='name'>name</span><span class='args'></span>
+      <span class='block'></span>
+    </tt>
+  </div>
+
+</div><div class="section docstring">
+  <p>
+The name of the application.
+</p>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+14
+15
+16</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/nanoc3/package.rb', line 14</span>
+
+<span class='def def kw'>def</span> <span class='name identifier id'>name</span>
+  <span class='string val'>'nanoc3'</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+    <div id="yard_info">
+  Generated on Sunday, August 09 2009 at 01:43:11 PM by 
+  <abbr class="yard" title="Yay! A Ruby Documentation Tool"><a href="http://yard.soen.ca">YARD</a></abbr> 
+  0.2.3.2 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
