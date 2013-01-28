@@ -6,7 +6,7 @@ markdown: basic
 
 ## Error: “Found 3 content files for X; expected 0 or 1”
 
-This error occurs when you have multiple files with the same base name, but a different extension. nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
+This error occurs when you have multiple files with the same base name, but different extensions. nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
 
 	content/assets/fonts/foo.eot
 	content/assets/fonts/foo.otf
@@ -57,7 +57,7 @@ The next step involves setting up a compilation rule, which is quite easy. We ma
 	compile '/static/*' do
 	end
 
-The routing rule is a bit more complex. In here, we take the item identifier, strip off the items root and the trailign slash:
+The routing rule is a bit more complex. In here, we take the item identifier, strip off the items root and the trailing slash:
 
 	#!ruby
 	route '/static/*' do
