@@ -191,8 +191,7 @@
 28
 29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/check.rb', line 17</span>
@@ -203,11 +202,10 @@
 
   <span class='id identifier rubyid_runner'>runner</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>Checking</span><span class='op'>::</span><span class='const'>Runner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:list</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_list_checkers'>list_checkers</span>
+    <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_list_checks'>list_checks</span>
   <span class='kw'>elsif</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:all</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_run_all'>run_all</span>
   <span class='kw'>elsif</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:deploy</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_require_dsl'>require_dsl</span>
     <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_run_for_deploy'>run_for_deploy</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_runner'>runner</span><span class='period'>.</span><span class='id identifier rubyid_run_specific'>run_specific</span><span class='lparen'>(</span><span class='id identifier rubyid_arguments'>arguments</span><span class='rparen'>)</span>
@@ -224,14 +222,23 @@
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>

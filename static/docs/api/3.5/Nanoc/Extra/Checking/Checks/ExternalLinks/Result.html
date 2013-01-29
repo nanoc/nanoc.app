@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Nanoc::Extra::Checking::Checkers::ExternalLinks::Result
+  Class: Nanoc::Extra::Checking::Checks::ExternalLinks::Result
   
     &mdash; Documentation by YARD 0.8.3
   
@@ -32,7 +32,7 @@
       <div id="menu">
   
     <a href="../../../../../_index.html">Index (R)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../../../../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../../Extra.html" title="Nanoc::Extra (module)">Extra</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../Checking.html" title="Nanoc::Extra::Checking (module)">Checking</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Checkers.html" title="Nanoc::Extra::Checking::Checkers (module)">Checkers</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ExternalLinks.html" title="Nanoc::Extra::Checking::Checkers::ExternalLinks (class)">ExternalLinks</a></span></span>
+    <span class='title'><span class='object_link'><a href="../../../../../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../../Extra.html" title="Nanoc::Extra (module)">Extra</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../Checking.html" title="Nanoc::Extra::Checking (module)">Checking</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Checks.html" title="Nanoc::Extra::Checking::Checks (module)">Checks</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ExternalLinks.html" title="Nanoc::Extra::Checking::Checks::ExternalLinks (class)">ExternalLinks</a></span></span>
      &raquo; 
     <span class="title">Result</span>
   
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Class: Nanoc::Extra::Checking::Checkers::ExternalLinks::Result
+    <div id="content"><h1>Class: Nanoc::Extra::Checking::Checks::ExternalLinks::Result
   
   
   
@@ -78,7 +78,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Nanoc::Extra::Checking::Checkers::ExternalLinks::Result</li>
+            <li class="next">Nanoc::Extra::Checking::Checks::ExternalLinks::Result</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +94,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/nanoc/extra/checking/checkers/external_links.rb</dd>
+    <dd class="r2 last">lib/nanoc/extra/checking/checks/external_links.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -209,7 +209,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Nanoc::Extra::Checking::Checkers::ExternalLinks::Result (class)">Result</a></span></tt>) <strong>initialize</strong>(href, explanation) 
+    - (<tt><span class='object_link'><a href="" title="Nanoc::Extra::Checking::Checks::ExternalLinks::Result (class)">Result</a></span></tt>) <strong>initialize</strong>(href, explanation) 
   
 
   
@@ -237,7 +237,7 @@
 42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checkers/external_links.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='comma'>,</span> <span class='id identifier rubyid_explanation'>explanation</span><span class='rparen'>)</span>
   <span class='ivar'>@href</span>        <span class='op'>=</span> <span class='id identifier rubyid_href'>href</span>
@@ -285,7 +285,7 @@
 39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checkers/external_links.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_explanation'>explanation</span>
   <span class='ivar'>@explanation</span>
@@ -327,7 +327,7 @@
 38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checkers/external_links.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_href'>href</span>
   <span class='ivar'>@href</span>
@@ -344,14 +344,23 @@
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>

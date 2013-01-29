@@ -514,6 +514,7 @@ with array elements in the following format:</p>
       <pre class="lines">
 
 
+173
 174
 175
 176
@@ -538,11 +539,10 @@ with array elements in the following format:</p>
 195
 196
 197
-198
-199</pre>
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span>
   <span class='id identifier rubyid_plugins'>plugins</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -652,13 +652,13 @@ name.</p>
       <pre class="lines">
 
 
+150
 151
 152
-153
-154</pre>
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@identifiers_to_classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_klass'>klass</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -730,15 +730,15 @@ name.</p>
       <pre class="lines">
 
 
+160
 161
 162
 163
 164
-165
-166</pre>
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 160</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='ivar'>@identifiers_to_classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_klass'>klass</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -789,16 +789,15 @@ name.</p>
   
     <li>
       
-        <span class='name'>class_or_name</span>
+        <span class='name'>klass</span>
       
       
-        <span class='type'>(<tt>Class</tt>, <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+        <span class='type'>(<tt>Class</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>The class to get the identifiers for.
-This can also be a string containing the name of the class.</p>
+        <div class='inline'><p>The class to get the identifiers for.</p>
 </div>
       
     </li>
@@ -829,12 +828,12 @@ This can also be a string containing the name of the class.</p>
       <pre class="lines">
 
 
+138
 139
-140
-141</pre>
+140</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_identifiers_of'>identifiers_of</span><span class='lparen'>(</span><span class='id identifier rubyid_superclass'>superclass</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='ivar'>@classes_to_identifiers</span><span class='lbracket'>[</span><span class='id identifier rubyid_superclass'>superclass</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_name_for_class'>name_for_class</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -871,12 +870,12 @@ This can also be a string containing the name of the class.</p>
       <pre class="lines">
 
 
+201
 202
-203
-204</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_named'>named</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -998,14 +997,23 @@ For example: <code>:haml</code>, :<code>erb</code>.</p>
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>

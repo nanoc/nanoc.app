@@ -114,6 +114,32 @@
   
 
 </div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="CHECKS_FILENAME-constant" class="">CHECKS_FILENAME =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Checks</span><span class='tstring_end'>'</span></span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -127,6 +153,29 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_dsl%3F-instance_method" title="#has_dsl? (instance method)">- (Boolean) <strong>has_dsl?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if a Checks file exists, false otherwise.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -156,7 +205,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list_checkers-instance_method" title="#list_checkers (instance method)">- (void) <strong>list_checkers</strong> </a>
+      <a href="#list_checks-instance_method" title="#list_checks (instance method)">- (void) <strong>list_checks</strong> </a>
     
 
     
@@ -170,30 +219,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Lists all available checkers on stdout.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#require_dsl-instance_method" title="#require_dsl (instance method)">- (void) <strong>require_dsl</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  <span class="private note title">private</span>
-
-  
-    <span class="summary_desc"><div class='inline'><p>Ensures that there is a deployer DSL present.</p>
+    <span class="summary_desc"><div class='inline'><p>Lists all available checks on stdout.</p>
 </div></span>
   
 </li>
@@ -216,7 +242,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs all checkers.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs all checks.</p>
 </div></span>
   
 </li>
@@ -239,7 +265,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs the checkers marked for deployment.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the checks marked for deployment.</p>
 </div></span>
   
 </li>
@@ -248,7 +274,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run_specific-instance_method" title="#run_specific (instance method)">- (Boolean) <strong>run_specific</strong>(checker_class_names) </a>
+      <a href="#run_specific-instance_method" title="#run_specific (instance method)">- (Boolean) <strong>run_specific</strong>(check_class_names) </a>
     
 
     
@@ -262,7 +288,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs the checkers with the given names.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the checks with the given names.</p>
 </div></span>
   
 </li>
@@ -322,12 +348,12 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='rparen'>)</span>
   <span class='ivar'>@site</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span>
@@ -345,57 +371,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="list_checkers-instance_method">
+  <h3 class="signature first" id="has_dsl?-instance_method">
   
-    - (<tt>void</tt>) <strong>list_checkers</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p class="note private">
-  <strong>This method is part of a private API.</strong>
-  You should avoid using this method if possible, as it may be removed or be changed in the future.
-</p>
-<p class="note returns_void">This method returns an undefined value.</p><p>Lists all available checkers on stdout.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-27
-28
-29
-30
-31</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 27</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_list_checkers'>list_checkers</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Available checkers:</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_puts'>puts</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_all_checker_classes'>all_checker_classes</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="require_dsl-instance_method">
-  
-    - (<tt>void</tt>) <strong>require_dsl</strong> 
+    - (<tt>Boolean</tt>) <strong>has_dsl?</strong> 
   
 
   
@@ -407,13 +385,30 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p class="note returns_void">This method returns an undefined value.</p><p>Ensures that there is a deployer DSL present.</p>
+<p>True if a Checks file exists, false otherwise</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if a Checks file exists, false otherwise</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -423,17 +418,65 @@
 
 18
 19
-20
-21
-22</pre>
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_require_dsl'>require_dsl</span>
-  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dsl'>dsl</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No checks defined (no Checkers file present)</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_has_dsl?'>has_dsl?</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='const'>CHECKS_FILENAME</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list_checks-instance_method">
+  
+    - (<tt>void</tt>) <strong>list_checks</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p class="note returns_void">This method returns an undefined value.</p><p>Lists all available checks on stdout.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list_checks'>list_checks</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load_dsl_if_available'>load_dsl_if_available</span>
+
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Available checks:</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_all_check_classes'>all_check_classes</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -455,7 +498,7 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Runs all checkers.</p>
+<p>Runs all checks.</p>
 
 
   </div>
@@ -488,13 +531,17 @@
 
 36
 37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_all'>run_all</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_checker_classes'>run_checker_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_checker_classes'>all_checker_classes</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load_dsl_if_available'>load_dsl_if_available</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_check_classes'>run_check_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_check_classes'>all_check_classes</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -516,7 +563,7 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Runs the checkers marked for deployment.</p>
+<p>Runs the checks marked for deployment.</p>
 
 
   </div>
@@ -547,17 +594,21 @@
       <pre class="lines">
 
 
-43
-44
 45
-46</pre>
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_for_deploy'>run_for_deploy</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_require_dsl'>require_dsl</span>
+
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dsl'>dsl</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_checker_classes'>run_checker_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_checker_classes_named'>checker_classes_named</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dsl'>dsl</span><span class='period'>.</span><span class='id identifier rubyid_deploy_checks'>deploy_checks</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_check_classes'>run_check_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_classes_named'>check_classes_named</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dsl'>dsl</span><span class='period'>.</span><span class='id identifier rubyid_deploy_checks'>deploy_checks</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -567,7 +618,7 @@
       <div class="method_details ">
   <h3 class="signature " id="run_specific-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>run_specific</strong>(checker_class_names) 
+    - (<tt>Boolean</tt>) <strong>run_specific</strong>(check_class_names) 
   
 
   
@@ -579,7 +630,7 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Runs the checkers with the given names.</p>
+<p>Runs the checks with the given names.</p>
 
 
   </div>
@@ -590,7 +641,7 @@
   
     <li>
       
-        <span class='name'>checker_class_names</span>
+        <span class='name'>check_class_names</span>
       
       
         <span class='type'>(<tt><span class='object_link'><a href="../../../Array.html" title="Array (class)">Array</a></span>&lt;Symbol&gt;</tt>)</span>
@@ -598,7 +649,7 @@
       
       
         &mdash;
-        <div class='inline'><p>The names of the checkers</p>
+        <div class='inline'><p>The names of the checks</p>
 </div>
       
     </li>
@@ -629,15 +680,19 @@
       <pre class="lines">
 
 
-53
-54
-55</pre>
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/runner.rb', line 57</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run_specific'>run_specific</span><span class='lparen'>(</span><span class='id identifier rubyid_checker_class_names'>checker_class_names</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_checker_classes'>run_checker_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_checker_classes_named'>checker_classes_named</span><span class='lparen'>(</span><span class='id identifier rubyid_checker_class_names'>checker_class_names</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run_specific'>run_specific</span><span class='lparen'>(</span><span class='id identifier rubyid_check_class_names'>check_class_names</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load_dsl_if_available'>load_dsl_if_available</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run_check_classes'>run_check_classes</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_classes_named'>check_classes_named</span><span class='lparen'>(</span><span class='id identifier rubyid_check_class_names'>check_class_names</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -650,14 +705,23 @@
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>

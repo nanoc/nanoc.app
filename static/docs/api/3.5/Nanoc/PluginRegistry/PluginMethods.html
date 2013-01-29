@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">DataSource</a></span>, <span class='object_link'><a href="../Extra/Checking/Checker.html" title="Nanoc::Extra::Checking::Checker (class)">Extra::Checking::Checker</a></span>, <span class='object_link'><a href="../Extra/Deployer.html" title="Nanoc::Extra::Deployer (class)">Extra::Deployer</a></span>, <span class='object_link'><a href="../Extra/VCS.html" title="Nanoc::Extra::VCS (class)">Extra::VCS</a></span>, <span class='object_link'><a href="../Filter.html" title="Nanoc::Filter (class)">Filter</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">DataSource</a></span>, <span class='object_link'><a href="../Extra/Checking/Check.html" title="Nanoc::Extra::Checking::Check (class)">Extra::Checking::Check</a></span>, <span class='object_link'><a href="../Extra/Deployer.html" title="Nanoc::Extra::Deployer (class)">Extra::Deployer</a></span>, <span class='object_link'><a href="../Extra/VCS.html" title="Nanoc::Extra::VCS (class)">Extra::VCS</a></span>, <span class='object_link'><a href="../Filter.html" title="Nanoc::Filter (class)">Filter</a></span></dd>
     
   
   
@@ -720,14 +720,23 @@ this plugin.</p>
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>

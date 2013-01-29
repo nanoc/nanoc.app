@@ -134,11 +134,11 @@ onto their ANSI color codes.</p>
 </div>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='symbol'>:create</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[32m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># bold + green
-</span>  <span class='symbol'>:update</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[33m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># bold + yellow
-</span>  <span class='symbol'>:identical</span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>            <span class='comment'># bold
-</span>  <span class='symbol'>:skip</span>           <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>            <span class='comment'># bold
-</span>  <span class='symbol'>:delete</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[31m</span><span class='tstring_end'>&quot;</span></span>  <span class='comment'># bold + red
+  <span class='symbol'>:create</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[32m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># green
+</span>  <span class='symbol'>:update</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[33m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># yellow
+</span>  <span class='symbol'>:identical</span>      <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='comment'># (nothing)
+</span>  <span class='symbol'>:skip</span>           <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>       <span class='comment'># (nothing)
+</span>  <span class='symbol'>:delete</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[31m</span><span class='tstring_end'>&quot;</span></span>  <span class='comment'># red
 </span><span class='rbrace'>}</span></pre></dd>
       
     </dl>
@@ -594,14 +594,23 @@ respectively).</p>
 
     
 <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    var _gaq = _gaq || [];
+    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-15639968-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
 
   </body>
 </html>
