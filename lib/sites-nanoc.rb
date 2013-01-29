@@ -11,12 +11,6 @@ def item_named(identifier)
   res
 end
 
-def api_doc_root
-  version = latest_release_info[:version]
-  api_version = version.size == 5 ? version[0..-3] : version
-  '/docs/api/' + api_version + '/'
-end
-
 def array_to_yaml(array)
   '[ ' + array.map { |s| "'" + s + "'" }.join(', ') + ' ]'
 end

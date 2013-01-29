@@ -114,7 +114,7 @@ Items are structured hierarchically. Each item has an identifier that consists o
 
 Items can be textual or binary. If the extension of the item is included in the site configuration’s `text_extension` array, it is considered to be textual; otherwise, it will be binary. Site assets such as images, audio files and movies should be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
 
-To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_content`](<%= api_doc_root %>Nanoc/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc::Item#compiled_content`](<%= api_doc_root %>Nanoc/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
+To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_content`](/docs/api/Nanoc/Item.html#raw_content-instance_method). To get the compiled content, use [`Nanoc::Item#compiled_content`](/docs/api/Nanoc/Item.html#compiled_content-instance_method). The latter method has a `:rep` option for specifying the rep to get the compiled content from, and a `:snapshot` option for specifying the name of the snapshot to fetch. For details, see the [Representations](#representations) and [Snapshots](#snapshots) sections below. It is not possible to request the content of binary items.
 
 The default list of text extensions is the following:
 
@@ -122,7 +122,7 @@ The default list of text extensions is the following:
 text_extensions: [ <%= Nanoc::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
 </code></pre>
 
-To get the path of the compiled item, use [`Nanoc::Item#path`](<%= api_doc_root %>Nanoc/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
+To get the path of the compiled item, use [`Nanoc::Item#path`](/docs/api/Nanoc/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
 
 During compilation, items cannot be modified. You can, however, adjust the item content and attributes in the preprocessor.
 
@@ -166,7 +166,7 @@ An item representation (or “rep” for short) is a compiled version of an item
 
 Multiple representations are useful when items need to be available in multiple formats. For example, HTML and XHTML. You could also have a `raw` representation that isn’t compiled at all—just the raw, unfiltered, non-laid out content. Sometimes, it may even be useful to have XML, YAML or JSON representations of an item.
 
-An item’s list of representation can be fetched by calling [`Nanoc::Item#reps`](<%= api_doc_root %>Nanoc/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc::Item#rep_named`](<%= api_doc_root %>Nanoc/Item.html#rep_named-instance_method) with the rep name, like this:
+An item’s list of representation can be fetched by calling [`Nanoc::Item#reps`](/docs/api/Nanoc/Item.html#reps-instance_method) instance. To get a specific rep, use [`Nanoc::Item#rep_named`](/docs/api/Nanoc/Item.html#rep_named-instance_method) with the rep name, like this:
 
 <pre title="Finding the item rep with the given name"><code class="language-ruby">
 rep = @item.rep_named(:default)
@@ -176,7 +176,7 @@ rep = @item.rep_named(:default)
 
 A snapshot is the compiled content at a specific point during the compilation process. Snapshots can be generated manually, but some snapshots are generated automatically (see below).
 
-To get the compiled content of a specific snapshot, use the `:snapshot` option of [`Nanoc::Item#compiled_content`](<%= api_doc_root %>Nanoc/Item.html#compiled_content-instance_method) or [`Nanoc::ItemRep#compiled_content`](<%= api_doc_root %>Nanoc/ItemRep.html#compiled_content-instance_method). For example:
+To get the compiled content of a specific snapshot, use the `:snapshot` option of [`Nanoc::Item#compiled_content`](/docs/api/Nanoc/Item.html#compiled_content-instance_method) or [`Nanoc::ItemRep#compiled_content`](/docs/api/Nanoc/ItemRep.html#compiled_content-instance_method). For example:
 
 <pre title="Getting the compiled content at a certain snapshot"><code class="language-ruby">
 stuff = some_item.compiled_content(:snapshot => :pre)
@@ -226,7 +226,7 @@ When compiling items with filters that support adding code to the item or the la
 `@site`
 : The site.
 
-To get an item attribute, use the [`Nanoc::Item#[]`](<%= api_doc_root %>Nanoc/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
+To get an item attribute, use the [`Nanoc::Item#[]`](/docs/api/Nanoc/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
 
 Layouts
 -------
@@ -279,9 +279,9 @@ A routing rule looks like this:
   # (routing code here)
 end</code></pre>
 
-The argument for the [`#route`](<%= api_doc_root %>Nanoc/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
+The argument for the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
 
-A `:rep` argument can be passed to the [`#route`](<%= api_doc_root %>Nanoc/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
+A `:rep` argument can be passed to the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
@@ -597,7 +597,7 @@ Data Sources
 
 Each site has one or more _data sources_: objects that can load site data (items and layouts) from certain locations, and even create new items and layouts.
 
-New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](http://nanoc.stoneship.org<%= api_doc_root %>Nanoc/DataSources/FilesystemUnified.html).
+New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](http://nanoc.stoneship.org/docs/api/Nanoc/DataSources/FilesystemUnified.html).
 
 The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
@@ -627,8 +627,8 @@ For example, the configuration of a site that uses many data sources could look 
 
 nanoc comes bundled with the following two data sources:
 
-[`filesystem_unified`](<%= api_doc_root %>Nanoc/DataSources/FilesystemUnified.html)
+[`filesystem_unified`](/docs/api/Nanoc/DataSources/FilesystemUnified.html)
 : Reads data from files on the disk. It is the default data source for new sites.
 
-[`filesystem_verbose`](<%= api_doc_root %>Nanoc/DataSources/FilesystemVerbose.html)
+[`filesystem_verbose`](/docs/api/Nanoc/DataSources/FilesystemVerbose.html)
 : Reads data from files on the disk. Older versions of nanoc used this data source as the default one.

@@ -13,14 +13,14 @@
         <% end %>
 
         <dt>API documentation</dt>
-        <dd><a href="<%= api_doc_root + @item[:full_name].gsub('::', '/') + '.html' %>"><%= @item[:full_name] %></a></dd>
+        <dd><a href="/docs/api/<%= @item[:full_name].gsub('::', '/') %>.html"><%= @item[:full_name] %></a></dd>
     </dl>
 <% end %>
 
 <h2>Summary</h2>
 <% filter :rdiscount do %><%= @item[:description] || @item[:summary] %><% end %>
 
-<p>For details, check out the <a href="<%= api_doc_root + @item[:full_name].gsub('::', '/') + '.html' %>"><%= @item[:fullname] %> API documentation</a>.</p>
+<p>For details, check out the <a href="<%=  @item[:full_name].gsub('::', '/') %>.html"><%= @item[:fullname] %> API documentation</a>.</p>
 
 <% if @item[:options] %>
     <h2>Options</h2>

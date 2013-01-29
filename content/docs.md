@@ -17,7 +17,7 @@ child_desc: "nanoc documentation"
 	<li><%= link_to_id '/docs/reference/' %></li>
 	<li><%= link_to_id '/docs/troubleshooting/' %></li>
 	<li><%= link_to_id '/docs/glossary/' %></li>
-	<li><a href="<%= api_doc_root %>">API documentation</a></li>
+	<li><a href="/docs/api/">API documentation</a></li>
     </ol>
 <% end %>
 
@@ -40,6 +40,6 @@ The documentation for nanoc is organised in a couple of parts:
 
 7. The [Glossary](/docs/glossary/) is a collection of terms that you may stumble upon while using nanoc or reading its documentation. If you don’t understand a term, go here!
 
-8. The [API documentation](<%= api_doc_root %>) contains the documentation of nanoc’s internals. This is quite useful if you want to contribute to nanoc or extend it.
+8. The [API documentation](/docs/api/) contains the documentation of nanoc’s internals. This is quite useful if you want to contribute to nanoc or extend it.
 
 When you’re stuck with a question or a problem the documentation doesn’t solve, considering posting to the <a href="#">discussion group</a> or joining the <a href="irc://irc.freenode.net/#nanoc">nanoc IRC channel</a>. We’ll get it sorted out in no time. Check out the [Community](/community/) page for details.
