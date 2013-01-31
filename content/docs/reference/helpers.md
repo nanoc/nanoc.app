@@ -9,7 +9,7 @@ is_dynamic: true
 <h2>Helpers index</h2>
 
 <dl>
-<% @item.children.sort_by { |i| i[:name] }.each do |helper| %>
+<% @item.children.sort_by { |i| i[:name].to_s }.each do |helper| %>
 	<dt><%= link_to helper[:name], helper %></dt>
 	<dd><%= !helper[:summary].empty? ? Kramdown::Document.new(helper[:summary]).to_html.gsub(/<\/?p>/, '') : '(no summary available)' %></dd>
 <% end %>
