@@ -134,6 +134,7 @@ similar_projects = [
   { :name => 'Rizzo',                   :lang => 'Groovy',            :url => 'http://github.com/fifthposition/rizzo/' },
   { :name => 'romulus',                 :lang => 'Node.js',           :url => 'https://github.com/felixge/node-romulus' },
   { :name => 'Ruhoh',                   :lang => 'language-agnostic', :url => 'http://ruhoh.com/' },
+  { :name => 'Sculpin',                 :lang => 'PHP',               :url => 'http://sculpin.io/' },
   { :name => 'Second Crack',            :lang => 'PHP',               :url => 'http://www.marco.org/secondcrack' },
   { :name => 'Socrates',                :lang => 'Python',            :url => 'http://honza.ca/socrates/' },
   { :name => 'Speechhub',               :lang => 'Python',            :url => 'http://github.com/alvesjnr/speechhub' },
