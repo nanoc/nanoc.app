@@ -19,9 +19,7 @@ Submitting feature requests
 
 If you have an idea for a feature that you believe is missing in nanoc, describe it on the [wishlist](https://github.com/nanoc/nanoc/wiki/Wishlist). I recommend also starting a discussion on the [discussion forums](https://groups.google.com/forum/?fromgroups#!forum/nanoc) to get feedback.
 
-### nanoc Enhancement Proposals (NEPs)
-
-When a feature from the wishlist is deemed interesting enough, it will be converted to a _nanoc Enhancement Proposal_ (NEP). Take a look at the [list of NEPs](/development/neps/). The NEPs are stored in the [NEPs repository](https://github.com/nanoc/neps) and the nanoc web site will regularly be updated to include updates made to the NEPs repository.
+The GitHub issue tracker is is used to track development of new features. Take a look at the [list of open features](https://github.com/nanoc/nanoc/issues?labels=feature&state=open). A bunch of old features are still described in the [repository for nanoc enhancement proposals](https://github.com/nanoc/neps), but it is expected that these will be migrated to GitHub issues some time soon.
 
 Getting the source code
 -----------------------
