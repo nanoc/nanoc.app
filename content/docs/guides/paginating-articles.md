@@ -37,7 +37,7 @@ The first step, getting all articles to paginate, is quite easy. It will probabl
 <pre title="Fetching all articles to paginate"><code class="language-ruby">articles_to_paginate = items.select { |i| i[:kind] == 'article' }.
   sort_by { |a| Time.parse(a[:created_at]) }</code></pre>
 
-However, you can use the blogging helper to make this a bit cleaner. The blogging helper has a #sorted_articles method, which does exactly that. Here’s the cleaned-up version:
+However, you can use the blogging helper to make this a bit cleaner. The blogging helper has a [`#sorted_articles`](http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html#sorted_articles-instance_method) method, which does exactly that: it takes all items with `kind` equal to `'article'` and sorts them on their `created_at` attribute. Here’s the cleaned-up version:
 
 <pre title="Fetching all articles to paginate (alternative approach)"><code class="language-ruby">include Nanoc::Helpers::Blogging
 articles_to_paginate = sorted_articles</code></pre>
