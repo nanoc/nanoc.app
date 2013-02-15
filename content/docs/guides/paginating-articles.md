@@ -39,8 +39,11 @@ The first step, getting all articles to paginate, is quite easy. It will probabl
 
 However, you can use the blogging helper to make this a bit cleaner. The blogging helper has a [`#sorted_articles`](http://nanoc.ws/docs/api/Nanoc/Helpers/Blogging.html#sorted_articles-instance_method) method, which does exactly that: it takes all items with `kind` equal to `'article'` and sorts them on their `created_at` attribute. Here’s the cleaned-up version:
 
-<pre title="Fetching all articles to paginate (alternative approach)"><code class="language-ruby">include Nanoc::Helpers::Blogging
-articles_to_paginate = sorted_articles</code></pre>
+<pre title="Fetching all articles to paginate (alternative approach)"><code class="language-ruby">articles_to_paginate = sorted_articles</code></pre>
+
+The helper still needs to be activated for this to work, like this:
+
+<pre title="Enabling the Blogging helper"><code class="language-ruby">include Nanoc::Helpers::Blogging</code></pre>
 
 The next step involves splitting the list of articles into sub-arrays. Here’s an easy way to do it:
 
