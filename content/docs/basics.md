@@ -308,7 +308,7 @@ end</code></pre>
 **Example #4**: The following rule will apply to all items below `/people/`, but not the `/people/` item itself, and only to textual representations (with name equal to `:text`):
 
 <pre title="Routing sub-items of “/people/” to a “.txt” file"><code class="language-ruby">route "/people/*/", :rep => :text do
-  item.identifier + ".txt"
+  item.identifier.chop + ".txt"
 end</code></pre>
 
 ### Compilation Rules
