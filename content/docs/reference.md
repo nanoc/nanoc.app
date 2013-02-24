@@ -13,6 +13,7 @@ is_dynamic: true
 	<li><%= link_to_id '/docs/reference/commands/' %></li>
 	<li><%= link_to_id '/docs/reference/config/' %></li>
 	<li><%= link_to_id '/docs/reference/variables/' %></li>
+	<li><%= link_to_id '/docs/reference/rules/' %></li>
     </ol>
 <% end %>
 
@@ -26,3 +27,4 @@ This Reference section contains detailed documentation of the following concepts
 * [Commands](/docs/reference/commands/)
 * [Site configuration](/docs/reference/config/)
 * [Variables](/docs/reference/variables/)
+* [Rules](/docs/reference/rules/)
