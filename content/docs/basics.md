@@ -58,7 +58,7 @@ This will create a directory with the given site name, with a bare-bones directo
 
 A site has the following files and directories:
 
-`config.yaml`
+`nanoc.yaml` (on old nanoc sites: `config.yaml`)
 : contains the site configuration
 
 `Rules`

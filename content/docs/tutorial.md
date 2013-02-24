@@ -24,7 +24,7 @@ A nanoc-powered site is a directory with a specific structure. In this tutorial,
 If you did that right, you should see something like this in the terminal:
 
 <pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
-      <span class="log-create">create</span>  config.yaml
+      <span class="log-create">create</span>  nanoc.yaml
       <span class="log-create">create</span>  Rakefile
       <span class="log-create">create</span>  Rules
       <span class="log-create">create</span>  content/index.html
@@ -40,7 +40,7 @@ The nanoc-powered site named `tutorial` has now been created. Go into the direct
 total 24
 -rw-r--r--  1 ddfreyne  staff   22 Feb 17 14:44 Rakefile
 -rw-r--r--  1 ddfreyne  staff  692 Feb 17 14:44 Rules
--rw-r--r--  1 ddfreyne  staff  100 Feb 17 14:44 config.yaml
+-rw-r--r--  1 ddfreyne  staff  100 Feb 17 14:44 nanoc.yaml
 drwxr-xr-x  4 ddfreyne  staff  136 Feb 17 14:44 content
 drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 layouts
 drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 lib

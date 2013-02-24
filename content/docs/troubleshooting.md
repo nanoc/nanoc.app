@@ -34,7 +34,7 @@ nanoc has support for multiple _data sources_, which provide items and layouts. 
 
 The `static` data source, bundled with nanoc, _does_ include the file extension in the identifier, and it also marks all items as binary, which makes this data source ideal for handling files that should not be processed but simply copied to the output directory. It loads items from `static/` instead of `content/`. So, for example, an item at `/static/assets/fonts/foo.eot` will get an identifier `/assets/fonts/foo.eot/`.
 
-Setting up the static data source is done by opening `config.yaml` and adding the configuration for a new data source. For example:
+Setting up the static data source is done by opening `nanoc.yaml` (on older sites: `config.yaml`) and adding the configuration for a new data source. For example:
 
 	#!yaml
 	data_sources:
