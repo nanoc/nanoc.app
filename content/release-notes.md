@@ -26,6 +26,7 @@ Fixes:
 * Made `check` command exit with the proper exit status
 * Added support for the `HTML_TOC` Redcarpet renderer
 * Made `stale` check honor files excluded by the pruner
+
 ## 3.5 (2013-01-27)
 
 Major changes:
