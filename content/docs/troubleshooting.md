@@ -116,3 +116,29 @@ This is a shorthand for the following:
 
 	compile '/assets/stylesheets/*/' do
 	end
+
+## Characters don’t show up right in the output
+
+If you notice that some characters do not show up correctly in the output (e.g., ä shows up as Ã¤), then you are experiencing issues with character encodings: text in one character encoding is erroneously interpreted as a different character encoding. There are two possible causes for this.
+
+### Wrong output encoding tag
+
+The text could be in the correct encoding, but the browser interprets it wrongly.
+
+nanoc’s output is always UTF-8, so the output files should not declare a different encoding. For example, having `<meta charset="iso-8859-1">` at the top of files in output/ is wrong: it should be `<meta charset="utf-8">` instead. You should also ensure that your web server sends the right `Content-Type`.
+
+### Wrong input encoding
+
+The data sources could interpret the input data in the wrong encoding.
+
+nanoc defaults to the current environment encoding, which might not be what you expect. If the environment encoding does not match the actual file encoding, it can lead to errors in the output. There are three ways to solve this:
+
+* You can re-encode your site’s files. If your content files are not in UTF-8, this is probably a good start. Re-encoding into something else than UTF-8 is not recommended.
+
+* You can modify your environment encoding to match the file encoding. If you run into encoding issues with other sites or libraries, it isn’t a bad idea to set your environment up as UTF-8 and get it over with. You should not change your environment to a non-UTF-8 encoding, as UTF-8 is considered the standard character encoding.
+
+* You can set an explicit encoding in the nanoc configuration file. This is the recommended approach, as it never hurts to be explicit.
+
+To set the encoding explicity in the site configuration, open `config.yaml` and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem_unified` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want).
+
+For bonus points, you can do all three. Setting up your content, environment and configuration as UTF-8 is the best way to avoid encoding issues now and in the future.
