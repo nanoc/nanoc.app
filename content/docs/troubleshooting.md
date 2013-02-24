@@ -42,30 +42,33 @@ Setting up the static data source is done by opening `config.yaml` and adding th
 	  -
 	    type: static
 
-You can define an _items root_ here; a prefix that all items from this data source should have. An items root of `/foobar` will make items loaded from the static data source start with `/foobar/`. For example, `static/assets/fonts/foo.eot` would have an identifier of `/foobar/assets/fonts/foo.eot/` instead of just `/assets/fonts/foo.eot/`. This makes it easier to define concise rules. I recommend an `items_root` of `'/static/'`, like this:
+You can define an _items root_ here; a prefix that all items from this data source should have. An items root of `/foobar` will prefix items identifier `/foobar/` for all items coming from the static data source. For example, `static/assets/fonts/foo.eot` would have an identifier of `/foobar/assets/fonts/foo.eot/` instead of just `/assets/fonts/foo.eot/`. This makes it easier to define concise rules. I recommend an `items_root` of `'/assets/'`, like this:
 
 	#!yaml
 	data_sources:
 	  # ... filesystem data source here ...
 	  -
 	    type: static
-	    items_root: /static/
+	    items_root: /assets/
 
-The next step involves setting up a compilation rule, which is quite easy. We match everything below `/static/` (which is out items root) and let it do no processing at all:
+The next step involves setting up a compilation rule, which is quite easy. We match everything below `/assets/` (which is our items root) and let it do no processing at all:
 
 	#!ruby
-	compile '/static/*' do
+	compile '/asssets/*' do
 	end
 
 The routing rule is a bit more complex. In here, we take the item identifier, strip off the items root and the trailing slash:
 
 	#!ruby
-	route '/static/*' do
+	route '/assets/*' do
 	  # /static/foo.html/ → /foo.html
 	  item.identifier[7..-2]
 	end
 
-And that’s it!
+And that’s it! Or you can use a `passthrough` rule (see below).
+
+	#!ruby
+	passthrough '/assets/*' do
 
 ## Error: “can’t modify frozen X”
 
