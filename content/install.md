@@ -19,10 +19,10 @@ Installing Ruby
 
 nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 and up, including Ruby 1.9, is supported. You can even use one of the alternative Ruby implementations ([JRuby](http://jruby.org/), [Rubinius](http://rubini.us/), …) if you want to do so.
 
-You may have Ruby installed already. To check whether Ruby is installed on your system, open a terminal window and type <kbd>irb</kbd>; if you get a “command not found” then Ruby is not yet installed. This is what it should look like (hit <kbd>⌃D</kbd> or type <kbd>quit</kbd> to exit from `irb`):
+Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby -v</kbd>; if you get “command not found” Ruby is not yet installed. Otherwise, you will see which version of Ruby you have e.g. Ruby 1.8.7 will return something like this:
 
-<pre title="Checking whether Ruby is installed"><span class="prompt">%</span> <kbd>irb</kbd>
->> <kbd>quit</kbd>
+<pre title="Checking whether Ruby is installed"><span class="prompt">%</span> <kbd>ruby -v</kbd>
+<kbd>ruby 1.8.7 (2012-02-08 patchlevel 358) [your-operating-system-here]</kbd>
 <span class="prompt">%</span> </pre>
 
 If Ruby is not installed on your system yet, check out the [Ruby downloads page](http://www.ruby-lang.org/en/downloads/) to download a Ruby version for your system. Alternatively, if you have a Unix-like operating system, consider using [rvm](http://rvm.beginrescueend.com/), a tool that makes managing your Ruby installation(s) a whole lot easier.
@@ -45,7 +45,7 @@ If you have Rubygems installed already, make sure you have a fairly recent versi
 Installing nanoc
 ----------------
 
-All dependencies are now taken care of, and installing nanoc should now be as easy as this (you may have to prefix the <kbd>gem</kbd> command with <kbd>sudo</kbd> to ensure that you’re using root privileges):
+All dependencies are now taken care of, and installing nanoc should now be as easy as this (unless you're using [rvm](http://rvm.beginrescueend.com/) or [rbenv](https://github.com/sstephenson/rbenv/) and know how to manage Ruby gems you may have to prefix the <kbd>gem</kbd> command with <kbd>sudo</kbd> to ensure that you’re using root privileges - note that <kbd>sudo</kbd> installs gems for *all* users of that computer):
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
