@@ -136,6 +136,8 @@ Items are stored as plaintext files on the hard drive (unless you’re using eso
 
 Each item has attributes (metadata) associated with it. This metadata consists of key-value pairs, which are stored in YAML format (although this may vary for different data sources). All attributes are free-form; there are no predefined attributes.
 
+To get an item attribute, use the [`Nanoc::Item#[]`](/docs/api/Nanoc/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
+
 Some filters or helpers may use certain attributes. When using such filters or helpers, be sure to check their documentation (see below) to see what attributes they use, if any.
 
 When using a filesystem-based data source, attributes are stored as YAML in either the top of the file representing the item, or a separate file with the same base name. For example, an item at `content/about.html` could look like this when the metadata is embedded into the file:
@@ -200,33 +202,6 @@ The following snapshots are generated automatically:
 The `:post` and `:last` snapshots will usually be the same. The difference is that `:last` is a moving snapshot: it always refers to the last compiled content. `:last` may refer to `:raw` or `:pre` early on, but may point to `:post` later. Also, there will _always_ be a `:last` snapshot but not necessary a `:post` snapshot; items that are not laid out will not have one.
 
 Binary items cannot have snapshots.
-
-### Variables
-
-When compiling items with filters that support adding code to the item or the layout (such as ERB and Haml), several variables are made available. These variables are:
-
-`@item_rep`
-: The item representation that is currently being compiled.
-
-`@item`
-: The item that is currently being compiled.
-
-`@items`
-: The list of all items, including ones that have not yet been compiled.
-
-`@layout`
-: The layout that is currently being used in the layout phase.
-
-`@layouts`
-: The list of all layouts.
-
-`@config`
-: The site configuration as a hash.
-
-`@site`
-: The site.
-
-To get an item attribute, use the [`Nanoc::Item#[]`](/docs/api/Nanoc/Item.html#%5B%5D-instance_method) method and pass the attribute key as a symbol, e.g. `@item[:author]`.
 
 Layouts
 -------
