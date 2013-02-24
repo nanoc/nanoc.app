@@ -116,3 +116,11 @@ This is a shorthand for the following:
 
 	compile '/assets/stylesheets/*/' do
 	end
+
+## There are strange characters showing up in the output
+
+You are likely to experience this when using a Windows terminal to compile your site. This is most probably due to not using the UTF-8 code page by default which is causing nanoc to use an incorrect code page when reading files. Issuing the command `chcp 65001` changes the code page of that terminal to UTF-8.
+
+Since this is probably what you always want, since UTF-8 is the way to go, you can add a key to the windows registry that let terminals always start with issuing the command to change the code page. You do this by entering the following in a terminal that is run as administrator:
+
+	REG ADD "HKLM\Software\Microsoft\Command Processor" /v AutoRun /d "chcp 65001"
