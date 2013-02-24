@@ -4,6 +4,28 @@ markdown: basic
 has_toc:  true
 ---
 
+## 3.6 (2013-02-24)
+
+Features:
+
+* Added `sync` command, allowing data sources to update local caches of
+  external data [Justin Hileman]
+* Added `#ignore` compiler DSL method
+* Allowed accessing items by identifier using e.g. `@items['/about/']`
+* Added `shell` command
+
+Enhancements:
+
+* Renamed the nanoc configuration file from `config.yaml` to `nanoc.yaml`
+
+Fixes:
+
+* Updated references to old web site and old repository
+* Made `require` errors mention Bundler if appropriate
+* Fixed bug which caused pruner not to delete directories in some cases [@reima]
+* Made `check` command exit with the proper exit status
+* Added support for the `HTML_TOC` Redcarpet renderer
+* Made `stale` check honor files excluded by the pruner
 ## 3.5 (2013-01-27)
 
 Major changes:
