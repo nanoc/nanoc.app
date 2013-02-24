@@ -354,7 +354,7 @@ Data Sources
 
 Each site has one or more _data sources_: objects that can load site data (items and layouts) from certain locations, and even create new items and layouts.
 
-New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](http://nanoc.stoneship.org/docs/api/Nanoc/DataSources/FilesystemUnified.html).
+New nanoc sites will have only one data source: the `filesystem_unified` one. For details about this data source, see the [documentation for `FilesystemUnified`](/docs/api/Nanoc/DataSources/FilesystemUnified.html).
 
 The site configuration has a list of hashes containing the data source configurations. Each list item is a hash with the following keys:
 
