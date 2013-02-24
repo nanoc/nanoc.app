@@ -116,3 +116,27 @@ This is a shorthand for the following:
 
 	compile '/assets/stylesheets/*/' do
 	end
+
+## Characters don’t show up right in the output
+
+If you notice that some characters do not show up correctly in the output (e.g., ä shows up as Ã¤), then you are experiencing issues with character encodings: text in one character encoding is erroneously interpreted in a different character encoding. There are two possible causes for this.
+
+### Wrong output encoding tag
+
+The text could be in the correct encoding, but the browser interprets it wrongly.
+
+nanoc’s output is always UTF-8, so the output files should not declare a different encoding. For example, having `<meta charset="iso-8859-1">` at the top of files in output/ is wrong: it should be `<meta charset="utf-8">` instead.
+
+### Wrong input encoding
+
+The data sources could interpret the input data in the wrong encoding.
+
+nanoc tries to guess from the environment which encoding to use, which can lead to errors in the output. There are three ways to solve this:
+
+* You can re-encode the files to match the environment encoding (not recommended, because the environment encoding is unreliable).
+
+* You can modify the environment encoding to match the file encoding (not recommended, for the same reason as above).
+
+* You can set an explicit encoding in the configuration file (recommended).
+
+To set the encoding explicity in the site configuration, open `config.yaml` and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem_unified` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want).
