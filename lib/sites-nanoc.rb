@@ -1,16 +1,5 @@
 require 'time'
 
-# Returns the item with the given identifier.
-def item_named(identifier)
-  @_item_named_cache ||= {}
-  res = @_item_named_cache[identifier]
-  if res.nil?
-    res = @items.find { |item| item.identifier == identifier }
-    @_item_named_cache[identifier] = res
-  end
-  res
-end
-
 def array_to_yaml(array)
   '[ ' + array.map { |s| "'" + s + "'" }.join(', ') + ' ]'
 end
