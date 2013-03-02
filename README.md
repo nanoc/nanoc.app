@@ -12,7 +12,7 @@ repository at <http://nanoc.stoneship.org/hg/sites-stoneship>.
 Legal
 -----
 
-All content on this site, unless otherwise specified, is copyright 2007–2010
+All content on this site, unless otherwise specified, is copyright 2007–2013
 Denis Defreyne and may not be copied without the express permission from Denis
 Defreyne.
 
