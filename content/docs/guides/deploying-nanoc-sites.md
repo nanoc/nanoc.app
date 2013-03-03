@@ -43,7 +43,25 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 Use this with caution!
 
-With git
---------
+With github pages
+-----------------
 
-There’s no git deploy guide yet. If you want to write one, fork the nanoc site on GitHub, fill in this section and send a pull request!
+The Github pages deploy process is nicely described [elsewhere](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to:
+
+    git branch --orphan gh-pages
+
+to create an orphaned branch dedicated to github pages publishing. Switch to the branch and delete everything:
+
+    git checkout gh-pages
+    rm -rf *
+
+Then copy your content from your output directory (elsewhere) into the branch and push it:
+
+    cp somewhereelse/output .
+    git add .
+    git commit -m "awesome content created"
+    git push origin gh-pages
+
+Wait a couple of minutes and your content will appear at <pre>http://<gitusername>.github.com/<reponame></pre> .
+
+Most often you want to publish from the same repo - then you will need to copy the content in output somewhere before switching to the branch. An ruby script automating the publishing steps can be found in the [highlevelbits blog repo](https://github.com/highlevelbits/blog/blob/master/publish.rb). Something like that may turn up as an option in 'nanoc deploy' in the future.
