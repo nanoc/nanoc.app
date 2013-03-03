@@ -62,6 +62,6 @@ Then copy your content from your output directory (elsewhere) into the branch an
     git commit -m "awesome content created"
     git push origin gh-pages
 
-Wait a couple of minutes and your content will appear at <pre>http://<gitusername>.github.com/<reponame></pre> .
+Wait a couple of minutes and your content will appear at http://yourgittusername.github.com/yourreponame .
 
 Most often you want to publish from the same repo - then you will need to copy the content in output somewhere before switching to the branch. An ruby script automating the publishing steps can be found in the [highlevelbits blog repo](https://github.com/highlevelbits/blog/blob/master/publish.rb). Something like that may turn up as an option in 'nanoc deploy' in the future.
