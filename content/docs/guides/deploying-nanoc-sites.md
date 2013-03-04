@@ -46,22 +46,40 @@ Use this with caution!
 With github pages
 -----------------
 
-The Github pages deploy process is nicely described [elsewhere](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to:
+The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to create a orphaned branch dedicated to github pages:
 
+    rm -rf output
     git branch --orphan gh-pages
 
-to create an orphaned branch dedicated to github pages publishing. Switch to the branch and delete everything:
+Then clone the current repo into the output directory and `checkout` the new branch:
 
+    git clone . output
+    cd output
     git checkout gh-pages
+
+Nuke the current content:
+
     rm -rf *
-
-Then copy your content from your output directory (elsewhere) into the branch and push it:
-
-    cp somewhereelse/output .
     git add .
-    git commit -m "awesome content created"
+    git commit -am "nukes the output directory and gh-pages branch"
+
+Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.) Every new user need to set up this branch manually.
+
+Now you have an orphaned branch dedicated to github pages publishing. This branch now dwells in the output folder of your nanoc repo.
+
+
+
+To publish your nanoc site you start with running nanoc as normal:
+
+    nanoc
+
+Jump into output, commit the result and push the publishing branch.
+
+    cd output
+    git add .
+    git commit -am "awesome content created"
     git push origin gh-pages
 
-Wait a couple of minutes and your content will appear at <pre>http://<gitusername>.github.com/<reponame></pre> .
+Wait a couple of minutes and your content will appear at <pre>http://<gitusername>.github.com/<reponame></pre> . The above 5 lines can be put into a shell script for easy one-button publishing. I call mine `publish.sh`.
 
-Most often you want to publish from the same repo - then you will need to copy the content in output somewhere before switching to the branch. An ruby script automating the publishing steps can be found in the [highlevelbits blog repo](https://github.com/highlevelbits/blog/blob/master/publish.rb). Something like that may turn up as an option in 'nanoc deploy' in the future.
+In this way both nanoc is happy - cause the output folder is where it is supposed to be - and github pages is happy - cause there is a nice and tidy branch called gh-pages with static publishable content. A weird side effect is that the gh-pages in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo or just make sure to `pull` after a succesful publish.
