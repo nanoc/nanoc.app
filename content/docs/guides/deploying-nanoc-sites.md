@@ -80,6 +80,6 @@ Jump into output, commit the result and push the publishing branch.
     git commit -am "awesome content created"
     git push origin gh-pages
 
-Wait a couple of minutes and your content will appear at <pre>http://<gitusername>.github.com/<reponame></pre> . The above 5 lines can be put into a shell script for easy one-button publishing. I call mine `publish.sh`.
+Wait a couple of minutes and your content will appear at http://yourgittusername.github.com/yourreponame . The above 5 lines can be put into a shell script for easy one-button publishing. I call mine `publish.sh`.
 
 In this way both nanoc is happy - cause the output folder is where it is supposed to be - and github pages is happy - cause there is a nice and tidy branch called gh-pages with static publishable content. A weird side effect is that the gh-pages in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo or just make sure to `pull` after a succesful publish.
