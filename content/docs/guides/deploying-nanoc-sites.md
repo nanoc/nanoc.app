@@ -46,6 +46,8 @@ Use this with caution!
 With github pages
 -----------------
 
+### Setup
+
 The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to create a orphaned branch dedicated to github pages:
 
     rm -rf output
@@ -67,7 +69,7 @@ Add the `output` folder to your `.gitignore`. (Adding it to the repo does not he
 
 Now you have an orphaned branch dedicated to github pages publishing. This branch now dwells in the output folder of your nanoc repo.
 
-
+### Publish
 
 To publish your nanoc site you start with running nanoc as normal:
 
