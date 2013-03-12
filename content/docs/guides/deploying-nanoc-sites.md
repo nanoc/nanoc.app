@@ -65,6 +65,11 @@ Nuke the current content:
     git add .
     git commit -am "nukes the output directory and gh-pages branch"
 
+Change the remote for this repo.
+
+    git remote rm origin
+    git remote add origin repo-url 
+
 Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.) Every new user need to set up this branch manually.
 
 Now you have an orphaned branch dedicated to github pages publishing. This branch now dwells in the output folder of your nanoc repo.
