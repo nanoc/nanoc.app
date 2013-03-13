@@ -68,7 +68,7 @@ The routing rule is a bit more complex. In here, we take the item identifier, st
 And that’s it! Or you can use a `passthrough` rule (see below).
 
 	#!ruby
-	passthrough '/assets/*' do
+	passthrough '/assets/*'
 
 ## Error: “can’t modify frozen X”
 
