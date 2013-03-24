@@ -18,7 +18,7 @@ data_sources:
     type:         static
     items_root:   /static/
 
-base_url: http://nanoc.stoneship.org/
+base_url: http://nanoc.ws
 
 deploy:
   public:

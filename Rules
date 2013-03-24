@@ -86,6 +86,8 @@ route '*' do
   elsif item[:is_partial] || item[:kind] == 'article'
     # Don’t output partial items (e.g. sub-stylesheets)
     nil
+  elsif item[:path]
+    item[:path]
   else
     # Place each file in its own directory
     rep.item.identifier + 'index.html'
@@ -115,6 +117,14 @@ compile '/404/' do
   filter :erb
   layout '/default/'
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
+end
+
+compile '/sitemap/' do
+  filter :erb
+end
+
+compile '/robots/' do
+  filter :erb
 end
 
 compile '/' do
