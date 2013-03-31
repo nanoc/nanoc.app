@@ -13,9 +13,9 @@ _Ghent, April 1st, 2013_
 
 Dear nanoc users,
 
-Almost six years ago, the first nanoc release saw the daylight. It started out as a glorified Ruby script, but has since then evolved into a reliable application that has served many people well for years. I am proud of what I have achieved with nanoc, no small part thanks to the many contributions I have received from the community. Many thanks to all of you!
+Almost six years ago, the first nanoc release saw the light of day. It started out as a glorified Ruby script, but has since then evolved into a reliable application that has served many people well for years. I am proud of what I have achieved with nanoc, in no small part thanks to the many contributions I have received from the community. Many thanks to all of you!
 
-In the past few months, I have received a significant amount of feedback for nanoc. This has been a quite enlightening experience to get to know the proper needs that you and other nanoc users have. Unfortunately, I reached a saddening conclusion: nanoc is not ready for Web 3.0. The reason became crystal clear pretty quickly: Ruby is not web scale.
+In the past few months, I have received a significant amount of feedback for nanoc. This has been quite an enlightening experience to get to know the proper needs that you and other nanoc users have. Unfortunately, I reached a saddening conclusion: nanoc is not ready for Web 3.0. The reason became crystal clear pretty quickly: Ruby is not web scale.
 
 I have been quite intrigued by [Hakyll](http://jaspervdj.be/hakyll/) lately. Like nanoc, Hakyll is a static site generator, but unlike nanoc, it is written in [Haskell](http://haskell.org/). It is written by [Jasper](http://jaspervdj.be/), who used to be a good friend before he started working on his own static site generator. That aside, Hakyll demonstrates that Haskell is a superior language that, unlike Ruby, _is_ web scale.
 
