@@ -4,9 +4,6 @@ markdown: basic
 has_toc:  true
 ---
 
-Glossary
---------
-
 <dl class="glossary">
 	<dt id="glossary-asset">asset</dt>
 	<dd><span class="see">see <a href="#glossary-item">item</a></span></dd>

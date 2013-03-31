@@ -269,11 +269,13 @@ body.page .content {
         padding-bottom: 40px;
 
         .article-content {
+            padding-top: 40px;
+
             @media (min-width: 720px) {
                 @include span-columns(8, 12);
             }
 
-            //background: url(/assets/images/grid-40.png) top left;
+            background: url(/assets/images/grid-40.png) top left;
 
             ul, ol, pre, p, h2, h3 {
                 margin-bottom: 20px;
@@ -286,7 +288,9 @@ body.page .content {
             h2 {
                 font-size: 20px;
                 font-weight: normal;
+            }
 
+            * + h2 {
                 margin-top: 40px;
             }
 

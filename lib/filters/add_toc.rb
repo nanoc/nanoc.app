@@ -10,6 +10,10 @@ class AddTOCFilter < Nanoc::Filter
         { :title => header.inner_html, :id => header['id'] }
       end
 
+      if headers.empty?
+        next ''
+      end
+
       # Build table of contents
       res = '<ol class="toc">'
       headers.each do |header|
