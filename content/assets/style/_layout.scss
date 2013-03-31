@@ -439,6 +439,34 @@ body.home .ticker {
     }
 }
 
+@-webkit-keyframes shake {
+    0%   { left:  0px;  }
+    25%  { left: -10px; }
+    50%  { left:  10px; }
+    75%  { left: -10px; }
+    100% { left:  0px;  }
+}
+
+body.home .announcement {
+    padding: 40px 0;
+
+    position: relative;
+
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: 1;
+
+    font-size: 16px;
+    text-align: center;
+
+    span {
+        padding: 10px 15px;
+
+        border-radius: 5px;
+    }
+}
+
 body.home .chooser {
     @include container;
 
