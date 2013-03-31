@@ -439,6 +439,22 @@ body.home .ticker {
     }
 }
 
+@keyframes shake {
+    0%   { left:  0px;  }
+    25%  { left: -10px; }
+    50%  { left:  10px; }
+    75%  { left: -10px; }
+    100% { left:  0px;  }
+}
+
+@-moz-keyframes shake {
+    0%   { left:  0px;  }
+    25%  { left: -10px; }
+    50%  { left:  10px; }
+    75%  { left: -10px; }
+    100% { left:  0px;  }
+}
+
 @-webkit-keyframes shake {
     0%   { left:  0px;  }
     25%  { left: -10px; }
@@ -451,6 +467,16 @@ body.home .announcement {
     padding: 40px 0;
 
     position: relative;
+
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+
+    -moz-animation-name: shake;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-delay: 1s;
+    -moz-animation-iteration-count: 1;
 
     -webkit-animation-name: shake;
     -webkit-animation-duration: 0.5s;
