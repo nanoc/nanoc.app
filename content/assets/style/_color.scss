@@ -171,6 +171,24 @@ body.home {
         }
     }
 
+    .announcement span {
+        background-color: $explanation-bg-color;
+        color: $explanation-fg-color;
+
+        a {
+            background-color: tint($explanation-bg-color, 20%);
+        }
+
+        a:link, a:visited {
+            color: tint($explanation-fg-color, 50%);
+        }
+
+        a:hover {
+            background-color: tint($explanation-bg-color, 30%);
+            color: tint($explanation-fg-color, 100%);
+        }
+    }
+
     .chooser {
         h2 {
             color: rgb(37, 110, 219);
