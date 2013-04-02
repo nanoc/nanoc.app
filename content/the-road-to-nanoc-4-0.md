@@ -11,6 +11,8 @@ is_dynamic: true
 
 _Ghent, April 1st, 2013_
 
+**Update**: April fools’ day. :)
+
 Dear nanoc users,
 
 Almost six years ago, the first nanoc release saw the light of day. It started out as a glorified Ruby script, but has since then evolved into a reliable application that has served many people well for years. I am proud of what I have achieved with nanoc, in no small part thanks to the many contributions I have received from the community. Many thanks to all of you!
