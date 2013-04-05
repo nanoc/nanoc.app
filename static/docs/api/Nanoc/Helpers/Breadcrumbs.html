@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Breadcrumbs
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -113,29 +113,6 @@ page hierarchy.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#breadcrumbs_for_identifier-instance_method" title="#breadcrumbs_for_identifier (instance method)">- (Object) <strong>breadcrumbs_for_identifier</strong>(identifier) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#breadcrumbs_trail-instance_method" title="#breadcrumbs_trail (instance method)">- (Array) <strong>breadcrumbs_trail</strong> </a>
     
 
@@ -157,29 +134,6 @@ to its parent’s parent, etc, until the root item is reached.</p>
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#item_with_identifier-instance_method" title="#item_with_identifier (instance method)">- (Object) <strong>item_with_identifier</strong>(identifier) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -190,49 +144,7 @@ to its parent’s parent, etc, until the root item is reached.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="breadcrumbs_for_identifier-instance_method">
-  
-    - (<tt>Object</tt>) <strong>breadcrumbs_for_identifier</strong>(identifier) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/breadcrumbs.rb', line 28</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
-  <span class='ivar'>@breadcrumbs_cache</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@breadcrumbs_cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>begin</span>
-    <span class='id identifier rubyid_head'>head</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='op'>:</span>  <span class='id identifier rubyid_breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[^\/]+\/$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rparen'>)</span>
-    <span class='id identifier rubyid_tail'>tail</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_item_with_identifier'>item_with_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span> <span class='rbracket'>]</span>
-
-    <span class='id identifier rubyid_head'>head</span> <span class='op'>+</span> <span class='id identifier rubyid_tail'>tail</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="breadcrumbs_trail-instance_method">
+  <h3 class="signature first" id="breadcrumbs_trail-instance_method">
   
     - (<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span></tt>) <strong>breadcrumbs_trail</strong> 
   
@@ -280,49 +192,37 @@ with the item itself</p>
 
 17
 18
-19</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/breadcrumbs.rb', line 17</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_breadcrumbs_trail'>breadcrumbs_trail</span>
-  <span class='id identifier rubyid_breadcrumbs_for_identifier'>breadcrumbs_for_identifier</span><span class='lparen'>(</span><span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="item_with_identifier-instance_method">
-  
-    - (<tt>Object</tt>) <strong>item_with_identifier</strong>(identifier) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
+19
+20
 21
 22
 23
 24
 25
-26</pre>
+26
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/breadcrumbs.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/breadcrumbs.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_item_with_identifier'>item_with_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
-  <span class='ivar'>@identifier_cache</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='ivar'>@identifier_cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>begin</span>
-    <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_breadcrumbs_trail'>breadcrumbs_trail</span>
+  <span class='id identifier rubyid_trail'>trail</span>      <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_idx_start'>idx_start</span>  <span class='op'>=</span> <span class='int'>0</span>
+
+  <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_idx'>idx</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_idx_start'>idx_start</span><span class='rparen'>)</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_idx'>idx</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+    <span class='id identifier rubyid_idx_start'>idx_start</span> <span class='op'>=</span> <span class='id identifier rubyid_idx'>idx</span><span class='op'>+</span><span class='int'>1</span>
+    <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_idx'>idx</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_trail'>trail</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_trail'>trail</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -336,7 +236,7 @@ with the item itself</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::HTMLEscape
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -195,19 +195,19 @@ contents of the block will be escaped and appended to the output buffer,
         <p class="example_title"><div class='inline'><p>Escaping a string</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 <span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>&lt;br&gt;</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-<span class='comment'># =&gt; '&amp;lt;br&amp;gt;'</span></pre>
+<span class='comment'># =&gt; '&amp;lt;br&amp;gt;'</span></code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Escaping with a block</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;% h do %&gt;
   &lt;h1&gt;Hello &lt;em&gt;world&lt;/em&gt;!&lt;/h1&gt;
 &lt;% end %&gt;
-# The buffer will now contain “&amp;lt;h1&amp;gt;Hello &amp;lt;em&amp;gt;world&amp;lt;/em&amp;gt;!&amp;lt;/h1&amp;gt;”</pre>
+# The buffer will now contain “&amp;lt;h1&amp;gt;Hello &amp;lt;em&amp;gt;world&amp;lt;/em&amp;gt;!&amp;lt;/h1&amp;gt;”</code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -310,7 +310,7 @@ contents of the block will be escaped and appended to the output buffer,
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

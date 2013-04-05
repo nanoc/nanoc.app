@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Blogging
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -486,21 +486,21 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
         <p class="example_title"><div class='inline'><p>Defining compilation and routing rules for a feed item</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 <span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_filter'>filter</span> <span class='symbol'>:erb</span>
 <span class='kw'>end</span>
 
 <span class='id identifier rubyid_route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
   <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog.xml</span><span class='tstring_end'>'</span></span>
-<span class='kw'>end</span></pre>
+<span class='kw'>end</span></code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Limiting the number of items in a feed</p>
 </div></p>
       
-      <pre class="example code">
-&lt;%= atom_feed :limit =&gt; 5 %&gt;</pre>
+      <pre class="example code"><code>
+&lt;%= atom_feed :limit =&gt; 5 %&gt;</code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -753,7 +753,7 @@ is not given in the item attributes.</p>
 used in the Atom feed to uniquely identify articles. These IDs are
 created using a procedure suggested by Mark Pilgrim and described in his
 [&#8220;How to make a good ID in Atom&#8221; blog post]
-(http://diveintomark.org/archives/2004/05/28/howto-atom-id).</p>
+(http://web.archive.org/web/20110915110202/http://diveintomark.org/archives/2004/05/28/howto-atom-id).</p>
 
 
   </div>
@@ -1147,7 +1147,7 @@ the custom path in the feed if possible, otherwise the normal path.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Filtering
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -186,11 +186,11 @@ work correctly.</p>
         <p class="example_title"><div class='inline'><p>Running a filter on a part of an item or layout</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
 &lt;% filter :rubypants do %&gt;
   &lt;p&gt;Consectetur adipisicing elit...&lt;/p&gt;
-&lt;% end %&gt;</pre>
+&lt;% end %&gt;</code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -284,7 +284,7 @@ contents of the block</p>
 
   <span class='comment'># Filter captured data
 </span>  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='comma'>,</span> <span class='ivar'>@item_rep</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_filtered_data'>filtered_data</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filtered_data'>filtered_data</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='rparen'>)</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_ended</span><span class='comma'>,</span> <span class='ivar'>@item_rep</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='rparen'>)</span>
 
   <span class='comment'># Append filtered data to buffer
@@ -303,7 +303,7 @@ contents of the block</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

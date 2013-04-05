@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::CreateSite
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -184,7 +184,7 @@ dirs_to_watch: [ 'content', 'layouts', 'lib' ]
 
 # A list of single files to watch for changes. As mentioned above, don’t put
 # any files from the “output/” or “tmp/” directories in here.
-files_to_watch: [ 'config.yaml', 'Rules' ]
+files_to_watch: [ 'nanoc.yaml', 'Rules' ]
 
 # When to send notifications (using Growl or notify-send).
 notify_on_compilation_success: true
@@ -373,14 +373,14 @@ font-size</pre></dd>
     &lt;div id=&quot;sidebar&quot;&gt;
 &lt;h2&gt;Documentation&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nanoc.stoneship.org/docs/&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nanoc.stoneship.org/docs/3-getting-started/&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nanoc.ws/docs/&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nanoc.ws/docs/tutorial/&quot;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Community&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://groups.google.com/group/nanoc/&quot;&gt;Discussion Group&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;irc://chat.freenode.net/#nanoc&quot;&gt;IRC Channel&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://projects.stoneship.org/trac/nanoc/&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://github.com/nanoc/nanoc/wiki/&quot;&gt;Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</pre></dd>
       
     </dl>
@@ -436,7 +436,7 @@ font-size</pre></dd>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
   
 
@@ -545,7 +545,7 @@ font-size</pre></dd>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

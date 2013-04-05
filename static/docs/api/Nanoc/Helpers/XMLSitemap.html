@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::XMLSitemap
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -195,8 +195,8 @@ if the site is at “http://example.com/”, the <code>base_url</code> would be
         <p class="example_title"><div class='inline'><p>Excluding binary items from the sitemap</p>
 </div></p>
       
-      <pre class="example code">
-&lt;%= xml_sitemap :items =&gt; @items.reject{ |i| i[:is_hidden] || i.binary? } %&gt;</pre>
+      <pre class="example code"><code>
+&lt;%= xml_sitemap :items =&gt; @items.reject{ |i| i[:is_hidden] || i.binary? } %&gt;</code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -369,7 +369,7 @@ proc returns true, the rep will be included; otherwise, it will not.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Rendering
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -201,27 +201,27 @@ will be made available as instance variables inside the partial.</p>
         <p class="example_title"><div class='inline'><p>Rendering a head and a foot partial around some text</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;%= render 'head' %&gt; - MIDDLE - &lt;%= render 'foot' %&gt;
-# =&gt; &quot;HEAD - MIDDLE - FOOT&quot; </pre>
+# =&gt; &quot;HEAD - MIDDLE - FOOT&quot; </code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Rendering a head partial with a custom title</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 # The 'head' layout
 &lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
 
 # The item/layout where the partial is rendered
 &lt;%= render 'head', :title =&gt; 'Foo' %&gt;
-# =&gt; &quot;&lt;h1&gt;Foo&lt;/h1&gt;&quot;</pre>
+# =&gt; &quot;&lt;h1&gt;Foo&lt;/h1&gt;&quot;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Yielding inside a partial</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 # The 'box' partial
 &lt;div class=&quot;box&quot;&gt;
   &lt;%= yield %&gt;
@@ -235,7 +235,7 @@ will be made available as instance variables inside the partial.</p>
 # Result
 &lt;div class=&quot;box&quot;&gt;
   I'm boxy! Luvz!
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -449,7 +449,7 @@ layout specifies an unknown filter</p>
 </span>    <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:processing_started</span><span class='comma'>,</span> <span class='id identifier rubyid_layout'>layout</span><span class='rparen'>)</span>
 
     <span class='comment'># Layout
-</span>    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
 
     <span class='comment'># Append to erbout if we have a block
 </span>    <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -478,7 +478,7 @@ layout specifies an unknown filter</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

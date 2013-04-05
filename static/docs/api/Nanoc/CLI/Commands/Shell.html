@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Nanoc::CLI::Commands::Compile
+  Class: Nanoc::CLI::Commands::Shell
   
     &mdash; Documentation by YARD 0.8.5.2
   
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../../../_index.html">Index (C)</a> &raquo;
+    <a href="../../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../CLI.html" title="Nanoc::CLI (module)">CLI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Commands.html" title="Nanoc::CLI::Commands (module)">Commands</a></span></span>
      &raquo; 
-    <span class="title">Compile</span>
+    <span class="title">Shell</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Class: Nanoc::CLI::Commands::Compile
+    <div id="content"><h1>Class: Nanoc::CLI::Commands::Shell
   
   
   
@@ -82,7 +82,7 @@
           
             <li class="next"><span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></li>
           
-            <li class="next">Nanoc::CLI::Commands::Compile</li>
+            <li class="next">Nanoc::CLI::Commands::Shell</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -92,31 +92,17 @@
   
   
     
-      <dt class="r2">Extended by:</dt>
-      <dd class="r2"><span class='object_link'><a href="../../Memoization.html" title="Nanoc::Memoization (module)">Memoization</a></span></dd>
-      
-    
   
     
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/nanoc/cli/commands/compile.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc/cli/commands/shell.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-<h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-  
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Compile/DebugPrinter.html" title="Nanoc::CLI::Commands::Compile::DebugPrinter (class)">DebugPrinter</a></span>, <span class='object_link'><a href="Compile/DiffGenerator.html" title="Nanoc::CLI::Commands::Compile::DiffGenerator (class)">DiffGenerator</a></span>, <span class='object_link'><a href="Compile/FileActionPrinter.html" title="Nanoc::CLI::Commands::Compile::FileActionPrinter (class)">FileActionPrinter</a></span>, <span class='object_link'><a href="Compile/GCController.html" title="Nanoc::CLI::Commands::Compile::GCController (class)">GCController</a></span>, <span class='object_link'><a href="Compile/Listener.html" title="Nanoc::CLI::Commands::Compile::Listener (class)">Listener</a></span>, <span class='object_link'><a href="Compile/TimingRecorder.html" title="Nanoc::CLI::Commands::Compile::TimingRecorder (class)">TimingRecorder</a></span>
-    
-  
-</p>
 
 
 
@@ -167,17 +153,6 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../Memoization.html" title="Nanoc::Memoization (module)">Memoization</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../../Memoization.html#memoize-instance_method" title="Nanoc::Memoization#memoize (method)">memoize</a></span></p>
-
-  
-  
-  
-  
-  
-  
-  
-  
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
@@ -202,35 +177,23 @@
       <pre class="lines">
 
 
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330</pre>
+14
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 318</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/shell.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load_site'>load_site</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_check_for_deprecated_usage'>check_for_deprecated_usage</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_setup_listeners'>setup_listeners</span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pry</span><span class='tstring_end'>'</span></span>
 
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Compiling site…</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_time_before'>time_before</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_compile'>compile</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_prune'>prune</span>
-  <span class='id identifier rubyid_time_after'>time_after</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
-  <span class='id identifier rubyid_puts'>puts</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Site compiled in </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%.2f</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_time_after'>time_after</span> <span class='op'>-</span> <span class='id identifier rubyid_time_before'>time_before</span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>s.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_require_site'>require_site</span>
+
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Context</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_pry'>pry</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

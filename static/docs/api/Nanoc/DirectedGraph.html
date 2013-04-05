@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::DirectedGraph
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -116,7 +116,7 @@ storing and querying dependencies between items.</p>
         <p class="example_title"><div class='inline'><p>Creating and using a directed graph</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 <span class='comment'># Create a graph with three vertices
 </span><span class='id identifier rubyid_graph'>graph</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w( </span><span class='tstring_content'>a</span><span class='words_sep'> </span><span class='tstring_content'>b</span><span class='words_sep'> </span><span class='tstring_content'>c</span><span class='words_sep'> </span><span class='tstring_content'>d</span><span class='words_sep'> )</span><span class='rparen'>)</span>
 
@@ -138,7 +138,7 @@ storing and querying dependencies between items.</p>
 </span><span class='id identifier rubyid_graph'>graph</span><span class='period'>.</span><span class='id identifier rubyid_direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
   <span class='comment'># =&gt; %w( c )
 </span><span class='id identifier rubyid_graph'>graph</span><span class='period'>.</span><span class='id identifier rubyid_predecessors_of'>predecessors_of</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span>
-  <span class='comment'># =&gt; %w( b c )</span></pre>
+  <span class='comment'># =&gt; %w( b c )</span></code></pre>
     
   </div>
 
@@ -1684,7 +1684,7 @@ which there is a path from the given vertex x to y.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

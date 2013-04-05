@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::ItemRep
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -127,7 +127,16 @@ a different set of filters with a different layout.</p>
   
 </p>
 
+  <h2>Constant Summary</h2>
+  
 
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="ItemRep/Private.html" title="Nanoc::ItemRep::Private (module)">Private</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ItemRep/Private.html#TMP_TEXT_ITEMS_DIR-constant" title="Nanoc::ItemRep::Private::TMP_TEXT_ITEMS_DIR (constant)">Private::TMP_TEXT_ITEMS_DIR</a></span></p>
 
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -559,7 +568,7 @@ recompiled.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="ItemRep/Private.html" title="Nanoc::ItemRep::Private (module)">Private</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ItemRep/Private.html#forget_progress-instance_method" title="Nanoc::ItemRep::Private#forget_progress (method)">#forget_progress</a></span>, <span class='object_link'><a href="ItemRep/Private.html#type-instance_method" title="Nanoc::ItemRep::Private#type (method)">#type</a></span>, <span class='object_link'><a href="ItemRep/Private.html#write-instance_method" title="Nanoc::ItemRep::Private#write (method)">#write</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ItemRep/Private.html#forget_progress-instance_method" title="Nanoc::ItemRep::Private#forget_progress (method)">#forget_progress</a></span>, <span class='object_link'><a href="ItemRep/Private.html#temp_filename-instance_method" title="Nanoc::ItemRep::Private#temp_filename (method)">#temp_filename</a></span>, <span class='object_link'><a href="ItemRep/Private.html#type-instance_method" title="Nanoc::ItemRep::Private#type (method)">#type</a></span>, <span class='object_link'><a href="ItemRep/Private.html#write-instance_method" title="Nanoc::ItemRep::Private#write (method)">#write</a></span></p>
 
   
   
@@ -634,14 +643,6 @@ belong.</p>
       <pre class="lines">
 
 
-202
-203
-204
-205
-206
-207
-208
-209
 210
 211
 212
@@ -651,10 +652,18 @@ belong.</p>
 216
 217
 218
-219</pre>
+219
+220
+221
+222
+223
+224
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='comment'># Set primary attributes
@@ -732,12 +741,12 @@ belong.</p>
       <pre class="lines">
 
 
-188
-189
-190</pre>
+196
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_binary'>binary</span>
   <span class='ivar'>@binary</span>
@@ -791,12 +800,12 @@ belong.</p>
       <pre class="lines">
 
 
-182
-183
-184</pre>
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_item'>item</span>
   <span class='ivar'>@item</span>
@@ -850,12 +859,12 @@ belong.</p>
       <pre class="lines">
 
 
-185
-186
-187</pre>
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 193</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
   <span class='ivar'>@name</span>
@@ -913,12 +922,12 @@ a Boolean indicating whether the snapshot is final or not</p>
       <pre class="lines">
 
 
-194
-195
-196</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_snapshots'>snapshots</span>
   <span class='ivar'>@snapshots</span>
@@ -1023,14 +1032,6 @@ default snapshot if no snapshot is specified)</p>
       <pre class="lines">
 
 
-230
-231
-232
-233
-234
-235
-236
-237
 238
 239
 240
@@ -1048,10 +1049,18 @@ default snapshot if no snapshot is specified)</p>
 252
 253
 254
-255</pre>
+255
+256
+257
+258
+259
+260
+261
+262
+263</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Make sure we're not binary
@@ -1172,14 +1181,6 @@ the filter’s #run method</p>
       <pre class="lines">
 
 
-315
-316
-317
-318
-319
-320
-321
-322
 323
 324
 325
@@ -1214,10 +1215,18 @@ the filter’s #run method</p>
 354
 355
 356
-357</pre>
+357
+358
+359
+360
+361
+362
+363
+364
+365</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 323</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Get filter class
@@ -1240,7 +1249,7 @@ the filter’s #run method</p>
 
     <span class='comment'># Run filter
 </span>    <span class='id identifier rubyid_source'>source</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span> <span class='op'>?</span> <span class='id identifier rubyid_temporary_filenames'>temporary_filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_to_binary?'>to_binary?</span>
       <span class='id identifier rubyid_temporary_filenames'>temporary_filenames</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_output_filename'>output_filename</span>
     <span class='kw'>else</span>
@@ -1325,12 +1334,12 @@ given name, false otherwise</p>
       <pre class="lines">
 
 
-263
-264
-265</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 263</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_has_snapshot?'>has_snapshot?</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='rparen'>)</span>
   <span class='op'>!</span><span class='ivar'>@content</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1355,15 +1364,15 @@ given name, false otherwise</p>
       <pre class="lines">
 
 
-460
-461
-462</pre>
+468
+469
+470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 468</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> name=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> binary=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span><span class='rbrace'>}</span><span class='tstring_content'> raw_path=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbrace'>}</span><span class='tstring_content'> item.identifier=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> name=\&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot; binary=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span><span class='rbrace'>}</span><span class='tstring_content'> raw_path=\&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot; item.identifier=\&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1422,12 +1431,12 @@ need to be wrapped in a proxy during compilation.</p>
       <pre class="lines">
 
 
-447
-448
-449</pre>
+455
+456
+457</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 447</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 455</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_is_proxy?'>is_proxy?</span>
   <span class='kw'>false</span>
@@ -1538,14 +1547,6 @@ the filter’s #run method</p>
       <pre class="lines">
 
 
-377
-378
-379
-380
-381
-382
-383
-384
 385
 386
 387
@@ -1571,10 +1572,18 @@ the filter’s #run method</p>
 407
 408
 409
-410</pre>
+410
+411
+412
+413
+414
+415
+416
+417
+418</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 377</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 385</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
   <span class='comment'># Check whether item can be laid out
@@ -1600,7 +1609,7 @@ the filter’s #run method</p>
     <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='comma'>,</span>  <span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='rparen'>)</span>
 
     <span class='comment'># Layout
-</span>    <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
+</span>    <span class='ivar'>@content</span><span class='lbracket'>[</span><span class='symbol'>:last</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
 
     <span class='comment'># Create &quot;post&quot; snapshot
 </span>    <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='symbol'>:post</span><span class='comma'>,</span> <span class='symbol'>:final</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -1706,16 +1715,16 @@ path should be returned</p>
       <pre class="lines">
 
 
-291
-292
-293
-294
-295
-296
-297</pre>
+299
+300
+301
+302
+303
+304
+305</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 291</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 299</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path'>path</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
@@ -1818,16 +1827,16 @@ path should be returned</p>
       <pre class="lines">
 
 
-274
-275
-276
-277
-278
-279
-280</pre>
+282
+283
+284
+285
+286
+287
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 282</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_raw_path'>raw_path</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Nanoc3</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
@@ -1887,12 +1896,12 @@ path should be returned</p>
       <pre class="lines">
 
 
-456
-457
-458</pre>
+464
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 456</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 464</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reference'>reference</span>
   <span class='lbracket'>[</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='rbracket'>]</span>
@@ -1991,14 +2000,14 @@ snapshot (such as <code>:pre</code>, <code>:post</code> or <code>:last</code>)</
       <pre class="lines">
 
 
-421
-422
-423
-424
-425</pre>
+429
+430
+431
+432
+433</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 421</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 429</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_is_final'>is_final</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:final</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
@@ -2058,12 +2067,12 @@ recompiled.</p>
       <pre class="lines">
 
 
-434
-435
-436</pre>
+442
+443
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 434</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 442</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_recording_proxy'>to_recording_proxy</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>ItemRepRecorderProxy</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -2080,7 +2089,7 @@ recompiled.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

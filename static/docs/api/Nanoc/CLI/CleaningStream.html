@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::CleaningStream
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -359,6 +359,52 @@ used to strip ANSI color sequences, for instance.</p>
   <span class="summary_signature">
     
       <a href="#tty%3F-instance_method" title="#tty? (instance method)">- (Boolean) <strong>tty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#winsize-instance_method" title="#winsize (instance method)">- (Object) <strong>winsize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#winsize%3D-instance_method" title="#winsize= (instance method)">- (Object) <strong>winsize=</strong>(arg) </a>
     
 
     
@@ -1239,6 +1285,100 @@ stream cleaner to add</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="winsize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>winsize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>IO.winsize</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_winsize'>winsize</span>
+  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_winsize'>winsize</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="winsize=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>winsize=</strong>(arg) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>IO.winsize=</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_winsize='>winsize=</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
+  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_winsize'>winsize</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="write-instance_method">
   
     - (<tt>Object</tt>) <strong>write</strong>(s) 
@@ -1292,7 +1432,7 @@ stream cleaner to add</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

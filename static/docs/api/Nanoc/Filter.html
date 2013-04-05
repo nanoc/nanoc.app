@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filter
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -135,7 +135,7 @@ instance variables and instance methods.</p>
         <p class="example_title"><div class='inline'><p>Accessing assigns in different ways</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 <span class='id identifier rubyid_filter'>filter</span> <span class='op'>=</span> <span class='const'>SomeFilter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbrace'>{</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@assigns</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
   <span class='comment'># =&gt; 'bar'
@@ -144,7 +144,7 @@ instance variables and instance methods.</p>
 </span><span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='ivar'>@foo</span> <span class='rbrace'>}</span>
   <span class='comment'># =&gt; 'bar'
 </span><span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_foo'>foo</span> <span class='rbrace'>}</span>
-  <span class='comment'># =&gt; 'bar'</span></pre>
+  <span class='comment'># =&gt; 'bar'</span></code></pre>
     
   </div>
 
@@ -243,6 +243,52 @@ filtering.</p>
   
     <span class="summary_desc"><div class='inline'><p>True if this filter can be applied to binary item
 representations, false otherwise.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#requires-class_method" title="requires (class method)">+ (Object) <strong>requires</strong>(*requires) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-class_method" title="setup (class method)">+ (void) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Requires the filter’s required library if necessary.</p>
 </div></span>
   
 </li>
@@ -422,6 +468,29 @@ the given collection of items.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_and_run-instance_method" title="#setup_and_run (instance method)">- (Object) <strong>setup_and_run</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets up the filter and runs the filter.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -497,13 +566,13 @@ available during filtering.</p>
       <pre class="lines">
 
 
-86
-87
-88
-89</pre>
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 111</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@assigns</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span>
@@ -642,6 +711,177 @@ representations, false otherwise</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="requires-class_method">
+  
+    
+      <span class="overload">+ (<tt>void</tt>) <strong>requires</strong>(*requires) </span>
+    
+      <span class="overload">+ (<tt><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span>&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>) <strong>requires</strong> </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">+ (<tt>void</tt>) <strong>requires</strong>(*requires) </span>
+        <div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Sets the required libraries for this filter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>requires</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Array.html" title="Array (class)">Array</a></span>&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A list of library names that are required</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">+ (<tt><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span>&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>) <strong>requires</strong> </span>
+        <div class="docstring">
+  <div class="discussion">
+    <p>Returns the required libraries for this filter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span>&lt;<span class='object_link'><a href="../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This filter’s list of library names that are required</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+      </li>
+    
+  </ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_requires'>requires</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_requires'>requires</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_requires'>requires</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='ivar'>@requires</span> <span class='op'>=</span> <span class='id identifier rubyid_requires'>requires</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@requires</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup-class_method">
+  
+    + (<tt>void</tt>) <strong>setup</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Requires the filter’s required library if necessary.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 98</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup'>setup</span>
+  <span class='ivar'>@setup</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_requires'>requires</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_require'>require</span> <span class='id identifier rubyid_r'>r</span> <span class='rbrace'>}</span>
+    <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="to_binary?-class_method">
   
     + (<tt>Boolean</tt>) <strong>to_binary?</strong> 
@@ -728,15 +968,15 @@ and the only value is the “to” type.</p>
         <p class="example_title"><div class='inline'><p>Specifying a text-to-text filter</p>
 </div></p>
       
-      <pre class="example code">
-<span class='id identifier rubyid_type'>type</span> <span class='symbol'>:text</span></pre>
+      <pre class="example code"><code>
+<span class='id identifier rubyid_type'>type</span> <span class='symbol'>:text</span></code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Specifying a text-to-binary filter</p>
 </div></p>
       
-      <pre class="example code">
-<span class='id identifier rubyid_type'>type</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='symbol'>:binary</span></pre>
+      <pre class="example code"><code>
+<span class='id identifier rubyid_type'>type</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='symbol'>:binary</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -841,22 +1081,22 @@ to be compiled first before this items is processed.</p>
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161</pre>
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 183</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_depend_on'>depend_on</span><span class='lparen'>(</span><span class='id identifier rubyid_items'>items</span><span class='rparen'>)</span>
   <span class='comment'># Notify
@@ -919,18 +1159,18 @@ to be compiled first before this items is processed.</p>
       <pre class="lines">
 
 
-132
-133
-134
-135
-136
-137
-138
-139
-140</pre>
+166
+167
+168
+169
+170
+171
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filename'>filename</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='rbracket'>]</span>
@@ -993,19 +1233,19 @@ to be compiled first before this items is processed.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126</pre>
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_output_filename'>output_filename</span>
   <span class='ivar'>@output_filename</span> <span class='op'>||=</span> <span class='kw'>begin</span>
@@ -1123,15 +1363,65 @@ value will be the filtered content.</p>
       <pre class="lines">
 
 
-105
-106
-107</pre>
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 139</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content_or_filename'>content_or_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nanoc::Filter subclasses must implement #run</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_and_run-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup_and_run</strong>(*args) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets up the filter and runs the filter. This method passes its arguments
+to <span class='object_link'><a href="#run-instance_method" title="Nanoc::Filter#run (method)">#run</a></span> unchanged and returns the return value from <span class='object_link'><a href="#run-instance_method" title="Nanoc::Filter#run (method)">#run</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>Nanoc::Filter.{{#run}</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1145,7 +1435,7 @@ value will be the filtered content.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

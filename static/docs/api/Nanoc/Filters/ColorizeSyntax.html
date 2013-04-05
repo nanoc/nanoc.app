@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::ColorizeSyntax
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -187,6 +187,29 @@ language is not overridden.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#coderay_postprocess-instance_method" title="#coderay_postprocess (instance method)">- (Object) <strong>coderay_postprocess</strong>(language, element) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Wraps the element in &lt;div class="CodeRay"&gt;&lt;div class="code"&gt;.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#dummy-instance_method" title="#dummy (instance method)">- (String) <strong>dummy</strong>(code, language, params = {}) </a>
     
 
@@ -314,7 +337,7 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../Filter.html" title="Nanoc::Filter (class)">Nanoc::Filter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../Filter.html#depend_on-instance_method" title="Nanoc::Filter#depend_on (method)">#depend_on</a></span>, <span class='object_link'><a href="../Filter.html#filename-instance_method" title="Nanoc::Filter#filename (method)">#filename</a></span>, <span class='object_link'><a href="../Filter.html#from_binary%3F-class_method" title="Nanoc::Filter.from_binary? (method)">from_binary?</a></span>, <span class='object_link'><a href="../Filter.html#initialize-instance_method" title="Nanoc::Filter#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../Filter.html#output_filename-instance_method" title="Nanoc::Filter#output_filename (method)">#output_filename</a></span>, <span class='object_link'><a href="../Filter.html#to_binary%3F-class_method" title="Nanoc::Filter.to_binary? (method)">to_binary?</a></span>, <span class='object_link'><a href="../Filter.html#type-class_method" title="Nanoc::Filter.type (method)">type</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../Filter.html#depend_on-instance_method" title="Nanoc::Filter#depend_on (method)">#depend_on</a></span>, <span class='object_link'><a href="../Filter.html#filename-instance_method" title="Nanoc::Filter#filename (method)">#filename</a></span>, <span class='object_link'><a href="../Filter.html#from_binary%3F-class_method" title="Nanoc::Filter.from_binary? (method)">from_binary?</a></span>, <span class='object_link'><a href="../Filter.html#initialize-instance_method" title="Nanoc::Filter#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../Filter.html#output_filename-instance_method" title="Nanoc::Filter#output_filename (method)">#output_filename</a></span>, <span class='object_link'><a href="../Filter.html#requires-class_method" title="Nanoc::Filter.requires (method)">requires</a></span>, <span class='object_link'><a href="../Filter.html#setup-class_method" title="Nanoc::Filter.setup (method)">setup</a></span>, <span class='object_link'><a href="../Filter.html#setup_and_run-instance_method" title="Nanoc::Filter#setup_and_run (method)">#setup_and_run</a></span>, <span class='object_link'><a href="../Filter.html#to_binary%3F-class_method" title="Nanoc::Filter.to_binary? (method)">to_binary?</a></span>, <span class='object_link'><a href="../Filter.html#type-class_method" title="Nanoc::Filter.type (method)">type</a></span></p>
 
   
   
@@ -446,19 +469,87 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
       <pre class="lines">
 
 
+157
+158
 159
 160
-161
-162
-163</pre>
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_coderay'>coderay</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>coderay</span><span class='tstring_end'>'</span></span>
 
   <span class='op'>::</span><span class='const'>CodeRay</span><span class='period'>.</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="coderay_postprocess-instance_method">
+  
+    - (<tt>Object</tt>) <strong>coderay_postprocess</strong>(language, element) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Wraps the element in &lt;div class="CodeRay"&gt;&lt;div class="code"&gt;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 277</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_coderay_postprocess'>coderay_postprocess</span><span class='lparen'>(</span><span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
+  <span class='comment'># Skip if we're a free &lt;code&gt;
+</span>  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  
+  <span class='comment'># &lt;div class=&quot;code&quot;&gt;
+</span>  <span class='id identifier rubyid_div_inner'>div_inner</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span><span class='op'>::</span><span class='const'>Node</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>div</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_div_inner'>div_inner</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>class</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>code</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_div_inner'>div_inner</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+
+  <span class='comment'># &lt;div class=&quot;CodeRay&quot;&gt;
+</span>  <span class='id identifier rubyid_div_outer'>div_outer</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span><span class='op'>::</span><span class='const'>Node</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>div</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_document'>document</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_div_outer'>div_outer</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>class</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CodeRay</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_div_outer'>div_outer</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span> <span class='op'>=</span> <span class='id identifier rubyid_div_inner'>div_inner</span>
+
+  <span class='comment'># orig element
+</span>  <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_swap'>swap</span> <span class='id identifier rubyid_div_outer'>div_outer</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -542,12 +633,12 @@ in this case</p>
       <pre class="lines">
 
 
-173
-174
-175</pre>
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dummy'>dummy</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_code'>code</span>
@@ -680,6 +771,8 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
       <pre class="lines">
 
 
+187
+188
 189
 190
 191
@@ -696,12 +789,10 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
 202
 203
 204
-205
-206
-207</pre>
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pygmentize'>pygmentize</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>systemu</span><span class='tstring_end'>'</span></span>
@@ -808,6 +899,8 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
       <pre class="lines">
 
 
+217
+218
 219
 220
 221
@@ -816,12 +909,10 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
 224
 225
 226
-227
-228
-229</pre>
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 219</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pygmentsrb'>pygmentsrb</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pygments</span><span class='tstring_end'>'</span></span>
@@ -897,33 +988,33 @@ a Ruby interface for <a href="http://pygments.org/">Pygments</a></li>
         <p class="example_title"><div class='inline'><p>Using a class to indicate type of code be highlighted</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;
 def foo
   &quot;asdf&quot;
 end
-&lt;/code&gt;&lt;/pre&gt;</pre>
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Using a comment to indicate type of code be highlighted</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;pre&gt;&lt;code&gt;
 #!ruby
 def foo
   &quot;asdf&quot;
 end
-&lt;/code&gt;&lt;/pre&gt;</pre>
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Invoking the filter with custom parameters</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 <span class='id identifier rubyid_filter'>filter</span> <span class='symbol'>:colorize_syntax</span><span class='comma'>,</span>
        <span class='symbol'>:colorizers</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:ruby</span> <span class='op'>=&gt;</span> <span class='symbol'>:coderay</span> <span class='rbrace'>}</span><span class='comma'>,</span>
-       <span class='symbol'>:coderay</span>    <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:line_numbers</span> <span class='op'>=&gt;</span> <span class='symbol'>:list</span> <span class='rbrace'>}</span></pre>
+       <span class='symbol'>:coderay</span>    <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:line_numbers</span> <span class='op'>=&gt;</span> <span class='symbol'>:list</span> <span class='rbrace'>}</span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1082,6 +1173,8 @@ such as the doctype, <code>html</code>, <code>head</code> and <code>body</code> 
       <pre class="lines">
 
 
+85
+86
 87
 88
 89
@@ -1139,12 +1232,10 @@ such as the doctype, <code>html</code>, <code>head</code> and <code>body</code> 
 141
 142
 143
-144
-145
-146</pre>
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Take colorizers from parameters
@@ -1348,6 +1439,8 @@ such as the doctype, <code>html</code>, <code>head</code> and <code>body</code> 
       <pre class="lines">
 
 
+248
+249
 250
 251
 252
@@ -1372,12 +1465,10 @@ such as the doctype, <code>html</code>, <code>head</code> and <code>body</code> 
 271
 272
 273
-274
-275
-276</pre>
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/colorize_syntax.rb', line 248</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_simon_highlight'>simon_highlight</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>systemu</span><span class='tstring_end'>'</span></span>
@@ -1418,7 +1509,7 @@ such as the doctype, <code>html</code>, <code>head</code> and <code>body</code> 
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

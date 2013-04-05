@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::DataSource
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -432,6 +432,29 @@ elsewhere.</p>
 
   
     <span class="summary_desc"><div class='inline'><p>Creates the bare minimum essentials for this data source to work.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sync-instance_method" title="#sync (instance method)">- (void) <strong>sync</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sync the content for this data source with an external source.</p>
 </div></span>
   
 </li>
@@ -949,12 +972,12 @@ files that should be generated.</p>
       <pre class="lines">
 
 
-198
-199
-200</pre>
+210
+211
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_item'>create_item</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>create_item</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1054,12 +1077,12 @@ files that should be generated.</p>
       <pre class="lines">
 
 
-221
-222
-223</pre>
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 233</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_layout'>create_layout</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>create_layout</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1161,12 +1184,12 @@ default implementation simply does nothing.</p>
       <pre class="lines">
 
 
-161
-162
-163</pre>
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_items'>items</span>
   <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1225,12 +1248,12 @@ default implementation simply does nothing.</p>
       <pre class="lines">
 
 
-175
-176
-177</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layouts'>layouts</span>
   <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1334,6 +1357,50 @@ tables for the data source to function properly.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup'>setup</span>
   <span class='id identifier rubyid_not_implemented'>not_implemented</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>setup</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sync-instance_method">
+  
+    - (<tt>void</tt>) <strong>sync</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Sync the content for this data source with an external source.
+This method is called by the <code>nanoc sync</code> command so that data sources may
+update local caches of external data, such as items fetched from
+third-party APIs.</p>
+
+<p>Subclasses may override this method, but are not required to do so; the
+default implementation simply does nothing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 160</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sync'>sync</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1525,7 +1592,7 @@ source will be loaded (<span class='object_link'><a href="#up-instance_method" t
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);

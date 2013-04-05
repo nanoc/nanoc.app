@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Capturing
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.5.2
   
 </title>
 
@@ -115,30 +115,30 @@ correctly.</p>
         <p class="example_title"><div class='inline'><p>Capturing content for a summary</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;% content_for :summary do %&gt;
   &lt;p&gt;On this item, nanoc is introduced, blah blah.&lt;/p&gt;
-&lt;% end %&gt;</pre>
+&lt;% end %&gt;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Showing captured content in a sidebar</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;div id=&quot;sidebar&quot;&gt;
   &lt;h3&gt;Summary&lt;/h3&gt;
   &lt;%= content_for(@item, :summary) || '(no summary)' %&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Showing captured content in a sidebar the old, deprecated way (do not use or I will become very angry)</p>
 </div></p>
       
-      <pre class="example code">
+      <pre class="example code"><code>
 &lt;div id=&quot;sidebar&quot;&gt;
   &lt;h3&gt;Summary&lt;/h3&gt;
   &lt;%= @item[:content_for_summary] || '(no summary)' %&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;</code></pre>
     
   </div>
 
@@ -571,7 +571,7 @@ returns it.</p>
     
 <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.pvar pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
     _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
     _gaq.push(['_setAccount', 'UA-15639968-1']);
     _gaq.push(['_setDomainName', 'nanoc.ws']);
