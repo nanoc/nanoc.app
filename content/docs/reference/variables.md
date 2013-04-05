@@ -42,7 +42,7 @@ The `@items` array supports finding items by identifier by passing the identifie
 This is functionally identical to the following:
 
 	#!ruby
-	@items.find { |i| i.identifier == '/blah/' }.
+	@items.find { |i| i.identifier == '/blah/' }
 
 The former is not only a lot shorter, but also significantly faster.
 
