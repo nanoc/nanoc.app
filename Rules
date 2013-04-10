@@ -144,6 +144,9 @@ compile '*' do
   end
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
+  if item.identifier == '/release-notes/'
+    filter :link_github_issues
+  end
 
   case item[:type]
   when 'nep'
