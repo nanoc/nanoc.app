@@ -4,6 +4,21 @@ markdown: basic
 has_toc:  true
 ---
 
+## 3.6.3 (2013-04-24)
+
+Fixes:
+
+* Added support for growlnotify on Windows (#253, #267)
+* Fixed bug which caused the external links checker to ignore the query string (#279, #297)
+* Removed weird treatment of `DOCTYPE`s in the `relativize_paths` filter (#296)
+* Fixed CodeRay syntax coloring on Ruby 2.0
+* Silenced "Could not find files for the given pattern(s)" message on Windows (#298)
+* Fixed issue which could cause `output.diff` not to be generated correctly (#255, #301)
+* Let filesystem and static data sources follow symlinks (#299, #302)
+* Added compatibility with Listen 1.0 (#309)
+* Let `#passthrough` in Rules work well with the static data source (#251) [Gregory Pakosz]
+* Made timing information be more accurate (#303)
+
 ## 3.6.2 (2013-03-23)
 
 Fixes:
