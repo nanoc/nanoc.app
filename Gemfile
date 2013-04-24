@@ -6,6 +6,7 @@ gem 'coderay'   # for syntax highlighting
 gem 'compass'   # for advanced CSS
 gem 'haml'      # for layouts with clean sources
 gem 'kramdown'  # for advanced markdown
+gem 'listen'    # for watching for changes
 gem 'nanoc'     # for compiling the site
 gem 'nokogiri'  # for parsing HTML
 gem 'rainpress' # for compact CSS
