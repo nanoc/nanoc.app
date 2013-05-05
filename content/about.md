@@ -70,100 +70,16 @@ Both the nanoc site and my personal web site, which are both built with nanoc, a
 Similar Projects
 ----------------
 
-<%
+There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these do:
 
-similar_projects = [
-  { :name => 'awestruct',    :lang => 'Ruby', :url => 'http://awestruct.org/' },
-  { :name => 'Ace',          :lang => 'Ruby', :url => 'http://github.com/botanicus/ace' },
-  { :name => 'Bonsai',       :lang => 'Ruby', :url => 'http://tinytree.info/' },
-  { :name => 'Deplot',       :lang => 'Ruby', :url => 'http://github.com/cdn64/deplot' },
-  { :name => 'Fairytale',    :lang => 'Ruby', :url => 'http://github.com/46Bit/fairytale' },
-  { :name => 'Frank',        :lang => 'Ruby', :url => 'http://github.com/blahed/frank' },
-  { :name => 'Hobix',        :lang => 'Ruby', :url => 'http://github.com/hobix/hobix/' },
-  { :name => 'Jekyll',       :lang => 'Ruby', :url => 'http://github.com/mojombo/jekyll' },
-  { :name => 'Korma',        :lang => 'Ruby', :url => 'http://github.com/sandal/korma' },
-  { :name => 'Machined',     :lang => 'Ruby', :url => 'http://github.com/petebrowne/machined' },
-  { :name => 'Magneto',      :lang => 'Ruby', :url => 'http://github.com/donmelton/magneto' },
-  { :name => 'Middleman',    :lang => 'Ruby', :url => 'http://github.com/middleman/middleman' },
-  { :name => 'Pith',         :lang => 'Ruby', :url => 'http://github.com/mdub/pith' },
-  { :name => 'RakeWeb',      :lang => 'Ruby', :url => 'http://rubyforge.org/projects/rakeweb/' },
-  { :name => 'Rassmalog',    :lang => 'Ruby', :url => 'http://rassmalog.rubyforge.org/' },
-  { :name => 'Rog',          :lang => 'Ruby', :url => 'http://rog.rubyforge.org/' },
-  { :name => 'Rote',         :lang => 'Ruby', :url => 'http://rote.rubyforge.org/' },
-  { :name => 'RubyFrontier', :lang => 'Ruby', :url => 'http://www.apeth.com/RubyFrontierDocs/default.html' },
-  { :name => 'Stasis',       :lang => 'Ruby', :url => 'http://stasis.me/' },
-  { :name => 'StaticMatic',  :lang => 'Ruby', :url => 'http://rubyforge.org/projects/staticmatic/' },
-  { :name => 'StaticMatic2', :lang => 'Ruby', :url => 'https://github.com/mindeavor/staticmatic2' },
-  { :name => 'StaticWeb',    :lang => 'Ruby', :url => 'http://staticweb.rubyforge.org/' },
-  { :name => 'Webby',        :lang => 'Ruby', :url => 'http://webby.rubyforge.org/' },
-  { :name => 'webgen',       :lang => 'Ruby', :url => 'http://webgen.rubyforge.org/' },
-  { :name => 'Yurt CMS',     :lang => 'Ruby', :url => 'http://yurtcms.roberthahn.ca/' },
-  { :name => 'ZenWeb',       :lang => 'Ruby', :url => 'http://www.zenspider.com/ZSS/Products/ZenWeb/' },
-
-  { :name => 'acrylamid',               :lang => 'Python',            :url => 'https://github.com/posativ/acrylamid' },
-  { :name => 'bazinga',                 :lang => 'Perl',              :url => 'https://github.com/ap0calypse/bazinga' },
-  { :name => 'Blacksmith',              :lang => 'Node.js',           :url => 'https://github.com/flatiron/blacksmith/' },
-  { :name => 'Blatter',                 :lang => 'Python',            :url => 'https://bitbucket.org/jek/blatter/' },
-  { :name => 'Blogofile',               :lang => 'Python',            :url => 'http://www.blogofile.com/' },
-  { :name => 'Cactus',                  :lang => 'Python',            :url => 'http://github.com/koenbok/Cactus' },
-  { :name => 'Chisel',                  :lang => 'Python',            :url => 'http://github.com/dz/chisel' },
-  { :name => 'coleslaw',                :lang => 'Common Lisp',       :url => 'http://www.cliki.net/coleslaw' },
-  { :name => 'Composer',                :lang => 'Python',            :url => 'http://github.com/shazow/composer' },
-  { :name => 'cyrax',                   :lang => 'Python',            :url => 'http://pypi.python.org/pypi/cyrax' },
-  { :name => 'FMPP',                    :lang => 'Java',              :url => 'http://fmpp.sourceforge.net/' },
-  { :name => 'fugitive',                :lang => 'Shell',             :url => 'https://gitorious.org/fugitive' },
-  { :name => 'Graze',                   :lang => 'C#',                :url => 'http://github.com/mikoskinen/graze' },
-  { :name => 'Growl',                   :lang => 'Pyton',             :url => 'http://github.com/xfire/growl' },
-  { :name => 'gostatic',                :lang => 'Go',                :url => 'http://github.com/piranha/gostatic' },
-  { :name => 'Hakyll',                  :lang => 'Haskell',           :url => 'http://jaspervdj.be/hakyll/' },
-  { :name => 'Hammer',                  :lang => 'language-agnostic', :url => 'http://hammerformac.com/' },
-  { :name => 'Hastie',                  :lang => 'Go',                :url => 'http://github.com/mkaz/hastie' },
-  { :name => 'Hyde',                    :lang => 'Python',            :url => 'http://github.com/lakshmivyas/hyde' },
-  { :name => 'jinjet',                  :lang => 'Python',            :url => 'http://github.com/jokull/jinjet' },
-  { :name => 'jkl',                     :lang => 'Go',                :url => 'http://github.com/drone/jkl' },
-  { :name => 'Kerouac',                 :lang => 'Node.js',           :url => 'https://github.com/jaredhanson/kerouac' },
-  { :name => 'Lanyon',                  :lang => 'Python',            :url => 'http://lanyon.readthedocs.org/' },
-  { :name => 'Markbox',                 :lang => 'Python',            :url => 'https://github.com/myfreeweb/markbox' },
-  { :name => 'Markdoc',                 :lang => 'Python',            :url => 'http://markdoc.org/' },
-  { :name => 'mynt',                    :lang => 'Python',            :url => 'http://mynt.mirroredwhite.com/' },
-  { :name => 'Nikola',                  :lang => 'Python',            :url => 'http://nikola.ralsina.com.ar/' },
-  { :name => 'Pagegen',                 :lang => 'Bash',              :url => 'http://pagegen.phnd.net/' },
-  { :name => 'Pelican',                 :lang => 'Python',            :url => 'http://github.com/ametaireau/pelican/' },
-  { :name => 'Petrify',                 :lang => 'Node.js',           :url => 'http://github.com/caolan/petrify' },
-  { :name => 'Phrozn',                  :lang => 'PHP',               :url => 'http://phrozn.info' },
-  { :name => 'PieCrust',                :lang => 'PHP',               :url => 'http://bolt80.com/piecrust/' },
-  { :name => 'Pilcrow',                 :lang => 'Python',            :url => 'http://inky.github.com/pilcrow/' },
-  { :name => 'poole',                   :lang => 'Python',            :url => 'https://bitbucket.org/obensonne/poole' },
-  { :name => 'Punch',                   :lang => 'Node.js',           :url => 'http://github.com/laktek/punch' },
-  { :name => 'Pyll',                    :lang => 'Python',            :url => 'http://github.com/arthurk/pyll' },
-  { :name => 'Quill',                   :lang => 'Node.js',           :url => 'https://npmjs.org/package/quill' },
-  { :name => 'Rizzo',                   :lang => 'Groovy',            :url => 'http://github.com/fifthposition/rizzo/' },
-  { :name => 'romulus',                 :lang => 'Node.js',           :url => 'https://github.com/felixge/node-romulus' },
-  { :name => 'Ruhoh',                   :lang => 'language-agnostic', :url => 'http://ruhoh.com/' },
-  { :name => 'Sculpin',                 :lang => 'PHP',               :url => 'http://sculpin.io/' },
-  { :name => 'Second Crack',            :lang => 'PHP',               :url => 'http://www.marco.org/secondcrack' },
-  { :name => 'Socrates',                :lang => 'Python',            :url => 'http://honza.ca/socrates/' },
-  { :name => 'Speechhub',               :lang => 'Python',            :url => 'http://github.com/alvesjnr/speechhub' },
-  { :name => 'staticjinja',             :lang => 'Python',            :url => 'https://github.com/Ceasar/staticjinja' },
-  { :name => 'Tahchee',                 :lang => 'Python',            :url => 'https://github.com/sebastien/tahchee' },
-  { :name => 'Ultra simple Site Maker', :lang => 'Ocaml',             :url => 'http://www.loup-vaillant.fr/projects/ussm/' },
-  { :name => 'Website Meta Language',   :lang => 'C and Perl',        :url => 'http://www.thewml.org/' },
-  { :name => 'Wintersmith',             :lang => 'Node.js',           :url => 'http://jnordberg.github.com/wintersmith/' },
-  { :name => 'wok',                     :lang => 'Python',            :url => 'https://github.com/mythmon/wok' },
-  { :name => 'yassg',                   :lang => 'Node.js',           :url => 'https://npmjs.org/package/yassg' },
-  { :name => 'yst',                     :lang => 'Haskell',           :url => 'http://github.com/jgm/yst' },
-]
-
-def join_with_and(arr)
-  if arr.size > 1
-    arr[0..-2].join(', ') + ' and ' + arr[-1]
-  else
-    arr.join
-  end
-end
-
-%>
-
-There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these Ruby ones do: <%= join_with_and(similar_projects.select { |p| p[:lang] == 'Ruby' }.sort_by { |p| p[:name].downcase }.map { |p| %[<a href="#{p[:url]}">#{p[:name]}</a>] }) %>.
-
-There are some non-Ruby ones around too: <%= join_with_and(similar_projects.select { |p| p[:lang] != 'Ruby' }.sort_by { |p| p[:name].downcase }.map { |p| %[<a href="#{p[:url]}">#{p[:name]}</a> (#{p[:lang]})] }) %>.
+<ul>
+<% @items.select { |i| i.identifier =~ %r{^/about/ssgs/} }.sort_by { |i| i[:name].downcase }.each do |i| %>
+<% url = i[:website] || (i[:github] ? 'http://github.com/' + i[:github] : nil ) %>
+<li>
+    <% if url %><a href="<%=h url %>"><% end %>
+    <%= i[:name] %>
+    <% if url %></a><% end %>
+    (<%= i[:language] %>)
+</li>
+<% end %>
+</ul>

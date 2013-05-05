@@ -17,6 +17,9 @@ data_sources:
   -
     type:         static
     items_root:   /static/
+  -
+    type:         ssg_comparison
+    items_root:   /about/ssgs/
 
 base_url: http://nanoc.ws
 

@@ -71,6 +71,9 @@ route '/assets/style/_*/' do
   nil
 end
 
+route '/about/ssgs/*/' do
+end
+
 route '/assets/style/*/' do
   # path with version
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
@@ -98,6 +101,9 @@ end
 
 compile '/assets/style/_*/' do
   # Don’t compile partials
+end
+
+compile '/about/ssgs/*/' do
 end
 
 compile '/assets/style/*/' do
