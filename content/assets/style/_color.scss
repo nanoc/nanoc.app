@@ -12,6 +12,7 @@ $nav-spacing-color:     $top-bg-color;
 $explanation-bg-color:  shade($emph-color, 10%);
 $ticker-bg-color:       shade($bg-color, 70%);
 $chooser-unit-bg-color: $emph-color;
+$tr-odd-color:          shade($bg-color, 5%);
 
 // foreground
 $tagline-color:         tint($top-bg-color, 40%);
@@ -139,6 +140,10 @@ body.page {
 
     .open-source-site {
         border-color: #fff;
+    }
+
+    tr.odd td {
+        background: $tr-odd-color;
     }
 }
 

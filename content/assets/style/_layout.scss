@@ -84,9 +84,14 @@ pre[title]:after {
 
 // SPECIAL STYLING
 
+table.comparison {
+    td {
+        padding: 5px 20px 5px 5px;
+    }
+}
+
 table.dl {
     td {
-        padding: 5px 10px 5px 0;
         vertical-align: top;
     }
 
