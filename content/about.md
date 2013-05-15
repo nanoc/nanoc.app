@@ -76,10 +76,7 @@ There are several static website generators floating around. Some of them are li
 <% @items.select { |i| i.identifier =~ %r{^/about/ssgs/} }.sort_by { |i| i[:name].downcase }.each do |i| %>
 <% url = i[:website] || (i[:github] ? 'http://github.com/' + i[:github] : nil ) %>
 <li>
-    <% if url %><a href="<%=h url %>"><% end %>
-    <%= i[:name] %>
-    <% if url %></a><% end %>
-    (<%= i[:language] %>)
+    <% if url %><a href="<%=h url %>"><% end %><%= i[:name] %><% if url %></a><% end %>&nbsp;(<%= i[:language] %>)
 </li>
 <% end %>
 </ul>
