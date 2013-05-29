@@ -4,6 +4,16 @@ markdown: basic
 has_toc:  true
 ---
 
+## 3.6.4 (2013-05-29)
+
+Enhancements:
+
+* Deprecated `watch` and `autocompile` commands in favour of [`guard-nanoc`](https://github.com/nanoc/guard-nanoc)
+
+Fixes:
+
+* Fixed bug which could cause the `tmp/` dir to blow up in size
+* Unescaped URLs when checking internal links
 ## 3.6.3 (2013-04-24)
 
 Fixes:
