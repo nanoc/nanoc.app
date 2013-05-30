@@ -82,3 +82,5 @@ There are several static website generators floating around. Some of them are li
     <tr>
 <% end %>
 </table>
+
+You can add missing ones by [editing this file](https://github.com/jaspervdj/static-site-generator-comparison/blob/master/list.yaml).
