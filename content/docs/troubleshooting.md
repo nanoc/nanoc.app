@@ -54,7 +54,7 @@ You can define an _items root_ here; a prefix that all items from this data sour
 The next step involves setting up a compilation rule, which is quite easy. We match everything below `/assets/` (which is our items root) and let it do no processing at all:
 
 	#!ruby
-	compile '/asssets/*' do
+	compile '/assets/*' do
 	end
 
 The routing rule is a bit more complex. In here, we take the item identifier, strip off the items root and the trailing slash:
