@@ -1,5 +1,8 @@
 # encoding: utf-8
 
+require 'nanoc/cli'
+Nanoc::CLI.setup
+
 class CLIDataSource < Nanoc::DataSource
 
   identifier :cli
