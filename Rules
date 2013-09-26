@@ -49,7 +49,7 @@ route '/static/*' do
 end
 
 route '/404/' do
-  '/error-404.php'
+  '/404.html'
 end
 
 route '/assets/style/_*/' do

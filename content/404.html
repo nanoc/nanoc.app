@@ -1,7 +1,6 @@
 ---
 is_hidden:  true
 title:      "Page Not Found"
-php_header: "<?php header(\"HTTP/1.1 404 Not Found\") ?>"
 ---
 
 <h2>This isn’t the page you’re looking for</h2>
@@ -11,43 +10,3 @@ php_header: "<?php header(\"HTTP/1.1 404 Not Found\") ?>"
 <p>If you arrived on this page by entering an address (URL) manually, double-check it to make sure that you did not accidentally mistyped the address.</p>
 
 <p>If you arrived on this page by following a link on the web site, then that link is broken. If you want, let me know on the <a href="http://groups.google.com/group/nanoc/">discussion group</a> so that I can fix it as soon as possible. Thanks a lot in advance!</p>
-
-<?php
-
-########## CONFIGURATION #####################################################
-
-// E-mail settings
-$src_email_address = 'webmaster@nanoc.stoneship.org';
-$dst_email_address = 'denis.defreyne@stoneship.org';
-
-// The name of the site
-$site_name = 'nanoc';
-
-// Should a mail be sent if there is no referrer?
-$send_mail_if_no_referrer = false;
-
-########## DO NOT CHANGE BELOW THIS LINE #####################################
-
-// Get path and URL of this page
-$this_path = $_SERVER['REQUEST_URI'];
-$this_url  = 'http://' . $_SERVER['SERVER_NAME'] . $this_path;
-
-// Check whether page has referrer
-$has_referrer = isset($_SERVER['HTTP_REFERER']);
-
-// Send mail if necessary
-$should_send_mail = true;
-if(!$has_referrer && !$send_mail_if_no_referrer)
-	$should_send_mail = false;
-if($should_send_mail)
-{
-	$subject = '404 @ ' . $site_name . ': ' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-	$message = 'The following URL caused a 404 error on ' . $site_name . ':' . "\n\n" .
-		'URL:      ' . 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . "\n" .
-		'Referrer: ' . $_SERVER['HTTP_REFERER'];
-	$headers = 'From: ' . $src_email_address;
-
-	mail($dst_email_address, $subject, $message, $headers);
-}
-
-?>
