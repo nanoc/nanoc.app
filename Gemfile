@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
