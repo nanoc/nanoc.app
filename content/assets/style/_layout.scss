@@ -365,11 +365,7 @@ body.page .content {
                     padding-bottom: 20px;
                 }
 
-                ol#first {
-                    counter-reset: chapter;
-                }
-
-                h4 + ol {
+                h4 + ul {
                     margin-top: 0;
                 }
 
@@ -377,17 +373,12 @@ body.page .content {
                     margin-top: 20px;
                 }
 
-                ol {
+                ul {
                     margin-left: 0;
                 }
 
-                ol li {
+                ul li {
                     list-style-type: none;
-                    counter-increment: chapter;
-                }
-
-                ol li:before {
-                    content:counter(chapter) ". ";
                 }
             }
 

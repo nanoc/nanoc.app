@@ -10,12 +10,12 @@ is_dynamic:  true
 <% content_for :details do %>
 	<h3>Documentation Index</h3>
 	<h4>Introduction</h4>
-	<ol id="first">
+	<ul>
 		<li><%= link_to_id '/docs/tutorial/' %></li>
 		<li><%= link_to_id '/docs/basics/' %></li>
-	</ol>
+	</ul>
 	<h4>Guides</h4>
-	<ol>
+	<ul>
 		<li><%= link_to_id '/docs/extending-nanoc/' %></li>
 		<li><%= link_to_id '/docs/guides/deploying-nanoc-sites/' %></li>
 		<li><%= link_to_id '/docs/guides/unit-testing-nanoc-sites/' %></li>
@@ -23,9 +23,9 @@ is_dynamic:  true
 		<li><%= link_to_id '/docs/guides/using-filters-based-on-file-extensions/' %></li>
 		<li><%= link_to_id '/docs/guides/using-binary-items-effectively/' %></li>
 		<li><%= link_to_id '/docs/guides/creating-multilingual-sites/' %></li>
-	</ol>
+	</ul>
 	<h4>Appendices</h4>
-	<ol>
+	<ul>
 		<li><%= link_to_id '/docs/glossary/' %></li>
 		<li><%= link_to_id '/docs/troubleshooting/' %></li>
 		<li><%= link_to_id '/docs/reference/filters/' %></li>
@@ -35,7 +35,7 @@ is_dynamic:  true
 		<li><%= link_to_id '/docs/reference/variables/' %></li>
 		<li><%= link_to_id '/docs/reference/rules/' %></li>
 		<li><a href="/docs/api/">API documentation</a></li>
-	</ol>
+	</ul>
 <% end %>
 
 Introduction
