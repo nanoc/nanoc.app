@@ -1,3 +1,0 @@
-[submodule "content-ssg-comparison"]
-	path = content-ssg-comparison
-	url = git@github.com:jaspervdj/static-site-generator-comparison.git

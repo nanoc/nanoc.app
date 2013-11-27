@@ -70,17 +70,4 @@ Both the nanoc site and my personal web site, which are both built with nanoc, a
 Similar Projects
 ----------------
 
-There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, perhaps some of these do:
-
-<table class="comparison">
-<% @items.select { |i| i.identifier =~ %r{^/about/ssgs/} }.sort_by { |i| i[:name].downcase }.each_with_index do |i, idx| %>
-<% url = i[:website] || (i[:github] ? 'http://github.com/' + i[:github] : nil ) %>
-    <tr class="<%= idx.even? ? 'even' : 'odd' %>">
-        <td><% if url %><a href="<%=h url %>"><% end %><%= i[:name] %><% if url %></a><% end %></td>
-        <td><%= i[:language] %></td>
-        <td><% if i[:github] %><a href="http://github.com/<%=h i[:github] %>"><%= i[:github] %></a><% end %></td>
-    <tr>
-<% end %>
-</table>
-
-You can add missing ones by [editing this file](https://github.com/jaspervdj/static-site-generator-comparison/blob/master/list.yaml).
+There are several static website generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, check out [this list of static site generators](http://staticsitegenerators.net/).
