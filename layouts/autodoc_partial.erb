@@ -1,4 +1,9 @@
-<h2><%= @item[:name] %> (<code>:<%= @item[:identifiers].first %></code>)</h2>
+<h2>
+    <%= @item[:name] %>
+    <% if @item[:identifiers] && !@item[:identifiers].empty? %>
+        (<code>:<%= @item[:identifiers].first %></code>)
+    <% end %>
+</h2>
 
 <% filter :rdiscount do %><%= @item[:description] || @item[:summary] %> See its <a href="/docs/api/<%= @item[:full_name].gsub('::', '/') %>.html">API documentation</a> for details.<% end %>
 
