@@ -286,6 +286,10 @@ body.page .content {
                 margin-bottom: 20px;
             }
 
+            ol ol {
+                margin-bottom: 0;
+            }
+
             .section {
                 margin-bottom: 40px;
             }
@@ -603,7 +607,7 @@ body.home .support {
             background-position: 100px 15px;
             background-repeat: no-repeat;
             background-image: url(/assets/images/heart.png);
-        } 
+        }
 
         h3 {
             font-size: 20px;
