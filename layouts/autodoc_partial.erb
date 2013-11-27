@@ -1,0 +1,30 @@
+<h2><%= @item[:name] %> (<code>:<%= @item[:identifiers].first %></code>)</h2>
+
+<% filter :rdiscount do %><%= @item[:description] || @item[:summary] %> See its <a href="/docs/api/<%= @item[:full_name].gsub('::', '/') %>.html">API documentation</a> for details.<% end %>
+
+<% if @item[:options] && !@item[:options].empty? %>
+    <h3>Options</h3>
+    <dl>
+        <% @item[:options].each do |name, description| %>
+            <dt><code><%= name %></code></dt>
+            <dd><% filter :rdiscount do %><%= description %><% end %></dd>
+        <% end %>
+    </dl>
+<% end %>
+
+<% if @item[:examples] && !@item[:examples].empty? %>
+    <h3>Examples</h3>
+    <% @item[:examples].each do |example| %>
+        <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
+    <% end %>
+<% end %>
+
+<% if @item[:functions] && !@item[:functions].empty? %>
+    <h3>Functions</h3>
+    <dl>
+        <% @item[:functions].each do |function| %>
+            <dt><code><%= function[:signature] %></code></dt>
+            <dd><% filter :rdiscount do %><%= function[:summary] %><% end %></dd>
+        <% end %>
+    </dl>
+<% end %>

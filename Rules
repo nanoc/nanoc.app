@@ -69,6 +69,10 @@ route '/blog/feed_private/' do
   rep.item.identifier + 'index.xml'
 end
 
+route '/docs/reference/filters/*/' do
+  nil
+end
+
 route '*' do
   if item.binary?
     item.identifier.chop + '.' + item[:extension]
@@ -124,6 +128,9 @@ compile '/' do
   layout '/default/'
   filter :relativize_paths, :type => :html
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
+end
+
+compile '/docs/reference/filters/*/' do
 end
 
 compile '*' do
