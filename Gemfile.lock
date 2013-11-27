@@ -75,7 +75,6 @@ DEPENDENCIES
   guard-nanoc
   haml
   kramdown
-  listen
   nanoc
   nokogiri
   rainpress
