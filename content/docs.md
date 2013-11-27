@@ -69,4 +69,4 @@ Appendices
 <%= detailed_toc_for('/docs/reference/variables/') %>
 <%= detailed_toc_for('/docs/reference/rules/') %>
 
-<h3><a href="/docs/api/">API documentation'</a></h3>
+<h3><a href="/docs/api/">API documentation</a></h3>
