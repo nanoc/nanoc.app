@@ -22,8 +22,10 @@ base_url: http://nanoc.ws
 
 deploy:
   public:
-    kind: s3
-    dst: "s3://nanoc.ws/"
+    kind: rsync
+    dst: "ectype:sites/nanoc/public"
+    options: [ '-aP', '--delete-after' ]
   staging:
-    kind: s3
-    dst: "s3://staging.nanoc.ws/"
+    kind: rsync
+    dst: "ectype:sites/nanoc-staging/public"
+    options: [ '-aP', '--delete-after' ]
