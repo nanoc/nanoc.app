@@ -1,9 +1,9 @@
 ---
 
-title:      "Documentation Table of Contents"
-markdown:   basic
-is_dynamic: true
-child_desc: "nanoc documentation"
+title:       "Documentation Table of Contents"
+short_title: "Documentation"
+markdown:    basic
+is_dynamic:  true
 
 ---
 
