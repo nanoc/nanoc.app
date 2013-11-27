@@ -83,7 +83,7 @@ A site has the following files and directories:
 
 nanoc will load all Ruby source files in the `lib` directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helpers, filters, data sources, etc.
 
-### (Auto)compiling a Site
+### Compiling a Site
 
 To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. The compile command is the default command, so it will be invoked if you don’t pass anything. The compile command will write the compiled site to the output directory as specified in the site configuration file. For example:
 
@@ -93,17 +93,7 @@ To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command
 
 nanoc will not compile items that are not outdated. If you want to force nanoc to recompile everything, delete the output directory and re-run the compile command.
 
-It is possible to let nanoc run a local web server, the _autocompiler_, that serves the nanoc site. Each request will cause the requested item to be compiled on the fly before being served. You can run the autocompiler like this:
-
-<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc autocompile</kbd>
-<span class="prompt">%</span> <kbd>nanoc aco</kbd></pre>
-
-The autocompiler will run on port 3000 by default; this can be changed using the `--port` commandline switch. Note that this autocompiler should *only* be used for development purposes to make writing sites easier; it is quite unsuitable for use on live servers.
-
-An alternative is the watcher, which will recompile whenever a change to the site is detected. The watcher does not run a web server (you can run one with `nanoc view`). You can use it like this:
-
-<pre title="Compiling a site"><span class="prompt">%</span> <kbd>nanoc watch &amp;</kbd>
-<span class="prompt">%</span> <kbd>nanoc view</kbd></pre>
+You can use [guard-nanoc](https://github.com/guard/guard-nanoc) to automatically recompile the site when it changes.
 
 Items
 -----

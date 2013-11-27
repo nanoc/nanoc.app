@@ -115,35 +115,3 @@ it will become “/about.html/” instead.
 
 	#!yaml
 	allow_periods_in_identifiers: false
-
-## `watcher`
-
-Configuration for the “watch” command, which watches a site for changes and
-recompiles if necessary.
-
-### `dirs_to_watch`
-
-A list of directories to watch for changes. When editing this, make sure
-that the “output/” and “tmp/” directories are _not_ included in this list,
-because recompiling the site will cause these directories to change, which
-will cause the site to be recompiled, which will cause these directories
-to change, which will cause the site to be recompiled again, and so on.
-
-	#!yaml
-	dirs_to_watch: [ 'content', 'layouts', 'lib' ]
-
-### `files_to_watch`
-
-A list of single files to watch for changes. As mentioned above, don’t put
-any files from the “output/” or “tmp/” directories in here.
-
-	#!yaml
-	files_to_watch: [ 'nanoc.yaml', 'Rules' ]
-
-### `notify_on_compilation_x`
-
-When to send notifications (using Growl or notify-send).
-
-	#!yaml
-	notify_on_compilation_success: true
-	notify_on_compilation_failure: true
