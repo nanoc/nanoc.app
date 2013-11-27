@@ -34,7 +34,8 @@ class HeaderFinder < ::Nokogiri::XML::SAX::Document
 
 end
 
-def detailed_toc_for(item_identifier)
+def detailed_toc_for(item_identifier, params={})
+  limit = params.fetch(:limit, 999)
   item = @items[item_identifier]
   content = item.compiled_content(snapshot: :pre)
 
@@ -47,6 +48,7 @@ def detailed_toc_for(item_identifier)
   start_depth = 1
   current_depth = start_depth
   headers.each do |header|
+    next if header[:depth] > limit
     (header[:depth] - current_depth).times { out << '<ol>' }
     (current_depth - header[:depth]).times { out << '</ol>' }
     current_depth = header[:depth]
