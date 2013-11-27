@@ -1,5 +1,5 @@
 ---
-title:      "Filters"
+title:      "List of filters"
 has_toc:    true
 is_dynamic: true
 ---

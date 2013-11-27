@@ -1,5 +1,5 @@
 ---
-title:      "Helpers"
+title:      "List of helpers"
 has_toc:    true
 is_dynamic: true
 ---

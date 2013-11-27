@@ -1,5 +1,5 @@
 ---
-title:      "Commands"
+title:      "List of commands"
 has_toc:    true
 is_dynamic: true
 ---

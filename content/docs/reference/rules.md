@@ -1,5 +1,5 @@
 ---
-title:      "Rules"
+title:      "Rules reference"
 markdown:   advanced
 is_dynamic: true
 has_toc:    true
