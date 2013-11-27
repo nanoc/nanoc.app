@@ -219,7 +219,7 @@ Layouts can also be used as *partials*: a specific layout can be rendered into a
 
 <pre title="Rendering the “head” layout as a partial"><code class="language-html">&lt;%= render 'head' %></code></pre>
 
-To use this helper, activate the [Rendering](/docs/reference/helpers/rendering/) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
+To use this helper, activate the [Rendering](/docs/reference/helpers/#rendering) helper (see the [helpers](#helpers) section for details), which is done by adding this line of code to some file in the `lib` directory (I recommend `lib/helpers.rb`):
 
 <pre title="Activating the Rendering helper"><code class="language-ruby">include Nanoc::Helpers::Rendering</code></pre>
 

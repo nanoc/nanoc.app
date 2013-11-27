@@ -1,11 +1,10 @@
-<h2>
+<h2 id="<%= @item[:name] %>">
     <% if @item[:type] == "command" %>
         <code><%= @item[:name] %></code>
+    <% elsif @item[:identifiers] && !@item[:identifiers].empty? %>
+        <code>:<%= @item[:identifiers].first %></code>
     <% else %>
         <%= @item[:name] %>
-    <% end %>
-    <% if @item[:identifiers] && !@item[:identifiers].empty? %>
-        (<code>:<%= @item[:identifiers].first %></code>)
     <% end %>
 </h2>
 

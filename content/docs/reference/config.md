@@ -44,7 +44,7 @@ before and after the last site compilation.
 
 ## `prune`
 
-The `prune` section contains options for the [prune](/docs/reference/commands/prune/) command, which deletes stray files from the output directory.
+The `prune` section contains options for the [prune](/docs/reference/commands/#prune) command, which deletes stray files from the output directory.
 
 ### `auto_prune`
 
