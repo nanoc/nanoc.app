@@ -361,16 +361,29 @@ body.page .content {
                     padding-bottom: 20px;
                 }
 
-                dt, ol, ul, p {
+                ol#first {
+                    counter-reset: chapter;
+                }
+
+                h4 + ol {
+                    margin-top: 0;
+                }
+
+                h4, dt, ol, ul, p {
                     margin-top: 20px;
                 }
 
                 ol {
-                    margin-left: 20px;
+                    margin-left: 0;
                 }
 
                 ol li {
-                    list-style-type: decimal;
+                    list-style-type: none;
+                    counter-increment: chapter;
+                }
+
+                ol li:before {
+                    content:counter(chapter) ". ";
                 }
             }
 
