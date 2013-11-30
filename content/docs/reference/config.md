@@ -1,5 +1,5 @@
 ---
-title:      "Configuration reference"
+title:      "Configuration"
 markdown:   basic
 is_dynamic: true
 has_toc:    true

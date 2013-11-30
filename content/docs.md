@@ -24,17 +24,20 @@ is_dynamic:  true
 		<li><%= link_to_id '/docs/guides/using-binary-items-effectively/' %></li>
 		<li><%= link_to_id '/docs/guides/creating-multilingual-sites/' %></li>
 	</ul>
-	<h4>Appendices</h4>
+	<h4>References</h4>
 	<ul>
-		<li><%= link_to_id '/docs/glossary/' %></li>
-		<li><%= link_to_id '/docs/troubleshooting/' %></li>
 		<li><%= link_to_id '/docs/reference/filters/' %></li>
 		<li><%= link_to_id '/docs/reference/helpers/' %></li>
 		<li><%= link_to_id '/docs/reference/commands/' %></li>
 		<li><%= link_to_id '/docs/reference/config/' %></li>
 		<li><%= link_to_id '/docs/reference/variables/' %></li>
 		<li><%= link_to_id '/docs/reference/rules/' %></li>
-		<li><a href="/docs/api/">API documentation</a></li>
+		<li><a href="/docs/api/">API</a></li>
+	</ul>
+	<h4>Appendices</h4>
+	<ul>
+		<li><%= link_to_id '/docs/glossary/' %></li>
+		<li><%= link_to_id '/docs/troubleshooting/' %></li>
 	</ul>
 <% end %>
 

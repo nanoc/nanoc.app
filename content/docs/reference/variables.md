@@ -1,5 +1,5 @@
 ---
-title:      "Variables reference"
+title:      "Variables"
 markdown:   advanced
 is_dynamic: true
 has_toc:    true
