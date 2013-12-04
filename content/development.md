@@ -81,6 +81,10 @@ Run options: --seed 2302
 # Running tests:
 [snip]</pre>
 
+To test your locally modified version of nanoc on a local nanoc site, you can either <kbd>cd</kbd> into the site and invoke nanoc by specifying the full path to `bin/nanoc`, or, if you use Bundler, edit the `Gemfile` and let the `nanoc` gem point to the locally modified version:
+
+<pre title="Specifying a custom path for Bundler"><code class="language-ruby">gem 'nanoc', :path => '/home/denis/projects/nanoc'</code></pre>
+
 Make sure that the source code documentation is up-to-date. nanoc uses [YARD](http://yardoc.org/) for its source code docs. The [YARD getting started guide](http://rubydoc.info/gems/yard/file/docs/GettingStarted.md) is a helpful resource when writing YARD documentation.
 
 Leave the `NEWS.md` and `lib/nanoc/version.rb` files untouched; they’ll be updated once a new release is about to be published.
