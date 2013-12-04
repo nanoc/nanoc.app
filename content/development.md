@@ -56,7 +56,7 @@ Create a branch off one of the two existing branches mentioned above. Pick a goo
 
 ### Set up bundler
 
-Run <kbd>bundle install</kbd> to install all dependencies necessary for development and testing:
+nanoc uses [Bundler](http://bundler.io/) to manage its development dependencies. Run <kbd>bundle install</kbd> to install all dependencies necessary for development and testing:
 
 <pre title="Installing bundler"><span class="prompt">nanoc%</span> <kbd>bundle install</kbd>
 Resolving dependencies...
