@@ -79,8 +79,7 @@ You can find the source code in `lib` and the tests in `test`. Make sure that yo
 Run options: --seed 2302
 
 # Running tests:
-
-................................................ [snip]</pre>
+[snip]</pre>
 
 Make sure that the source code documentation is up-to-date. nanoc uses [YARD](http://yardoc.org/) for its source code docs. The [YARD getting started guide](http://rubydoc.info/gems/yard/file/docs/GettingStarted.md) is a helpful resource when writing YARD documentation.
 
