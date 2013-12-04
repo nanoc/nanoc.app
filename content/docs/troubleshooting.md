@@ -153,7 +153,7 @@ For bonus points, you can do all three. Setting up your content, environment and
 
 If you work with datetime attributes (such as `created_at`, `published_at` and `updated_at`) and find that the time is one or more hours off, then this section applies to you.
 
-If you use timestamps in the `.yaml` file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the [YAML timestamp specification](http://yaml.org/type/timestamp.html)
+If you use timestamps in the `.yaml` file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the [YAML timestamp specification](http://yaml.org/type/timestamp.html):
 
 > If the time zone is omitted, the timestamp is assumed to be specified in UTC. The time part may be omitted altogether, resulting in a date format. In such a case, the time part is assumed to be 00:00:00Z (start of day, UTC).
 
