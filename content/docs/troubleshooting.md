@@ -148,3 +148,11 @@ To set the encoding explicity in the site configuration, open `nanoc.yaml` (or `
 	    encoding: utf-8
 
 For bonus points, you can do all three. Setting up your content, environment and configuration as UTF-8 is the best way to avoid encoding issues now and in the future.
+
+## Timestamps in YAML files parsed incorrectly
+
+If you use timestamps in the `.yaml` file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the [YAML timestamp specification](http://yaml.org/type/timestamp.html)
+
+> If the time zone is omitted, the timestamp is assumed to be specified in UTC. The time part may be omitted altogether, resulting in a date format. In such a case, the time part is assumed to be 00:00:00Z (start of day, UTC).
+
+We recommend always specifying the time zone.
