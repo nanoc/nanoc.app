@@ -40,9 +40,9 @@ If you want to contribute code, the first thing to do is get the latest source c
 
 Once you have the repository, you need to pick the right branch to start off:
 
-* The `master` branch contains new developments that are scheduled to be released in the next feature release (x.Y.0 release). If your contribution is a new **feature** or extends an existing feature, use this branch.
+* The `master` branch contains new developments that are scheduled to be released in the next feature release (x.Y.0 release). If your contribution is a new feature or extends an existing feature, use this branch.
 
-* The `release-*` branches, e.g. `release-3.6.x`, are branched off the master branch when the feature set is frozen. Bug fixes are applied on this branch and will be part of the next bugfix release (x.y.Z release). If your contribution is a **bug fix**, use this branch.
+* The `release-*` branches, e.g. `release-3.6.x`, are branched off the master branch when the feature set is frozen. Bug fixes are applied on this branch and will be part of the next bugfix release (x.y.Z release). If your contribution is a bug fix, use this branch.
 
 You can switch to the right branch using `git checkout`:
 
@@ -90,8 +90,8 @@ Leave the `NEWS.md` and `lib/nanoc/version.rb` files untouched; they’ll be upd
 
 When making a pull request, pay attention to which branch you want the changed to be pulled into:
 
-* If your pull request is a **bug fix**, submit it on the latest `release-3.*` branch. This ensures that the bug fix comes in the next patch release.
+* If your pull request is a bug fix, submit it on the latest `release-3.*` branch. This ensures that the bug fix comes in the next patch release.
 
-* If your pull request is a new **feature** or extends an existing feature, submit it on the `master` branch.
+* If your pull request is a new feature or extends an existing feature, submit it on the `master` branch.
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
