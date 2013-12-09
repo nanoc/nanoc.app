@@ -49,9 +49,13 @@ If you have Rubygems installed already, make sure you have a fairly recent versi
 Installing nanoc
 ----------------
 
-All dependencies are now taken care of, and installing nanoc should now be as easy as this (unless you're using [rvm](http://rvm.beginrescueend.com/) or [rbenv](https://github.com/sstephenson/rbenv/) and know how to manage Ruby gems you may have to prefix the <kbd>gem</kbd> command with <kbd>sudo</kbd> to ensure that you’re using root privileges - note that <kbd>sudo</kbd> installs gems for *all* users of that computer):
+All dependencies are now taken care of, and installing nanoc should now be easy:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
+
+Unless you use a Ruby manager such as [rvm](http://rvm.beginrescueend.com/), [rbenv](https://github.com/sstephenson/rbenv/) or [chruby](https://github.com/postmodern/chruby), this command may fail with a “permission denied” error. If this is the case, run the above command as root:
+
+<pre title="Installing nanoc as root"><span class="prompt">%</span> <kbd>sudo gem install nanoc</kbd></pre>
 
 To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>. It should print the version number along with some other information, like this:
 
