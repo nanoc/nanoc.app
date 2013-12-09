@@ -12,6 +12,10 @@ Install nanoc using Rubygems, like this:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
+If that command results in permission errors, you likely need to be root:
+
+<pre title="Installing nanoc as root"><span class="prompt">%</span> <kbd>sudo gem install nanoc</kbd></pre>
+
 For detailed instructions, read on!
 
 Installing Ruby
