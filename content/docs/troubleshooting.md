@@ -61,7 +61,7 @@ The routing rule is a bit more complex. In here, we take the item identifier, st
 
 	#!ruby
 	route '/assets/*' do
-	  # /static/foo.html/ → /foo.html
+	  # /assets/foo.html/ → /foo.html
 	  item.identifier[7..-2]
 	end
 
