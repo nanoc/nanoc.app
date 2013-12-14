@@ -83,7 +83,7 @@ The type is the identifier of the data source. By default, this will be
 `filesystem_unified`.
 
 	#!yaml
-	type: #{Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:type]}
+	type: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:type].inspect %>
 
 ### `items_root`
 
@@ -94,7 +94,7 @@ instead, an item at content/about.html would have an identifier of
 “/en/about/” instead of just “/about/”.
 
 	#!yaml
-	items_root: #{Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:items_root]}
+	items_root: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:items_root].inspect %>
 
 ### `layouts_root`
 
@@ -102,7 +102,7 @@ The path where layouts should be mounted. The layouts root behaves the
 same as the items root, but applies to layouts rather than items.
 
 	#!yaml
-	layouts_root: #{Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:layouts_root]}
+	layouts_root: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:layouts_root].inspect %>
 
 ### `allow_periods_in_identifiers`
 
