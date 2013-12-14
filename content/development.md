@@ -13,6 +13,7 @@ When reporting a bug, please make sure you include as many details as you can ab
 
 * The nanoc version (`nanoc --version`), including the Ruby version
 * The `crash.log` file, if the bug you’re reporting is a crash
+* Steps to reproduce the bug
 
 Submitting feature requests
 ---------------------------
