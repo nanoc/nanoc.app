@@ -394,6 +394,10 @@ body.home .hero {
         height: 300px;
         overflow: hidden;
 
+        @media (max-width: 719px) {
+            height: 160px;
+        }
+
         .slides {
             position: relative;
             top: -10px;
