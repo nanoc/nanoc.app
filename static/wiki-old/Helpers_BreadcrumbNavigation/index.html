@@ -6,14 +6,14 @@
     <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   </head>
   <body>
-	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/ddfreyne/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
+	<div class="warning"><strong>Important:</strong> This wiki is no longer in use. Use the <a href="https://github.com/nanoc/nanoc/wiki">nanoc wiki on GitHub</a> instead. Not everything from this wiki was migrated to the new wiki because quite a bit was no longer relevant. The contents of the old wiki are nonetheless preserved here in case you need it.</div>
     <pre><a href="../">← homepage</a>
 
 <h1>Breadcrumb Navigation</h1>
 
 <i>Breadcrumbs or breadcrumb trail is a navigation aid used in user interfaces. It gives users a way to keep track of their location within programs or documents. The term comes from the trail of breadcrumbs left by Hansel and Gretel in the popular fairytale.</i> (<a href="http://en.wikipedia.org/wiki/Breadcrumb_(navigation)">Wikipedia</a>)
 
-Helps you to add such 'You are here: Home >> About >> Me' link lists. 
+Helps you to add such 'You are here: Home >> About >> Me' link lists.
 
 This article describes usage for nanoc 3 which has a helper for breadcrumbs built-in. See [wiki:Helpers/BreadcrumbNavigationNanoc2] for usage with older versions.
 
@@ -27,8 +27,8 @@ Use the helper in your <code>layouts/default.html</code> for example:
 ...
 &lt;% unless @item.reps[0].path == "/" %>
 <span class="breadcrumbs">&lt;% breadcrumbs_trail.each do |b| %>
-	&lt;%= link_to(  b[:title] , b.reps[0].path ) if b %> 
-	&lt;%= b != @item ? '»' : '' %> 
+	&lt;%= link_to(  b[:title] , b.reps[0].path ) if b %>
+	&lt;%= b != @item ? '»' : '' %>
 	&lt;%end%>
 </span>
 &lt;% end %>
