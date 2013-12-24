@@ -235,8 +235,7 @@ body.page .intro {
         }
 
         @media (max-width: 719px) {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 20px;
         }
 
         padding-top: 40px;
@@ -395,6 +394,7 @@ body.home .hero {
         overflow: hidden;
 
         @media (max-width: 719px) {
+            padding-top: 10px;
             height: 160px;
         }
 
@@ -435,6 +435,13 @@ body.home .explanation {
             font-size: 32px;
             line-height: 40px;
             text-align: center;
+
+            @media (max-width: 719px) {
+                padding: 20px;
+
+                font-size: 24px;
+                line-height: 30px;
+            }
         }
     }
 }
