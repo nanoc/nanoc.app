@@ -1,4 +1,4 @@
-module Nanoc3::Helpers
+module NanocSite
 
   # Provides functionality for creating links to items, given their identifier.
   module LinkToId

@@ -5,5 +5,5 @@ include Nanoc3::Helpers::Filtering
 include Nanoc3::Helpers::XMLSitemap
 
 # Custom
-include Nanoc3::Helpers::ReleaseNotes
-include Nanoc3::Helpers::LinkToId
+include NanocSite::ReleaseNotes
+include NanocSite::LinkToId
