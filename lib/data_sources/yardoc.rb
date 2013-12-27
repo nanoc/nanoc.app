@@ -1,83 +1,87 @@
 # encoding: utf-8
 
-class YARDDataSource < Nanoc3::DataSource
+module NanocSite
 
-  identifier :yard
+  class YARDDataSource < Nanoc3::DataSource
 
-  def up
-    require 'yard'
-    YARD::Registry.load!('yardoc')
-  end
+    identifier :yard
 
-  def items
-    items = []
+    def up
+      require 'yard'
+      YARD::Registry.load!('yardoc')
+    end
 
-    add_filters_to(items)
-    add_helpers_to(items)
+    def items
+      items = []
 
-    items
-  end
+      add_filters_to(items)
+      add_helpers_to(items)
 
-  protected
+      items
+    end
 
-  def add_filters_to(items)
-    YARD::Registry.at('Nanoc::Filters').children.each do |filter|
-      method        = filter.meths.detect { |m| m.name == :run }
+    protected
 
-      is_deprecated = !method.tags('deprecated').empty?
-      next if is_deprecated
+    def add_filters_to(items)
+      YARD::Registry.at('Nanoc::Filters').children.each do |filter|
+        method        = filter.meths.detect { |m| m.name == :run }
 
-      slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
-      identifiers   = filter['nanoc_identifiers']
-      examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
+        is_deprecated = !method.tags('deprecated').empty?
+        next if is_deprecated
 
-      options = {}
-      method.tags(:option).map do |t|
-        options[t.pair.name] = t.pair.text
+        slug          = filter.name.to_s.downcase.gsub(/[^a-z0-9]+/, '-')
+        identifiers   = filter['nanoc_identifiers']
+        examples      = method.tags('example').map { |e| { :title => e.name, :code => e.text } }
+
+        options = {}
+        method.tags(:option).map do |t|
+          options[t.pair.name] = t.pair.text
+        end
+
+        items << Nanoc::Item.new(
+          '-',
+          {
+            :type        => 'filter',
+            :name        => filter.name,
+            :full_name   => filter.path,
+            :summary     => method.docstring.summary,
+            :description => method.docstring,
+            :identifiers => identifiers,
+            :examples    => examples,
+            :options     => options
+          },
+          "/filters/#{slug}")
       end
-
-      items << Nanoc::Item.new(
-        '-',
-        {
-          :type        => 'filter',
-          :name        => filter.name,
-          :full_name   => filter.path,
-          :summary     => method.docstring.summary,
-          :description => method.docstring,
-          :identifiers => identifiers,
-          :examples    => examples,
-          :options     => options
-        },
-        "/filters/#{slug}")
     end
-  end
 
-  def add_helpers_to(items)
-    YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
-      slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
+    def add_helpers_to(items)
+      YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
+        slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
 
-      items << Nanoc::Item.new(
-        '-',
-        {
-          :type        => 'helper',
-          :name        => helper.name,
-          :full_name   => helper.path,
-          :summary     => helper.docstring.summary,
-          :functions   => helper.meths(:visibility => :public, :included => false).map do |m|
-            signature = "#{m.name}(#{m.parameters.map { |n,v| n }.join(", ")})"
-            if m.tag(:return) && !m.tag(:return).types.empty?
-              signature << " &rarr; #{m.tag(:return).types.first}"
+        items << Nanoc::Item.new(
+          '-',
+          {
+            :type        => 'helper',
+            :name        => helper.name,
+            :full_name   => helper.path,
+            :summary     => helper.docstring.summary,
+            :functions   => helper.meths(:visibility => :public, :included => false).map do |m|
+              signature = "#{m.name}(#{m.parameters.map { |n,v| n }.join(", ")})"
+              if m.tag(:return) && !m.tag(:return).types.empty?
+                signature << " &rarr; #{m.tag(:return).types.first}"
+              end
+              {
+                :name        => m.name,
+                :summary     => m.docstring.summary,
+                :examples    => m.tags('example').map { |e| { :title => e.name, :code => e.text } },
+                :signature   => signature
+              }
             end
-            {
-              :name        => m.name,
-              :summary     => m.docstring.summary,
-              :examples    => m.tags('example').map { |e| { :title => e.name, :code => e.text } },
-              :signature   => signature
-            }
-          end
-        },
-        "/helpers/#{slug}")
+          },
+          "/helpers/#{slug}")
+      end
     end
+
   end
 
 end
