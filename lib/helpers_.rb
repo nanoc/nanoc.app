@@ -6,3 +6,4 @@ include Nanoc3::Helpers::XMLSitemap
 
 # Custom
 include Nanoc3::Helpers::ReleaseNotes
+include Nanoc3::Helpers::LinkToId
