@@ -43,6 +43,10 @@ end
 
 ### Routing ##################################################################
 
+route '/favicon/' do
+  '/favicon.ico'
+end
+
 route '/static/*' do
   # /static/foo.html/ → /foo.html
   item.identifier[7..-2]
@@ -55,9 +59,6 @@ end
 route '/assets/style/_*/' do
   # Don't output partials, so return nil
   nil
-end
-
-route '/about/ssgs/*/' do
 end
 
 route '/assets/style/*/' do
@@ -85,11 +86,11 @@ end
 
 ### Compilation ##############################################################
 
-compile '/assets/style/_*/' do
-  # Don’t compile partials
+compile '/favicon/' do
 end
 
-compile '/about/ssgs/*/' do
+compile '/assets/style/_*/' do
+  # Don’t compile partials
 end
 
 compile '/assets/style/*/' do
