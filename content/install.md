@@ -10,7 +10,7 @@ Install nanoc using Rubygems, like this:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
-<div class="admonition note">You may have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
 For detailed instructions, read on!
 
@@ -46,7 +46,7 @@ Be sure what you have a fairly recent version of Rubygems. When in doubt, update
 Latest version currently installed. Aborting.
 <span class="prompt">%</span> </pre>
 
-<div class="admonition note">You may have to prefix the <kbd>gem update --system</kbd> command with <kbd>sudo</kbd>.</div>
+<div class="admonition note">You might have to prefix the <kbd>gem update --system</kbd> command with <kbd>sudo</kbd>.</div>
 
 <div class="admonition note">The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and Rubygems.</div>
 
@@ -57,7 +57,7 @@ All dependencies are now taken care of, and installing nanoc should now be easy:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
-<div class="admonition note">You may have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
 To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>. It should print the version number along with some other information, like this:
 
@@ -65,7 +65,7 @@ To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>.
 <%= config[:nanoc_version_info] %>
 <span class="prompt">%</span> </pre>
 
-If you get a “command not found” error when trying to run `nanoc`, you may have to adjust your `$PATH` to include the path to the directory where Rubygems installs executables.
+If you get a “command not found” error when trying to run `nanoc`, you might have to adjust your `$PATH` to include the path to the directory where Rubygems installs executables.
 
 The current version of nanoc is is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find the release notes for this version as well as release notes for older versions on the [release notes](/release-notes/) page.
 
