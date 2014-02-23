@@ -30,12 +30,7 @@ end
 
 # stylesheets - partials
 
-compile '/assets/style/_*/' do
-end
-
-route '/assets/style/_*/' do
-  nil
-end
+ignore '/assets/style/_*/'
 
 # stylesheets
 
