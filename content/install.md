@@ -32,7 +32,7 @@ Installing Rubygems
 
 Rubygems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install Rubygems anyway.
 
-It’s likely that you have Rubygems installed already. If you want to check whether you have Rubygems installed, open a terminal window and type <kbd>gem --version</kbd>. If that command prints a version number, Rubygems is installed. This is what it should look like:
+It is likely that you have Rubygems installed already. To find out whether Rubygems is installed, type <kbd>gem --version</kbd>. If that command prints a version number, Rubygems is installed:
 
 <pre title="Checking whether Rubygems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
 <%= config[:gem_version_info] %>
@@ -40,7 +40,15 @@ It’s likely that you have Rubygems installed already. If you want to check whe
 
 To install Rubygems, go to the [Rubygems download page](http://rubygems.org/pages/download) and follow the instructions there.
 
-If you have Rubygems installed already, make sure you have a fairly recent version. I’ve tested nanoc with Rubygems 1.3.5 and up, so consider upgrading if you’re experiencing issues with an older Rubygems. The [Rubygems download page](http://rubygems.org/pages/download) also contains instructions for upgrading Rubygems.
+Be sure what you have a fairly recent version of Rubygems. When in doubt, update your Rubygems:
+
+<pre title="Updating Rubygems"><span class="prompt">%</span> <kbd>gem update --system</kbd>
+Latest version currently installed. Aborting.
+<span class="prompt">%</span> </pre>
+
+<div class="admonition note">You may have to prefix the <kbd>gem update --system</kbd> command with <kbd>sudo</kbd>.</div>
+
+<div class="admonition note">The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and Rubygems.</div>
 
 Installing nanoc
 ----------------
