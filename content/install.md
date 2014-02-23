@@ -32,7 +32,7 @@ Installing Rubygems
 
 Rubygems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install Rubygems anyway.
 
-It is likely that you have Rubygems installed already. To find out whether Rubygems is installed, type <kbd>gem --version</kbd>. If that command prints a version number, Rubygems is installed:
+It is likely that you have Rubygems installed already. To find out whether Rubygems is installed, type <kbd>gem \--version</kbd>. If that command prints a version number, Rubygems is installed:
 
 <pre title="Checking whether Rubygems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
 <%= config[:gem_version_info] %>
