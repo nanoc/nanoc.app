@@ -1,9 +1,6 @@
 ---
-
-title:       "Documentation Table of Contents"
-short_title: "Documentation"
-is_dynamic:  true
-
+title:      "Documentation"
+is_dynamic: true
 ---
 
 <% content_for :details do %>
