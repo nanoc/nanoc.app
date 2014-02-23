@@ -113,8 +113,13 @@ div.admonition {
     background: shade($bg-color, 10%);
 }
 
-div.admonition:before {
+div.admonition.note:before {
     color: $emph-color;
+}
+
+div.admonition.caution:before {
+    color: $emph-light-fg-color;
+    background: $emph-color;
 }
 
 body header {

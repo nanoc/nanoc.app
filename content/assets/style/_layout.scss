@@ -108,12 +108,18 @@ div.admonition:before {
     left: 10px;
 }
 
+div.admonition:before {
+    margin: -1px -4px;
+    padding: 1px 4px;
+}
+
 div.admonition.note:before {
     content: "NOTE";
 }
 
 div.admonition.caution:before {
     content: "CAUTION";
+    @include border-radius(5px);
 }
 
 ol.toc, ol.toc ol {
