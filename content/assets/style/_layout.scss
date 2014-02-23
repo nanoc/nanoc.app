@@ -77,16 +77,6 @@ pre {
     word-wrap: break-word;
 }
 
-pre[title]:after {
-    content: attr(title);
-    display: block;
-    margin: 10px -10px -10px -10px;
-    padding: 5px 10px;
-    font-size: 12px;
-    font-style: italic;
-    font-family: "Open Sans";
-}
-
 div.admonition {
     position: relative;
     padding: 10px;
