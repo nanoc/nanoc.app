@@ -25,10 +25,6 @@ route '/static/*' do
   item.identifier[7..-2]
 end
 
-route '/404/' do
-  '/404.html'
-end
-
 route '/assets/style/_*/' do
   # Don't output partials, so return nil
   nil
@@ -74,11 +70,6 @@ end
 
 compile '/blog/feed_private/' do
   filter :erb
-end
-
-compile '/404/' do
-  filter :erb
-  layout '/default/'
 end
 
 compile '/sitemap/' do
