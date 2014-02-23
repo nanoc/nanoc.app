@@ -48,7 +48,8 @@ module NanocSite
             :description => method.docstring,
             :identifiers => identifiers,
             :examples    => examples,
-            :options     => options
+            :options     => options,
+            :is_partial  => true,
           },
           "/filters/#{slug}")
       end
@@ -76,7 +77,8 @@ module NanocSite
                 :examples    => m.tags('example').map { |e| { :title => e.name, :code => e.text } },
                 :signature   => signature
               }
-            end
+            end,
+            :is_partial  => true,
           },
           "/helpers/#{slug}")
       end

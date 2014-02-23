@@ -36,7 +36,8 @@ module NanocSite
           :description        => cmd.description,
           :aliases            => cmd.aliases,
           :option_definitions => opt_defs,
-          :usage              => cmd.usage
+          :usage              => cmd.usage,
+          :is_partial         => true,
         },
         "/#{slug}/")
     end
