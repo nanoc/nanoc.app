@@ -25,8 +25,7 @@ $link-color-b:          #fff;
 $footer-link-color-a:   $light-fg-color;
 $footer-link-color-b:   shade($footer-bg-color, 40%);
 $explanation-fg-color:  #fff;
-$ticker-fg-color:       shade($light-fg-color, 20%);
-$ticker-fg-emph-color:  tint($ticker-fg-color, 60%);
+$ticker-fg-color:       shade($light-fg-color, 30%);
 $hr-color:              mix($bg-color, $emph-color, 50%);
 $copyright-fg-color:    shade($light-fg-color, 40%);
 
