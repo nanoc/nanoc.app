@@ -240,7 +240,7 @@ footer {
     @include dark-background-links;
 
     h3 {
-        color: #ddd6d4;
+        color: $copyright-fg-color;
     }
 
     .copyright {

@@ -311,10 +311,6 @@ body.page .content {
         padding-top: 0;
         padding-bottom: 40px;
 
-        ol.toc {
-            margin-left: 0;
-        }
-
         .article-content {
             padding-top: 40px;
 
@@ -729,6 +725,10 @@ footer {
             font-weight: 400px;
             font-size: 13px;
 
+            ul {
+                margin-left: 0;
+            }
+
             @media (min-width: 720px) {
                 section {
                     @include span-columns(3, 12);
@@ -751,8 +751,12 @@ footer {
             section {
                 padding-bottom: 40px;
 
+                a {
+                    margin-left: -2px;
+                }
+
                 h3 {
-                    font-size: 14px;
+                    font-size: 15px;
                     margin-bottom: 20px;
                 }
             }
