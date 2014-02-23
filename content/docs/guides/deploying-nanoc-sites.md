@@ -41,7 +41,50 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 <div class="admonition caution">This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.</div>
 
-With git
---------
+With github pages
+-----------------
 
-There’s no git deploy guide yet. If you want to write one, fork the nanoc site on GitHub, fill in this section and send a pull request!
+### Setup
+
+The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to create a orphaned branch dedicated to github pages:
+
+    rm -rf output
+    git branch --orphan gh-pages
+
+Then clone the current repo into the output directory and `checkout` the new branch:
+
+    git clone . output
+    cd output
+    git checkout gh-pages
+
+Nuke the current content:
+
+    rm -rf *
+    git add .
+    git commit -am "nukes the output directory and gh-pages branch"
+
+Change the remote for this repo.
+
+    git remote rm origin
+    git remote add origin repo-url 
+
+Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.) Every new user need to set up this branch manually.
+
+Now you have an orphaned branch dedicated to github pages publishing. This branch now dwells in the output folder of your nanoc repo.
+
+### Publish
+
+To publish your nanoc site you start with running nanoc as normal:
+
+    nanoc
+
+Jump into output, commit the result and push the publishing branch.
+
+    cd output
+    git add .
+    git commit -am "awesome content created"
+    git push origin gh-pages
+
+Wait a couple of minutes and your content will appear at http://yourgittusername.github.com/yourreponame . The above 5 lines can be put into a shell script for easy one-button publishing. I call mine `publish.sh`.
+
+In this way both nanoc is happy - cause the output folder is where it is supposed to be - and github pages is happy - cause there is a nice and tidy branch called gh-pages with static publishable content. A weird side effect is that the gh-pages in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo or just make sure to `pull` after a succesful publish.
