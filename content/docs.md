@@ -65,11 +65,11 @@ Appendices
 
 <h3><%= link_to_id '/docs/troubleshooting/' %></h3>
 
-<%= detailed_toc_for('/docs/reference/filters/', limit: 2) %>
-<%= detailed_toc_for('/docs/reference/helpers/', limit: 2) %>
-<%= detailed_toc_for('/docs/reference/commands/', limit: 2) %>
-<%= detailed_toc_for('/docs/reference/config/') %>
-<%= detailed_toc_for('/docs/reference/variables/') %>
-<%= detailed_toc_for('/docs/reference/rules/') %>
+<%= detailed_toc_for('/docs/reference/filters/',   limit: 0) %>
+<%= detailed_toc_for('/docs/reference/helpers/',   limit: 0) %>
+<%= detailed_toc_for('/docs/reference/commands/',  limit: 0) %>
+<%= detailed_toc_for('/docs/reference/config/',    limit: 0) %>
+<%= detailed_toc_for('/docs/reference/variables/', limit: 0) %>
+<%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
 
 <h3><a href="/docs/api/">API documentation</a></h3>
