@@ -17,7 +17,7 @@ For detailed instructions, read on!
 Installing Ruby
 ---------------
 
-nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 and up, including Ruby 1.9, is supported. You can even use one of the alternative Ruby implementations ([JRuby](http://jruby.org/), [Rubinius](http://rubini.us/), …) if you want to do so.
+nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 up to Ruby 2.1 are supported. You can also use alternative Ruby implementations such as [JRuby](http://jruby.org/) and [Rubinius](http://rubini.us/) if you want to do so.
 
 Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby \--version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have. For example, Ruby 1.8.7 will show something like this:
 
