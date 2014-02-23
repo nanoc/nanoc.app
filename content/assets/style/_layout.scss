@@ -121,7 +121,7 @@ ol.toc {
 }
 
 ol.toc ol {
-    margin-left: 30px;
+    margin-left: 18px;
 }
 
 ol.toc, ol.toc ol {
@@ -143,17 +143,7 @@ ol.toc.big ol {
 
 ol.toc li:before {
     content: counters(section, ".");
-    display: inline-block;
-    width: 20px;
-    margin-right: 10px;
-}
-
-ol.toc li li:before {
-    width: 30px;
-}
-
-ol.toc li li li:before {
-    width: 40px;
+    margin-right: 5px
 }
 
 // SPECIAL STYLING
