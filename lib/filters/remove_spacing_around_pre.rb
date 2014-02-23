@@ -1,7 +1,7 @@
 module NanocSite
 
   # TODO document
-  class RemoveSpacingRoundPreFilter < Nanoc3::Filter
+  class RemoveSpacingRoundPreFilter < Nanoc::Filter
 
     identifiers :remove_spacing_around_pre
 

@@ -3,7 +3,7 @@ require 'nokogiri'
 module NanocSite
 
   # TODO document
-  class AddIDsToHeadersFilter < Nanoc3::Filter
+  class AddIDsToHeadersFilter < Nanoc::Filter
 
     identifiers :add_ids_to_headers
 

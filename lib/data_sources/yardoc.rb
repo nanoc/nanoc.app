@@ -2,7 +2,7 @@
 
 module NanocSite
 
-  class YARDDataSource < Nanoc3::DataSource
+  class YARDDataSource < Nanoc::DataSource
 
     identifier :yard
 
