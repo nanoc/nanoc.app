@@ -19,7 +19,7 @@ Installing Ruby
 
 nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 and up, including Ruby 1.9, is supported. You can even use one of the alternative Ruby implementations ([JRuby](http://jruby.org/), [Rubinius](http://rubini.us/), …) if you want to do so.
 
-Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby -v</kbd>; if you get “command not found” Ruby is not yet installed. Otherwise, you will see which version of Ruby you have e.g. Ruby 1.8.7 will return something like this:
+Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby -v</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have. For example, Ruby 1.8.7 will show something like this:
 
 <pre title="Checking whether Ruby is installed"><span class="prompt">%</span> <kbd>ruby -v</kbd>
 <kbd>ruby 1.8.7 (2012-02-08 patchlevel 358) [your-operating-system-here]</kbd>
