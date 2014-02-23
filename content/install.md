@@ -65,7 +65,7 @@ To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>.
 <%= config[:nanoc_version_info] %>
 <span class="prompt">%</span> </pre>
 
-If you get a “command not found” error when trying to run `nanoc`, you may have to adjust your `$PATH` to include the path to the directory where Rubygems installs executables. For example, on Ubuntu the `$PATH` should include `/var/lib/gems/1.8/bin`.
+If you get a “command not found” error when trying to run `nanoc`, you may have to adjust your `$PATH` to include the path to the directory where Rubygems installs executables.
 
 The current version of nanoc is is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find the release notes for this version as well as release notes for older versions on the [release notes](/release-notes/) page.
 
