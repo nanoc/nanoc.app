@@ -1,9 +1,9 @@
 require 'nokogiri'
 
-module Nanoc3::Filters
+module NanocSite
 
   # TODO document
-  class AddIDsToHeaders < Nanoc3::Filter
+  class AddIDsToHeadersFilter < Nanoc3::Filter
 
     identifiers :add_ids_to_headers
 

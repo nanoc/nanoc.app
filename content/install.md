@@ -29,7 +29,7 @@ Ruby may already be installed on your system. To check, open a terminal window a
 <kbd>ruby 1.8.7 (2012-02-08 patchlevel 358) [your-operating-system-here]</kbd>
 <span class="prompt">%</span> </pre>
 
-If Ruby is not installed on your system yet, check out the [Ruby downloads page](http://www.ruby-lang.org/en/downloads/) to download a Ruby version for your system. Alternatively, if you have a Unix-like operating system, consider using [rvm](http://rvm.beginrescueend.com/), a tool that makes managing your Ruby installation(s) a whole lot easier.
+If Ruby is not installed on your system yet, check out the [Ruby downloads page](http://www.ruby-lang.org/en/downloads/) to download a Ruby version for your system. Alternatively, if you have a Unix-like operating system, consider using [rvm](http://rvm.io), a tool that makes managing your Ruby installation(s) a whole lot easier.
 
 Installing Rubygems
 -------------------
@@ -53,7 +53,7 @@ All dependencies are now taken care of, and installing nanoc should now be easy:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
-Unless you use a Ruby manager such as [rvm](http://rvm.beginrescueend.com/), [rbenv](https://github.com/sstephenson/rbenv/) or [chruby](https://github.com/postmodern/chruby), this command may fail with a “permission denied” error. If this is the case, run the above command as root:
+Unless you use a Ruby manager such as [rvm](http://rvm.io/), [rbenv](https://github.com/sstephenson/rbenv/) or [chruby](https://github.com/postmodern/chruby), this command may fail with a “permission denied” error. If this is the case, run the above command as root:
 
 <pre title="Installing nanoc as root"><span class="prompt">%</span> <kbd>sudo gem install nanoc</kbd></pre>
 

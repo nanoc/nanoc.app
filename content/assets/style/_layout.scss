@@ -199,9 +199,9 @@ body header {
 
                 @media (max-width: 719px) {
                     li {
+                        display: inline-block;
+                        width: 49%;
                         padding: 10px 0;
-                        border-bottom-width: 1px;
-                        border-bottom-style: solid;
                     }
 
                     a {
@@ -239,8 +239,7 @@ body.page .intro {
         }
 
         @media (max-width: 719px) {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding: 20px;
         }
 
         padding-top: 40px;
@@ -356,7 +355,7 @@ body.page .content {
             }
 
             @media (max-width: 719px) {
-                margin: 40px 0;
+                margin: 40px 0 0 0;
             }
 
             .details, .open-source-site {
@@ -368,6 +367,10 @@ body.page .content {
                 h3 {
                     font-size: 20px;
                     padding-bottom: 20px;
+
+                    @media (max-width: 719px) {
+                        display: none;
+                    }
                 }
 
                 h4 + ul {
@@ -376,6 +379,10 @@ body.page .content {
 
                 h4, dt, ol, ul, p {
                     margin-top: 20px;
+
+                    @media (max-width: 719px) {
+                        margin-top: 0;
+                    }
                 }
 
                 ul {
@@ -405,6 +412,11 @@ body.home .hero {
         @include container;
         height: 300px;
         overflow: hidden;
+
+        @media (max-width: 719px) {
+            padding-top: 10px;
+            height: 160px;
+        }
 
         .slides {
             position: relative;
@@ -443,6 +455,13 @@ body.home .explanation {
             font-size: 32px;
             line-height: 40px;
             text-align: center;
+
+            @media (max-width: 719px) {
+                padding: 20px;
+
+                font-size: 24px;
+                line-height: 30px;
+            }
         }
     }
 }

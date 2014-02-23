@@ -1,8 +1,8 @@
 require 'digest'
 
-module Nanoc3::DataSources
+module NanocSite
 
-  class Static < Nanoc3::DataSource
+  class StaticDataSource < Nanoc3::DataSource
 
     identifier :static
 

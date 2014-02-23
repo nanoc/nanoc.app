@@ -1,11 +1,9 @@
-module Nanoc3::Helpers
+module NanocSite
 
-  # This module (specific to the nanoc web site) contains two functions that
-  # get the latest release version and the latest release notes, respectively.
-  # They're used on the download page, to prevent having to duplicate the
-  # latest release notes on both the release notes and the download pages.
   module ReleaseNotes
 
+    # Returns a hash with `:version`, containing the latest released version,
+    # and `:date`, containing the latest released version’s release date.
     def latest_release_info
       require 'nokogiri'
 
