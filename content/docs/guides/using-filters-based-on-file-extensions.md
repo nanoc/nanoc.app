@@ -1,6 +1,5 @@
 ---
 title:    "Using extensions for filtering"
-markdown: basic
 ---
 
 Using extensions for filtering

@@ -1,6 +1,5 @@
 ---
 title:    "Troubleshooting"
-markdown: basic
 ---
 
 ## Error: “Found 3 content files for X; expected 0 or 1”

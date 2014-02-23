@@ -1,6 +1,5 @@
 ---
 title:    "Glossary"
-markdown: basic
 ---
 
 <dl class="glossary">

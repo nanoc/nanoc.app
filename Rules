@@ -147,11 +147,8 @@ end
 
 compile '*' do
   filter :erb if item[:is_dynamic]
-  case item[:markdown]
-  when 'advanced'
+  if 'md' == item[:extension]
     filter :kramdown, :auto_ids => false
-  when 'basic'
-    filter :rdiscount
   end
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers

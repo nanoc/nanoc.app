@@ -1,6 +1,5 @@
 ---
 title:    "Using binary items effectively"
-markdown: basic
 ---
 
 What are binary items?

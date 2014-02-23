@@ -1,6 +1,5 @@
 ---
 title:    "Paginating articles"
-markdown: basic
 ---
 
 A Word of Caution

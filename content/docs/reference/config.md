@@ -1,6 +1,5 @@
 ---
 title:      "Configuration"
-markdown:   basic
 is_dynamic: true
 ---
 

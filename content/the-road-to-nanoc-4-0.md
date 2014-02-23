@@ -1,6 +1,5 @@
 ---
 title:      "The road to nanoc 4.0"
-markdown:   basic
 is_dynamic: true
 ---
 

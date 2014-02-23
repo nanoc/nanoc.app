@@ -1,6 +1,5 @@
 ---
 title:      "Install"
-markdown:   basic
 is_dynamic: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title:    "Deploying nanoc sites"
-markdown: basic
 ---
 
 Deploying

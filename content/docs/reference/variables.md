@@ -1,6 +1,5 @@
 ---
 title:      "Variables"
-markdown:   advanced
 is_dynamic: true
 ---
 

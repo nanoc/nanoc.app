@@ -1,6 +1,5 @@
 ---
 title:    "Development"
-markdown: basic
 ---
 
 Reporting bugs

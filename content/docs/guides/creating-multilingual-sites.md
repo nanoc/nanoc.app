@@ -1,6 +1,5 @@
 ---
 title:    "Creating multilingual sites"
-markdown: basic
 ---
 
 Multilingual sites

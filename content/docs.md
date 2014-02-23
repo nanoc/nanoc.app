@@ -2,7 +2,6 @@
 
 title:       "Documentation Table of Contents"
 short_title: "Documentation"
-markdown:    basic
 is_dynamic:  true
 
 ---

@@ -12,7 +12,7 @@
 <pre><%= @item[:usage] %></pre>
 <% end %>
 
-<% filter :rdiscount do %>
+<% filter :kramdown do %>
 <%= @item[:description] || @item[:summary] %>
 <% if @item[:aliases] && @item[:aliases].size > 0 %>Also known as <%= @item[:aliases].map { |i| "<code>#{i}</code>" }.join(', ') %>.<% end %>
 <% if @item[:full_name] %>See its <a href="/docs/api/<%= @item[:full_name].gsub('::', '/') %>.html">API documentation</a> for details.<% end %>
@@ -23,7 +23,7 @@
     <dl>
         <% @item[:options].each do |name, description| %>
             <dt><code><%= name %></code></dt>
-            <dd><% filter :rdiscount do %><%= description %><% end %></dd>
+            <dd><% filter :kramdown do %><%= description %><% end %></dd>
         <% end %>
     </dl>
 <% end %>
@@ -50,7 +50,7 @@
     <dl>
         <% @item[:functions].each do |function| %>
             <dt><code><%= function[:signature] %></code></dt>
-            <dd><% filter :rdiscount do %><%= function[:summary] %><% end %></dd>
+            <dd><% filter :kramdown do %><%= function[:summary] %><% end %></dd>
         <% end %>
     </dl>
 <% end %>

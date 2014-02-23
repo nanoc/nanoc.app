@@ -1,6 +1,5 @@
 ---
 title:      "Basics"
-markdown:   advanced
 is_dynamic: true
 ---
 

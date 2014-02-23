@@ -11,7 +11,6 @@ gem 'kramdown'    # for advanced markdown
 gem 'nanoc'       # for compiling the site
 gem 'nokogiri'    # for parsing HTML
 gem 'rainpress'   # for compact CSS
-gem 'rdiscount'   # for fast Markdown
 gem 'rubypants'   # for pretty typography
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc

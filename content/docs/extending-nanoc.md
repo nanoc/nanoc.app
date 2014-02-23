@@ -1,6 +1,5 @@
 ---
 title:    "Extending nanoc"
-markdown: advanced
 is_dynamic: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title:    "Unit testing nanoc sites"
-markdown: basic
 ---
 
 The `check` command

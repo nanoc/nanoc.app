@@ -1,6 +1,5 @@
 ---
 title:      "About nanoc"
-markdown:   basic
 is_dynamic: true
 ---
 
