@@ -5,8 +5,6 @@ require 'susy'
 
 Compass.add_project_configuration 'compass_config.rb'
 
-### Preprocessing ############################################################
-
 preprocess do
   config[:nanoc_version_info] = `nanoc --version`.strip
   config[:gem_version_info]   = `gem --version`.strip
@@ -14,46 +12,32 @@ preprocess do
   # TODO stylesheets -> is_hidden and is_partial
 end
 
-### Passthrough ##############################################################
+layout '*', :erb
+
+# favicon
 
 passthrough '/favicon/'
 
-### Routing ##################################################################
+# static
 
-route '/static/*' do
+compile '/static/*/' do
+end
+
+route '/static/*/' do
   # /static/foo.html/ → /foo.html
   item.identifier[7..-2]
 end
 
+# stylesheets - partials
+
+compile '/assets/style/_*/' do
+end
+
 route '/assets/style/_*/' do
-  # Don't output partials, so return nil
   nil
 end
 
-route '/assets/style/*/' do
-  # path with version
-  '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
-end
-
-route '*' do
-  if item.binary?
-    item.identifier.chop + '.' + item[:extension]
-  elsif item[:is_partial]
-    # Don’t output partial items (e.g. sub-stylesheets)
-    nil
-  elsif item[:path]
-    item[:path]
-  else
-    # Place each file in its own directory
-    rep.item.identifier + 'index.html'
-  end
-end
-
-### Compilation ##############################################################
-
-compile '/assets/style/_*/' do
-  # Don’t compile partials
-end
+# stylesheets
 
 compile '/assets/style/*/' do
   filter :sass, Compass.sass_engine_options
@@ -61,8 +45,11 @@ compile '/assets/style/*/' do
   filter :rainpress
 end
 
-compile '/static/*' do
+route '/assets/style/*/' do
+  '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
+
+# other
 
 compile '/sitemap/' do
   filter :erb
@@ -77,6 +64,8 @@ compile '/' do
   layout '/default/'
   filter :relativize_paths, :type => :html
 end
+
+# fallback
 
 compile '*' do
   if item[:is_partial]
@@ -100,6 +89,14 @@ compile '*' do
   filter :relativize_paths, :type => :html
 end
 
-### Layouting ################################################################
-
-layout '*', :erb
+route '*' do
+  if item.binary?
+    item.identifier.chop + '.' + item[:extension]
+  elsif item[:is_partial]
+    nil
+  elsif item[:path]
+    item[:path]
+  else
+    rep.item.identifier + 'index.html'
+  end
+end
