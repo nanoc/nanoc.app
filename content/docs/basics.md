@@ -1,7 +1,6 @@
 ---
 title:      "Basics"
 markdown:   advanced
-has_toc:    true
 is_dynamic: true
 ---
 

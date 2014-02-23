@@ -1,7 +1,6 @@
 ---
 title:    "Development"
 markdown: basic
-has_toc:  true
 ---
 
 Reporting bugs

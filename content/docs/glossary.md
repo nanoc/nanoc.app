@@ -1,7 +1,6 @@
 ---
 title:    "Glossary"
 markdown: basic
-has_toc:  true
 ---
 
 <dl class="glossary">

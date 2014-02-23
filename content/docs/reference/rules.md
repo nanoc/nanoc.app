@@ -2,7 +2,6 @@
 title:      "Rules"
 markdown:   advanced
 is_dynamic: true
-has_toc:    true
 ---
 
 ## Rules

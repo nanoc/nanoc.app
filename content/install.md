@@ -2,7 +2,6 @@
 title:      "Install"
 markdown:   basic
 is_dynamic: true
-has_toc:    true
 ---
 
 Instructions For The Impatient

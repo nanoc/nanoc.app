@@ -16,7 +16,6 @@ module NanocSite
       attributes = {
         title: 'Release Notes',
         markdown: 'basic',
-        has_toc: true,
       }
 
       item = Nanoc::Item.new(content, attributes, '/release-notes/')

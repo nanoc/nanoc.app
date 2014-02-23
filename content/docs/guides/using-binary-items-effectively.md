@@ -1,6 +1,5 @@
 ---
 title:    "Using binary items effectively"
-has_toc:  true
 markdown: basic
 ---
 

@@ -1,6 +1,5 @@
 ---
 title:      "Filters"
-has_toc:    true
 is_dynamic: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title:    "Unit testing nanoc sites"
-has_toc:  true
 markdown: basic
 ---
 

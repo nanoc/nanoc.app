@@ -2,7 +2,6 @@
 title:      "About nanoc"
 markdown:   basic
 is_dynamic: true
-has_toc:    true
 ---
 
 What is nanoc?

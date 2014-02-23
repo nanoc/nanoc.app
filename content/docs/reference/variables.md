@@ -2,7 +2,6 @@
 title:      "Variables"
 markdown:   advanced
 is_dynamic: true
-has_toc:    true
 ---
 
 ## Variables

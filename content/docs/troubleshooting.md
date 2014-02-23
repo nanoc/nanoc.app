@@ -1,6 +1,5 @@
 ---
 title:    "Troubleshooting"
-has_toc:  true
 markdown: basic
 ---
 

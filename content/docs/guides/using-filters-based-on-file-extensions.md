@@ -1,6 +1,5 @@
 ---
 title:    "Using extensions for filtering"
-has_toc:  true
 markdown: basic
 ---
 

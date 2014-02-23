@@ -58,15 +58,15 @@
         <div class="content">
             <article>
                 <div class="side">
-                    <% if @item[:has_toc] %>
+                    <% if content_for(@item, :details) %>
+                        <div class="details">
+                            <%= content_for(@item, :details) %>
+                        </div>
+                    <% else %>
                         <div class="details">
                             <h3><%= @item[:short_title] || @item[:title] %></h3>
                             <%= link_back %>
                             {{TOC}}
-                        </div>
-                    <% elsif content_for(@item, :details) %>
-                        <div class="details">
-                            <%= content_for(@item, :details) %>
                         </div>
                     <% end %>
                     <div class="open-source-site">

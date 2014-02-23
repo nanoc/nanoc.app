@@ -2,7 +2,6 @@
 title:      "Tutorial"
 markdown:   advanced
 is_dynamic: true
-has_toc:    true
 ---
 
 Requirements

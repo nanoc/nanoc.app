@@ -1,6 +1,5 @@
 ---
 title:    "Paginating articles"
-has_toc:  true
 markdown: basic
 ---
 

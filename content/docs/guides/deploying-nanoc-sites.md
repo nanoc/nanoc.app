@@ -1,6 +1,5 @@
 ---
 title:    "Deploying nanoc sites"
-has_toc:  true
 markdown: basic
 ---
 

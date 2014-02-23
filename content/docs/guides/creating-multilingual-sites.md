@@ -1,6 +1,5 @@
 ---
 title:    "Creating multilingual sites"
-has_toc:  true
 markdown: basic
 ---
 
@@ -58,7 +57,7 @@ Now, it is possible to find all translations of a given item simply by finding a
 
 <pre title="Finding all translations of a given item"><code class="language-ruby">
 def translations_of(item)
-  @items.select do |i| 
+  @items.select do |i|
     i[:canonical_identifier] == item[:canonical_identifier]
   end
 end
@@ -222,16 +221,16 @@ The PHP `redirect()` function still needs to be implemented. This function creat
 function redirect($lang)
 {
   global $base_url;
-  
+
   // Set HTTP status code
   if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1')
     header('HTTP/1.1 303 See Other');
   else
     header('HTTP/1.0 302 Moved Temporarily');
-  
+
   // Set location
   header('Location: ' . $base_url . '/' . $lang . '/');
-  
+
   // Stop!
   exit();
 }

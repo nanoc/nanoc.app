@@ -1,7 +1,6 @@
 ---
 title:    "Community"
 markdown: basic
-has_toc:  true
 ---
 
 Discussion Groups
