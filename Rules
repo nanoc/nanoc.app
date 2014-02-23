@@ -42,7 +42,7 @@ end
 route '*' do
   if item.binary?
     item.identifier.chop + '.' + item[:extension]
-  elsif item[:is_partial] || item[:kind] == 'article'
+  elsif item[:is_partial]
     # Don’t output partial items (e.g. sub-stylesheets)
     nil
   elsif item[:path]
@@ -105,7 +105,7 @@ compile '*' do
 
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
-  filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
+  filter :relativize_paths, :type => :html
 end
 
 ### Layouting ################################################################
