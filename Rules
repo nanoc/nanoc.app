@@ -82,6 +82,7 @@ compile '*' do
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
+  filter :fixup_whitespace
 end
 
 route '*' do
