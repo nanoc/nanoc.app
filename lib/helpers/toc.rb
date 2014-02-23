@@ -60,7 +60,7 @@ def toc_structure_from_headers(headers)
 end
 
 def subtoc_for(elements, item_identifier, limit)
-  if elements.empty? || limit < 1
+  if elements.size < 2 || limit < 1
     return ''
   end
 
