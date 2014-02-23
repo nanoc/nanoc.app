@@ -1,11 +1,11 @@
 ---
-title:    "Using filters based on file extensions"
+title:    "Using extensions for filtering"
 has_toc:  true
 markdown: basic
 ---
 
-Using filters based on file extensions
---------------------------------------
+Using extensions for filtering
+------------------------------
 
 Each item has an `:extension` attribute, containing the extension of the file that corresponds with the item. For example, an item with identifier /foo/ that is read from content/foo.md will have an `:extension` attribute with value `'md'`.
 

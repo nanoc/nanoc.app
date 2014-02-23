@@ -100,6 +100,10 @@ table.dl {
         vertical-align: top;
     }
 
+    td.name {
+        padding-right: 20px;
+    }
+
     td.summary {
         width: 100%;
     }
@@ -290,6 +294,10 @@ body.page .content {
                 margin-bottom: 20px;
             }
 
+            ol ol {
+                margin-bottom: 0;
+            }
+
             .section {
                 margin-bottom: 40px;
             }
@@ -365,7 +373,11 @@ body.page .content {
                     }
                 }
 
-                dt, ol, ul, p {
+                h4 + ul {
+                    margin-top: 0;
+                }
+
+                h4, dt, ol, ul, p {
                     margin-top: 20px;
 
                     @media (max-width: 719px) {
@@ -373,12 +385,12 @@ body.page .content {
                     }
                 }
 
-                ol {
-                    margin-left: 20px;
+                ul {
+                    margin-left: 0;
                 }
 
-                ol li {
-                    list-style-type: decimal;
+                ul li {
+                    list-style-type: none;
                 }
             }
 

@@ -1,45 +1,75 @@
 ---
 
-title:      "Documentation"
-markdown:   basic
-is_dynamic: true
-child_desc: "nanoc documentation"
+title:       "Documentation Table of Contents"
+short_title: "Documentation"
+markdown:    basic
+is_dynamic:  true
 
 ---
 
 <% content_for :details do %>
-    <h3>Documentation Index</h3>
-    <ol>
-	<li><%= link_to_id '/docs/tutorial/' %></li>
-	<li><%= link_to_id '/docs/basics/' %></li>
-	<li><%= link_to_id '/docs/extending-nanoc/' %></li>
-	<li><%= link_to_id '/docs/guides/' %></li>
-	<li><%= link_to_id '/docs/reference/' %></li>
-	<li><%= link_to_id '/docs/troubleshooting/' %></li>
-	<li><%= link_to_id '/docs/glossary/' %></li>
-	<li><a href="/docs/api/">API documentation</a></li>
-    </ol>
+	<h3>Documentation Index</h3>
+	<h4>Introduction</h4>
+	<ul>
+		<li><%= link_to_id '/docs/tutorial/' %></li>
+		<li><%= link_to_id '/docs/basics/' %></li>
+	</ul>
+	<h4>Guides</h4>
+	<ul>
+		<li><%= link_to_id '/docs/extending-nanoc/' %></li>
+		<li><%= link_to_id '/docs/guides/deploying-nanoc-sites/' %></li>
+		<li><%= link_to_id '/docs/guides/unit-testing-nanoc-sites/' %></li>
+		<li><%= link_to_id '/docs/guides/paginating-articles/' %></li>
+		<li><%= link_to_id '/docs/guides/using-filters-based-on-file-extensions/' %></li>
+		<li><%= link_to_id '/docs/guides/using-binary-items-effectively/' %></li>
+		<li><%= link_to_id '/docs/guides/creating-multilingual-sites/' %></li>
+	</ul>
+	<h4>References</h4>
+	<ul>
+		<li><%= link_to_id '/docs/reference/filters/' %></li>
+		<li><%= link_to_id '/docs/reference/helpers/' %></li>
+		<li><%= link_to_id '/docs/reference/commands/' %></li>
+		<li><%= link_to_id '/docs/reference/config/' %></li>
+		<li><%= link_to_id '/docs/reference/variables/' %></li>
+		<li><%= link_to_id '/docs/reference/rules/' %></li>
+		<li><a href="/docs/api/">API</a></li>
+	</ul>
+	<h4>Appendices</h4>
+	<ul>
+		<li><%= link_to_id '/docs/glossary/' %></li>
+		<li><%= link_to_id '/docs/troubleshooting/' %></li>
+	</ul>
 <% end %>
 
-How to use the documentation
-----------------------------
+Introduction
+------------
 
-The documentation for nanoc is organised in a couple of parts:
+<%= detailed_toc_for('/docs/tutorial/') %>
+<%= detailed_toc_for('/docs/basics/') %>
 
-1. The [Tutorial](/docs/tutorial/) chapter is meant for first-time users of nanoc, who want to get an impression of what nanoc can do and how it’s done. After reading this part, you should be able to get a basic site up and running.
+Guides
+------
 
-2. The [Basics](/docs/basics/) chapter describes how to use nanoc in great detail. Everything that nanoc can do, you will find in here.
+<%= detailed_toc_for('/docs/extending-nanoc/') %>
+<%= detailed_toc_for('/docs/guides/deploying-nanoc-sites/') %>
+<%= detailed_toc_for('/docs/guides/unit-testing-nanoc-sites/') %>
+<%= detailed_toc_for('/docs/guides/paginating-articles/') %>
+<%= detailed_toc_for('/docs/guides/using-filters-based-on-file-extensions/') %>
+<%= detailed_toc_for('/docs/guides/using-binary-items-effectively/') %>
+<%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
 
-3. The [Extending nanoc](/docs/extending-nanoc/) chapter shows how nanoc can be extended by writing custom helpers, filters, data sources and more. Medium-sized to large projects will certainly benefit from this chapter.
+Appendices
+----------
 
-4. The [Guides](/docs/guides/) show in detail how specific things can be achieved with nanoc. Even if they are not relevant to you, they may be an interesting read in order to get a better idea of what the nanoc way is.
+<h3><%= link_to_id '/docs/glossary/' %></h3>
 
-5. The [Reference](/docs/reference/) contains the reference documentation for filters, helpers and commands that nanoc supports out of the box.
+<h3><%= link_to_id '/docs/troubleshooting/' %></h3>
 
-6. The [Troubleshooting](/docs/troubleshooting/) section describes some frequent error messages, what causes them and how to solve them.
+<%= detailed_toc_for('/docs/reference/filters/',   limit: 0) %>
+<%= detailed_toc_for('/docs/reference/helpers/',   limit: 0) %>
+<%= detailed_toc_for('/docs/reference/commands/',  limit: 0) %>
+<%= detailed_toc_for('/docs/reference/config/',    limit: 0) %>
+<%= detailed_toc_for('/docs/reference/variables/', limit: 0) %>
+<%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
 
-7. The [Glossary](/docs/glossary/) is a collection of terms that you may stumble upon while using nanoc or reading its documentation. If you don’t understand a term, go here!
-
-8. The [API documentation](/docs/api/) contains the documentation of nanoc’s internals. This is quite useful if you want to contribute to nanoc or extend it.
-
-When you’re stuck with a question or a problem the documentation doesn’t solve, considering posting to the <a href="#">discussion group</a> or joining the <a href="irc://irc.freenode.net/#nanoc">nanoc IRC channel</a>. We’ll get it sorted out in no time. Check out the [Community](/community/) page for details.
+<h3><a href="/docs/api/">API documentation</a></h3>

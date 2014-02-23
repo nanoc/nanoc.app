@@ -124,7 +124,7 @@ Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, relo
 
 In the same file, let’s change the page title from "Home" to something more interesting. Change the line that reads `title: "Home"` to something else. The file should now start with this:
 
-<pre title="New first few lines of index.html"><code class="language-yaml">--- 
+<pre title="New first few lines of index.html"><code class="language-yaml">---
 title: "My New Home Page"
 ---</code></pre>
 
@@ -190,7 +190,7 @@ The odd construct in the middle of that piece of code is an *eRuby* instruction.
 <dd>Runs the code between <code>&lt;%=</code> and <code>%></code>, and displays the return value on the web page</dd>
 </dl>
 
-By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/reference/filters/haml/) and [Mustache](/docs/reference/filters/mustache/) filters (filters will be explained below).
+By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/reference/filters/#haml) and [Mustache](/docs/reference/filters/#mustache) filters (filters will be explained below).
 
 The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling. There is another important piece of eRuby code near the top of the file:
 
@@ -240,7 +240,7 @@ dog’s back.
 ### Header 3
 
 > This is a blockquote.
-> 
+>
 > This is the second paragraph in the blockquote.
 >
 > ## This is an H2 in a blockquote</code></pre>
@@ -249,7 +249,7 @@ We’ll use [kramdown](http://kramdown.rubyforge.org/) for converting Markdown i
 
 <pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
-To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items. 
+To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items.
 
 The `Rules` file contains a bit of Ruby code like this:
 
@@ -324,7 +324,7 @@ The kramdown filter is not the only filter you can use—take a look a the [full
 Writing some Custom Code
 ------------------------
 
-There is a directory named `lib` in your nanoc site. In there, you can throw Ruby source files, and they’ll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods. 
+There is a directory named `lib` in your nanoc site. In there, you can throw Ruby source files, and they’ll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods.
 
 As an example, let’s add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.html` and add this to the meta section:
 

@@ -70,6 +70,18 @@ route '/blog/feed_private/' do
   rep.item.identifier + 'index.xml'
 end
 
+route '/docs/reference/filters/*/' do
+  nil
+end
+
+route '/docs/reference/helpers/*/' do
+  nil
+end
+
+route '/docs/reference/commands/*/' do
+  nil
+end
+
 route '*' do
   if item.binary?
     item.identifier.chop + '.' + item[:extension]
@@ -124,6 +136,15 @@ compile '/' do
   filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
+compile '/docs/reference/filters/*/' do
+end
+
+compile '/docs/reference/helpers/*/' do
+end
+
+compile '/docs/reference/commands/*/' do
+end
+
 compile '*' do
   filter :erb if item[:is_dynamic]
   case item[:markdown]
@@ -138,14 +159,6 @@ compile '*' do
     filter :link_github_issues
   end
 
-  case item[:type]
-  when 'nep'
-    layout '/nep/'
-  when 'command'
-    layout '/command/'
-  when 'filter', 'helper'
-    layout '/autodoc/'
-  end
   layout '/default/'
 
   filter :add_toc

@@ -61,9 +61,7 @@
                     <% if @item[:has_toc] %>
                         <div class="details">
                             <h3><%= @item[:short_title] || @item[:title] %></h3>
-                            <% unless @item.parent.identifier == '/' %>
-                                <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
-                            <% end %>
+                            <%= link_back %>
                             {{TOC}}
                         </div>
                     <% elsif content_for(@item, :details) %>
@@ -103,11 +101,10 @@
                     <section class="documentation">
                         <h3>Documentation</h3>
                         <ul>
+                            <!-- FIXME add more -->
                             <li><%= link_to_id '/docs/tutorial/' %></li>
                             <li><%= link_to_id '/docs/basics/' %></li>
                             <li><%= link_to_id '/docs/extending-nanoc/' %></li>
-                            <li><%= link_to_id '/docs/guides/' %></li>
-                            <li><%= link_to_id '/docs/reference/' %></li>
                             <li><%= link_to_id '/docs/troubleshooting/' %></li>
                             <li><%= link_to_id '/docs/glossary/' %></li>
                         </ul>
