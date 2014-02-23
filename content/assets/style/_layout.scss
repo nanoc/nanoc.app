@@ -320,12 +320,24 @@ body.page .content {
                 margin-bottom: 20px;
             }
 
-            ul {
+            ul, ol {
                 margin-left: 20px;
+            }
+
+            ul li {
+                list-style-type: square;
+            }
+
+            ol li {
+                list-style-type: decimal;
             }
 
             ol ol {
                 margin-bottom: 0;
+            }
+
+            ol.toc {
+                margin-left: 0;
             }
 
             ol.toc ol {
@@ -375,10 +387,6 @@ body.page .content {
                 text-transform: uppercase;
 
                 margin-top: 40px;
-            }
-
-            ul li {
-                list-style-type: square;
             }
 
             .donate {
