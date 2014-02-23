@@ -89,16 +89,31 @@ pre[title]:after {
 
 div.admonition {
     position: relative;
-    padding: 10px 10px 10px 60px;
+    padding: 10px;
     margin: 0 0 20px 0;
 }
 
+div.admonition.note {
+    padding-left: 60px;
+}
+
+div.admonition.caution {
+    padding-left: 90px;
+}
+
 div.admonition:before {
-    content: "NOTE";
     position: absolute;
     font-weight: bold;
     top: 10px;
     left: 10px;
+}
+
+div.admonition.note:before {
+    content: "NOTE";
+}
+
+div.admonition.caution:before {
+    content: "CAUTION";
 }
 
 // SPECIAL STYLING
