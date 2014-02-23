@@ -34,8 +34,8 @@ is_dynamic: true
 	</ul>
 <% end %>
 
-Introduction
-------------
+Getting Started
+---------------
 
 <ol class="toc big">
   <%= detailed_toc_for('/docs/tutorial/') %>
@@ -43,7 +43,7 @@ Introduction
   <li><%= link_to_id '/docs/glossary/' %></li>
 </ol>
 
-Guides
+Topics
 ------
 
 <ol class="toc big">
