@@ -112,10 +112,6 @@ div.admonition.caution:before {
     @include border-radius(5px);
 }
 
-ul, ol {
-    margin-left: 20px;
-}
-
 // SPECIAL STYLING
 
 table.comparison {
@@ -209,7 +205,6 @@ body header {
             }
 
             ol {
-                margin-left: 0;
                 text-align: center;
                 list-style-type: none;
 
@@ -322,6 +317,10 @@ body.page .content {
 
             ul, ol, pre, p, h2, h3 {
                 margin-bottom: 20px;
+            }
+
+            ul {
+                margin-left: 20px;
             }
 
             ol ol {
