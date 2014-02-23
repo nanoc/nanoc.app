@@ -41,14 +41,14 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 <div class="admonition caution">This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.</div>
 
-With GitHub pages
+With GitHub Pages
 -----------------
 
-The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
+The GitHub Pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
 
 ### Setup
 
-Create a orphaned branch dedicated to GitHub pages:
+Create a orphaned branch dedicated to GitHub Pages:
 
 <pre><span class="prompt">%</span> <kbd>rm -rf output</kbd>
 <span class="prompt">%</span> <kbd>git branch --orphan gh-pages</kbd></pre>
@@ -74,7 +74,7 @@ Add the `output` folder to your `.gitignore`. (Adding it to the repo does not he
 
 Every new user need to set up this branch manually.
 
-Now you have an orphaned branch dedicated to GitHub pages publishing. This branch now dwells in the output folder of your nanoc repository.
+Now you have an orphaned branch dedicated to GitHub Pages publishing. This branch now dwells in the output folder of your nanoc repository.
 
 ### Publish
 
@@ -93,6 +93,6 @@ Wait a couple of minutes and your content will appear at <code>http://<var>your-
 
 The above five lines can be put into a shell script for easy publishing. (Or you could create a deployer for this setup. Any takers?)
 
-With this approach, nanoc is happy, because the output folder is where it is supposed to be, and GitHub pages is happy as well, because there is a nice and tidy branch called `gh-pages` with static publishable content.
+With this approach, nanoc is happy, because the output folder is where it is supposed to be, and GitHub Pages is happy as well, because there is a nice and tidy branch called `gh-pages` with static publishable content.
 
 A weird side effect is that the `gh-pages` branch in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo, or just make sure to `pull` after a succesful publish.
