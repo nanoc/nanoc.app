@@ -77,6 +77,8 @@ A file named `index.html` has been created in the `output` directory. The prefer
 
 <pre title="Installing adsf"><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
+<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+
 Now we can start a web server, like this:
 
 <pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
@@ -246,6 +248,8 @@ dog’s back.
 We’ll use [kramdown](http://kramdown.rubyforge.org/) for converting Markdown into HTML. Before we can use kramdown, we need to install the gem, like this:
 
 <pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
+
+<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
 To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items.
 
