@@ -116,6 +116,23 @@ div.admonition.caution:before {
     content: "CAUTION";
 }
 
+ol.toc, ol.toc ol {
+    counter-reset: section;
+}
+
+ol.toc li {
+    list-style-type: none;
+}
+
+ol.toc li {
+    counter-increment: section;
+}
+
+ol.toc li:before {
+    content: counters(section, ".");
+    padding-right: 10px;
+}
+
 // SPECIAL STYLING
 
 table.comparison {
@@ -352,10 +369,6 @@ body.page .content {
 
             ul, ol {
                 margin-left: 20px;
-            }
-
-            ol li {
-                list-style-type: decimal;
             }
 
             ul li {
