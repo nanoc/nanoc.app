@@ -27,15 +27,11 @@ $footer-link-color-b:   shade($footer-bg-color, 40%);
 $explanation-fg-color:  #fff;
 $ticker-fg-color:       shade($light-fg-color, 30%);
 $hr-color:              mix($bg-color, $emph-color, 50%);
-$copyright-fg-color:    shade($light-fg-color, 40%);
+$footer-fg-color:       shade($light-fg-color, 40%);
 
 
 
 @mixin dark-background-links {
-    a {
-        // background-color: tint($footer-bg-color, 10%);
-    }
-
     a:link, a:visited {
         color: #ddd6d4;
     }
@@ -58,16 +54,7 @@ body {
     background: $bg-color;
 }
 
-.search input {
-    background: $search-bg-color;
-    color: $light-fg-color;
-}
-
 article {
-    a {
-        // background-color: tint($bg-color, 70%);
-    }
-
     a:link, a:visited {
         color: $link-color-a;
     }
@@ -183,19 +170,11 @@ body.home {
         color: $ticker-fg-color;
 
         @include dark-background-links;
-
-        span {
-            color: $ticker-fg-emph-color;
-        }
     }
 
     .announcement span {
         background-color: $explanation-bg-color;
         color: $explanation-fg-color;
-
-        a {
-            // background-color: tint($explanation-bg-color, 20%);
-        }
 
         a:link, a:visited {
             color: tint($explanation-fg-color, 50%);
@@ -239,11 +218,11 @@ footer {
     @include dark-background-links;
 
     h3 {
-        color: $copyright-fg-color;
+        color: $footer-fg-color;
     }
 
     .copyright {
         border-color: #a89c93;
-        color: $copyright-fg-color;
+        color: $footer-fg-color;
     }
 }
