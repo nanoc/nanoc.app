@@ -43,32 +43,35 @@ is_dynamic:  true
 Introduction
 ------------
 
-<%= detailed_toc_for('/docs/tutorial/') %>
-<%= detailed_toc_for('/docs/basics/') %>
+<ol class="toc big">
+  <%= detailed_toc_for('/docs/tutorial/') %>
+  <%= detailed_toc_for('/docs/basics/') %>
+</ol>
 
 Guides
 ------
 
-<%= detailed_toc_for('/docs/extending-nanoc/') %>
-<%= detailed_toc_for('/docs/guides/deploying-nanoc-sites/') %>
-<%= detailed_toc_for('/docs/guides/unit-testing-nanoc-sites/') %>
-<%= detailed_toc_for('/docs/guides/paginating-articles/') %>
-<%= detailed_toc_for('/docs/guides/using-filters-based-on-file-extensions/') %>
-<%= detailed_toc_for('/docs/guides/using-binary-items-effectively/') %>
-<%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
+<ol class="toc big">
+  <%= detailed_toc_for('/docs/extending-nanoc/') %>
+  <%= detailed_toc_for('/docs/guides/deploying-nanoc-sites/') %>
+  <%= detailed_toc_for('/docs/guides/unit-testing-nanoc-sites/') %>
+  <%= detailed_toc_for('/docs/guides/paginating-articles/') %>
+  <%= detailed_toc_for('/docs/guides/using-filters-based-on-file-extensions/') %>
+  <%= detailed_toc_for('/docs/guides/using-binary-items-effectively/') %>
+  <%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
+</ol>
 
 Appendices
 ----------
 
-<h3><%= link_to_id '/docs/glossary/' %></h3>
-
-<h3><%= link_to_id '/docs/troubleshooting/' %></h3>
-
-<%= detailed_toc_for('/docs/reference/filters/',   limit: 0) %>
-<%= detailed_toc_for('/docs/reference/helpers/',   limit: 0) %>
-<%= detailed_toc_for('/docs/reference/commands/',  limit: 0) %>
-<%= detailed_toc_for('/docs/reference/config/',    limit: 0) %>
-<%= detailed_toc_for('/docs/reference/variables/', limit: 0) %>
-<%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
-
-<h3><a href="/docs/api/">API documentation</a></h3>
+<ol class="toc">
+  <li><%= link_to_id '/docs/glossary/' %></li>
+  <li><%= link_to_id '/docs/troubleshooting/' %></li>
+  <%= detailed_toc_for('/docs/reference/filters/',   limit: 0) %>
+  <%= detailed_toc_for('/docs/reference/helpers/',   limit: 0) %>
+  <%= detailed_toc_for('/docs/reference/commands/',  limit: 0) %>
+  <%= detailed_toc_for('/docs/reference/config/',    limit: 0) %>
+  <%= detailed_toc_for('/docs/reference/variables/', limit: 0) %>
+  <%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
+  <li><a href="/docs/api/">API documentation</a></li>
+</ol>

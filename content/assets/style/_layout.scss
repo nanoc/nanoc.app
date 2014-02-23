@@ -122,21 +122,48 @@ div.admonition.caution:before {
     @include border-radius(5px);
 }
 
+ul, ol {
+    margin-left: 20px;
+}
+
+ol.toc {
+    margin-left: 0;
+}
+
+ol.toc ol {
+    margin-left: 30px;
+}
+
 ol.toc, ol.toc ol {
     counter-reset: section;
 }
 
 ol.toc li {
     list-style-type: none;
+    counter-increment: section;
 }
 
-ol.toc li {
-    counter-increment: section;
+ol.toc.big {
+    font-weight: bold;
+}
+
+ol.toc.big ol {
+    font-weight: normal;
 }
 
 ol.toc li:before {
     content: counters(section, ".");
-    padding-right: 10px;
+    display: inline-block;
+    width: 20px;
+    margin-right: 10px;
+}
+
+ol.toc li li:before {
+    width: 30px;
+}
+
+ol.toc li li li:before {
+    width: 40px;
 }
 
 // SPECIAL STYLING
@@ -371,10 +398,6 @@ body.page .content {
                 text-transform: uppercase;
 
                 margin-top: 40px;
-            }
-
-            ul, ol {
-                margin-left: 20px;
             }
 
             ul li {

@@ -68,7 +68,7 @@ def subtoc_for(elements, item_identifier, limit)
   out << '<ol class="toc">'
   elements.each do |e|
     out << '<li>'
-    out << link_to(e[:text], item_identifier + '#' + e[:id])
+    out << link_to(e[:text], item_identifier + '#' + e[:id]).strip
     out << subtoc_for(e[:children], item_identifier, limit-1)
     out << '</li>'
   end
@@ -87,10 +87,8 @@ def detailed_toc_for(item_identifier, params={})
   toc = toc_structure_from_headers(headers)
 
   out = ''
-  out << '<h3>' << link_to(item[:title], item) << '</h3>'
-  if toc.size == 1
-    return out
-  end
+  out << '<li>' << link_to(item[:title], item)
   out << subtoc_for(toc, item_identifier, limit)
+  out << '</li>'
   out
 end
