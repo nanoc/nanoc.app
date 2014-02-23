@@ -35,10 +35,6 @@ route '/assets/style/*/' do
   '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
 
-route '/blog/feed_private/' do
-  rep.item.identifier + 'index.xml'
-end
-
 route '*' do
   if item.binary?
     item.identifier.chop + '.' + item[:extension]
@@ -66,10 +62,6 @@ compile '/assets/style/*/' do
 end
 
 compile '/static/*' do
-end
-
-compile '/blog/feed_private/' do
-  filter :erb
 end
 
 compile '/sitemap/' do
