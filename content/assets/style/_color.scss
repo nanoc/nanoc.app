@@ -28,12 +28,13 @@ $explanation-fg-color:  #fff;
 $ticker-fg-color:       shade($light-fg-color, 20%);
 $ticker-fg-emph-color:  tint($ticker-fg-color, 60%);
 $hr-color:              mix($bg-color, $emph-color, 50%);
+$copyright-fg-color:    shade($light-fg-color, 40%);
 
 
 
 @mixin dark-background-links {
     a {
-        background-color: tint($footer-bg-color, 10%);
+        // background-color: tint($footer-bg-color, 10%);
     }
 
     a:link, a:visited {
@@ -65,7 +66,7 @@ body {
 
 article {
     a {
-        background-color: tint($bg-color, 70%);
+        // background-color: tint($bg-color, 70%);
     }
 
     a:link, a:visited {
@@ -194,7 +195,7 @@ body.home {
         color: $explanation-fg-color;
 
         a {
-            background-color: tint($explanation-bg-color, 20%);
+            // background-color: tint($explanation-bg-color, 20%);
         }
 
         a:link, a:visited {
@@ -244,6 +245,6 @@ footer {
 
     .copyright {
         border-color: #a89c93;
-        color: #ddd6d4;
+        color: $copyright-fg-color;
     }
 }
