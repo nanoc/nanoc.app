@@ -41,11 +41,11 @@ preprocess do
   # TODO stylesheets -> is_hidden and is_partial
 end
 
-### Routing ##################################################################
+### Passthrough ##############################################################
 
-route '/favicon/' do
-  '/favicon.ico'
-end
+passthrough '/favicon/'
+
+### Routing ##################################################################
 
 route '/static/*' do
   # /static/foo.html/ → /foo.html
@@ -85,9 +85,6 @@ route '*' do
 end
 
 ### Compilation ##############################################################
-
-compile '/favicon/' do
-end
 
 compile '/assets/style/_*/' do
   # Don’t compile partials
