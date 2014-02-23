@@ -109,6 +109,14 @@ pre:after {
     background: shade($bg-color, 20%);
 }
 
+div.admonition {
+    background: shade($bg-color, 10%);
+}
+
+div.admonition:before {
+    color: $emph-color;
+}
+
 body header {
     background: $top-bg-color;
 

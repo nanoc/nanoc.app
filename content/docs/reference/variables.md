@@ -77,10 +77,7 @@ Here are the most commonly used methods for items, item representations and layo
 
 See the [`Nanoc::Item` API documentation](/docs/api/Nanoc/Item.html) for details.
 
-**Note:** Avoid using the `item.attributes` hash to get attribute values, as
-doing so bypasses the dependency tracking system, possibly resulting in
-incorrect output. To get an item attribute, get it directly from the item
-instead. For example, use `item[:title]` instead of `item.attributes[:title]`.
+<div class="admonition note" id="item-identifier-note">Avoid using the <code>item.attributes</code> hash to get attribute values, as doing so bypasses the dependency tracking system, possibly resulting in incorrect output. To get an item attribute, get it directly from the item instead. For example, use <code>item[:title]</code> instead of <code>item.attributes[:title]</code>.</div>
 
 ### Item representation
 
@@ -109,8 +106,7 @@ See the [`Nanoc::ItemRep` API documentation](/docs/api/Nanoc/ItemRep.html) for d
 
 See the [`Nanoc::Layout` API documentation](/docs/api/Nanoc/Layout.html) for details.
 
-**Note:** Avoid using the `layouts.attributes` hash to get attribute values. For
-details, see the [note for Item#identifier above](#item).
+<div class="admonition note">Avoid using the <code>layouts.attributes</code> hash to get attribute values. For details, see the <a href="#item-identifier-note">note for Item#identifier above</a>.</div>
 
 ## Availability
 

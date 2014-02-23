@@ -12,7 +12,7 @@ Building an image gallery
 
 If you want to include a gallery on your web site, containing thumbnails that link to full-size images, you can let nanoc handle the thumbnail generation instead of generating the thumbnails up front.
 
-<p class="warning"><strong>Note:</strong> If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. nanoc’s dependency resolution is not yet perfect; nanoc may decide to recompile items even though they do not need to.</p>
+<div class="admonition note">If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. nanoc’s dependency resolution is not yet perfect; nanoc may decide to recompile items even though they do not need to.</div>
 
 This example assumes that several images are stored in the `content/gallery` folder. A file at `content/gallery.html` corresponds to the gallery page itself; this item is filtered through ERB and, for the time being, contains a list of links to full-size images:
 
@@ -135,7 +135,7 @@ Preparing videos for HTML5
 
 Let’s see how a video file can be handled by nanoc. The video file that I’ll use in this example is a H.264 file, which I would like to use in a HTML5 `<video>` element. Because Firefox does not support the H.264 format, we’ll let nanoc convert this item into a Theora-encoded movie in an Ogg container.
 
-<p class="warning"><strong>Note:</strong> Because videos can take a long time to convert (several minutes or more), and because nanoc’s dependency resolution is not yet perfect, it is for the time being not recommended to let nanoc convert these items. It may be better to convert movies up front and copy them to the output directory at compile time (perhaps using a Rake task).</p>
+<div class="admonition note">Because videos can take a long time to convert (several minutes or more), and because nanoc’s dependency resolution is not yet perfect, it is for the time being not recommended to let nanoc convert these items. It may be better to convert movies up front and copy them to the output directory at compile time (perhaps using a Rake task).</div>
 
 Let’s assume the source video file is stored in `content/movies/rick.mp4`. For the time being, let’s just copy this file to the output and not transform it yet. For this, a compilation and a routing rule will be necessary:
 

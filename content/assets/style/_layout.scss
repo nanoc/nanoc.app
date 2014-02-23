@@ -87,6 +87,20 @@ pre[title]:after {
     font-family: "Open Sans";
 }
 
+div.admonition {
+    position: relative;
+    padding: 10px 10px 10px 60px;
+    margin: 0 0 20px 0;
+}
+
+div.admonition:before {
+    content: "NOTE";
+    position: absolute;
+    font-weight: bold;
+    top: 10px;
+    left: 10px;
+}
+
 // SPECIAL STYLING
 
 table.comparison {
