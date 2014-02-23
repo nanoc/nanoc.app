@@ -441,6 +441,14 @@ body.page .content {
                     }
                 }
 
+                @media (max-width: 719px) {
+                    p + ol.toc,
+                    h4 + ol.toc,
+                    ul + h4 {
+                        margin-top: 20px;
+                    }
+                }
+
                 ul {
                     margin-left: 0;
                 }
