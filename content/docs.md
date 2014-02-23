@@ -61,12 +61,10 @@ Guides
   <%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
 </ol>
 
-Appendices
+References
 ----------
 
 <ol class="toc">
-  <li><%= link_to_id '/docs/glossary/' %></li>
-  <li><%= link_to_id '/docs/troubleshooting/' %></li>
   <%= detailed_toc_for('/docs/reference/filters/',   limit: 0) %>
   <%= detailed_toc_for('/docs/reference/helpers/',   limit: 0) %>
   <%= detailed_toc_for('/docs/reference/commands/',  limit: 0) %>
@@ -74,4 +72,12 @@ Appendices
   <%= detailed_toc_for('/docs/reference/variables/', limit: 0) %>
   <%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
   <li><a href="/docs/api/">API documentation</a></li>
+</ol>
+
+Appendices
+----------
+
+<ol class="toc">
+  <li><%= link_to_id '/docs/glossary/' %></li>
+  <li><%= link_to_id '/docs/troubleshooting/' %></li>
 </ol>
