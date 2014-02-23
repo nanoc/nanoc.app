@@ -116,36 +116,6 @@ ul, ol {
     margin-left: 20px;
 }
 
-ol.toc {
-    margin-left: 0;
-}
-
-ol.toc ol {
-    margin-left: 18px;
-}
-
-ol.toc, ol.toc ol {
-    counter-reset: section;
-}
-
-ol.toc li {
-    list-style-type: none;
-    counter-increment: section;
-}
-
-ol.toc.big {
-    font-weight: bold;
-}
-
-ol.toc.big ol {
-    font-weight: normal;
-}
-
-ol.toc li:before {
-    content: counters(section, ".");
-    margin-right: 5px
-}
-
 // SPECIAL STYLING
 
 table.comparison {
@@ -341,6 +311,10 @@ body.page .content {
         padding-top: 0;
         padding-bottom: 40px;
 
+        ol.toc {
+            margin-left: 0;
+        }
+
         .article-content {
             padding-top: 40px;
 
@@ -356,6 +330,32 @@ body.page .content {
 
             ol ol {
                 margin-bottom: 0;
+            }
+
+            ol.toc ol {
+                margin-left: 18px;
+            }
+
+            ol.toc, ol.toc ol {
+                counter-reset: section;
+            }
+
+            ol.toc li {
+                list-style-type: none;
+                counter-increment: section;
+            }
+
+            ol.toc.big {
+                font-weight: bold;
+            }
+
+            ol.toc.big ol {
+                font-weight: normal;
+            }
+
+            ol.toc li:before {
+                content: counters(section, ".");
+                margin-right: 5px
             }
 
             .section {
