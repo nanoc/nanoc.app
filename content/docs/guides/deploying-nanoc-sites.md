@@ -41,50 +41,58 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 <div class="admonition caution">This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.</div>
 
-With github pages
+With GitHub pages
 -----------------
+
+The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
 
 ### Setup
 
-The Github pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually). To set it up you need to create a orphaned branch dedicated to github pages:
+Create a orphaned branch dedicated to GitHub pages:
 
-    rm -rf output
-    git branch --orphan gh-pages
+<pre><span class="prompt">%</span> <kbd>rm -rf output</kbd>
+<span class="prompt">%</span> <kbd>git branch --orphan gh-pages</kbd></pre>
 
-Then clone the current repo into the output directory and `checkout` the new branch:
+Clone the current repo into the output directory and <kbd>git checkout</kbd> the new branch:
 
-    git clone . output
-    cd output
-    git checkout gh-pages
+<pre><span class="prompt">%</span> <kbd>git clone . output</kbd>
+<span class="prompt">%</span> <kbd>cd output</kbd>
+<span class="prompt">%</span> <kbd>git checkout gh-pages</kbd></pre>
 
 Nuke the current content:
 
-    rm -rf *
-    git add .
-    git commit -am "nukes the output directory and gh-pages branch"
+<pre><span class="prompt">%</span> <kbd>rm -rf *</kbd>
+<span class="prompt">%</span> <kbd>git add .</kbd>
+<span class="prompt">%</span> <kbd>git commit -am 'Nuke the output directory and gh-pages branch'</kbd></pre>
 
-Change the remote for this repo.
+Change the remote for this repo, replacing <var>repo-url</var> with the URL to the repository:
 
-    git remote rm origin
-    git remote add origin repo-url 
+<pre><span class="prompt">%</span> <kbd>git remote rm origin</kbd>
+<span class="prompt">%</span> <kbd>git remote add origin</kbd> <var>repo-url</var></pre>
 
-Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.) Every new user need to set up this branch manually.
+Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.)
 
-Now you have an orphaned branch dedicated to github pages publishing. This branch now dwells in the output folder of your nanoc repo.
+Every new user need to set up this branch manually.
+
+Now you have an orphaned branch dedicated to GitHub pages publishing. This branch now dwells in the output folder of your nanoc repository.
 
 ### Publish
 
 To publish your nanoc site you start with running nanoc as normal:
 
-    nanoc
+<pre><span class="prompt">%</span> <kbd>nanoc</kbd></pre>
 
-Jump into output, commit the result and push the publishing branch.
+Jump into output, commit the result and push the publishing branch:
 
-    cd output
-    git add .
-    git commit -am "awesome content created"
-    git push origin gh-pages
+<pre><span class="prompt">%</span> <kbd>cd output</kbd>
+<span class="prompt">%</span> <kbd>git add .</kbd>
+<span class="prompt">%</span> <kbd>git commit -am 'Content created'</kbd>
+<span class="prompt">%</span> <kbd>git push origin gh-pages</kbd></pre>
 
-Wait a couple of minutes and your content will appear at http://yourgittusername.github.com/yourreponame . The above 5 lines can be put into a shell script for easy one-button publishing. I call mine `publish.sh`.
+Wait a couple of minutes and your content will appear at <code>http://<var>your-GitHub-username</var>.github.com/<var>your-GitHub-repository-name</var></code>.
 
-In this way both nanoc is happy - cause the output folder is where it is supposed to be - and github pages is happy - cause there is a nice and tidy branch called gh-pages with static publishable content. A weird side effect is that the gh-pages in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo or just make sure to `pull` after a succesful publish.
+The above five lines can be put into a shell script for easy publishing. (Or you could create a deployer for this setup. Any takers?)
+
+With this approach, nanoc is happy, because the output folder is where it is supposed to be, and GitHub pages is happy as well, because there is a nice and tidy branch called `gh-pages` with static publishable content.
+
+A weird side effect is that the `gh-pages` branch in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo, or just make sure to `pull` after a succesful publish.
