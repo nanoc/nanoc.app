@@ -15,8 +15,3 @@ gem 'rubypants'   # for pretty typography
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
-
-# Enable this if you want to use fast-aleck
-# Commented out because fast-aleck has not been released yet
-# and because building it is not trivial.
-#gem 'fast-aleck'

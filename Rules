@@ -5,33 +5,6 @@ require 'susy'
 
 Compass.add_project_configuration 'compass_config.rb'
 
-### Configuration ############################################################
-
-UseFastAleck = false
-
-### Loading ##################################################################
-
-if UseFastAleck
-  begin
-    require 'fast-aleck'
-    require 'fast-aleck/nanoc'
-  rescue LoadError
-    $stderr.puts "Cannot load fast-aleck. Either install it and add it to the Gemfile, " +
-      "or disable UseFastAleck in the Rules file."
-    exit 1
-  end
-  TypographicalImprovementFilter = :fast_aleck
-  TypographicalImprovementFilterParams = {
-    :wrap_quotes => true,
-    :wrap_amps   => true,
-    :wrap_caps   => true,
-    :widont      => true
-  }
-else
-  TypographicalImprovementFilter = :rubypants
-  TypographicalImprovementFilterParams = {}
-end
-
 ### Preprocessing ############################################################
 
 preprocess do
@@ -118,7 +91,6 @@ end
 compile '/404/' do
   filter :erb
   layout '/default/'
-  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '/sitemap/' do
@@ -133,7 +105,6 @@ compile '/' do
   filter :erb
   layout '/default/'
   filter :relativize_paths, :type => :html
-  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 compile '/docs/reference/filters/*/' do
@@ -161,7 +132,6 @@ compile '*' do
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html unless item[:is_partial] || item[:kind] == 'article'
-  filter TypographicalImprovementFilter, TypographicalImprovementFilterParams
 end
 
 ### Layouting ################################################################
