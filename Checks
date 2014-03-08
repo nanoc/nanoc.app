@@ -8,6 +8,17 @@ check :no_unprocessed_erb do
   end
 end
 
+check :valid_sitemap do
+  require 'nokogiri'
+
+  xsd = Nokogiri::XML::Schema(File.read('misc/sitemap.xsd'))
+  doc = Nokogiri::XML(File.read('output/sitemap.xml'))
+
+  unless xsd.valid?(doc)
+    self.add_issue("sitemap does not adhere to XML schema", :subject => 'output/sitemap.xml')
+  end
+end
+
 deploy_check :ilinks
 deploy_check :stale
 deploy_check :no_unprocessed_erb
