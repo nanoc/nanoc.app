@@ -80,37 +80,27 @@ pre {
 
 div.admonition {
     position: relative;
-    padding: 10px;
+    padding: 10px 10px 10px 45px;
     margin: 0 0 20px 0;
-}
-
-div.admonition.note {
-    padding-left: 60px;
-}
-
-div.admonition.caution {
-    padding-left: 90px;
 }
 
 div.admonition:before {
     position: absolute;
-    font-weight: bold;
+
+    font-family: Entypo;
+    font-size: 46px;
+    font-weight: normal;
+
     top: 10px;
     left: 10px;
 }
 
-div.admonition:before {
-    margin: -1px -4px;
-    padding: 1px 4px;
-}
-
 div.admonition.note:before {
-    content: "NOTE";
+    content: "\E705";
 }
 
 div.admonition.caution:before {
-    content: "CAUTION";
-    @include border-radius(5px);
+    content: "\1F4A5";
 }
 
 // SPECIAL STYLING

@@ -1,11 +1,12 @@
 ---
-version:    30
+version:    31
 is_hidden:  true
 is_dynamic: true
 ---
 
 @import "compass/reset";
 
+@import "fonts.scss";
 @import "layout.scss";
 @import "color.scss";
 @import "code.scss";
