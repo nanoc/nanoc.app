@@ -622,6 +622,7 @@ body.home .chooser {
 
         background-position: center center;
         background-repeat: no-repeat;
+        background-size: 53px;
     }
 
     @media (min-width: 720px) {
@@ -695,6 +696,7 @@ body.home .support {
             background-position: 100px 15px;
             background-repeat: no-repeat;
             background-image: url(/assets/images/heart.png);
+            background-size: 82px;
         }
 
         h3 {
