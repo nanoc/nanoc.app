@@ -22,3 +22,4 @@ end
 deploy_check :ilinks
 deploy_check :stale
 deploy_check :no_unprocessed_erb
+deploy_check :valid_sitemap
