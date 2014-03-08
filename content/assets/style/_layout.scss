@@ -237,6 +237,7 @@ body header {
 
                     padding: 10px 6px;
                     background: url(/assets/images/logo-nav.png) no-repeat center 4px;
+                    background-size: 32px 32px;
                 }
 
                 li.home:hover {
@@ -780,6 +781,7 @@ footer {
                 max-width: 640px;
                 padding-left: 55px;
                 background: url(/assets/images/logo-footer.png) top left no-repeat;
+                background-size: 40px 40px;
             }
         }
     }
