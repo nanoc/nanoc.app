@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::CompilerDSL
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -141,9 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a compilation rule for all items whose identifier match the
-given identifier, which may either be a string containing the *
-wildcard, or a regular expression.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a compilation rule for all items whose identifier match the given identifier, which may either be a string containing the * wildcard, or a regular expression.</p>
 </div></span>
   
 </li>
@@ -166,8 +164,7 @@ wildcard, or a regular expression.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a pair of compilation and routing rules that indicate that the
-specified item(s) should be ignored, e.g.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a pair of compilation and routing rules that indicate that the specified item(s) should be ignored, e.g.</p>
 </div></span>
   
 </li>
@@ -238,9 +235,7 @@ specified item(s) should be ignored, e.g.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a layout rule for all layouts whose identifier match the given
-identifier, which may either be a string containing the * wildcard, or a
-regular expression.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a layout rule for all layouts whose identifier match the given identifier, which may either be a string containing the * wildcard, or a regular expression.</p>
 </div></span>
   
 </li>
@@ -263,8 +258,7 @@ regular expression.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a pair of compilation and routing rules that indicate that the
-specified item(s) should be copied to the output folder as-is.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a pair of compilation and routing rules that indicate that the specified item(s) should be copied to the output folder as-is.</p>
 </div></span>
   
 </li>
@@ -287,8 +281,7 @@ specified item(s) should be copied to the output folder as-is.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a preprocessor block that will be executed after all data is
-loaded, but before the site is compiled.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a preprocessor block that will be executed after all data is loaded, but before the site is compiled.</p>
 </div></span>
   
 </li>
@@ -311,9 +304,7 @@ loaded, but before the site is compiled.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a routing rule for all items whose identifier match the
-given identifier, which may either be a string containing the <code>*</code>
-wildcard, or a regular expression.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a routing rule for all items whose identifier match the given identifier, which may either be a string containing the <code>*</code> wildcard, or a regular expression.</p>
 </div></span>
   
 </li>
@@ -564,24 +555,24 @@ compilation rule needs to be compiled</p>
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
 68
 69
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 68</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_compile'>compile</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_compile'>compile</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Require block
-</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#compile requires a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#compile requires a block</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
 
   <span class='comment'># Get rep name
 </span>  <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
@@ -715,30 +706,30 @@ that should be routed using this rule</p>
       <pre class="lines">
 
 
-212
-213
-214
-215
-216
-217
-218
-219
-220
 221
-222</pre>
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 221</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_ignore'>ignore</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#ignore does not require a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_ignore'>ignore</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#ignore does not require a block</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
 
   <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
 
-  <span class='id identifier rubyid_compilation_rule'>compilation_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_compilation_rule'>compilation_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_add_item_compilation_rule'>add_item_compilation_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_compilation_rule'>compilation_rule</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_routing_rule'>routing_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='symbol'>:snapshot_name</span> <span class='op'>=&gt;</span> <span class='symbol'>:last</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_routing_rule'>routing_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='symbol'>:snapshot_name</span> <span class='op'>=&gt;</span> <span class='symbol'>:last</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_add_item_routing_rule'>add_item_routing_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_routing_rule'>routing_rule</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -818,21 +809,21 @@ implied if not explicitly given</p>
       <pre class="lines">
 
 
-236
-237
-238
-239
-240
-241</pre>
+245
+246
+247
+248
+249
+250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_include_rules'>include_rules</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_filename'>filename</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>./</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>./</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>.rb</span><span class='tstring_end'>&quot;</span></span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>NoRulesFileFound</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -941,14 +932,14 @@ filter when processing the layout (see <span class='object_link'><a href="Filter
       <pre class="lines">
 
 
-144
-145
-146</pre>
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 149</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_layout_filter_mapping'>layout_filter_mapping</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1098,11 +1089,6 @@ that should be routed using this rule</p>
       <pre class="lines">
 
 
-173
-174
-175
-176
-177
 178
 179
 180
@@ -1116,26 +1102,39 @@ that should be routed using this rule</p>
 188
 189
 190
-191</pre>
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 178</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_passthrough'>passthrough</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_passthrough'>passthrough</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Require no block
-</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#passthrough does not require a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#passthrough does not require a block</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
 
   <span class='comment'># Get rep name
 </span>  <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>
 
   <span class='comment'># Create compilation rule
-</span>  <span class='id identifier rubyid_compilation_block'>compilation_block</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span> <span class='rbrace'>}</span>
+</span>  <span class='id identifier rubyid_compilation_block'>compilation_block</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_compilation_rule'>compilation_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_compilation_block'>compilation_block</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_add_item_compilation_rule'>add_item_compilation_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_compilation_rule'>compilation_rule</span><span class='rparen'>)</span>
 
   <span class='comment'># Create routing rule
 </span>  <span class='id identifier rubyid_routing_block'>routing_block</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:extension</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_chop'>chop</span> <span class='op'>:</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_chop'>chop</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:extension</span><span class='rbracket'>]</span>
+    <span class='comment'># This is a temporary solution until an item can map back to its data
+</span>    <span class='comment'># source.
+</span>    <span class='comment'># ATM item[:content_filename] is nil for items coming from the static
+</span>    <span class='comment'># data source.
+</span>    <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:extension</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:extension</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>/$</span><span class='regexp_end'>}</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_chop'>chop</span> <span class='op'>:</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_chop'>chop</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:extension</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_routing_rule'>routing_rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier_to_regex'>identifier_to_regex</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='id identifier rubyid_routing_block'>routing_block</span><span class='comma'>,</span> <span class='symbol'>:snapshot_name</span> <span class='op'>=&gt;</span> <span class='symbol'>:last</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_add_item_routing_rule'>add_item_routing_rule</span><span class='lparen'>(</span><span class='id identifier rubyid_routing_rule'>routing_rule</span><span class='rparen'>)</span>
@@ -1190,12 +1189,22 @@ loaded, but before the site is compiled.</p>
 
 27
 28
-29</pre>
+29
+30
+31
+32
+33
+34</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preprocess'>preprocess</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_preprocessor'>preprocessor</span>
+    <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>WARNING: A preprocess block is already defined. Defining </span><span class='tstring_end'>'</span></span> \
+      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>another preprocess block overrides the previously one.</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
   <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_preprocessor'>preprocessor</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1354,25 +1363,25 @@ compilation rule needs to be routed</p>
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
 112
 113
 114
 115
 116
 117
-118</pre>
+118
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler_dsl.rb', line 112</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_route'>route</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_route'>route</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Require block
-</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#route requires a block</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#route requires a block</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
 
   <span class='comment'># Get rep name
 </span>  <span class='id identifier rubyid_rep_name'>rep_name</span>      <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rep</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='symbol'>:default</span>

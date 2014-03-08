@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Filters::RelativizePaths
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -162,8 +162,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Relativizes all paths in the given content, which can be HTML, XHTML, XML
-or CSS.</p>
+    <span class="summary_desc"><div class='inline'><p>Relativizes all paths in the given content, which can be HTML, XHTML, XML or CSS.</p>
 </div></span>
   
 </li>
@@ -351,7 +350,7 @@ nodes to modify. This param is useful only for the <code>:html</code>, <code>:xm
           </span>
           
             &mdash; <div class='inline'><p>The pairs <code>prefix =&gt; uri</code> to define
-any namespace you want to use in the XPath expressions. This param 
+any namespace you want to use in the XPath expressions. This param
 is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
 </div>
           
@@ -426,7 +425,7 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/filters/relativize_paths.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Set assigns so helper function can be used
 </span>  <span class='ivar'>@item_rep</span> <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:item_rep</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@item_rep</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
@@ -459,9 +458,9 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
     <span class='id identifier rubyid_nokogiri_process'>nokogiri_process</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_selectors'>selectors</span><span class='comma'>,</span> <span class='id identifier rubyid_namespaces'>namespaces</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The relativize_paths needs to know the type of content to </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>process. Pass a :type to the filter call (:html for HTML, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:xhtml for XHTML, :xml for XML, or :css for CSS).</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The relativize_paths needs to know the type of content to </span><span class='tstring_end'>'</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>process. Pass a :type to the filter call (:html for HTML, </span><span class='tstring_end'>'</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:xhtml for XHTML, :xml for XML, or :css for CSS).</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

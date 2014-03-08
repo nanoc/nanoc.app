@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::NotificationCenter
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -147,8 +147,7 @@ the notification center.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Adds the given block to the list of blocks that should be called when
-the notification with the given name is received.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds the given block to the list of blocks that should be called when the notification with the given name is received.</p>
 </div></span>
   
 </li>
@@ -194,9 +193,7 @@ the notification with the given name is received.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Removes the block with the given identifier from the list of blocks
-that should be called when the notification with the given name is
-posted.</p>
+    <span class="summary_desc"><div class='inline'><p>Removes the block with the given identifier from the list of blocks that should be called when the notification with the given name is posted.</p>
 </div></span>
   
 </li>
@@ -304,7 +301,7 @@ the given notification block from being unregistered.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_initialize_if_necessary'>initialize_if_necessary</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='comment'># Add observer

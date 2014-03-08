@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Site
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -452,8 +452,7 @@ that lacks some options, the default value will be taken from
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a site object for the site specified by the given
-<code>dir_or_config_hash</code> argument.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a site object for the site specified by the given <code>dir_or_config_hash</code> argument.</p>
 </div></span>
   
 </li>
@@ -569,8 +568,7 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Fills each item&#8217;s parent reference and children array with the
-appropriate items.</p>
+    <span class="summary_desc"><div class='inline'><p>Fills each item&#8217;s parent reference and children array with the appropriate items.</p>
 </div></span>
   
 </li>
@@ -711,7 +709,7 @@ to the site directory; if a hash, contains the site configuration.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Filename of the nanoc config file in the current working directory, or nil if there is none</p>
+<p>Returns filename of the nanoc config file in the current working directory, or nil if there is none</p>
 
 
   </div>
@@ -774,7 +772,7 @@ to the site directory; if a hash, contains the site configuration.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>True if the current working directory is a nanoc site, false otherwise</p>
+<p>Returns true if the current working directory is a nanoc site, false otherwise</p>
 
 
   </div>
@@ -813,7 +811,7 @@ to the site directory; if a hash, contains the site configuration.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 283</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cwd_is_nanoc_site?'>cwd_is_nanoc_site?</span>
-  <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_config_filename_for_cwd'>config_filename_for_cwd</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='op'>!</span><span class='id identifier rubyid_config_filename_for_cwd'>config_filename_for_cwd</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1305,10 +1303,10 @@ specifies an unknown data source</p>
       <span class='comment'># Warn about deprecated data sources
 </span>      <span class='comment'># TODO [in nanoc 4.0] remove me
 </span>      <span class='kw'>case</span> <span class='id identifier rubyid_data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>'</span></span>
-          <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem' data source has been renamed to 'filesystem_verbose'. Using 'filesystem' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem' with 'filesystem_verbose'.</span><span class='tstring_end'>&quot;</span></span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_combined</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_compact</span><span class='tstring_end'>'</span></span>
-          <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem_combined' and 'filesystem_compact' data source has been merged into the new 'filesystem_unified' data source. Using 'filesystem_combined' and 'filesystem_compact' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem_combined' and 'filesystem_compact with 'filesystem_unified'.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>'</span></span>
+        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem' data source has been renamed to 'filesystem_verbose'. Using 'filesystem' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem' with 'filesystem_verbose'.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_combined</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_compact</span><span class='tstring_end'>'</span></span>
+        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem_combined' and 'filesystem_compact' data source has been merged into the new 'filesystem_unified' data source. Using 'filesystem_combined' and 'filesystem_compact' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem_combined' and 'filesystem_compact with 'filesystem_unified'.</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
 
       <span class='comment'># Create data source
@@ -1610,7 +1608,7 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 226</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_load_data'>load_data</span><span class='lparen'>(</span><span class='id identifier rubyid_force'>force</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_load_data'>load_data</span><span class='lparen'>(</span><span class='id identifier rubyid_force'>force</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It is no longer necessary to call Nanoc::Site#load_data. This method no longer has any effect. All calls to this method can be safely removed.</span><span class='tstring_end'>'</span></span>
 <span class='kw'>end</span></pre>
     </td>

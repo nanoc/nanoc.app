@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::CLI::Commands::Update
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -154,7 +154,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
   
 
@@ -230,13 +230,13 @@
   <span class='kw'>end</span>
 
   <span class='comment'># Make sure we are in a nanoc site directory
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_require_site'>require_site</span>
+</span>  <span class='id identifier rubyid_require_site'>require_site</span>
 
   <span class='comment'># Set VCS if possible
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_vcs'>set_vcs</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:vcs</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</span>  <span class='id identifier rubyid_set_vcs'>set_vcs</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:vcs</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 
   <span class='comment'># Check for -y switch
-</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbol'>:yes</span><span class='rparen'>)</span>
+</span>  <span class='kw'>unless</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:yes</span><span class='rparen'>)</span>
     <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>*************</span><span class='tstring_end'>'</span></span>
     <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>** WARNING **</span><span class='tstring_end'>'</span></span>
     <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>*************</span><span class='tstring_end'>'</span></span>
@@ -261,7 +261,7 @@
   <span class='kw'>end</span>
 
   <span class='comment'># Update
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_data_sources'>data_sources</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_source'>data_source</span><span class='op'>|</span>
+</span>  <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_data_sources'>data_sources</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_data_source'>data_source</span><span class='op'>|</span>
     <span class='id identifier rubyid_data_source'>data_source</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>

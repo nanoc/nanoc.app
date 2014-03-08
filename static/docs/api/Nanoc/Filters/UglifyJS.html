@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Filters::UglifyJS
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -149,7 +149,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs the content through <a href="https://github.com/mishoo/UglifyJS/">UglifyJS</a>.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the content through <a href="https://github.com/mishoo/UglifyJS2/">UglifyJS</a>.</p>
 </div></span>
   
 </li>
@@ -214,29 +214,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Runs the content through <a href="https://github.com/mishoo/UglifyJS/">UglifyJS</a>.
-This method optionally takes options to pass directly to Uglifier:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
-  <span class='symbol'>:mangle</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'># Mangle variables names
-</span>  <span class='symbol'>:toplevel</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='comment'># Mangle top-level variable names
-</span>  <span class='symbol'>:except</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='comment'># Variable names to be excluded from mangling
-</span>  <span class='symbol'>:max_line_length</span> <span class='op'>=&gt;</span> <span class='int'>32</span> <span class='op'>*</span> <span class='int'>1024</span><span class='comma'>,</span> <span class='comment'># Maximum line length
-</span>  <span class='symbol'>:squeeze</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'># Squeeze code resulting in smaller, but less-readable code
-</span>  <span class='symbol'>:seqs</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'># Reduce consecutive statements in blocks into single statement
-</span>  <span class='symbol'>:dead_code</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'># Remove dead code (e.g. after return)
-</span>  <span class='symbol'>:unsafe</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='comment'># Optimizations known to be unsafe in some situations
-</span>  <span class='symbol'>:copyright</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='comment'># Show copyright message
-</span>  <span class='symbol'>:beautify</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='comment'># Ouput indented code
-</span>  <span class='symbol'>:beautify_options</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:indent_level</span> <span class='op'>=&gt;</span> <span class='int'>4</span><span class='comma'>,</span>
-    <span class='symbol'>:indent_start</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
-    <span class='symbol'>:quote_keys</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
-    <span class='symbol'>:space_colon</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
-    <span class='symbol'>:ascii_only</span> <span class='op'>=&gt;</span> <span class='kw'>false</span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span>
-</code></pre>
+    <p>Runs the content through <a href="https://github.com/mishoo/UglifyJS2/">UglifyJS</a>.
+This method optionally takes options to pass directly to Uglifier.</p>
 
 
   </div>
@@ -329,15 +308,15 @@ This method optionally takes options to pass directly to Uglifier:</p>
       <pre class="lines">
 
 
-36
-37
-38
-39</pre>
+16
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/uglify_js.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/uglify_js.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Add filename to load path
 </span>  <span class='const'>Uglifier</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_compile'>compile</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>

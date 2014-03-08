@@ -6,13 +6,13 @@
 <title>
   Module: Nanoc::Extra::TimeExtensions
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -169,7 +169,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The time in an ISO-8601 date format.</p>
+    <p>Returns The time in an ISO-8601 date format.</p>
 
 
   </div>
@@ -208,7 +208,7 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/core_ext/time.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_iso8601_date'>to_iso8601_date</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y-%m-%d</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%Y-%m-%d</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -226,7 +226,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The time in an ISO-8601 time format.</p>
+    <p>Returns The time in an ISO-8601 time format.</p>
 
 
   </div>
@@ -265,7 +265,7 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/core_ext/time.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_iso8601_time'>to_iso8601_time</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_getutc'>getutc</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y-%m-%dT%H:%M:%SZ</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_getutc'>getutc</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%Y-%m-%dT%H:%M:%SZ</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

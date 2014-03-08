@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Layout
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -169,8 +169,7 @@ identifier and a modification time (to speed up compilation).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>This layout&#8217;s identifier, starting and ending with a
-slash.</p>
+    <span class="summary_desc"><div class='inline'><p>This layout&#8217;s identifier, starting and ending with a slash.</p>
 </div></span>
   
 </li>
@@ -674,7 +673,7 @@ attribute instead.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/layout.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@raw_content</span>  <span class='op'>=</span> <span class='id identifier rubyid_raw_content'>raw_content</span>
   <span class='ivar'>@attributes</span>   <span class='op'>=</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
   <span class='ivar'>@identifier</span>   <span class='op'>=</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_cleaned_identifier'>cleaned_identifier</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
@@ -707,7 +706,7 @@ attribute instead.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This layout’s attributes</p>
+    <p>Returns This layout’s attributes</p>
 
 
   </div>
@@ -766,7 +765,7 @@ attribute instead.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This layout’s identifier, starting and ending with a
+    <p>Returns This layout’s identifier, starting and ending with a
 slash</p>
 
 
@@ -827,7 +826,7 @@ slash</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The raw content of this layout</p>
+    <p>Returns The raw content of this layout</p>
 
 
   </div>
@@ -997,7 +996,7 @@ slash</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The checksum for this object. If its contents change,
+    <p>Returns The checksum for this object. If its contents change,
 the checksum will change as well.</p>
 
 
@@ -1095,7 +1094,7 @@ the checksum will change as well.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/layout.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1169,7 +1168,7 @@ the checksum will change as well.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/layout.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hash'>hash</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>^</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>^</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1199,7 +1198,7 @@ the checksum will change as well.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/layout.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> identifier=\&quot;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> identifier=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1374,7 +1373,7 @@ the checksum will change as well.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/layout.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reference'>reference</span>
-  <span class='lbracket'>[</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='rbracket'>]</span>
+  <span class='lbracket'>[</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

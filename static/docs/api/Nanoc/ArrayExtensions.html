@@ -6,13 +6,13 @@
 <title>
   Module: Nanoc::ArrayExtensions
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -189,9 +189,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns a new array where all items&#8217; keys are recursively converted to
-strings by calling <span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span> or
-<span class='object_link'><a href="HashExtensions.html#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">HashExtensions#stringify_keys_recursively</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a new array where all items&#8217; keys are recursively converted to strings by calling <span class='object_link'><a href="#stringify_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#stringify_keys_recursively (method)">#stringify_keys_recursively</a></span> or <span class='object_link'><a href="HashExtensions.html#stringify_keys_recursively-instance_method" title="Nanoc::HashExtensions#stringify_keys_recursively (method)">HashExtensions#stringify_keys_recursively</a></span>.</p>
 </div></span>
   
 </li>
@@ -237,9 +235,7 @@ strings by calling <span class='object_link'><a href="#stringify_keys_recursivel
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns a new array where all items&#8217; keys are recursively converted to
-symbols by calling <span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span> or
-<span class='object_link'><a href="HashExtensions.html#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">HashExtensions#symbolize_keys_recursively</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a new array where all items&#8217; keys are recursively converted to symbols by calling <span class='object_link'><a href="#symbolize_keys_recursively-instance_method" title="Nanoc::ArrayExtensions#symbolize_keys_recursively (method)">#symbolize_keys_recursively</a></span> or <span class='object_link'><a href="HashExtensions.html#symbolize_keys_recursively-instance_method" title="Nanoc::HashExtensions#symbolize_keys_recursively (method)">HashExtensions#symbolize_keys_recursively</a></span>.</p>
 </div></span>
   
 </li>
@@ -301,12 +297,12 @@ result in a different checksum.</p>
       <pre class="lines">
 
 
-64
-65
-66</pre>
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_checksum'>checksum</span>
   <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
@@ -365,8 +361,6 @@ to that message, or #freeze if they do not.</p>
       <pre class="lines">
 
 
-46
-47
 48
 49
 50
@@ -375,10 +369,12 @@ to that message, or #freeze if they do not.</p>
 53
 54
 55
-56</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_freeze_recursively'>freeze_recursively</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_frozen?'>frozen?</span>
@@ -423,12 +419,12 @@ to that message, or #freeze if they do not.</p>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys'>stringify_keys</span>
   <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
@@ -482,17 +478,17 @@ strings by calling <span class='object_link'><a href="#stringify_keys_recursivel
       <pre class="lines">
 
 
-26
-27
 28
 29
-30</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
-  <span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_array'>array</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
+  <span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_array'>array</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
     <span class='id identifier rubyid_array'>array</span> <span class='op'>+</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_element'>element</span> <span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -528,12 +524,12 @@ strings by calling <span class='object_link'><a href="#stringify_keys_recursivel
       <pre class="lines">
 
 
-17
-18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span>
   <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
@@ -591,15 +587,19 @@ symbols by calling <span class='object_link'><a href="#symbolize_keys_recursivel
 11
 12
 13
-14</pre>
+14
+15
+16</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
-  <span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_array'>array</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
-    <span class='id identifier rubyid_array'>array</span> <span class='op'>+</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbolize_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_element'>element</span> <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_array'>array</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
+    <span class='id identifier rubyid_array'>array</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:symbolize_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_element'>element</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_array'>array</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

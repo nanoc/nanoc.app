@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::ItemRepProxy
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -199,8 +199,7 @@ to be given as literals instead of as references to <span class='object_link'><a
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t
-need to be wrapped anymore.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
 </div></span>
   
 </li>
@@ -247,7 +246,7 @@ need to be wrapped anymore.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of ItemRepProxy</p>
+    <p>Returns a new instance of ItemRepProxy</p>
 
 
   </div>
@@ -404,7 +403,7 @@ filter’s #run method</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 45</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_set_assigns'>set_assigns</span>
   <span class='ivar'>@item_rep</span><span class='period'>.</span><span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -549,7 +548,7 @@ snapshot.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 62</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_set_assigns'>set_assigns</span>
 
   <span class='id identifier rubyid_layout'>layout</span> <span class='op'>=</span> <span class='id identifier rubyid_layout_with_identifier'>layout_with_identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='rparen'>)</span>

@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Compiler
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -307,8 +307,7 @@ the specified object.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>The assigns that should be used in the next filter/layout
-operation.</p>
+    <span class="summary_desc"><div class='inline'><p>The assigns that should be used in the next filter/layout operation.</p>
 </div></span>
   
 </li>
@@ -331,8 +330,7 @@ operation.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates the representations of all items as defined by the compilation
-rules.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates the representations of all items as defined by the compilation rules.</p>
 </div></span>
   
 </li>
@@ -355,8 +353,7 @@ rules.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the dependency tracker for this site, creating it first if it
-does not yet exist.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the dependency tracker for this site, creating it first if it does not yet exist.</p>
 </div></span>
   
 </li>
@@ -402,8 +399,7 @@ does not yet exist.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns all objects managed by the site (items, layouts, code snippets,
-site configuration and the rules).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns all objects managed by the site (items, layouts, code snippets, site configuration and the rules).</p>
 </div></span>
   
 </li>
@@ -495,8 +491,7 @@ site configuration and the rules).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The collection of rules to be used
-for compiling this site.</p>
+    <span class="summary_desc"><div class='inline'><p>The collection of rules to be used for compiling this site.</p>
 </div></span>
   
 </li>
@@ -646,7 +641,7 @@ for compiling this site.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The site this compiler belongs to</p>
+    <p>Returns The site this compiler belongs to</p>
 
 
   </div>
@@ -775,7 +770,7 @@ rep or layout, it will be removed from the stack.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>The assigns that should be used in the next filter/layout
+<p>Returns The assigns that should be used in the next filter/layout
 operation</p>
 
 
@@ -828,7 +823,6 @@ operation</p>
       <pre class="lines">
 
 
-267
 268
 269
 270
@@ -844,10 +838,11 @@ operation</p>
 280
 281
 282
-283</pre>
+283
+284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 267</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_assigns_for'>assigns_for</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span>
@@ -901,7 +896,6 @@ rules.</p>
       <pre class="lines">
 
 
-213
 214
 215
 216
@@ -913,10 +907,11 @@ rules.</p>
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_reps'>build_reps</span>
   <span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
@@ -983,14 +978,14 @@ does not yet exist.</p>
       <pre class="lines">
 
 
-185
 186
 187
 188
-189</pre>
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dependency_tracker'>dependency_tracker</span>
   <span class='id identifier rubyid_dt'>dt</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>DependencyTracker</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span> <span class='op'>+</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span><span class='rparen'>)</span>
@@ -1031,7 +1026,6 @@ does not yet exist.</p>
       <pre class="lines">
 
 
-111
 112
 113
 114
@@ -1054,10 +1048,11 @@ does not yet exist.</p>
 131
 132
 133
-134</pre>
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@loaded</span> <span class='op'>||</span> <span class='ivar'>@loading</span>
@@ -1118,13 +1113,13 @@ site configuration and the rules).</p>
       <pre class="lines">
 
 
-204
 205
 206
-207</pre>
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_objects'>objects</span>
   <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span> <span class='op'>+</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span> <span class='op'>+</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_code_snippets'>code_snippets</span> <span class='op'>+</span>
@@ -1146,7 +1141,7 @@ site configuration and the rules).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The outdatedness checker</p>
+    <p>Returns The outdatedness checker</p>
 
 
   </div>
@@ -1177,15 +1172,15 @@ site configuration and the rules).</p>
       <pre class="lines">
 
 
-286
 287
 288
 289
 290
-291</pre>
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 286</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 287</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outdatedness_checker'>outdatedness_checker</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>OutdatednessChecker</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
@@ -1227,13 +1222,13 @@ site configuration and the rules).</p>
       <pre class="lines">
 
 
-195
 196
 197
-198</pre>
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preprocess'>preprocess</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_rules_collection'>rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_preprocessor'>preprocessor</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1273,7 +1268,6 @@ site configuration and the rules).</p>
       <pre class="lines">
 
 
-230
 231
 232
 233
@@ -1301,10 +1295,11 @@ site configuration and the rules).</p>
 255
 256
 257
-258</pre>
+258
+259</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_route_reps'>route_reps</span>
   <span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='op'>|</span>
@@ -1317,7 +1312,7 @@ site configuration and the rules).</p>
 </span>      <span class='id identifier rubyid_basic_path'>basic_path</span> <span class='op'>=</span> <span class='id identifier rubyid_rule'>rule</span><span class='period'>.</span><span class='id identifier rubyid_apply_to'>apply_to</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='symbol'>:compiler</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='rparen'>)</span>
       <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_basic_path'>basic_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
       <span class='kw'>if</span> <span class='id identifier rubyid_basic_path'>basic_path</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^/</span><span class='regexp_end'>}</span></span>
-        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The path returned for the </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> item representation, “</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_basic_path'>basic_path</span><span class='rbrace'>}</span><span class='tstring_content'>”, does not start with a slash. Please ensure that all routing rules return a path that starts with a slash.</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The path returned for the </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> item representation, “</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_basic_path'>basic_path</span><span class='rbrace'>}</span><span class='tstring_content'>”, does not start with a slash. Please ensure that all routing rules return a path that starts with a slash.</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
 
       <span class='comment'># Get raw path by prepending output directory
@@ -1328,7 +1323,7 @@ site configuration and the rules).</p>
       <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:index_filenames</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_index_filename'>index_filename</span><span class='op'>|</span>
         <span class='kw'>if</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='op'>-</span><span class='id identifier rubyid_index_filename'>index_filename</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_index_filename'>index_filename</span>
           <span class='comment'># Strip and stop
-</span>          <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='id identifier rubyid_index_filename'>index_filename</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+</span>          <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_paths'>paths</span><span class='lbracket'>[</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='op'>-</span><span class='id identifier rubyid_index_filename'>index_filename</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='int'>1</span><span class='rbracket'>]</span>
           <span class='kw'>break</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
@@ -1351,7 +1346,7 @@ site configuration and the rules).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The collection of rules to be used
+    <p>Returns The collection of rules to be used
 for compiling this site</p>
 
 
@@ -1384,12 +1379,12 @@ for compiling this site</p>
       <pre class="lines">
 
 
-101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rules_collection'>rules_collection</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>RulesCollection</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -1459,7 +1454,8 @@ longer used, and will simply be ignored when passed to <span class='object_link'
 92
 93
 94
-95</pre>
+95
+96</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 77</span>
@@ -1482,6 +1478,7 @@ longer used, and will simply be ignored when passed to <span class='object_link'
 <span class='kw'>ensure</span>
   <span class='comment'># Cleanup
 </span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Filter</span><span class='op'>::</span><span class='const'>TMP_BINARY_ITEMS_DIR</span><span class='rparen'>)</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>ItemRep</span><span class='op'>::</span><span class='const'>TMP_TEXT_ITEMS_DIR</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1517,7 +1514,6 @@ longer used, and will simply be ignored when passed to <span class='object_link'
       <pre class="lines">
 
 
-164
 165
 166
 167
@@ -1530,10 +1526,11 @@ longer used, and will simply be ignored when passed to <span class='object_link'
 174
 175
 176
-177</pre>
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_store'>store</span>
   <span class='comment'># Calculate rule memory
@@ -1542,7 +1539,7 @@ longer used, and will simply be ignored when passed to <span class='object_link'
   <span class='kw'>end</span>
 
   <span class='comment'># Calculate checksums
-</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_objects'>objects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_obj'>obj</span><span class='op'>|</span>
+</span>  <span class='id identifier rubyid_objects'>objects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_obj'>obj</span><span class='op'>|</span>
     <span class='id identifier rubyid_checksum_store'>checksum_store</span><span class='lbracket'>[</span><span class='id identifier rubyid_obj'>obj</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
   <span class='kw'>end</span>
 
@@ -1583,7 +1580,6 @@ longer used, and will simply be ignored when passed to <span class='object_link'
       <pre class="lines">
 
 
-141
 142
 143
 144
@@ -1599,10 +1595,11 @@ longer used, and will simply be ignored when passed to <span class='object_link'
 154
 155
 156
-157</pre>
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiler.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@unloading</span>

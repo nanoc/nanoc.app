@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Filter
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -204,8 +204,7 @@ instance variables and instance methods.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>A hash containing variables that will be made available during
-filtering.</p>
+    <span class="summary_desc"><div class='inline'><p>A hash containing variables that will be made available during filtering.</p>
 </div></span>
   
 </li>
@@ -241,8 +240,7 @@ filtering.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>True if this filter can be applied to binary item
-representations, false otherwise.</p>
+    <span class="summary_desc"><div class='inline'><p>True if this filter can be applied to binary item representations, false otherwise.</p>
 </div></span>
   
 </li>
@@ -311,8 +309,7 @@ representations, false otherwise.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>True if this filter results in a binary item
-representation, false otherwise.</p>
+    <span class="summary_desc"><div class='inline'><p>True if this filter results in a binary item representation, false otherwise.</p>
 </div></span>
   
 </li>
@@ -367,8 +364,7 @@ representation, false otherwise.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a dependency from the item that is currently being filtered onto
-the given collection of items.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a dependency from the item that is currently being filtered onto the given collection of items.</p>
 </div></span>
   
 </li>
@@ -574,7 +570,7 @@ available during filtering.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 111</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@assigns</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span>
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
@@ -662,7 +658,7 @@ filtering.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>True if this filter can be applied to binary item
+    <p>Returns True if this filter can be applied to binary item
 representations, false otherwise</p>
 
 
@@ -872,7 +868,7 @@ representations, false otherwise</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup'>setup</span>
   <span class='ivar'>@setup</span> <span class='op'>||=</span> <span class='kw'>begin</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_requires'>requires</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_require'>require</span> <span class='id identifier rubyid_r'>r</span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_requires'>requires</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_require'>require</span> <span class='id identifier rubyid_r'>r</span> <span class='rbrace'>}</span>
     <span class='kw'>true</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -892,7 +888,7 @@ representations, false otherwise</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>True if this filter results in a binary item
+    <p>Returns True if this filter results in a binary item
 representation, false otherwise</p>
 
 
@@ -1370,8 +1366,8 @@ value will be the filtered content.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/filter.rb', line 139</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content_or_filename'>content_or_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Nanoc::Filter subclasses must implement #run</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content_or_filename'>content_or_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Nanoc::Filter subclasses must implement #run</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1421,7 +1417,7 @@ to <span class='object_link'><a href="#run-instance_method" title="Nanoc::Filter
 
 <span class='kw'>def</span> <span class='id identifier rubyid_setup_and_run'>setup_and_run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

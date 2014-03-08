@@ -6,13 +6,13 @@
 <title>
   Module: Nanoc::CLI
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -305,15 +305,15 @@
       <pre class="lines">
 
 
-66
-67
-68</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_command'>add_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_root_command'>root_command</span><span class='period'>.</span><span class='id identifier rubyid_add_command'>add_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_root_command'>root_command</span><span class='period'>.</span><span class='id identifier rubyid_add_command'>add_command</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -380,12 +380,12 @@ false if it should not</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_debug='>debug=</span><span class='lparen'>(</span><span class='id identifier rubyid_boolean'>boolean</span><span class='rparen'>)</span>
   <span class='ivar'>@debug</span> <span class='op'>=</span> <span class='id identifier rubyid_boolean'>boolean</span>
@@ -406,7 +406,7 @@ false if it should not</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>True if debug output is enabled, false if not</p>
+    <p>Returns true if debug output is enabled, false if not</p>
 
 
   </div>
@@ -452,12 +452,12 @@ false if it should not</p>
       <pre class="lines">
 
 
-30
-31
-32</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_debug?'>debug?</span>
   <span class='ivar'>@debug</span> <span class='op'>||</span> <span class='kw'>false</span>
@@ -478,7 +478,7 @@ false if it should not</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The root command, i.e. the commandline tool itself</p>
+    <p>Returns The root command, i.e. the commandline tool itself</p>
 
 
   </div>
@@ -509,12 +509,12 @@ false if it should not</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_root_command'>root_command</span>
   <span class='ivar'>@root_command</span>
@@ -568,20 +568,20 @@ false if it should not</p>
       <pre class="lines">
 
 
-49
-50
-51
-52
-53
-54</pre>
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>ErrorHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_while'>handle_while</span> <span class='kw'>do</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_root_command'>root_command</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_setup'>setup</span>
+    <span class='id identifier rubyid_root_command'>root_command</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

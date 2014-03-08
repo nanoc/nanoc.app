@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::Pruner
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -246,7 +246,7 @@ that are not managed by nanoc.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of Pruner</p>
+    <p>Returns a new instance of Pruner</p>
 
 
   </div>
@@ -333,7 +333,7 @@ should actually be deleted.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/pruner.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@site</span>    <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span>
   <span class='ivar'>@dry_run</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:dry_run</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>false</span> <span class='rbrace'>}</span>
   <span class='ivar'>@exclude</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:exclude</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -361,7 +361,7 @@ should actually be deleted.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The site this pruner belongs to</p>
+    <p>Returns The site this pruner belongs to</p>
 
 
   </div>
@@ -425,7 +425,7 @@ should actually be deleted.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>True if the given file is excluded, false otherwise</p>
+    <p>Returns true if the given file is excluded, false otherwise</p>
 
 
   </div>
@@ -557,7 +557,7 @@ should actually be deleted.</p>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>find</span><span class='tstring_end'>'</span></span>
 
   <span class='comment'># Get compiled files
-</span>  <span class='id identifier rubyid_compiled_files'>compiled_files</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+</span>  <span class='id identifier rubyid_compiled_files'>compiled_files</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
     <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='op'>|</span>
       <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span>
     <span class='kw'>end</span>
@@ -566,7 +566,7 @@ should actually be deleted.</p>
   <span class='comment'># Get present files and dirs
 </span>  <span class='id identifier rubyid_present_files'>present_files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_present_dirs'>present_dirs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='const'>Find</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:output_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+  <span class='const'>Find</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:output_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
     <span class='id identifier rubyid_present_files'>present_files</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_f'>f</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_present_dirs'>present_dirs</span>  <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_f'>f</span> <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -575,14 +575,14 @@ should actually be deleted.</p>
 </span>  <span class='id identifier rubyid_stray_files'>stray_files</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_present_files'>present_files</span> <span class='op'>-</span> <span class='id identifier rubyid_compiled_files'>compiled_files</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stray_files'>stray_files</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename_excluded?'>filename_excluded?</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete_file'>delete_file</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_delete_file'>delete_file</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='comment'># Remove empty directories
 </span>  <span class='id identifier rubyid_present_dirs'>present_dirs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_each'>reverse_each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dir'>dir</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_foreach'>foreach</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='kw'>break</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\.\.?\z</span><span class='regexp_end'>/</span></span> <span class='rbrace'>}</span>
     <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename_excluded?'>filename_excluded?</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete_dir'>delete_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_delete_dir'>delete_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

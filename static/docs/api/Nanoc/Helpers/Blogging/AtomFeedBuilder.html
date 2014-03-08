@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Helpers::Blogging::AtomFeedBuilder
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -482,7 +482,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of AtomFeedBuilder</p>
+    <p>Returns a new instance of AtomFeedBuilder</p>
 
 
   </div>
@@ -973,7 +973,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span>
   <span class='id identifier rubyid_buffer'>buffer</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
   <span class='id identifier rubyid_xml'>xml</span> <span class='op'>=</span> <span class='const'>Builder</span><span class='op'>::</span><span class='const'>XmlMarkup</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:target</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_buffer'>buffer</span><span class='comma'>,</span> <span class='symbol'>:indent</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_for_feed'>build_for_feed</span><span class='lparen'>(</span><span class='id identifier rubyid_xml'>xml</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_build_for_feed'>build_for_feed</span><span class='lparen'>(</span><span class='id identifier rubyid_xml'>xml</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_buffer'>buffer</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1006,9 +1006,9 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/blogging.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate'>validate</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate_config'>validate_config</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate_feed_item'>validate_feed_item</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validate_articles'>validate_articles</span>
+  <span class='id identifier rubyid_validate_config'>validate_config</span>
+  <span class='id identifier rubyid_validate_feed_item'>validate_feed_item</span>
+  <span class='id identifier rubyid_validate_articles'>validate_articles</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

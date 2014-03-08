@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::ItemRepRecorderProxy
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -262,8 +262,7 @@ may not need to be recompiled.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t
-need to be wrapped anymore.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
 </div></span>
   
 </li>
@@ -337,7 +336,7 @@ need to be wrapped anymore.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>A new instance of ItemRepRecorderProxy</p>
+<p>Returns a new instance of ItemRepRecorderProxy</p>
 
 
   </div>
@@ -410,7 +409,7 @@ proxy should behave like</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>The list of recorded actions (“rule memory”)</p>
+<p>Returns The list of recorded actions (“rule memory”)</p>
 
 
   </div>
@@ -587,7 +586,7 @@ proxy should behave like</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:filter</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -709,7 +708,7 @@ need to be wrapped anymore.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 59</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span>
     <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:layout</span><span class='comma'>,</span> <span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='rbracket'>]</span>
   <span class='kw'>else</span>
@@ -774,7 +773,7 @@ need to be wrapped anymore.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 70</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:snapshot</span><span class='comma'>,</span> <span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='rbracket'>]</span>
 
   <span class='comment'># Count

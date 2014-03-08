@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::FileProxy
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -212,7 +212,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#respond_to%3F-instance_method" title="#respond_to? (instance method)">- (Boolean) <strong>respond_to?</strong>(meth) </a>
+      <a href="#respond_to%3F-instance_method" title="#respond_to? (instance method)">- (Boolean) <strong>respond_to?</strong>(meth, include_all = false) </a>
     
 
     
@@ -249,7 +249,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of FileProxy</p>
+    <p>Returns a new instance of FileProxy</p>
 
 
   </div>
@@ -364,7 +364,7 @@
       <div class="method_details ">
   <h3 class="signature " id="respond_to?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>respond_to?</strong>(meth) 
+    - (<tt>Boolean</tt>) <strong>respond_to?</strong>(meth, include_all = false) 
   
 
   
@@ -406,7 +406,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/file_proxy.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='comma'>,</span> <span class='id identifier rubyid_include_all'>include_all</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_file_instance_methods'>file_instance_methods</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_meth'>meth</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>

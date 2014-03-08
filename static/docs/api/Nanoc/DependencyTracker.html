@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::DependencyTracker
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -156,8 +156,7 @@ Dependency information is stored in the <code>tmp/dependencies</code> file.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>The compiler that corresponds to this
-dependency tracker.</p>
+    <span class="summary_desc"><div class='inline'><p>The compiler that corresponds to this dependency tracker.</p>
 </div></span>
   
 </li>
@@ -185,8 +184,7 @@ dependency tracker.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>The list of items and
-layouts that are being tracked by the dependency tracker.</p>
+    <span class="summary_desc"><div class='inline'><p>The list of items and layouts that are being tracked by the dependency tracker.</p>
 </div></span>
   
 </li>
@@ -367,8 +365,7 @@ layouts that are being tracked by the dependency tracker.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Starts listening for dependency messages (<code>:visit_started</code> and
-<code>:visit_ended</code>) and start recording dependencies.</p>
+    <span class="summary_desc"><div class='inline'><p>Starts listening for dependency messages (<code>:visit_started</code> and <code>:visit_ended</code>) and start recording dependencies.</p>
 </div></span>
   
 </li>
@@ -577,7 +574,7 @@ and layouts whose dependencies should be managed</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>The compiler that corresponds to this
+<p>Returns The compiler that corresponds to this
 dependency tracker</p>
 
 
@@ -642,7 +639,7 @@ dependency tracker</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>The list of items and
+<p>Returns The list of items and
 layouts that are being tracked by the dependency tracker</p>
 
 
@@ -749,12 +746,12 @@ forget all dependencies</p>
       <pre class="lines">
 
 
-151
-152
-153</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forget_dependencies_for'>forget_dependencies_for</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='ivar'>@graph</span><span class='period'>.</span><span class='id identifier rubyid_delete_edges_to'>delete_edges_to</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
@@ -795,15 +792,15 @@ forget all dependencies</p>
       <pre class="lines">
 
 
-161
-162
-163</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_graph'>load_graph</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span>
+  <span class='id identifier rubyid_load'>load</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -888,12 +885,12 @@ which to fetch the direct predecessors</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_objects_causing_outdatedness_of'>objects_causing_outdatedness_of</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='ivar'>@graph</span><span class='period'>.</span><span class='id identifier rubyid_direct_predecessors_of'>direct_predecessors_of</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
@@ -976,12 +973,12 @@ the given object</p>
       <pre class="lines">
 
 
-120
-121
-122</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_objects_outdated_due_to'>objects_outdated_due_to</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='ivar'>@graph</span><span class='period'>.</span><span class='id identifier rubyid_direct_successors_of'>direct_successors_of</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span>
@@ -1058,13 +1055,13 @@ outdated if the destination is outdated</p>
       <pre class="lines">
 
 
-135
-136
-137
-138</pre>
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_record_dependency'>record_dependency</span><span class='lparen'>(</span><span class='id identifier rubyid_src'>src</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span><span class='rparen'>)</span>
   <span class='comment'># Warning! dst and src are *reversed* here!
@@ -1139,7 +1136,7 @@ outdated if the destination is outdated</p>
 </span>  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_obj'>obj</span><span class='op'>|</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
       <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:dependency_created</span><span class='comma'>,</span> <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='comma'>,</span> <span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_record_dependency'>record_dependency</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='comma'>,</span> <span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_record_dependency'>record_dependency</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='comma'>,</span> <span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
     <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -1187,12 +1184,22 @@ outdated if the destination is outdated</p>
 73
 74
 75
-76</pre>
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
+  <span class='comment'># Sanity check
+</span>  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Internal inconsistency: dependency tracker stack not empty at end of compilation</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+
   <span class='comment'># Unregister
 </span>  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_remove'>remove</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_remove'>remove</span><span class='lparen'>(</span><span class='symbol'>:visit_ended</span><span class='comma'>,</span>   <span class='kw'>self</span><span class='rparen'>)</span>
@@ -1233,15 +1240,15 @@ outdated if the destination is outdated</p>
       <pre class="lines">
 
 
-156
-157
-158</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_store_graph'>store_graph</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_store'>store</span>
+  <span class='id identifier rubyid_store'>store</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1263,7 +1270,7 @@ outdated if the destination is outdated</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>The topmost item on the stack, i.e. the one currently being
+<p>Returns The topmost item on the stack, i.e. the one currently being
 compiled</p>
 
 
@@ -1296,12 +1303,12 @@ compiled</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_top'>top</span>
   <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
@@ -1347,12 +1354,12 @@ compiled</p>
       <pre class="lines">
 
 
-166
-167
-168</pre>
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='ivar'>@graph</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span> <span class='kw'>nil</span> <span class='rbracket'>]</span> <span class='op'>+</span> <span class='ivar'>@objects</span><span class='rparen'>)</span>

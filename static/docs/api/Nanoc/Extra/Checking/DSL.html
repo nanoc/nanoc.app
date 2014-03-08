@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::Checking::DSL
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -267,7 +267,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of DSL</p>
+    <p>Returns a new instance of DSL</p>
 
 
   </div>
@@ -375,7 +375,7 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_file'>from_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_dsl'>dsl</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_dsl'>dsl</span> <span class='op'>=</span> <span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_dsl'>dsl</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_dsl'>dsl</span>
 <span class='kw'>end</span></pre>

@@ -6,13 +6,13 @@
 <title>
   Class: OrderedHash
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -108,7 +108,7 @@
 
 <p>DESCRIPTION
    Hash with preserved order and some array-like extensions
-   Public domain. </p>
+   Public domain.</p>
 
 <p>THANKS
    Andrew Johnson for his suggestions and fixes of Hash[],
@@ -227,7 +227,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(hsh2) </a>
+      <a href="#%3D%3D-instance_method" title="#== (instance method)">- (Object) <strong>==</strong>(other) </a>
     
 
     
@@ -1048,7 +1048,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of OrderedHash</p>
+    <p>Returns a new instance of OrderedHash</p>
 
 
   </div>
@@ -1062,13 +1062,13 @@
       <pre class="lines">
 
 
-31
-32
 33
-34</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -1111,12 +1111,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_order'>order</span>
   <span class='ivar'>@order</span>
@@ -1153,12 +1153,12 @@
       <pre class="lines">
 
 
-164
-165
-166</pre>
+195
+196
+197</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 195</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_yaml_style'>to_yaml_style</span>
   <span class='ivar'>@to_yaml_style</span>
@@ -1190,7 +1190,6 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -1203,17 +1202,18 @@
 26
 27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='op'>[]</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span>
+<span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hsh'>hsh</span> <span class='op'>=</span> <span class='const'>OrderedHash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-  <span class='kw'>if</span> <span class='const'>Hash</span> <span class='op'>===</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_hsh'>hsh</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-  <span class='kw'>elsif</span> <span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>%</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>!=</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>odd number of elements for Hash</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_odd?'>odd?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>odd number of elements for Hash</span><span class='tstring_end'>'</span></span>
   <span class='kw'>else</span>
     <span class='int'>0</span><span class='period'>.</span><span class='id identifier rubyid_step'>step</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span>
       <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_a'>a</span> <span class='op'>+</span> <span class='int'>1</span>
@@ -1236,7 +1236,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="==-instance_method">
   
-    - (<tt>Object</tt>) <strong>==</strong>(hsh2) 
+    - (<tt>Object</tt>) <strong>==</strong>(other) 
   
 
   
@@ -1248,17 +1248,17 @@
       <pre class="lines">
 
 
-44
-45
-46
-47</pre>
+49
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 49</span>
 
-<span class='kw'>def</span> <span class='op'>==</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
-    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@order</span> <span class='op'>!=</span> <span class='id identifier rubyid_hsh2'>hsh2</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span>
-    <span class='kw'>super</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
+<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@order</span> <span class='op'>!=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span>
+  <span class='kw'>super</span> <span class='id identifier rubyid_other'>other</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1280,12 +1280,12 @@
       <pre class="lines">
 
 
-160
-161
-162</pre>
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid___class__'>__class__</span>
   <span class='const'>OrderedHash</span>
@@ -1310,12 +1310,12 @@
       <pre class="lines">
 
 
-157
-158
-159</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='kw'>class</span>
   <span class='const'>Hash</span>
@@ -1340,17 +1340,17 @@
       <pre class="lines">
 
 
-48
-49
-50
-51</pre>
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear'>clear</span>
-    <span class='ivar'>@order</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='kw'>super</span>
+  <span class='ivar'>@order</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1372,17 +1372,17 @@
       <pre class="lines">
 
 
-52
-53
-54
-55</pre>
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 59</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_key'>key</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_key'>key</span>
-    <span class='kw'>super</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_key'>key</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1404,21 +1404,21 @@
       <pre class="lines">
 
 
-69
-70
-71
-72
-73
-74</pre>
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_if'>delete_if</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> 
-        <span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_k'>k</span> <span class='kw'>if</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-    <span class='rbrace'>}</span>
-    <span class='kw'>self</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
+    <span class='id identifier rubyid_delete'>delete</span> <span class='id identifier rubyid_k'>k</span> <span class='kw'>if</span> <span class='kw'>yield</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1444,17 +1444,17 @@
       <pre class="lines">
 
 
-64
-65
-66
-67</pre>
+74
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-    <span class='kw'>self</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1476,17 +1476,17 @@
       <pre class="lines">
 
 
-56
-57
-58
-59</pre>
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_key'>each_key</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
-    <span class='kw'>self</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1508,17 +1508,17 @@
       <pre class="lines">
 
 
-60
-61
-62
-63</pre>
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_value'>each_value</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-    <span class='kw'>self</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1540,13 +1540,13 @@
       <pre class="lines">
 
 
-192
-193
-194
-195</pre>
+224
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 224</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_with_index'>each_with_index</span>
   <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span> <span class='rbrace'>}</span>
@@ -1572,15 +1572,15 @@
       <pre class="lines">
 
 
-83
-84
-85</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_first'>first</span>
-  <span class='lbrace'>{</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+  <span class='lbrace'>{</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1602,19 +1602,19 @@
       <pre class="lines">
 
 
-139
-140
-141
-142
-143</pre>
+165
+166
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-    <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_ary'>ary</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>}</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>=&gt;</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span> <span class='rbrace'>}</span>
+  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_ary'>ary</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>}</span><span class='tstring_end'>'</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1636,19 +1636,19 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93</pre>
+105
+106
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_invert'>invert</span>
-    <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>    
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_hsh2'>hsh2</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_hsh2'>hsh2</span>
+  <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_hsh2'>hsh2</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_hsh2'>hsh2</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1670,15 +1670,15 @@
       <pre class="lines">
 
 
-80
-81
-82</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_keys'>keys</span>
-    <span class='ivar'>@order</span>
+  <span class='ivar'>@order</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1700,15 +1700,15 @@
       <pre class="lines">
 
 
-86
-87
-88</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last'>last</span>
-  <span class='lbrace'>{</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+  <span class='lbrace'>{</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1730,15 +1730,15 @@
       <pre class="lines">
 
 
-149
-150
-151</pre>
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 177</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_hsh2'>hsh2</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_hsh2'>hsh2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_dup'>dup</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_hsh2'>hsh2</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1760,12 +1760,12 @@
       <pre class="lines">
 
 
-38</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 41</span>
 
-<span class='kw'>alias</span> <span class='id identifier rubyid_orig_store'>orig_store</span> <span class='id identifier rubyid_store'>store</span></pre>
+<span class='id identifier rubyid_alias_method'>alias_method</span> <span class='symbol'>:orig_store</span><span class='comma'>,</span> <span class='symbol'>:store</span></pre>
     </td>
   </tr>
 </table>
@@ -1786,17 +1786,17 @@
       <pre class="lines">
 
 
-127
-128
-129
-130</pre>
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pop'>pop</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1818,27 +1818,27 @@
       <pre class="lines">
 
 
-118
-119
-120
-121
-122
-123
-124
-125
-126</pre>
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 140</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span>
-    <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_k'>k</span>
-        <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_k'>k</span>
-        <span class='id identifier rubyid_orig_store'>orig_store</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
-        <span class='kw'>true</span>
-    <span class='kw'>else</span>
-        <span class='kw'>false</span>
-    <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_k'>k</span>
+    <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_k'>k</span>
+    <span class='id identifier rubyid_orig_store'>orig_store</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+    <span class='kw'>true</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1860,15 +1860,15 @@
       <pre class="lines">
 
 
-94
-95
-96</pre>
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 111</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reject'>reject</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1890,17 +1890,17 @@
       <pre class="lines">
 
 
-97
-98
-99
-100</pre>
+115
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 115</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reject!'>reject!</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
-    <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>=</span> <span class='id identifier rubyid_reject'>reject</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
-    <span class='kw'>self</span> <span class='op'>==</span> <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_reject!'>reject!</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>=</span> <span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>self</span> <span class='op'>==</span> <span class='id identifier rubyid_hsh2'>hsh2</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1922,17 +1922,17 @@
       <pre class="lines">
 
 
-101
-102
-103
-104</pre>
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 120</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
-    <span class='ivar'>@order</span> <span class='op'>=</span> <span class='id identifier rubyid_hsh2'>hsh2</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span> 
-    <span class='kw'>super</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='id identifier rubyid_hsh2'>hsh2</span><span class='rparen'>)</span>
+  <span class='ivar'>@order</span> <span class='op'>=</span> <span class='id identifier rubyid_hsh2'>hsh2</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
+  <span class='kw'>super</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1954,19 +1954,19 @@
       <pre class="lines">
 
 
-152
-153
-154
-155
-156</pre>
+181
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span>
-    <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_ary'>ary</span>
+  <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='kw'>yield</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_ary'>ary</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1988,17 +1988,17 @@
       <pre class="lines">
 
 
-105
-106
-107
-108</pre>
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_shift'>shift</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
-    <span class='id identifier rubyid_key'>key</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>super</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2024,17 +2024,17 @@
       <pre class="lines">
 
 
-39
-40
-41
-42</pre>
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_store'>store</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_a'>a</span> <span class='kw'>unless</span> <span class='id identifier rubyid_has_key?'>has_key?</span> <span class='id identifier rubyid_a'>a</span>
-    <span class='kw'>super</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_store'>store</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_a'>a</span> <span class='kw'>unless</span> <span class='id identifier rubyid_key?'>key?</span> <span class='id identifier rubyid_a'>a</span>
+  <span class='kw'>super</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2056,15 +2056,15 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_store_only'>store_only</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span>
-    <span class='id identifier rubyid_store'>store</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span><span class='id identifier rubyid_b'>b</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_store_only'>store_only</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_store'>store</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2086,19 +2086,19 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135</pre>
+155
+156
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_a'>to_a</span>
-    <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_ary'>ary</span>
+  <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_ary'>ary</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2120,15 +2120,15 @@
       <pre class="lines">
 
 
-136
-137
-138</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2150,27 +2150,27 @@
       <pre class="lines">
 
 
-109
-110
-111
-112
-113
-114
-115
-116
-117</pre>
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 130</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_unshift'>unshift</span> <span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span>
-    <span class='kw'>unless</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_k'>k</span>
-        <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='id identifier rubyid_k'>k</span>
-        <span class='id identifier rubyid_orig_store'>orig_store</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
-        <span class='kw'>true</span>
-    <span class='kw'>else</span>
-        <span class='kw'>false</span>
-    <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_unshift'>unshift</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_k'>k</span>
+    <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='id identifier rubyid_k'>k</span>
+    <span class='id identifier rubyid_orig_store'>orig_store</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+    <span class='kw'>true</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2196,17 +2196,17 @@
       <pre class="lines">
 
 
-144
-145
-146
-147</pre>
+171
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 171</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span> <span class='id identifier rubyid_hsh2'>hsh2</span>
-    <span class='id identifier rubyid_hsh2'>hsh2</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span> <span class='rbrace'>}</span>
-    <span class='kw'>self</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_hsh2'>hsh2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hsh2'>hsh2</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span> <span class='rbrace'>}</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2228,19 +2228,19 @@
       <pre class="lines">
 
 
-75
-76
-77
-78
-79</pre>
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_values'>values</span>
-    <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_ary'>ary</span>
+  <span class='id identifier rubyid_ary'>ary</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@order</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_ary'>ary</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_ary'>ary</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2262,12 +2262,16 @@
       <pre class="lines">
 
 
-190</pre>
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 220</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_yaml_inline!'>yaml_inline!</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_yaml_inline'>yaml_inline</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_yaml_inline!'>yaml_inline!</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_yaml_inline'>yaml_inline</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -2288,54 +2292,50 @@
       <pre class="lines">
 
 
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189</pre>
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 165</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/ordered_hash.rb', line 196</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_yaml_inline='>yaml_inline=</span> <span class='id identifier rubyid_bool'>bool</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>to_yaml_style</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_yaml_inline='>yaml_inline=</span><span class='lparen'>(</span><span class='id identifier rubyid_bool'>bool</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>to_yaml_style</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_yaml_style'>to_yaml_style</span> <span class='op'>=</span> <span class='symbol'>:inline</span>
   <span class='kw'>else</span>
     <span class='kw'>unless</span> <span class='kw'>defined?</span> <span class='ivar'>@__yaml_inline_meth</span>
       <span class='ivar'>@__yaml_inline_meth</span> <span class='op'>=</span>
-        <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_opts'>opts</span><span class='op'>|</span>
-          <span class='const'>YAML</span><span class='op'>::</span><span class='id identifier rubyid_quick_emit'>quick_emit</span><span class='lparen'>(</span><span class='id identifier rubyid_object_id'>object_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_emitter'>emitter</span><span class='op'>|</span>
-            <span class='id identifier rubyid_emitter'>emitter</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{ </span><span class='tstring_end'>'</span></span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_kv'>kv</span><span class='op'>|</span> <span class='id identifier rubyid_kv'>kv</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>: </span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> }</span><span class='tstring_end'>'</span></span>
-          <span class='rbrace'>}</span>
-        <span class='rbrace'>}</span>
+      <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_opts'>opts</span><span class='op'>|</span>
+        <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_quick_emit'>quick_emit</span><span class='lparen'>(</span><span class='id identifier rubyid_object_id'>object_id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_emitter'>emitter</span><span class='op'>|</span>
+          <span class='id identifier rubyid_emitter'>emitter</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>{ </span><span class='tstring_end'>'</span></span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_kv'>kv</span><span class='op'>|</span> <span class='id identifier rubyid_kv'>kv</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>: </span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> }</span><span class='tstring_end'>'</span></span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
       <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
-        <span class='kw'>def</span> <span class='id identifier rubyid_to_yaml'>to_yaml</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-          <span class='kw'>begin</span>
-            <span class='ivar'>@__yaml_inline</span> <span class='op'>?</span> <span class='ivar'>@__yaml_inline_meth</span><span class='lbracket'>[</span> <span class='id identifier rubyid_opts'>opts</span> <span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>super</span>
-          <span class='kw'>rescue</span>
-            <span class='ivar'>@to_yaml_style</span> <span class='op'>=</span> <span class='symbol'>:inline</span>
-            <span class='kw'>super</span>
-          <span class='kw'>end</span>
+        <span class='kw'>def</span> <span class='id identifier rubyid_to_yaml'>to_yaml</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+          <span class='ivar'>@__yaml_inline</span> <span class='op'>?</span> <span class='ivar'>@__yaml_inline_meth</span><span class='lbracket'>[</span> <span class='id identifier rubyid_opts'>opts</span> <span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>super</span>
+        <span class='kw'>rescue</span>
+          <span class='ivar'>@to_yaml_style</span> <span class='op'>=</span> <span class='symbol'>:inline</span>
+          <span class='kw'>super</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>

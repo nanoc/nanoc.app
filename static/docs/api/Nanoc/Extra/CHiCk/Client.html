@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::CHiCk::Client
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -123,7 +123,7 @@
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='symbol'>:cache</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:metastore</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file:tmp/rack/cache.meta</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> 
+    <span class='symbol'>:metastore</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file:tmp/rack/cache.meta</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
     <span class='symbol'>:entitystore</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file:tmp/rack/cache.body</span><span class='tstring_end'>'</span></span>
   <span class='rbrace'>}</span><span class='comma'>,</span>
   <span class='symbol'>:cache_controller</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
@@ -213,7 +213,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of Client</p>
+    <p>Returns a new instance of Client</p>
 
 
   </div>
@@ -227,17 +227,17 @@
       <pre class="lines">
 
 
-27
-28
 29
 30
 31
-32</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Get options
 </span>  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='const'>DEFAULT_OPTIONS</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>DEFAULT_OPTIONS</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -270,8 +270,6 @@
       <pre class="lines">
 
 
-34
-35
 36
 37
 38
@@ -293,19 +291,21 @@
 54
 55
 56
-57</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='comment'># Build app
 </span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='ivar'>@options</span>
-  <span class='ivar'>@app</span> <span class='op'>||=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span>
+  <span class='ivar'>@app</span> <span class='op'>||=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_use'>use</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Cache</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='symbol'>:verbose</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_use'>use</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>CHiCk</span><span class='op'>::</span><span class='const'>CacheController</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:cache_controller</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_run'>run</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>CHiCk</span><span class='op'>::</span><span class='const'>RackClient</span>
-  <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># Build environment for request
 </span>  <span class='id identifier rubyid_env'>env</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>MockRequest</span><span class='period'>.</span><span class='id identifier rubyid_env_for'>env_for</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='symbol'>:method</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>GET</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>

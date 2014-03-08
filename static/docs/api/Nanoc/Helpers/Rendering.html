@@ -6,13 +6,13 @@
 <title>
   Module: Nanoc::Helpers::Rendering
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -203,7 +203,7 @@ will be made available as instance variables inside the partial.</p>
       
       <pre class="example code"><code>
 &lt;%= render 'head' %&gt; - MIDDLE - &lt;%= render 'foot' %&gt;
-# =&gt; &quot;HEAD - MIDDLE - FOOT&quot; </code></pre>
+# =&gt; &quot;HEAD - MIDDLE - FOOT&quot;</code></pre>
     
       
         <p class="example_title"><div class='inline'><p>Rendering a head partial with a custom title</p>
@@ -409,7 +409,7 @@ layout specifies an unknown filter</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/rendering.rb', line 80</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_other_assigns'>other_assigns</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_other_assigns'>other_assigns</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Find layout
 </span>  <span class='id identifier rubyid_layout'>layout</span> <span class='op'>=</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_cleaned_identifier'>cleaned_identifier</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>UnknownLayout</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_cleaned_identifier'>cleaned_identifier</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_layout'>layout</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>

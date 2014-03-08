@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::AutoCompiler
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -305,7 +305,7 @@ It also serves static files such as stylesheets and images.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The site this autocompiler belongs to</p>
+    <p>Returns The site this autocompiler belongs to</p>
 
 
   </div>
@@ -370,7 +370,7 @@ It also serves static files such as stylesheets and images.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Calls the autocompiler. The behaviour of this method is defined by the
-<a href="http://rack.rubyforge.org/doc/files/SPEC.html">Rack specification</a>.</p>
+<a href="http://rack.rubyforge.org/doc/SPEC.html">Rack specification</a>.</p>
 
 
   </div>
@@ -478,7 +478,7 @@ body, as defined by the Rack specification</p>
 </span>    <span class='id identifier rubyid_build_site'>build_site</span>
 
     <span class='comment'># Find rep
-</span>    <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Utils</span><span class='op'>::</span><span class='id identifier rubyid_unescape'>unescape</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PATH_INFO</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_unescape'>unescape</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>PATH_INFO</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_reps'>reps</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_reps'>reps</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
     <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span>
       <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>==</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>||</span>

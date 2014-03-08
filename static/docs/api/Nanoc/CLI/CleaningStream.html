@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::CLI::CleaningStream
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -544,7 +544,7 @@ used to strip ANSI color sequences, for instance.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of CleaningStream</p>
+    <p>Returns a new instance of CleaningStream</p>
 
 
   </div>
@@ -633,15 +633,19 @@ used to strip ANSI color sequences, for instance.</p>
       <pre class="lines">
 
 
-48
-49
-50</pre>
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clean'>clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid__nanoc_swallow_broken_pipe_errors_while'>_nanoc_swallow_broken_pipe_errors_while</span> <span class='kw'>do</span>
+    <span class='ivar'>@stream</span><span class='period'>.</span><span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid__nanoc_clean'>_nanoc_clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -745,12 +749,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
@@ -805,12 +809,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exist?'>exist?</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span>
@@ -865,12 +869,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-98
-99
-100</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists?'>exists?</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span>
@@ -912,15 +916,19 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-58
-59
-60</pre>
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_flush'>flush</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+  <span class='id identifier rubyid__nanoc_swallow_broken_pipe_errors_while'>_nanoc_swallow_broken_pipe_errors_while</span> <span class='kw'>do</span>
+    <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -959,15 +967,19 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+74
+75
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_print'>print</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clean'>clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid__nanoc_swallow_broken_pipe_errors_while'>_nanoc_swallow_broken_pipe_errors_while</span> <span class='kw'>do</span>
+    <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_print'>print</span><span class='lparen'>(</span><span class='id identifier rubyid__nanoc_clean'>_nanoc_clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1006,15 +1018,19 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ss'>ss</span><span class='op'>|</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clean'>clean</span><span class='lparen'>(</span><span class='id identifier rubyid_ss'>ss</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid__nanoc_swallow_broken_pipe_errors_while'>_nanoc_swallow_broken_pipe_errors_while</span> <span class='kw'>do</span>
+    <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ss'>ss</span><span class='op'>|</span> <span class='id identifier rubyid__nanoc_clean'>_nanoc_clean</span><span class='lparen'>(</span><span class='id identifier rubyid_ss'>ss</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1115,12 +1131,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reopen'>reopen</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_reopen'>reopen</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
@@ -1162,12 +1178,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-78
-79
-80</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_string'>string</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_string'>string</span>
@@ -1209,12 +1225,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-63
-64
-65</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tell'>tell</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_tell'>tell</span>
@@ -1269,12 +1285,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tty?'>tty?</span>
   <span class='ivar'>@cached_is_tty</span> <span class='op'>||=</span> <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_tty?'>tty?</span>
@@ -1316,12 +1332,12 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-103
-104
-105</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_winsize'>winsize</span>
   <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_winsize'>winsize</span>
@@ -1363,15 +1379,15 @@ stream cleaner to add</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_winsize='>winsize=</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_winsize'>winsize</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
+  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_winsize'>winsize</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1412,13 +1428,17 @@ stream cleaner to add</p>
 
 43
 44
-45</pre>
+45
+46
+47</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/cli/cleaning_stream.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
-  <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clean'>clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid__nanoc_swallow_broken_pipe_errors_while'>_nanoc_swallow_broken_pipe_errors_while</span> <span class='kw'>do</span>
+    <span class='ivar'>@stream</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid__nanoc_clean'>_nanoc_clean</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

@@ -6,13 +6,13 @@
 <title>
   Module: Nanoc::Helpers::Breadcrumbs
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -127,8 +127,7 @@ page hierarchy.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a breadcrumb trail leading from the current item to its parent,
-to its parent’s parent, etc, until the root item is reached.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a breadcrumb trail leading from the current item to its parent, to its parent’s parent, etc, until the root item is reached.</p>
 </div></span>
   
 </li>
@@ -217,7 +216,7 @@ with the item itself</p>
     <span class='id identifier rubyid_idx'>idx</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_idx_start'>idx_start</span><span class='rparen'>)</span>
     <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_idx'>idx</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
-    <span class='id identifier rubyid_idx_start'>idx_start</span> <span class='op'>=</span> <span class='id identifier rubyid_idx'>idx</span><span class='op'>+</span><span class='int'>1</span>
+    <span class='id identifier rubyid_idx_start'>idx_start</span> <span class='op'>=</span> <span class='id identifier rubyid_idx'>idx</span> <span class='op'>+</span> <span class='int'>1</span>
     <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>=</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_idx'>idx</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_trail'>trail</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>

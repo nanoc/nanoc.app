@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Extra::Checking::Checks::ExternalLinks::ArrayEnumerator
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -179,7 +179,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of ArrayEnumerator</p>
+    <p>Returns a new instance of ArrayEnumerator</p>
 
 
   </div>
@@ -247,7 +247,7 @@
 <span class='kw'>def</span> <span class='kw'>next</span>
   <span class='ivar'>@mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
     <span class='ivar'>@index</span> <span class='op'>+=</span> <span class='int'>1</span>
-    <span class='kw'>return</span> <span class='ivar'>@array</span><span class='lbracket'>[</span><span class='ivar'>@index</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>return</span> <span class='ivar'>@array</span><span class='lbracket'>[</span><span class='ivar'>@index</span> <span class='op'>-</span> <span class='int'>1</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

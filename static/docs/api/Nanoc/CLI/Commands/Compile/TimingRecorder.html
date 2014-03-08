@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::CLI::Commands::Compile::TimingRecorder
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -120,6 +120,38 @@
 
   
     <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_for%3F-class_method" title="enable_for? (class method)">+ (Boolean) <strong>enable_for?</strong>(command_runner) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
       Instance Method Summary
       <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
     </h2>
@@ -220,7 +252,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of TimingRecorder</p>
+    <p>Returns a new instance of TimingRecorder</p>
 
 
   </div>
@@ -276,19 +308,19 @@
       <pre class="lines">
 
 
-142
-143
-144
-145
-146</pre>
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 164</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@filter_times</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@times</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
-  <span class='ivar'>@reps</span>       <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:reps</span><span class='rparen'>)</span>
+  <span class='ivar'>@reps</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:reps</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -297,6 +329,72 @@
   
 </div>
 
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="enable_for?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>enable_for?</strong>(command_runner) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li>Listener#enable_for?</li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+159
+160
+161</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 159</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_enable_for?'>enable_for?</span><span class='lparen'>(</span><span class='id identifier rubyid_command_runner'>command_runner</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command_runner'>command_runner</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:verbose</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -334,26 +432,26 @@
       <pre class="lines">
 
 
-149
-150
-151
-152
-153
-154
-155
-156
-157</pre>
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='op'>|</span>
-    <span class='ivar'>@filter_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='ivar'>@filter_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
+    <span class='ivar'>@times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='ivar'>@times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:start</span> <span class='op'>=&gt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:filtering_ended</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='op'>|</span>
-    <span class='ivar'>@filter_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='ivar'>@filter_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
+    <span class='ivar'>@times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='lbracket'>[</span><span class='symbol'>:stop</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -393,17 +491,17 @@
       <pre class="lines">
 
 
-160
-161
-162
-163</pre>
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
+  <span class='id identifier rubyid_print_profiling_feedback'>print_profiling_feedback</span>
   <span class='kw'>super</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_print_profiling_feedback'>print_profiling_feedback</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

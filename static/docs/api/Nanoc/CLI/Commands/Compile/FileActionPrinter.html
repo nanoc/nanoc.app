@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::CLI::Commands::Compile::FileActionPrinter
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -206,7 +206,12 @@
   
   
   
-  <div id="constructor_details" class="method_details_list">
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Listener.html" title="Nanoc::CLI::Commands::Compile::Listener (class)">Listener</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Listener.html#enable_for%3F-class_method" title="Nanoc::CLI::Commands::Compile::Listener.enable_for? (method)">enable_for?</a></span></p>
+<div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
     <div class="method_details first">
@@ -220,7 +225,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A new instance of FileActionPrinter</p>
+    <p>Returns a new instance of FileActionPrinter</p>
 
 
   </div>
@@ -276,19 +281,19 @@
       <pre class="lines">
 
 
-282
-283
-284
-285
-286</pre>
+333
+334
+335
+336
+337</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 282</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 333</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@rep_times</span>       <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@start_times</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 
-  <span class='ivar'>@reps</span>            <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:reps</span><span class='rparen'>)</span>
+  <span class='ivar'>@reps</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:reps</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -334,36 +339,50 @@
       <pre class="lines">
 
 
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302</pre>
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 289</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 340</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:compilation_started</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='op'>|</span>
-    <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
-  <span class='kw'>end</span>
-  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:compilation_ended</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='op'>|</span>
-    <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span>
+    <span class='ivar'>@start_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
   <span class='kw'>end</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:rep_written</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_is_created'>is_created</span><span class='comma'>,</span> <span class='id identifier rubyid_is_modified'>is_modified</span><span class='op'>|</span>
-    <span class='id identifier rubyid_action'>action</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_is_created'>is_created</span> <span class='op'>?</span> <span class='symbol'>:create</span> <span class='op'>:</span> <span class='lparen'>(</span><span class='id identifier rubyid_is_modified'>is_modified</span> <span class='op'>?</span> <span class='symbol'>:update</span> <span class='op'>:</span> <span class='symbol'>:identical</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_level'>level</span>  <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_is_created'>is_created</span> <span class='op'>?</span> <span class='symbol'>:high</span>   <span class='op'>:</span> <span class='lparen'>(</span><span class='id identifier rubyid_is_modified'>is_modified</span> <span class='op'>?</span> <span class='symbol'>:high</span>   <span class='op'>:</span> <span class='symbol'>:low</span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_duration'>duration</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='rbracket'>]</span>
-    <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='lparen'>(</span><span class='id identifier rubyid_level'>level</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_duration'>duration</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@start_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_path'>path</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='ivar'>@start_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_path'>path</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>nil</span>
+    <span class='id identifier rubyid_action'>action</span> <span class='op'>=</span>
+      <span class='kw'>case</span>
+      <span class='kw'>when</span> <span class='id identifier rubyid_is_created'>is_created</span>  <span class='kw'>then</span> <span class='symbol'>:create</span>
+      <span class='kw'>when</span> <span class='id identifier rubyid_is_modified'>is_modified</span> <span class='kw'>then</span> <span class='symbol'>:update</span>
+      <span class='kw'>else</span> <span class='symbol'>:identical</span>
+      <span class='kw'>end</span>
+    <span class='id identifier rubyid_level'>level</span> <span class='op'>=</span>
+      <span class='kw'>case</span>
+      <span class='kw'>when</span> <span class='id identifier rubyid_is_created'>is_created</span>  <span class='kw'>then</span> <span class='symbol'>:high</span>
+      <span class='kw'>when</span> <span class='id identifier rubyid_is_modified'>is_modified</span> <span class='kw'>then</span> <span class='symbol'>:high</span>
+      <span class='kw'>else</span> <span class='symbol'>:low</span>
+      <span class='kw'>end</span>
+    <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_level'>level</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -403,27 +422,23 @@
       <pre class="lines">
 
 
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314</pre>
+363
+364
+365
+366
+367
+368
+369
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 305</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 363</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='kw'>super</span>
   <span class='ivar'>@reps</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='op'>!</span><span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_compiled?'>compiled?</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='op'>|</span>
-    <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_paths'>raw_paths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='op'>|</span>
-      <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_filename'>filename</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-      <span class='id identifier rubyid_duration'>duration</span> <span class='op'>=</span> <span class='ivar'>@rep_times</span><span class='lbracket'>[</span><span class='id identifier rubyid_filename'>filename</span><span class='rbracket'>]</span>
-      <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_file'>file</span><span class='lparen'>(</span><span class='symbol'>:high</span><span class='comma'>,</span> <span class='symbol'>:skip</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_raw_paths'>raw_paths</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_raw_path'>raw_path</span><span class='op'>|</span>
+      <span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='symbol'>:low</span><span class='comma'>,</span> <span class='symbol'>:skip</span><span class='comma'>,</span> <span class='id identifier rubyid_raw_path'>raw_path</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>

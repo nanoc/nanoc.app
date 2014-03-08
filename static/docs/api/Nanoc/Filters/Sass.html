@@ -6,13 +6,13 @@
 <title>
   Class: Nanoc::Filters::Sass
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -98,23 +98,11 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/nanoc/filters/sass/sass_filesystem_importer.rb<span class="defines">,<br />
-  lib/nanoc/filters/sass.rb</span>
-</dd>
+    <dd class="r2 last">lib/nanoc/filters/sass.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
-<h2>Defined Under Namespace</h2>
-<p class="children">
-  
-    
-  
-    
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Sass/SassFilesystemImporter.html" title="Nanoc::Filters::Sass::SassFilesystemImporter (class)">SassFilesystemImporter</a></span>
-    
-  
-</p>
 
   <h2>Constant Summary</h2>
   
@@ -128,40 +116,9 @@
   <p class="inherited"><span class='object_link'><a href="../Filter.html#TMP_BINARY_ITEMS_DIR-constant" title="Nanoc::Filter::TMP_BINARY_ITEMS_DIR (constant)">Nanoc::Filter::TMP_BINARY_ITEMS_DIR</a></span></p>
 
 
-  <h2>Class Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#current-class_method" title="current (class method)">+ (Object) <strong>current</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>The current filter.</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
 
 
-
-  
+  <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../Filter.html" title="Nanoc::Filter (class)">Nanoc::Filter</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../Filter.html#assigns-instance_method" title="Nanoc::Filter#assigns (method)">#assigns</a></span></p>
@@ -264,54 +221,6 @@
   
 </div>
 
-  <div id="class_attr_details" class="attr_details">
-    <h2>Class Attribute Details</h2>
-    
-      
-      <span id="current=-class_method"></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="current-class_method">
-  
-    + (<tt>Object</tt>) <strong>current</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>The current filter. This is definitely going to bite me if I ever get
-to multithreading nanoc.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11
-12
-13</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass.rb', line 11</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_current'>current</span>
-  <span class='ivar'>@current</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -332,23 +241,21 @@ to multithreading nanoc.</p>
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
-48
-49</pre>
+23
+24
+25
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_imported_filename_to_item'>imported_filename_to_item</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_filematch'>filematch</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-    <span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span>
-      <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span> <span class='op'>==</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span>
+  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_raw_filename'>raw_filename</span> <span class='op'>&amp;&amp;</span>
+      <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_raw_filename'>raw_filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span> <span class='op'>==</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span>
   <span class='kw'>end</span>
-  <span class='ivar'>@scoped_items</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_filematch'>filematch</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='ivar'>@rest_items</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_filematch'>filematch</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -417,52 +324,24 @@ Parameters passed to this filter will be passed on to Sass.</p>
       <pre class="lines">
 
 
+14
+15
+16
+17
+18
+19
 20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass.rb', line 14</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='comment'># Build options
-</span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
-  <span class='id identifier rubyid_sass_filename'>sass_filename</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:filename</span><span class='rbracket'>]</span> <span class='op'>||</span>
-    <span class='lparen'>(</span><span class='ivar'>@item</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:filename</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_sass_filename'>sass_filename</span>
-  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:filesystem_importer</span><span class='rbracket'>]</span> <span class='op'>||=</span>
-    <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Filters</span><span class='op'>::</span><span class='const'>Sass</span><span class='op'>::</span><span class='const'>SassFilesystemImporter</span>
-
-  <span class='comment'># Find items
-</span>  <span class='id identifier rubyid_item_dirglob'>item_dirglob</span> <span class='op'>=</span> <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_sass_filename'>sass_filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>**</span><span class='tstring_end'>'</span></span>
-  <span class='id identifier rubyid_clean_items'>clean_items</span> <span class='op'>=</span> <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='rbrace'>}</span>
-  <span class='ivar'>@scoped_items</span><span class='comma'>,</span> <span class='ivar'>@rest_items</span> <span class='op'>=</span> <span class='id identifier rubyid_clean_items'>clean_items</span><span class='period'>.</span><span class='id identifier rubyid_partition'>partition</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-    <span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span>
-      <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:content_filename</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_realpath'>realpath</span><span class='period'>.</span><span class='id identifier rubyid_fnmatch'>fnmatch</span><span class='lparen'>(</span><span class='id identifier rubyid_item_dirglob'>item_dirglob</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  
-  <span class='comment'># Render
-</span>  <span class='id identifier rubyid_engine'>engine</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Sass</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span class='kw'>self</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+    <span class='symbol'>:nanoc_current_filter</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='symbol'>:filename</span> <span class='op'>=&gt;</span> <span class='ivar'>@item</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_raw_filename'>raw_filename</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_engine'>engine</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Sass</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_engine'>engine</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span>
 <span class='kw'>end</span></pre>
     </td>
