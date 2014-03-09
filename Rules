@@ -67,15 +67,8 @@ compile '/**/*' do
     next
   end
 
-  source_ext = item.identifier.extension
-  extensions = {
-    'md'   => 'html',
-    'scss' => 'css',
-    'erb'  => 'html',
-  }
-
   filter :erb if item[:is_dynamic]
-  if 'md' == source_ext
+  if 'md' == item.identifier.extension
     filter :kramdown, :auto_ids => false
   end
   filter :remove_spacing_around_pre
@@ -99,7 +92,6 @@ compile '/**/*' do
   elsif item[:path]
     write item[:path], snapshot: :last
   else
-    dest_ext = extensions.fetch(source_ext, source_ext)
-    write item.identifier.in_dir.with_ext(dest_ext), snapshot: :last
+    write item.identifier.in_dir.with_ext('html'), snapshot: :last
   end
 end
