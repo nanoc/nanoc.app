@@ -12,87 +12,94 @@ preprocess do
   # TODO stylesheets -> is_hidden and is_partial
 end
 
-layout '*', :erb
+layout '/*', :erb
 
-# favicon
-
-passthrough '/favicon/'
-
-# static
-
-compile '/static/*/' do
+compile '/favicon.*' do
+  write item.identifier
 end
 
-route '/static/*/' do
-  # /static/foo.html/ → /foo.html
-  item.identifier[7..-2]
+compile '/wiki-old/*' do
+  write item.identifier
 end
 
-# stylesheets - partials
+compile '/assets/style/_*' do
+end
 
-ignore '/assets/style/_*/'
-
-# stylesheets
-
-compile '/assets/style/*/' do
+compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
+  write '/assets/style' + '-v' + rep.item[:version].to_s + '.css', snapshot: :last
 end
 
-route '/assets/style/*/' do
-  '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
-end
-
-# other
-
-compile '/sitemap/' do
+compile '/sitemap.*' do
   filter :erb
+  write '/sitemap.xml', snapshot: :last
 end
 
-compile '/robots/' do
+compile '/robots.*' do
   filter :erb
+  write '/robots.txt', snapshot: :last
 end
 
-compile '/' do
+compile '/index.*' do
   filter :erb
-  layout '/default/'
+  layout '/default.html.erb'
   filter :relativize_paths, :type => :html
+  write '/index.html', snapshot: :last
 end
 
-# fallback
+compile '/docs/api/**/*' do
+  write item.identifier, snapshot: :last
+end
 
-compile '*' do
+compile '/wiki-old/**/*' do
+  write item.identifier, snapshot: :last
+end
+
+compile '/**/*' do
   if item[:is_partial]
     next
   end
 
+  if item.binary?
+    write item.identifier, snapshot: :last
+    next
+  end
+
+  source_ext = item.identifier.extension
+  extensions = {
+    'md'   => 'html',
+    'scss' => 'css',
+    'erb'  => 'html',
+  }
+
   filter :erb if item[:is_dynamic]
-  if 'md' == item[:extension]
+  if 'md' == source_ext
     filter :kramdown, :auto_ids => false
   end
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
-  if item.identifier == '/release-notes/'
+  if item.identifier.match?('/release-notes.*')
     filter :link_github_issues
   end
 
-  layout '/default/'
+  snapshot :before_layout
+  layout '/default.html.erb'
 
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
-end
 
-route '*' do
   if item.binary?
-    item.identifier.chop + '.' + item[:extension]
+    write item.identifier, snapshot: :last
   elsif item[:is_partial]
     nil
   elsif item[:path]
-    item[:path]
+    write item[:path], snapshot: :last
   else
-    rep.item.identifier + 'index.html'
+    dest_ext = extensions.fetch(source_ext, source_ext)
+    write item.identifier.in_dir.with_ext(dest_ext), snapshot: :last
   end
 end

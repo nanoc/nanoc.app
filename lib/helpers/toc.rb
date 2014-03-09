@@ -77,8 +77,8 @@ end
 
 def detailed_toc_for(item_identifier, params={})
   limit = params.fetch(:limit, 999)
-  item = @items[item_identifier]
-  content = item.compiled_content(snapshot: :pre)
+  item = @items.glob(item_identifier).first
+  content = item.compiled_content(snapshot: :before_layout)
 
   header_finder = HeaderFinder.new
   Nokogiri::HTML::SAX::Parser.new(header_finder).parse(content)

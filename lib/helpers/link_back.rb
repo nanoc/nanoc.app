@@ -1,4 +1,7 @@
 def link_back
+  # FIXME
+  return '<p>???</p>'
+
   parent = breadcrumbs_trail[0..-2].compact.last
   return '' if parent.identifier == '/'
 

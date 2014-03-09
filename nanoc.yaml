@@ -5,7 +5,7 @@ prune:
 
 data_sources:
   -
-    type:         filesystem_unified
+    type:         filesystem
     items_root:   /
     layouts_root: /
   -
@@ -14,9 +14,6 @@ data_sources:
   -
     type:         yard
     items_root:   /docs/reference/
-  -
-    type:         static
-    items_root:   /static/
   -
     type:         release_notes
     items_root:   /
