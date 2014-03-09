@@ -39,7 +39,7 @@ module NanocSite
           :usage              => cmd.usage,
           :is_partial         => true,
         },
-        "/#{slug}/")
+        "/#{slug}.md")
     end
 
   end

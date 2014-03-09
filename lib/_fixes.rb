@@ -42,5 +42,6 @@ end
 
 # TODO (related) let layout '/foo.*' work
 # TODO klass.new(@item_rep.assigns) -> just @assigns in filtering helper
+# TODO reject identifiers that end with a slash
 
 # IDEA catch all errors, wrap it in an error with an item reference, and rethrow
