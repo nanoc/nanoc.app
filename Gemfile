@@ -14,7 +14,7 @@ gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
 
 gem 'nanoc-core',             path: '~/Documents/Development/nanoc/repos/nanoc-core'
-gem 'nanoc-cli',              github: 'nanoc/nanoc-cli'
+gem 'nanoc-cli',              path: '~/Documents/Development/nanoc/repos/nanoc-cli'
 
 gem 'nanoc-breadcrumbs',      github: 'nanoc/nanoc-breadcrumbs'
 gem 'nanoc-capturing',        github: 'nanoc/nanoc-capturing'

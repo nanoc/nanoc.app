@@ -28,6 +28,16 @@ class Nanoc::ItemRepViewForFiltering
     # FIXME this is incorrect (used in xml sitemap)
     paths.values.compact
   end
+
+  def assigns
+    {
+      item: @item,
+      layout: @layout,
+      items: @items,
+      config: @config,
+      site: @site,
+    }
+  end
 end
 
 # TODO (related) let layout '/foo.*' work
