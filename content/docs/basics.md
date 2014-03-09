@@ -230,7 +230,7 @@ Rules
 
 The instructions for processing items are located in a file named `Rules` which lives in a nanoc site directory. This rules file contains _routing rules_, _compilation rules_ and _layouting rules_. Compilation rules determine the actions that should be executed during compilation (filtering, layouting), routing rules determine the path where the compiled files should be written to, and layouting rules determine the filter that should be used for a given layout.
 
-Full documentation on the Rules file is available in the <%= link_to 'Rules reference', @items.glob('/docs/reference/rules.*').first %>.
+Full documentation on the Rules file is available in the <%= link_to 'Rules reference', @items['/docs/reference/rules.*'] %>.
 
 The Compilation Process
 -----------------------

@@ -8,7 +8,7 @@ module NanocSite
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.glob('/release-notes.*').first.compiled_content
+      content = @items['/release-notes.*'].compiled_content
       doc = Nokogiri::HTML(content)
 
       # Parse title

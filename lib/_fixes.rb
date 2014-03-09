@@ -30,7 +30,6 @@ class Nanoc::ItemRepViewForFiltering
   end
 end
 
-# TODO let @items['/foo.*'] glob and return first
 # TODO (related) let layout '/foo.*' work
 # TODO klass.new(@item_rep.assigns) -> just @assigns in filtering helper
 

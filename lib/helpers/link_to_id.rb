@@ -4,7 +4,7 @@ module NanocSite
   module LinkToId
 
     def link_to_id(id)
-      item = @items.glob(id).first
+      item = @items[id]
       link_to(item[:title], item)
     end
 
