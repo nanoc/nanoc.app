@@ -14,13 +14,21 @@ end
 
 layout '/*', :erb
 
+# Passthrough
+
 compile '/favicon.*' do
-  write item.identifier
+  write item.identifier, snapshot: :last
 end
 
-compile '/wiki-old/*' do
-  write item.identifier
+compile '/docs/api/**/*' do
+  write item.identifier, snapshot: :last
 end
+
+compile '/wiki-old/**/*' do
+  write item.identifier, snapshot: :last
+end
+
+# Style
 
 compile '/assets/style/_*' do
 end
@@ -31,6 +39,8 @@ compile '/assets/style/*' do
   filter :rainpress
   write '/assets/style' + '-v' + rep.item[:version].to_s + '.css', snapshot: :last
 end
+
+# Special pages
 
 compile '/sitemap.*' do
   filter :erb
@@ -49,13 +59,7 @@ compile '/index.*' do
   write '/index.html', snapshot: :last
 end
 
-compile '/docs/api/**/*' do
-  write item.identifier, snapshot: :last
-end
-
-compile '/wiki-old/**/*' do
-  write item.identifier, snapshot: :last
-end
+# Fallback
 
 compile '/**/*' do
   if item[:is_partial]
