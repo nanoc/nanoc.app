@@ -89,13 +89,5 @@ compile '/**/*' do
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
 
-  if item.binary?
-    write item.identifier
-  elsif item[:is_partial]
-    nil
-  elsif item[:path]
-    write item[:path]
-  else
-    write item.identifier.in_dir.with_ext('html')
-  end
+  write item[:path] || item.identifier.in_dir.with_ext('html')
 end
