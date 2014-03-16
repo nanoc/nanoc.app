@@ -17,15 +17,15 @@ layout '/*', :erb
 # Passthrough
 
 compile '/favicon.*' do
-  write item.identifier, snapshot: :last
+  write item.identifier
 end
 
 compile '/docs/api/**/*' do
-  write item.identifier, snapshot: :last
+  write item.identifier
 end
 
 compile '/wiki-old/**/*' do
-  write item.identifier, snapshot: :last
+  write item.identifier
 end
 
 # Style
@@ -37,26 +37,26 @@ compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
-  write '/assets/style' + '-v' + rep.item[:version].to_s + '.css', snapshot: :last
+  write '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
 
 # Special pages
 
 compile '/sitemap.*' do
   filter :erb
-  write '/sitemap.xml', snapshot: :last
+  write '/sitemap.xml'
 end
 
 compile '/robots.*' do
   filter :erb
-  write '/robots.txt', snapshot: :last
+  write '/robots.txt'
 end
 
 compile '/index.*' do
   filter :erb
   layout '/default.html.erb'
   filter :relativize_paths, :type => :html
-  write '/index.html', snapshot: :last
+  write '/index.html'
 end
 
 # Fallback
@@ -67,7 +67,7 @@ compile '/**/*' do
   end
 
   if item.binary?
-    write item.identifier, snapshot: :last
+    write item.identifier
     next
   end
 
@@ -90,12 +90,12 @@ compile '/**/*' do
   filter :fixup_whitespace
 
   if item.binary?
-    write item.identifier, snapshot: :last
+    write item.identifier
   elsif item[:is_partial]
     nil
   elsif item[:path]
-    write item[:path], snapshot: :last
+    write item[:path]
   else
-    write item.identifier.in_dir.with_ext('html'), snapshot: :last
+    write item.identifier.in_dir.with_ext('html')
   end
 end
