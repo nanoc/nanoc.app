@@ -59,7 +59,7 @@ All dependencies are now taken care of, and installing nanoc should now be easy:
 
 <div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
-To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>. It should print the version number along with some other information, like this:
+To make sure that nanoc was installed correctly, run <kbd>nanoc \--version</kbd>. It should print the version number along with some other information, like this:
 
 <pre title="Checking whether nanoc is correctly installed"><span class="prompt">%</span> <kbd>nanoc --version</kbd>
 <%= config[:nanoc_version_info] %>
