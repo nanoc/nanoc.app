@@ -1,0 +1,99 @@
+---
+version:    1
+is_hidden:  true
+is_dynamic: true
+---
+
+@import "compass/css3/box-sizing";
+
+@page
+{
+    size: auto;
+    margin: 1in;
+}
+
+header,
+footer,
+.side {
+	display: none;
+}
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	font-family: Georgia, Palatino, serif;
+    font-size: 11pt;
+    line-height: 14pt;
+}
+
+h1, h2, h3, h4, h5, h6, figcaption {
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	page-break-after: avoid;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	font-size: 18pt;
+}
+
+h3 {
+	font-size: 14pt
+}
+
+figure, img {
+	width: 100%;
+}
+
+figure {
+	margin: 0;
+}
+
+figure img {
+	border: 1pt solid #999;
+	padding: 12pt;
+}
+
+figcaption {
+	margin: 0;
+}
+
+pre {
+	border-top: 1pt solid #999;
+	border-bottom: 1pt solid #999;
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+
+    page-break-inside: avoid;
+}
+
+p {
+	widows: 3;
+	orphans: 3;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:after {
+	content: " (" attr(href) ")";
+}
+
+kbd {
+	font-weight: bold;
+}
+
+var {
+	font-style: italic;
+}

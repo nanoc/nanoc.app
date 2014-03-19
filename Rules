@@ -41,7 +41,7 @@ compile '/assets/style/*/' do
 end
 
 route '/assets/style/*/' do
-  '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
+  item.identifier.chop + '-v' + rep.item[:version].to_s + '.css'
 end
 
 # other
