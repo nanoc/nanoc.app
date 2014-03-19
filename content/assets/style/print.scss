@@ -4,6 +4,8 @@ is_hidden:  true
 is_dynamic: true
 ---
 
+@import "fonts.scss";
+
 @import "compass/css3/box-sizing";
 
 @page
@@ -97,3 +99,34 @@ kbd {
 var {
 	font-style: italic;
 }
+
+div.admonition {
+    position: relative;
+
+    border: 1px solid #999;
+
+    padding: 6pt 6pt 6pt 48px;
+    margin: 20pt 0;
+
+    min-height: 36pt;
+}
+
+div.admonition:before {
+    position: absolute;
+
+    font-family: Entypo;
+    font-size: 46pt;
+    font-weight: normal;
+
+    top: 10pt;
+    left: 6pt;
+}
+
+div.admonition.note:before {
+    content: "\E705";
+}
+
+div.admonition.caution:before {
+    content: "\1F4A5";
+}
+
