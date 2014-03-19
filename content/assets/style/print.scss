@@ -57,7 +57,7 @@ figure {
 }
 
 figure img {
-	border: 1pt solid #999;
+	border: 1pt solid black;
 	padding: 12pt;
 }
 
@@ -66,8 +66,8 @@ figcaption {
 }
 
 pre {
-	border-top: 1pt solid #999;
-	border-bottom: 1pt solid #999;
+	border-top: 1pt solid black;
+	border-bottom: 1pt solid black;
 
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
@@ -103,7 +103,7 @@ var {
 div.admonition {
     position: relative;
 
-    border: 1px solid #999;
+    border: 1px solid black;
 
     padding: 6pt 6pt 6pt 48px;
     margin: 20pt 0;
