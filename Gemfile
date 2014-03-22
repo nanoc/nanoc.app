@@ -12,6 +12,7 @@ gem 'nanoc'       # for compiling the site
 gem 'nokogiri'    # for parsing HTML
 gem 'rainpress'   # for compact CSS
 gem 'rubypants'   # for pretty typography
+gem 'sass', '~> 3.2.13'
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
