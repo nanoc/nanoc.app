@@ -20,6 +20,7 @@ gem 'nanoc-cli',              path: '~/Documents/Development/nanoc/repos/nanoc-c
 gem 'nanoc-breadcrumbs',      github: 'nanoc/nanoc-breadcrumbs'
 gem 'nanoc-capturing',        github: 'nanoc/nanoc-capturing'
 gem 'nanoc-checking',         github: 'nanoc/nanoc-checking'
+gem 'nanoc-deploying',        github: 'nanoc/nanoc-deploying'
 gem 'nanoc-colorize_syntax',  github: 'nanoc/nanoc-colorize_syntax'
 gem 'nanoc-escaping',         github: 'nanoc/nanoc-escaping'
 gem 'nanoc-filtering',        github: 'nanoc/nanoc-filtering'
