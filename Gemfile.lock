@@ -13,6 +13,17 @@ GIT
       nanoc-core
 
 GIT
+  remote: git://github.com/nanoc/nanoc-checking.git
+  revision: 1087df9a705476f3e5d3dde8e64a44e242312d6b
+  specs:
+    nanoc-checking (1.0.0)
+      colored
+      nanoc-cli
+      nanoc-core
+      nokogiri
+      w3c_validators
+
+GIT
   remote: git://github.com/nanoc/nanoc-colorize_syntax.git
   revision: 2dc676eeaa60327705cdbedd0b0e97eb0ebd7318
   specs:
@@ -115,30 +126,34 @@ GEM
     chunky_png (1.3.0)
     coderay (1.1.0)
     colored (1.2)
-    compass (0.12.3)
+    compass (0.12.4)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
-      sass (= 3.2.14)
+      sass (~> 3.2.17)
     cri (2.5.0)
       colored (>= 1.2)
     ddplugin (0.1)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
-    kramdown (1.3.2)
+    json (1.8.1)
+    kramdown (1.3.3)
     mini_portile (0.5.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     rack (1.5.2)
     rainpress (1.0)
     rubypants (0.2.0)
-    sass (3.2.14)
+    sass (3.2.18)
     susy (1.0.9)
       compass (>= 0.12.2)
       sass (>= 3.2.0)
     systemu (2.6.4)
-    tilt (2.0.0)
-    yard (0.8.7.3)
+    tilt (2.0.1)
+    w3c_validators (1.2)
+      json
+      nokogiri
+    yard (0.8.7.4)
 
 PLATFORMS
   ruby
@@ -152,6 +167,7 @@ DEPENDENCIES
   kramdown
   nanoc-breadcrumbs!
   nanoc-capturing!
+  nanoc-checking!
   nanoc-cli!
   nanoc-colorize_syntax!
   nanoc-core!
@@ -167,6 +183,7 @@ DEPENDENCIES
   nokogiri
   rainpress
   rubypants
+  sass (~> 3.2.0)
   susy
   systemu
   yard

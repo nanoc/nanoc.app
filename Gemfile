@@ -12,12 +12,14 @@ gem 'rubypants'   # for pretty typography
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
+gem 'sass', '~> 3.2.0'
 
 gem 'nanoc-core',             path: '~/Documents/Development/nanoc/repos/nanoc-core'
 gem 'nanoc-cli',              path: '~/Documents/Development/nanoc/repos/nanoc-cli'
 
 gem 'nanoc-breadcrumbs',      github: 'nanoc/nanoc-breadcrumbs'
 gem 'nanoc-capturing',        github: 'nanoc/nanoc-capturing'
+gem 'nanoc-checking',         github: 'nanoc/nanoc-checking'
 gem 'nanoc-colorize_syntax',  github: 'nanoc/nanoc-colorize_syntax'
 gem 'nanoc-escaping',         github: 'nanoc/nanoc-escaping'
 gem 'nanoc-filtering',        github: 'nanoc/nanoc-filtering'
