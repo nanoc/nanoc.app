@@ -54,7 +54,7 @@ end
 
 compile '/index.*' do
   filter :erb
-  layout '/default.html.erb'
+  layout '/default.*'
   filter :relativize_paths, :type => :html
   write '/index.html'
 end
@@ -82,7 +82,7 @@ compile '/**/*' do
   end
 
   snapshot :before_layout
-  layout '/default.html.erb'
+  layout '/default.*'
 
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
