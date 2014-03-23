@@ -12,10 +12,10 @@ check :valid_sitemap do
   require 'nokogiri'
 
   xsd = Nokogiri::XML::Schema(File.read('misc/sitemap.xsd'))
-  doc = Nokogiri::XML(File.read('output/sitemap.xml'))
+  doc = Nokogiri::XML(File.read('build/sitemap.xml'))
 
   unless xsd.valid?(doc)
-    self.add_issue("sitemap does not adhere to XML schema", :subject => 'output/sitemap.xml')
+    self.add_issue("sitemap does not adhere to XML schema", :subject => 'build/sitemap.xml')
   end
 end
 
