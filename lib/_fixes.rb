@@ -1,8 +1,10 @@
 class Nanoc::ItemView
+  # used in lib/nanoc/capturing/helper.rb:66
   def item
     resolve
   end
 
+  # used in lib/nanoc/sass/filter.rb:33
   def content
     resolve.content
   end
@@ -12,10 +14,6 @@ class Nanoc::ItemRepViewForFiltering
   def paths
     # FIXME this is incorrect
     { last: resolve.path }
-  end
-
-  def compiled?
-    resolve.compiled?
   end
 
   def paths_without_snapshot
