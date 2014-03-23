@@ -11,16 +11,19 @@ class Nanoc::ItemView
 end
 
 class Nanoc::ItemRepViewForFiltering
+  # Used in lib/nanoc/linking/helper.rb:136
   def paths
     # FIXME this is incorrect
     { last: resolve.path }
   end
 
+  # Used in lib/nanoc/xml_sitemap/helper.rb:65
   def paths_without_snapshot
     # FIXME this is incorrect (used in xml sitemap)
     paths.values.compact
   end
 
+  # Used in lib/nanoc/filtering/helper.rb:38
   def assigns
     {
       item: @item,
