@@ -1,9 +1,3 @@
-class Nanoc::Item
-  def [](key)
-    attributes[key]
-  end
-end
-
 class Nanoc::ItemView
   def item
     resolve
