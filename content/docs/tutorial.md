@@ -2,7 +2,7 @@
 title: "Tutorial"
 ---
 
-This tutorial should take approximately twenty minutes to complete. You need three things in order to follow the tutorial:
+This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
 a working nanoc installation
 : Check out the [Install](/install/) page for details on how to install Ruby, Rubygems and nanoc.
