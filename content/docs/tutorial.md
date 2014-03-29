@@ -1,6 +1,5 @@
 ---
-title:      "Tutorial"
-is_dynamic: true
+title: "Tutorial"
 ---
 
 This is a small nanoc tutorial that should take about twenty minutes to complete. You need three basic things in order to follow the tutorial:
@@ -148,7 +147,7 @@ title: "Denis’ Guide to Awesomeness"
 
 The metadata section at the top of the file is formatted as YAML. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page’s author, the language the page is written in, etc.
 
-Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in [Customize the layout](#customize-the-layout) section below.)
+Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the [Customize the layout](#customize-the-layout) section below.)
 
 Add a page
 ----------
@@ -164,7 +163,7 @@ Create a file named <span class="filename">content/about.html</span> and paste i
 
     <p>This is the about page for my new nanoc site.</p>
 
-<div class="admonition note">nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do more than create a new file for you. Because of this, the <code>create-item</code> and <code>create-layout</code> commands will be removed from nanoc 4.0.</div>
+<div class="admonition note">nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <code>create-item</code> and <code>create-layout</code> commands will be removed.</div>
 
 Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file `output/about/index.html`. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
@@ -173,56 +172,48 @@ Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file
 Customize the layout
 --------------------
 
-The default home page recommended editing the default layout, so let’s see what we can do there.
+The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, `layouts/default.html`, your text editor. It *almost* looks like a HTML page, except for the metadata section at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
 
-As you probably have noticed already, the page’s content files are not complete HTML files—they are *partial* HTML files. A page needs `<html>`, `<head>`, `<body>`, … elements before it’s valid HTML. This doesn’t mean you’ve been writing invalid HTML all along, though, because nanoc *layouts* each page as a part of the compilation process.
+    #!html
+    …
+    <div id="main">
+      <%= yield %>
+    </div>
+    …
 
-Take a look at the `default.html` file in the `layouts` directory. Just like items, it contains a metadata section at the top of the file. Open it in your text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
+Two main eRuby instructions exist:
 
-<pre title="Extract from the default layout showing the body"><code class="language-html">…
-&lt;div id="main">
-  &lt;%= yield %>
-&lt;/div>
-…
-</code></pre>
+`<% code %>`
+:   Runs the code between `<%` and `%>`
 
-The odd construct in the middle of that piece of code is an *eRuby* instruction. Here’s a cheat sheet in case you’re not familar with eRuby:
+`<%= code %>`
+:   Runs the code between `<%=` and `%>`, and displays the return value on the web page
 
-<dl>
-<dt><code>&lt;% code %></code></dt>
-<dd>Runs the code between <code>&lt;%</code> and <code>%></code></dd>
-<dt><code>&lt;%= code %></code></dt>
-<dd>Runs the code between <code>&lt;%=</code> and <code>%></code>, and displays the return value on the web page</dd>
-</dl>
+<div class="admonition note">nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.</div>
 
-By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/reference/filters/#haml) and [Mustache](/docs/reference/filters/#mustache) filters (filters will be explained below).
+The `<%= yield %>` instruction is replaced with the item’s compiled content when compiling.
 
-The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling. There is another important piece of eRuby code near the top of the file:
+The file also contains the `<%= @item[:title] %>` instruction near the top of the file. This is replaced with the contents of the `title` attribute during compilation.
 
-<pre title="Extract from the default layout showing the title"><code class="language-html">
-&lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
-</code></pre>
+Because nanoc attributes are free-form, you can make up your own attributes. Set the `author` attribute on the about page:
 
-This is where the page’s title is put into the compiled document.
+    #!yaml
+    ---
+    title: "About me and my cats"
+    author: "John Doe"
+    ---
 
-Every page can have arbitrary metadata associated with it. To demonstrate this, add the following line to the metadata section of the about page:
+Modify the layout to show the value of the `author` attribute. Add the following snippet to the layout:
 
-<pre title="New metadata to be added to the about page"><code class="language-yaml">
-author: "John Doe"
-</code></pre>
+    #!html
+    <% if @item[:author] %>
+      <p>This page was written by <%= @item[:author] || 'Mr. Mystery' %>.</p>
+    <% end %>
 
-Now output the author name in the layout. Put this piece of code somewhere in your layout (somewhere between the `<body>` and `</body>` tags, please, or you won’t see a thing):
+Recompile the site and open both the home page and the about page. The about page contains a paragraph mentioning John Doe as the author, while the home page does not.
 
-<pre title="Sample code to be added to the default layout"><code class="language-html">
-&lt;% if @item[:author] %>
-  &lt;p>This page was written by &lt;%= @item[:author] %>.&lt;/p>
-&lt;% end %>
-</code></pre>
-
-Recompile the site, and load [http://localhost:3000/about/](http://localhost:3000/about/) in your browser. You’ll see that the about page has a line saying <q>This page was written by John Doe</q>, while the home page does not—as expected!
-
-Writing Pages in Markdown
--------------------------
+Write pages in Markdown
+-----------------------
 
 You don’t have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we’ll use [Markdown](http://daringfireball.net/projects/markdown) to avoid having to write HTML. nanoc calls these text transformations *filters*.
 
