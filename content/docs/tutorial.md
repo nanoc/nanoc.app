@@ -95,7 +95,7 @@ Open a web browser and navigate to <span class="uri">http://localhost:3000/</spa
 Edit the home page
 ------------------
 
-Pages and assets (commonly referred to as <span class="firstterm">items</span>) in a nanoc site are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
+Pages and assets, commonly referred to as <span class="firstterm">items</span>, are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
 
 <pre><code>---
 title: Home
