@@ -14,7 +14,7 @@ a basic understanding of Ruby
 a basic understanding of the command line
 : nanoc is executed on the command line. If you need to brush up on your command line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
 
-Create a Site
+Create a site
 -------------
 
 To create a new site, use the <kbd>create-site</kbd> command, followed by the name of the new directory in which you want nanoc to create a site. Let’s create a `tutorial` site:
@@ -51,8 +51,8 @@ A nanoc-powered site is a directory with a specific structure. The newly generat
 
 We’ll revisit all of these later on in the tutorial.
 
-Compiling the Site
-------------------
+Compile the site
+----------------
 
 All nanoc commands, except for `create-site`, require the current working directory to be a nanoc site. <kbd>cd</kbd> into the `tutorial` directory, if you haven’t yet done so:
 
@@ -97,22 +97,30 @@ Open a web browser and navigate to <span class="uri">http://localhost:3000/</spa
 	<figcaption>Screenshot of what a brand new nanoc site looks like</figcaption>
 </figure>
 
-Editing the Home Page
----------------------
+Edit the home page
+------------------
 
-The first step in getting to know how nanoc really works will involve editing the content of the home page. First, though, a quick explanation of how uncompiled pages are stored.
+Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the `content` directory. Open the `content/index.html` file. You will see something like this:
 
-The pages in a nanoc site are stored in the `content` directory. Currently, that directory has only two files: `index.html` and `stylesheet.css`. The first file forms the home page, while the second file is the stylesheet. If you open the `index.html` file, you’ll notice a section containing metadata in YAML format at the top.
+<pre><code>---
+title: Home
+---
 
-Let’s change the content of the home page. Open `index.html` and add a paragraph somewhere in the file. I recommend something like this:
+&lt;h1>A Brand New nanoc Site&lt;/h1>
 
-<pre title="Sample content to be added to index.html"><code class="language-html">
-&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
+&lt;p>You’ve just created a new nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:&lt;/p>
+
+…</code></pre>
+
+Add a paragraph somewhere in the file. I recommend adding the following:
+
+<pre><code class="language-html">
+&lt;p>Another nanoc convert! Master will be pleased.&lt;/p>
 </code></pre>
 
-To view the changes, the site must be recompiled first. So, run the <kbd>compile</kbd> command. You should see something like this:
+Recompile the site by running <kbd>nanoc</kbd>:
 
-<pre title="Compiling the site again"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd>
 Loading site data…
 Compiling site…
       <span class="log-update">update</span>  [0.01s] output/index.html
@@ -120,22 +128,30 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-The number between brackets next to the `output/index.html` filename indicates the time it took for nanoc to compile the home page. At the bottom, the total time needed for compiling the entire site is also shown.
+Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, and reload <span class="uri">http://localhost:3000/</span> in your browser. You’ll see the page and the newly added paragraph.
 
-Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, reload [http://localhost:3000/](http://localhost:3000/) in your browser, and verify that the page has indeed been updated.
+Items, such as this home page, can contain metadata. This metadata is defined in the _frontmatter_ of a file. The home page’s frontmatter is quite simple:
 
-In the same file, let’s change the page title from "Home" to something more interesting. Change the line that reads `title: "Home"` to something else. The file should now start with this:
+<pre><code class="language-yaml">---
+title: Home
+---</code></pre>
 
-<pre title="New first few lines of index.html"><code class="language-yaml">---
-title: "My New Home Page"
+<div class="admonition note">The term <i>metadata section</i> is often used instead of <i>frontmatter</i> in the context of nanoc. Other static site generators, such as Jekyll, use the term <i>frontmatter</i> almost exclusively.</div>
+
+The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
+
+Change the value of the `title` attribute to something else:
+
+<pre><code class="language-yaml">---
+title: "Denis’ Guide to Awesomeness"
 ---</code></pre>
 
 The metadata section at the top of the file is formatted as YAML. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page’s author, the language the page is written in, etc.
 
-Recompile the site and once again load [http://localhost:3000/](http://localhost:3000/) in your browser. You will see that the browser’s title bar displays the page’s title now. How the page title ends up between `<title>` and `</title>` will be explained below!
+Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in [Customize the layout](#customize-the-layout) section below.)
 
-Adding a Page
--------------
+Add a page
+----------
 
 In nanoc, pages are sometimes referred to as "items." This is because items don’t necessarily have to be pages: JavaScript and CSS files aren’t pages, but they are items.
 
@@ -167,8 +183,8 @@ Recompile the site, and notice that a file `output/about/index.html` has been cr
 
 By the way, if you don’t like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the `content/about.html` page could have its metadata stored in `content/about.yaml` instead.
 
-Customizing the Layout
-----------------------
+Customize the layout
+--------------------
 
 The default home page recommended editing the default layout, so let’s see what we can do there.
 
