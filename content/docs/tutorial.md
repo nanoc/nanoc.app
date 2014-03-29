@@ -168,7 +168,7 @@ NOTE: If you do not like having a metadata section at the top of every page (per
 Customize the layout
 --------------------
 
-The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, `layouts/default.html`, your text editor. It *almost* looks like a HTML page, except for the metadata section at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
+The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, `layouts/default.html`, your text editor. It *almost* looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
 
     #!html
     …
