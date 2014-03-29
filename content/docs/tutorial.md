@@ -355,9 +355,9 @@ Modify the layout and replace the paragraph that dispays the tags with a call to
 
 Recompile the site. The compiled HTML files in the <span class="filename">output/</span> directory will be the same, as expected.
 
-That’s it!
+Next steps
 ----------
 
-This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.
+You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the [nanoc documentation](/docs/). If you’re stuck with a nanoc problem, get help on the [nanoc discussion group](https://groups.google.com/forum/#!forum/nanoc).
 
-There’s more reading material. It’s definitely worth checking out the following chapters; they’re rather big, but they contains everything you need to know about nanoc.
+We’d love to hear your feedback about the nanoc documentation. Is something wrong? Is something unclear? Tell us by [opening an issue on GitHub](https://github.com/nanoc/nanoc.ws/issues/new). Thanks!
