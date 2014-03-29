@@ -78,7 +78,7 @@ The recommended way of previewing a site is using the <kbd>nanoc view</kbd> comm
 
 <pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
-NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
+NOTE: You might have to prefix the <span class="command">gem install</span> command with <span class="command">sudo</span>.
 
 Now you can start a web server by running <kbd>nanoc view</kbd>:
 
@@ -95,7 +95,7 @@ Open a web browser and navigate to <span class="uri">http://localhost:3000/</spa
 Edit the home page
 ------------------
 
-Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
+Pages and assets (commonly referred to as <span class="firstterm">items</span>) in a nanoc site are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
 
 <pre><code>---
 title: Home
@@ -125,13 +125,13 @@ Site compiled in 0.01s.
 
 Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, and reload <span class="uri">http://localhost:3000/</span> in your browser. You’ll see the page and the newly added paragraph.
 
-Items, such as this home page, can contain metadata. This metadata is defined in the _frontmatter_ of a file. The home page’s frontmatter is quite simple:
+Items, such as this home page, can contain metadata. This metadata is defined in the <span class="firstterm">frontmatter</span> of a file. The home page’s frontmatter is quite simple:
 
 <pre><code class="language-yaml">---
 title: Home
 ---</code></pre>
 
-NOTE: The term <i>metadata section</i> is often used instead of <i>frontmatter</i> in the context of nanoc. Other static site generators, such as Jekyll, use the term <i>frontmatter</i> almost exclusively.</div>
+NOTE: The term <span class="firstterm">metadata section</span> is often used instead of frontmatter in the context of nanoc. Other static site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
 The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
 
@@ -157,7 +157,7 @@ Create a file named <span class="filename">content/about.html</span> and paste i
 
     <p>This is the about page for my new nanoc site.</p>
 
-NOTE: nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <code>create-item</code> and <code>create-layout</code> commands will be removed.
+NOTE: nanoc also provides a <span class="command">nanoc create-item</span> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <span class="command">create-item</span> and <span class="command">create-layout</span> commands will be removed.
 
 Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file <span class="filename">output/about/index.html</span>. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
@@ -209,7 +209,7 @@ Recompile the site and open both the home page and the about page. The about pag
 Write pages in Markdown
 -----------------------
 
-nanoc has _filters_, which transform content from one format into another.
+nanoc has <span class="firstterm">filters</span>, which transform content from one format into another.
 
 A language that is commonly used instead of HTML is [Markdown](http://daringfireball.net/projects/markdown). nanoc comes with several different Markdown filters, including a filter for [kramdown](http://kramdown.gettalong.org/), a fast and featureful Markdown processor.
 
@@ -233,11 +233,11 @@ Before we can use the <span class="productname">kramdown</span> gem, it needs to
 
 <pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
-NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
+NOTE: You might have to prefix the <span class="command">gem install</span> command with <span class="command">sudo</span>.
 
 The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
 
-The first point of interest in the <span class="filename">Rules</span> is this _compilation rule_:
+The first point of interest in the <span class="filename">Rules</span> is this <span class="firstterm">compilation rule</span>:
 
     #!ruby
     compile '*' do
@@ -251,7 +251,7 @@ The first point of interest in the <span class="filename">Rules</span> is this _
       end
     end
 
-The second point of interest is the _routing rule_:
+The second point of interest is the <span class="firstterm">routing rule</span>:
 
     #!ruby
     route '*' do
@@ -349,7 +349,7 @@ Modify the layout and replace the paragraph that dispays the tags with a call to
     #!html
     <p>Tags: <%= tags_for(@item) %></p>
 
-Recompile the site. The compiled HTML files in the <span class="filename">output/</span> directory will be the same, as expected.
+Recompile the site. The tags in the compiled HTML files in the <span class="filename">output/</span> directory are now generated using the helper.
 
 Next steps
 ----------
