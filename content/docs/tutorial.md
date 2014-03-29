@@ -3,27 +3,28 @@ title:      "Tutorial"
 is_dynamic: true
 ---
 
-Requirements
-------------
+This is a small nanoc tutorial that should take about twenty minutes to complete. You need three basic things in order to follow the tutorial:
 
-This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Install](/install/) page.
+a working nanoc installation
+: Check out the [Install](/install/) page for details on how to install Ruby, Rubygems and nanoc.
 
-nanoc also requires some experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
+a basic understanding of Ruby
+: nanoc uses the Ruby programming language quite extensively. If you are unfamiliar with Ruby, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
 
-Creating a Site
----------------
+a basic understanding of the command line
+: nanoc is executed on the command line. If you need to brush up on your command line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
 
-nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that’s the way all cool apps work.
+Create a Site
+-------------
 
-A nanoc-powered site is a directory with a specific structure. In this tutorial, we’ll create a site named `tutorial`. To create this site, type into the terminal:
+To create a new site, use the <kbd>create-site</kbd> command, followed by the name of the new directory in which you want nanoc to create a site. Let’s create a `tutorial` site:
 
-<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
+<pre><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
 
-If you did that right, you should see something like this in the terminal:
+nanoc lists all files being generated as result of this command. This is what you’ll see:
 
-<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
+<pre><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
       <span class="log-create">create</span>  nanoc.yaml
-      <span class="log-create">create</span>  Rakefile
       <span class="log-create">create</span>  Rules
       <span class="log-create">create</span>  content/index.html
       <span class="log-create">create</span>  content/stylesheet.css
@@ -31,41 +32,42 @@ If you did that right, you should see something like this in the terminal:
 Created a blank nanoc site at 'tutorial'. Enjoy!
 <span class="prompt">%</span> </pre>
 
-The nanoc-powered site named `tutorial` has now been created. Go into the directory and list the files there. You should see something like this:
+A nanoc-powered site is a directory with a specific structure. The newly generated `tutorial` directory has a handful of different files and directories:
 
-<pre title="Getting the contents of the new site directory"><span class="prompt">%</span> <kbd>cd tutorial</kbd>
-<span class="prompt">tutorial%</span> <kbd>ls -l</kbd>
-total 24
--rw-r--r--  1 ddfreyne  staff   22 Feb 17 14:44 Rakefile
--rw-r--r--  1 ddfreyne  staff  692 Feb 17 14:44 Rules
--rw-r--r--  1 ddfreyne  staff  100 Feb 17 14:44 nanoc.yaml
-drwxr-xr-x  4 ddfreyne  staff  136 Feb 17 14:44 content
-drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 layouts
-drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 lib
-drwxr-xr-x  2 ddfreyne  staff   68 Feb 17 14:44 output
-<span class="prompt">tutorial%</span> </pre>
+`nanoc.yaml`
+: The YAML file that contains site-wide configuration details.
 
-What all those files and directories are for will all become clear soon.
+`Rules`
+: The Ruby file that describes how pages and assets will be processed.
+
+`content/`
+: The directory in which pages and assets go.
+
+`layouts/`
+: The directory that contains layouts, which define the look-and-feel of the site.
+
+`lib/`
+: The directory that contains custom Ruby code.
+
+We’ll revisit all of these later on in the tutorial.
 
 Compiling the Site
 ------------------
 
-Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create-site</kbd>, require the current working directory to be a nanoc site. So, if you haven’t done it before:
+All nanoc commands, except for `create-site`, require the current working directory to be a nanoc site. <kbd>cd</kbd> into the `tutorial` directory, if you haven’t yet done so:
 
-<pre title="Going into the site directory"><span class="prompt">%</span> <kbd>cd tutorial</kbd>
+<pre><span class="prompt">%</span> <kbd>cd tutorial</kbd>
 <span class="prompt">tutorial%</span></pre>
 
-Every new nanoc site already has a bit of content. It comes with one simple page with some simple "getting started" instructions. Before you can view the site, it needs to be compiled. To compile the site, do this:
+Every new nanoc site comes with one simple page, `content/index.html`. The content of this page is only a HTML snippet rather than a full HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
 
-<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd></pre>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
 
-Or, if you want it short, just type <kbd>nanoc</kbd>:
+You can also type `nanoc compile`, for which `nanoc` is a shorthand.
 
-<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
+nanoc will tell what is happening during the compilation process:
 
-This is what’ll appear in the terminal while nanoc is compiling:
-
-<pre title="Compiling the new site (with command output)"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
 Loading site data…
 Compiling site…
       <span class="log-create">create</span>  [0.01s] output/index.html
@@ -73,27 +75,27 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-A file named `index.html` has been created in the `output` directory. The preferred way of previewing a site is using the <kbd>view</kbd> command, but we’ll need to install the `adsf` gem (_not_ `asdf`!) before we can preview:
+nanoc created a file named `index.html` in the `output` directory. If you open this file in a text editor, you will see that this is a full HTML file.
 
-<pre title="Installing adsf"><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
+Because nanoc generates absolute paths by default, opening the file directly in a web browser will not produce the desired result: links will be broken and the browser won’t be able to find the stylesheet.
+
+The recommended way of previewing a site is using the <kbd>nanoc view</kbd> command, which starts a local web server that mimics a real-world web server. Before you can use this command, install the `adsf` gem (_not_ `asdf`!) first:
+
+<pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
 <div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
-Now we can start a web server, like this:
+Now you can start a web server by running <kbd>nanoc view</kbd>:
 
-<pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
 
-Now, open your web browser and navigate to [http://localhost:3000/](http://localhost:3000/). What you’ll see is something like this:
+Open a web browser and navigate to <span class="uri">http://localhost:3000/</span>. You’ll see something like this:
 
 <figure class="fullwidth">
 	<img src="/assets/images/tutorial/default-site.png"
 	     alt="Screenshot of what a brand new nanoc site looks like">
 	<figcaption>Screenshot of what a brand new nanoc site looks like</figcaption>
 </figure>
-
-(If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one.)
-
-You can also open the `output/index.html` file in your favourite text editor, where you’ll find that the file is just a normal HTML page.
 
 Editing the Home Page
 ---------------------
