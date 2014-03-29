@@ -217,7 +217,7 @@ nanoc has _filters_, which transform content from one format into another.
 
 A language that is commonly used instead of HTML is [Markdown](http://daringfireball.net/projects/markdown). nanoc comes with several different Markdown filters, including a filter for [kramdown](http://kramdown.gettalong.org/), a fast and featureful Markdown processor.
 
-Get rid of the content in <span class="filename">content/index.html</span> (but leave the forematter intact), and replace it with Markdown:
+Get rid of the content in <span class="filename">content/index.html</span> (but leave the frontmatter intact), and replace it with Markdown:
 
     ---
     title: "Denis’ Guide to Awesomeness"
