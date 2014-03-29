@@ -31,19 +31,19 @@ Created a blank nanoc site at 'tutorial'. Enjoy!</pre>
 
 A nanoc-powered site is a directory with a specific structure. The newly generated `tutorial` directory has a handful of files and directories:
 
-`nanoc.yaml`
+<span class="filename">nanoc.yaml</span>
 : The YAML file that contains site-wide configuration details.
 
-`Rules`
+<span class="filename">Rules</span>
 : The Ruby file that describes how pages and assets will be processed.
 
-`content/`
+<span class="filename">content/</span>
 : The directory in which pages and assets go.
 
-`layouts/`
+<span class="filename">layouts/</span>
 : The directory that contains layouts, which define the look-and-feel of the site.
 
-`lib/`
+<span class="filename">lib/</span>
 : The directory that contains custom Ruby code.
 
 We’ll revisit these later on in the tutorial.
@@ -51,16 +51,16 @@ We’ll revisit these later on in the tutorial.
 Compile the site
 ----------------
 
-All nanoc commands, except for `create-site`, require the current working directory to be a nanoc site. <kbd>cd</kbd> into the `tutorial` directory, if you haven’t yet done so:
+All nanoc commands, except for <span class="command">create-site</span>, require the current working directory to be a nanoc site. <kbd>cd</kbd> into the <span class="filename">tutorial</span> directory, if you haven’t yet done so:
 
 <pre><span class="prompt">%</span> <kbd>cd tutorial</kbd>
 <span class="prompt">tutorial%</span></pre>
 
-Every new nanoc site comes with one page, `content/index.html`. The content of this page is a HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
+Every new nanoc site comes with one page, <span class="filename">content/index.html</span>. The content of this page is a HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
 
 <pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
 
-NOTE: You can also type <kbd>nanoc compile</kbd>, for which <kbd>nanoc</kbd> is a shorthand.
+NOTE: You can also use the <span class="command">nanoc compile</span> command, for which <span class="command">nanoc</span> is a shorthand.
 
 nanoc will tell what is happening during the compilation process:
 
@@ -72,11 +72,11 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-nanoc created a file named `index.html` in the `output` directory. This is a complete HTML file, as opposed to the snippet in the <span class="filename">content/</span> directory.
+nanoc created a file named <span class="filename">index.html</span> in the <span class="filename">output/</span> directory. This is a complete HTML file, as opposed to the snippet in the <span class="filename">content/</span> directory.
 
 Because nanoc generates absolute paths by default, opening the file directly in a web browser will not produce the desired result: links will be broken and the browser won’t be able to find the stylesheet.
 
-The recommended way of previewing a site is using the <kbd>nanoc view</kbd> command, which starts a local web server that mimics a real-world web server. Before you can use this command, install the `adsf` gem (_not_ `asdf`!) first:
+The recommended way of previewing a site is using the <kbd>nanoc view</kbd> command, which starts a local web server that mimics a real-world web server. Before you can use this command, install the <span class="productname">adsf</span> gem (_not_ <span class="productname">asdf</span>!) first:
 
 <pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
@@ -97,7 +97,7 @@ Open a web browser and navigate to <span class="uri">http://localhost:3000/</spa
 Edit the home page
 ------------------
 
-Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the `content` directory. Open the `content/index.html` file:
+Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
 
 <pre><code>---
 title: Home
@@ -137,7 +137,7 @@ NOTE: The term <i>metadata section</i> is often used instead of <i>frontmatter</
 
 The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
 
-Change the value of the `title` attribute to something else:
+Change the value of the <span class="attribute">title</span> attribute to something else:
 
 <pre><code class="language-yaml">---
 title: "Denis’ Guide to Awesomeness"
@@ -161,14 +161,14 @@ Create a file named <span class="filename">content/about.html</span> and paste i
 
 NOTE: nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <code>create-item</code> and <code>create-layout</code> commands will be removed.
 
-Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file `output/about/index.html`. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
+Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file <span class="filename">output/about/index.html</span>. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
 NOTE: If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page could have its metadata stored in <span class="filename">content/about.yaml</span> instead.
 
 Customize the layout
 --------------------
 
-The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, `layouts/default.html`, your text editor. It *almost* looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
+The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, <span class="filename">layouts/default.html</span>, your text editor. It *almost* looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
 
     #!html
     …
@@ -189,9 +189,9 @@ NOTE: nanoc is not limited to eRuby. It comes with support for Haml and Mustache
 
 The `<%= yield %>` instruction is replaced with the item’s compiled content when compiling.
 
-The file also contains the `<%= @item[:title] %>` instruction near the top of the file. This is replaced with the contents of the `title` attribute during compilation.
+The file also contains the `<%= @item[:title] %>` instruction near the top of the file. This is replaced with the contents of the <span class="filename">title</span> attribute during compilation.
 
-Because nanoc attributes are free-form, you can make up your own attributes. Set the `author` attribute on the about page:
+Because nanoc attributes are free-form, you can make up your own attributes. Set the <span class="attribute">author</span> attribute on the about page:
 
     #!yaml
     ---
@@ -199,7 +199,7 @@ Because nanoc attributes are free-form, you can make up your own attributes. Set
     author: "John Doe"
     ---
 
-Modify the layout to show the value of the `author` attribute. Add the following snippet to the layout:
+Modify the layout to show the value of the <span class="attribute">author</span> attribute. Add the following snippet to the layout:
 
     #!html
     <% if @item[:author] %>
@@ -229,9 +229,9 @@ Get rid of the content in <span class="filename">content/index.html</span> (but 
     2. Butter
     3. Refined uranium
 
-Rename the <span class="filename">content/index.html</span> file to <span class="filename">content/index.md</span>. `md` is a file extension that is commonly used with Markdown.
+Rename the <span class="filename">content/index.html</span> file to <span class="filename">content/index.md</span>. <span class="filename">md</span> is a file extension that is commonly used with Markdown.
 
-Before we can use the `kramdown` gem, it needs to be installed:
+Before we can use the <span class="productname">kramdown</span> gem, it needs to be installed:
 
 <pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
@@ -273,7 +273,7 @@ Compilation rules describe how items are processed, while routing rule describe 
 
 The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, both rules match all items.
 
-Modify the compilation rule to add a check for the `md` file extension. In this case, run the `:kramdown` filter on items that have a `md` extension, and apply the default layout:
+Modify the compilation rule to add a check for the <span class="filename">md</span> file extension. In this case, run the `:kramdown` filter on items that have a <span class="filename">md</span> extension, and apply the default layout:
 
     #!ruby
     compile '*' do
@@ -346,7 +346,7 @@ nanoc is bundled with a handful of helpers, including [a tagging helper](/docs/r
 
 This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use.
 
-Modify the layout and replace the paragraph that dispays the tags with a call to `tags_for`, which is defined in the tagging helper:
+Modify the layout and replace the paragraph that dispays the tags with a call to `#tags_for`, which is defined in the tagging helper:
 
     #!html
     <p>Tags: <%= tags_for(@item) %></p>
