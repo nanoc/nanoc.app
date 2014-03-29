@@ -183,7 +183,7 @@ Two main eRuby instructions exist:
 `<%= code %>`
 :   Runs the code between `<%=` and `%>`, and displays the return value on the web page
 
-NOTE: nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.
+TIP: nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.
 
 The `<%= yield %>` instruction is replaced with the item’s compiled content when compiling.
 
