@@ -213,109 +213,99 @@ Recompile the site and open both the home page and the about page. The about pag
 Write pages in Markdown
 -----------------------
 
-You don’t have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we’ll use [Markdown](http://daringfireball.net/projects/markdown) to avoid having to write HTML. nanoc calls these text transformations *filters*.
+nanoc has _filters_, which transform content from one format into another.
 
-Get rid of the content of the home page (`content/index.html`) and replace it with the following Markdown-formatted text (but leave the metadata section intact):
+A language that is commonly used instead of HTML is [Markdown](http://daringfireball.net/projects/markdown). nanoc comes with several different Markdown filters, including a filter for [kramdown](http://kramdown.gettalong.org/), a fast and featureful Markdown processor.
 
-<pre title="Sample content that will replace the content of the home page"><code class="language-markdown">
-A First Level Header
-====================
+Get rid of the content in <span class="filename">content/index.html</span> (but leave the forematter intact), and replace it with Markdown:
 
-A Second Level Header
----------------------
+    ---
+    title: "Denis’ Guide to Awesomeness"
+    ---
 
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
+    Now is the time for all good men to come to the aid of their country. This is just a regular paragraph.
 
-The quick brown fox jumped over the lazy
-dog’s back.
+    ## Shopping list
 
-### Header 3
+    1. Bread
+    2. Butter
+    3. Refined uranium
 
-> This is a blockquote.
->
-> This is the second paragraph in the blockquote.
->
-> ## This is an H2 in a blockquote</code></pre>
+Rename the <span class="filename">content/index.html</span> file to <span class="filename">content/index.md</span>. `md` is a file extension that is commonly used with Markdown.
 
-We’ll use [kramdown](http://kramdown.rubyforge.org/) for converting Markdown into HTML. Before we can use kramdown, we need to install the gem, like this:
+Before we can use the `kramdown` gem, it needs to be installed:
 
-<pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
+<pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
 <div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
 
-To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items.
+The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
 
-The `Rules` file contains a bit of Ruby code like this:
+The first point of interest in the <span class="filename">Rules</span> is this _compilation rule_:
 
-<pre title="The original compilation rule"><code class="language-ruby">
-compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
-    filter :erb
-    layout 'default'
-  end
-end</code></pre>
+    #!ruby
+    compile '*' do
+      if item[:extension] == 'css'
+        # don’t filter stylesheets
+      elsif item.binary?
+        # don’t filter binary items
+      else
+        filter :erb
+        layout 'default'
+      end
+    end
 
-This is a _compilation_ rule, which means it will define how an item is processed. The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, all items will be processed using this rule. Inside the block, there is a check whether the item is binary (e.g. an image) or not (e.g. a HTML page or a CSS stylesheet). If the item is binary, nothing happens--the item is left unchanged. If the item is not binary, the `:erb` filter is run, after which the `default` layout is applied.
+The second point of interest is the _routing rule_:
 
-The `Rules` file also contains a call to `route`, and it looks similar to the call to `compile`:
+    #!ruby
+    route '*' do
+      if item[:extension] == 'css'
+        # Write item with identifier /foo/ to /foo.css
+        item.identifier.chop + '.css'
+      elsif item.binary?
+        # Write item with identifier /foo/ to /foo.ext
+        item.identifier.chop + '.' + item[:extension]
+      else
+        # Write item with identifier /foo/ to /foo/index.html
+        item.identifier + 'index.html'
+      end
+    end
 
-<pre title="The original routing rule"><code class="language-ruby">
-route '*' do
-  if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
-  else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
-  end
-end</code></pre>
+Compilation rules describe how items are processed, while routing rule describe where items are written to. Each item matches exactly one compilation rule and one routing rule.
 
-This is a _routing_ rule, and therefore it defines where an item is written to once it is processed. Again, the string argument defines which items will be processed using this rule, and the `*` wildcard means it will apply to all items.
+The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, both rules match all items.
 
-Inside the block, we check whether the item is binary or not. None of the items in the site are, so the items will be written to identifier + 'index.html', so an item with identifier `'/foo/'` is written to `'/foo/index.html'`.
+Modify the compilation rule to add a check for the `md` file extension. In this case, run the `:kramdown` filter on items that have a `md` extension, and apply the default layout:
 
-To make sure that the home page (but not any other page) is run through the `kramdown` filter, we add a compilation rule *before* the existing compilation rule. It should look like this:
+    #!ruby
+    compile '*' do
+      if item[:extension] == 'md'
+        filter :kramdown
+        layout 'default'
+      elsif item[:extension] == 'css'
+        # don’t filter stylesheets
+      elsif item.binary?
+        # don’t filter binary items
+      else
+        filter :erb
+        layout 'default'
+      end
+    end
 
-<pre title="The new compilation rule"><code class="language-ruby">
-compile '/' do
-  filter :kramdown
-  layout 'default'
-end</code></pre>
+The routing rule still matches our needs, so keep that one intact.
 
-It is important that this rule comes *before* the existing one (`compile '*' do … end`). When compiling a page, nanoc will use the first and only the first matching rule; if the new compilation rule were *below* the existing one, it would never have been used.
+Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In <span class="filename">output/index.html</span>, you will find the converted HTML:
 
-The default routing rule still matches out needs, so we’ll keep that one intact.
+    #!html
+    <p>Now is the time for all good men to come to the aid of their country. This is just a regular paragraph.</p>
 
-Now that we’ve told nanoc to filter this page using kramdown, let’s recompile the site. The `output/index.html` page source should now contain this text (header and footer omited):
+    <h2 id="shopping-list">Shopping list</h2>
 
-<pre title="The compiled home page, filtered as Markdown"><code class="language-html">
-&lt;h1>A First Level Header&lt;/h1>
-
-&lt;h2>A Second Level Header&lt;/h2>
-
-&lt;p>Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.&lt;/p>
-
-&lt;p>The quick brown fox jumped over the lazy
-dog's back.&lt;/p>
-
-&lt;h3>Header 3&lt;/h3>
-
-&lt;blockquote>
-    &lt;p>This is a blockquote.&lt;/p>
-
-    &lt;p>This is the second paragraph in the blockquote.&lt;/p>
-
-    &lt;h2>This is an H2 in a blockquote&lt;/h2>
-&lt;/blockquote>
-</code></pre>
-
-The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/reference/filters/). You can also write your own filters—read the [Writing Filters](/docs/extending-nanoc/#writing-filters) section in the manual for details.
+    <ol>
+      <li>Bread</li>
+      <li>Butter</li>
+      <li>Refined uranium</li>
+    </ol>
 
 Writing some Custom Code
 ------------------------
