@@ -64,13 +64,11 @@ NOTE: You can also use the <span class="command">nanoc compile</span> command, f
 
 nanoc will tell what is happening during the compilation process:
 
-<pre><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
-Loading site data…
+<pre>Loading site data…
 Compiling site…
       <span class="log-create">create</span>  [0.01s] output/index.html
 
-Site compiled in 0.01s.
-<span class="prompt">tutorial%</span> </pre>
+Site compiled in 0.01s.</pre>
 
 nanoc created a file named <span class="filename">index.html</span> in the <span class="filename">output/</span> directory. This is a complete HTML file, as opposed to the snippet in the <span class="filename">content/</span> directory.
 
