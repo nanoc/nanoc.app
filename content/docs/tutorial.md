@@ -60,7 +60,7 @@ Every new nanoc site comes with one page, `content/index.html`. The content of t
 
 <pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
 
-<div class="admonition note">You can also type <kbd>nanoc compile</kbd>, for which <kbd>nanoc</kbd> is a shorthand.</div>
+NOTE: You can also type <kbd>nanoc compile</kbd>, for which <kbd>nanoc</kbd> is a shorthand.
 
 nanoc will tell what is happening during the compilation process:
 
@@ -80,7 +80,7 @@ The recommended way of previewing a site is using the <kbd>nanoc view</kbd> comm
 
 <pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
-<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
 
 Now you can start a web server by running <kbd>nanoc view</kbd>:
 
@@ -133,7 +133,7 @@ Items, such as this home page, can contain metadata. This metadata is defined in
 title: Home
 ---</code></pre>
 
-<div class="admonition note">The term <i>metadata section</i> is often used instead of <i>frontmatter</i> in the context of nanoc. Other static site generators, such as Jekyll, use the term <i>frontmatter</i> almost exclusively.</div>
+NOTE: The term <i>metadata section</i> is often used instead of <i>frontmatter</i> in the context of nanoc. Other static site generators, such as Jekyll, use the term <i>frontmatter</i> almost exclusively.</div>
 
 The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
 
@@ -159,11 +159,11 @@ Create a file named <span class="filename">content/about.html</span> and paste i
 
     <p>This is the about page for my new nanoc site.</p>
 
-<div class="admonition note">nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <code>create-item</code> and <code>create-layout</code> commands will be removed.</div>
+NOTE: nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <code>create-item</code> and <code>create-layout</code> commands will be removed.
 
 Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file `output/about/index.html`. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
-<div class="admonition note">If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page could have its metadata stored in <span class="filename">content/about.yaml</span> instead.</div>
+NOTE: If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page could have its metadata stored in <span class="filename">content/about.yaml</span> instead.
 
 Customize the layout
 --------------------
@@ -185,7 +185,7 @@ Two main eRuby instructions exist:
 `<%= code %>`
 :   Runs the code between `<%=` and `%>`, and displays the return value on the web page
 
-<div class="admonition note">nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.</div>
+NOTE: nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.
 
 The `<%= yield %>` instruction is replaced with the item’s compiled content when compiling.
 
@@ -235,7 +235,7 @@ Before we can use the `kramdown` gem, it needs to be installed:
 
 <pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
-<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
 
 The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
 

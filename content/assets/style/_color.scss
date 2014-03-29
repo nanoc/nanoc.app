@@ -96,15 +96,15 @@ pre:after {
     background: shade($bg-color, 20%);
 }
 
-div.admonition {
+div.admonition-wrapper {
     background: shade($bg-color, 5%);
 }
 
-div.admonition.note:before {
+div.admonition-wrapper.note:before {
     color: $emph-color;
 }
 
-div.admonition.caution:before {
+div.admonition-wrapper.caution:before {
     color: $emph-color;
 }
 

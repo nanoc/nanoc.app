@@ -78,29 +78,33 @@ pre {
     word-wrap: break-word;
 }
 
-div.admonition {
-    position: relative;
-    padding: 10px 10px 10px 45px;
+div.admonition-wrapper {
+    display: flex;
+    align-items: center;
+
     margin: 0 0 20px 0;
+    padding: 10px;
 }
 
-div.admonition:before {
-    position: absolute;
-
+div.admonition-wrapper:before {
     font-family: Entypo;
-    font-size: 46px;
+    font-size: 50px;
     font-weight: normal;
+    line-height: 20px;
 
-    top: 10px;
-    left: 10px;
+    margin-right: 10px;
 }
 
-div.admonition.note:before {
+div.admonition-wrapper.note:before {
     content: "\E705";
 }
 
-div.admonition.caution:before {
+div.admonition-wrapper.caution:before {
     content: "\1F4A5";
+}
+
+div.admonition-wrapper .admonition {
+    flex: 1 0 0;
 }
 
 // SPECIAL STYLING

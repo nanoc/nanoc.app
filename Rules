@@ -69,6 +69,7 @@ compile '*' do
 
   filter :erb if item[:is_dynamic]
   if 'md' == item[:extension]
+    filter :admonition
     filter :kramdown, :auto_ids => false
   end
   filter :remove_spacing_around_pre
