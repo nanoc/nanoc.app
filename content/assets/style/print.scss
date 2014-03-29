@@ -119,12 +119,16 @@ div.admonition-wrapper:before {
     margin-right: 10pt;
 }
 
+div.admonition-wrapper.tip:before {
+    content: "\1F4A1";
+}
+
 div.admonition-wrapper.note:before {
-    content: "\E705";
+    content: "\2139";
 }
 
 div.admonition-wrapper.caution:before {
-    content: "\1F4A5";
+    content: "\26A1";
 }
 
 div.admonition-wrapper .admonition {

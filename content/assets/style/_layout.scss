@@ -92,19 +92,27 @@ div.admonition-wrapper {
 
 div.admonition-wrapper:before {
     font-family: Entypo;
-    font-size: 50px;
+    font-size: 48px;
     font-weight: normal;
     line-height: 20px;
+
+    width: 28px;
+
+    text-align: center;
 
     margin-right: 10px;
 }
 
+div.admonition-wrapper.tip:before {
+    content: "\1F4A1";
+}
+
 div.admonition-wrapper.note:before {
-    content: "\E705";
+    content: "\2139";
 }
 
 div.admonition-wrapper.caution:before {
-    content: "\1F4A5";
+    content: "\26A1";
 }
 
 div.admonition-wrapper .admonition {

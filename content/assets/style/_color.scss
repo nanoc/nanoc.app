@@ -100,11 +100,7 @@ div.admonition-wrapper {
     background: shade($bg-color, 5%);
 }
 
-div.admonition-wrapper.note:before {
-    color: $emph-color;
-}
-
-div.admonition-wrapper.caution:before {
+div.admonition-wrapper:before {
     color: $emph-color;
 }
 
