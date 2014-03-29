@@ -153,35 +153,22 @@ Recompile the site and reload <span class="uri">http://localhost:3000/</span> in
 Add a page
 ----------
 
-In nanoc, pages are sometimes referred to as "items." This is because items don’t necessarily have to be pages: JavaScript and CSS files aren’t pages, but they are items.
+Create a file named <span class="filename">content/about.html</span> and paste in the following content:
 
-To create a new page or item in the site, use the `create-item` command (or `ci` for short). Let’s create an "about" page like this:
+    #!html
+    ---
+    title: "About me and my cats"
+    ---
 
-<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd></pre>
+    <h1>My cute little "About" page</h1>
 
-You should see this:
+    <p>This is the about page for my new nanoc site.</p>
 
-<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd>
-      <span class="log-create">create</span>  content/about.html
-<span class="prompt">tutorial%</span> </pre>
+<div class="admonition note">nanoc also provides a <code>nanoc create-item</code> command that can be used to create new items. However, it doesn’t do more than create a new file for you. Because of this, the <code>create-item</code> and <code>create-layout</code> commands will be removed from nanoc 4.0.</div>
 
-Open the newly generated file and put some text in it, like this (be sure to leave the metadata section intact):
+Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file `output/about/index.html`. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
-<pre title="Sample content to be added to about.html"><code class="language-html">
-&lt;h1>My cute little "About" page&lt;/h1>
-
-&lt;p>This is the about page for my new nanoc site.&lt;/p>
-</code></pre>
-
-In the metadata section, change the title to something else:
-
-<pre title="Sample metadata to be added to about.html"><code class="language-yaml">
-title: "My Cool About Page"
-</code></pre>
-
-Recompile the site, and notice that a file `output/about/index.html` has been created. With the preview server running, open [http://localhost:3000/about/](http://localhost:3000/about/) in your browser and admire your brand new about page. Shiny!
-
-By the way, if you don’t like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the `content/about.html` page could have its metadata stored in `content/about.yaml` instead.
+<div class="admonition note">If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page could have its metadata stored in <span class="filename">content/about.yaml</span> instead.</div>
 
 Customize the layout
 --------------------
