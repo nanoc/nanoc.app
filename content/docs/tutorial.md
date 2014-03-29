@@ -145,8 +145,6 @@ Change the value of the `title` attribute to something else:
 title: "Denis’ Guide to Awesomeness"
 ---</code></pre>
 
-The metadata section at the top of the file is formatted as YAML. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page’s author, the language the page is written in, etc.
-
 Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the [Customize the layout](#customize-the-layout) section below.)
 
 Add a page
