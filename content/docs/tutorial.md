@@ -307,39 +307,39 @@ Recompile the site and load the home page in your web browser. You’ll see a pa
       <li>Refined uranium</li>
     </ol>
 
-Writing some Custom Code
-------------------------
+Write some custom code
+----------------------
 
-There is a directory named `lib` in your nanoc site. In there, you can throw Ruby source files, and they’ll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods.
+nanoc will load Ruby source files in the <span class="filename">lib/</span> directory on startup. Functions defined in there will be available during compilation. Such functions are useful for removing logic from layouts.
 
-As an example, let’s add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.html` and add this to the meta section:
+To demonstrate this, open <span class="filename">content/about.html</span> and add tags to the frontmatter:
 
-<pre title="Tags to be added to the about page’s metadata"><code class="language-yaml">
-tags:
-  - foo
-  - bar
-  - baz
-</code></pre>
+    #!yaml
+    tags:
+      - foo
+      - bar
+      - baz
 
-Next, create a file named `tags.rb` in the `lib` directory (the filename doesn’t really matter). In there, put the following function:
+Next, create a <span class="filename">lib/tags.rb</span> file and put in the following function:
 
-<pre title="Code snippet to be put in the lib directory"><code class="language-ruby">
-def tags
-  if @item[:tags].nil?
-    '(none)'
-  else
-    @item[:tags].join(', ')
-  end
-end
-</code></pre>
+    #!ruby
+    def tags
+      if @item[:tags].nil?
+        '(none)'
+      else
+        @item[:tags].join(', ')
+      end
+    end
 
-This function will take the current page’s tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= yield %></code> line:
+Modify the layout and add a paragraph that outputs the tags:
 
-<pre title="Code snippet to be added to the default layout"><code class="language-html">
-&lt;p>Tags: &lt;%= tags %>&lt;/p>
-</code></pre>
+    #!html
+    <p>Tags: <%= tags %></p>
 
-Recompile the site, and take a look at both HTML files in the `output` directory. If all went well, you should see a list of tags right above the page content.
+Recompile the site and open both the home page and the about page in your web browser. You’ll see a list of tags on both pages.
+
+Use a predefined helper
+-----------------------
 
 Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete `tags.rb` and create a `helper.rb` file (again, the filename doesn’t really matter) and put this inside:
 
