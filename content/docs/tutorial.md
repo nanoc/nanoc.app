@@ -205,7 +205,7 @@ Modify the layout to show the value of the `author` attribute. Add the following
 
     #!html
     <% if @item[:author] %>
-      <p>This page was written by <%= @item[:author] || 'Mr. Mystery' %>.</p>
+      <p>This page was written by <%= @item[:author] %>.</p>
     <% end %>
 
 Recompile the site and open both the home page and the about page. The about page contains a paragraph mentioning John Doe as the author, while the home page does not.
