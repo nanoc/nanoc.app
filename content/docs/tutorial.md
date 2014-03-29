@@ -2,13 +2,13 @@
 title: "Tutorial"
 ---
 
-This is a small nanoc tutorial that should take about twenty minutes to complete. You need three basic things in order to follow the tutorial:
+This tutorial should take approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
 a working nanoc installation
 : Check out the [Install](/install/) page for details on how to install Ruby, Rubygems and nanoc.
 
 a basic understanding of Ruby
-: nanoc uses the Ruby programming language quite extensively. If you are unfamiliar with Ruby, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
+: nanoc uses the Ruby programming language extensively. If you are unfamiliar with Ruby, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
 
 a basic understanding of the command line
 : nanoc is executed on the command line. If you need to brush up on your command line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
@@ -16,22 +16,20 @@ a basic understanding of the command line
 Create a site
 -------------
 
-To create a new site, use the <kbd>create-site</kbd> command, followed by the name of the new directory in which you want nanoc to create a site. Let’s create a `tutorial` site:
+Create a new site by typing <kbd>create-site</kbd>, followed by the name of the new directory in which you want nanoc to create the site:
 
 <pre><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
 
-nanoc lists all files being generated as result of this command. This is what you’ll see:
+nanoc lists all files being generated as result of this command:
 
-<pre><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
-      <span class="log-create">create</span>  nanoc.yaml
+<pre>      <span class="log-create">create</span>  nanoc.yaml
       <span class="log-create">create</span>  Rules
       <span class="log-create">create</span>  content/index.html
       <span class="log-create">create</span>  content/stylesheet.css
       <span class="log-create">create</span>  layouts/default.html
-Created a blank nanoc site at 'tutorial'. Enjoy!
-<span class="prompt">%</span> </pre>
+Created a blank nanoc site at 'tutorial'. Enjoy!</pre>
 
-A nanoc-powered site is a directory with a specific structure. The newly generated `tutorial` directory has a handful of different files and directories:
+A nanoc-powered site is a directory with a specific structure. The newly generated `tutorial` directory has a handful of files and directories:
 
 `nanoc.yaml`
 : The YAML file that contains site-wide configuration details.
@@ -48,7 +46,7 @@ A nanoc-powered site is a directory with a specific structure. The newly generat
 `lib/`
 : The directory that contains custom Ruby code.
 
-We’ll revisit all of these later on in the tutorial.
+We’ll revisit these later on in the tutorial.
 
 Compile the site
 ----------------
@@ -58,11 +56,11 @@ All nanoc commands, except for `create-site`, require the current working direct
 <pre><span class="prompt">%</span> <kbd>cd tutorial</kbd>
 <span class="prompt">tutorial%</span></pre>
 
-Every new nanoc site comes with one simple page, `content/index.html`. The content of this page is only a HTML snippet rather than a full HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
+Every new nanoc site comes with one page, `content/index.html`. The content of this page is a HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
 
 <pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
 
-You can also type `nanoc compile`, for which `nanoc` is a shorthand.
+<div class="admonition note">You can also type <kbd>nanoc compile</kbd>, for which <kbd>nanoc</kbd> is a shorthand.</div>
 
 nanoc will tell what is happening during the compilation process:
 
@@ -74,7 +72,7 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-nanoc created a file named `index.html` in the `output` directory. If you open this file in a text editor, you will see that this is a full HTML file.
+nanoc created a file named `index.html` in the `output` directory. This is a complete HTML file, as opposed to the snippet in the <span class="filename">content/</span> directory.
 
 Because nanoc generates absolute paths by default, opening the file directly in a web browser will not produce the desired result: links will be broken and the browser won’t be able to find the stylesheet.
 
@@ -99,7 +97,7 @@ Open a web browser and navigate to <span class="uri">http://localhost:3000/</spa
 Edit the home page
 ------------------
 
-Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the `content` directory. Open the `content/index.html` file. You will see something like this:
+Pages and assets (commonly referred to as _items_) in a nanoc site are stored in the `content` directory. Open the `content/index.html` file:
 
 <pre><code>---
 title: Home
