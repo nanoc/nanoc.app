@@ -45,7 +45,7 @@ dd {
     margin: 0 0 20px 20px;
 }
 
-pre, code, kbd, var, .attribute {
+pre, code, kbd, var, .attribute, .command {
     font-family: Consolas, Inconsolata, Monaco, monospace;
     font-size: 13px;
 }
@@ -67,7 +67,7 @@ var {
     font-style: italic;
 }
 
-.filename, .uri, .command, .productname, .firstterm {
+.filename, .uri, .productname, .firstterm {
   font-style: italic;
 }
 
