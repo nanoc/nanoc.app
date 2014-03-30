@@ -83,14 +83,15 @@ pre {
 }
 
 div.admonition-wrapper {
-    display: flex;
-    align-items: center;
+    display: table;
 
     margin: 0 0 20px 0;
-    padding: 10px;
+    padding: 0;
 }
 
 div.admonition-wrapper:before {
+    display: table-cell;
+
     font-family: Entypo;
     font-size: 48px;
     font-weight: normal;
@@ -98,9 +99,15 @@ div.admonition-wrapper:before {
 
     width: 28px;
 
-    text-align: center;
+    padding: 10px;
 
-    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.admonition-wrapper .admonition {
+    display: table-cell;
+    padding: 10px;
 }
 
 div.admonition-wrapper.tip:before {
@@ -113,10 +120,6 @@ div.admonition-wrapper.note:before {
 
 div.admonition-wrapper.caution:before {
     content: "\26A1";
-}
-
-div.admonition-wrapper .admonition {
-    flex: 1 0 0;
 }
 
 // SPECIAL STYLING

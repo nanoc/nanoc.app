@@ -101,7 +101,19 @@ div.admonition-wrapper {
 }
 
 div.admonition-wrapper:before {
-    color: $emph-color;
+    color: #fff;
+}
+
+div.admonition-wrapper.tip:before {
+    background-color: adjust-hue($emph-color, 60deg);
+}
+
+div.admonition-wrapper.note:before {
+    background-color: adjust-hue($emph-color, 180deg);
+}
+
+div.admonition-wrapper.caution:before {
+    background-color: $emph-color;
 }
 
 body header {
