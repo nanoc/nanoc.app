@@ -32,6 +32,10 @@ GEM
       nanoc (>= 3.6.3)
     haml (4.0.5)
       tilt
+    html5small (0.3.0)
+      htmlentities (>= 4.1.0)
+      nokogiri (>= 1.5.0)
+    htmlentities (4.3.1)
     kramdown (1.3.3)
     listen (2.7.1)
       celluloid (>= 0.15.2)
@@ -78,6 +82,7 @@ DEPENDENCIES
   guard
   guard-nanoc
   haml
+  html5small
   kramdown
   nanoc
   nokogiri

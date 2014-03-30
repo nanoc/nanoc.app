@@ -84,6 +84,7 @@ compile '*' do
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
+  filter :html5small
 end
 
 route '*' do
