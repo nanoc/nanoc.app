@@ -1,5 +1,5 @@
 ---
-version:    1
+version:    2
 is_hidden:  true
 is_dynamic: true
 ---
@@ -65,6 +65,10 @@ figcaption {
 	margin: 0;
 }
 
+dt {
+    margin-top: 12pt;
+}
+
 pre {
 	border-top: 1pt solid black;
 	border-bottom: 1pt solid black;
@@ -100,33 +104,45 @@ var {
 	font-style: italic;
 }
 
-div.admonition {
-    position: relative;
+pre, code, kbd, var, .attribute {
+    font-family: Consolas, Inconsolata, Monaco, monospace;
+}
+
+.filename, .uri, .command, .productname, .firstterm {
+  font-style: italic;
+}
+
+div.admonition-wrapper {
+    display: flex;
+    align-items: center;
 
     border: 1px solid black;
 
-    padding: 6pt 6pt 6pt 48px;
+    padding: 6pt;
     margin: 20pt 0;
-
-    min-height: 36pt;
 }
 
-div.admonition:before {
-    position: absolute;
-
+div.admonition-wrapper:before {
     font-family: Entypo;
-    font-size: 46pt;
+    font-size: 40pt;
     font-weight: normal;
+    line-height: 20pt;
 
-    top: 10pt;
-    left: 6pt;
+    margin-right: 10pt;
 }
 
-div.admonition.note:before {
-    content: "\E705";
+div.admonition-wrapper.tip:before {
+    content: "\1F4A1";
 }
 
-div.admonition.caution:before {
-    content: "\1F4A5";
+div.admonition-wrapper.note:before {
+    content: "\2139";
 }
 
+div.admonition-wrapper.caution:before {
+    content: "\26A1";
+}
+
+div.admonition-wrapper .admonition {
+    flex: 1 0 0;
+}

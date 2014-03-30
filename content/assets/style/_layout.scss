@@ -45,7 +45,7 @@ dd {
     margin: 0 0 20px 20px;
 }
 
-pre, code, kbd, var {
+pre, code, kbd, var, .attribute, .command {
     font-family: Consolas, Inconsolata, Monaco, monospace;
     font-size: 13px;
 }
@@ -67,6 +67,10 @@ var {
     font-style: italic;
 }
 
+.filename, .uri, .productname, .firstterm {
+  font-style: italic;
+}
+
 pre {
     padding: 10px;
     margin: 0 0 20px 0;
@@ -78,29 +82,45 @@ pre {
     word-wrap: break-word;
 }
 
-div.admonition {
-    position: relative;
-    padding: 10px 10px 10px 45px;
+div.admonition-wrapper {
+    display: table;
+
+    width: 100%;
     margin: 0 0 20px 0;
+    padding: 0;
 }
 
-div.admonition:before {
-    position: absolute;
+div.admonition-wrapper:before {
+    display: table-cell;
 
     font-family: Entypo;
-    font-size: 46px;
+    font-size: 48px;
     font-weight: normal;
+    line-height: 20px;
 
-    top: 10px;
-    left: 10px;
+    width: 28px;
+
+    padding: 10px;
+
+    text-align: center;
+    vertical-align: middle;
 }
 
-div.admonition.note:before {
-    content: "\E705";
+div.admonition-wrapper .admonition {
+    display: table-cell;
+    padding: 10px;
 }
 
-div.admonition.caution:before {
-    content: "\1F4A5";
+div.admonition-wrapper.tip:before {
+    content: "\1F4A1";
+}
+
+div.admonition-wrapper.note:before {
+    content: "\2139";
+}
+
+div.admonition-wrapper.caution:before {
+    content: "\26A1";
 }
 
 // SPECIAL STYLING
