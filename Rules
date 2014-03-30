@@ -58,6 +58,7 @@ compile '/' do
   filter :erb
   layout '/default/'
   filter :relativize_paths, :type => :html
+  filter :html5small
 end
 
 # fallback
