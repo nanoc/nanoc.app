@@ -26,14 +26,6 @@ body {
     line-height: 20px;
 }
 
-i, em {
-    font-style: italic;
-}
-
-b, strong {
-    font-weight: bold;
-}
-
 a {
     text-decoration: none;
     padding: 0 2px;
@@ -46,29 +38,12 @@ dd {
 }
 
 pre, code, kbd, var, .attribute, .command {
-    font-family: Consolas, Inconsolata, Monaco, monospace;
     font-size: 13px;
 }
 
 blockquote {
     font-style: italic;
     margin-left: 20px;
-}
-
-h2 code {
-    font-size: inherit;
-}
-
-kbd {
-    font-weight: bold;
-}
-
-var {
-    font-style: italic;
-}
-
-.filename, .uri, .productname, .firstterm {
-  font-style: italic;
 }
 
 pre {
