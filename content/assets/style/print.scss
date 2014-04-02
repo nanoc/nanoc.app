@@ -78,7 +78,9 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
 
+pre, .admonition-wrapper, figure {
     page-break-inside: avoid;
 }
 
