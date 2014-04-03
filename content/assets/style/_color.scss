@@ -108,7 +108,7 @@ div.admonition-wrapper:before {
 }
 
 div.admonition-wrapper.tip:before {
-    background-color: adjust-hue($link-color-a, 240deg);
+    background-color: $link-color-a;
 }
 
 div.admonition-wrapper.note:before {
