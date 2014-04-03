@@ -26,14 +26,6 @@ body {
     line-height: 20px;
 }
 
-i, em {
-    font-style: italic;
-}
-
-b, strong {
-    font-weight: bold;
-}
-
 a {
     text-decoration: none;
     padding: 0 2px;
@@ -45,26 +37,13 @@ dd {
     margin: 0 0 20px 20px;
 }
 
-pre, code, kbd, var {
-    font-family: Consolas, Inconsolata, Monaco, monospace;
+pre, code, kbd, var, .attribute, .command {
     font-size: 13px;
 }
 
 blockquote {
     font-style: italic;
     margin-left: 20px;
-}
-
-h2 code {
-    font-size: inherit;
-}
-
-kbd {
-    font-weight: bold;
-}
-
-var {
-    font-style: italic;
 }
 
 pre {
@@ -78,29 +57,21 @@ pre {
     word-wrap: break-word;
 }
 
-div.admonition {
-    position: relative;
-    padding: 10px 10px 10px 45px;
+div.admonition-wrapper {
     margin: 0 0 20px 0;
 }
 
-div.admonition:before {
-    position: absolute;
+div.admonition-wrapper:before {
+    font-size: 48px;
+    line-height: 20px;
 
-    font-family: Entypo;
-    font-size: 46px;
-    font-weight: normal;
+    width: 28px;
 
-    top: 10px;
-    left: 10px;
+    padding: 10px;
 }
 
-div.admonition.note:before {
-    content: "\E705";
-}
-
-div.admonition.caution:before {
-    content: "\1F4A5";
+div.admonition-wrapper .admonition {
+    padding: 10px;
 }
 
 // SPECIAL STYLING
@@ -305,8 +276,6 @@ body.page .content {
             @media (min-width: 720px) {
                 @include span-columns(8, 12);
             }
-
-            background: url(/assets/images/grid-40.png) top left;
 
             ul, ol, pre, p, h2, h3 {
                 margin-bottom: 20px;
@@ -780,9 +749,9 @@ footer {
             border-top-style: solid;
 
             p {
-                max-width: 640px;
+                max-width: 600px;
                 padding-left: 55px;
-                background: url(/assets/images/logo-footer.png) top left no-repeat;
+                background: url(/assets/images/logo-footer.png) left center no-repeat;
                 background-size: 40px 40px;
             }
         }

@@ -28,6 +28,9 @@ $explanation-fg-color:  #fff;
 $ticker-fg-color:       shade($light-fg-color, 30%);
 $hr-color:              mix($bg-color, $emph-color, 50%);
 $footer-fg-color:       shade($light-fg-color, 40%);
+$admon-color-tip:       adjust-hue($link-color-a, 240deg);
+$admon-color-note:      $link-color-a;
+$admon-color-caution:   $emph-color;
 
 
 
@@ -96,16 +99,28 @@ pre:after {
     background: shade($bg-color, 20%);
 }
 
-div.admonition {
+div.admonition-wrapper {
     background: shade($bg-color, 5%);
 }
 
-div.admonition.note:before {
-    color: $emph-color;
+div.admonition-wrapper:before {
+    color: #fff;
 }
 
-div.admonition.caution:before {
-    color: $emph-color;
+div.admonition-wrapper.tip:before {
+    background-color: $link-color-a;
+}
+
+div.admonition-wrapper.note:before {
+    background-color: $link-color-a;
+}
+
+div.admonition-wrapper.caution:before {
+    background-color: $emph-color;
+}
+
+div.admonition-wrapper.todo:before {
+    background-color: desaturate($emph-color, 75%);
 }
 
 body header {

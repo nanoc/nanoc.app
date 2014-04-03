@@ -39,7 +39,7 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 <pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-aP', '--delete-after' ]</code></pre>
 
-<div class="admonition caution">This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.</div>
+CAUTION: This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.
 
 With GitHub Pages
 -----------------

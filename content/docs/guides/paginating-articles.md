@@ -5,7 +5,7 @@ title:    "Paginating articles"
 Paginating articles
 -------------------
 
-<div class="admonition note">Even though pagination is fairly easy to do in nanoc, I recommend not doing it. Every time an object is added to a paginated collection, one object shifts from one page to the next. When a paginated page is bookmarked, it may show entirely different content a month later, and when a paginated page turns up as a result on a search engine, it may no longer contain the content that the person was looking for anymore. To avoid these issues, I recommend creating separate pages for each category, tag or year.</div>
+NOTE: Even though pagination is fairly easy to do in nanoc, I recommend not doing it. Every time an object is added to a paginated collection, one object shifts from one page to the next. When a paginated page is bookmarked, it may show entirely different content a month later, and when a paginated page turns up as a result on a search engine, it may no longer contain the content that the person was looking for anymore. To avoid these issues, I recommend creating separate pages for each category, tag or year.
 
 To paginate articles, use the preprocessor block in the Rules file. The preprocessor contains code that is executed before the site is compiled. It allows new items to be generated programmatically, or existing items to be programmatically modified or deleted.
 

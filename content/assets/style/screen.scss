@@ -1,5 +1,5 @@
 ---
-version:    31
+version:    33
 is_hidden:  true
 is_dynamic: true
 ---
@@ -10,3 +10,5 @@ is_dynamic: true
 @import "layout.scss";
 @import "color.scss";
 @import "code.scss";
+@import "admonition.scss";
+@import "text.scss";

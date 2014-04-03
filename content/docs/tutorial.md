@@ -1,89 +1,90 @@
 ---
-title:      "Tutorial"
-is_dynamic: true
+title: "Tutorial"
 ---
 
-Requirements
-------------
+This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
-This tutorial does not cover the installation of nanoc. For information on how to install nanoc, as well as Ruby and Rubygems, check out the [Install](/install/) page.
+a working nanoc installation
+: Check out the [Install](/install/) page for details on how to install Ruby, Rubygems and nanoc.
 
-nanoc also requires some experience with Ruby. It is possible to use nanoc with no Ruby knowledge, but to take full advantage of nanoc, you’ll need to know Ruby well. I recommend the [Programming Ruby](http://ruby-doc.org/docs/ProgrammingRuby/) book to people who don’t have a lot of Ruby experience yet.
+a basic understanding of Ruby
+: nanoc uses the Ruby programming language extensively. If you are unfamiliar with Ruby, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
 
-Creating a Site
----------------
+a basic understanding of the command line
+: nanoc is executed on the command line. If you need to brush up on your command line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
 
-nanoc is a command-line application. This means that in order to use nanoc, you have to type geeky commands into a terminal all day. Hey, that’s the way all cool apps work.
+Create a site
+-------------
 
-A nanoc-powered site is a directory with a specific structure. In this tutorial, we’ll create a site named `tutorial`. To create this site, type into the terminal:
+Create a new site by typing <kbd>create-site</kbd>, followed by the name of the new directory in which you want nanoc to create the site:
 
-<pre title="Creating a new site"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
+<pre><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd></pre>
 
-If you did that right, you should see something like this in the terminal:
+nanoc lists all files being generated as result of this command:
 
-<pre title="Creating a new site (with command output)"><span class="prompt">%</span> <kbd>nanoc create-site tutorial</kbd>
-      <span class="log-create">create</span>  nanoc.yaml
-      <span class="log-create">create</span>  Rakefile
+<pre>      <span class="log-create">create</span>  nanoc.yaml
       <span class="log-create">create</span>  Rules
       <span class="log-create">create</span>  content/index.html
       <span class="log-create">create</span>  content/stylesheet.css
       <span class="log-create">create</span>  layouts/default.html
-Created a blank nanoc site at 'tutorial'. Enjoy!
-<span class="prompt">%</span> </pre>
+Created a blank nanoc site at 'tutorial'. Enjoy!</pre>
 
-The nanoc-powered site named `tutorial` has now been created. Go into the directory and list the files there. You should see something like this:
+A nanoc-powered site is a directory with a specific structure. The newly generated `tutorial` directory has a handful of files and directories:
 
-<pre title="Getting the contents of the new site directory"><span class="prompt">%</span> <kbd>cd tutorial</kbd>
-<span class="prompt">tutorial%</span> <kbd>ls -l</kbd>
-total 24
--rw-r--r--  1 ddfreyne  staff   22 Feb 17 14:44 Rakefile
--rw-r--r--  1 ddfreyne  staff  692 Feb 17 14:44 Rules
--rw-r--r--  1 ddfreyne  staff  100 Feb 17 14:44 nanoc.yaml
-drwxr-xr-x  4 ddfreyne  staff  136 Feb 17 14:44 content
-drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 layouts
-drwxr-xr-x  3 ddfreyne  staff  102 Feb 17 14:44 lib
-drwxr-xr-x  2 ddfreyne  staff   68 Feb 17 14:44 output
-<span class="prompt">tutorial%</span> </pre>
+<span class="filename">nanoc.yaml</span>
+: The YAML file that contains site-wide configuration details.
 
-What all those files and directories are for will all become clear soon.
+<span class="filename">Rules</span>
+: The Ruby file that describes how pages and assets will be processed.
 
-Compiling the Site
-------------------
+<span class="filename">content/</span>
+: The directory in which pages and assets go.
 
-Before doing anything else, make sure the current working directory is the site you just created. All nanoc commands, except for <kbd>create-site</kbd>, require the current working directory to be a nanoc site. So, if you haven’t done it before:
+<span class="filename">layouts/</span>
+: The directory that contains layouts, which define the look-and-feel of the site.
 
-<pre title="Going into the site directory"><span class="prompt">%</span> <kbd>cd tutorial</kbd>
+<span class="filename">lib/</span>
+: The directory that contains custom Ruby code.
+
+We’ll revisit these later on in the tutorial.
+
+Compile the site
+----------------
+
+All nanoc commands, except for <span class="command">create-site</span>, require the current working directory to be a nanoc site. <kbd>cd</kbd> into the <span class="filename">tutorial</span> directory, if you haven’t yet done so:
+
+<pre><span class="prompt">%</span> <kbd>cd tutorial</kbd>
 <span class="prompt">tutorial%</span></pre>
 
-Every new nanoc site already has a bit of content. It comes with one simple page with some simple "getting started" instructions. Before you can view the site, it needs to be compiled. To compile the site, do this:
+Every new nanoc site comes with one page, <span class="filename">content/index.html</span>. The content of this page is a HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running <kbd>nanoc</kbd>:
 
-<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd></pre>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
 
-Or, if you want it short, just type <kbd>nanoc</kbd>:
+NOTE: You can also use the <span class="command">nanoc compile</span> command, for which <span class="command">nanoc</span> is a shorthand.
 
-<pre title="Compiling the new site"><span class="prompt">tutorial%</span> <kbd>nanoc</kbd></pre>
+nanoc will tell what is happening during the compilation process:
 
-This is what’ll appear in the terminal while nanoc is compiling:
-
-<pre title="Compiling the new site (with command output)"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
-Loading site data…
+<pre>Loading site data…
 Compiling site…
       <span class="log-create">create</span>  [0.01s] output/index.html
 
-Site compiled in 0.01s.
-<span class="prompt">tutorial%</span> </pre>
+Site compiled in 0.01s.</pre>
 
-A file named `index.html` has been created in the `output` directory. The preferred way of previewing a site is using the <kbd>view</kbd> command, but we’ll need to install the `adsf` gem (_not_ `asdf`!) before we can preview:
+nanoc created a file named <span class="filename">index.html</span> in the <span class="filename">output/</span> directory. This is a complete HTML file, as opposed to the snippet in the <span class="filename">content/</span> directory.
 
-<pre title="Installing adsf"><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
+Because nanoc generates absolute paths by default, opening the file directly in a web browser will not produce the desired result: links will be broken and the browser won’t be able to find the stylesheet.
 
-<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
+The recommended way of previewing a site is using the <kbd>nanoc view</kbd> command, which starts a local web server that mimics a real-world web server. Before you can use this command, install the <span class="productname">adsf</span> gem (_not_ <span class="productname">asdf</span>!) first:
 
-Now we can start a web server, like this:
+<pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
-<pre title="Compiling a site"><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
+NOTE: If the <span class="command">gem install</span> command fails with a permission error, you likely have to prefix the command with <kbd>sudo</kbd>. Do not use <span class="command">sudo</span> until you have tried the command without it; using <span class="command">sudo</span> when not appropriate will damage your RubyGems installation.
 
-Now, open your web browser and navigate to [http://localhost:3000/](http://localhost:3000/). What you’ll see is something like this:
+Now you can start a web server by running <kbd>nanoc view</kbd>:
+
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc view</kbd></pre>
+
+Open a web browser and navigate to <span class="uri">http://localhost:3000/</span>. You’ll see something like this:
 
 <figure class="fullwidth">
 	<img src="/assets/images/tutorial/default-site.png"
@@ -91,26 +92,30 @@ Now, open your web browser and navigate to [http://localhost:3000/](http://local
 	<figcaption>Screenshot of what a brand new nanoc site looks like</figcaption>
 </figure>
 
-(If you open the `index.html` directly in your web browser, the stylesheet will most likely not be loaded. This is because the page has an _absolute_ link to the `style.css` file, not a relative one.)
+Edit the home page
+------------------
 
-You can also open the `output/index.html` file in your favourite text editor, where you’ll find that the file is just a normal HTML page.
+Pages and assets, commonly referred to as <span class="firstterm">items</span>, are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
 
-Editing the Home Page
----------------------
+<pre><code>---
+title: Home
+---
 
-The first step in getting to know how nanoc really works will involve editing the content of the home page. First, though, a quick explanation of how uncompiled pages are stored.
+&lt;h1>A Brand New nanoc Site&lt;/h1>
 
-The pages in a nanoc site are stored in the `content` directory. Currently, that directory has only two files: `index.html` and `stylesheet.css`. The first file forms the home page, while the second file is the stylesheet. If you open the `index.html` file, you’ll notice a section containing metadata in YAML format at the top.
+&lt;p>You’ve just created a new nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:&lt;/p>
 
-Let’s change the content of the home page. Open `index.html` and add a paragraph somewhere in the file. I recommend something like this:
+…</code></pre>
 
-<pre title="Sample content to be added to index.html"><code class="language-html">
-&lt;p>This is a brand new paragraph which I've just inserted into this file! Gosh, I can barely control my excitement!&lt;/p>
+Add a paragraph somewhere in the file. I recommend adding the following:
+
+<pre><code class="language-html">
+&lt;p>Another nanoc convert! Master will be pleased.&lt;/p>
 </code></pre>
 
-To view the changes, the site must be recompiled first. So, run the <kbd>compile</kbd> command. You should see something like this:
+Recompile the site by running <kbd>nanoc</kbd>:
 
-<pre title="Compiling the site again"><span class="prompt">tutorial%</span> <kbd>nanoc compile</kbd>
+<pre><span class="prompt">tutorial%</span> <kbd>nanoc</kbd>
 Loading site data…
 Compiling site…
       <span class="log-update">update</span>  [0.01s] output/index.html
@@ -118,264 +123,237 @@ Compiling site…
 Site compiled in 0.01s.
 <span class="prompt">tutorial%</span> </pre>
 
-The number between brackets next to the `output/index.html` filename indicates the time it took for nanoc to compile the home page. At the bottom, the total time needed for compiling the entire site is also shown.
+Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, and reload <span class="uri">http://localhost:3000/</span> in your browser. You’ll see the page and the newly added paragraph.
 
-Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, reload [http://localhost:3000/](http://localhost:3000/) in your browser, and verify that the page has indeed been updated.
+Items, such as this home page, can contain metadata. This metadata is defined in the <span class="firstterm">frontmatter</span> of a file. The home page’s frontmatter is quite simple:
 
-In the same file, let’s change the page title from "Home" to something more interesting. Change the line that reads `title: "Home"` to something else. The file should now start with this:
-
-<pre title="New first few lines of index.html"><code class="language-yaml">---
-title: "My New Home Page"
+<pre><code class="language-yaml">---
+title: Home
 ---</code></pre>
 
-The metadata section at the top of the file is formatted as YAML. All attributes are free-form; you can put anything you want in the attributes: the page title, keywords relevant to this page, the name of the page’s author, the language the page is written in, etc.
+NOTE: The term <span class="firstterm">metadata section</span> is often used instead of frontmatter in the context of nanoc. Other static site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
-Recompile the site and once again load [http://localhost:3000/](http://localhost:3000/) in your browser. You will see that the browser’s title bar displays the page’s title now. How the page title ends up between `<title>` and `</title>` will be explained below!
+The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
 
-Adding a Page
--------------
+Change the value of the <span class="attribute">title</span> attribute to something else:
 
-In nanoc, pages are sometimes referred to as "items." This is because items don’t necessarily have to be pages: JavaScript and CSS files aren’t pages, but they are items.
+<pre><code class="language-yaml">---
+title: "Denis’ Guide to Awesomeness"
+---</code></pre>
 
-To create a new page or item in the site, use the `create-item` command (or `ci` for short). Let’s create an "about" page like this:
+Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the [Customize the layout](#customize-the-layout) section below.)
 
-<pre title="Creating a new item"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd></pre>
-
-You should see this:
-
-<pre title="Creating a new item (with output)"><span class="prompt">tutorial%</span> <kbd>nanoc create-item about</kbd>
-      <span class="log-create">create</span>  content/about.html
-<span class="prompt">tutorial%</span> </pre>
-
-Open the newly generated file and put some text in it, like this (be sure to leave the metadata section intact):
-
-<pre title="Sample content to be added to about.html"><code class="language-html">
-&lt;h1>My cute little "About" page&lt;/h1>
-
-&lt;p>This is the about page for my new nanoc site.&lt;/p>
-</code></pre>
-
-In the metadata section, change the title to something else:
-
-<pre title="Sample metadata to be added to about.html"><code class="language-yaml">
-title: "My Cool About Page"
-</code></pre>
-
-Recompile the site, and notice that a file `output/about/index.html` has been created. With the preview server running, open [http://localhost:3000/about/](http://localhost:3000/about/) in your browser and admire your brand new about page. Shiny!
-
-By the way, if you don’t like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the `content/about.html` page could have its metadata stored in `content/about.yaml` instead.
-
-Customizing the Layout
-----------------------
-
-The default home page recommended editing the default layout, so let’s see what we can do there.
-
-As you probably have noticed already, the page’s content files are not complete HTML files—they are *partial* HTML files. A page needs `<html>`, `<head>`, `<body>`, … elements before it’s valid HTML. This doesn’t mean you’ve been writing invalid HTML all along, though, because nanoc *layouts* each page as a part of the compilation process.
-
-Take a look at the `default.html` file in the `layouts` directory. Just like items, it contains a metadata section at the top of the file. Open it in your text editor. It *almost* looks like a HTML page, with the exception of this piece of code:
-
-<pre title="Extract from the default layout showing the body"><code class="language-html">…
-&lt;div id="main">
-  &lt;%= yield %>
-&lt;/div>
-…
-</code></pre>
-
-The odd construct in the middle of that piece of code is an *eRuby* instruction. Here’s a cheat sheet in case you’re not familar with eRuby:
-
-<dl>
-<dt><code>&lt;% code %></code></dt>
-<dd>Runs the code between <code>&lt;%</code> and <code>%></code></dd>
-<dt><code>&lt;%= code %></code></dt>
-<dd>Runs the code between <code>&lt;%=</code> and <code>%></code>, and displays the return value on the web page</dd>
-</dl>
-
-By the way, if you don’t like eRuby and would rather use something like Haml or Mustache, you can! Check out the [Haml](/docs/reference/filters/#haml) and [Mustache](/docs/reference/filters/#mustache) filters (filters will be explained below).
-
-The <code>&lt;%= yield %></code> instruction will be replaced with the item’s compiled content when compiling. There is another important piece of eRuby code near the top of the file:
-
-<pre title="Extract from the default layout showing the title"><code class="language-html">
-&lt;title>A Brand New nanoc Site - &lt;%= @item[:title] %>&lt;/title>
-</code></pre>
-
-This is where the page’s title is put into the compiled document.
-
-Every page can have arbitrary metadata associated with it. To demonstrate this, add the following line to the metadata section of the about page:
-
-<pre title="New metadata to be added to the about page"><code class="language-yaml">
-author: "John Doe"
-</code></pre>
-
-Now output the author name in the layout. Put this piece of code somewhere in your layout (somewhere between the `<body>` and `</body>` tags, please, or you won’t see a thing):
-
-<pre title="Sample code to be added to the default layout"><code class="language-html">
-&lt;% if @item[:author] %>
-  &lt;p>This page was written by &lt;%= @item[:author] %>.&lt;/p>
-&lt;% end %>
-</code></pre>
-
-Recompile the site, and load [http://localhost:3000/about/](http://localhost:3000/about/) in your browser. You’ll see that the about page has a line saying <q>This page was written by John Doe</q>, while the home page does not—as expected!
-
-Writing Pages in Markdown
--------------------------
-
-You don’t have to write pages in HTML. Sometimes, it is easier to use another language which can be converted to HTML instead. In this example, we’ll use [Markdown](http://daringfireball.net/projects/markdown) to avoid having to write HTML. nanoc calls these text transformations *filters*.
-
-Get rid of the content of the home page (`content/index.html`) and replace it with the following Markdown-formatted text (but leave the metadata section intact):
-
-<pre title="Sample content that will replace the content of the home page"><code class="language-markdown">
-A First Level Header
-====================
-
-A Second Level Header
----------------------
-
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
-
-The quick brown fox jumped over the lazy
-dog’s back.
-
-### Header 3
-
-> This is a blockquote.
->
-> This is the second paragraph in the blockquote.
->
-> ## This is an H2 in a blockquote</code></pre>
-
-We’ll use [kramdown](http://kramdown.rubyforge.org/) for converting Markdown into HTML. Before we can use kramdown, we need to install the gem, like this:
-
-<pre title="Installing kramdown"><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
-
-<div class="admonition note">You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.</div>
-
-To tell nanoc to format the home page as Markdown, let nanoc run it through the `kramdown` filter. For this, the `Rules` file is used. This file specifies the processing instructions for all items.
-
-The `Rules` file contains a bit of Ruby code like this:
-
-<pre title="The original compilation rule"><code class="language-ruby">
-compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
-    filter :erb
-    layout 'default'
-  end
-end</code></pre>
-
-This is a _compilation_ rule, which means it will define how an item is processed. The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, all items will be processed using this rule. Inside the block, there is a check whether the item is binary (e.g. an image) or not (e.g. a HTML page or a CSS stylesheet). If the item is binary, nothing happens--the item is left unchanged. If the item is not binary, the `:erb` filter is run, after which the `default` layout is applied.
-
-The `Rules` file also contains a call to `route`, and it looks similar to the call to `compile`:
-
-<pre title="The original routing rule"><code class="language-ruby">
-route '*' do
-  if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
-  else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
-  end
-end</code></pre>
-
-This is a _routing_ rule, and therefore it defines where an item is written to once it is processed. Again, the string argument defines which items will be processed using this rule, and the `*` wildcard means it will apply to all items.
-
-Inside the block, we check whether the item is binary or not. None of the items in the site are, so the items will be written to identifier + 'index.html', so an item with identifier `'/foo/'` is written to `'/foo/index.html'`.
-
-To make sure that the home page (but not any other page) is run through the `kramdown` filter, we add a compilation rule *before* the existing compilation rule. It should look like this:
-
-<pre title="The new compilation rule"><code class="language-ruby">
-compile '/' do
-  filter :kramdown
-  layout 'default'
-end</code></pre>
-
-It is important that this rule comes *before* the existing one (`compile '*' do … end`). When compiling a page, nanoc will use the first and only the first matching rule; if the new compilation rule were *below* the existing one, it would never have been used.
-
-The default routing rule still matches out needs, so we’ll keep that one intact.
-
-Now that we’ve told nanoc to filter this page using kramdown, let’s recompile the site. The `output/index.html` page source should now contain this text (header and footer omited):
-
-<pre title="The compiled home page, filtered as Markdown"><code class="language-html">
-&lt;h1>A First Level Header&lt;/h1>
-
-&lt;h2>A Second Level Header&lt;/h2>
-
-&lt;p>Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.&lt;/p>
-
-&lt;p>The quick brown fox jumped over the lazy
-dog's back.&lt;/p>
-
-&lt;h3>Header 3&lt;/h3>
-
-&lt;blockquote>
-    &lt;p>This is a blockquote.&lt;/p>
-
-    &lt;p>This is the second paragraph in the blockquote.&lt;/p>
-
-    &lt;h2>This is an H2 in a blockquote&lt;/h2>
-&lt;/blockquote>
-</code></pre>
-
-The kramdown filter is not the only filter you can use—take a look a the [full list of filters included with nanoc](/docs/reference/filters/). You can also write your own filters—read the [Writing Filters](/docs/extending-nanoc/#writing-filters) section in the manual for details.
-
-Writing some Custom Code
-------------------------
-
-There is a directory named `lib` in your nanoc site. In there, you can throw Ruby source files, and they’ll be read and executed before the site is compiled. This is therefore the ideal place to define helper methods.
-
-As an example, let’s add some tags to a few pages, and then let them be displayed in a clean way using a few lines of custom code. Start off by giving the "about" page some tags. Open `about.html` and add this to the meta section:
-
-<pre title="Tags to be added to the about page’s metadata"><code class="language-yaml">
-tags:
-  - foo
-  - bar
-  - baz
-</code></pre>
-
-Next, create a file named `tags.rb` in the `lib` directory (the filename doesn’t really matter). In there, put the following function:
-
-<pre title="Code snippet to be put in the lib directory"><code class="language-ruby">
-def tags
-  if @item[:tags].nil?
-    '(none)'
-  else
-    @item[:tags].join(', ')
-  end
-end
-</code></pre>
-
-This function will take the current page’s tags and return a comma-separated list of tags. If there are no tags, it returns "(none)". To put this piece of code to use, open the default layout and add this line right above the <code>&lt;%= yield %></code> line:
-
-<pre title="Code snippet to be added to the default layout"><code class="language-html">
-&lt;p>Tags: &lt;%= tags %>&lt;/p>
-</code></pre>
-
-Recompile the site, and take a look at both HTML files in the `output` directory. If all went well, you should see a list of tags right above the page content.
-
-Writing your own functions for handling tags is not really necessary, though, as nanoc comes with a tagging helper by default. To enable this tagging helper, first delete `tags.rb` and create a `helper.rb` file (again, the filename doesn’t really matter) and put this inside:
-
-<pre title="Code snippet to be added to the lib directory"><code class="language-ruby">
-include Nanoc::Helpers::Tagging
-</code></pre>
-
-This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use. You can check out the [API documentation for the Tagging helper](/docs/api/Nanoc/Helpers/Tagging.html), but there is only one function we’ll use: `tags_for`. It’s very similar to the `tags` function we wrote before. Update the layout with this:
-
-<pre title="Code snippet to be added to the default layout"><code class="language-html">
-&lt;p>Tags: &lt;%= tags_for(@item) %>&lt;/p>
-</code></pre>
-
-Now compile the site again, and you’ll see that nanoc shows the tags for the page, but this time using the built-in tagging helper.
-
-nanoc comes with quite a few useful helpers. The [API documentation](/docs/api/) describes each one of them.
-
-That’s it!
+Add a page
 ----------
 
-This is the end of the tutorial. I hope that this tutorial both whet your appetite, and gave you enough information to get started with nanoc.
+Create a file named <span class="filename">content/about.html</span> and paste in the following content:
 
-There’s more reading material. It’s definitely worth checking out the following chapters; they’re rather big, but they contains everything you need to know about nanoc.
+    #!html
+    ---
+    title: "About me and my cats"
+    ---
+
+    <h1>My cute little "About" page</h1>
+
+    <p>This is the about page for my new nanoc site.</p>
+
+NOTE: nanoc also provides a <span class="command">nanoc create-item</span> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <span class="command">create-item</span> and <span class="command">create-layout</span> commands will be removed.
+
+Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file <span class="filename">output/about/index.html</span>. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
+
+TIP: If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page can have its metadata stored in <span class="filename">content/about.yaml</span> instead.
+
+Customize the layout
+--------------------
+
+The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, <span class="filename">layouts/default.html</span>, your text editor. It *almost* looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the `<%= yield %>` one:
+
+    #!html
+    …
+    <div id="main">
+      <%= yield %>
+    </div>
+    …
+
+Two main eRuby instructions exist:
+
+`<% code %>`
+:   Runs the code between `<%` and `%>`
+
+`<%= code %>`
+:   Runs the code between `<%=` and `%>`, and displays the return value on the web page
+
+TIP: nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.
+
+The `<%= yield %>` instruction is replaced with the item’s compiled content when compiling.
+
+The file also contains the `<%= @item[:title] %>` instruction near the top of the file. This is replaced with the contents of the <span class="filename">title</span> attribute during compilation.
+
+Because nanoc attributes are free-form, you can make up your own attributes. Set the <span class="attribute">author</span> attribute on the about page:
+
+    #!yaml
+    ---
+    title: "About me and my cats"
+    author: "John Doe"
+    ---
+
+Modify the layout to show the value of the <span class="attribute">author</span> attribute. Add the following snippet to the layout:
+
+    #!html
+    <% if @item[:author] %>
+      <p>This page was written by <%= @item[:author] %>.</p>
+    <% end %>
+
+Recompile the site and open both the home page and the about page. The about page contains a paragraph mentioning John Doe as the author, while the home page does not.
+
+Write pages in Markdown
+-----------------------
+
+nanoc has <span class="firstterm">filters</span>, which transform content from one format into another.
+
+A language that is commonly used instead of HTML is [Markdown](http://daringfireball.net/projects/markdown). nanoc comes with several different Markdown filters, including a filter for [kramdown](http://kramdown.gettalong.org/), a fast and featureful Markdown processor.
+
+Get rid of the content in <span class="filename">content/index.html</span> (but leave the frontmatter intact), and replace it with Markdown:
+
+    ---
+    title: "Denis’ Guide to Awesomeness"
+    ---
+
+    Now is the time for all good men to come to the aid of their country. This is just a regular paragraph.
+
+    ## Shopping list
+
+    1. Bread
+    2. Butter
+    3. Refined uranium
+
+Rename the <span class="filename">content/index.html</span> file to <span class="filename">content/index.md</span>. <span class="filename">md</span> is a file extension that is commonly used with Markdown.
+
+Before we can use the <span class="productname">kramdown</span> gem, it needs to be installed:
+
+<pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
+
+NOTE: If the <span class="command">gem install</span> command fails with a permission error, you likely have to prefix the command with <kbd>sudo</kbd>. Do not use <span class="command">sudo</span> until you have tried the command without it; using <span class="command">sudo</span> when not appropriate will damage your RubyGems installation.
+
+The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
+
+The first point of interest in the <span class="filename">Rules</span> is this <span class="firstterm">compilation rule</span>:
+
+    #!ruby
+    compile '*' do
+      if item[:extension] == 'css'
+        # don’t filter stylesheets
+      elsif item.binary?
+        # don’t filter binary items
+      else
+        filter :erb
+        layout 'default'
+      end
+    end
+
+The second point of interest is the <span class="firstterm">routing rule</span>:
+
+    #!ruby
+    route '*' do
+      if item[:extension] == 'css'
+        # Write item with identifier /foo/ to /foo.css
+        item.identifier.chop + '.css'
+      elsif item.binary?
+        # Write item with identifier /foo/ to /foo.ext
+        item.identifier.chop + '.' + item[:extension]
+      else
+        # Write item with identifier /foo/ to /foo/index.html
+        item.identifier + 'index.html'
+      end
+    end
+
+Compilation rules describe how items are processed, while routing rule describe where items are written to. Each item matches exactly one compilation rule and one routing rule.
+
+The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, both rules match all items.
+
+Modify the compilation rule to add a check for the <span class="filename">md</span> file extension. In this case, run the `:kramdown` filter on items that have a <span class="filename">md</span> extension, and apply the default layout:
+
+    #!ruby
+    compile '*' do
+      if item[:extension] == 'md'
+        filter :kramdown
+        layout 'default'
+      elsif item[:extension] == 'css'
+        # don’t filter stylesheets
+      elsif item.binary?
+        # don’t filter binary items
+      else
+        filter :erb
+        layout 'default'
+      end
+    end
+
+The routing rule still matches our needs, so keep that one intact.
+
+Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In <span class="filename">output/index.html</span>, you will find the converted HTML:
+
+    #!html
+    <p>Now is the time for all good men to come to the aid of their country. This is just a regular paragraph.</p>
+
+    <h2 id="shopping-list">Shopping list</h2>
+
+    <ol>
+      <li>Bread</li>
+      <li>Butter</li>
+      <li>Refined uranium</li>
+    </ol>
+
+Write some custom code
+----------------------
+
+nanoc will load Ruby source files in the <span class="filename">lib/</span> directory on startup. Functions defined in there will be available during compilation. Such functions are useful for removing logic from layouts.
+
+To demonstrate this, open <span class="filename">content/about.html</span> and add tags to the frontmatter:
+
+    #!yaml
+    tags:
+      - foo
+      - bar
+      - baz
+
+Next, create a <span class="filename">lib/tags.rb</span> file and put in the following function:
+
+    #!ruby
+    def tags
+      if @item[:tags].nil?
+        '(none)'
+      else
+        @item[:tags].join(', ')
+      end
+    end
+
+Modify the layout and add a paragraph that outputs the tags:
+
+    #!html
+    <p>Tags: <%= tags %></p>
+
+Recompile the site and open both the home page and the about page in your web browser. You’ll see a list of tags on both pages.
+
+Use a predefined helper
+-----------------------
+
+nanoc is bundled with a handful of helpers, including [a tagging helper](/docs/reference/helpers/#tagging). To use this tagging helper, replace the contents of <span class="filename">lib/tags.rb</span> with this:
+
+    #!ruby
+    include Nanoc::Helpers::Tagging
+
+This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use.
+
+Modify the layout and replace the paragraph that dispays the tags with a call to `#tags_for`, which is defined in the tagging helper:
+
+    #!html
+    <p>Tags: <%= tags_for(@item) %></p>
+
+Recompile the site. The tags in the compiled HTML files in the <span class="filename">output/</span> directory are now generated using the helper.
+
+Next steps
+----------
+
+You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the [nanoc documentation](/docs/). If you’re stuck with a nanoc problem, get help on the [nanoc discussion group](https://groups.google.com/forum/#!forum/nanoc).
+
+We’d love to hear your feedback about the nanoc documentation. Is something wrong? Is something unclear? Tell us by [opening an issue on GitHub](https://github.com/nanoc/nanoc.ws/issues/new). Thanks!

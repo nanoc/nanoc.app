@@ -9,10 +9,11 @@ gem 'kramdown'    # for advanced markdown
 gem 'nokogiri'    # for parsing HTML
 gem 'rainpress'   # for compact CSS
 gem 'rubypants'   # for pretty typography
+gem 'sass', '~> 3.2.13'
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
-gem 'sass', '~> 3.2.0'
+gem 'html5small'
 
 gem 'nanoc-core',             path: '~/Documents/Development/nanoc/repos/nanoc-core'
 gem 'nanoc-cli',              path: '~/Documents/Development/nanoc/repos/nanoc-cli'

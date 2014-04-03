@@ -55,7 +55,7 @@ directory. For safety reasons, this is turned off by default.
 	prune:
 	  auto_prune: false
 
-<div class="admonition caution">Enabling <code>auto_prune</code> will cause nanoc to remove all files and directories from the output directory that do not correspond to nanoc items. Make sure that the output directory does not contain anything that you still need.</div>
+CAUTION: Enabling <code>auto_prune</code> will cause nanoc to remove all files and directories from the output directory that do not correspond to nanoc items. Make sure that the output directory does not contain anything that you still need.
 
 ### `exclude`
 

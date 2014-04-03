@@ -40,7 +40,7 @@ compile '/assets/style/*' do
   write '/assets/style' + '-v' + rep.item[:version].to_s + '.css'
 end
 
-# Special pages
+# Other
 
 compile '/sitemap.*' do
   filter :erb
@@ -56,6 +56,7 @@ compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, :type => :html
+  #filter :html5small
   write '/index.html'
 end
 
@@ -73,6 +74,7 @@ compile '/**/*' do
 
   filter :erb if item[:is_dynamic]
   if 'md' == item.identifier.extension
+    filter :admonition
     filter :kramdown, :auto_ids => false
   end
   filter :remove_spacing_around_pre
@@ -88,6 +90,7 @@ compile '/**/*' do
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
+  #filter :html5small
 
   write item[:path] || item.identifier.in_dir.with_ext('html')
 end

@@ -1,0 +1,140 @@
+---
+version:    3
+is_hidden:  true
+is_dynamic: true
+---
+
+@import "fonts.scss";
+@import "admonition.scss";
+@import "text.scss";
+
+@import "compass/css3/box-sizing";
+
+@page
+{
+    size: auto;
+    margin: 1in;
+}
+
+header,
+footer,
+.side {
+	display: none;
+}
+
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	font-family: Georgia, Palatino, serif;
+    font-size: 11pt;
+    line-height: 14pt;
+}
+
+h1, h2, h3, h4, h5, h6, figcaption {
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	page-break-after: avoid;
+}
+
+h1 {
+	font-size: 24pt;
+}
+
+h2 {
+	font-size: 18pt;
+}
+
+h3 {
+	font-size: 14pt
+}
+
+figure, img {
+	width: 100%;
+}
+
+figure {
+	margin: 0;
+}
+
+figure img {
+	border: 1pt solid black;
+	padding: 12pt;
+}
+
+figcaption {
+	margin: 0;
+}
+
+dt {
+    margin-top: 12pt;
+}
+
+pre {
+	border-top: 1pt solid black;
+	border-bottom: 1pt solid black;
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+pre, .admonition-wrapper, figure {
+    page-break-inside: avoid;
+}
+
+p {
+	widows: 3;
+	orphans: 3;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:after {
+	content: " (" attr(href) ")";
+}
+
+kbd {
+	font-weight: bold;
+}
+
+var {
+	font-style: italic;
+}
+
+pre, code, kbd, var, .attribute {
+    font-family: Consolas, Inconsolata, Monaco, monospace;
+}
+
+.filename, .uri, .command, .productname, .firstterm {
+  font-style: italic;
+}
+
+div.admonition-wrapper {
+    margin: 0 0 20pt 0;
+
+    border: 1px solid black;
+}
+
+div.admonition-wrapper:before {
+    font-size: 40pt;
+    line-height: 20pt;
+
+    width: 20pt;
+
+    padding: 2pt;
+}
+
+div.admonition-wrapper.todo:before {
+    content: "\1F6C8";
+}
+
+div.admonition-wrapper .admonition {
+    padding: 6pt;
+}
