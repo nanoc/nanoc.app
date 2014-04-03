@@ -123,6 +123,24 @@ div.admonition-wrapper.caution:before {
     content: "\26A0";
 }
 
+div.admonition-wrapper .admonition:before {
+    font-weight: bold;
+    font-size: 90%;
+    padding-right: 5px;
+}
+
+div.admonition-wrapper.tip .admonition:before {
+    content: "TIP: ";
+}
+
+div.admonition-wrapper.note .admonition:before {
+    content: "NOTE: ";
+}
+
+div.admonition-wrapper.caution .admonition:before {
+    content: "CAUTION: ";
+}
+
 // SPECIAL STYLING
 
 table.comparison {
