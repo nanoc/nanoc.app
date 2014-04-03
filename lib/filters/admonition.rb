@@ -5,7 +5,7 @@ class AdmonitionFilter < Nanoc::Filter
   identifier :admonition
 
   def run(content, params = {})
-    content.gsub(/^(TIP|NOTE|CAUTION): (.*)$/) do |match|
+    content.gsub(/^(TIP|NOTE|CAUTION|TODO): (.*)$/) do |match|
       generate($1.downcase, $2)
     end
   end

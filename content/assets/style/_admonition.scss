@@ -31,6 +31,10 @@ div.admonition-wrapper.caution:before {
     content: "\26A0";
 }
 
+div.admonition-wrapper.todo:before {
+    content: "\1F6C8";
+}
+
 div.admonition-wrapper .admonition:before {
     font-weight: bold;
     font-size: 90%;
@@ -47,4 +51,8 @@ div.admonition-wrapper.note .admonition:before {
 
 div.admonition-wrapper.caution .admonition:before {
     content: "CAUTION: ";
+}
+
+div.admonition-wrapper.todo .admonition:before {
+    content: "TO DO: ";
 }

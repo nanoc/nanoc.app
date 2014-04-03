@@ -119,6 +119,10 @@ div.admonition-wrapper.caution:before {
     background-color: $emph-color;
 }
 
+div.admonition-wrapper.todo:before {
+    background-color: desaturate($emph-color, 75%);
+}
+
 body header {
     background: $top-bg-color;
 
