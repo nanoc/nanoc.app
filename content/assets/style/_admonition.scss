@@ -1,0 +1,50 @@
+div.admonition-wrapper {
+    display: table;
+
+    width: 100%;
+    padding: 0;
+}
+
+div.admonition-wrapper:before {
+    display: table-cell;
+
+    font-family: Entypo;
+    font-weight: normal;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.admonition-wrapper .admonition {
+    display: table-cell;
+}
+
+div.admonition-wrapper.tip:before {
+    content: "\1F393";
+}
+
+div.admonition-wrapper.note:before {
+    content: "\270E";
+}
+
+div.admonition-wrapper.caution:before {
+    content: "\26A0";
+}
+
+div.admonition-wrapper .admonition:before {
+    font-weight: bold;
+    font-size: 90%;
+    padding-right: 5px;
+}
+
+div.admonition-wrapper.tip .admonition:before {
+    content: "TIP: ";
+}
+
+div.admonition-wrapper.note .admonition:before {
+    content: "NOTE: ";
+}
+
+div.admonition-wrapper.caution .admonition:before {
+    content: "CAUTION: ";
+}

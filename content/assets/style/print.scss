@@ -5,6 +5,8 @@ is_dynamic: true
 ---
 
 @import "fonts.scss";
+@import "admonition.scss";
+@import "text.scss";
 
 @import "compass/css3/box-sizing";
 
@@ -78,7 +80,9 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
+}
 
+pre, .admonition-wrapper, figure {
     page-break-inside: avoid;
 }
 
@@ -113,36 +117,20 @@ pre, code, kbd, var, .attribute {
 }
 
 div.admonition-wrapper {
-    display: flex;
-    align-items: center;
+    margin: 0 0 20pt 0;
 
     border: 1px solid black;
-
-    padding: 6pt;
-    margin: 20pt 0;
 }
 
 div.admonition-wrapper:before {
-    font-family: Entypo;
     font-size: 40pt;
-    font-weight: normal;
     line-height: 20pt;
 
-    margin-right: 10pt;
-}
+    width: 20pt;
 
-div.admonition-wrapper.tip:before {
-    content: "\1F4A1";
-}
-
-div.admonition-wrapper.note:before {
-    content: "\2139";
-}
-
-div.admonition-wrapper.caution:before {
-    content: "\26A1";
+    padding: 2pt;
 }
 
 div.admonition-wrapper .admonition {
-    flex: 1 0 0;
+    padding: 6pt;
 }
