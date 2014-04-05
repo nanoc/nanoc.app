@@ -1,6 +1,5 @@
 ---
-title:      "About nanoc"
-is_dynamic: true
+title: "About nanoc"
 ---
 
 nanoc is a flexible <span class="firstterm">static site generator</span> (often abbreviated as <span class="firstterm">SSG</span>).
