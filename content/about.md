@@ -15,7 +15,7 @@ a <abbr title="content management system">CMS</abbr>
 a web application
 : nanoc is a command-line application. With nanoc, developing sites happens on a local machine, and the generated site is deployed when it is finished.
 
-To do: mention target audience (basic Ruby knowledge)
+Because nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
 
 Advantages of static site generators
 ------------------------------------
@@ -51,7 +51,7 @@ nanoc is suitable for a wide variety of sites, including personal blogs, portfol
 
 Some of the sites built with nanoc include the <a href="https://developer.github.com/">GitHub Developer site</a>, the <a href="http://www.dadt.com/uglybetty/">Ugly Betty site</a> and the <a href="http://guides.spreecommerce.com/api/">Spree API site</a>.
 
-TODO: Mention programmability and metadata (querying items by attributes)
+Programmability combined with free-form metadata is what makes nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialised ways. Nothing in nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
 Similar Projects
 ----------------
