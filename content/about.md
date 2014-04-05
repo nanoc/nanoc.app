@@ -3,7 +3,7 @@ title:      "About nanoc"
 is_dynamic: true
 ---
 
-nanoc is a flexible <span class="firstterm">static site generator</span> (<span class="firstterm">SSG</span>).
+nanoc is a flexible <span class="firstterm">static site generator</span> (often abbreviated as <span class="firstterm">SSG</span>).
 
 Static site generators transform content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lay out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
 
@@ -41,6 +41,7 @@ Why use nanoc?
 
 nanoc is suitable for a wide variety of sites, including personal blogs, portfolios and product web sites. Some unique features that allow this include:
 
+* support for free-form metadata
 * support for various markup languages (Markdown, AsciiDoc, Textile, …)
 * support for various templating languages (eRuby, Haml, Mustache, …)
 * ability to write custom filters and helpers
@@ -48,13 +49,9 @@ nanoc is suitable for a wide variety of sites, including personal blogs, portfol
 * integration with various deployment mechanisms
 * ability to run pre-deployment checks
 
-To do: mention some well-known sites and how they use nanoc (nanoc.ws, GitHub dev, FOSDEM, Myst Online)
+Some of the sites built with nanoc include the <a href="https://developer.github.com/">GitHub Developer site</a>, the <a href="http://www.dadt.com/uglybetty/">Ugly Betty site</a> and the <a href="http://guides.spreecommerce.com/api/">Spree API site</a>.
 
-To do: mention programmability (querying items by attributes)
-
-To do: mention metadata
-
-To do: mention guard-nanoc
+TODO: Mention programmability and metadata (querying items by attributes)
 
 Similar Projects
 ----------------
