@@ -20,6 +20,7 @@ is_dynamic: true
 		<li><%= link_to_id '/docs/guides/using-filters-based-on-file-extensions/' %></li>
 		<li><%= link_to_id '/docs/guides/using-binary-items-effectively/' %></li>
 		<li><%= link_to_id '/docs/guides/creating-multilingual-sites/' %></li>
+		<li><%= link_to_id '/docs/guides/using-external-sources/' %></li>
 		<li><%= link_to_id '/docs/troubleshooting/' %></li>
 	</ul>
 	<h4>References</h4>
@@ -54,6 +55,7 @@ Topics
   <%= detailed_toc_for('/docs/guides/using-filters-based-on-file-extensions/') %>
   <%= detailed_toc_for('/docs/guides/using-binary-items-effectively/') %>
   <%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
+  <%= detailed_toc_for('/docs/guides/using-external-sources/') %>
   <li><%= link_to_id '/docs/troubleshooting/' %></li>
 </ol>
 
