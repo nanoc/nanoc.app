@@ -2,9 +2,9 @@
 title: "About nanoc"
 ---
 
-nanoc is a flexible <span class="firstterm">static site generator</span> (often abbreviated as <span class="firstterm">SSG</span>).
+nanoc is a flexible <span class="firstterm">static site generator</span>.
 
-Static site generators transform content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lay out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
+A static site generator, often abbreviated as <span class="firstterm">SSG</span>, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
 
 nanoc is not:
 
