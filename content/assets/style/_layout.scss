@@ -179,29 +179,35 @@ body header {
                         border-right-style: solid;
                     }
 
+                    li.active > span,
+                    li.active > a {
+                        // TODO move this to _colors.scss
+                        border-top: 3px solid rgb(210, 67, 27);
+                        padding-top: 7px;
+                        border-radius: 0;
+                    }
                 }
 
                 @media (max-width: 719px) {
                     li {
                         display: inline-block;
                         width: 49%;
+                        padding: 0;
+                    }
+
+                    li > a,
+                    li > span {
+                        display: inline-block;
                         padding: 10px 0;
+                        width: 100%;
                     }
                 }
 
                 li > a,
-                li.active > span {
+                li > span {
                     font-size: 15px;
                     margin: 0;
                     padding: 10px 18px;
-                }
-
-                li.active > span,
-                li.active > a {
-                    // TODO move this to _colors.scss
-                    border-top: 3px solid rgb(210, 67, 27);
-                    padding-top: 7px;
-                    border-radius: 0;
                 }
 
                 li.home {
