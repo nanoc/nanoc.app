@@ -236,12 +236,8 @@ footer {
 
     @include dark-background-links;
 
-    h3 {
-        color: $footer-fg-color;
-    }
-
     .links {
-        span, li:before {
+        div, li:before {
             color: $footer-fg-color;
         }
     }
