@@ -179,10 +179,6 @@ body header {
                         border-right-style: solid;
                     }
 
-                    li > a,
-                    li.active > span {
-                        padding: 10px 18px;
-                    }
                 }
 
                 @media (max-width: 719px) {
@@ -191,23 +187,18 @@ body header {
                         width: 49%;
                         padding: 10px 0;
                     }
-
-                    li > a,
-                    li.active > span {
-                        padding: 10px 20px;
-                    }
                 }
 
                 li > a,
                 li.active > span {
                     font-size: 15px;
                     margin: 0;
+                    padding: 10px 18px;
                 }
 
                 li.active > span,
-                li.active.home > span,
-                li.active > a,
-                li.active.home > a {
+                li.active > a {
+                    // TODO move this to _colors.scss
                     border-top: 3px solid rgb(210, 67, 27);
                     padding-top: 7px;
                     border-radius: 0;
@@ -215,6 +206,11 @@ body header {
 
                 li.home {
                     padding: 0;
+                }
+
+                li.home.active > span {
+                    border: 0;
+                    padding-top: 10px;
                 }
 
                 li.home > a,
@@ -235,13 +231,9 @@ body header {
                     background-size: 32px 32px;
                 }
 
-                li.home > a:hover {
-                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
-                    background-size: 32px 32px;
-                }
-
+                li.home > a:hover,
                 li.home.active > span {
-                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 1px;
+                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
                     background-size: 32px 32px;
                 }
             }
