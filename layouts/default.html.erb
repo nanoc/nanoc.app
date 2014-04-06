@@ -13,12 +13,12 @@
             <div class="header-content">
                 <nav class="main">
                     <ol>
-                        <li class="home"><%= nav_home_link %></li>
-                        <li><%= nav_link @items['/about/'] %></li>
-                        <li><%= nav_link @items['/install/'] %></li>
-                        <li><%= nav_link @items['/docs/'] %></li>
-                        <li><%= nav_link @items['/community/'] %></li>
-                        <li><%= nav_link @items['/development/'] %></li>
+                        <%= nav_link @items['/'] %>
+                        <%= nav_link @items['/about/'] %>
+                        <%= nav_link @items['/install/'] %>
+                        <%= nav_link @items['/docs/'] %>
+                        <%= nav_link @items['/community/'] %>
+                        <%= nav_link @items['/development/'] %>
                     </ol>
                 </nav>
                 <%#

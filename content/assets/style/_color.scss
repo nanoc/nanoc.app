@@ -139,10 +139,10 @@ body header {
             a:hover {
                 color: $emph-light-fg-color;
             }
+        }
 
-            .active {
-                color: $emph-light-fg-color;
-            }
+        nav li.active > span {
+            color: $emph-light-fg-color;
         }
     }
 }
