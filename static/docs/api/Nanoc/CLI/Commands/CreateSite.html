@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::CreateSite
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../../frames.html#!Nanoc/CLI/Commands/CreateSite.html";
 </script>
 
 
@@ -141,7 +141,7 @@ prune:
   # Which files and directories you want to exclude from pruning. If you version
   # your output directory, you should probably exclude VCS directories such as
   # .git, .svn etc.
-  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+  exclude: [ &#39;.git&#39;, &#39;.hg&#39;, &#39;.svn&#39;, &#39;CVS&#39; ]
 
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
@@ -191,27 +191,27 @@ allow_pe</pre></dd>
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '*' do
-  if item[:extension] == 'css'
+compile &#39;*&#39; do
+  if item[:extension] == &#39;css&#39;
 # don’t filter stylesheets
   elsif item.binary?
 # don’t filter binary items
   else
 filter :erb
-layout 'default'
+layout &#39;default&#39;
   end
 end
 
-route '*' do
-  if item[:extension] == 'css'
+route &#39;*&#39; do
+  if item[:extension] == &#39;css&#39;
 # Write item with identifier /foo/ to /foo.css
-item.identifier.chop + '.css'
+item.identifier.chop + &#39;.css&#39;
   elsif item.binary?
 # Write item with identifier /foo/ to /foo.ext
-item.identifier.chop + '.' + item[:extension]
+item.identifier.chop + &#39;.&#39; + item[:extension]
   else
 # Write item with identifier /foo/ to /foo/index.html
-item.identifier + 'index.html'</pre></dd>
+item.identifier + &#39;index.html&#39;</pre></dd>
       
         <dt id="DEFAULT_ITEM-constant" class="">DEFAULT_ITEM =
           
@@ -340,9 +340,9 @@ font-size</pre></dd>
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;title&gt;A Brand New nanoc Site - &lt;%= @item[:title] %&gt;&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= @items[&#39;/stylesheet/&#39;].path %&gt;&quot;&gt;
 
-    &lt;!-- you don't need to keep this, but it's cool for stats! --&gt;
+    &lt;!-- you don&#39;t need to keep this, but it&#39;s cool for stats! --&gt;
     &lt;meta name=&quot;generator&quot; content=&quot;nanoc &lt;%= Nanoc::VERSION %&gt;&quot;&gt;
   &lt;/head&gt;
   &lt;body&gt;
@@ -480,21 +480,21 @@ font-size</pre></dd>
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='comment'># Check arguments
 </span>  <span class='kw'>if</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>!=</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>usage: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_usage'>usage</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>usage: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_usage'>usage</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Extract arguments and options
 </span>  <span class='id identifier rubyid_path'>path</span>        <span class='op'>=</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_data_source'>data_source</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:datasource</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_unified</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_data_source'>data_source</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:datasource</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem_unified</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># Check whether site exists
 </span>  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A site at '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>' already exists.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A site at &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; already exists.</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Check whether data source exists
 </span>  <span class='kw'>if</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>DataSource</span><span class='period'>.</span><span class='id identifier rubyid_named'>named</span><span class='lparen'>(</span><span class='id identifier rubyid_data_source'>data_source</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognised data source: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_data_source'>data_source</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unrecognised data source: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_data_source'>data_source</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Setup notifications
@@ -510,7 +510,7 @@ font-size</pre></dd>
     <span class='id identifier rubyid_site_populate'>site_populate</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Created a blank nanoc site at '</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span><span class='tstring_content'>'. Enjoy!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Created a blank nanoc site at &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;. Enjoy!</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

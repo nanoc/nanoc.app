@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Extra::FilesystemTools
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Nanoc/Extra/FilesystemTools.html";
 </script>
 
 
@@ -325,9 +325,9 @@ detected (something other than file, directory or link)</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/extra/filesystem_tools.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all_files_in'>all_files_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_recursion_limit'>recursion_limit</span> <span class='op'>=</span> <span class='int'>10</span><span class='rparen'>)</span>
-  <span class='const'>Dir</span><span class='lbracket'>[</span><span class='id identifier rubyid_dir_name'>dir_name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/**/*</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_fn'>fn</span><span class='op'>|</span>
+  <span class='const'>Dir</span><span class='lbracket'>[</span><span class='id identifier rubyid_dir_name'>dir_name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/**/*</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_fn'>fn</span><span class='op'>|</span>
     <span class='kw'>case</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_ftype'>ftype</span><span class='lparen'>(</span><span class='id identifier rubyid_fn'>fn</span><span class='rparen'>)</span>
-    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>link</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>link</span><span class='tstring_end'>&#39;</span></span>
       <span class='kw'>if</span> <span class='int'>0</span> <span class='op'>==</span> <span class='id identifier rubyid_recursion_limit'>recursion_limit</span>
         <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MaxSymlinkDepthExceededError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_fn'>fn</span><span class='rparen'>)</span>
       <span class='kw'>else</span>
@@ -340,9 +340,9 @@ detected (something other than file, directory or link)</p>
           <span class='kw'>end</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
-    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file</span><span class='tstring_end'>&#39;</span></span>
       <span class='id identifier rubyid_fn'>fn</span>
-    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>directory</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>directory</span><span class='tstring_end'>&#39;</span></span>
       <span class='kw'>nil</span>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'>UnsupportedFileTypeError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_fn'>fn</span><span class='rparen'>)</span>
@@ -495,13 +495,13 @@ detected (something other than file, directory or link)</p>
   <span class='id identifier rubyid_absolute_target'>absolute_target</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='rparen'>)</span>
 
   <span class='kw'>case</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_ftype'>ftype</span><span class='lparen'>(</span><span class='id identifier rubyid_absolute_target'>absolute_target</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>link</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>link</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>if</span> <span class='int'>0</span> <span class='op'>==</span> <span class='id identifier rubyid_recursion_limit'>recursion_limit</span>
       <span class='id identifier rubyid_raise'>raise</span> <span class='const'>MaxSymlinkDepthExceededError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_absolute_target'>absolute_target</span><span class='rparen'>)</span>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_resolve_symlink'>resolve_symlink</span><span class='lparen'>(</span><span class='id identifier rubyid_absolute_target'>absolute_target</span><span class='comma'>,</span> <span class='id identifier rubyid_recursion_limit'>recursion_limit</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>file</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>directory</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>directory</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_absolute_target'>absolute_target</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>UnsupportedFileTypeError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_absolute_target'>absolute_target</span><span class='rparen'>)</span>

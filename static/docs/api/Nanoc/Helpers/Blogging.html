@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Blogging
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Nanoc/Helpers/Blogging.html";
 </script>
 
 
@@ -101,7 +101,7 @@ the following attributes:</p>
     <p><code>kind</code> - Set to <code>"article"</code></p>
   </li>
   <li>
-    <p><code>created_at</code> - The article&#8217;s publication timestamp</p>
+    <p><code>created_at</code> - The article’s publication timestamp</p>
   </li>
 </ul>
 
@@ -109,7 +109,7 @@ the following attributes:</p>
 require additional attributes to be set; these attributes are described in
 the documentation for these functions.</p>
 
-<p>All &#8220;time&#8221; item attributes, site configuration attributes or method
+<p>All “time” item attributes, site configuration attributes or method
 parameters can either be a <code>Time</code> instance or a string in any format
 parseable by <code>Time.parse</code>.</p>
 
@@ -367,7 +367,7 @@ attribute is set to <code>"article"</code>.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/blogging.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_articles'>articles</span>
-  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span> <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:kind</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>article</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
+  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span> <span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:kind</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>article</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -419,8 +419,8 @@ path set to the blog path instead, for example.</p>
   </li>
   <li>
     <p><code>custom_url_in_feed</code> - The url that will be used instead of the
-normal url in the feed (generated from the site&#8217;s base url + the item
-rep&#8217;s path). This can be useful when building a link-blog where the
+normal url in the feed (generated from the site’s base url + the item
+rep’s path). This can be useful when building a link-blog where the
 URL of article is a remote location.</p>
   </li>
   <li>
@@ -434,8 +434,8 @@ the time when the article was last modified.</p>
 
 <ul>
   <li><code>base_url</code> - The URL to the site, without trailing slash. For
-example, if the site is at &#8220;http://example.com/&#8221;, the <code>base_url</code>
-would be &#8220;http://example.com&#8221;.</li>
+example, if the site is at “http://example.com/”, the <code>base_url</code>
+would be “http://example.com”.</li>
 </ul>
 
 <p>The feed item will need to know about the feed title, the feed author
@@ -449,10 +449,10 @@ configuration.</p>
 the blog.</p>
   </li>
   <li>
-    <p><code>author_name</code> - The name of the item&#8217;s author.</p>
+    <p><code>author_name</code> - The name of the item’s author.</p>
   </li>
   <li>
-    <p><code>author_uri</code> - The URI for the item&#8217;s author, such as the author&#8217;s
+    <p><code>author_uri</code> - The URI for the item’s author, such as the author’s
 web site URL.</p>
   </li>
 </ul>
@@ -461,7 +461,7 @@ web site URL.</p>
 
 <ul>
   <li><code>feed_url</code> - The custom URL of the feed. This can be useful when the
-private feed URL shouldn&#8217;t be exposed; for example, when using
+private feed URL shouldn’t be exposed; for example, when using
 FeedBurner this would be set to the public FeedBurner URL.</li>
 </ul>
 
@@ -485,12 +485,12 @@ item should be <code>&lt;%= atom_feed %&gt;</code>.</p>
 </div></p>
       
       <pre class="example code"><code>
-<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_filter'>filter</span> <span class='symbol'>:erb</span>
 <span class='kw'>end</span>
 
-<span class='id identifier rubyid_route'>route</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/blog.xml</span><span class='tstring_end'>'</span></span>
+<span class='id identifier rubyid_route'>route</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/blog/feed/</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/blog.xml</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></code></pre>
     
       
@@ -711,7 +711,7 @@ is not given in the item attributes.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/blogging.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_atom_feed'>atom_feed</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>builder</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>builder</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># Create builder
 </span>  <span class='id identifier rubyid_builder'>builder</span> <span class='op'>=</span> <span class='const'>AtomFeedBuilder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@site</span><span class='comma'>,</span> <span class='ivar'>@item</span><span class='rparen'>)</span>
@@ -750,7 +750,7 @@ is not given in the item attributes.</p>
     <p>Returns an URI containing an unique ID for the given item. This will be
 used in the Atom feed to uniquely identify articles. These IDs are
 created using a procedure suggested by Mark Pilgrim and described in his
-[&#8220;How to make a good ID in Atom&#8221; blog post]
+[“How to make a good ID in Atom” blog post]
 (http://web.archive.org/web/20110915110202/http://diveintomark.org/archives/2004/05/28/howto-atom-id).</p>
 
 
@@ -817,7 +817,7 @@ created using a procedure suggested by Mark Pilgrim and described in his
 
   <span class='id identifier rubyid_formatted_date'>formatted_date</span> <span class='op'>=</span> <span class='id identifier rubyid_attribute_to_time'>attribute_to_time</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='lbracket'>[</span><span class='symbol'>:created_at</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_iso8601_date'>to_iso8601_date</span>
 
-  <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tag:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_hostname'>hostname</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_formatted_date'>formatted_date</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>:</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_base_dir'>base_dir</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>||</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tag:</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_hostname'>hostname</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_formatted_date'>formatted_date</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>:</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_base_dir'>base_dir</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>||</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -964,7 +964,7 @@ or otherwise the normal feed URL.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_feed_url'>feed_url</span>
   <span class='comment'># Check attributes
 </span>  <span class='kw'>if</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: site configuration has no base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cannot build Atom feed: site configuration has no base_url</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='ivar'>@item</span><span class='lbracket'>[</span><span class='symbol'>:feed_url</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>
@@ -1121,7 +1121,7 @@ the custom path in the feed if possible, otherwise the normal path.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_url_for'>url_for</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='comment'># Check attributes
 </span>  <span class='kw'>if</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Cannot build Atom feed: site configuration has no base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Cannot build Atom feed: site configuration has no base_url</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='comment'># Build URL

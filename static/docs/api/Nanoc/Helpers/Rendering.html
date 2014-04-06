@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Rendering
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Nanoc/Helpers/Rendering.html";
 </script>
 
 
@@ -202,7 +202,7 @@ will be made available as instance variables inside the partial.</p>
 </div></p>
       
       <pre class="example code"><code>
-&lt;%= render 'head' %&gt; - MIDDLE - &lt;%= render 'foot' %&gt;
+&lt;%= render &#39;head&#39; %&gt; - MIDDLE - &lt;%= render &#39;foot&#39; %&gt;
 # =&gt; &quot;HEAD - MIDDLE - FOOT&quot;</code></pre>
     
       
@@ -210,11 +210,11 @@ will be made available as instance variables inside the partial.</p>
 </div></p>
       
       <pre class="example code"><code>
-# The 'head' layout
+# The &#39;head&#39; layout
 &lt;h1&gt;&lt;%= @title %&gt;&lt;/h1&gt;
 
 # The item/layout where the partial is rendered
-&lt;%= render 'head', :title =&gt; 'Foo' %&gt;
+&lt;%= render &#39;head&#39;, :title =&gt; &#39;Foo&#39; %&gt;
 # =&gt; &quot;&lt;h1&gt;Foo&lt;/h1&gt;&quot;</code></pre>
     
       
@@ -222,19 +222,19 @@ will be made available as instance variables inside the partial.</p>
 </div></p>
       
       <pre class="example code"><code>
-# The 'box' partial
+# The &#39;box&#39; partial
 &lt;div class=&quot;box&quot;&gt;
   &lt;%= yield %&gt;
 &lt;/div&gt;
 
 # The item/layout where the partial is rendered
-&lt;% render 'box' do %&gt;
-  I'm boxy! Luvz!
+&lt;% render &#39;box&#39; do %&gt;
+  I&#39;m boxy! Luvz!
 &lt;% end %&gt;
 
 # Result
 &lt;div class=&quot;box&quot;&gt;
-  I'm boxy! Luvz!
+  I&#39;m boxy! Luvz!
 &lt;/div&gt;</code></pre>
     
   </div>
@@ -454,9 +454,9 @@ layout specifies an unknown filter</p>
     <span class='comment'># Append to erbout if we have a block
 </span>    <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
       <span class='comment'># Append result and return nothing
-</span>      <span class='id identifier rubyid_erbout'>erbout</span> <span class='op'>=</span> <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_binding'>binding</span><span class='rparen'>)</span>
+</span>      <span class='id identifier rubyid_erbout'>erbout</span> <span class='op'>=</span> <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_binding'>binding</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_erbout'>erbout</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_result'>result</span>
-      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>else</span>
       <span class='comment'># Return result
 </span>      <span class='id identifier rubyid_result'>result</span>

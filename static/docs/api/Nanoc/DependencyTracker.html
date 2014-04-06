@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::DependencyTracker
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Nanoc/DependencyTracker.html";
 </script>
 
 
@@ -541,7 +541,7 @@ and layouts whose dependencies should be managed</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/dependency_tracker.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_objects'>objects</span><span class='rparen'>)</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tmp/dependencies</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp/dependencies</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
 
   <span class='ivar'>@objects</span> <span class='op'>=</span> <span class='id identifier rubyid_objects'>objects</span>
   <span class='ivar'>@graph</span>   <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>DirectedGraph</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span> <span class='kw'>nil</span> <span class='rbracket'>]</span> <span class='op'>+</span> <span class='ivar'>@objects</span><span class='rparen'>)</span>
@@ -1197,7 +1197,7 @@ outdated if the destination is outdated</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='comment'># Sanity check
 </span>  <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Internal inconsistency: dependency tracker stack not empty at end of compilation</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Internal inconsistency: dependency tracker stack not empty at end of compilation</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Unregister
