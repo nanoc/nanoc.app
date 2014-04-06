@@ -10,7 +10,7 @@ Install nanoc using Rubygems, like this:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
-NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
+NOTE: {sudo-gem-install}
 
 For detailed instructions, read on!
 
@@ -46,7 +46,7 @@ Be sure what you have a fairly recent version of Rubygems. When in doubt, update
 Latest version currently installed. Aborting.
 <span class="prompt">%</span> </pre>
 
-NOTE: You might have to prefix the <kbd>gem update --system</kbd> command with <kbd>sudo</kbd>.
+NOTE: {sudo-gem-update-system}
 
 NOTE: The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and Rubygems.
 
@@ -57,7 +57,7 @@ All dependencies are now taken care of, and installing nanoc should now be easy:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
-NOTE: You might have to prefix the <kbd>gem install</kbd> command with <kbd>sudo</kbd>.
+NOTE: {sudo-gem-install}
 
 To make sure that nanoc was installed correctly, run <kbd>nanoc \--version</kbd>. It should print the version number along with some other information, like this:
 

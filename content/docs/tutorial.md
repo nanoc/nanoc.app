@@ -78,7 +78,7 @@ The recommended way of previewing a site is using the <kbd>nanoc view</kbd> comm
 
 <pre><span class="prompt">tutorial%</span> <kbd>gem install adsf</kbd></pre>
 
-NOTE: If the <span class="command">gem install</span> command fails with a permission error, you likely have to prefix the command with <kbd>sudo</kbd>. Do not use <span class="command">sudo</span> until you have tried the command without it; using <span class="command">sudo</span> when not appropriate will damage your RubyGems installation.
+NOTE: {sudo-gem-install}
 
 Now you can start a web server by running <kbd>nanoc view</kbd>:
 
@@ -233,7 +233,7 @@ Before we can use the <span class="productname">kramdown</span> gem, it needs to
 
 <pre><span class="prompt">%</span> <kbd>gem install kramdown</kbd></pre>
 
-NOTE: If the <span class="command">gem install</span> command fails with a permission error, you likely have to prefix the command with <kbd>sudo</kbd>. Do not use <span class="command">sudo</span> until you have tried the command without it; using <span class="command">sudo</span> when not appropriate will damage your RubyGems installation.
+NOTE: {sudo-gem-install}
 
 The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
 
