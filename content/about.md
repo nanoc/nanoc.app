@@ -19,7 +19,7 @@ Because nanoc is a programmable tool, a basic understanding of Ruby is quite hel
 Advantages of static site generators
 ------------------------------------
 
-Static site generators have several advantages of classical content management systems:
+Static site generators have several advantages over classical content management systems:
 
 fast
 : Static files can be served fast. There is no database or templating layer that slows requests down. Additionally web servers will automatically set caching headers (such as `Last-Modified`) for static files, which reduce bandwidth usage.
