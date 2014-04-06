@@ -205,9 +205,12 @@ body header {
                 }
 
                 li.active > span,
-                li.active.home > span {
+                li.active.home > span,
+                li.active > a,
+                li.active.home > a {
                     border-top: 3px solid rgb(210, 67, 27);
                     padding-top: 7px;
+                    border-radius: 0;
                 }
 
                 li.home {
