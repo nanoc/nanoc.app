@@ -1,5 +1,6 @@
 ---
 title: "About nanoc"
+short_title: "About"
 ---
 
 nanoc is a flexible <span class="firstterm">static site generator</span>.

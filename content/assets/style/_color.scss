@@ -1,5 +1,5 @@
 // Reusable colors
-$emph-color:          rgb(210, 67, 27);
+$emph-color:            rgb(210, 67, 27);
 
 // background
 $bg-color:              #f1f0eb;
@@ -139,6 +139,10 @@ body header {
             a:hover {
                 color: $emph-light-fg-color;
             }
+        }
+
+        nav li.active > span {
+            color: $emph-light-fg-color;
         }
     }
 }
