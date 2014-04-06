@@ -740,50 +740,30 @@ footer {
             @include container;
         }
 
-        padding: 0 20px;
+        .links {
+            padding: 20px 0;
 
-        nav {
-            @include container;
-
-            font-weight: 400px;
-            font-size: 13px;
+            span.explanation {
+                display: block;
+            }
 
             ul {
-                margin-left: 0;
-            }
+                display: inline;
 
-            @media (min-width: 720px) {
-                section {
-                    @include span-columns(3, 12);
+                li {
+                    display: inline;
                 }
 
-                section.community {
-                    @include span-columns(3 omega, 12);
-                }
-            }
-            @media (max-width: 719px) {
-                section {
-                    @include span-columns(6, 12);
+                li:before {
+                    padding: 0 5px;
+                    content: "\00B7";
                 }
 
-                section.install, section.community {
-                    @include span-columns(6 omega, 12);
+                li:first-child:before {
+                    padding: 0;
+                    content: "";
                 }
             }
-
-            section {
-                padding-bottom: 40px;
-
-                a {
-                    margin-left: -2px;
-                }
-
-                h3 {
-                    font-size: 15px;
-                    margin-bottom: 20px;
-                }
-            }
-
         }
 
         .copyright {
