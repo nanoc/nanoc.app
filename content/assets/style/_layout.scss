@@ -191,7 +191,7 @@ body header {
                 @media (max-width: 719px) {
                     li {
                         display: inline-block;
-                        width: 49%;
+                        width: 50%;
                         padding: 0;
                     }
 
@@ -200,6 +200,18 @@ body header {
                         display: inline-block;
                         padding: 10px 0;
                         width: 100%;
+                    }
+
+                    li.active:nth-child(odd) {
+                        // TODO move this to _colors.scss
+                        border-left: 3px solid rgb(210, 67, 27);
+                        padding-right: 3px;
+                    }
+
+                    li.active:nth-child(even) {
+                        // TODO move this to _colors.scss
+                        border-right: 3px solid rgb(210, 67, 27);
+                        padding-left: 3px;
                     }
                 }
 
