@@ -178,7 +178,7 @@ body header {
                         border-right-width: 1px;
                         border-right-style: solid;
 
-                        a {
+                        a, .active {
                             padding: 10px 18px;
                         }
                     }
@@ -191,28 +191,41 @@ body header {
                         padding: 10px 0;
                     }
 
-                    a {
+                    a, .active {
                         padding: 10px 20px;
                     }
                 }
 
-                li a {
+                li a,
+                li .active {
                     font-size: 15px;
                     margin: 0;
                 }
 
                 li.home {
-                    span {
-                        display: none;
+                    padding: 0;
+
+                    a span,
+                    .active span {
+                        visibility: hidden;
                     }
 
-                    padding: 10px 6px;
-                    background: url(/assets/images/logo-nav.png) no-repeat center 4px;
-                    background-size: 32px 32px;
-                }
+                    a, .active {
+                        display: inline-block;
+                        width: 52px;
+                        height: 100%;
+                        padding: 10px 0;
+                    }
 
-                li.home:hover {
-                    background-image: url(/assets/images/logo-nav-hover.png);
+                    a {
+                        background: url(/assets/images/logo-nav.png) no-repeat center 4px;
+                        background-size: 32px 32px;
+                    }
+
+                    .active, a:hover {
+                        background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
+                        background-size: 32px 32px;
+                    }
                 }
             }
         }

@@ -139,6 +139,10 @@ body header {
             a:hover {
                 color: $emph-light-fg-color;
             }
+
+            .active {
+                color: $emph-light-fg-color;
+            }
         }
     }
 }
