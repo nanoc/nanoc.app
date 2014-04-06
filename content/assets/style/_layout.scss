@@ -237,9 +237,13 @@ body header {
                     background-size: 32px 32px;
                 }
 
-                li.home > a:hover,
-                li.home.active > span {
+                li.home > a:hover {
                     background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
+                    background-size: 32px 32px;
+                }
+
+                li.home.active > span {
+                    background: url(/assets/images/logo-nav-active.png) no-repeat center 4px;
                     background-size: 32px 32px;
                 }
             }
