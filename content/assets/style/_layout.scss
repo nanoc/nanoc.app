@@ -728,7 +728,7 @@ footer {
         padding: 0 2px;
     }
 
-    padding: 40px 0 80px 0;
+    padding: 0;
     margin: 60px 0 -40px 0;
 
     background-image: url(/assets/images/shadow-top.png), url(/assets/images/shadow-bottom.png);
@@ -740,55 +740,28 @@ footer {
             @include container;
         }
 
-        padding: 0 20px;
-
-        nav {
-            @include container;
-
-            font-weight: 400px;
-            font-size: 13px;
+        .links {
+            padding: 40px 0;
 
             ul {
-                margin-left: 0;
-            }
-
-            @media (min-width: 720px) {
-                section {
-                    @include span-columns(3, 12);
+                li {
+                    display: inline;
                 }
 
-                section.community {
-                    @include span-columns(3 omega, 12);
-                }
-            }
-            @media (max-width: 719px) {
-                section {
-                    @include span-columns(6, 12);
+                li:before {
+                    padding: 0 5px;
+                    content: "\00B7";
                 }
 
-                section.install, section.community {
-                    @include span-columns(6 omega, 12);
+                li:first-child:before {
+                    padding: 0;
+                    content: "";
                 }
             }
-
-            section {
-                padding-bottom: 40px;
-
-                a {
-                    margin-left: -2px;
-                }
-
-                h3 {
-                    font-size: 15px;
-                    margin-bottom: 20px;
-                }
-            }
-
         }
 
         .copyright {
-            margin-top: 20px;
-            padding-top: 20px;
+            padding: 20px 0 40px 0;
             border-top-width: 1px;
             border-top-style: solid;
 
