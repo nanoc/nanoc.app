@@ -204,6 +204,12 @@ body header {
                     margin: 0;
                 }
 
+                li.active > span,
+                li.active.home > span {
+                    border-top: 3px solid rgb(210, 67, 27);
+                    padding-top: 7px;
+                }
+
                 li.home {
                     padding: 0;
                 }
@@ -226,9 +232,13 @@ body header {
                     background-size: 32px 32px;
                 }
 
-                li.home.active > span,
                 li.home > a:hover {
                     background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
+                    background-size: 32px 32px;
+                }
+
+                li.home.active > span {
+                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 1px;
                     background-size: 32px 32px;
                 }
             }
