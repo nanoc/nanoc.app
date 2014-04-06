@@ -7,8 +7,7 @@ class NavLinker
   end
 
   def nav_link(item)
-    # TODO get rid of nav_title
-    link_text = item[:nav_title] || item[:short_title] || item[:title]
+    link_text = item[:short_title] || item[:title]
 
     html_class = html_class_for(item)
 
