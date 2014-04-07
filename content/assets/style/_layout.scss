@@ -412,7 +412,6 @@ body.page .content {
 
                 position: relative;
                 top: -60px;
-
             }
 
             @media (max-width: 719px) {
@@ -471,6 +470,12 @@ body.page .content {
                     font-size: 12px;
                     padding: 0;
                 }
+            }
+        }
+
+        .side.no-details {
+            @media (min-width: 720px) {
+                top: 20px;
             }
         }
     }
