@@ -41,12 +41,12 @@
         </div>
         <div class="content">
             <article>
-                <div class="side">
+                <div class="side<%= @item[:skip_details] ? ' no-details' : '' %>">
                     <% if content_for(@item, :details) %>
                         <div class="details">
                             <%= content_for(@item, :details) %>
                         </div>
-                    <% else %>
+                    <% elsif !@item[:skip_details] %>
                         <div class="details">
                             <h3><%= @item[:short_title] || @item[:title] %></h3>
                             <%= link_back %>
