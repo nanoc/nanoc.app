@@ -31,4 +31,4 @@ deploy:
   staging:
     kind: rsync
     dst: "ectype:sites/nanoc-staging/public"
-    options: [ '-aP', '--delete-after' ]
+    options: [ '-aP', '--delete-after', '--filter', 'protect /_branches/**/*' ]

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Item
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Nanoc/Item.html";
 </script>
 
 
@@ -142,7 +142,7 @@ store the modification time to speed up compilation.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>This item&#8217;s attributes.</p>
+    <span class="summary_desc"><div class='inline'><p>This item’s attributes.</p>
 </div></span>
   
 </li>
@@ -248,7 +248,7 @@ store the modification time to speed up compilation.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>This item&#8217;s raw, uncompiled content of this item (only available for textual items).</p>
+    <span class="summary_desc"><div class='inline'><p>This item’s raw, uncompiled content of this item (only available for textual items).</p>
 </div></span>
   
 </li>
@@ -1014,7 +1014,7 @@ binary</p>
   <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:binary</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:binary</span><span class='rparen'>)</span>
 
   <span class='kw'>if</span> <span class='id identifier rubyid_raw_content_or_raw_filename'>raw_content_or_raw_filename</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attempted to create an item with no content/filename (identifier </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attempted to create an item with no content/filename (identifier </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Get type and raw content or raw filename
@@ -1676,7 +1676,7 @@ item’s content</p>
 
     <span class='comment'># Warn
 </span>    <span class='kw'>unless</span> <span class='cvar'>@@_content_for_warning_issued</span>
-      <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>WARNING: Accessing captured content should happen using the #content_for method defined in the Capturing helper instead of using item[:content_for_something]. The latter way of accessing captured content will be removed in nanoc 4.0.</span><span class='tstring_end'>'</span></span>
+      <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WARNING: Accessing captured content should happen using the #content_for method defined in the Capturing helper instead of using item[:content_for_something]. The latter way of accessing captured content will be removed in nanoc 4.0.</span><span class='tstring_end'>&#39;</span></span>
       <span class='cvar'>@@_content_for_warning_issued</span> <span class='op'>=</span> <span class='kw'>true</span>
     <span class='kw'>end</span>
 
@@ -1900,7 +1900,7 @@ the checksum will change as well.</p>
       <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_filename'>raw_filename</span><span class='rparen'>)</span>
         <span class='const'>Pathname</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_filename'>raw_filename</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
       <span class='kw'>else</span>
-        <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
+        <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
       <span class='kw'>end</span>
     <span class='kw'>else</span>
       <span class='ivar'>@raw_content</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
@@ -1910,7 +1910,7 @@ the checksum will change as well.</p>
   <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:file</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_attributes_checksum'>attributes_checksum</span> <span class='op'>=</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
 
-  <span class='id identifier rubyid_content_checksum'>content_checksum</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span> <span class='op'>+</span> <span class='id identifier rubyid_attributes_checksum'>attributes_checksum</span>
+  <span class='id identifier rubyid_content_checksum'>content_checksum</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_attributes_checksum'>attributes_checksum</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2054,10 +2054,10 @@ snapshot if no snapshot is specified)</p>
   <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='rbrace'>}</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>Generic</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep_name'>rep_name</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep_name'>rep_name</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Get rep's content
+  <span class='comment'># Get rep&#39;s content
 </span>  <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_compiled_content'>compiled_content</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2320,7 +2320,7 @@ snapshot if no snapshot is specified)</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/item.rb', line 243</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='rbrace'>}</span><span class='tstring_content'> identifier=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot; binary?=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span><span class='rbrace'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> identifier=\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; binary?=</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary?'>binary?</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2564,10 +2564,10 @@ rep is specified)</p>
 </span>  <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_rep_name'>rep_name</span> <span class='rbrace'>}</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>Generic</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep_name'>rep_name</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No rep named </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rep_name'>rep_name</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'> was found.</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Get rep's path
+  <span class='comment'># Get rep&#39;s path
 </span>  <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>
 <span class='kw'>end</span></pre>
     </td>

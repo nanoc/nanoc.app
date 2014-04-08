@@ -177,42 +177,86 @@ body header {
                         padding: 10px 0;
                         border-right-width: 1px;
                         border-right-style: solid;
+                    }
 
-                        a {
-                            padding: 10px 18px;
-                        }
+                    li.active > span,
+                    li.active > a {
+                        // TODO move this to _colors.scss
+                        border-top: 3px solid rgb(210, 67, 27);
+                        padding-top: 7px;
+                        border-radius: 0;
                     }
                 }
 
                 @media (max-width: 719px) {
                     li {
                         display: inline-block;
-                        width: 49%;
-                        padding: 10px 0;
+                        width: 50%;
+                        padding: 0;
                     }
 
-                    a {
-                        padding: 10px 20px;
+                    li > a,
+                    li > span {
+                        display: inline-block;
+                        padding: 10px 0;
+                        width: 100%;
+                    }
+
+                    li.active:nth-child(odd) {
+                        // TODO move this to _colors.scss
+                        border-left: 3px solid rgb(210, 67, 27);
+                        padding-right: 3px;
+                    }
+
+                    li.active:nth-child(even) {
+                        // TODO move this to _colors.scss
+                        border-right: 3px solid rgb(210, 67, 27);
+                        padding-left: 3px;
                     }
                 }
 
-                li a {
+                li > a,
+                li > span {
                     font-size: 15px;
                     margin: 0;
+                    padding: 10px 18px;
                 }
 
                 li.home {
-                    span {
-                        display: none;
-                    }
+                    padding: 0;
+                }
 
-                    padding: 10px 6px;
+                li.home.active > span {
+                    border: 0;
+                    padding-top: 10px;
+                }
+
+                li.home > a,
+                li.home > span {
+                    display: inline-block;
+                    width: 52px;
+                    height: 100%;
+                    padding: 10px 0;
+                }
+
+                li.home > a > span,
+                li.home > span > span {
+                    visibility: hidden;
+                }
+
+                li.home > a {
                     background: url(/assets/images/logo-nav.png) no-repeat center 4px;
                     background-size: 32px 32px;
                 }
 
-                li.home:hover {
-                    background-image: url(/assets/images/logo-nav-hover.png);
+                li.home > a:hover {
+                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
+                    background-size: 32px 32px;
+                }
+
+                li.home.active > span {
+                    background: url(/assets/images/logo-nav-active.png) no-repeat center 4px;
+                    background-size: 32px 32px;
                 }
             }
         }
@@ -368,7 +412,6 @@ body.page .content {
 
                 position: relative;
                 top: -60px;
-
             }
 
             @media (max-width: 719px) {
@@ -427,6 +470,12 @@ body.page .content {
                     font-size: 12px;
                     padding: 0;
                 }
+            }
+        }
+
+        .side.no-details {
+            @media (min-width: 720px) {
+                top: 20px;
             }
         }
     }
@@ -684,7 +733,7 @@ footer {
         padding: 0 2px;
     }
 
-    padding: 40px 0 80px 0;
+    padding: 0;
     margin: 60px 0 -40px 0;
 
     background-image: url(/assets/images/shadow-top.png), url(/assets/images/shadow-bottom.png);
@@ -696,55 +745,28 @@ footer {
             @include container;
         }
 
-        padding: 0 20px;
-
-        nav {
-            @include container;
-
-            font-weight: 400px;
-            font-size: 13px;
+        .links {
+            padding: 40px 0;
 
             ul {
-                margin-left: 0;
-            }
-
-            @media (min-width: 720px) {
-                section {
-                    @include span-columns(3, 12);
+                li {
+                    display: inline;
                 }
 
-                section.community {
-                    @include span-columns(3 omega, 12);
-                }
-            }
-            @media (max-width: 719px) {
-                section {
-                    @include span-columns(6, 12);
+                li:before {
+                    padding: 0 5px;
+                    content: "\00B7";
                 }
 
-                section.install, section.community {
-                    @include span-columns(6 omega, 12);
+                li:first-child:before {
+                    padding: 0;
+                    content: "";
                 }
             }
-
-            section {
-                padding-bottom: 40px;
-
-                a {
-                    margin-left: -2px;
-                }
-
-                h3 {
-                    font-size: 15px;
-                    margin-bottom: 20px;
-                }
-            }
-
         }
 
         .copyright {
-            margin-top: 20px;
-            padding-top: 20px;
+            padding: 20px 0 40px 0;
             border-top-width: 1px;
             border-top-style: solid;
 

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::CreateLayout
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../../frames.html#!Nanoc/CLI/Commands/CreateLayout.html";
 </script>
 
 
@@ -236,7 +236,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='comment'># Check arguments
 </span>  <span class='kw'>if</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>!=</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>usage: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_usage'>usage</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>usage: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='period'>.</span><span class='id identifier rubyid_usage'>usage</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Extract arguments
@@ -251,15 +251,15 @@
   <span class='comment'># Check whether layout is unique
 </span>  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A layout already exists at </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>. Please </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>pick a unique name for the layout you are creating.</span><span class='tstring_end'>'</span></span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A layout already exists at </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='embexpr_end'>}</span><span class='tstring_content'>. Please </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pick a unique name for the layout you are creating.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Check whether layout is not at /
-</span>  <span class='kw'>if</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span>
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>GenericTrivial</span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>There cannot be a layout with the identifier '/'; </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-      <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>please pick a different identifier for this layout.</span><span class='tstring_end'>'</span></span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>There cannot be a layout with the identifier &#39;/&#39;; </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>please pick a different identifier for this layout.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
   <span class='comment'># Setup notifications
@@ -275,7 +275,7 @@
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;title&gt;&lt;%= @item[:title] %&gt;&lt;/title&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;/head&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;body&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;p&gt;Hi, I'm a new layout. Please customize me!&lt;/p&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;p&gt;Hi, I&#39;m a new layout. Please customize me!&lt;/p&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;%= yield %&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;/body&gt;\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/html&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -283,7 +283,7 @@
     <span class='id identifier rubyid_identifier'>identifier</span>
   <span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A layout has been created at </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbrace'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A layout has been created at </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_identifier'>identifier</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
