@@ -83,7 +83,7 @@ TODO: Write this section.
 
 * The Markaby filter has been removed, as it was not compatible with Ruby 1.9.
 
-* The `update` command has been removed.
+* The `update` command has been removed. This command was used to manage source data, which should not have been the responsibility of nanoc.
 
 * The `view` command has been removed.
 
