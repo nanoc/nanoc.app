@@ -24,6 +24,8 @@ Identifiers in nanoc 4 are a first-class concept. Several methods for manipulati
 `in_dir(dirname)`
 : Returns a new identifier with the extension removed, an `index` component added, followed by the original extension. For example, `sample.in_dir` returns `/projects/nanoc/index.md`.
 
+Please consult the [`Nanoc::Identifier` API documentation](/docs/api/core/Nanoc/Identifier.html) for other useful methods.
+
 These methods can be chained together. For example, to recreate nanoc’s default behavior of routing items into their own directory and with the <span class="filename">html</span> extension, you could use `sample.in_dir.with_ext('html')`, which would return `/projects/nanoc/index.html`.
 
 ## New globbing syntax
