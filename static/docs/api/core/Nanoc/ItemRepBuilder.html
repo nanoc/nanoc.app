@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Nanoc::ItemRepBuilder
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Nanoc/ItemRepBuilder.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (I)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span>
+     &raquo; 
+    <span class="title">ItemRepBuilder</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Nanoc::ItemRepBuilder
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc::ItemRepBuilder</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc/core/compilation/item_rep_builder.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ItemRepBuilder) <strong>initialize</strong>(items, rules_collection, rule_memory_calculator, snapshot_store, config) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of ItemRepBuilder.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#populated_item_rep_store-instance_method" title="#populated_item_rep_store (instance method)">- (Object) <strong>populated_item_rep_store</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Nanoc::ItemRepBuilder (class)">ItemRepBuilder</a></span></tt>) <strong>initialize</strong>(items, rules_collection, rule_memory_calculator, snapshot_store, config) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of ItemRepBuilder</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/compilation/item_rep_builder.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_items'>items</span><span class='comma'>,</span> <span class='id identifier rubyid_rules_collection'>rules_collection</span><span class='comma'>,</span> <span class='id identifier rubyid_rule_memory_calculator'>rule_memory_calculator</span><span class='comma'>,</span> <span class='id identifier rubyid_snapshot_store'>snapshot_store</span><span class='comma'>,</span> <span class='id identifier rubyid_config'>config</span><span class='rparen'>)</span>
+  <span class='ivar'>@items</span>                  <span class='op'>=</span> <span class='id identifier rubyid_items'>items</span>
+  <span class='ivar'>@rules_collection</span>       <span class='op'>=</span> <span class='id identifier rubyid_rules_collection'>rules_collection</span>
+  <span class='ivar'>@rule_memory_calculator</span> <span class='op'>=</span> <span class='id identifier rubyid_rule_memory_calculator'>rule_memory_calculator</span>
+  <span class='ivar'>@snapshot_store</span>         <span class='op'>=</span> <span class='id identifier rubyid_snapshot_store'>snapshot_store</span>
+  <span class='ivar'>@config</span>                 <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="populated_item_rep_store-instance_method">
+  
+    - (<tt>Object</tt>) <strong>populated_item_rep_store</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/compilation/item_rep_builder.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_populated_item_rep_store'>populated_item_rep_store</span>
+  <span class='id identifier rubyid_reps'>reps</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='comment'># Find matching rules
+</span>    <span class='id identifier rubyid_matching_rules'>matching_rules</span> <span class='op'>=</span> <span class='ivar'>@rules_collection</span><span class='period'>.</span><span class='id identifier rubyid_item_compilation_rules_for'>item_compilation_rules_for</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_matching_rules'>matching_rules</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>NoMatchingCompilationRuleFound</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Create reps
+</span>    <span class='id identifier rubyid_rep_names'>rep_names</span> <span class='op'>=</span> <span class='id identifier rubyid_matching_rules'>matching_rules</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_rep_name'>rep_name</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_uniq'>uniq</span>
+    <span class='id identifier rubyid_rep_names'>rep_names</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep_name'>rep_name</span><span class='op'>|</span>
+      <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='const'>ItemRep</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_rep_name'>rep_name</span><span class='comma'>,</span> <span class='label'>snapshot_store:</span> <span class='ivar'>@snapshot_store</span><span class='comma'>,</span> <span class='label'>config:</span> <span class='ivar'>@config</span><span class='rparen'>)</span>
+
+      <span class='ivar'>@rule_memory_calculator</span><span class='period'>.</span><span class='id identifier rubyid_new_rule_memory_for_rep'>new_rule_memory_for_rep</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_written_paths'>written_paths</span>  <span class='op'>=</span> <span class='ivar'>@rule_memory_calculator</span><span class='period'>.</span><span class='id identifier rubyid_write_paths_for'>write_paths_for</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_snapshot_paths'>snapshot_paths</span> <span class='op'>=</span> <span class='ivar'>@rule_memory_calculator</span><span class='period'>.</span><span class='id identifier rubyid_snapshot_write_paths_for'>snapshot_write_paths_for</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_reps'>reps</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_rep'>rep</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>ItemRepStore</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_reps'>reps</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,1617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Nanoc::DataSources::Filesystem
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!Nanoc/DataSources/Filesystem.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DataSources.html" title="Nanoc::DataSources (module)">DataSources</a></span></span>
+     &raquo; 
+    <span class="title">Filesystem</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Nanoc::DataSources::Filesystem
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">Nanoc::DataSource</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">Nanoc::DataSource</a></span></li>
+          
+            <li class="next">Nanoc::DataSources::Filesystem</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc/core/data_sources/filesystem.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The filesystem data source stores its items and layouts in nested
+directories. Items and layouts are represented by one or two files; if it
+is represented using one file, the attributes can be contained in this file.
+The root directory for items is the <code>content</code> directory; for layouts, this
+is the <code>layouts</code> directory.</p>
+
+<p>The attributes for items and layouts can be stored in two ways:</p>
+
+<ul>
+  <li>
+    <p>The attributes can be stored in a separate file with the same filename as
+the content file, followed by ‘.yaml’. For example, the attributes file
+for a content file called “foo.md” would be “foo.md.yaml”.</p>
+  </li>
+  <li>
+    <p>The content file itself can start with an attributes section. The
+attributes section can be found at the top of the file, before any
+content, between <code>---</code> (three dashes) separators. For example:</p>
+
+    <pre class="code ruby"><code class="ruby">---
+title: &quot;Moo!&quot;
+---
+h1. Hello!
+</code></pre>
+  </li>
+</ul>
+
+<p>The identifier of items and layouts is the filename itself, relative to the
+<code>content</code> or <code>layout</code> directory and starting with a slash.</p>
+
+<p>This data source has the following configuration options:</p>
+
+<ul>
+  <li>
+    <p><code>encoding</code> - the character encoding that should be used when reading
+files. Defaults to UTF-8.</p>
+  </li>
+  <li>
+    <p><code>text_extensions</code> - a list of filename extensions that should be treated
+as textual items.</p>
+  </li>
+  <li>
+    <p><code>content_dir</code> - the path to the items directory (default: <code>content</code>)</p>
+  </li>
+  <li>
+    <p><code>layouts_dir</code> - the path to the layouts directory (default: <code>layouts</code>)</p>
+  </li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Filesystem/CannotParseYAMLError.html" title="Nanoc::DataSources::Filesystem::CannotParseYAMLError (class)">CannotParseYAMLError</a></span>, <span class='object_link'><a href="Filesystem/EmbeddedMetadataParseError.html" title="Nanoc::DataSources::Filesystem::EmbeddedMetadataParseError (class)">EmbeddedMetadataParseError</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">Nanoc::DataSource</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DataSource.html#config-instance_method" title="Nanoc::DataSource#config (method)">#config</a></span>, <span class='object_link'><a href="../DataSource.html#items_root-instance_method" title="Nanoc::DataSource#items_root (method)">#items_root</a></span>, <span class='object_link'><a href="../DataSource.html#layouts_root-instance_method" title="Nanoc::DataSource#layouts_root (method)">#layouts_root</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_base_filenames_in-instance_method" title="#all_base_filenames_in (instance method)">- (&lt;String&gt;) <strong>all_base_filenames_in</strong>(dir_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Finds all base filenames, i.e.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_files_in-instance_method" title="#all_files_in (instance method)">- (Object) <strong>all_files_in</strong>(dir_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns all files in the given directory and directories below it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#binary_extension%3F-instance_method" title="#binary_extension? (instance method)">- (Boolean) <strong>binary_extension?</strong>(extension) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if the given extension is binary, false otherwise.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#content_and_attributes_for_file-instance_method" title="#content_and_attributes_for_file (instance method)">- (Array) <strong>content_and_attributes_for_file</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>A tuple containing an attributes hash as its first element, and a string containing the content as its second element.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_item-instance_method" title="#create_item (instance method)">- (Object) <strong>create_item</strong>(content, attributes, identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>See <span class='object_link'><a href="../DataSource.html#create_item-instance_method" title="Nanoc::DataSource#create_item (method)">Nanoc::DataSource#create_item</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_layout-instance_method" title="#create_layout (instance method)">- (Object) <strong>create_layout</strong>(content, attributes, identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>See <span class='object_link'><a href="../DataSource.html#create_layout-instance_method" title="Nanoc::DataSource#create_layout (method)">Nanoc::DataSource#create_layout</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create_object-instance_method" title="#create_object (instance method)">- (Object) <strong>create_object</strong>(dir_name, content, attributes, identifier) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a new object (item or layout) on disk in dir_name according to the given identifier.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#items-instance_method" title="#items (instance method)">- (Object) <strong>items</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>See <span class='object_link'><a href="../DataSource.html#items-instance_method" title="Nanoc::DataSource#items (method)">Nanoc::DataSource#items</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#layouts-instance_method" title="#layouts (instance method)">- (Object) <strong>layouts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>See <span class='object_link'><a href="../DataSource.html#layouts-instance_method" title="Nanoc::DataSource#layouts (method)">Nanoc::DataSource#layouts</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_object-instance_method" title="#load_object (instance method)">- (Object) <strong>load_object</strong>(dir_name, base_filename, klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates an instance of klass corresponding to the file base_filename.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_objects-instance_method" title="#load_objects (instance method)">- (Object) <strong>load_objects</strong>(dir_name, klass) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates instances of klass corresponding to the files in dir_name.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#raise_encoding_error-instance_method" title="#raise_encoding_error (instance method)">- (Object) <strong>raise_encoding_error</strong>(filename, encoding) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Raises an invalid encoding error for the given filename and encoding.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#read-instance_method" title="#read (instance method)">- (Object) <strong>read</strong>(filename) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Reads the content of the file with the given name and returns a string in UTF-8 encoding.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_prefix_from_string-instance_method" title="#remove_prefix_from_string (instance method)">- (String) <strong>remove_prefix_from_string</strong>(prefix, string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new string based on <code>string</code> but with <code>prefix</code> removed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>See <span class='object_link'><a href="../DataSource.html#setup-instance_method" title="Nanoc::DataSource#setup (method)">Nanoc::DataSource#setup</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../DataSource.html" title="Nanoc::DataSource (class)">Nanoc::DataSource</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DataSource.html#down-instance_method" title="Nanoc::DataSource#down (method)">#down</a></span>, <span class='object_link'><a href="../DataSource.html#initialize-instance_method" title="Nanoc::DataSource#initialize (method)">#initialize</a></span>, <span class='object_link'><a href="../DataSource.html#loading-instance_method" title="Nanoc::DataSource#loading (method)">#loading</a></span>, <span class='object_link'><a href="../DataSource.html#sync-instance_method" title="Nanoc::DataSource#sync (method)">#sync</a></span>, <span class='object_link'><a href="../DataSource.html#unuse-instance_method" title="Nanoc::DataSource#unuse (method)">#unuse</a></span>, <span class='object_link'><a href="../DataSource.html#up-instance_method" title="Nanoc::DataSource#up (method)">#up</a></span>, <span class='object_link'><a href="../DataSource.html#use-instance_method" title="Nanoc::DataSource#use (method)">#use</a></span></p>
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="../DataSource.html#initialize-instance_method" title="Nanoc::DataSource#initialize (method)">Nanoc::DataSource</a></span></p>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="all_base_filenames_in-instance_method">
+  
+    - (<tt>&lt;<span class='object_link'><a href="../../String.html" title="String (class)">String</a></span>&gt;</tt>) <strong>all_base_filenames_in</strong>(dir_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Finds all base filenames, i.e. all filenames except attribute filenames,
+in the given directory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>dir_name</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the directory to find all base filenames in</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>&lt;<span class='object_link'><a href="../../String.html" title="String (class)">String</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A collection of base filenames</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222
+223
+224
+225</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 220</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_base_filenames_in'>all_base_filenames_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_all_files_in'>all_files_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='rparen'>)</span><span class='period'>.</span>
+    <span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_fn'>fn</span><span class='op'>|</span> <span class='id identifier rubyid_fn'>fn</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(~|\.orig|\.rej|\.bak)$</span><span class='regexp_end'>/</span></span> <span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_map'>map</span>    <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_fn'>fn</span><span class='op'>|</span> <span class='id identifier rubyid_fn'>fn</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\.yaml$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_uniq'>uniq</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_files_in-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_files_in</strong>(dir_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns all files in the given directory and directories below it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 230</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_files_in'>all_files_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>FilesystemTools</span><span class='period'>.</span><span class='id identifier rubyid_all_files_in'>all_files_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="binary_extension?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>binary_extension?</strong>(extension) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns true if the given extension is binary, false otherwise</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>extension</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The extension to check binary-ness for</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if the given extension is binary, false otherwise</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_binary_extension?'>binary_extension?</span><span class='lparen'>(</span><span class='id identifier rubyid_extension'>extension</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:text_extensions</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='op'>!</span><span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:text_extensions</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_extension'>extension</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="content_and_attributes_for_file-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span></tt>) <strong>content_and_attributes_for_file</strong>(filename) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns A tuple containing an attributes hash as its first
+element, and a string containing the content as its second element</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>filename</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The name of the file containing an attributes
+and a content section</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A tuple containing an attributes hash as its first
+element, and a string containing the content as its second element</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_content_and_attributes_for_file'>content_and_attributes_for_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+
+  <span class='comment'># Check presence of attributes section
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span> <span class='op'>!~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A---\s*$</span><span class='regexp_end'>/</span></span>
+    <span class='kw'>return</span> <span class='lbracket'>[</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>TextualContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Split data
+</span>  <span class='id identifier rubyid_pieces'>pieces</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^---\s*$\n</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&lt;</span> <span class='int'>3</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>EmbeddedMetadataParseError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Parse
+</span>  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_pieces'>pieces</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='kw'>rescue</span> <span class='const'>Psych</span><span class='op'>::</span><span class='const'>SyntaxError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>CannotParseYAMLError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='id identifier rubyid_pieces'>pieces</span><span class='lbracket'>[</span><span class='int'>2</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
+
+  <span class='comment'># Done
+</span>  <span class='lbracket'>[</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>TextualContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span> <span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_item-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_item</strong>(content, attributes, identifier) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>See <span class='object_link'><a href="../DataSource.html#create_item-instance_method" title="Nanoc::DataSource#create_item (method)">Nanoc::DataSource#create_item</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_item'>create_item</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_create_object'>create_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>content</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_layout-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_layout</strong>(content, attributes, identifier) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>See <span class='object_link'><a href="../DataSource.html#create_layout-instance_method" title="Nanoc::DataSource#create_layout (method)">Nanoc::DataSource#create_layout</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_layout'>create_layout</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_create_object'>create_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>layouts</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create_object-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create_object</strong>(dir_name, content, attributes, identifier) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Creates a new object (item or layout) on disk in dir_name according to
+the given identifier. The file will have its attributes taken from the
+attributes hash argument and its content from the content argument.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_object'>create_object</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='comment'># Determine path
+</span>  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_dir_name'>dir_name</span> <span class='op'>+</span> <span class='id identifier rubyid_identifier'>identifier</span>
+  <span class='id identifier rubyid_parent_path'>parent_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+
+  <span class='comment'># Notify
+</span>  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:file_created</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+
+  <span class='comment'># Write object
+</span>  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_parent_path'>parent_path</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_io'>io</span><span class='op'>|</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>==</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+      <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
+      <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>---\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_io'>io</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="items-instance_method">
+  
+    - (<tt>Object</tt>) <strong>items</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>See <span class='object_link'><a href="../DataSource.html#items-instance_method" title="Nanoc::DataSource#items (method)">Nanoc::DataSource#items</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_items'>items</span>
+  <span class='id identifier rubyid_load_objects'>load_objects</span><span class='lparen'>(</span><span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:content_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>content</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Item</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="layouts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>layouts</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>See <span class='object_link'><a href="../DataSource.html#layouts-instance_method" title="Nanoc::DataSource#layouts (method)">Nanoc::DataSource#layouts</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_layouts'>layouts</span>
+  <span class='id identifier rubyid_load_objects'>load_objects</span><span class='lparen'>(</span><span class='ivar'>@config</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:layouts_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>layouts</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Layout</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_object-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load_object</strong>(dir_name, base_filename, klass) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Creates an instance of klass corresponding to the file base_filename.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_object'>load_object</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_base_filename'>base_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
+  <span class='comment'># Determine filenames
+</span>  <span class='id identifier rubyid_content_filename'>content_filename</span>    <span class='op'>=</span> <span class='id identifier rubyid_base_filename'>base_filename</span>
+  <span class='id identifier rubyid_attributes_filename'>attributes_filename</span> <span class='op'>=</span> <span class='id identifier rubyid_base_filename'>base_filename</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.yaml</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='comment'># Determine existence
+</span>  <span class='id identifier rubyid_has_content_file'>has_content_file</span>    <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_content_filename'>content_filename</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_has_attributes_file'>has_attributes_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes_filename'>attributes_filename</span><span class='rparen'>)</span>
+
+  <span class='comment'># Read content and filename
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_has_attributes_file'>has_attributes_file</span>
+    <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes_filename'>attributes_filename</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='comment'># can be overridden later
+</span>  <span class='kw'>end</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_has_content_file'>has_content_file</span>
+    <span class='comment'># Extract extension
+</span>    <span class='comment'># Note that File.extname returns &quot;.xyz&quot; but we want &quot;xyz&quot;.
+</span>    <span class='comment'># Also note that if the given filename has no extension, &quot;&quot; is returned.
+</span>    <span class='id identifier rubyid_extension'>extension</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_base_filename'>base_filename</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_extension'>extension</span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_extension'>extension</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+
+    <span class='comment'># Is binary?
+</span>    <span class='id identifier rubyid_is_binary'>is_binary</span> <span class='op'>=</span> <span class='id identifier rubyid_extension'>extension</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_binary_extension?'>binary_extension?</span><span class='lparen'>(</span><span class='id identifier rubyid_extension'>extension</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_is_binary'>is_binary</span>
+      <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>BinaryContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='lparen'>(</span><span class='id identifier rubyid_content_filename'>content_filename</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_has_attributes_file'>has_attributes_file</span>
+        <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>TextualContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_content_filename'>content_filename</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span><span class='lparen'>(</span><span class='id identifier rubyid_content_filename'>content_filename</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span> <span class='op'>=</span> <span class='id identifier rubyid_content_and_attributes_for_file'>content_and_attributes_for_file</span><span class='lparen'>(</span><span class='id identifier rubyid_content_filename'>content_filename</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Get identifier
+</span>  <span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>=</span> <span class='id identifier rubyid_remove_prefix_from_string'>remove_prefix_from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_base_filename'>base_filename</span><span class='rparen'>)</span>
+
+  <span class='comment'># Create layout object
+</span>  <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_objects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load_objects</strong>(dir_name, klass) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Creates instances of klass corresponding to the files in dir_name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_objects'>load_objects</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_all_base_filenames_in'>all_base_filenames_in</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_base_filename'>base_filename</span><span class='op'>|</span>
+    <span class='id identifier rubyid_load_object'>load_object</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_name'>dir_name</span><span class='comma'>,</span> <span class='id identifier rubyid_base_filename'>base_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="raise_encoding_error-instance_method">
+  
+    - (<tt>Object</tt>) <strong>raise_encoding_error</strong>(filename, encoding) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Raises an invalid encoding error for the given filename and encoding.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+295
+296
+297</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 295</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_raise_encoding_error'>raise_encoding_error</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not read </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='embexpr_end'>}</span><span class='tstring_content'> because the file is not valid </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_encoding'>encoding</span><span class='embexpr_end'>}</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="read-instance_method">
+  
+    - (<tt>Object</tt>) <strong>read</strong>(filename) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Reads the content of the file with the given name and returns a string
+in UTF-8 encoding. The original encoding of the string is derived from
+the default external encoding, but this can be overridden by the
+“encoding” configuration attribute in the data source configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 273</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='comment'># Read
+</span>  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_binread'>binread</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Could not read </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filename'>filename</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Re-encode
+</span>  <span class='id identifier rubyid_encoding'>encoding</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@config</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@config</span><span class='lbracket'>[</span><span class='symbol'>:encoding</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_force_encoding'>force_encoding</span><span class='lparen'>(</span><span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_encode!'>encode!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># Remove UTF-8 BOM
+</span>  <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\xEF\xBB\xBF</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_data'>data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="remove_prefix_from_string-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>remove_prefix_from_string</strong>(prefix, string) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns A new string based on <code>string</code> but with <code>prefix</code> removed</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>prefix</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>string</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A new string based on <code>string</code> but with <code>prefix</code> removed</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>ArgumentError if the string does not start with the prefix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206
+207
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 204</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_prefix_from_string'>remove_prefix_from_string</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_string'>string</span><span class='lbracket'>[</span><span class='id identifier rubyid_prefix'>prefix</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>String </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_string'>string</span><span class='embexpr_end'>}</span><span class='tstring_content'> does not start with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prefix'>prefix</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>See <span class='object_link'><a href="../DataSource.html#setup-instance_method" title="Nanoc::DataSource#setup (method)">Nanoc::DataSource#setup</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/data_sources/filesystem.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup'>setup</span>
+  <span class='comment'># Create directories
+</span>  <span class='qwords_beg'>%w( </span><span class='tstring_content'>content</span><span class='words_sep'> </span><span class='tstring_content'>layouts</span><span class='words_sep'> )</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dir'>dir</span><span class='op'>|</span>
+    <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+
+  </body>
+</html>
