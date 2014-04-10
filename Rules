@@ -84,6 +84,7 @@ compile '*' do
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
+  filter :remove_smartness_from_kbd
   filter :fixup_whitespace
   filter :html5small
 end
