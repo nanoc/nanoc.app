@@ -25,13 +25,7 @@ class AdmonitionFilter < Nanoc::Filter
   end
 
   def generate(kind, content)
-    s = ''
-    s << %[<div class="admonition-wrapper #{kind}">]
-    s << %[<div class="admonition">]
-    s << content
-    s << %[</div>]
-    s << %[</div>]
-    s
+    %[<div class="admonition-wrapper #{kind}"><div class="admonition">#{content}</div></div>]
   end
 
   def sudo_gem_install_content
