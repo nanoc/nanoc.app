@@ -47,6 +47,8 @@ Please consult the [`File.fnmatch`](http://ruby-doc.org/core/File.html#method-c-
 
 NOTE: Extended globs are only available in Ruby 2.0 and up, and are not enabled in nanoc 4. Extended globs allow patterns like <code>/c{at,ub}s.txt</code>, which match either <code>/cats.txt</code> or <code>/cubs.txt</code>.
 
+Patterns based on regular expressions are still supported in nanoc 4, so you can still use e.g. `%r{^/projects/(cri|nanoc)\.md}` to match both `/projects/nanoc.md` and `/projects/cri.md`.
+
 ## Compact rules
 
 In nanoc 3.x, defining how an item is processed happens using both <span class="firstterm">compilation rule</span> and a <span class="firstterm">routing rule</span>.
