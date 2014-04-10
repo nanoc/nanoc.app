@@ -10,6 +10,8 @@ NOTE: The content of this document is volatile, as nanoc 4.0 is still a work in 
 
 In nanoc 4, identifiers include the extension and do not end with a slash. For example, the filename <span class="filename">content/robots.txt</span> maps to the identifier `/robots.txt`, and the filename <span class="filename">content/projects/nanoc.md</span> maps to the identifier `/projects/nanoc.md`.
 
+The <span class="filename">index</span> portion of a filename is no longer stripped in nanoc 4. For example, the filename <span class="filename">content/about/index.html</span> maps to the identifier `/about/index.html`.
+
 Identifiers in nanoc 4 are a first-class concept. Several methods for manipulating an identifier are available. Assuming that `sample` equals an identifier `/projects/nanoc.md`:
 
 `extension`
@@ -79,8 +81,6 @@ TODO: Handle index filenames in the example correctly.
 The compilation rule now includes a `#write` call, with an argument containing the path to the file to write to.
 
 TODO: Highlight pattern-related changes again, and point to the section about the new pattern syntax.
-
-TODO: Mention that index filenames are no longer handled in a special way. (Doesn’t need to be in this section per se.)
 
 ## Extracted plugins
 
