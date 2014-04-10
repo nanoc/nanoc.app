@@ -30,11 +30,9 @@ Please consult the [`Nanoc::Identifier` API documentation](/docs/api/core/Nanoc/
 
 These methods can be chained together. For example, to recreate nanoc’s default behavior of routing items into their own directory and with the <span class="filename">html</span> extension, you could use `sample.in_dir.with_ext('html')`, which would return `/projects/nanoc/index.html`.
 
-## New globbing syntax
+## New string pattern syntax
 
-TODO: Rename this to pattern syntax? String pattern syntax?
-
-Rules in nanoc 4 use proper globs. In nanoc 3, the character `*` matches zero or more characters, and `+` matches one or more characters. nanoc 4 uses Ruby’s [`File.fnmatch` method](http://ruby-doc.org/core/File.html#method-c-fnmatch) with the `File::FNM_PATHNAME` option enabled. The three most useful wildcards are the following:
+String patterns in nanoc 4 are globs, and behave like Unix-like shell globs. The behavior of the `*` character has changed, and the `+` character no longer has a special meaning. nanoc 4 uses Ruby’s [`File.fnmatch` method](http://ruby-doc.org/core/File.html#method-c-fnmatch) with the `File::FNM_PATHNAME` option enabled. The three most useful wildcards are the following:
 
 `*`
 : Matches any file or directory name. Does not cross directory boundaries. For example, `/projects/*.md` matches `/projects/nanoc.md`, but not `/projects/cri.adoc` nor `/projects/nanoc/about.md`.
