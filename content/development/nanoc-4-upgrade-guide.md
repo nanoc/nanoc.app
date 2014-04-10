@@ -95,10 +95,6 @@ In nanoc 4.0, that same <span class="filename">Rules</span> file looks like this
 	  write item.identifier.in_dir.with_ext('html')
 	end
 
-The 
-
-TODO: Handle index filenames in the example correctly.
-
 The compilation rule now includes a `#write` call, with an argument containing the path to the file to write to.
 
 Also note that the pattern has changed: instead of using `'*'` as a pattern, the `'/**/*'` pattern is used, which indicates that files are being matched recursively.
