@@ -30,6 +30,8 @@ These methods can be chained together. For example, to recreate nanoc’s defaul
 
 ## New globbing syntax
 
+TODO: Rename this to pattern syntax? String pattern syntax?
+
 Rules in nanoc 4 use proper globs. In nanoc 3, the character `*` matches zero or more characters, and `+` matches one or more characters. nanoc 4 uses Ruby’s [`File.fnmatch` method](http://ruby-doc.org/core/File.html#method-c-fnmatch) with the `File::FNM_PATHNAME` option enabled. The three most useful wildcards are the following:
 
 `*`
@@ -47,21 +49,38 @@ NOTE: Extended globs are only available in Ruby 2.0 and up, and are not enabled 
 
 ## Compact rules
 
-TODO: Write this section.
+In nanoc 3.x, defining how an item is processed happens using both <span class="firstterm">compilation rule</span> and a <span class="firstterm">routing rule</span>.
 
-nanoc 3.x:
+In nanoc 4.0, routing rules have been merged into compilation rules. Additionally, convenience methods such as `#passthrough` and `#ignore` have been removed.
+
+In nanoc 3.x, a basic compilation/route looks like this:
 
 	#!ruby
 	compile '*' do
-	  # ...
+	  filter :kramdown
+	  layout 'default'
 	end
 
-nanoc 4.0:
+	route '*' do
+	  item.identifier + 'index.html'
+	end
+
+In nanoc 4.0, it looks like this:
 
 	#!ruby
 	compile '/**/*' do
-	  # ...
+	  filter :kramdown
+	  layout '/default.*'
+	  write item.identifier.in_dir.with_ext('html')
 	end
+
+TODO: Handle index filenames in the example correctly.
+
+The compilation rule now includes a `#write` call, with an argument containing the path to the file to write to.
+
+TODO: Highlight pattern-related changes again, and point to the section about the new pattern syntax.
+
+TODO: Mention that index filenames are no longer handled in a special way. (Doesn’t need to be in this section per se.)
 
 ## Extracted plugins
 
