@@ -62,7 +62,7 @@ In nanoc 3.x, a basic compilation/route looks like this:
 	  filter :kramdown
 	  layout 'default'
 	end
-
+    
 	route '*' do
 	  item.identifier + 'index.html'
 	end
@@ -92,7 +92,7 @@ TODO: Write this section.
 
 * nanoc will no longer attempt to load the Gemfile. Execute nanoc using `bundle exec` instead.
 
-* Support for Ruby 1.8.x has been dropped. Ruby 1.8.x was retired mid 2013.
+* Support for Ruby 1.8.x has been dropped, because Ruby 1.8.x was retired mid 2013.
 
 * The `watch` and `autocompile` commands have been removed. These commands were already deprecated in nanoc 3.6.4. Use [guard-nanoc](https://github.com/guard/guard-nanoc) instead.
 
