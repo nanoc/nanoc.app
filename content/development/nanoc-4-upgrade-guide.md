@@ -55,26 +55,47 @@ In nanoc 3.x, defining how an item is processed happens using both <span class="
 
 In nanoc 4.0, routing rules have been merged into compilation rules. Additionally, convenience methods such as `#passthrough` and `#ignore` have been removed.
 
-In nanoc 3.x, a basic compilation/route looks like this:
+In nanoc 3.x, a <span class="filename">Rules</span> file could looks like this:
 
 	#!ruby
+
+	layout '/default/'
+
+	compile '/' do
+	  filter :erb
+	end
+
+	route '/' do
+	  '/index.html'
+	end
+
 	compile '*' do
 	  filter :kramdown
 	  layout 'default'
 	end
-    
+
 	route '*' do
 	  item.identifier + 'index.html'
 	end
 
-In nanoc 4.0, it looks like this:
+In nanoc 4.0, that same <span class="filename">Rules</span> file looks like this:
 
 	#!ruby
+
+	layout '/default.*'
+
+	compile '/index.*' do
+	  filter :erb
+	  write '/index.html'
+	end
+
 	compile '/**/*' do
 	  filter :kramdown
 	  layout '/default.*'
 	  write item.identifier.in_dir.with_ext('html')
 	end
+
+The 
 
 TODO: Handle index filenames in the example correctly.
 
