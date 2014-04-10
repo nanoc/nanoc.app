@@ -89,7 +89,7 @@ TODO: Write this section.
 
 * The `view` command has been removed.
 
-NOTE: The decision for removing the <span class="command">update</span> and <span class="command">view</span> commands is not final and might be revisited.
+NOTE: The decision for removing the <span class="command">view</span> commands is not final and might be revisited.
 
 ## Minor changed features
 
