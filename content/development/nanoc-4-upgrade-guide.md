@@ -87,10 +87,6 @@ TODO: Write this section.
 
 * The `update` command has been removed. This command was used to manage source data, which should not have been the responsibility of nanoc.
 
-* The `view` command has been removed.
-
-NOTE: The decision for removing the <span class="command">view</span> commands is not final and might be revisited.
-
 ## Minor changed features
 
 * The `filesystem_unified` data source has been renamed to `filesystem`.
