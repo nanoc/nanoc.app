@@ -150,7 +150,18 @@ To manage a nanoc site’s dependent gems, we recommend using [Bundler](http://b
 
 There is no need to list additional dependencies, such as `sass`, `builder` or `rainpress`, because these would be dependencies of the nanoc plugins.
 
-TODO: Describe how helpers still need to be included somewhere in <span class="filename">lib/</span> for the time being.
+Helpers still need to be included somewhere in <span class="filename">lib/</span>. For example, the nanoc 4 version of this site has the following in <span class="filename">lib/helpers_.rb</span>:
+
+	#!ruby
+	# encoding: utf-8
+
+	include Nanoc::Breadcrumbs::Helper
+	include Nanoc::Filtering::Helper
+	include Nanoc::Linking::Helper
+	include Nanoc::Rendering::Helper
+	include Nanoc::XMLSitemap::Helper
+
+NOTE: Helpers will likely be auto-required before the final nanoc 4.0 release.
 
 ## Removed features
 
