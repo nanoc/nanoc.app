@@ -125,7 +125,32 @@ All plugins can be found in the [nanoc organisation on GitHub](https://github.co
 
 NOTE: A list of plugins along with the kind of feature they provide (filter, helper, …) will be available on the site at some point in the future.
 
-TODO: Complete this section. Describe how to use the Gemfile to list dependencies. Describe how helpers still need to be included somewhere in <span class="filename">lib/</span> for the time being.
+To manage a nanoc site’s dependent gems, we recommend using [Bundler](http://bundler.io/). A site’s <span class="filename">Gemfile</span> should include <span class="productname">nanoc-core</span> and <span class="productname">nanoc-cli</span>, as well as any other dependencies. For example, the nanoc 4 version of this site looks like this:
+
+	#!ruby
+	source 'https://rubygems.org'
+
+	gem 'nanoc-core'
+	gem 'nanoc-cli'
+
+	gem 'nanoc-breadcrumbs'
+	gem 'nanoc-capturing'
+	gem 'nanoc-checking'
+	gem 'nanoc-deploying'
+	gem 'nanoc-colorize_syntax'
+	gem 'nanoc-escaping'
+	gem 'nanoc-filtering'
+	gem 'nanoc-kramdown'
+	gem 'nanoc-linking'
+	gem 'nanoc-rainpress'
+	gem 'nanoc-relativize_paths'
+	gem 'nanoc-rendering'
+	gem 'nanoc-sass'
+	gem 'nanoc-xml_sitemap'
+
+There is no need to list additional dependencies, such as `sass`, `builder` or `rainpress`, because these would be dependencies of the nanoc plugins.
+
+TODO: Describe how helpers still need to be included somewhere in <span class="filename">lib/</span> for the time being.
 
 ## Removed features
 
