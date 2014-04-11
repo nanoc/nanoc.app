@@ -101,7 +101,31 @@ Also note that the pattern has changed: instead of using `'*'` as a pattern, the
 
 ## Extracted plugins
 
-TODO: Write this section.
+nanoc 4 is split up in several distinct repositories, each with their matching Ruby gem. The split was performed so that release cycles of individual parts are decoupled; for instance, a new version of the Sass plugin can be released without affecting the release schedule of the core.
+
+The main repositories are
+
+`nanoc-core`
+: Contains the core code, without any filters, helpers or data sources
+
+`nanoc-cli`
+: Contains the command-line interface
+
+NOTE: At the time of writing, `nanoc-core` still contains the `erb` filter and the `filesystem` data source. These might be extracted at a later date.
+
+Each non-core feature has been extracted into its own plugin. The name of the plugin is the name of the repository and is the name of the gem. Three kinds of plugins exist:
+
+* Filters, such as [<span class="productname">nanoc-kramdown</span>](https://github.com/nanoc/nanoc-kramdown), [<span class="productname">nanoc-xslt</span>](https://github.com/nanoc/nanoc-xslt), and [<span class="productname">nanoc-sass</span>](https://github.com/nanoc/nanoc-sass)
+
+* Helpers, such as [<span class="productname">nanoc-tagging</span>](https://github.com/nanoc/nanoc-tagging), [<span class="productname">nanoc-linking</span>](https://github.com/nanoc/nanoc-linking), and [<span class="productname">nanoc-filtering</span>](https://github.com/nanoc/nanoc-filtering)
+
+* Other tools, such as [<span class="productname">nanoc-checking</span>](https://github.com/nanoc/nanoc-checking) and [<span class="productname">nanoc-deploying</span>](https://github.com/nanoc/nanoc-deploying)
+
+All plugins can be found in the [nanoc organisation on GitHub](https://github.com/nanoc).
+
+NOTE: A list of plugins along with the kind of feature they provide (filter, helper, …) will be available on the site at some point in the future.
+
+TODO: Complete this section. Describe how to use the Gemfile to list dependencies. Describe how helpers still need to be included somewhere in <span class="filename">lib/</span> for the time being.
 
 ## Removed features
 
