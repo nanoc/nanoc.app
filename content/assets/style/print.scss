@@ -35,6 +35,17 @@ body {
 h1, h2, h3, h4, h5, h6, figcaption {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
+}
+
+pre, dd {
+	page-break-before: avoid;
+}
+
+pre, .admonition-wrapper, figure {
+    page-break-inside: avoid;
+}
+
+h1, h2, h3, h4, h5, h6, figcaption {
 	page-break-after: avoid;
 }
 
@@ -80,10 +91,6 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-}
-
-pre, .admonition-wrapper, figure {
-    page-break-inside: avoid;
 }
 
 p {
