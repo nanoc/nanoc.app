@@ -1,5 +1,5 @@
 ---
-version:    3
+version:	3
 is_hidden:  true
 is_dynamic: true
 ---
@@ -12,8 +12,8 @@ is_dynamic: true
 
 @page
 {
-    size: auto;
-    margin: 1in;
+	size: auto;
+	margin: 1in;
 }
 
 header,
@@ -28,8 +28,8 @@ footer,
 
 body {
 	font-family: Georgia, Palatino, serif;
-    font-size: 11pt;
-    line-height: 14pt;
+	font-size: 11pt;
+	line-height: 14pt;
 }
 
 h1, h2, h3, h4, h5, h6, figcaption {
@@ -42,7 +42,7 @@ pre, dd {
 }
 
 pre, .admonition-wrapper, figure {
-    page-break-inside: avoid;
+	page-break-inside: avoid;
 }
 
 h1, h2, h3, h4, h5, h6, figcaption {
@@ -79,18 +79,18 @@ figcaption {
 }
 
 dt {
-    margin-top: 12pt;
+	margin-top: 12pt;
 }
 
 pre {
 	border-top: 1pt solid black;
 	border-bottom: 1pt solid black;
 
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
 
 p {
@@ -116,32 +116,32 @@ var {
 }
 
 pre, code, kbd, var, .attribute {
-    font-family: Consolas, Inconsolata, Monaco, monospace;
+	font-family: Consolas, Inconsolata, Monaco, monospace;
 }
 
 .filename, .uri, .command, .productname, .firstterm {
-  font-style: italic;
+	font-style: italic;
 }
 
 div.admonition-wrapper {
-    margin: 0 0 20pt 0;
+	margin: 0 0 20pt 0;
 
-    border: 1px solid black;
+	border: 1px solid black;
 }
 
 div.admonition-wrapper:before {
-    font-size: 40pt;
-    line-height: 20pt;
+	font-size: 40pt;
+	line-height: 20pt;
 
-    width: 20pt;
+	width: 20pt;
 
-    padding: 2pt;
+	padding: 2pt;
 }
 
 div.admonition-wrapper.todo:before {
-    content: "\1F6C8";
+	content: "\1F6C8";
 }
 
 div.admonition-wrapper .admonition {
-    padding: 6pt;
+	padding: 6pt;
 }
