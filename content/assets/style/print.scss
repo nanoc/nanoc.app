@@ -26,16 +26,7 @@ footer,
 	@include box-sizing(border-box);
 }
 
-body {
-	font-family: Georgia, Palatino, serif;
-	font-size: 11pt;
-	line-height: 14pt;
-}
-
-h1, h2, h3, h4, h5, h6, figcaption {
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-}
+/* Page break behavior */
 
 pre, dd {
 	page-break-before: avoid;
@@ -49,6 +40,23 @@ h1, h2, h3, h4, h5, h6, figcaption {
 	page-break-after: avoid;
 }
 
+/* Fonts */
+
+body {
+	font-family: Georgia, Palatino, serif;
+	font-size: 11pt;
+	line-height: 14pt;
+}
+
+h1, h2, h3, h4, h5, h6, figcaption {
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
+
+pre, code, kbd, var, .attribute {
+	font-family: Consolas, Inconsolata, Monaco, monospace;
+}
+
 h1 {
 	font-size: 24pt;
 }
@@ -60,6 +68,23 @@ h2 {
 h3 {
 	font-size: 14pt
 }
+
+p {
+	widows: 3;
+	orphans: 3;
+}
+
+/* Typographical styling */
+
+kbd {
+	font-weight: bold;
+}
+
+.filename, .uri, .command, .productname, .firstterm, var {
+	font-style: italic;
+}
+
+/* Other */
 
 figure, img {
 	width: 100%;
@@ -93,10 +118,7 @@ pre {
 	word-wrap: break-word;
 }
 
-p {
-	widows: 3;
-	orphans: 3;
-}
+/* Links */
 
 a {
 	color: black;
@@ -107,21 +129,7 @@ a:after {
 	content: " (" attr(href) ")";
 }
 
-kbd {
-	font-weight: bold;
-}
-
-var {
-	font-style: italic;
-}
-
-pre, code, kbd, var, .attribute {
-	font-family: Consolas, Inconsolata, Monaco, monospace;
-}
-
-.filename, .uri, .command, .productname, .firstterm {
-	font-style: italic;
-}
+/* Admonitions */
 
 div.admonition-wrapper {
 	margin: 0 0 20pt 0;
