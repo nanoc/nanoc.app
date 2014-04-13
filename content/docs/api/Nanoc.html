@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  framesUrl = "frames.html#!" + escape(window.location.href);
+  framesUrl = "frames.html#!Nanoc.html";
 </script>
 
 
@@ -133,7 +133,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>3.6.7</span><span class='tstring_end'>'</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3.6.8</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -321,11 +321,11 @@ and its environment (Ruby engine and version, Rubygems version if any).</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_version_information'>version_information</span>
-  <span class='id identifier rubyid_gem_info'>gem_info</span> <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with RubyGems </span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>VERSION</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>without RubyGems</span><span class='tstring_end'>'</span></span>
-  <span class='id identifier rubyid_engine'>engine</span>   <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>RUBY_ENGINE</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>RUBY_ENGINE</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ruby</span><span class='tstring_end'>'</span></span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nanoc </span><span class='embexpr_beg'>#{</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>VERSION</span><span class='rbrace'>}</span><span class='tstring_content'> © 2007-2013 Denis Defreyne.\n</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_engine'>engine</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_VERSION</span><span class='rbrace'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_RELEASE_DATE</span><span class='rbrace'>}</span><span class='tstring_content'>) on </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_PLATFORM</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gem_info'>gem_info</span><span class='rbrace'>}</span><span class='tstring_content'>.\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_gem_info'>gem_info</span> <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with RubyGems </span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>VERSION</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>without RubyGems</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_engine'>engine</span>   <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>RUBY_ENGINE</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>RUBY_ENGINE</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nanoc </span><span class='embexpr_beg'>#{</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>VERSION</span><span class='embexpr_end'>}</span><span class='tstring_content'> © 2007-2013 Denis Defreyne.\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_engine'>engine</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_VERSION</span><span class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_RELEASE_DATE</span><span class='embexpr_end'>}</span><span class='tstring_content'>) on </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_PLATFORM</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gem_info'>gem_info</span><span class='embexpr_end'>}</span><span class='tstring_content'>.\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_res'>res</span>
 <span class='kw'>end</span></pre>
     </td>

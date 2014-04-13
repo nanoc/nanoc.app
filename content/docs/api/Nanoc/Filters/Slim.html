@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::Slim
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Nanoc/Filters/Slim.html";
 </script>
 
 
@@ -323,7 +323,7 @@ This method takes no options.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='symbol'>:disable_capture</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>      <span class='comment'># Capture managed by nanoc
-</span>    <span class='symbol'>:buffer</span>          <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='comment'># Force slim to output to the buffer used by nanoc
+</span>    <span class='symbol'>:buffer</span>          <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='comment'># Force slim to output to the buffer used by nanoc
 </span>  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_params'>params</span>
 
   <span class='comment'># Create context

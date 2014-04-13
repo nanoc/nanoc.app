@@ -1,11 +1,12 @@
 // Reusable colors
-$emph-color:          rgb(210, 67, 27);
+$emph-color:            rgb(210, 67, 27);
 
 // background
 $bg-color:              #f1f0eb;
 $semilight-bg-color:    adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
 $top-bg-color:          shade($bg-color, 70%);
 $footer-bg-color:       $top-bg-color;
+$footer-border-color:   shade($bg-color, 50%);
 $nav-bg-color:          shade($top-bg-color, 60%);
 $search-bg-color:       shade($top-bg-color, 30%);
 $nav-spacing-color:     $top-bg-color;
@@ -140,6 +141,10 @@ body header {
                 color: $emph-light-fg-color;
             }
         }
+
+        nav li.active > span {
+            color: $emph-light-fg-color;
+        }
     }
 }
 
@@ -231,12 +236,14 @@ footer {
 
     @include dark-background-links;
 
-    h3 {
-        color: $footer-fg-color;
+    .links {
+        div, li:before {
+            color: $footer-fg-color;
+        }
     }
 
     .copyright {
-        border-color: #a89c93;
+        border-color: $footer-border-color;
         color: $footer-fg-color;
     }
 }

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Site
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!Nanoc/Site.html";
 </script>
 
 
@@ -134,7 +134,7 @@ etc. The way site data is stored depends on the data source.</p>
         <dt id="DEFAULT_DATA_SOURCE_CONFIG-constant" class="">DEFAULT_DATA_SOURCE_CONFIG =
           <div class="docstring">
   <div class="discussion">
-    <p>The default configuration for a data source. A data source&#8217;s
+    <p>The default configuration for a data source. A data source’s
 configuration overrides these options.</p>
 
 
@@ -146,16 +146,16 @@ configuration overrides these options.</p>
 </div>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='symbol'>:type</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_unified</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-  <span class='symbol'>:items_root</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-  <span class='symbol'>:layouts_root</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:type</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem_unified</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:items_root</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:layouts_root</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='symbol'>:config</span>       <span class='op'>=&gt;</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
 <span class='rbrace'>}</span></pre></dd>
       
         <dt id="DEFAULT_CONFIG-constant" class="">DEFAULT_CONFIG =
           <div class="docstring">
   <div class="discussion">
-    <p>The default configuration for a site. A site&#8217;s configuration overrides
+    <p>The default configuration for a site. A site’s configuration overrides
 these options: when a <span class='object_link'><a href="" title="Nanoc::Site (class)">Nanoc::Site</a></span> is created with a configuration
 that lacks some options, the default value will be taken from
 <code>DEFAULT_CONFIG</code>.</p>
@@ -170,11 +170,11 @@ that lacks some options, the default value will be taken from
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='symbol'>:text_extensions</span>    <span class='op'>=&gt;</span> <span class='qwords_beg'>%w( </span><span class='tstring_content'>css</span><span class='words_sep'> </span><span class='tstring_content'>erb</span><span class='words_sep'> </span><span class='tstring_content'>haml</span><span class='words_sep'> </span><span class='tstring_content'>htm</span><span class='words_sep'> </span><span class='tstring_content'>html</span><span class='words_sep'> </span><span class='tstring_content'>js</span><span class='words_sep'> </span><span class='tstring_content'>less</span><span class='words_sep'> </span><span class='tstring_content'>markdown</span><span class='words_sep'> </span><span class='tstring_content'>md</span><span class='words_sep'> </span><span class='tstring_content'>php</span><span class='words_sep'> </span><span class='tstring_content'>rb</span><span class='words_sep'> </span><span class='tstring_content'>sass</span><span class='words_sep'> </span><span class='tstring_content'>scss</span><span class='words_sep'> </span><span class='tstring_content'>txt</span><span class='words_sep'> </span><span class='tstring_content'>xhtml</span><span class='words_sep'> </span><span class='tstring_content'>xml</span><span class='words_sep'> </span><span class='tstring_content'>coffee</span><span class='words_sep'> </span><span class='tstring_content'>hb</span><span class='words_sep'> </span><span class='tstring_content'>handlebars</span><span class='words_sep'> </span><span class='tstring_content'>mustache</span><span class='words_sep'> </span><span class='tstring_content'>ms</span><span class='words_sep'> )</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='comma'>,</span>
-  <span class='symbol'>:output_dir</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>output</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+  <span class='symbol'>:output_dir</span>         <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>output</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='symbol'>:data_sources</span>       <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span>
-  <span class='symbol'>:index_filenames</span>    <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>index.html</span><span class='tstring_end'>'</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='symbol'>:index_filenames</span>    <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.html</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
   <span class='symbol'>:enable_output_diff</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
-  <span class='symbol'>:prune</span>              <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:auto_prune</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:exclude</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.git</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.hg</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.svn</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CVS</span><span class='tstring_end'>'</span></span> <span class='rbracket'>]</span> <span class='rbrace'>}</span>
+  <span class='symbol'>:prune</span>              <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:auto_prune</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='symbol'>:exclude</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.git</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.hg</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.svn</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CVS</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span> <span class='rbrace'>}</span>
 <span class='rbrace'>}</span></pre></dd>
       
     </dl>
@@ -568,7 +568,7 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Fills each item&#8217;s parent reference and children array with the appropriate items.</p>
+    <span class="summary_desc"><div class='inline'><p>Fills each item’s parent reference and children array with the appropriate items.</p>
 </div></span>
   
 </li>
@@ -906,7 +906,7 @@ to the site directory; if a hash, contains the site configuration.</p>
       <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/capturing.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_captures_store_compiled_items'>captures_store_compiled_items</span>
-  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>set</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>set</span><span class='tstring_end'>&#39;</span></span>
   <span class='ivar'>@captures_store_compiled_items</span> <span class='op'>||=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1303,10 +1303,10 @@ specifies an unknown data source</p>
       <span class='comment'># Warn about deprecated data sources
 </span>      <span class='comment'># TODO [in nanoc 4.0] remove me
 </span>      <span class='kw'>case</span> <span class='id identifier rubyid_data_source_hash'>data_source_hash</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span>
-      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>'</span></span>
-        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem' data source has been renamed to 'filesystem_verbose'. Using 'filesystem' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem' with 'filesystem_verbose'.</span><span class='tstring_end'>&quot;</span></span>
-      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_combined</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>filesystem_compact</span><span class='tstring_end'>'</span></span>
-        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the 'filesystem_combined' and 'filesystem_compact' data source has been merged into the new 'filesystem_unified' data source. Using 'filesystem_combined' and 'filesystem_compact' will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace 'filesystem_combined' and 'filesystem_compact with 'filesystem_unified'.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the &#39;filesystem&#39; data source has been renamed to &#39;filesystem_verbose&#39;. Using &#39;filesystem&#39; will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace &#39;filesystem&#39; with &#39;filesystem_verbose&#39;.</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem_combined</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem_compact</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Warning: the &#39;filesystem_combined&#39; and &#39;filesystem_compact&#39; data source has been merged into the new &#39;filesystem_unified&#39; data source. Using &#39;filesystem_combined&#39; and &#39;filesystem_compact&#39; will work in nanoc 3.1.x, but it will likely not work anymore in a future release of nanoc. Please update your data source configuration and replace &#39;filesystem_combined&#39; and &#39;filesystem_compact with &#39;filesystem_unified&#39;.</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
 
       <span class='comment'># Create data source
@@ -1609,7 +1609,7 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
       <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/site.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_data'>load_data</span><span class='lparen'>(</span><span class='id identifier rubyid_force'>force</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>It is no longer necessary to call Nanoc::Site#load_data. This method no longer has any effect. All calls to this method can be safely removed.</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>It is no longer necessary to call Nanoc::Site#load_data. This method no longer has any effect. All calls to this method can be safely removed.</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1627,7 +1627,7 @@ is safe to remove all <span class='object_link'><a href="#load_data-instance_met
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p class="note returns_void">This method returns an undefined value.</p><p>Fills each item&#8217;s parent reference and children array with the
+    <p class="note returns_void">This method returns an undefined value.</p><p>Fills each item’s parent reference and children array with the
 appropriate items. It is probably not necessary to call this method
 manually; it will be called when appropriate.</p>
 
@@ -1676,7 +1676,7 @@ manually; it will be called when appropriate.</p>
   <span class='kw'>end</span>
 
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-    <span class='id identifier rubyid_parent_id_end'>parent_id_end</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>2</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parent_id_end'>parent_id_end</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>2</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_parent_id_end'>parent_id_end</span>
       <span class='id identifier rubyid_parent_id'>parent_id</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_parent_id_end'>parent_id_end</span><span class='rbracket'>]</span>
       <span class='id identifier rubyid_parent'>parent</span> <span class='op'>=</span> <span class='id identifier rubyid_item_map'>item_map</span><span class='lbracket'>[</span><span class='id identifier rubyid_parent_id'>parent_id</span><span class='rbracket'>]</span>

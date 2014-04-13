@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::XSL
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../frames.html#!Nanoc/Filters/XSL.html";
 </script>
 
 
@@ -262,11 +262,11 @@ will be turned into <code>xsl:param</code> elements.</p>
 </div></p>
       
       <pre class="example code"><code>
-<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/reports/*/</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>xsl-report</span><span class='tstring_end'>'</span></span>
+<span class='id identifier rubyid_compile'>compile</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reports/*/</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>xsl-report</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span>
 
-<span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>xsl-report</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='symbol'>:xsl</span><span class='comma'>,</span> <span class='symbol'>:awesome</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>definitely</span><span class='tstring_end'>'</span></span></code></pre>
+<span class='id identifier rubyid_layout'>layout</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>xsl-report</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:xsl</span><span class='comma'>,</span> <span class='symbol'>:awesome</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>definitely</span><span class='tstring_end'>&#39;</span></span></code></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -282,7 +282,9 @@ will be turned into <code>xsl:param</code> elements.</p>
       
       
         &mdash;
-        <div class='inline'><p>The XML content to transform</p>
+        <div class='inline'><p>Ignored. As the filter can be run only as a
+layout, the value of the <code>:content</code> parameter passed to the class at
+initialization is used as the content to transform.</p>
 </div>
       
     </li>
@@ -346,8 +348,6 @@ will be turned into <code>xsl:param</code> elements.</p>
       <pre class="lines">
 
 
-34
-35
 36
 37
 38
@@ -355,20 +355,22 @@ will be turned into <code>xsl:param</code> elements.</p>
 40
 41
 42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/xsl.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/xsl.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>The XSL filter can only be run as a layout</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The XSL filter can only be run as a layout</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_xml'>xml</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_xml'>xml</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span><span class='lparen'>(</span><span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:content</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_xsl'>xsl</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XSLT</span><span class='lparen'>(</span><span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_xsl'>xsl</span><span class='period'>.</span><span class='id identifier rubyid_transform'>transform</span><span class='lparen'>(</span><span class='id identifier rubyid_xml'>xml</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XSLT</span><span class='period'>.</span><span class='id identifier rubyid_quote_params'>quote_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='id identifier rubyid_xsl'>xsl</span><span class='period'>.</span><span class='id identifier rubyid_apply_to'>apply_to</span><span class='lparen'>(</span><span class='id identifier rubyid_xml'>xml</span><span class='comma'>,</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XSLT</span><span class='period'>.</span><span class='id identifier rubyid_quote_params'>quote_params</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

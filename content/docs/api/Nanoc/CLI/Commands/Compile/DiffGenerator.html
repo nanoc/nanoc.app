@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::Compile::DiffGenerator
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../../';
-  framesUrl = "../../../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../../../frames.html#!Nanoc/CLI/Commands/Compile/DiffGenerator.html";
 </script>
 
 
@@ -351,7 +351,7 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
-  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>tempfile</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tempfile</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_setup_diffs'>setup_diffs</span>
   <span class='id identifier rubyid_old_contents'>old_contents</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:will_write_rep</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='op'>|</span>

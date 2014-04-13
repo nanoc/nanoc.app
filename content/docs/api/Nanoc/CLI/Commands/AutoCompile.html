@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::AutoCompile
   
-    &mdash; Documentation by YARD 0.8.7.3
+    &mdash; Documentation by YARD 0.8.7.4
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+  framesUrl = "../../../frames.html#!Nanoc/CLI/Commands/AutoCompile.html";
 </script>
 
 
@@ -220,9 +220,9 @@
       <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/autocompile.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
-  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>WARNING: The `autocompile` command is deprecated. Please consider using `guard-nanoc` instead (see https://github.com/nanoc/guard-nanoc).</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WARNING: The `autocompile` command is deprecated. Please consider using `guard-nanoc` instead (see https://github.com/nanoc/guard-nanoc).</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rack</span><span class='tstring_end'>'</span></span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rack</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='comment'># Make sure we are in a nanoc site directory
 </span>  <span class='id identifier rubyid_require_site'>require_site</span>
@@ -231,7 +231,7 @@
   <span class='comment'># Set options
 </span>  <span class='id identifier rubyid_options_for_rack'>options_for_rack</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='symbol'>:Port</span>      <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_autocompile_config'>autocompile_config</span><span class='lbracket'>[</span><span class='symbol'>:port</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>3000</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span>
-    <span class='symbol'>:Host</span>      <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:host</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_autocompile_config'>autocompile_config</span><span class='lbracket'>[</span><span class='symbol'>:host</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>0.0.0.0</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='symbol'>:Host</span>      <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:host</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_autocompile_config'>autocompile_config</span><span class='lbracket'>[</span><span class='symbol'>:host</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.0.0.0</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='rbrace'>}</span>
 
   <span class='comment'># Guess which handler we should use
@@ -246,7 +246,7 @@
   <span class='kw'>end</span>
 
   <span class='comment'># Build app
-</span>  <span class='id identifier rubyid_autocompiler'>autocompiler</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>AutoCompiler</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>.</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+</span>  <span class='id identifier rubyid_autocompiler'>autocompiler</span> <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>AutoCompiler</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_app'>app</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_use'>use</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>CommonLogger</span><span class='comma'>,</span> <span class='gvar'>$stderr</span>
     <span class='id identifier rubyid_use'>use</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>ShowExceptions</span>
@@ -254,7 +254,7 @@
   <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_to_app'>to_app</span>
 
   <span class='comment'># Run autocompiler
-</span>  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running on http://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options_for_rack'>options_for_rack</span><span class='lbracket'>[</span><span class='symbol'>:Host</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options_for_rack'>options_for_rack</span><span class='lbracket'>[</span><span class='symbol'>:Port</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+</span>  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running on http://</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options_for_rack'>options_for_rack</span><span class='lbracket'>[</span><span class='symbol'>:Host</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_options_for_rack'>options_for_rack</span><span class='lbracket'>[</span><span class='symbol'>:Port</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_handler'>handler</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_app'>app</span><span class='comma'>,</span> <span class='id identifier rubyid_options_for_rack'>options_for_rack</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
