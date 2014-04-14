@@ -34,9 +34,6 @@
         <div class="intro">
             <div class="intro-content">
                 <h1><%= @item[:title] || content_for(@item, :title )%></h1>
-                <% if @item[:intro] %>
-                    <p><%= @item[:intro] %></p>
-                <% end %>
             </div>
         </div>
         <div class="content">
