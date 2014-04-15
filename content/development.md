@@ -98,9 +98,9 @@ When making a pull request, pay attention to which branch you want the changed t
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
-Playing around with nanoc 4.0
------------------------------
+Upgrading to nanoc 4.0
+----------------------
 
 There is a preliminary [nanoc 4 upgrade guide](nanoc-4-upgrade-guide) that you can use if you want to play around with nanoc 4.
 
-NOTE: nanoc 4 is currently in an early stage. Neither nanoc nor this document are in a final form.
+NOTE: nanoc 4 is currently in an early stage. Neither nanoc 4 nor this document are in a final form.
