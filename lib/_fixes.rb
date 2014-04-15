@@ -35,16 +35,6 @@ class Nanoc::ItemRepViewForFiltering
   end
 end
 
-class Nanoc::DocumentView
-  def ==(other)
-    other.respond_to?(:resolve) && resolve == other.resolve
-  end
-
-  def eql?(other)
-    self == other
-  end
-end
-
 # TODO klass.new(@item_rep.assigns) -> just @assigns in filtering helper
 
 # IDEA catch all errors, wrap it in an error with an item reference, and rethrow
