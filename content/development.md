@@ -97,3 +97,10 @@ When making a pull request, pay attention to which branch you want the changed t
 * If your pull request is a new feature or extends an existing feature, submit it on the `master` branch.
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
+
+Upgrading to nanoc 4.0
+----------------------
+
+There is a preliminary [nanoc 4 upgrade guide](nanoc-4-upgrade-guide) that you can use if you want to play around with nanoc 4.
+
+NOTE: nanoc 4 is currently in an early stage. Neither nanoc 4 nor this document are in a final form.
