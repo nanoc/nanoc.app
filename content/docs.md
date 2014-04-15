@@ -4,7 +4,7 @@ is_dynamic: true
 ---
 
 <% content_for :details do %>
-	<h3>Documentation Index</h3>
+	<h3>Table of Contents</h3>
 	<h4>Getting Started</h4>
 	<ul>
 		<li><%= link_to_id '/docs/tutorial/' %></li>

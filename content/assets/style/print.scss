@@ -19,52 +19,88 @@ is_dynamic: true
 header,
 footer,
 .side {
-	display: none;
+    display: none;
 }
 
 * {
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
 }
 
+/* Page break behavior */
+
+pre, dd {
+    page-break-before: avoid;
+}
+
+pre, .admonition-wrapper, figure {
+    page-break-inside: avoid;
+}
+
+h1, h2, h3, h4, h5, h6, figcaption {
+    page-break-after: avoid;
+}
+
+/* Fonts */
+
 body {
-	font-family: Georgia, Palatino, serif;
+    font-family: Georgia, Palatino, serif;
     font-size: 11pt;
     line-height: 14pt;
 }
 
 h1, h2, h3, h4, h5, h6, figcaption {
-	font-family: Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	page-break-after: avoid;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+pre, code, kbd, var, .attribute {
+    font-family: Consolas, Inconsolata, Monaco, monospace;
 }
 
 h1 {
-	font-size: 24pt;
+    font-size: 24pt;
 }
 
 h2 {
-	font-size: 18pt;
+    font-size: 18pt;
 }
 
 h3 {
-	font-size: 14pt
+    font-size: 14pt
 }
 
+p {
+    widows: 3;
+    orphans: 3;
+}
+
+/* Typographical styling */
+
+kbd {
+    font-weight: bold;
+}
+
+.filename, .uri, .command, .productname, .firstterm, var {
+    font-style: italic;
+}
+
+/* Other */
+
 figure, img {
-	width: 100%;
+    width: 100%;
 }
 
 figure {
-	margin: 0;
+    margin: 0;
 }
 
 figure img {
-	border: 1pt solid black;
-	padding: 12pt;
+    border: 1pt solid black;
+    padding: 12pt;
 }
 
 figcaption {
-	margin: 0;
+    margin: 0;
 }
 
 dt {
@@ -72,8 +108,8 @@ dt {
 }
 
 pre {
-	border-top: 1pt solid black;
-	border-bottom: 1pt solid black;
+    border-top: 1pt solid black;
+    border-bottom: 1pt solid black;
 
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
@@ -82,39 +118,18 @@ pre {
     word-wrap: break-word;
 }
 
-pre, .admonition-wrapper, figure {
-    page-break-inside: avoid;
-}
-
-p {
-	widows: 3;
-	orphans: 3;
-}
+/* Links */
 
 a {
-	color: black;
-	text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 a:after {
-	content: " (" attr(href) ")";
+    content: " (" attr(href) ")";
 }
 
-kbd {
-	font-weight: bold;
-}
-
-var {
-	font-style: italic;
-}
-
-pre, code, kbd, var, .attribute {
-    font-family: Consolas, Inconsolata, Monaco, monospace;
-}
-
-.filename, .uri, .command, .productname, .firstterm {
-  font-style: italic;
-}
+/* Admonitions */
 
 div.admonition-wrapper {
     margin: 0 0 20pt 0;
