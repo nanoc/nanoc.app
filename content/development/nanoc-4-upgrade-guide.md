@@ -200,3 +200,5 @@ NOTE: Helpers will likely be auto-required before the final nanoc 4.0 release.
 * VCS integration has been removed. Its original purpose was to aid in managing source content, but this was deemed to be out of scope for nanoc 4.
 
 * The `Nanoc3` namespace has been removed, and no `Nanoc4` namespace exists. Use `Nanoc` instead.
+
+This site also includes the [API for nanoc-core](/docs/api/core/).
