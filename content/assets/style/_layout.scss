@@ -9,14 +9,6 @@ $grid-padding:  0;
 
 @include border-box-sizing;
 
-* {
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-}
-
 // GENERAL STYLING
 
 body {
