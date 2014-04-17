@@ -6,8 +6,8 @@ require 'susy'
 Compass.add_project_configuration 'compass_config.rb'
 
 preprocess do
-  config[:nanoc_version_info] = `nanoc --version`.strip
-  config[:gem_version_info]   = `gem --version`.strip
+  config[:nanoc_version_info] = Nanoc.version_information
+  config[:gem_version_info]   = Gem::VERSION
 
   # TODO stylesheets -> is_hidden and is_partial
 end
