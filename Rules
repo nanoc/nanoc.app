@@ -6,8 +6,8 @@ require 'susy'
 Compass.add_project_configuration 'compass_config.rb'
 
 preprocess do
-  config[:nanoc_version_info] = `nanoc --version`.strip
-  config[:gem_version_info]   = `gem --version`.strip
+  config[:nanoc_version_info] = Nanoc.version_information
+  config[:gem_version_info]   = Gem::VERSION
 
   # TODO stylesheets -> is_hidden and is_partial
 end
@@ -74,9 +74,9 @@ compile '/**/*' do
 
   filter :erb if item[:is_dynamic]
   if 'md' == item.identifier.extension
-    filter :admonition
     filter :kramdown, :auto_ids => false
   end
+  filter :admonition
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
   if item.identifier.match?('/release-notes.*')
@@ -89,6 +89,7 @@ compile '/**/*' do
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
+  filter :remove_smartness_from_kbd
   filter :fixup_whitespace
   #filter :html5small
 

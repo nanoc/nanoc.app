@@ -34,9 +34,6 @@
         <div class="intro">
             <div class="intro-content">
                 <h1><%= @item[:title] || content_for(@item, :title )%></h1>
-                <% if @item[:intro] %>
-                    <p><%= @item[:intro] %></p>
-                <% end %>
             </div>
         </div>
         <div class="content">
@@ -48,7 +45,7 @@
                         </div>
                     <% elsif !@item[:skip_details] %>
                         <div class="details">
-                            <h3><%= @item[:short_title] || @item[:title] %></h3>
+                            <h3>Table of Contents</h3>
                             <%= link_back %>
                             {{TOC}}
                         </div>

@@ -7,8 +7,11 @@ class AdmonitionFilter < Nanoc::Filter
   identifier :admonition
 
   def run(content, params = {})
-    content.gsub(/^(TIP|NOTE|CAUTION|TODO): (.*)$/) do |match|
-      case $2
+    doc = Nokogiri::HTML.fragment(content)
+    doc.css('p').each do |para|
+      content = para.inner_html
+      next if content !~ /^(TIP|NOTE|CAUTION|TODO): (.*)$/
+      new_content = case $2
       when '{sudo-gem-install}'
         generate($1.downcase, sudo_gem_install_content)
       when '{sudo-gem-update-system}'
@@ -16,17 +19,13 @@ class AdmonitionFilter < Nanoc::Filter
       else
         generate($1.downcase, $2)
       end
+      para.replace(new_content)
     end
+    doc.to_s
   end
 
   def generate(kind, content)
-    s = ''
-    s << %[<div class="admonition-wrapper #{kind}">]
-    s << %[<div class="admonition">]
-    s << content
-    s << %[</div>]
-    s << %[</div>]
-    s
+    %[<div class="admonition-wrapper #{kind}"><div class="admonition">#{content}</div></div>]
   end
 
   def sudo_gem_install_content

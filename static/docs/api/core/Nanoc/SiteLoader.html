@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Nanoc::SiteLoader
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!Nanoc/SiteLoader.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Nanoc.html" title="Nanoc (module)">Nanoc</a></span></span>
+     &raquo; 
+    <span class="title">SiteLoader</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Nanoc::SiteLoader
+  
+  
+  <span class="private note title">Private</span>
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Nanoc::SiteLoader</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/nanoc/core/interactors/site_loader.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This class is part of a private API.</strong>
+  You should avoid using this class if possible, as it may be removed or be changed in the future.
+</p>
+<p>Loads sites.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_DATA_SOURCE_CONFIG-constant" class="">DEFAULT_DATA_SOURCE_CONFIG =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+<p>The default configuration for a data source. A data source’s
+configuration overrides these options.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='label'>type:</span>            <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filesystem</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>items_root:</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>layouts_root:</span>    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>text_extensions:</span> <span class='qwords_beg'>%w( </span><span class='tstring_content'>css</span><span class='words_sep'> </span><span class='tstring_content'>erb</span><span class='words_sep'> </span><span class='tstring_content'>haml</span><span class='words_sep'> </span><span class='tstring_content'>htm</span><span class='words_sep'> </span><span class='tstring_content'>html</span><span class='words_sep'> </span><span class='tstring_content'>js</span><span class='words_sep'> </span><span class='tstring_content'>less</span><span class='words_sep'> </span><span class='tstring_content'>markdown</span><span class='words_sep'> </span><span class='tstring_content'>md</span><span class='words_sep'> </span><span class='tstring_content'>php</span><span class='words_sep'> </span><span class='tstring_content'>rb</span><span class='words_sep'> </span><span class='tstring_content'>sass</span><span class='words_sep'> </span><span class='tstring_content'>scss</span><span class='words_sep'> </span><span class='tstring_content'>txt</span><span class='words_sep'> </span><span class='tstring_content'>xhtml</span><span class='words_sep'> </span><span class='tstring_content'>xml</span><span class='words_sep'> </span><span class='tstring_content'>coffee</span><span class='words_sep'> </span><span class='tstring_content'>hb</span><span class='words_sep'> </span><span class='tstring_content'>handlebars</span><span class='words_sep'> </span><span class='tstring_content'>mustache</span><span class='words_sep'> </span><span class='tstring_content'>ms</span><span class='words_sep'> </span><span class='tstring_content'>slim</span><span class='words_sep'> )</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='comma'>,</span>
+  <span class='label'>content_dir:</span>     <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>content</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>layouts_dir:</span>     <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>layouts</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="DEFAULT_CONFIG-constant" class="">DEFAULT_CONFIG =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+<p>The default configuration for a site. A site’s configuration overrides
+these options: when a <span class='object_link'><a href="Site.html" title="Nanoc::Site (class)">Nanoc::Site</a></span> is created with a configuration
+that lacks some options, the default value will be taken from
+<code>DEFAULT_CONFIG</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='label'>build_dir:</span>          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>build</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='label'>data_sources:</span>       <span class='lbracket'>[</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='label'>index_filenames:</span>    <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>index.html</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span><span class='comma'>,</span>
+  <span class='label'>enable_output_diff:</span> <span class='kw'>false</span><span class='comma'>,</span>
+  <span class='label'>prune:</span>              <span class='lbrace'>{</span> <span class='label'>auto_prune:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>exclude:</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.git</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.hg</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.svn</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>CVS</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="CONFIG_FILENAME-constant" class="">CONFIG_FILENAME =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nanoc.yaml</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cwd_is_nanoc_site%3F-class_method" title="cwd_is_nanoc_site? (class method)">+ (Boolean) <strong>cwd_is_nanoc_site?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>True if the current working directory is a nanoc site, false otherwise.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load-instance_method" title="#load (instance method)">- (Nanoc::Site) <strong>load</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new site based on the current working directory.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="cwd_is_nanoc_site?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>cwd_is_nanoc_site?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns true if the current working directory is a nanoc site, false otherwise</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if the current working directory is a nanoc site, false otherwise</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/interactors/site_loader.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_cwd_is_nanoc_site?'>cwd_is_nanoc_site?</span>
+  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='const'>CONFIG_FILENAME</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="load-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Site.html" title="Nanoc::Site (class)">Nanoc::Site</a></span></tt>) <strong>load</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns A new site based on the current working directory</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Site.html" title="Nanoc::Site (class)">Nanoc::Site</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A new site based on the current working directory</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/core/interactors/site_loader.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span>
+  <span class='comment'># Load
+</span>  <span class='id identifier rubyid_config'>config</span>
+  <span class='id identifier rubyid_code_snippets'>code_snippets</span>
+  <span class='id identifier rubyid_data_sources'>data_sources</span>
+  <span class='id identifier rubyid_data_sources'>data_sources</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ds'>ds</span><span class='op'>|</span> <span class='id identifier rubyid_ds'>ds</span><span class='period'>.</span><span class='id identifier rubyid_use'>use</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_items'>items</span>
+  <span class='id identifier rubyid_layouts'>layouts</span>
+  <span class='id identifier rubyid_data_sources'>data_sources</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ds'>ds</span><span class='op'>|</span> <span class='id identifier rubyid_ds'>ds</span><span class='period'>.</span><span class='id identifier rubyid_unuse'>unuse</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># Build site
+</span>  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Site</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+    <span class='label'>data_sources:</span>  <span class='id identifier rubyid_data_sources'>data_sources</span><span class='comma'>,</span>
+    <span class='label'>items:</span>         <span class='id identifier rubyid_items'>items</span><span class='comma'>,</span>
+    <span class='label'>layouts:</span>       <span class='id identifier rubyid_layouts'>layouts</span><span class='comma'>,</span>
+    <span class='label'>code_snippets:</span> <span class='id identifier rubyid_code_snippets'>code_snippets</span><span class='comma'>,</span>
+    <span class='label'>config:</span>        <span class='id identifier rubyid_config'>config</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-15639968-1']);
+    _gaq.push(['_setDomainName', 'nanoc.ws']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+
+  </body>
+</html>
