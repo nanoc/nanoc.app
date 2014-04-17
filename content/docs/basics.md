@@ -107,7 +107,7 @@ To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_co
 The default list of text extensions is the following:
 
 <pre><code class="language-yaml">
-text_extensions: [ <%= Nanoc::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
+text_extensions: [ <%= Nanoc::SiteLoader::DEFAULT_DATA_SOURCE_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
 </code></pre>
 
 To get the path of the compiled item, use [`Nanoc::Item#path`](/docs/api/Nanoc/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
@@ -230,7 +230,7 @@ Rules
 
 The instructions for processing items are located in a file named `Rules` which lives in a nanoc site directory. This rules file contains _routing rules_, _compilation rules_ and _layouting rules_. Compilation rules determine the actions that should be executed during compilation (filtering, layouting), routing rules determine the path where the compiled files should be written to, and layouting rules determine the filter that should be used for a given layout.
 
-Full documentation on the Rules file is available in the <%= link_to 'Rules reference', @items['/docs/reference/rules/'] %>.
+Full documentation on the Rules file is available in the <%= link_to 'Rules reference', @items['/docs/reference/rules.*'] %>.
 
 The Compilation Process
 -----------------------

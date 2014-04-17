@@ -1,10 +1,12 @@
+# encoding: utf-8
+
 # Default
-include Nanoc::Helpers::LinkTo
-include Nanoc::Helpers::Filtering
-include Nanoc::Helpers::XMLSitemap
-include Nanoc::Helpers::Rendering
-include Nanoc::Helpers::Capturing
-include Nanoc::Helpers::Breadcrumbs
+include Nanoc::Linking::Helper
+include Nanoc::Filtering::Helper
+include Nanoc::XMLSitemap::Helper
+include Nanoc::Rendering::Helper
+# include Nanoc::Capturing::Helper
+include Nanoc::Breadcrumbs::Helper
 
 # Custom
 include NanocSite::ReleaseNotes

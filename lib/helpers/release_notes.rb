@@ -8,13 +8,14 @@ module NanocSite
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.find { |i| i.identifier == '/release-notes/' }.compiled_content
+      content = @items['/release-notes.*'].compiled_content
       doc = Nokogiri::HTML(content)
 
       # Parse title
       raw = doc.css('h2').first.inner_html.strip
       if raw !~ /^(\d\.\d(\.\d)?) \((\d{4}-\d{2}-\d{2})\)$/
-        raise RuntimeError, "title does not match latest release info regex: #{raw.inspect}"
+        $stderr.puts "warning: title does not match latest release info regex: #{raw.inspect}"
+        return { version: '9.9.9', date: Date.parse('9999-1-1') }
       end
 
       # Done

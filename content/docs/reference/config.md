@@ -5,12 +5,14 @@ is_dynamic: true
 
 ## `text_extensions`
 
+<!-- TODO move this piece of documentation into the data source config -->
+
 A list of file extensions that nanoc will consider to be textual rather than
 binary. If an item with an extension not in this list is found,  the file
 will be considered as binary.
 
 	#!yaml
-	text_extensions: <%= array_to_yaml(Nanoc::Site::DEFAULT_CONFIG[:text_extensions]) %>
+	text_extensions: <%= array_to_yaml(Nanoc::SiteLoader::DEFAULT_DATA_SOURCE_CONFIG[:text_extensions]) %>
 
 ## `output_dir`
 
@@ -19,7 +21,7 @@ can be an absolute path starting with a slash, but it can also be path
 relative to the site directory.
 
 	#!yaml
-	output_dir: <%= Nanoc::Site::DEFAULT_CONFIG[:output_dir] %>
+	output_dir: <%= Nanoc::SiteLoader::DEFAULT_CONFIG[:output_dir] %>
 
 ## `index_filenames`
 
@@ -29,7 +31,7 @@ server when a directory is requested. Usually, index files are named
 such as “default.htm”. This list is used by nanoc to generate pretty URLs.
 
 	#!yaml
-	index_filenames: <%= array_to_yaml(Nanoc::Site::DEFAULT_CONFIG[:index_filenames]) %>
+	index_filenames: <%= array_to_yaml(Nanoc::SiteLoader::DEFAULT_CONFIG[:index_filenames]) %>
 
 ## `enable_output_diff`
 
@@ -83,7 +85,7 @@ The type is the identifier of the data source. By default, this will be
 `filesystem_unified`.
 
 	#!yaml
-	type: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:type].inspect %>
+	type: <%= Nanoc::SiteLoader::DEFAULT_DATA_SOURCE_CONFIG[:type].inspect %>
 
 ### `items_root`
 
@@ -94,7 +96,7 @@ instead, an item at content/about.html would have an identifier of
 “/en/about/” instead of just “/about/”.
 
 	#!yaml
-	items_root: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:items_root].inspect %>
+	items_root: <%= Nanoc::SiteLoader::DEFAULT_DATA_SOURCE_CONFIG[:items_root].inspect %>
 
 ### `layouts_root`
 
@@ -102,7 +104,7 @@ The path where layouts should be mounted. The layouts root behaves the
 same as the items root, but applies to layouts rather than items.
 
 	#!yaml
-	layouts_root: <%= Nanoc::Site::DEFAULT_DATA_SOURCE_CONFIG[:layouts_root].inspect %>
+	layouts_root: <%= Nanoc::SiteLoader::DEFAULT_DATA_SOURCE_CONFIG[:layouts_root].inspect %>
 
 ### `allow_periods_in_identifiers`
 

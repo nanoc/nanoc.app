@@ -1,1 +1,1 @@
-require 'html5small/nanoc'
+#require 'html5small/nanoc'
