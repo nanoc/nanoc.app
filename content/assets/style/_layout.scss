@@ -410,7 +410,7 @@ body.page .content {
                 margin: 40px 0 0 0;
             }
 
-            .details, .open-source-site {
+            .details, .open-source-site, .nanoc-4-note {
                 padding: 20px;
                 margin-bottom: 20px;
             }
@@ -460,6 +460,17 @@ body.page .content {
 
                 p {
                     font-size: 12px;
+                    padding: 0;
+                }
+            }
+
+            .nanoc-4-note {
+                border-top: 10px solid;
+                border-bottom: 10px solid;
+                border-image: url(/assets/images/stripe.png) 13 0 repeat;
+
+                p {
+                    font-size: 14px;
                     padding: 0;
                 }
             }

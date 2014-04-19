@@ -1,5 +1,6 @@
 ---
 title: "nanoc 4.0 upgrade guide"
+for_nanoc_4: true
 ---
 
 This document lists all backwards-incompatible changes made to nanoc 4.0, and contains advice on how to migrate from nanoc 3.x to nanoc 4.0.

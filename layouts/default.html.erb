@@ -53,6 +53,11 @@
                     <div class="open-source-site">
                         <p>This site is <a href="http://github.com/nanoc/nanoc.ws">hosted on GitHub</a>. If you want to help out, do report issues and submit pull requests!</p>
                     </div>
+                    <% if @item[:for_nanoc_4] %>
+                    <div class="nanoc-4-note">
+                        <p>The contents of this page reflect the upcoming nanoc 4 version. Do not rely on this material for nanoc 3.x.</p>
+                    </div>
+                    <% end %>
                 </div>
                 <div class="article-content">
                     <%= yield %>
