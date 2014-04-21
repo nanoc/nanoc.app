@@ -3,10 +3,7 @@ title:      "Install"
 is_dynamic: true
 ---
 
-Instructions For The Impatient
------------------------------
-
-Install nanoc using RubyGems, like this:
+Install nanoc using RubyGems:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
@@ -14,8 +11,21 @@ NOTE: {sudo-gem-install}
 
 For detailed instructions, read on!
 
-Installing Ruby
----------------
+## Supported platforms
+
+nanoc is supported on the following platforms:
+
+* Ruby 1.8.x
+* Ruby 1.9.x
+* Ruby 2.0.x
+* Ruby 2.1.x
+
+nanoc is tested on the following platforms, but not officially supported (yet):
+
+* JRuby
+* Rubinius
+
+## Installing Ruby
 
 nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 up to Ruby 2.1 are supported. You can also use alternative Ruby implementations such as [JRuby](http://jruby.org/) and [Rubinius](http://rubini.us/) if you want to do so.
 
@@ -27,8 +37,7 @@ Ruby may already be installed on your system. To check, open a terminal window a
 
 To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). For OS X, we recommend using [Homebrew](http://brew.sh/)—a <kbd>brew install ruby</kbd> will install the latest Ruby version. On other Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
 
-Installing RubyGems
--------------------
+## Installing RubyGems
 
 RubyGems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install RubyGems anyway.
 
@@ -50,8 +59,7 @@ NOTE: {sudo-gem-update-system}
 
 NOTE: The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and RubyGems.
 
-Installing nanoc
-----------------
+## Installing nanoc
 
 All dependencies are now taken care of, and installing nanoc should now be easy:
 
@@ -71,7 +79,7 @@ The current version of nanoc is is <%= latest_release_info[:version] %>, release
 
 If you’re on Windows and are using the Windows console, it’s probably a good idea to install the `win32console` gem using <kbd>gem install win32console</kbd> to allow nanoc to use pretty colors when writing stuff to the terminal.
 
-### From git
+### Installing from git
 
 You can also install nanoc from the repository if you want to take advantage of the latest features and improvements in nanoc. Be warned that the versions from the repository may be unstable, so it is recommended to install nanoc from rubygems if you want to stay safe. You can install nanoc from the git repository like this:
 
