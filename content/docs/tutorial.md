@@ -5,7 +5,7 @@ title: "Tutorial"
 This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
 a working nanoc installation
-: Check out the [Install](/install/) page for details on how to install Ruby, Rubygems and nanoc.
+: Check out the [Install](/install/) page for details on how to install Ruby, RubyGems and nanoc.
 
 a basic understanding of Ruby
 : nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).

@@ -6,7 +6,7 @@ is_dynamic: true
 Instructions For The Impatient
 -----------------------------
 
-Install nanoc using Rubygems, like this:
+Install nanoc using RubyGems, like this:
 
 <pre title="Installing nanoc"><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
@@ -27,28 +27,28 @@ Ruby may already be installed on your system. To check, open a terminal window a
 
 To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). On Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
 
-Installing Rubygems
+Installing RubyGems
 -------------------
 
-Rubygems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install Rubygems anyway.
+RubyGems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install RubyGems anyway.
 
-It is likely that you have Rubygems installed already. To find out whether Rubygems is installed, type <kbd>gem \--version</kbd>. If that command prints a version number, Rubygems is installed:
+It is likely that you have RubyGems installed already. To find out whether RubyGems is installed, type <kbd>gem \--version</kbd>. If that command prints a version number, RubyGems is installed:
 
-<pre title="Checking whether Rubygems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
+<pre title="Checking whether RubyGems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
 <%= config[:gem_version_info] %>
 <span class="prompt">%</span> </pre>
 
-To install Rubygems, go to the [Rubygems download page](http://rubygems.org/pages/download) and follow the instructions there.
+To install RubyGems, go to the [RubyGems download page](http://rubygems.org/pages/download) and follow the instructions there.
 
-Be sure what you have a fairly recent version of Rubygems. When in doubt, update your Rubygems:
+Be sure what you have a fairly recent version of RubyGems. When in doubt, update your RubyGems:
 
-<pre title="Updating Rubygems"><span class="prompt">%</span> <kbd>gem update --system</kbd>
+<pre title="Updating RubyGems"><span class="prompt">%</span> <kbd>gem update --system</kbd>
 Latest version currently installed. Aborting.
 <span class="prompt">%</span> </pre>
 
 NOTE: {sudo-gem-update-system}
 
-NOTE: The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and Rubygems.
+NOTE: The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and RubyGems.
 
 Installing nanoc
 ----------------
@@ -65,7 +65,7 @@ To make sure that nanoc was installed correctly, run <kbd>nanoc \--version</kbd>
 <%= config[:nanoc_version_info] %>
 <span class="prompt">%</span> </pre>
 
-If you get a “command not found” error when trying to run `nanoc`, you might have to adjust your `$PATH` to include the path to the directory where Rubygems installs executables.
+If you get a “command not found” error when trying to run `nanoc`, you might have to adjust your `$PATH` to include the path to the directory where RubyGems installs executables.
 
 The current version of nanoc is is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find the release notes for this version as well as release notes for older versions on the [release notes](/release-notes/) page.
 
