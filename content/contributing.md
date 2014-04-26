@@ -3,11 +3,7 @@ title: "Contributing"
 is_dynamic: true
 ---
 
-nanoc is the effort of dozens of people. Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to nanoc.
-
-These people have contributed to nanoc already:
-
-<i><%= @items['/contributing/contributors/'].raw_content %></i>
+nanoc is the effort of [dozens of people](#contributors). Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to nanoc.
 
 Making a donation
 -----------------
@@ -83,3 +79,10 @@ After making your modifications, make sure that the source code documentation is
 Finally, create a pull request. Make sure the submit your pull request against the branch you originally started off (`master` or `release-3.6.x`).
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
+
+Contributors
+------------
+
+These people have contributed to nanoc already:
+
+<i><%= @items['/contributing/contributors/'].raw_content %></i>
