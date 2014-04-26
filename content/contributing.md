@@ -7,7 +7,7 @@ nanoc is the effort of dozens of people. Contributions are welcomed, no matter h
 
 These people have contributed to nanoc already:
 
-<%= @items['/contributing/contributors/'].raw_content %>
+<i><%= @items['/contributing/contributors/'].raw_content %></i>
 
 Making a donation
 -----------------
