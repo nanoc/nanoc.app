@@ -21,9 +21,7 @@ When reporting a bug, please make sure you include as many details as you can ab
 Submitting feature requests
 ---------------------------
 
-If you have an idea for a feature that you believe is missing in nanoc, describe it on the [wishlist](https://github.com/nanoc/nanoc/wiki/Wishlist). I recommend also starting a discussion on the [discussion forums](https://groups.google.com/forum/?fromgroups#!forum/nanoc) to get feedback.
-
-The GitHub issue tracker is is used to track development of new features. Take a look at the [list of open features](https://github.com/nanoc/nanoc/issues?labels=feature&state=open). A bunch of old features are still described in the [repository for nanoc enhancement proposals](https://github.com/nanoc/neps), but it is expected that these will be migrated to GitHub issues some time soon.
+If you have an idea for a new feature, check whether or not it’s on the [nanoc Trello board](https://trello.com/b/dlEWOOBW/nanoc-4-0) yet. If it is not, start a discussion on the [nanoc Google group](https://groups.google.com/forum/?fromgroups#!forum/nanoc).
 
 Reviewing pull requests
 -----------------------
