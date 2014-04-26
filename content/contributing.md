@@ -25,6 +25,18 @@ If you have an idea for a feature that you believe is missing in nanoc, describe
 
 The GitHub issue tracker is is used to track development of new features. Take a look at the [list of open features](https://github.com/nanoc/nanoc/issues?labels=feature&state=open). A bunch of old features are still described in the [repository for nanoc enhancement proposals](https://github.com/nanoc/neps), but it is expected that these will be migrated to GitHub issues some time soon.
 
+Reviewing pull requests
+-----------------------
+
+We use pull requests extensively for nanoc development. No pull request gets merged without at least one +1.
+
+This approach ensures quality, but can be a bit slow. You can help out by checking pull requests marked as “to review”:
+
+* [pull requests to review for nanoc](https://github.com/nanoc/nanoc/issues?labels=to+review)
+* [pull requests to review for nanoc.ws](https://github.com/nanoc/nanoc.ws/issues?labels=to+review)
+
+If you think the pull request is good, leave a `:+1:`. If you have concerns, leave a comment.
+
 Contributing code
 -----------------
 
