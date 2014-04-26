@@ -4,22 +4,15 @@ prune:
   auto_prune: true
 
 data_sources:
-  -
-    type:         filesystem_unified
-    items_root:   /
-    layouts_root: /
-  -
-    type:         cli
+  - type:         filesystem_unified
+  - type:         cli
     items_root:   /docs/reference/commands/
-  -
-    type:         yard
+  - type:         yard
     items_root:   /docs/reference/
-  -
-    type:         static
+  - type:         static
     items_root:   /static/
-  -
-    type:         release_notes
-    items_root:   /
+  - type:         release_notes
+  - type:         contributors
 
 base_url: http://nanoc.ws
 
