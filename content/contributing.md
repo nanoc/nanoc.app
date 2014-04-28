@@ -45,7 +45,7 @@ To contribute code, ou need a basic knowledge of git. The [Try Git](http://try.g
 
 Before you start coding, make sure that the idea you have fits with nanoc’s philosophy. Start a thread on the [discussion group](http://groups.google.com/group/nanoc) or find us on the [IRC channel](irc://chat.freenode.net/#nanoc). Generally speaking, all bug fixes are accepted, while feature changes need more discussion.
 
-NOTE: For all changes, backwards compatibility *must* be retained. This means that you cannot modify a feature to work in a different way.
+NOTE: For all changes, backwards compatibility *must* be retained. This means that you can add a feature, but you cannot modify a feature to work in a different way.
 
 To fetch the latest nanoc source code, clone the Git repository:
 
