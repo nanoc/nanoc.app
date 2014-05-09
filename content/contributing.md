@@ -41,7 +41,7 @@ If you think the pull request is good, leave a `:+1:`. If you have concerns, lea
 Contributing code
 -----------------
 
-To contribute code, ou need a basic knowledge of git. The [Try Git](http://try.github.io/) interactive tutorial is quite good for getting up to speed.
+To contribute code, you need a basic knowledge of git. The [Try Git](http://try.github.io/) interactive tutorial is quite good for getting up to speed.
 
 Before you start coding, make sure that the idea you have fits with nanoc’s philosophy. Start a thread on the [discussion group](http://groups.google.com/group/nanoc) or find us on the [IRC channel](irc://chat.freenode.net/#nanoc). Generally speaking, all bug fixes are accepted, while feature changes need more discussion.
 
