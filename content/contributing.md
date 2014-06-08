@@ -54,11 +54,11 @@ To fetch the latest nanoc source code, clone the Git repository:
 Pick the right branch to start off:
 
 * If you want to add a feature, use the `master` branch.
-* If you want to add a bug fix, use the `release-3.6.x` branch.
+* If you want to add a bug fix, use the `release-3.7.x` branch.
 
 You can switch to the right branch using `git checkout`:
 
-<pre><span class="prompt">nanoc%</span> <kbd>git checkout release-3.6.x</kbd></pre>
+<pre><span class="prompt">nanoc%</span> <kbd>git checkout release-3.7.x</kbd></pre>
 
 Create a branch off one of the two existing branches mentioned above. Pick a good name; the convention is to prefix the branch name with `bug/` when it is a bug and with `feature/` if it is a feature. Once you’ve picked a branch name, create the branch:
 
@@ -76,7 +76,7 @@ NOTE: You can also invoke nanoc by calling <span class="command">nanoc</span> us
 
 After making your modifications, make sure that the source code documentation is up-to-date. nanoc uses [YARD](http://yardoc.org/) for its source code docs. The [YARD getting started guide](http://rubydoc.info/gems/yard/file/docs/GettingStarted.md) is a helpful resource when writing YARD documentation.
 
-Finally, create a pull request. Make sure the submit your pull request against the branch you originally started off (`master` or `release-3.6.x`).
+Finally, create a pull request. Make sure the submit your pull request against the branch you originally started off (`master` or `release-3.7.x`).
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
