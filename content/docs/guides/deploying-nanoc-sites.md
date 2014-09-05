@@ -97,3 +97,41 @@ Enter the <span class="filename">output/</span> directory, add and commit everyt
 After a few seconds, the updated site will appear at <span class="uri">http://<var>username</var>.github.io/<var>repo-name</var></span> for GitHub, or <span class="uri">http://<var>username</var>.bitbucket.org</span> for Bitbucket.
 
 For GitHub, we recommend removing the _gh-pages_ branch from the base repository, since it is quite likely to be out of sync with the _gh-pages_ branch in the repository in the <span class="filename">output/</span> directory.
+
+With Fog gem for Amazon S3, Google Cloud, etc.
+----------------------------------------------
+
+You can deploy to any Fog provider directly from Nanoc. You find available providers
+and their configuration variables in Fog [documentation](http://fog.io).
+
+### Setup
+
+You need `fog` gem installed, preferably using bundler. Change your configuration
+for deployment in `config.yaml` to (for Amazon S3):
+
+  #!yaml
+  deploy:
+    path_style:            true
+    kind:                  fog
+    provider:              aws
+    region:                YOUR-REGION (eg. eu-west-1)
+    bucket:                YOUR-BUCKETNAME
+    aws_access_key_id:     YOUR-KEY-ID
+    aws_secret_access_key: YOUR-SECRET
+
+### Publish
+
+To publish your nanoc site you use normal deploy command:
+
+<pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd></pre>
+
+You should see this when done:
+
+<pre>
+Loading site data… done
+Connecting
+Getting bucket
+Uploading local files
+Removing remote files
+Done!
+</pre>
