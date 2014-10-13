@@ -17,11 +17,11 @@ data_sources:
 base_url: http://nanoc.ws
 
 deploy:
-  public:
+  bhakti:
     kind: rsync
-    dst: "ectype:sites/nanoc/public"
+    dst: "bhakti:/srv/http/nanoc.ws"
     options: [ '-aP', '--delete-after' ]
-  staging:
+  bhakti-staging:
     kind: rsync
-    dst: "ectype:sites/nanoc-staging/public"
-    options: [ '-aP', '--delete-after', '--filter', 'protect /_branches/**/*' ]
+    dst: "bhakti:/srv/http/staging.nanoc.ws"
+    options: [ '-aP', '--delete-after' ]
