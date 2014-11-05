@@ -150,6 +150,9 @@ If you are using the default data source (`filesystem_unified`), then each item 
 `:extension`
 : the extension of the file or the content file (if there is one, because it is possible to have a meta-file without a corresponding content file)
 
+`:mtime`
+: the time when the item was last modified
+
 ### Representations
 
 An item representation (or “rep” for short) is a compiled version of an item. Each representation has a name (a symbol, not a string). An item can have multiple representations, though usually it will have just one (named `default`).
