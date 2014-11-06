@@ -35,7 +35,7 @@ Running issue checks…
 No issues found. Deploying!
 <span class="prompt">%</span></pre>
 
-To run the checks marked for deployment without deploying, use <kbd>nanoc check \--deploy</kbd>.
+To run the checks marked for deployment without deploying, use <kbd>nanoc check --deploy</kbd>.
 
 Custom checks
 -------------

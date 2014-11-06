@@ -19,7 +19,7 @@ Installing Ruby
 
 nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 up to Ruby 2.1 are supported. You can also use alternative Ruby implementations such as [JRuby](http://jruby.org/) and [Rubinius](http://rubini.us/) if you want to do so.
 
-Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby \--version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
+Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby --version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 
 <pre title="Checking whether Ruby is installed"><span class="prompt">%</span> <kbd>ruby --version</kbd>
 <kbd>ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]</kbd>
@@ -32,7 +32,7 @@ Installing RubyGems
 
 RubyGems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install RubyGems anyway.
 
-It is likely that you have RubyGems installed already. To find out whether RubyGems is installed, type <kbd>gem \--version</kbd>. If that command prints a version number, RubyGems is installed:
+It is likely that you have RubyGems installed already. To find out whether RubyGems is installed, type <kbd>gem --version</kbd>. If that command prints a version number, RubyGems is installed:
 
 <pre title="Checking whether RubyGems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
 <%= config[:gem_version_info] %>
@@ -59,7 +59,7 @@ All dependencies are now taken care of, and installing nanoc should now be easy:
 
 NOTE: {sudo-gem-install}
 
-To make sure that nanoc was installed correctly, run <kbd>nanoc \--version</kbd>. It should print the version number along with some other information, like this:
+To make sure that nanoc was installed correctly, run <kbd>nanoc --version</kbd>. It should print the version number along with some other information, like this:
 
 <pre title="Checking whether nanoc is correctly installed"><span class="prompt">%</span> <kbd>nanoc --version</kbd>
 <%= config[:nanoc_version_info] %>
