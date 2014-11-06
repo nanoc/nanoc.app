@@ -4,3 +4,4 @@ output/
 crash.log
 output.diff
 .DS_Store
+.*~
