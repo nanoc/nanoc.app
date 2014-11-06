@@ -138,17 +138,20 @@ title: "Some Page"
 
 If you are using the default data source (`filesystem_unified`), then each item will automatically receive some extra attributes that may be useful. These are:
 
-`:filename`
-: the name of the file corresponding to the item (if there is only one file that contains both content and metadata)
-
 `:content_filename`
 : the name of the content file (if there is a content file)
+
+`:extension`
+: the extension of the file or the content file (if there is one, because it is possible to have a meta-file without a corresponding content file)
+
+`:filename`
+: the name of the file corresponding to the item (if there is only one file that contains both content and metadata)
 
 `:meta_filename`
 : the name of the meta-file (if there is a meta-file)
 
-`:extension`
-: the extension of the file or the content file (if there is one, because it is possible to have a meta-file without a corresponding content file)
+`:mtime`
+: the time when the item was last modified
 
 ### Representations
 
