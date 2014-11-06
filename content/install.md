@@ -22,7 +22,7 @@ nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a
 Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby --version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 
 <pre title="Checking whether Ruby is installed"><span class="prompt">%</span> <kbd>ruby --version</kbd>
-<kbd>ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]</kbd>
+<%= config[:ruby_version_info] %>
 <span class="prompt">%</span> </pre>
 
 To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). For OS X, we recommend using [Homebrew](http://brew.sh/)—a <kbd>brew install ruby</kbd> will install the latest Ruby version. On other Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
