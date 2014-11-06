@@ -25,7 +25,7 @@ Ruby may already be installed on your system. To check, open a terminal window a
 <%= config[:ruby_version_info] %>
 <span class="prompt">%</span> </pre>
 
-To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). For OS X, we recommend using [Homebrew](http://brew.sh/)—a <kbd>brew install ruby</kbd> will install the latest Ruby version. On other Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
+To install Ruby, follow the [installation instructions on the Ruby web site](https://www.ruby-lang.org/en/documentation/installation/).
 
 Installing RubyGems
 -------------------
