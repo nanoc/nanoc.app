@@ -76,6 +76,37 @@ Every new user need to set up this branch manually.
 
 Now you have an orphaned branch dedicated to GitHub Pages publishing. This branch now dwells in the output folder of your nanoc repository.
 
+With BitBucket.org
+-----------------
+
+The publishing of a website based on a git repo is nicely [described in BitBucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
+
+### Setup
+This approach assumes you want a separate git repo on bitbucket.org for both your nanoc build environment and for the generated website content.  The concept is to not have the generated content be placed in a child folder of the build environment but instead go up a folder level into a different folder.  This saves you from creating a git repo within another git repo.  An example setup on a Mac would look like the following:
+
+```
+/Users/me/git/mynanoc_build_env
+/Users/me/git/mybitbucketwebsiterepo
+```
+
+In the above example `mynanoc_build_folder` is where files your nanoc folders and files reside (i.e. `Rules`, `nanoc.yaml`, `content/`, `layouts/`, `lib/`, etc).  The `mybitbucketwebsiterepo` folder is a separately created bitbucket repo that is waiting to be occupied with the generated content from `mynanoc_build_folder`.
+
+First change the `nanoc.yaml` `output_dir` setting to `../mybitbucketwebsiterepo`
+``` ruby
+output_dir: ../mybitbucketwebsiterepo
+```
+
+Now continue on to the publishing section below and the generated content will go to `../mybitbucketwebsiterepo` instead of the default of `output`.
+
+Once you've generate the new site then `cd` into `../mybitbucketwebsiterepo` and do the normal flow of placing changes back onto BitBucket.org.
+
+```
+git add .
+git commit -m 'Changed something'
+git push
+```
+
+
 ### Publish
 
 To publish your nanoc site you start with running nanoc as normal:
