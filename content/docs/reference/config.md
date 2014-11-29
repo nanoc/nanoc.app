@@ -115,3 +115,23 @@ it will become “/about.html/” instead.
 
 	#!yaml
 	allow_periods_in_identifiers: false
+
+This only affects the filesystem data source.
+
+### `content_dir`
+
+The path to the directory where the content is stored.
+
+	#!yaml
+	content_dir: content
+
+This only affects the filesystem data source.
+
+### `layouts_dir`
+
+The path to the directory where the layouts are stored.
+
+	#!yaml
+	layout_dir: layouts
+
+This only affects the filesystem data source.
