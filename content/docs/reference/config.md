@@ -132,6 +132,6 @@ This only affects the filesystem data source.
 The path to the directory where the layouts are stored.
 
 	#!yaml
-	layout_dir: layouts
+	layouts_dir: layouts
 
 This only affects the filesystem data source.
