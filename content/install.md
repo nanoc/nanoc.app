@@ -11,23 +11,9 @@ NOTE: {sudo-gem-install}
 
 For detailed instructions, read on!
 
-## Supported platforms
-
-nanoc is supported on the following platforms:
-
-* Ruby 1.8.x
-* Ruby 1.9.x
-* Ruby 2.0.x
-* Ruby 2.1.x
-
-nanoc is tested on the following platforms, but not officially supported (yet):
-
-* JRuby
-* Rubinius
-
 ## Installing Ruby
 
-nanoc is written in [Ruby](http://ruby-lang.org/), so you will need to install a Ruby interpreter. Ruby 1.8.6 up to Ruby 2.1 are supported. You can also use alternative Ruby implementations such as [JRuby](http://jruby.org/) and [Rubinius](http://rubini.us/) if you want to do so.
+nanoc requires [Ruby](http://ruby-lang.org/) in order to run. nanoc supports the official Ruby interpreter from version 1.8.6 up, as well as JRuby.
 
 Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby --version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 
