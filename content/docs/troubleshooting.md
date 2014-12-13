@@ -115,13 +115,19 @@ This is a shorthand for the following:
 	compile '/assets/stylesheets/*/' do
 	end
 
-## Characters don’t show up right in the output
+## Character encoding issues
 
-If you notice that some characters do not show up correctly in the output (e.g., ä shows up as Ã¤), then you are experiencing issues with character encodings: text in one character encoding is erroneously interpreted as a different character encoding. There are two possible causes for this.
+Character encoding issues manifest themselves in two ways:
+
+* Some characters do not show up correctly in the output (e.g., ä shows up as Ã¤).
+
+* nanoc exits with an error such as `RegexpError: invalid multibyte character`.
+
+In both cases, text in one character encoding is erroneously interpreted as a different character encoding. There are two possible causes for this.
 
 ### Wrong output encoding tag
 
-The text could be in the correct encoding, but the browser interprets it wrongly.
+The text could be in the correct encoding, but nanoc or the browser interpret it wrongly.
 
 nanoc’s output is always UTF-8, so the output files should not declare a different encoding. For example, having `<meta charset="iso-8859-1">` at the top of files in output/ is wrong: it should be `<meta charset="utf-8">` instead. You should also ensure that your web server sends the right `Content-Type`.
 
