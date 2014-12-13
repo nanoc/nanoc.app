@@ -23,27 +23,7 @@ Ruby may already be installed on your system. To check, open a terminal window a
 
 To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). For OS X, we recommend using [Homebrew](http://brew.sh/)—a <kbd>brew install ruby</kbd> will install the latest Ruby version. On other Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
 
-## Installing RubyGems
-
-RubyGems is Ruby’s package manager. With it, you can easily find and install new packages (called _gems_). While not _strictly_ necessary in order to use nanoc, it is greatly recommended to install RubyGems anyway.
-
-It is likely that you have RubyGems installed already. To find out whether RubyGems is installed, type <kbd>gem --version</kbd>. If that command prints a version number, RubyGems is installed:
-
-<pre title="Checking whether RubyGems is installed"><span class="prompt">%</span> <kbd>gem --version</kbd>
-<%= config[:gem_version_info] %>
-<span class="prompt">%</span> </pre>
-
-To install RubyGems, go to the [RubyGems download page](http://rubygems.org/pages/download) and follow the instructions there.
-
-Be sure what you have a fairly recent version of RubyGems. When in doubt, update your RubyGems:
-
-<pre title="Updating RubyGems"><span class="prompt">%</span> <kbd>gem update --system</kbd>
-Latest version currently installed. Aborting.
-<span class="prompt">%</span> </pre>
-
-NOTE: {sudo-gem-update-system}
-
-NOTE: The <kbd>gem update --system</kbd> command is disabled on Debian and Ubuntu. On these distributions, you should use <code>apt</code> to upgrade Ruby and RubyGems.
+NOTE: nanoc is installed using Rubygems. If you are using a Ruby version older than 1.9.3, you might not have Rubygems install. To install RubyGems, go to the [RubyGems download page](http://rubygems.org/pages/download) and follow the instructions there.
 
 ## Installing nanoc
 
