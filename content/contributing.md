@@ -87,7 +87,9 @@ If you’re a release manager, you can follow these steps to release a new versi
 
 CAUTION: Being a release manager grants you considerable power, but remember that with great power comes great responsibility.
 
-To prepare for a release, follow these steps:
+### Preparing for a release
+
+Preparing a release means ensuring that the version that is about to be released meets the requirements. To prepare for a release, follow these steps:
 
 1. Ensure the `Nanoc::VERSION` constant is set to the right version. Keep in mind that nanoc follows the [Semantic Versioning](http://semver.org/) standard.
 
@@ -99,7 +101,9 @@ To prepare for a release, follow these steps:
 
 5. Make sure you have received the permissions to do all of the steps below. If you haven’t , let me (Denis) know and I’ll set you up. You’ll need GitHub push privileges, RubyGems push privileges, IRC channel operator access, and web site push access.
 
-To release a new version of nanoc, follow these steps:
+### Releasing the new version
+
+Once the preparation is complete, the new version can be released. To release a new version of nanoc, follow these steps:
 
 2. Build the gem (<kbd>gem build nanoc.gemspec</kbd>).
 
@@ -109,7 +113,9 @@ To release a new version of nanoc, follow these steps:
 
 5. Push the changes to GitHub (<kbd>git push</kbd>). Don’t forget to also push the tags (<kbd>git push --tags</kbd>).
 
-To spread the word about the new release, follow these steps:
+### Spread the word
+
+To announce the new release, follow these steps:
 
 1. Update the release notes on site. This only involves recompiling the site with the new version of nanoc (the release notes on the site are extracted from the <span class="filename">NEWS.md</span> file in the nanoc gem) and pushing the site (<kbd>bundle exec nanoc deploy --target=bhakti</kbd>).
 
