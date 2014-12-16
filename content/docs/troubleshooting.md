@@ -129,7 +129,7 @@ In both cases, text in one character encoding is erroneously interpreted as a di
 
 The text could be in the correct encoding, but nanoc or the browser interpret it wrongly.
 
-nanoc’s output is always UTF-8, so the output files should not declare a different encoding. For example, having `<meta charset="iso-8859-1">` at the top of files in output/ is wrong: it should be `<meta charset="utf-8">` instead. You should also ensure that your web server sends the right `Content-Type`.
+nanoc’s output is always UTF-8, so the output files should not declare a different encoding. For example, having `<meta charset="iso-8859-1">` at the top of files in <span class="filename">output/</span> is wrong: it should be `<meta charset="utf-8">` instead. You should also ensure that your web server sends the right `Content-Type`.
 
 ### Wrong input encoding
 
@@ -143,7 +143,7 @@ nanoc defaults to the current environment encoding, which might not be what you 
 
 * You can set an explicit encoding in the nanoc configuration file. This is the recommended approach, as it never hurts to be explicit.
 
-To set the encoding explicity in the site configuration, open `nanoc.yaml` (or `config.yaml` on older nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem_unified` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
+To set the encoding explicity in the site configuration, open <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> on older nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem_unified` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
 
 	#!yaml
 	data_sources:
