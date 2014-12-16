@@ -119,6 +119,24 @@ To spread the word about the new release, follow these steps:
 
 4. Update the topic of the <i>#nanoc</i> IRC channel.
 
+The e-mail template that I often use is based off the following:
+
+<pre class="template">
+Hi,
+
+nanoc <var>version</var> is out. This <var>major/minor/patch</var> release <var>fixes a bug related to X/adds enhancements X and Y/adds feature X</var>. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
+
+You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of nanoc.
+
+Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
+
+Cheers,
+
+Denis
+
+<var>RELEASE NOTES</var>
+</pre>
+
 Contributors
 ------------
 
