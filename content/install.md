@@ -23,8 +23,6 @@ Ruby may already be installed on your system. To check, open a terminal window a
 
 To install Ruby, you have a few different options. You can use your operating system’s package manager, e.g. <kbd>sudo apt-get install ruby1.9.1</kbd> on Debian and Ubuntu, or <kbd>sudo pacman -S ruby</kbd> on Arch Linux. On Windows, you can use [RubyInstaller](http://rubyinstaller.org/). For OS X, we recommend using [Homebrew](http://brew.sh/)—a <kbd>brew install ruby</kbd> will install the latest Ruby version. On other Unix-like operating systems, [chruby](https://github.com/postmodern/chruby), [rbenv](http://rbenv.org/) or [rvm](http://rvm.io/) are a good choice. Alternatively, you can [download the Ruby source code](https://www.ruby-lang.org/en/downloads/) and compile it yourself.
 
-NOTE: nanoc is installed using Rubygems. If you are using a Ruby version older than 1.9.3, you might not have Rubygems install. To install RubyGems, go to the [RubyGems download page](http://rubygems.org/pages/download) and follow the instructions there.
-
 ## Installing nanoc
 
 All dependencies are now taken care of, and installing nanoc should now be easy:
