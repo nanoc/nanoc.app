@@ -121,27 +121,23 @@ To announce the new release, follow these steps:
 
 2. Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
-3. Send an announcement e-mail to the [nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues.
+3. Send an announcement e-mail to the [nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based off the following:
+
+   <pre class="template">Hi,
+
+   nanoc <var>version</var> is out. This <var>major/minor/patch</var> release <var>fixes a bug related to X/adds enhancements X and Y/adds feature X</var>. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
+
+   You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of nanoc.
+
+   Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
+
+   Cheers,
+
+   Denis
+
+   <var>RELEASE NOTES</var></pre>
 
 4. Update the topic of the <i>#nanoc</i> IRC channel.
-
-The e-mail template that I often use is based off the following:
-
-<pre class="template">
-Hi,
-
-nanoc <var>version</var> is out. This <var>major/minor/patch</var> release <var>fixes a bug related to X/adds enhancements X and Y/adds feature X</var>. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
-
-You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of nanoc.
-
-Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
-
-Cheers,
-
-Denis
-
-<var>RELEASE NOTES</var>
-</pre>
 
 Contributors
 ------------
