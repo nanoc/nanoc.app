@@ -115,7 +115,7 @@ To spread the word about the new release, follow these steps:
 
 2. Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
-3. Send an announcement e-mail to the nanoc mailing list. Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues.
+3. Send an announcement e-mail to the [nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues.
 
 4. Update the topic of the <i>#nanoc</i> IRC channel.
 
