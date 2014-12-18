@@ -105,13 +105,13 @@ Preparing a release means ensuring that the version that is about to be released
 
 Once the preparation is complete, the new version can be released. To release a new version of nanoc, follow these steps:
 
-2. Build the gem (<kbd>gem build nanoc.gemspec</kbd>).
+1. Build the gem (<kbd>gem build nanoc.gemspec</kbd>).
 
-3. Tag the release using <kbd>git tag --sign --annotate <var>1.2.3</var> --message 'Version <var>1.2.3</var>'</kbd>, replacing <var>1.2.3</var> with the new version number. Signing Git tags is optional, but highly recommended.
+2. Tag the release using <kbd>git tag --sign --annotate <var>1.2.3</var> --message 'Version <var>1.2.3</var>'</kbd>, replacing <var>1.2.3</var> with the new version number. Signing Git tags is optional, but highly recommended.
 
-4. Push the gem using <kbd>gem push nanoc-*.gem</kbd>.
+3. Push the gem using <kbd>gem push nanoc-*.gem</kbd>.
 
-5. Push the changes to GitHub (<kbd>git push</kbd>). Don’t forget to also push the tags (<kbd>git push --tags</kbd>).
+4. Push the changes to GitHub (<kbd>git push</kbd>). Don’t forget to also push the tags (<kbd>git push --tags</kbd>).
 
 ### Spread the word
 
