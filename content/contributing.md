@@ -80,6 +80,65 @@ Finally, create a pull request. Make sure the submit your pull request against t
 
 Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
+Releasing nanoc
+---------------
+
+If you’re a release manager, you can follow these steps to release a new version of nanoc. Before you start, make sure that you’ve got the approval of at least one other release manager (and preferably also the approval of Denis).
+
+CAUTION: Being a release manager grants you considerable power, but remember that with great power comes great responsibility.
+
+### Preparing for a release
+
+Preparing a release means ensuring that the version that is about to be released meets the requirements. To prepare for a release, follow these steps:
+
+1. Ensure the `Nanoc::VERSION` constant is set to the right version. Keep in mind that nanoc follows the [Semantic Versioning](http://semver.org/) standard.
+
+2. Ensure the release notes in the <span class="filename">NEWS.md</span> file are up-to-date.
+
+3. Run the tests using <kbd>bundle exec rake</kbd>.
+
+4. As a final check, compile the nanoc site with the nanoc gem in the <span class="filename">Gemfile</span> pointing to your local nanoc working copy, and verify locally that the release notes page is as expected.
+
+5. Make sure you have received the permissions to do all of the steps below. If you haven’t , let me (Denis) know and I’ll set you up. You’ll need GitHub push privileges, RubyGems push privileges, IRC channel operator access, and web site push access.
+
+### Releasing the new version
+
+Once the preparation is complete, the new version can be released. To release a new version of nanoc, follow these steps:
+
+1. Build the gem (<kbd>gem build nanoc.gemspec</kbd>).
+
+2. Tag the release using <kbd>git tag --sign --annotate <var>1.2.3</var> --message 'Version <var>1.2.3</var>'</kbd>, replacing <var>1.2.3</var> with the new version number. Signing Git tags is optional, but highly recommended.
+
+3. Push the gem using <kbd>gem push nanoc-*.gem</kbd>.
+
+4. Push the changes to GitHub (<kbd>git push</kbd>). Don’t forget to also push the tags (<kbd>git push --tags</kbd>).
+
+### Spread the word
+
+To announce the new release, follow these steps:
+
+1. Update the release notes on site. This only involves recompiling the site with the new version of nanoc (the release notes on the site are extracted from the <span class="filename">NEWS.md</span> file in the nanoc gem) and pushing the site (<kbd>bundle exec nanoc deploy --target=bhakti</kbd>).
+
+2. Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
+
+3. Send an announcement e-mail to the [nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based off the following:
+
+   <pre class="template">Hi,
+
+   nanoc <var>version</var> is out. This <var>major/minor/patch</var> release <var>fixes a bug related to X/adds enhancements X and Y/adds feature X</var>. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
+
+   You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of nanoc.
+
+   Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
+
+   Cheers,
+
+   Denis
+
+   <var>RELEASE NOTES</var></pre>
+
+4. Update the topic of the <i>#nanoc</i> IRC channel.
+
 Contributors
 ------------
 
