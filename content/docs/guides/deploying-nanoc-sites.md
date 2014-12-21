@@ -96,3 +96,43 @@ The above five lines can be put into a shell script for easy publishing. (Or you
 With this approach, nanoc is happy, because the output folder is where it is supposed to be, and GitHub Pages is happy as well, because there is a nice and tidy branch called `gh-pages` with static publishable content.
 
 A weird side effect is that the `gh-pages` branch in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo, or just make sure to `pull` after a succesful publish.
+
+
+With Fog gem for Amazon S3, Google Cloud, etc.
+----------------------------------------------
+
+You can deploy to any Fog provider directly from Nanoc. You find available providers
+and their configuration variables in Fog [documentation](http://fog.io).
+
+### Setup
+
+You need `fog` gem installed, preferably using bundler. Change your configuration
+for deployment in `config.yaml` to (for Amazon S3):
+
+  #!yaml
+  deploy:
+    path_style:            true
+    kind:                  fog
+    provider:              aws
+    region:                YOUR-REGION (eg. eu-west-1)
+    bucket:                YOUR-BUCKETNAME
+    aws_access_key_id:     YOUR-KEY-ID
+    aws_secret_access_key: YOUR-SECRET
+
+### Publish
+
+To publish your nanoc site you use normal deploy command:
+
+<pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd></pre>
+
+You should see this when done:
+
+<pre>
+Loading site data… done
+Connecting
+Getting bucket
+Uploading local files
+Removing remote files
+Done!
+</pre>
+
