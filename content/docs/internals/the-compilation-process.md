@@ -4,7 +4,7 @@ title: "The Compilation Process"
 
 nanoc’s compilation process is not straightforward because many different subsystems are invoked at different points in the process. The purpose of this page is to give insight in the various stages that the compiler goes through. It is mostly intended as reference material for developers who are interested in learning about nanoc’s internals.
 
-Note that **this page is a work in progress** and is by no means complete and may even be factually inaccurate. Use at your own risk!
+NOTE: This page is a work in progress, and is by no means complete and may even be factually inaccurate. Use at your own risk!
 
 At the highest level, there are four phases the compiler runs through:
 
