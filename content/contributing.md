@@ -31,10 +31,7 @@ Reviewing pull requests
 
 We use pull requests extensively for nanoc development. No pull request gets merged without at least one +1.
 
-This approach ensures quality, but can be a bit slow. You can help out by checking pull requests marked as “to review”:
-
-* [pull requests to review for nanoc](https://github.com/nanoc/nanoc/issues?labels=to+review)
-* [pull requests to review for nanoc.ws](https://github.com/nanoc/nanoc.ws/issues?labels=to+review)
+This approach ensures quality, but can be a bit slow. You can help out by checking [open pull requests marked as “to review”](https://github.com/pulls?q=is%3Aopen+user%3Ananoc+label%3A%22to+review%22).
 
 If you think the pull request is good, leave a `:+1:`. If you have concerns, leave a comment.
 
