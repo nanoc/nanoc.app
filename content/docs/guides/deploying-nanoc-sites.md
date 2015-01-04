@@ -12,7 +12,7 @@ With rsync
 
 If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately nanoc provides a “deploy” command that can make this quite a bit easier: a simple <kbd>nanoc deploy</kbd> will deploy your site.
 
-To use the deploy command, open the `nanoc.yaml` (on older sites: `config.yaml`) file and add a `deploy` hash. Inside, add a hash with a key that describes the destination (for example, `public` or `staging`). Inside this hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set `kind` to `rsync`. Here’s what it will look like:
+To use the deploy command, open the <span class="filename">nanoc.yaml</span> (on older sites: <span class="filename">config.yaml</span>) file and add a `deploy` hash. Inside, add a hash with a key that describes the destination (for example, `public` or `staging`). Inside this hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set `kind` to `rsync`. Here’s what it will look like:
 
 	#!yaml
 	deploy:
@@ -41,58 +41,59 @@ nanoc will, by default, only update files that have changes, and not remove any 
 
 CAUTION: This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.
 
-With GitHub Pages
------------------
+With GitHub Pages or Bitbucket
+------------------------------
 
-The GitHub Pages deploy process is nicely [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
+[GitHub](https://github.com/) and [Bitbucket](bitbucket.org) are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with nanoc.
 
-### Setup
+### GitHub Pages setup
 
-Create a orphaned branch dedicated to GitHub Pages:
+The publishing of a website based on a Git repo to GitHub Pages is [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
 
-<pre><span class="prompt">%</span> <kbd>rm -rf output</kbd>
-<span class="prompt">%</span> <kbd>git branch --orphan gh-pages</kbd></pre>
-
-Clone the current repo into the output directory and <kbd>git checkout</kbd> the new branch:
+Clone the current repo into the <span class="filename">output/</span> directory, create an orphaned branch dedicated to GitHub Pages named `gh-pages`, and check out the new branch:
 
 <pre><span class="prompt">%</span> <kbd>git clone . output</kbd>
 <span class="prompt">%</span> <kbd>cd output</kbd>
-<span class="prompt">%</span> <kbd>git checkout gh-pages</kbd></pre>
-
-Nuke the current content:
-
-<pre><span class="prompt">%</span> <kbd>rm -rf *</kbd>
-<span class="prompt">%</span> <kbd>git add .</kbd>
-<span class="prompt">%</span> <kbd>git commit -am 'Nuke the output directory and gh-pages branch'</kbd></pre>
+<span class="prompt">output@master%</span> <kbd>git branch --orphan gh-pages</kbd>
+<span class="prompt">output@master%</span> <kbd>git checkout gh-pages</kbd>
+<span class="prompt">output@gh-pages%</span> <kbd>cd ..</kbd></pre>
 
 Change the remote for this repo, replacing <var>repo-url</var> with the URL to the repository:
 
-<pre><span class="prompt">%</span> <kbd>git remote rm origin</kbd>
-<span class="prompt">%</span> <kbd>git remote add origin</kbd> <var>repo-url</var></pre>
+<pre><span class="prompt">output@gh-pages%</span> <kbd>git remote rm origin</kbd>
+<span class="prompt">output@gh-pages%</span> <kbd>git remote add origin</kbd> <var>repo-url</var></pre>
 
-Add the `output` folder to your `.gitignore`. (Adding it to the repo does not help.)
+Add the <span class="filename">output/</span> directory to your <span class="filename">.gitignore</span>. Make sure that the base repository doesn’t contain <span class="filename">output/</span>.
 
-Every new user need to set up this branch manually.
+### Bitbucket setup
 
-Now you have an orphaned branch dedicated to GitHub Pages publishing. This branch now dwells in the output folder of your nanoc repository.
+The publishing of a website based on a Git repo to Bitbucket is [described in Bitbucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
+
+Bitbucket supports publishing a website at <var>username</var>.bitbucket.org, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <var>username</var>.bitbucket.org.
+
+First of all, create the Bitbucket repository <var>username</var>.bitbucket.org. For example, _ddfreyne.bitbucket.org_.
+
+Create a new Git repository inside the <span class="filename">output/</span> directory, replacing <var>repo-url</var> with the URL to the repository (e.g. `git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git`):
+
+<pre><span class="prompt">%</span> <kbd>git init output/</kbd>
+<span class="prompt">%</span> <kbd>cd output/</kbd>
+<span class="prompt">output%</span> <kbd>git remote add origin</kbd> <var>repo-url</var></pre>
+
+Add the <span class="filename">output/</span> directory to your <span class="filename">.gitignore</span>. Make sure that the base repository doesn’t contain <span class="filename">output/</span>.
 
 ### Publish
 
-To publish your nanoc site you start with running nanoc as normal:
+To publish your nanoc site, first compile site:
 
 <pre><span class="prompt">%</span> <kbd>nanoc</kbd></pre>
 
-Jump into output, commit the result and push the publishing branch:
+Enter the <span class="filename">output/</span> directory, add and commit everything, and push:
 
 <pre><span class="prompt">%</span> <kbd>cd output</kbd>
-<span class="prompt">%</span> <kbd>git add .</kbd>
-<span class="prompt">%</span> <kbd>git commit -am 'Content created'</kbd>
-<span class="prompt">%</span> <kbd>git push origin gh-pages</kbd></pre>
+<span class="prompt">output%</span> <kbd>git add .</kbd>
+<span class="prompt">output%</span> <kbd>git commit -m 'Update compiled output'</kbd>
+<span class="prompt">output%</span> <kbd>git push</kbd></pre>
 
-Wait a couple of minutes and your content will appear at <code>http://<var>your-GitHub-username</var>.github.com/<var>your-GitHub-repository-name</var></code>.
+After a few seconds, the updated site will appear at <span class="uri">http://<var>username</var>.github.io/<var>repo-name</var></span> for GitHub, or <span class="uri">http://<var>username</var>.bitbucket.org</span> for Bitbucket.
 
-The above five lines can be put into a shell script for easy publishing. (Or you could create a deployer for this setup. Any takers?)
-
-With this approach, nanoc is happy, because the output folder is where it is supposed to be, and GitHub Pages is happy as well, because there is a nice and tidy branch called `gh-pages` with static publishable content.
-
-A weird side effect is that the `gh-pages` branch in the output directory is likely to be out of sync with the gh-pages branch in your base repo. You can either remove the branch from the base repo, or just make sure to `pull` after a succesful publish.
+For GitHub, we recommend removing the _gh-pages_ branch from the base repository, since it is quite likely to be out of sync with the _gh-pages_ branch in the repository in the <span class="filename">output/</span> directory.
