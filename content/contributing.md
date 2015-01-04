@@ -114,7 +114,7 @@ Once the preparation is complete, the new version can be released. To release a 
 
 To announce the new release, follow these steps:
 
-1. Update the release notes on site. This only involves recompiling the site with the new version of nanoc (the release notes on the site are extracted from the <span class="filename">NEWS.md</span> file in the nanoc gem) and pushing the site (<kbd>bundle exec nanoc deploy --target=bhakti</kbd>).
+1. Update the release notes on site. This only involves recompiling the site with the new version of nanoc (the release notes on the site are extracted from the <span class="filename">NEWS.md</span> file in the nanoc gem) and pushing the site (<kbd>bundle exec nanoc deploy</kbd>).
 
 2. Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
