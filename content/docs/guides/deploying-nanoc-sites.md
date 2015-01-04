@@ -97,3 +97,34 @@ Enter the <span class="filename">output/</span> directory, add and commit everyt
 After a few seconds, the updated site will appear at <span class="uri">http://<var>username</var>.github.io/<var>repo-name</var></span> for GitHub, or <span class="uri">http://<var>username</var>.bitbucket.org</span> for Bitbucket.
 
 For GitHub, we recommend removing the _gh-pages_ branch from the base repository, since it is quite likely to be out of sync with the _gh-pages_ branch in the repository in the <span class="filename">output/</span> directory.
+
+With fog
+--------
+
+[fog](http://fog.io) is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
+
+To use fog for deployment, install the <span class="productname">fog</span> gem (or add it to the <span class="filename">Gemfile</span> and run <kbd>bundle install</kbd>). Change the deployment configuration in <span class="filename">nanoc.yaml</span> to reflect the fog configuration. Here is an example for Amazon S3:
+
+    #!yaml
+    deploy:
+      default:
+        kind:                  fog
+        provider:              aws
+        region:                eu-west-1
+        bucket:                nanoc.ws
+        aws_access_key_id:     AKIAABC123XYZ456MNO789
+        aws_secret_access_key: fd6eb5b112a894026d7b82aab3cafadaa63fce39
+        path_style:            true
+
+The `kind` attribute, which identifies the kind of deployer to use, should be set to `fog`. You’ll also need to specify `provider`, containing the name of the fog provider that you want to use. Each provider has their own configuration; see the [fog provider documentation](http://fog.io/about/provider_documentation.html) for details. For buckets whose names contain periods, `path_style` should be set to `true`.
+
+To publish your nanoc site, use the <span class="command">deploy</span> command, as usual:
+
+<pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd>
+Loading site data… done
+Connecting
+Getting bucket
+Uploading local files
+Removing remote files
+Done!
+<span class="prompt">%</span></pre>
