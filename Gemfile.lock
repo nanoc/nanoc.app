@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/nanoc/nanoc-typohero.git
+  revision: ab574cc4f8ee2a33072693d2d3453aa9bb52235a
+  specs:
+    nanoc-typohero (1.0.0)
+      nanoc (>= 3.6.7, < 4.0.0)
+      typohero (>= 0.0.4, < 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -69,6 +77,7 @@ GEM
     tilt (2.0.1)
     timers (4.0.1)
       hitimes
+    typohero (0.0.4)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -85,6 +94,7 @@ DEPENDENCIES
   html5small
   kramdown
   nanoc
+  nanoc-typohero!
   nokogiri
   rainpress
   rake
