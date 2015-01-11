@@ -10,6 +10,7 @@ gem 'haml'        # for layouts with clean sources
 gem 'kramdown'    # for advanced markdown
 gem 'nanoc'       # for compiling the site
 gem 'nokogiri'    # for parsing HTML
+gem 'rake'
 gem 'rainpress'   # for compact CSS
 gem 'rubypants'   # for pretty typography
 gem 'sass', '~> 3.2.13'
