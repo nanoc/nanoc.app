@@ -90,7 +90,7 @@ Preparing a release means ensuring that the version that is about to be released
 
 1. Ensure the `Nanoc::VERSION` constant is set to the right version. Keep in mind that nanoc follows the [Semantic Versioning](http://semver.org/) standard.
 
-2. Ensure the release notes in the <span class="filename">NEWS.md</span> file are up-to-date.
+2. Ensure the release notes in the <span class="filename">NEWS.md</span> file are up-to-date, and that the release date is correct.
 
 3. Run the tests using <kbd>bundle exec rake</kbd>.
 
