@@ -87,6 +87,7 @@ compile '*' do
   filter :relativize_paths, :type => :html
   filter :remove_smartness_from_kbd
   filter :fixup_whitespace
+  filter :typohero
   filter :html5small
 end
 
