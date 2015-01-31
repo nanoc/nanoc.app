@@ -20,8 +20,8 @@ deploy:
   default:
     kind: rsync
     dst: "bhakti:/srv/http/nanoc.ws"
-    options: [ '-aP', '--delete-after' ]
+    options: [ '--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times' ]
   staging:
     kind: rsync
     dst: "bhakti:/srv/http/staging.nanoc.ws"
-    options: [ '-aP', '--delete-after' ]
+    options: [ '--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times' ]
