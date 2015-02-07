@@ -18,4 +18,4 @@ gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
 gem 'html5small'
-gem 'nanoc-typohero', github: 'nanoc/nanoc-typohero'
+gem 'nanoc-typohero'
