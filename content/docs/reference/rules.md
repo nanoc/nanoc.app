@@ -11,7 +11,7 @@ A rule consists of a selector, which identifies which items the rule should be a
 
 Each item has exactly one compilation rule and one routing rule. Similarly, each layout has exactly one layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
 
-## Routing Rules
+## Routing rules
 
 A routing rule looks like this:
 
@@ -51,7 +51,7 @@ end</code></pre>
   item.identifier.chop + ".txt"
 end</code></pre>
 
-## Compilation Rules
+## Compilation rules
 
 A compilation rule looks like this:
 
@@ -197,7 +197,7 @@ compile %r</blog/\d{4}/.*/> do
 end
 </code></pre>
 
-## Layouting Rules
+## Layouting rules
 
 To specify the filter used for a layout, use the `#layout` method.
 

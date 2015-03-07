@@ -3,7 +3,7 @@ title:      "Basics"
 is_dynamic: true
 ---
 
-The Commandline Tool
+The commandline tool
 --------------------
 
 Interacting with nanoc happens through a commandline tool named `nanoc`. This tool has a few sub-commands, which you can invoke like this:
@@ -235,7 +235,7 @@ The instructions for processing items are located in a file named `Rules` which 
 
 Full documentation on the Rules file is available in the <%= link_to 'Rules reference', @items['/docs/reference/rules/'] %>.
 
-The Compilation Process
+The compilation process
 -----------------------
 
 Compiling a site involves several steps:
@@ -246,11 +246,11 @@ Compiling a site involves several steps:
 4. Routing the item representations
 5. Compiling the item representations
 
-### Loading the Site Data
+### Loading the site data
 
 Before compilation starts, data for items and layouts will be read from all data sources, and mounted at the roots specified by the data sources. For more information about data sources, see the [Data Sources](#data-sources) section.
 
-### Preprocessing the Site Data
+### Preprocessing the site data
 
 After the data is loaded, it is _preprocessed_ if a preprocessor block exists. A preprocessor block is a simple piece of code defined in the `Rules` file that will be executed after the data is loaded. It looks like this:
 
@@ -306,7 +306,7 @@ route '/qux/' do
   nil
 end</code></pre>
 
-### Compiling the Item Representations
+### Compiling the item representations
 
 Compiling an item means compiling all of its representations, which in turn involves executing the compilation rules on each representation. After a compilation rule has been applied, the item representation’s compiled content will be written to its output file (if it has one) determined by its routing rule.
 
@@ -340,7 +340,7 @@ include Nanoc::Helpers::Blogging
 
 Take a look at the [helpers reference](/docs/reference/helpers/) for a list of helpers that are included with nanoc.
 
-Data Sources
+Data sources
 ------------
 
 Each site has one or more _data sources_: objects that can load site data (items and layouts) from certain locations, and even create new items and layouts.

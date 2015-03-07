@@ -35,7 +35,7 @@ is_dynamic: true
 	</ul>
 <% end %>
 
-Getting Started
+Getting started
 ---------------
 
 <ol class="toc big">

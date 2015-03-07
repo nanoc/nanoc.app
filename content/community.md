@@ -2,12 +2,12 @@
 title:    "Community"
 ---
 
-Discussion Groups
+Discussion groups
 -----------------
 
 nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble.
 
-IRC Channel
+IRC channel
 ----------
 
 There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the [nanoc discussion group](http://groups.google.com/group/nanoc) instead (see above).
