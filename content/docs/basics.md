@@ -44,7 +44,7 @@ A site managed by nanoc is a directory with a specific structure. A site consist
 
 The way the data in a site is stored depends on the data source that is being used. However, unless you’ve explicitly told nanoc to use a different data source, the `filesystem_unified` one will be used. This manual assumes that this `filesystem_unified` data source is used. For details, see the [Data Sources](#data-sources) section.
 
-### Creating a Site
+### Creating a site
 
 To create a site, use the `create_site` command. This command takes the site name as its first and only argument, like this:
 
@@ -81,7 +81,7 @@ A site has the following files and directories:
 
 nanoc will load all Ruby source files in the `lib` directory before it starts compiling. All method definitions, class definitions, etc. will be available during the compilation process. This directory is therefore quite useful for putting in site-wide helpers, filters, data sources, etc.
 
-### Compiling a Site
+### Compiling a site
 
 To compile a site to its final form, the `nanoc compile` (or `nanoc co`) command is used. The compile command is the default command, so it will be invoked if you don’t pass anything. The compile command will write the compiled site to the output directory as specified in the site configuration file. For example:
 
@@ -114,7 +114,7 @@ To get the path of the compiled item, use [`Nanoc::Item#path`](/docs/api/Nanoc/I
 
 During compilation, items cannot be modified. You can, however, adjust the item content and attributes in the preprocessor.
 
-### Creating an Item
+### Creating an item
 
 Items are stored as plaintext files on the hard drive (unless you’re using esoteric data sources), so it’s easy to manually create items. nanoc provides a `create_item` (or `ci`) command for making item generation easier, though. This command looks like this:
 
@@ -214,7 +214,7 @@ An item is put into a layout by calling the `layout` function in a compilation r
 
 During compilation, layouts cannot be modified. You can, however, adjust the layout content and attributes in the preprocessor.
 
-### As Partials
+### As partials
 
 Layouts can also be used as *partials*: a specific layout can be rendered into an item or a layout by using the `render` function, which takes the layout name as an argument. For example:
 
@@ -268,7 +268,7 @@ Preprocessors can be used for various purposes. Here are two sample uses:
 
 * A preprocessor could create new (in-memory) items for a given set of items. This can be useful for creating pages that contain paginated items.
 
-### Building the Item Representations
+### Building the item representations
 
 Once the data is loaded and preprocessed, item representations are built for each item. For each item, its compilation rules (one per item representation) are looked up and a rep is built for each rule.
 
@@ -286,7 +286,7 @@ compile '/bar/', :rep => :full do
   # (compilation code for the :full rep here)
 end</code></pre>
 
-### Routing the Item Representations
+### Routing the item representations
 
 For each item representation, the matching routing rule is looked up and applied to the item rep. The item rep’s path to the output file will be set to the return value of the routing rule block.
 
