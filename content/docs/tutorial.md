@@ -11,7 +11,7 @@ a basic understanding of Ruby
 : nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
 
 a basic understanding of the command line
-: nanoc is executed on the command line. If you need to brush up on your command line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
+: nanoc is executed on the command line. If you need to brush up on your command-line skills, we recommend [The Command Line Crash Course](http://cli.learncodethehardway.org/).
 
 Create a site
 -------------

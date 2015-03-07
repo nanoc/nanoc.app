@@ -3,10 +3,10 @@ title:      "Basics"
 is_dynamic: true
 ---
 
-The commandline tool
+The command-line tool
 --------------------
 
-Interacting with nanoc happens through a commandline tool named `nanoc`. This tool has a few sub-commands, which you can invoke like this:
+Interacting with nanoc happens through a command-line tool named `nanoc`. This tool has a few sub-commands, which you can invoke like this:
 
 <pre title="Executing a nanoc command"><span class="prompt">%</span> <kbd>nanoc</kbd> <var>command</var></pre>
 
@@ -35,7 +35,7 @@ If you want general help, such as a list of available commands and global option
 
 <pre title="Getting general help for nanoc"><span class="prompt">%</span> <kbd>nanoc help</kbd></pre>
 
-So, if you’re ever stuck, consult the the commandline help which (hopefully) will put you back on track.
+So, if you’re ever stuck, consult the the command-line help which (hopefully) will put you back on track.
 
 Sites
 -----

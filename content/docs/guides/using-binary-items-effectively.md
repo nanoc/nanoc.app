@@ -150,7 +150,7 @@ route '/movies/*/' do
 end
 </code></pre>
 
-We’ll use the <a href="http://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a> commandline tool to convert videos from various source formats into Theora. Usually, `ffmpeg2theora` will be invoked like this:
+We’ll use the <a href="http://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a> command-line tool to convert videos from various source formats into Theora. Usually, `ffmpeg2theora` will be invoked like this:
 
 <pre title="Using ffmpeg2theora to convert a file to Theora"><kbd>ffmpeg2theora</kbd> <var>input.mp4</var> <kbd>--output</kbd> <var>output.ogg</var></pre>
 
