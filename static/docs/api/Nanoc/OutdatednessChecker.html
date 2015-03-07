@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::OutdatednessChecker
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -327,6 +327,8 @@ dependency tracker for the given site.</p>
       <pre class="lines">
 
 
+18
+19
 20
 21
 22
@@ -339,12 +341,10 @@ dependency tracker for the given site.</p>
 29
 30
 31
-32
-33
-34</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@site</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:site</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -440,12 +440,12 @@ whose outdatedness should be checked.</p>
       <pre class="lines">
 
 
-43
-44
-45</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outdated?'>outdated?</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='op'>!</span><span class='id identifier rubyid_outdatedness_reason_for'>outdatedness_reason_for</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -522,16 +522,16 @@ given object is outdated, or nil if the object is not outdated.</p>
       <pre class="lines">
 
 
+52
+53
 54
 55
 56
 57
-58
-59
-60</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/outdatedness_checker.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_outdatedness_reason_for'>outdatedness_reason_for</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reason'>reason</span> <span class='op'>=</span> <span class='id identifier rubyid_basic_outdatedness_reason_for'>basic_outdatedness_reason_for</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>

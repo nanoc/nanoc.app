@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::CLI::ANSIStringColorizer
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -103,7 +103,7 @@ attributes, it returns a colorized string.</p>
         <dt id="MAPPING-constant" class="">MAPPING =
           <div class="docstring">
   <div class="discussion">
-    <p>TODO complete mapping</p>
+    <p>TODO: complete mapping</p>
 
 
   </div>
@@ -114,11 +114,11 @@ attributes, it returns a colorized string.</p>
 </div>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='symbol'>:bold</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='symbol'>:red</span>    <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[31m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='symbol'>:green</span>  <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[32m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='symbol'>:yellow</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[33m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='symbol'>:blue</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[34m</span><span class='tstring_end'>&quot;</span></span>
+  <span class='label'>bold:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[1m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='label'>red:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[31m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='label'>green:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[32m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='label'>yellow:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[33m</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='label'>blue:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[34m</span><span class='tstring_end'>&quot;</span></span>
 <span class='rbrace'>}</span></pre></dd>
       
     </dl>
@@ -247,12 +247,12 @@ string with</p>
       <pre class="lines">
 
 
-24
-25
-26</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/ansi_string_colorizer.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/ansi_string_colorizer.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_c'>c</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_as'>as</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_as'>as</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_a'>a</span><span class='op'>|</span> <span class='const'>MAPPING</span><span class='lbracket'>[</span><span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[0m</span><span class='tstring_end'>&quot;</span></span>

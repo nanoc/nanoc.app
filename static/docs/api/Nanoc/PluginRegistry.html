@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::PluginRegistry
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -379,13 +379,13 @@ is recommended to use the shared instance (obtained from
       <pre class="lines">
 
 
-103
-104
-105
-106</pre>
+99
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@identifiers_to_classes</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -446,12 +446,12 @@ yet.</p>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
   <span class='ivar'>@instance</span> <span class='op'>||=</span> <span class='id identifier rubyid_new'>new</span>
@@ -512,6 +512,10 @@ with array elements in the following format:</p>
       <pre class="lines">
 
 
+169
+170
+171
+172
 173
 174
 175
@@ -533,14 +537,10 @@ with array elements in the following format:</p>
 191
 192
 193
-194
-195
-196
-197
-198</pre>
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span>
   <span class='id identifier rubyid_plugins'>plugins</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -554,13 +554,13 @@ with array elements in the following format:</p>
       <span class='kw'>if</span> <span class='id identifier rubyid_existing_plugin'>existing_plugin</span>
         <span class='comment'># Add identifier to existing plugin
 </span>        <span class='id identifier rubyid_existing_plugin'>existing_plugin</span><span class='lbracket'>[</span><span class='symbol'>:identifiers</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_identifier'>identifier</span>
-        <span class='id identifier rubyid_existing_plugin'>existing_plugin</span><span class='lbracket'>[</span><span class='symbol'>:identifiers</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_existing_plugin'>existing_plugin</span><span class='lbracket'>[</span><span class='symbol'>:identifiers</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='rbrace'>}</span>
+        <span class='id identifier rubyid_existing_plugin'>existing_plugin</span><span class='lbracket'>[</span><span class='symbol'>:identifiers</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_existing_plugin'>existing_plugin</span><span class='lbracket'>[</span><span class='symbol'>:identifiers</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sort_by'>sort_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:to_s</span><span class='rparen'>)</span>
       <span class='kw'>else</span>
         <span class='comment'># Create new plugin
 </span>        <span class='id identifier rubyid_plugins'>plugins</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span>
-          <span class='symbol'>:class</span>       <span class='op'>=&gt;</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span>
-          <span class='symbol'>:superclass</span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_superclass'>superclass</span><span class='comma'>,</span>
-          <span class='symbol'>:identifiers</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_identifier'>identifier</span> <span class='rbracket'>]</span>
+          <span class='label'>class:</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span>
+          <span class='label'>superclass:</span> <span class='id identifier rubyid_superclass'>superclass</span><span class='comma'>,</span>
+          <span class='label'>identifiers:</span> <span class='lbracket'>[</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span>
         <span class='rbrace'>}</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
@@ -650,13 +650,13 @@ name.</p>
       <pre class="lines">
 
 
-150
-151
-152
-153</pre>
+146
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 146</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='ivar'>@identifiers_to_classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_klass'>klass</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -670,7 +670,7 @@ name.</p>
       <div class="method_details ">
   <h3 class="signature " id="find_all-instance_method">
   
-    - (<tt><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span>&lt;Class&gt;</tt>) <strong>find_all</strong>(klass) 
+    - (<tt>Enumerable&lt;Class&gt;</tt>) <strong>find_all</strong>(klass) 
   
 
   
@@ -710,7 +710,7 @@ name.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Enumerable.html" title="Enumerable (module)">Enumerable</a></span>&lt;Class&gt;</tt>)</span>
+        <span class='type'>(<tt>Enumerable&lt;Class&gt;</tt>)</span>
       
       
       
@@ -728,15 +728,15 @@ name.</p>
       <pre class="lines">
 
 
+156
+157
+158
+159
 160
-161
-162
-163
-164
-165</pre>
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='ivar'>@identifiers_to_classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_klass'>klass</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -826,12 +826,12 @@ name.</p>
       <pre class="lines">
 
 
-138
-139
-140</pre>
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_identifiers_of'>identifiers_of</span><span class='lparen'>(</span><span class='id identifier rubyid_superclass'>superclass</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='lparen'>(</span><span class='ivar'>@classes_to_identifiers</span><span class='lbracket'>[</span><span class='id identifier rubyid_superclass'>superclass</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='id identifier rubyid_name_for_class'>name_for_class</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -868,12 +868,12 @@ name.</p>
       <pre class="lines">
 
 
-201
-202
-203</pre>
+197
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 197</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_named'>named</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -962,18 +962,18 @@ For example: <code>:haml</code>, :<code>erb</code>.</p>
       <pre class="lines">
 
 
+118
+119
+120
+121
 122
 123
 124
 125
-126
-127
-128
-129
-130</pre>
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_superclass'>superclass</span><span class='comma'>,</span> <span class='id identifier rubyid_class_or_name'>class_or_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_identifiers'>identifiers</span><span class='rparen'>)</span>
   <span class='ivar'>@identifiers_to_classes</span><span class='lbracket'>[</span><span class='id identifier rubyid_superclass'>superclass</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::RuleContext
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -357,6 +357,8 @@ missing</p>
       <pre class="lines">
 
 
+27
+28
 29
 30
 31
@@ -372,12 +374,10 @@ missing</p>
 41
 42
 43
-44
-45
-46</pre>
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:rep</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -388,13 +388,13 @@ missing</p>
   <span class='kw'>end</span>
 
   <span class='kw'>super</span><span class='lparen'>(</span><span class='lbrace'>{</span>
-    <span class='symbol'>:rep</span>      <span class='op'>=&gt;</span> <span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span>
-    <span class='symbol'>:item_rep</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span>
-    <span class='symbol'>:item</span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span>
-    <span class='symbol'>:site</span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='comma'>,</span>
-    <span class='symbol'>:config</span>   <span class='op'>=&gt;</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='comma'>,</span>
-    <span class='symbol'>:items</span>    <span class='op'>=&gt;</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='comma'>,</span>
-    <span class='symbol'>:layouts</span>  <span class='op'>=&gt;</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span>
+    <span class='label'>rep:</span> <span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span>
+    <span class='label'>item_rep:</span> <span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span>
+    <span class='label'>item:</span> <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span>
+    <span class='label'>site:</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='comma'>,</span>
+    <span class='label'>config:</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='comma'>,</span>
+    <span class='label'>items:</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='comma'>,</span>
+    <span class='label'>layouts:</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -484,12 +484,12 @@ the filter’s #run method</p>
       <pre class="lines">
 
 
-60
-61
-62</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
@@ -556,12 +556,12 @@ should be laid out with</p>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='rparen'>)</span>
@@ -627,12 +627,12 @@ should be laid out with</p>
       <pre class="lines">
 
 
-85
-86
-87</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_context.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='rparen'>)</span>

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::CHiCk::RackClient
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -103,7 +103,7 @@
   <div class="discussion">
     <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use a HTTP library such as
 <a href="http://ruby-doc.org/stdlib/libdoc/net/http/rdoc/">Net::HTTP</a> or
-<a href="http://curb.rubyforge.org/">Curb</a> instead.</p>
+<a href="https://github.com/taf2/curb">Curb</a> instead.</p>
 </div></div>
 
 
@@ -216,6 +216,13 @@
       <pre class="lines">
 
 
+89
+90
+91
+92
+93
+94
+95
 96
 97
 98
@@ -234,17 +241,10 @@
 111
 112
 113
-114
-115
-116
-117
-118
-119
-120
-121</pre>
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span>
   <span class='comment'># Build request
@@ -268,7 +268,7 @@
 </span>    <span class='kw'>return</span> <span class='lbracket'>[</span>
       <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='comma'>,</span>
       <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span><span class='period'>.</span><span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='lbracket'>[</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span> <span class='rbracket'>]</span>
+      <span class='lbracket'>[</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rbracket'>]</span>
     <span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>

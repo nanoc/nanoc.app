@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::Deployer
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -385,14 +385,14 @@ only show what would be deployed instead actually deploying</p>
       <pre class="lines">
 
 
+30
+31
 32
 33
-34
-35
-36</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_source_path'>source_path</span><span class='comma'>,</span> <span class='id identifier rubyid_config'>config</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@source_path</span>  <span class='op'>=</span> <span class='id identifier rubyid_source_path'>source_path</span>
@@ -453,12 +453,12 @@ only show what would be deployed instead actually deploying</p>
       <pre class="lines">
 
 
-18
-19
-20</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
   <span class='ivar'>@config</span>
@@ -518,12 +518,12 @@ deployed instead of doing the actual deployment</p>
       <pre class="lines">
 
 
-22
-23
-24</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dry_run'>dry_run</span>
   <span class='ivar'>@dry_run</span>
@@ -579,12 +579,12 @@ upload. It should not have a trailing slash.</p>
       <pre class="lines">
 
 
-15
-16
-17</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_source_path'>source_path</span>
   <span class='ivar'>@source_path</span>
@@ -644,12 +644,12 @@ upload. It should not have a trailing slash.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployer.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nanoc::Extra::Deployer subclasses must implement #run</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>

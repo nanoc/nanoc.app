@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::NotificationCenter
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -291,21 +291,21 @@ the given notification block from being unregistered.</p>
       <pre class="lines">
 
 
+27
+28
+29
 30
 31
-32
-33
-34
-35</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_initialize_if_necessary'>initialize_if_necessary</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 
   <span class='comment'># Add observer
-</span>  <span class='ivar'>@notifications</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='symbol'>:block</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_block'>block</span> <span class='rbrace'>}</span>
+</span>  <span class='ivar'>@notifications</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span> <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>block:</span> <span class='id identifier rubyid_block'>block</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -373,17 +373,17 @@ notification.</p>
       <pre class="lines">
 
 
+43
+44
+45
 46
 47
 48
 49
-50
-51
-52
-53</pre>
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_initialize_if_necessary'>initialize_if_necessary</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -461,15 +461,15 @@ removed.</p>
       <pre class="lines">
 
 
+63
+64
+65
 66
 67
-68
-69
-70
-71</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/notification_center.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove'>remove</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_initialize_if_necessary'>initialize_if_necessary</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>

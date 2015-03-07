@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::AutoCompiler
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -256,6 +256,8 @@ It also serves static files such as stylesheets and images.</p>
       <pre class="lines">
 
 
+13
+14
 15
 16
 17
@@ -264,12 +266,10 @@ It also serves static files such as stylesheets and images.</p>
 20
 21
 22
-23
-24
-25</pre>
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_site_path'>site_path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rack</span><span class='tstring_end'>&#39;</span></span>
@@ -336,12 +336,12 @@ It also serves static files such as stylesheets and images.</p>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_site'>site</span>
   <span class='ivar'>@site</span>
@@ -370,7 +370,7 @@ It also serves static files such as stylesheets and images.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Calls the autocompiler. The behaviour of this method is defined by the
-<a href="http://rack.rubyforge.org/doc/SPEC.html">Rack specification</a>.</p>
+<a href="http://rubydoc.info/github/rack/rack/master/file/SPEC">Rack specification</a>.</p>
 
 
   </div>
@@ -421,6 +421,8 @@ body, as defined by the Rack specification</p>
       <pre class="lines">
 
 
+32
+33
 34
 35
 36
@@ -465,12 +467,10 @@ body, as defined by the Rack specification</p>
 75
 76
 77
-78
-79
-80</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/auto_compiler.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='rparen'>)</span>
   <span class='ivar'>@mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
@@ -479,10 +479,10 @@ body, as defined by the Rack specification</p>
 
     <span class='comment'># Find rep
 </span>    <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Utils</span><span class='period'>.</span><span class='id identifier rubyid_unescape'>unescape</span><span class='lparen'>(</span><span class='id identifier rubyid_env'>env</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>PATH_INFO</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_reps'>reps</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_reps'>reps</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+    <span class='id identifier rubyid_reps'>reps</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:reps</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
     <span class='id identifier rubyid_rep'>rep</span> <span class='op'>=</span> <span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span>
       <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span> <span class='op'>==</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>||</span>
-        <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span> <span class='op'>==</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:output_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_path'>path</span>
+      <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span> <span class='op'>==</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:output_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_path'>path</span>
     <span class='kw'>end</span>
 
     <span class='comment'># Recompile
@@ -492,7 +492,7 @@ body, as defined by the Rack specification</p>
 </span>    <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\/$</span><span class='regexp_end'>/</span></span>
       <span class='id identifier rubyid_possible_paths'>possible_paths</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:index_filenames</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>+</span> <span class='id identifier rubyid_f'>f</span> <span class='rbrace'>}</span>
     <span class='kw'>else</span>
-      <span class='id identifier rubyid_possible_paths'>possible_paths</span> <span class='op'>=</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_path'>path</span> <span class='rbracket'>]</span>
+      <span class='id identifier rubyid_possible_paths'>possible_paths</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_path'>path</span><span class='rbracket'>]</span>
     <span class='kw'>end</span>
 
     <span class='comment'># Find matching file

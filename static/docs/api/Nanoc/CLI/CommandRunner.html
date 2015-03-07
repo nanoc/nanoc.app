@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::CommandRunner
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -212,9 +212,11 @@ convenience methods and error handling.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_in_site_dir%3F-instance_method" title="#is_in_site_dir? (instance method)">- (Boolean) <strong>is_in_site_dir?</strong> </a>
+      <a href="#in_site_dir%3F-instance_method" title="#in_site_dir? (instance method)">- (Boolean) <strong>in_site_dir?</strong> </a>
     
 
+    
+      (also: #is_in_site_dir?)
     
   </span>
   
@@ -345,12 +347,12 @@ convenience methods and error handling.</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
@@ -398,17 +400,17 @@ convenience methods and error handling.</p>
       <pre class="lines">
 
 
+10
+11
 12
 13
-14
-15
-16</pre>
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span>
-  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>ErrorHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_while'>handle_while</span><span class='lparen'>(</span><span class='symbol'>:command</span> <span class='op'>=&gt;</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>ErrorHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_while'>handle_while</span><span class='lparen'>(</span><span class='label'>command:</span> <span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_run'>run</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -466,12 +468,12 @@ convenience methods and error handling.</p>
       <pre class="lines">
 
 
+69
 70
-71
-72</pre>
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_debug?'>debug?</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='period'>.</span><span class='id identifier rubyid_debug?'>debug?</span>
@@ -482,11 +484,15 @@ convenience methods and error handling.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="is_in_site_dir?-instance_method">
+  <h3 class="signature " id="in_site_dir?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>is_in_site_dir?</strong> 
+    - (<tt>Boolean</tt>) <strong>in_site_dir?</strong> 
   
 
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='is_in_site_dir?-instance_method'>is_in_site_dir?</span></span>
+    </span>
   
 
   
@@ -525,14 +531,14 @@ directory, false otherwise</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_is_in_site_dir?'>is_in_site_dir?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_in_site_dir?'>in_site_dir?</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Site</span><span class='period'>.</span><span class='id identifier rubyid_cwd_is_nanoc_site?'>cwd_is_nanoc_site?</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -566,15 +572,15 @@ directory, false otherwise</p>
       <pre class="lines">
 
 
+59
 60
 61
 62
 63
-64
-65</pre>
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_site'>load_site</span>
   <span class='id identifier rubyid_require_site'>require_site</span>
@@ -614,14 +620,14 @@ message and exits.</p>
       <pre class="lines">
 
 
+49
 50
 51
 52
-53
-54</pre>
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_require_site'>require_site</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -676,18 +682,18 @@ loads its data.</p>
       <pre class="lines">
 
 
+20
+21
 22
 23
 24
 25
 26
 27
-28
-29
-30</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/command_runner.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_site'>site</span>
   <span class='comment'># Load site if possible

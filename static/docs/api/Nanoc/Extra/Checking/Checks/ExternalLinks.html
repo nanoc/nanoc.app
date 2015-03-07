@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::Checking::Checks::ExternalLinks
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -308,8 +308,6 @@
       <pre class="lines">
 
 
-139
-140
 141
 142
 143
@@ -320,10 +318,12 @@
 148
 149
 150
-151</pre>
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 139</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_path_for_url'>path_for_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='id identifier rubyid_url'>url</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -358,18 +358,18 @@
       <pre class="lines">
 
 
-153
-154
 155
 156
 157
 158
 159
 160
-161</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request_url_once'>request_url_once</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_req_method'>req_method</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Head</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='id identifier rubyid_req_method'>req_method</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_path_for_url'>path_for_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -400,6 +400,8 @@
       <pre class="lines">
 
 
+14
+15
 16
 17
 18
@@ -414,16 +416,14 @@
 27
 28
 29
-30
-31
-32</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='comment'># Find all broken external hrefs
-</span>  <span class='comment'># TODO de-duplicate this (duplicated in internal links check)
+</span>  <span class='comment'># TODO: de-duplicate this (duplicated in internal links check)
 </span>  <span class='id identifier rubyid_filenames'>filenames</span> <span class='op'>=</span> <span class='id identifier rubyid_output_filenames'>output_filenames</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.html</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_hrefs_with_filenames'>hrefs_with_filenames</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>LinkCollector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_filenames'>filenames</span><span class='comma'>,</span> <span class='symbol'>:external</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_filenames_per_href'>filenames_per_href</span>
   <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='id identifier rubyid_select_invalid'>select_invalid</span><span class='lparen'>(</span><span class='id identifier rubyid_hrefs_with_filenames'>hrefs_with_filenames</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='rparen'>)</span>
@@ -434,7 +434,7 @@
     <span class='id identifier rubyid_filenames'>filenames</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_filename'>filename</span><span class='op'>|</span>
       <span class='id identifier rubyid_add_issue'>add_issue</span><span class='lparen'>(</span>
         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>broken reference to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_href'>href</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_explanation'>explanation</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-        <span class='symbol'>:subject</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
+        <span class='label'>subject:</span> <span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -458,6 +458,12 @@
       <pre class="lines">
 
 
+57
+58
+59
+60
+61
+62
 63
 64
 65
@@ -476,15 +482,10 @@
 78
 79
 80
-81
-82
-83
-84
-85
-86</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_select_invalid'>select_invalid</span><span class='lparen'>(</span><span class='id identifier rubyid_hrefs'>hrefs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_enum'>enum</span> <span class='op'>=</span> <span class='const'>ArrayEnumerator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_hrefs'>hrefs</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='rparen'>)</span>
@@ -497,16 +498,17 @@
       <span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
         <span class='id identifier rubyid_href'>href</span> <span class='op'>=</span> <span class='id identifier rubyid_enum'>enum</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span>
         <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_href'>href</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
         <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='rparen'>)</span>
-        <span class='kw'>if</span> <span class='id identifier rubyid_res'>res</span>
-          <span class='id identifier rubyid_mutex'>mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
-            <span class='id identifier rubyid_invalid'>invalid</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_res'>res</span>
-          <span class='kw'>end</span>
+        <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_res'>res</span>
+
+        <span class='id identifier rubyid_mutex'>mutex</span><span class='period'>.</span><span class='id identifier rubyid_synchronize'>synchronize</span> <span class='kw'>do</span>
+          <span class='id identifier rubyid_invalid'>invalid</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_res'>res</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_threads'>threads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_threads'>threads</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:join</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_invalid'>invalid</span>
 <span class='kw'>end</span></pre>
@@ -530,6 +532,11 @@
       <pre class="lines">
 
 
+83
+84
+85
+86
+87
 88
 89
 90
@@ -579,10 +586,12 @@
 134
 135
 136
-137</pre>
+137
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/checks/external_links.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='rparen'>)</span>
   <span class='comment'># Parse
@@ -598,17 +607,20 @@
 
   <span class='comment'># Get status
 </span>  <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_last_err'>last_err</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_timeouts'>timeouts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>10</span><span class='comma'>,</span> <span class='int'>30</span><span class='comma'>,</span> <span class='int'>60</span><span class='rbracket'>]</span>
   <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
     <span class='kw'>begin</span>
-      <span class='const'>Timeout</span><span class='period'>.</span><span class='id identifier rubyid_timeout'>timeout</span><span class='lparen'>(</span><span class='int'>10</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='const'>Timeout</span><span class='period'>.</span><span class='id identifier rubyid_timeout'>timeout</span><span class='lparen'>(</span><span class='id identifier rubyid_timeouts'>timeouts</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span>
         <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_request_url_once'>request_url_once</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
         <span class='kw'>if</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>405</span><span class='tstring_end'>&#39;</span></span>
           <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='id identifier rubyid_request_url_once'>request_url_once</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
     <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-      <span class='kw'>return</span> <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='comma'>,</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+      <span class='id identifier rubyid_last_err'>last_err</span> <span class='op'>=</span> <span class='id identifier rubyid_e'>e</span>
+      <span class='kw'>next</span> <span class='comment'># can not allow
+</span>    <span class='kw'>end</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^3..$</span><span class='regexp_end'>/</span></span>
       <span class='kw'>if</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>==</span> <span class='int'>4</span>
@@ -632,7 +644,11 @@
       <span class='kw'>return</span> <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='comma'>,</span> <span class='id identifier rubyid_res'>res</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>should not have gotten here</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_last_err'>last_err</span>
+    <span class='kw'>return</span> <span class='const'>Result</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_href'>href</span><span class='comma'>,</span> <span class='id identifier rubyid_last_err'>last_err</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>should not have gotten here</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

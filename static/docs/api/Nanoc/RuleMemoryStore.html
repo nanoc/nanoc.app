@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::RuleMemoryStore
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -296,16 +296,16 @@ belongs to</p>
       <pre class="lines">
 
 
+11
+12
 13
 14
 15
 16
-17
-18
-19</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp/rule_memory</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -392,12 +392,12 @@ the layout to get the rule memory for</p>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@rule_memories</span><span class='lbracket'>[</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_reference'>reference</span><span class='rbracket'>]</span>
@@ -471,12 +471,12 @@ the layout to set the rule memory for</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_store.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='comma'>,</span> <span class='id identifier rubyid_rule_memory'>rule_memory</span><span class='rparen'>)</span>
   <span class='ivar'>@rule_memories</span><span class='lbracket'>[</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_reference'>reference</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_rule_memory'>rule_memory</span>

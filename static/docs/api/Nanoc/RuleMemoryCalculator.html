@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::RuleMemoryCalculator
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -270,14 +270,14 @@ collection</p>
       <pre class="lines">
 
 
+13
+14
 15
 16
-17
-18
-19</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_calculator.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_calculator.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@rules_collection</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:rules_collection</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -361,6 +361,8 @@ collection</p>
       <pre class="lines">
 
 
+22
+23
 24
 25
 26
@@ -371,12 +373,10 @@ collection</p>
 31
 32
 33
-34
-35
-36</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_calculator.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/rule_memory_calculator.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span>

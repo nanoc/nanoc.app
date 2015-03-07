@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::ShowRules
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -154,7 +154,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#in_site_dir? (method)">#in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
   
 
@@ -177,6 +177,8 @@
       <pre class="lines">
 
 
+12
+13
 14
 15
 16
@@ -187,12 +189,10 @@
 21
 22
 23
-24
-25
-26</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/show-rules.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/show-rules.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_require_site'>require_site</span>
@@ -200,9 +200,9 @@
   <span class='ivar'>@c</span>    <span class='op'>=</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>ANSIStringColorizer</span>
   <span class='ivar'>@calc</span> <span class='op'>=</span> <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_rule_memory_calculator'>rule_memory_calculator</span>
 
-  <span class='comment'># TODO explain /foo/
-</span>  <span class='comment'># TODO explain content/foo.html
-</span>  <span class='comment'># TODO explain output/foo/index.html
+  <span class='comment'># TODO: explain /foo/
+</span>  <span class='comment'># TODO: explain content/foo.html
+</span>  <span class='comment'># TODO: explain output/foo/index.html
 </span>
   <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span>   <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='id identifier rubyid_explain_item'>explain_item</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_site'>site</span><span class='period'>.</span><span class='id identifier rubyid_layouts'>layouts</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_explain_layout'>explain_layout</span><span class='lparen'>(</span><span class='id identifier rubyid_l'>l</span><span class='rparen'>)</span> <span class='rbrace'>}</span>

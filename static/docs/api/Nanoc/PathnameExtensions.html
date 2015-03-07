@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::PathnameExtensions
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -182,17 +182,15 @@ change to the file contents will result in a different checksum.</p>
       <pre class="lines">
 
 
+10
 11
-12
-13
-14</pre>
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/pathname.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/pathname.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_checksum'>checksum</span>
-  <span class='id identifier rubyid_stat'>stat</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_stat'>stat</span><span class='lparen'>(</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_stat'>stat</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_stat'>stat</span><span class='period'>.</span><span class='id identifier rubyid_mtime'>mtime</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Checksummer</span><span class='period'>.</span><span class='id identifier rubyid_calc'>calc</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

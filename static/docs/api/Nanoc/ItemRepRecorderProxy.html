@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::ItemRepRecorderProxy
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -248,29 +248,6 @@ may not need to be recompiled.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_proxy%3F-instance_method" title="#is_proxy? (instance method)">- (true) <strong>is_proxy?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  <span class="private note title">private</span>
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(layout_identifier, extra_filter_args = nil) </a>
     
 
@@ -286,6 +263,31 @@ may not need to be recompiled.</p>
 
   
     <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy%3F-instance_method" title="#proxy? (instance method)">- (true) <strong>proxy?</strong> </a>
+    
+
+    
+      (also: #is_proxy?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
 </div></span>
   
 </li>
@@ -370,13 +372,13 @@ proxy should behave like</p>
       <pre class="lines">
 
 
+42
+43
 44
-45
-46
-47</pre>
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_item_rep'>item_rep</span><span class='rparen'>)</span>
   <span class='ivar'>@item_rep</span> <span class='op'>=</span> <span class='id identifier rubyid_item_rep'>item_rep</span>
@@ -464,12 +466,12 @@ proxy should behave like</p>
       <pre class="lines">
 
 
-40
-41
-42</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rule_memory'>rule_memory</span>
   <span class='ivar'>@rule_memory</span>
@@ -528,12 +530,12 @@ proxy should behave like</p>
       <pre class="lines">
 
 
-85
-86
-87</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -579,82 +581,15 @@ proxy should behave like</p>
       <pre class="lines">
 
 
-52
-53
-54</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:filter</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="is_proxy?-instance_method">
-  
-    - (<tt>true</tt>) <strong>is_proxy?</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p class="note private">
-  <strong>This method is part of a private API.</strong>
-  You should avoid using this method if possible, as it may be removed or be changed in the future.
-</p>
-<p>Returns true because this item is already a proxy, and therefore doesn’t
-need to be wrapped anymore.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>true</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li><span class='object_link'><a href="ItemRep.html#is_proxy%3F-instance_method" title="Nanoc::ItemRep#is_proxy? (method)">Nanoc::ItemRep#is_proxy?</a></span></li>
-    
-      <li><span class='object_link'><a href="ItemRepProxy.html#is_proxy%3F-instance_method" title="Nanoc::ItemRepProxy#is_proxy? (method)">Nanoc::ItemRepProxy#is_proxy?</a></span></li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-96
-97
-98</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 96</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_proxy?'>is_proxy?</span>
-  <span class='kw'>true</span>
+  <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:filter</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -697,23 +632,94 @@ need to be wrapped anymore.</p>
       <pre class="lines">
 
 
+57
+58
 59
 60
 61
 62
-63
-64
-65</pre>
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span>
-    <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:layout</span><span class='comma'>,</span> <span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='rbracket'>]</span>
+    <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='comma'>,</span> <span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span><span class='rbracket'>]</span>
   <span class='kw'>else</span>
-    <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:layout</span><span class='comma'>,</span> <span class='id identifier rubyid_layout_identifier'>layout_identifier</span> <span class='rbracket'>]</span>
+    <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:layout</span><span class='comma'>,</span> <span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="proxy?-instance_method">
+  
+    - (<tt>true</tt>) <strong>proxy?</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='is_proxy?-instance_method'>is_proxy?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns true because this item is already a proxy, and therefore doesn’t
+need to be wrapped anymore.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="ItemRep.html#proxy%3F-instance_method" title="Nanoc::ItemRep#proxy? (method)">Nanoc::ItemRep#proxy?</a></span></li>
+    
+      <li><span class='object_link'><a href="ItemRepProxy.html#proxy%3F-instance_method" title="Nanoc::ItemRepProxy#proxy? (method)">Nanoc::ItemRepProxy#proxy?</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_proxy?'>proxy?</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -756,6 +762,8 @@ need to be wrapped anymore.</p>
       <pre class="lines">
 
 
+68
+69
 70
 71
 72
@@ -766,15 +774,13 @@ need to be wrapped anymore.</p>
 77
 78
 79
-80
-81
-82</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_recorder_proxy.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span> <span class='symbol'>:snapshot</span><span class='comma'>,</span> <span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='rbracket'>]</span>
+  <span class='ivar'>@rule_memory</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:snapshot</span><span class='comma'>,</span> <span class='id identifier rubyid_snapshot_name'>snapshot_name</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rbracket'>]</span>
 
   <span class='comment'># Count
 </span>  <span class='id identifier rubyid_existing'>existing</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>

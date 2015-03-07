@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Text
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -287,6 +287,8 @@ excerpt when the excerpt is shorter than the original string</p>
       <pre class="lines">
 
 
+19
+20
 21
 22
 23
@@ -294,12 +296,10 @@ excerpt when the excerpt is shorter than the original string</p>
 25
 26
 27
-28
-29
-30</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/text.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/text.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_excerptize'>excerptize</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Initialize params
@@ -377,16 +377,16 @@ excerpt when the excerpt is shorter than the original string</p>
       <pre class="lines">
 
 
+35
+36
 37
-38
-39
-40</pre>
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/text.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/text.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_strip_html'>strip_html</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
-  <span class='comment'># FIXME will need something more sophisticated than this, because it sucks
+  <span class='comment'># FIXME: will need something more sophisticated than this, because it sucks
 </span>  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>&lt;[^&gt;]*(&gt;+|\s*\z)</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span>
 <span class='kw'>end</span></pre>
     </td>

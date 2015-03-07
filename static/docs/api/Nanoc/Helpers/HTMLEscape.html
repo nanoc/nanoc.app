@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::HTMLEscape
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -255,6 +255,8 @@ contents of the block will be escaped and appended to the output buffer,
       <pre class="lines">
 
 
+29
+30
 31
 32
 33
@@ -271,12 +273,10 @@ contents of the block will be escaped and appended to the output buffer,
 44
 45
 46
-47
-48
-49</pre>
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/html_escape.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/html_escape.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_html_escape'>html_escape</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
@@ -288,13 +288,13 @@ contents of the block will be escaped and appended to the output buffer,
 </span>    <span class='id identifier rubyid_buffer'>buffer</span> <span class='op'>=</span> <span class='id identifier rubyid_eval'>eval</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_binding'>binding</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_buffer'>buffer</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_escaped_data'>escaped_data</span>
   <span class='kw'>elsif</span> <span class='id identifier rubyid_string'>string</span>
-    <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;amp;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
-           <span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;lt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
-           <span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span>
-           <span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;quot;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;amp;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;lt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&amp;quot;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The #html_escape or #h function needs either a </span><span class='tstring_end'>&quot;</span></span> \
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string or a block to HTML-escape, but neither a string nor a block was given</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The #html_escape or #h function needs either a </span><span class='tstring_end'>&#39;</span></span> \
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>string or a block to HTML-escape, but neither a string nor a block was given</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

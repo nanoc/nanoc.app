@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Tagging
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -289,12 +289,12 @@ tags: [ &#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39; ]</code></pre>
       <pre class="lines">
 
 
-50
-51
-52</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_items_with_tag'>items_with_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_tag'>tag</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='symbol'>:tags</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_tag'>tag</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -384,15 +384,15 @@ construct the link URL. This URL must have a trailing slash.</p>
       <pre class="lines">
 
 
-65
-66
-67</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_link_for_tag'>link_for_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_tag'>tag</span><span class='comma'>,</span> <span class='id identifier rubyid_base_url'>base_url</span><span class='rparen'>)</span>
-  <span class='tstring'><span class='tstring_beg'>%[</span><span class='tstring_content'>&lt;a href=&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_base_url'>base_url</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_tag'>tag</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot; rel=&quot;tag&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_tag'>tag</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/a&gt;</span><span class='tstring_end'>]</span></span>
+  <span class='tstring'><span class='tstring_beg'>%(</span><span class='tstring_content'>&lt;a href=&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_base_url'>base_url</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_tag'>tag</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot; rel=&quot;tag&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_tag'>tag</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/a&gt;</span><span class='tstring_end'>)</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -524,6 +524,8 @@ tags</p>
       <pre class="lines">
 
 
+31
+32
 33
 34
 35
@@ -532,12 +534,10 @@ tags</p>
 38
 39
 40
-41
-42
-43</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/tagging.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tags_for'>tags_for</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_base_url'>base_url</span>  <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:base_url</span><span class='rbracket'>]</span>  <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://technorati.com/tag/</span><span class='tstring_end'>&#39;</span></span>

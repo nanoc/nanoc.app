@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::Slim
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -305,6 +305,8 @@ This method takes no options.</p>
       <pre class="lines">
 
 
+14
+15
 16
 17
 18
@@ -313,17 +315,15 @@ This method takes no options.</p>
 21
 22
 23
-24
-25
-26</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/slim.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/slim.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:disable_capture</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>      <span class='comment'># Capture managed by nanoc
-</span>    <span class='symbol'>:buffer</span>          <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='comment'># Force slim to output to the buffer used by nanoc
+    <span class='label'>disable_capture:</span> <span class='kw'>true</span><span class='comma'>,</span>      <span class='comment'># Capture managed by nanoc
+</span>    <span class='label'>buffer:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>_erbout</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='comment'># Force slim to output to the buffer used by nanoc
 </span>  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span> <span class='id identifier rubyid_params'>params</span>
 
   <span class='comment'># Create context

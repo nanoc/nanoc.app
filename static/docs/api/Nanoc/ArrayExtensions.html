@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::ArrayExtensions
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -297,15 +297,15 @@ result in a different checksum.</p>
       <pre class="lines">
 
 
+65
 66
-67
-68</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_checksum'>checksum</span>
-  <span class='const'>Marshal</span><span class='period'>.</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_checksum'>checksum</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Checksummer</span><span class='period'>.</span><span class='id identifier rubyid_calc'>calc</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -361,6 +361,7 @@ to that message, or #freeze if they do not.</p>
       <pre class="lines">
 
 
+47
 48
 49
 50
@@ -370,11 +371,10 @@ to that message, or #freeze if they do not.</p>
 54
 55
 56
-57
-58</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_freeze_recursively'>freeze_recursively</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_frozen?'>frozen?</span>
@@ -419,12 +419,12 @@ to that message, or #freeze if they do not.</p>
       <pre class="lines">
 
 
+34
 35
-36
-37</pre>
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys'>stringify_keys</span>
   <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
@@ -478,18 +478,18 @@ strings by calling <span class='object_link'><a href="#stringify_keys_recursivel
       <pre class="lines">
 
 
+27
 28
 29
 30
-31
-32</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span>
   <span class='id identifier rubyid_reduce'>reduce</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_array'>array</span><span class='comma'>,</span> <span class='id identifier rubyid_element'>element</span><span class='op'>|</span>
-    <span class='id identifier rubyid_array'>array</span> <span class='op'>+</span> <span class='lbracket'>[</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_element'>element</span> <span class='rbracket'>]</span>
+    <span class='id identifier rubyid_array'>array</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:stringify_keys_recursively</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_element'>element</span><span class='period'>.</span><span class='id identifier rubyid_stringify_keys_recursively'>stringify_keys_recursively</span> <span class='op'>:</span> <span class='id identifier rubyid_element'>element</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -524,12 +524,12 @@ strings by calling <span class='object_link'><a href="#stringify_keys_recursivel
       <pre class="lines">
 
 
+18
 19
-20
-21</pre>
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span>
   <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
@@ -583,16 +583,16 @@ symbols by calling <span class='object_link'><a href="#symbolize_keys_recursivel
       <pre class="lines">
 
 
+9
 10
 11
 12
 13
 14
-15
-16</pre>
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/core_ext/array.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_symbolize_keys_recursively'>symbolize_keys_recursively</span>
   <span class='id identifier rubyid_array'>array</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>

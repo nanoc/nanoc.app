@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::Compile
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -204,7 +204,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#in_site_dir? (method)">#in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
@@ -234,13 +234,13 @@
       <pre class="lines">
 
 
-380
-381
-382
-383</pre>
+370
+371
+372
+373</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 380</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 370</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_arguments'>arguments</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
@@ -273,25 +273,25 @@
       <pre class="lines">
 
 
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
 385
 386
 387
 388
 389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400</pre>
+390</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 375</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_time_before'>time_before</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>

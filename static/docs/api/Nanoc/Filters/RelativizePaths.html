@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::RelativizePaths
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -115,7 +115,7 @@
         <dt id="SELECTORS-constant" class="">SELECTORS =
           
         </dt>
-        <dd><pre class="code"><span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*/@href</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*/@src</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>object/@data</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>param[@name=&quot;movie&quot;]/@content</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>comment()</span><span class='tstring_end'>&#39;</span></span> <span class='rbracket'>]</span></pre></dd>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*/@href</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*/@src</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>object/@data</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>param[@name=&quot;movie&quot;]/@content</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>comment()</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span></pre></dd>
       
     </dl>
   
@@ -383,6 +383,7 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
       <pre class="lines">
 
 
+30
 31
 32
 33
@@ -420,19 +421,22 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
 65
 66
 67
-68</pre>
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/relativize_paths.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/relativize_paths.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>JRubyNokogiriWarner</span><span class='period'>.</span><span class='id identifier rubyid_check_and_warn'>check_and_warn</span>
+
   <span class='comment'># Set assigns so helper function can be used
 </span>  <span class='ivar'>@item_rep</span> <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:item_rep</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='ivar'>@item_rep</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='comment'># Filter
 </span>  <span class='kw'>case</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span>
   <span class='kw'>when</span> <span class='symbol'>:css</span>
-    <span class='comment'># FIXME parse CSS the proper way using csspool or something
+    <span class='comment'># FIXME: parse CSS the proper way using csspool or something
 </span>    <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>url\(([&#39;&quot;]?)(\/(?:[^\/].*?)?)\1\)</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
       <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>url(</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='backref'>$1</span> <span class='op'>+</span> <span class='id identifier rubyid_relative_path_to'>relative_path_to</span><span class='lparen'>(</span><span class='backref'>$2</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='backref'>$1</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>end</span>
@@ -448,7 +452,7 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
       <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span>
     <span class='kw'>when</span> <span class='symbol'>:xhtml</span>
       <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nokogiri</span><span class='op'>::</span><span class='const'>XML</span>
-      <span class='comment'># FIXME cleanup because it is ugly
+      <span class='comment'># FIXME: cleanup because it is ugly
 </span>      <span class='comment'># this cleans the XHTML namespace to process fragments and full
 </span>      <span class='comment'># documents in the same way. At least, Nokogiri adds this namespace
 </span>      <span class='comment'># if detects the `html` element.
@@ -458,8 +462,8 @@ is useful only for the <code>:xml</code> and <code>:xhtml</code> types.</p>
     <span class='id identifier rubyid_nokogiri_process'>nokogiri_process</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_selectors'>selectors</span><span class='comma'>,</span> <span class='id identifier rubyid_namespaces'>namespaces</span><span class='comma'>,</span> <span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>RuntimeError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The relativize_paths needs to know the type of content to </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span>
-      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>process. Pass a :type to the filter call (:html for HTML, </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The relativize_paths needs to know the type of content to </span><span class='tstring_end'>&#39;</span></span> \
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>process. Pass a :type to the filter call (:html for HTML, </span><span class='tstring_end'>&#39;</span></span> \
       <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>:xhtml for XHTML, :xml for XML, or :css for CSS).</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::CHiCk::Client
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -103,7 +103,7 @@
   <div class="discussion">
     <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use a HTTP library such as
 <a href="http://ruby-doc.org/stdlib/libdoc/net/http/rdoc/">Net::HTTP</a> or
-<a href="http://curb.rubyforge.org/">Curb</a> instead.</p>
+<a href="https://github.com/taf2/curb">Curb</a> instead.</p>
 </div></div>
 
 
@@ -122,12 +122,12 @@
           
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='symbol'>:cache</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:metastore</span>   <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file:tmp/rack/cache.meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='symbol'>:entitystore</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file:tmp/rack/cache.body</span><span class='tstring_end'>&#39;</span></span>
+  <span class='label'>cache:</span> <span class='lbrace'>{</span>
+    <span class='label'>metastore:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file:tmp/rack/cache.meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>entitystore:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>file:tmp/rack/cache.body</span><span class='tstring_end'>&#39;</span></span>
   <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='symbol'>:cache_controller</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:max_age</span> <span class='op'>=&gt;</span> <span class='int'>60</span>
+  <span class='label'>cache_controller:</span> <span class='lbrace'>{</span>
+    <span class='label'>max_age:</span> <span class='int'>60</span>
   <span class='rbrace'>}</span>
 <span class='rbrace'>}</span></pre></dd>
       
@@ -227,15 +227,15 @@
       <pre class="lines">
 
 
+26
+27
+28
 29
 30
-31
-32
-33
-34</pre>
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Get options
@@ -270,6 +270,9 @@
       <pre class="lines">
 
 
+33
+34
+35
 36
 37
 38
@@ -290,25 +293,22 @@
 53
 54
 55
-56
-57
-58
-59</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/chick.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='comment'># Build app
 </span>  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='ivar'>@options</span>
   <span class='ivar'>@app</span> <span class='op'>||=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_use'>use</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Cache</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='symbol'>:verbose</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_use'>use</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>Cache</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:cache</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='label'>verbose:</span> <span class='kw'>true</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_use'>use</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>CHiCk</span><span class='op'>::</span><span class='const'>CacheController</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:cache_controller</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_run'>run</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>CHiCk</span><span class='op'>::</span><span class='const'>RackClient</span>
   <span class='kw'>end</span>
 
   <span class='comment'># Build environment for request
-</span>  <span class='id identifier rubyid_env'>env</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>MockRequest</span><span class='period'>.</span><span class='id identifier rubyid_env_for'>env_for</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='symbol'>:method</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>GET</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</span>  <span class='id identifier rubyid_env'>env</span> <span class='op'>=</span> <span class='const'>Rack</span><span class='op'>::</span><span class='const'>MockRequest</span><span class='period'>.</span><span class='id identifier rubyid_env_for'>env_for</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>method:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>GET</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='comment'># Fetch
 </span>  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[CHiCk] Fetching </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='gvar'>$DEBUG</span>
@@ -320,7 +320,7 @@
   <span class='id identifier rubyid_body_parts'>body_parts</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_part'>part</span><span class='op'>|</span> <span class='id identifier rubyid_body'>body</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_part'>part</span> <span class='rbrace'>}</span>
 
   <span class='comment'># Done
-</span>  <span class='lbracket'>[</span> <span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span> <span class='rbracket'>]</span>
+</span>  <span class='lbracket'>[</span><span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

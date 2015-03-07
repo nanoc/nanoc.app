@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::Deployers::Rsync
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -154,7 +154,15 @@ deploy:
 </div>
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span>
-  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-glpPrtvz</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--group</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--links</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--perms</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--partial</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--progress</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--recursive</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--times</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--verbose</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--compress</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--exclude=&quot;.hg&quot;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--exclude=&quot;.svn&quot;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>--exclude=&quot;.git&quot;</span><span class='tstring_end'>&#39;</span></span>
@@ -274,12 +282,6 @@ deploy:
       <pre class="lines">
 
 
-33
-34
-35
-36
-37
-38
 39
 40
 41
@@ -293,14 +295,16 @@ deploy:
 49
 50
 51
-52</pre>
+52
+53
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployers/rsync.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployers/rsync.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
-  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>systemu</span><span class='tstring_end'>&#39;</span></span>
-
   <span class='comment'># Get params
 </span>  <span class='id identifier rubyid_src'>src</span> <span class='op'>=</span> <span class='id identifier rubyid_source_path'>source_path</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_dst'>dst</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='lbracket'>[</span><span class='symbol'>:dst</span><span class='rbracket'>]</span>
@@ -313,9 +317,9 @@ deploy:
   <span class='comment'># Run
 </span>  <span class='kw'>if</span> <span class='id identifier rubyid_dry_run'>dry_run</span>
     <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Performing a dry-run; no actions will actually be performed</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_run_shell_cmd'>run_shell_cmd</span><span class='lparen'>(</span><span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>echo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rsync</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_src'>src</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_run_shell_cmd'>run_shell_cmd</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>echo</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rsync</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_src'>src</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_run_shell_cmd'>run_shell_cmd</span><span class='lparen'>(</span><span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rsync</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_src'>src</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_run_shell_cmd'>run_shell_cmd</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rsync</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='comma'>,</span> <span class='id identifier rubyid_src'>src</span><span class='comma'>,</span> <span class='id identifier rubyid_dst'>dst</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

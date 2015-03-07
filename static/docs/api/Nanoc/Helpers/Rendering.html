@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::Helpers::Rendering
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -348,6 +348,8 @@ layout specifies an unknown filter</p>
       <pre class="lines">
 
 
+78
+79
 80
 81
 82
@@ -402,12 +404,10 @@ layout specifies an unknown filter</p>
 131
 132
 133
-134
-135
-136</pre>
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/rendering.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/helpers/rendering.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_other_assigns'>other_assigns</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='comment'># Find layout
@@ -423,14 +423,14 @@ layout specifies an unknown filter</p>
 
   <span class='comment'># Get assigns
 </span>  <span class='id identifier rubyid_assigns'>assigns</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='symbol'>:content</span>    <span class='op'>=&gt;</span> <span class='id identifier rubyid_captured_content'>captured_content</span><span class='comma'>,</span>
-    <span class='symbol'>:item</span>       <span class='op'>=&gt;</span> <span class='ivar'>@item</span><span class='comma'>,</span>
-    <span class='symbol'>:item_rep</span>   <span class='op'>=&gt;</span> <span class='ivar'>@item_rep</span><span class='comma'>,</span>
-    <span class='symbol'>:items</span>      <span class='op'>=&gt;</span> <span class='ivar'>@items</span><span class='comma'>,</span>
-    <span class='symbol'>:layout</span>     <span class='op'>=&gt;</span> <span class='id identifier rubyid_layout'>layout</span><span class='comma'>,</span>
-    <span class='symbol'>:layouts</span>    <span class='op'>=&gt;</span> <span class='ivar'>@layouts</span><span class='comma'>,</span>
-    <span class='symbol'>:config</span>     <span class='op'>=&gt;</span> <span class='ivar'>@config</span><span class='comma'>,</span>
-    <span class='symbol'>:site</span>       <span class='op'>=&gt;</span> <span class='ivar'>@site</span>
+    <span class='label'>content:</span> <span class='id identifier rubyid_captured_content'>captured_content</span><span class='comma'>,</span>
+    <span class='label'>item:</span> <span class='ivar'>@item</span><span class='comma'>,</span>
+    <span class='label'>item_rep:</span> <span class='ivar'>@item_rep</span><span class='comma'>,</span>
+    <span class='label'>items:</span> <span class='ivar'>@items</span><span class='comma'>,</span>
+    <span class='label'>layout:</span> <span class='id identifier rubyid_layout'>layout</span><span class='comma'>,</span>
+    <span class='label'>layouts:</span> <span class='ivar'>@layouts</span><span class='comma'>,</span>
+    <span class='label'>config:</span> <span class='ivar'>@config</span><span class='comma'>,</span>
+    <span class='label'>site:</span> <span class='ivar'>@site</span>
   <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_other_assigns'>other_assigns</span><span class='rparen'>)</span>
 
   <span class='comment'># Get filter name

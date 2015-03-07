@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::Redcarpet
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -174,7 +174,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs the content through <a href="https://github.com/vmg/redcarpet">Redcarpet</a>.</p>
+    <span class="summary_desc"><div class='inline'><p>@return [String] The filtered content.</p>
 </div></span>
   
 </li>
@@ -231,11 +231,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="run-instance_method">
   
-    
-      <span class="overload">- (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, params = {}) </span>
-    
-      <span class="overload">- (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, params = {}) </span>
-    
+    - (<tt>Object</tt>) <strong>run</strong>(content, params = {}) 
   
 
   
@@ -243,223 +239,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Runs the content through <a href="https://github.com/vmg/redcarpet">Redcarpet</a>.
-This method optionally takes processing options to pass on to Redcarpet.</p>
+    <p>@return [String] The filtered content</p>
 
 
   </div>
 </div>
 <div class="tags">
   
-  <p class="tag_title">Overloads:</p>
-  <ul class="overload">
-    
-      
-      <li class="overload_item">
-        <span class="signature">- (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, params = {}) </span>
-        <div class="docstring">
-  <div class="discussion">
-    <p>For Redcarpet 1.x</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>content</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The content to filter</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  
-    
-    
-    
-    
-    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
-    <ul class="option">
-      
-        <li>
-          <span class="name">:options</span>
-          <span class="type">(<tt><span class='object_link'><a href="../../Array.html" title="Array (class)">Array</a></span></tt>)</span>
-          <span class="default">
-            
-              &mdash; default:
-              <tt>[]</tt>
-            
-          </span>
-          
-            &mdash; <div class='inline'><p>A list of options to pass on to
-Redcarpet</p>
-</div>
-          
-        </li>
-      
-    </ul>
-  
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The filtered content</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div>
-      </li>
-    
-      
-      <li class="overload_item">
-        <span class="signature">- (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, params = {}) </span>
-        <div class="docstring">
-  <div class="discussion">
-    <p>For Redcarpet 2.x</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>content</span>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The content to filter</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  
-    
-    
-    
-    
-    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
-    <ul class="option">
-      
-        <li>
-          <span class="name">:options</span>
-          <span class="type">(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
-          <span class="default">
-            
-              &mdash; default:
-              <tt>{}</tt>
-            
-          </span>
-          
-            &mdash; <div class='inline'><p>A list of options to pass on to
-Redcarpet itself (not the renderer)</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:renderer</span>
-          <span class="type">(<tt>::Redcarpet::Render::Base</tt>)</span>
-          <span class="default">
-            
-              &mdash; default:
-              <tt>::Redcarpet::Render::HTML</tt>
-            
-          </span>
-          
-            &mdash; <div class='inline'><p>The class of the renderer to use</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:renderer_options</span>
-          <span class="type">(<tt><span class='object_link'><a href="../../Hash.html" title="Hash (class)">Hash</a></span></tt>)</span>
-          <span class="default">
-            
-              &mdash; default:
-              <tt>{}</tt>
-            
-          </span>
-          
-            &mdash; <div class='inline'><p>A list of options to pass
-on to the Redcarpet renderer</p>
-</div>
-          
-        </li>
-      
-    </ul>
-  
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>The filtered content</p>
-</div>
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Since:</p>
-<ul class="since">
-  
-    <li>
-      
-      
-      
-      
-        
-        <div class='inline'><p>3.2.4</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div>
-      </li>
-    
-  </ul>
-
 <p class="tag_title">Since:</p>
 <ul class="since">
   
@@ -482,7 +268,6 @@ on to the Redcarpet renderer</p>
       <pre class="lines">
 
 
-42
 43
 44
 45
@@ -502,30 +287,67 @@ on to the Redcarpet renderer</p>
 59
 60
 61
-62</pre>
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/redcarpet.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/redcarpet.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>VERSION</span> <span class='op'>&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_options'>options</span>          <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span>          <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='id identifier rubyid_renderer_class'>renderer_class</span>   <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:renderer</span><span class='rbracket'>]</span>         <span class='op'>||</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML</span>
-    <span class='id identifier rubyid_renderer_options'>renderer_options</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:renderer_options</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_options'>options</span>          <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:options</span><span class='comma'>,</span>          <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_renderer_class'>renderer_class</span>   <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:renderer</span><span class='comma'>,</span>         <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_renderer_options'>renderer_options</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:renderer_options</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_with_toc'>with_toc</span>         <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:with_toc</span><span class='comma'>,</span>         <span class='kw'>false</span><span class='rparen'>)</span>
 
     <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Array</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>WARNING: You are passing an array of options to the :redcarpet filter, but Redcarpet 2.x expects a hash instead. This will likely fail.</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>end</span>
 
-    <span class='kw'>if</span> <span class='id identifier rubyid_renderer_class'>renderer_class</span> <span class='op'>==</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML_TOC</span>
+    <span class='comment'># Setup TOC
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_with_toc'>with_toc</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_renderer_class'>renderer_class</span> <span class='op'>&lt;=</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unexpected renderer: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_renderer_class'>renderer_class</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># `with_toc` implies `with_toc_data` for the HTML renderer
+</span>      <span class='id identifier rubyid_renderer_options'>renderer_options</span><span class='lbracket'>[</span><span class='symbol'>:with_toc_data</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Create renderer
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_renderer_class'>renderer_class</span> <span class='op'>==</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML_TOC</span>
       <span class='id identifier rubyid_renderer'>renderer</span> <span class='op'>=</span> <span class='id identifier rubyid_renderer_class'>renderer_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
     <span class='kw'>else</span>
       <span class='id identifier rubyid_renderer'>renderer</span> <span class='op'>=</span> <span class='id identifier rubyid_renderer_class'>renderer_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_renderer_options'>renderer_options</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-    <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Markdown</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_renderer'>renderer</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-    <span class='op'>::</span><span class='const'>Redcarpet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_html'>to_html</span>
+
+    <span class='comment'># Render
+</span>    <span class='kw'>if</span> <span class='id identifier rubyid_with_toc'>with_toc</span>
+      <span class='id identifier rubyid_renderer_toc'>renderer_toc</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Render</span><span class='op'>::</span><span class='const'>HTML_TOC</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+      <span class='id identifier rubyid_toc'>toc</span>  <span class='op'>=</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Markdown</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_renderer_toc'>renderer_toc</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Markdown</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_renderer'>renderer</span><span class='comma'>,</span>     <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_toc'>toc</span> <span class='op'>+</span> <span class='id identifier rubyid_body'>body</span>
+    <span class='kw'>else</span>
+      <span class='op'>::</span><span class='const'>Redcarpet</span><span class='op'>::</span><span class='const'>Markdown</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_renderer'>renderer</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

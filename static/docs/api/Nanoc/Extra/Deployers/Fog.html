@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::Deployers::Fog
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -245,6 +245,8 @@ deploy:
       <pre class="lines">
 
 
+21
+22
 23
 24
 25
@@ -310,12 +312,10 @@ deploy:
 85
 86
 87
-88
-89
-90</pre>
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployers/fog.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/deployers/fog.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fog</span><span class='tstring_end'>&#39;</span></span>
@@ -342,7 +342,7 @@ deploy:
   <span class='comment'># Get bucket
 </span>  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Getting bucket</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>begin</span>
-    <span class='id identifier rubyid_directory'>directory</span> <span class='op'>=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_directories'>directories</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='symbol'>:prefix</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_directory'>directory</span> <span class='op'>=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_directories'>directories</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='label'>prefix:</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>rescue</span> <span class='op'>::</span><span class='const'>Excon</span><span class='op'>::</span><span class='const'>Errors</span><span class='op'>::</span><span class='const'>NotFound</span>
     <span class='id identifier rubyid_should_create_bucket'>should_create_bucket</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
@@ -350,18 +350,18 @@ deploy:
 
   <span class='comment'># Create bucket if necessary
 </span>  <span class='kw'>if</span> <span class='id identifier rubyid_should_create_bucket'>should_create_bucket</span>
-    <span class='id identifier rubyid_directory'>directory</span> <span class='op'>=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_directories'>directories</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='symbol'>:prefix</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_directory'>directory</span> <span class='op'>=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_directories'>directories</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>key:</span> <span class='id identifier rubyid_bucket'>bucket</span><span class='comma'>,</span> <span class='label'>prefix:</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='comment'># Get list of remote files
 </span>  <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='id identifier rubyid_directory'>directory</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span>
   <span class='id identifier rubyid_truncated'>truncated</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:is_truncated</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_is_truncated'>is_truncated</span>
   <span class='kw'>while</span> <span class='id identifier rubyid_truncated'>truncated</span>
-    <span class='id identifier rubyid_set'>set</span> <span class='op'>=</span> <span class='id identifier rubyid_directory'>directory</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='symbol'>:marker</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_set'>set</span> <span class='op'>=</span> <span class='id identifier rubyid_directory'>directory</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='label'>marker:</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_truncated'>truncated</span> <span class='op'>=</span> <span class='id identifier rubyid_set'>set</span><span class='period'>.</span><span class='id identifier rubyid_is_truncated'>is_truncated</span>
-    <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span> <span class='op'>+</span> <span class='id identifier rubyid_set'>set</span>
+    <span class='id identifier rubyid_files'>files</span> <span class='op'>+=</span> <span class='id identifier rubyid_set'>set</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_keys_to_destroy'>keys_to_destroy</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_keys_to_destroy'>keys_to_destroy</span> <span class='op'>=</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:key</span><span class='rparen'>)</span>
 
   <span class='comment'># Upload all the files in the output folder to the clouds
 </span>  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Uploading local files</span><span class='tstring_end'>&#39;</span></span>
@@ -370,9 +370,9 @@ deploy:
     <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file_path'>file_path</span><span class='op'>|</span>
       <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>?</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_file_path'>file_path</span>
       <span class='id identifier rubyid_directory'>directory</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
-        <span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span>
-        <span class='symbol'>:body</span> <span class='op'>=&gt;</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span><span class='comma'>,</span>
-        <span class='symbol'>:public</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+        <span class='label'>key:</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span>
+        <span class='label'>body:</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span><span class='comma'>,</span>
+        <span class='label'>public:</span> <span class='kw'>true</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_keys_to_destroy'>keys_to_destroy</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>

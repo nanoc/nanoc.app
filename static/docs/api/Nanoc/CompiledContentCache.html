@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CompiledContentCache
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -276,14 +276,14 @@ to prevent it from being needlessly recompiled.</p>
       <pre class="lines">
 
 
+9
+10
 11
 12
-13
-14
-15</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp/compiled_content</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -371,13 +371,13 @@ content for the given item representation</p>
       <pre class="lines">
 
 
+24
+25
 26
-27
-28
-29</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_item_cache'>item_cache</span> <span class='op'>=</span> <span class='ivar'>@cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -453,13 +453,13 @@ content of the given representation</p>
       <pre class="lines">
 
 
+38
+39
 40
-41
-42
-43</pre>
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id identifier rubyid_rep'>rep</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
   <span class='ivar'>@cache</span><span class='lbracket'>[</span><span class='id identifier rubyid_rep'>rep</span><span class='period'>.</span><span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -506,12 +506,12 @@ content of the given representation</p>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/compiled_content_cache.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='ivar'>@cache</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>

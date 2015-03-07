@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Extra::Checking::DSL
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -281,12 +281,12 @@
       <pre class="lines">
 
 
-15
-16
-17</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@deploy_checks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -328,12 +328,12 @@
       <pre class="lines">
 
 
-7
-8
-9</pre>
+5
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deploy_checks'>deploy_checks</span>
   <span class='ivar'>@deploy_checks</span>
@@ -365,14 +365,14 @@
       <pre class="lines">
 
 
+7
+8
 9
 10
-11
-12
-13</pre>
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_file'>from_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_dsl'>dsl</span> <span class='op'>=</span> <span class='id identifier rubyid_new'>new</span>
@@ -405,14 +405,14 @@
       <pre class="lines">
 
 
+17
+18
 19
 20
-21
-22
-23</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check'>check</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Extra</span><span class='op'>::</span><span class='const'>Checking</span><span class='op'>::</span><span class='const'>Check</span><span class='rparen'>)</span>
@@ -439,12 +439,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/extra/checking/dsl.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deploy_check'>deploy_check</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_identifiers'>identifiers</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_identifiers'>identifiers</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='ivar'>@deploy_checks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_i'>i</span> <span class='rbrace'>}</span>

@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::ERB
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -323,6 +323,7 @@ use while running this filter</p>
       <pre class="lines">
 
 
+17
 18
 19
 20
@@ -339,11 +340,10 @@ use while running this filter</p>
 31
 32
 33
-34
-35</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/erb.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/erb.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Add locals
@@ -353,7 +353,7 @@ use while running this filter</p>
 </span>  <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Context</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_assigns'>assigns</span><span class='rparen'>)</span>
 
   <span class='comment'># Get binding
-</span>  <span class='id identifier rubyid_proc'>proc</span> <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:content</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:content</span><span class='rbracket'>]</span> <span class='rbrace'>}</span> <span class='op'>:</span> <span class='kw'>nil</span>
+</span>  <span class='id identifier rubyid_proc'>proc</span> <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:content</span><span class='rbracket'>]</span> <span class='op'>?</span> <span class='tlambda'>-&gt;</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:content</span><span class='rbracket'>]</span> <span class='rbrace'>}</span> <span class='op'>:</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_assigns_binding'>assigns_binding</span> <span class='op'>=</span> <span class='id identifier rubyid_context'>context</span><span class='period'>.</span><span class='id identifier rubyid_get_binding'>get_binding</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_proc'>proc</span><span class='rparen'>)</span>
 
   <span class='comment'># Get result

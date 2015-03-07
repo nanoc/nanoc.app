@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Context
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -251,6 +251,8 @@ to return the same value <code>"bar"</code>.</p>
       <pre class="lines">
 
 
+26
+27
 28
 29
 30
@@ -258,12 +260,10 @@ to return the same value <code>"bar"</code>.</p>
 32
 33
 34
-35
-36
-37</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/context.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/context.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
@@ -271,7 +271,7 @@ to return the same value <code>"bar"</code>.</p>
 </span>    <span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>@</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
 
     <span class='comment'># Define method
-</span>    <span class='id identifier rubyid_metaclass'>metaclass</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span> <span class='semicolon'>;</span> <span class='kw'>self</span> <span class='semicolon'>;</span> <span class='kw'>end</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_metaclass'>metaclass</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>end</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_metaclass'>metaclass</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -329,12 +329,12 @@ to return the same value <code>"bar"</code>.</p>
       <pre class="lines">
 
 
-42
-43
-44</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/context.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/context.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_binding'>get_binding</span>
   <span class='id identifier rubyid_binding'>binding</span>

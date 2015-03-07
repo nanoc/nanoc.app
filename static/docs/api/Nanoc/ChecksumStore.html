@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::ChecksumStore
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -319,16 +319,16 @@ belongs to</p>
       <pre class="lines">
 
 
+11
+12
 13
 14
 15
 16
-17
-18
-19</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp/checksums</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -415,12 +415,12 @@ items, layouts and code snippets.</p>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='op'>[]</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='ivar'>@checksums</span><span class='lbracket'>[</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_reference'>reference</span><span class='rbracket'>]</span>
@@ -493,12 +493,12 @@ items, layouts and code snippets.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='comma'>,</span> <span class='id identifier rubyid_checksum'>checksum</span><span class='rparen'>)</span>
   <span class='ivar'>@checksums</span><span class='lbracket'>[</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_reference'>reference</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_checksum'>checksum</span>
@@ -544,12 +544,12 @@ items, layouts and code snippets.</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/checksum_store.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_unload'>unload</span>
   <span class='ivar'>@checksums</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>

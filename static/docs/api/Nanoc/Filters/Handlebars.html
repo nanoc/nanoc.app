@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::Filters::Handlebars
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -160,7 +160,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content, params = {}) </a>
+      <a href="#run-instance_method" title="#run (instance method)">- (String) <strong>run</strong>(content, _params = {}) </a>
     
 
     
@@ -231,7 +231,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="run-instance_method">
   
-    - (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, params = {}) 
+    - (<tt><span class='object_link'><a href="../../String.html" title="String (class)">String</a></span></tt>) <strong>run</strong>(content, _params = {}) 
   
 
   
@@ -307,6 +307,8 @@ This method takes no options.</p>
       <pre class="lines">
 
 
+16
+17
 18
 19
 20
@@ -317,14 +319,12 @@ This method takes no options.</p>
 25
 26
 27
-28
-29
-30</pre>
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/handlebars.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/filters/handlebars.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid__params'>_params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_context'>context</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
   <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:item</span><span class='rbracket'>]</span>   <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:item</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span>
   <span class='id identifier rubyid_context'>context</span><span class='lbracket'>[</span><span class='symbol'>:config</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='symbol'>:config</span><span class='rbracket'>]</span>

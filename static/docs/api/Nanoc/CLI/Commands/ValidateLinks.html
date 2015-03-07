@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::CLI::Commands::ValidateLinks
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -154,7 +154,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../CommandRunner.html" title="Nanoc::CLI::CommandRunner (class)">Nanoc::CLI::CommandRunner</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#is_in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#is_in_site_dir? (method)">#is_in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../CommandRunner.html#call-instance_method" title="Nanoc::CLI::CommandRunner#call (method)">#call</a></span>, <span class='object_link'><a href="../CommandRunner.html#call-class_method" title="Nanoc::CLI::CommandRunner.call (method)">call</a></span>, <span class='object_link'><a href="../CommandRunner.html#debug%3F-instance_method" title="Nanoc::CLI::CommandRunner#debug? (method)">#debug?</a></span>, <span class='object_link'><a href="../CommandRunner.html#in_site_dir%3F-instance_method" title="Nanoc::CLI::CommandRunner#in_site_dir? (method)">#in_site_dir?</a></span>, <span class='object_link'><a href="../CommandRunner.html#load_site-instance_method" title="Nanoc::CLI::CommandRunner#load_site (method)">#load_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#require_site-instance_method" title="Nanoc::CLI::CommandRunner#require_site (method)">#require_site</a></span>, <span class='object_link'><a href="../CommandRunner.html#site-instance_method" title="Nanoc::CLI::CommandRunner#site (method)">#site</a></span></p>
 
   
 
@@ -177,17 +177,17 @@
       <pre class="lines">
 
 
+16
+17
 18
 19
 20
 21
 22
-23
-24
-25</pre>
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/validate-links.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/validate-links.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The `validate-links` command is deprecated. Please use the new `check` command instead.</span><span class='tstring_end'>&#39;</span></span>
@@ -195,7 +195,7 @@
   <span class='id identifier rubyid_checks'>checks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_checks'>checks</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ilinks</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:internal</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_checks'>checks</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>elinks</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:external</span><span class='rbracket'>]</span>
-  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>check</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_checks'>checks</span> <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>CLI</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>check</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_checks'>checks</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::PluginRegistry::PluginMethods
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -283,12 +283,12 @@ being the identifiers and values the plugin classes</p>
       <pre class="lines">
 
 
-77
-78
-79</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Plugin</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -400,16 +400,16 @@ being the identifiers and values the plugin classes</p>
       <pre class="lines">
 
 
+45
+46
+47
 48
 49
 50
-51
-52
-53
-54</pre>
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='lparen'>(</span><span class='id identifier rubyid_identifier'>identifier</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_identifier'>identifier</span>
@@ -526,16 +526,16 @@ this plugin.</p>
       <pre class="lines">
 
 
+26
+27
+28
 29
 30
 31
-32
-33
-34
-35</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_identifiers'>identifiers</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_identifiers'>identifiers</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_identifiers'>identifiers</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -610,12 +610,12 @@ this plugin.</p>
       <pre class="lines">
 
 
-86
-87
-88</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_named'>named</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Plugin</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -686,18 +686,18 @@ this plugin.</p>
       <pre class="lines">
 
 
+62
+63
+64
 65
 66
 67
 68
 69
-70
-71
-72
-73</pre>
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/plugin_registry.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_class_or_name'>class_or_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_identifiers'>identifiers</span><span class='rparen'>)</span>
   <span class='comment'># Find plugin class

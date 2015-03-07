@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -79,8 +79,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/nanoc/base/compilation/checksum_store.rb<span class="defines">,<br />
-  lib/nanoc/base/compilation/compiled_content_cache.rb,<br /> lib/nanoc/base/compilation/compiler.rb,<br /> lib/nanoc/base/compilation/compiler_dsl.rb,<br /> lib/nanoc/base/compilation/dependency_tracker.rb,<br /> lib/nanoc/base/compilation/filter.rb,<br /> lib/nanoc/base/compilation/item_rep_proxy.rb,<br /> lib/nanoc/base/compilation/item_rep_recorder_proxy.rb,<br /> lib/nanoc/base/compilation/outdatedness_checker.rb,<br /> lib/nanoc/base/compilation/outdatedness_reasons.rb,<br /> lib/nanoc/base/compilation/rule.rb,<br /> lib/nanoc/base/compilation/rule_context.rb,<br /> lib/nanoc/base/compilation/rule_memory_calculator.rb,<br /> lib/nanoc/base/compilation/rule_memory_store.rb,<br /> lib/nanoc/base/compilation/rules_collection.rb,<br /> lib/nanoc/base/context.rb,<br /> lib/nanoc/base/directed_graph.rb,<br /> lib/nanoc/base/errors.rb,<br /> lib/nanoc/base/memoization.rb,<br /> lib/nanoc/base/notification_center.rb,<br /> lib/nanoc/base/plugin_registry.rb,<br /> lib/nanoc/base/result_data/item_rep.rb,<br /> lib/nanoc/base/source_data/code_snippet.rb,<br /> lib/nanoc/base/source_data/configuration.rb,<br /> lib/nanoc/base/source_data/data_source.rb,<br /> lib/nanoc/base/source_data/item.rb,<br /> lib/nanoc/base/source_data/item_array.rb,<br /> lib/nanoc/base/source_data/layout.rb,<br /> lib/nanoc/base/source_data/site.rb,<br /> lib/nanoc/base/store.rb,<br /> lib/nanoc/base.rb,<br /> lib/nanoc/version.rb,<br /> lib/nanoc.rb</span>
+    <dd class="r1 last">lib/nanoc/base/checksummer.rb<span class="defines">,<br />
+  lib/nanoc/base/compilation/checksum_store.rb,<br /> lib/nanoc/base/compilation/compiled_content_cache.rb,<br /> lib/nanoc/base/compilation/compiler.rb,<br /> lib/nanoc/base/compilation/compiler_dsl.rb,<br /> lib/nanoc/base/compilation/dependency_tracker.rb,<br /> lib/nanoc/base/compilation/filter.rb,<br /> lib/nanoc/base/compilation/item_rep_proxy.rb,<br /> lib/nanoc/base/compilation/item_rep_recorder_proxy.rb,<br /> lib/nanoc/base/compilation/outdatedness_checker.rb,<br /> lib/nanoc/base/compilation/outdatedness_reasons.rb,<br /> lib/nanoc/base/compilation/rule.rb,<br /> lib/nanoc/base/compilation/rule_context.rb,<br /> lib/nanoc/base/compilation/rule_memory_calculator.rb,<br /> lib/nanoc/base/compilation/rule_memory_store.rb,<br /> lib/nanoc/base/compilation/rules_collection.rb,<br /> lib/nanoc/base/context.rb,<br /> lib/nanoc/base/directed_graph.rb,<br /> lib/nanoc/base/errors.rb,<br /> lib/nanoc/base/memoization.rb,<br /> lib/nanoc/base/notification_center.rb,<br /> lib/nanoc/base/plugin_registry.rb,<br /> lib/nanoc/base/result_data/item_rep.rb,<br /> lib/nanoc/base/source_data/code_snippet.rb,<br /> lib/nanoc/base/source_data/configuration.rb,<br /> lib/nanoc/base/source_data/data_source.rb,<br /> lib/nanoc/base/source_data/item.rb,<br /> lib/nanoc/base/source_data/item_array.rb,<br /> lib/nanoc/base/source_data/layout.rb,<br /> lib/nanoc/base/source_data/site.rb,<br /> lib/nanoc/base/store.rb,<br /> lib/nanoc/base/temp_filename_factory.rb,<br /> lib/nanoc/base.rb,<br /> lib/nanoc/version.rb,<br /> lib/nanoc.rb</span>
 </dd>
   
 </dl>
@@ -94,7 +94,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Nanoc/ChecksumStore.html" title="Nanoc::ChecksumStore (class)">ChecksumStore</a></span>, <span class='object_link'><a href="Nanoc/CodeSnippet.html" title="Nanoc::CodeSnippet (class)">CodeSnippet</a></span>, <span class='object_link'><a href="Nanoc/CompiledContentCache.html" title="Nanoc::CompiledContentCache (class)">CompiledContentCache</a></span>, <span class='object_link'><a href="Nanoc/Compiler.html" title="Nanoc::Compiler (class)">Compiler</a></span>, <span class='object_link'><a href="Nanoc/CompilerDSL.html" title="Nanoc::CompilerDSL (class)">CompilerDSL</a></span>, <span class='object_link'><a href="Nanoc/Configuration.html" title="Nanoc::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Nanoc/Context.html" title="Nanoc::Context (class)">Context</a></span>, <span class='object_link'><a href="Nanoc/DataSource.html" title="Nanoc::DataSource (class)">DataSource</a></span>, <span class='object_link'><a href="Nanoc/DependencyTracker.html" title="Nanoc::DependencyTracker (class)">DependencyTracker</a></span>, <span class='object_link'><a href="Nanoc/DirectedGraph.html" title="Nanoc::DirectedGraph (class)">DirectedGraph</a></span>, <span class='object_link'><a href="Nanoc/Filter.html" title="Nanoc::Filter (class)">Filter</a></span>, <span class='object_link'><a href="Nanoc/Item.html" title="Nanoc::Item (class)">Item</a></span>, <span class='object_link'><a href="Nanoc/ItemArray.html" title="Nanoc::ItemArray (class)">ItemArray</a></span>, <span class='object_link'><a href="Nanoc/ItemRep.html" title="Nanoc::ItemRep (class)">ItemRep</a></span>, <span class='object_link'><a href="Nanoc/ItemRepProxy.html" title="Nanoc::ItemRepProxy (class)">ItemRepProxy</a></span>, <span class='object_link'><a href="Nanoc/ItemRepRecorderProxy.html" title="Nanoc::ItemRepRecorderProxy (class)">ItemRepRecorderProxy</a></span>, <span class='object_link'><a href="Nanoc/Layout.html" title="Nanoc::Layout (class)">Layout</a></span>, <span class='object_link'><a href="Nanoc/NotificationCenter.html" title="Nanoc::NotificationCenter (class)">NotificationCenter</a></span>, <span class='object_link'><a href="Nanoc/OutdatednessChecker.html" title="Nanoc::OutdatednessChecker (class)">OutdatednessChecker</a></span>, <span class='object_link'><a href="Nanoc/PluginRegistry.html" title="Nanoc::PluginRegistry (class)">PluginRegistry</a></span>, <span class='object_link'><a href="Nanoc/Rule.html" title="Nanoc::Rule (class)">Rule</a></span>, <span class='object_link'><a href="Nanoc/RuleContext.html" title="Nanoc::RuleContext (class)">RuleContext</a></span>, <span class='object_link'><a href="Nanoc/RuleMemoryCalculator.html" title="Nanoc::RuleMemoryCalculator (class)">RuleMemoryCalculator</a></span>, <span class='object_link'><a href="Nanoc/RuleMemoryStore.html" title="Nanoc::RuleMemoryStore (class)">RuleMemoryStore</a></span>, <span class='object_link'><a href="Nanoc/RulesCollection.html" title="Nanoc::RulesCollection (class)">RulesCollection</a></span>, <span class='object_link'><a href="Nanoc/Site.html" title="Nanoc::Site (class)">Site</a></span>, <span class='object_link'><a href="Nanoc/Store.html" title="Nanoc::Store (class)">Store</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Nanoc/ChecksumStore.html" title="Nanoc::ChecksumStore (class)">ChecksumStore</a></span>, <span class='object_link'><a href="Nanoc/Checksummer.html" title="Nanoc::Checksummer (class)">Checksummer</a></span>, <span class='object_link'><a href="Nanoc/CodeSnippet.html" title="Nanoc::CodeSnippet (class)">CodeSnippet</a></span>, <span class='object_link'><a href="Nanoc/CompiledContentCache.html" title="Nanoc::CompiledContentCache (class)">CompiledContentCache</a></span>, <span class='object_link'><a href="Nanoc/Compiler.html" title="Nanoc::Compiler (class)">Compiler</a></span>, <span class='object_link'><a href="Nanoc/CompilerDSL.html" title="Nanoc::CompilerDSL (class)">CompilerDSL</a></span>, <span class='object_link'><a href="Nanoc/Configuration.html" title="Nanoc::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Nanoc/Context.html" title="Nanoc::Context (class)">Context</a></span>, <span class='object_link'><a href="Nanoc/DataSource.html" title="Nanoc::DataSource (class)">DataSource</a></span>, <span class='object_link'><a href="Nanoc/DependencyTracker.html" title="Nanoc::DependencyTracker (class)">DependencyTracker</a></span>, <span class='object_link'><a href="Nanoc/DirectedGraph.html" title="Nanoc::DirectedGraph (class)">DirectedGraph</a></span>, <span class='object_link'><a href="Nanoc/Filter.html" title="Nanoc::Filter (class)">Filter</a></span>, <span class='object_link'><a href="Nanoc/Item.html" title="Nanoc::Item (class)">Item</a></span>, <span class='object_link'><a href="Nanoc/ItemArray.html" title="Nanoc::ItemArray (class)">ItemArray</a></span>, <span class='object_link'><a href="Nanoc/ItemRep.html" title="Nanoc::ItemRep (class)">ItemRep</a></span>, <span class='object_link'><a href="Nanoc/ItemRepProxy.html" title="Nanoc::ItemRepProxy (class)">ItemRepProxy</a></span>, <span class='object_link'><a href="Nanoc/ItemRepRecorderProxy.html" title="Nanoc::ItemRepRecorderProxy (class)">ItemRepRecorderProxy</a></span>, <span class='object_link'><a href="Nanoc/Layout.html" title="Nanoc::Layout (class)">Layout</a></span>, <span class='object_link'><a href="Nanoc/NotificationCenter.html" title="Nanoc::NotificationCenter (class)">NotificationCenter</a></span>, <span class='object_link'><a href="Nanoc/OutdatednessChecker.html" title="Nanoc::OutdatednessChecker (class)">OutdatednessChecker</a></span>, <span class='object_link'><a href="Nanoc/PluginRegistry.html" title="Nanoc::PluginRegistry (class)">PluginRegistry</a></span>, <span class='object_link'><a href="Nanoc/Rule.html" title="Nanoc::Rule (class)">Rule</a></span>, <span class='object_link'><a href="Nanoc/RuleContext.html" title="Nanoc::RuleContext (class)">RuleContext</a></span>, <span class='object_link'><a href="Nanoc/RuleMemoryCalculator.html" title="Nanoc::RuleMemoryCalculator (class)">RuleMemoryCalculator</a></span>, <span class='object_link'><a href="Nanoc/RuleMemoryStore.html" title="Nanoc::RuleMemoryStore (class)">RuleMemoryStore</a></span>, <span class='object_link'><a href="Nanoc/RulesCollection.html" title="Nanoc::RulesCollection (class)">RulesCollection</a></span>, <span class='object_link'><a href="Nanoc/Site.html" title="Nanoc::Site (class)">Site</a></span>, <span class='object_link'><a href="Nanoc/Store.html" title="Nanoc::Store (class)">Store</a></span>, <span class='object_link'><a href="Nanoc/TempFilenameFactory.html" title="Nanoc::TempFilenameFactory (class)">TempFilenameFactory</a></span>
     
   
 </p>
@@ -133,7 +133,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3.6.8</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3.7.5</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -249,15 +249,15 @@
       <pre class="lines">
 
 
+16
 17
-18
-19</pre>
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_on_windows?'>on_windows?</span>
-  <span class='op'>!</span><span class='op'>!</span><span class='lparen'>(</span><span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>windows|bccwin|cygwin|djgpp|mingw|mswin|wince</span><span class='regexp_end'>/i</span></span><span class='rparen'>)</span>
+  <span class='const'>RUBY_PLATFORM</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>windows|bccwin|cygwin|djgpp|mingw|mswin|wince</span><span class='regexp_end'>/i</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -308,23 +308,23 @@ and its environment (Ruby engine and version, Rubygems version if any).</p>
       <pre class="lines">
 
 
+6
 7
 8
 9
 10
 11
 12
-13
-14</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_version_information'>version_information</span>
   <span class='id identifier rubyid_gem_info'>gem_info</span> <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with RubyGems </span><span class='embexpr_beg'>#{</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>VERSION</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>without RubyGems</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_engine'>engine</span>   <span class='op'>=</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>RUBY_ENGINE</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'>RUBY_ENGINE</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ruby</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_res'>res</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nanoc </span><span class='embexpr_beg'>#{</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>VERSION</span><span class='embexpr_end'>}</span><span class='tstring_content'> © 2007-2013 Denis Defreyne.\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>nanoc </span><span class='embexpr_beg'>#{</span><span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>VERSION</span><span class='embexpr_end'>}</span><span class='tstring_content'> © 2007-2015 Denis Defreyne.\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_res'>res</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_engine'>engine</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_VERSION</span><span class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_RELEASE_DATE</span><span class='embexpr_end'>}</span><span class='tstring_content'>) on </span><span class='embexpr_beg'>#{</span><span class='const'>RUBY_PLATFORM</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gem_info'>gem_info</span><span class='embexpr_end'>}</span><span class='tstring_content'>.\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_res'>res</span>
 <span class='kw'>end</span></pre>

@@ -6,7 +6,7 @@
 <title>
   Module: Nanoc::ItemRep::Private
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -106,7 +106,7 @@
         <dt id="TMP_TEXT_ITEMS_DIR-constant" class="">TMP_TEXT_ITEMS_DIR =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tmp/text_items</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>text_items</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -437,12 +437,12 @@ available during the next operation.</p>
       <pre class="lines">
 
 
-67
-68
-69</pre>
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_assigns'>assigns</span>
   <span class='ivar'>@assigns</span>
@@ -508,12 +508,12 @@ otherwise</p>
       <pre class="lines">
 
 
-74
-75
-76</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compiled'>compiled</span>
   <span class='ivar'>@compiled</span>
@@ -575,12 +575,12 @@ values with the content.</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_content'>content</span>
   <span class='ivar'>@content</span>
@@ -642,12 +642,12 @@ values with the path.</p>
       <pre class="lines">
 
 
-90
-91
-92</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paths'>paths</span>
   <span class='ivar'>@paths</span>
@@ -711,12 +711,12 @@ values with the path.</p>
       <pre class="lines">
 
 
-83
-84
-85</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_raw_paths'>raw_paths</span>
   <span class='ivar'>@raw_paths</span>
@@ -786,12 +786,12 @@ requested snapshot (usually <code>:last</code>) will be copied from
       <pre class="lines">
 
 
-101
-102
-103</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_temporary_filenames'>temporary_filenames</span>
   <span class='ivar'>@temporary_filenames</span>
@@ -838,12 +838,12 @@ necessary when an unmet dependency is detected during compilation.</p>
       <pre class="lines">
 
 
-169
-170
-171</pre>
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 169</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_forget_progress'>forget_progress</span>
   <span class='id identifier rubyid_initialize_content'>initialize_content</span>
@@ -868,25 +868,15 @@ necessary when an unmet dependency is detected during compilation.</p>
       <pre class="lines">
 
 
-154
-155
-156
-157
-158
-159
-160
-161</pre>
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 154</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_temp_filename'>temp_filename</span>
-  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='const'>TMP_TEXT_ITEMS_DIR</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_tempfile'>tempfile</span> <span class='op'>=</span> <span class='const'>Tempfile</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='const'>TMP_TEXT_ITEMS_DIR</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_new_filename'>new_filename</span> <span class='op'>=</span> <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_path'>path</span>
-  <span class='id identifier rubyid_tempfile'>tempfile</span><span class='period'>.</span><span class='id identifier rubyid_close!'>close!</span>
-
-  <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_new_filename'>new_filename</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>TempFilenameFactory</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>TMP_TEXT_ITEMS_DIR</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -941,12 +931,12 @@ because this is an item rep. For layouts, this method returns
       <pre class="lines">
 
 
-180
-181
-182</pre>
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='symbol'>:item_rep</span>
@@ -1010,6 +1000,11 @@ generating diffs, for example.</p>
       <pre class="lines">
 
 
+116
+117
+118
+119
+120
 121
 122
 123
@@ -1034,19 +1029,14 @@ generating diffs, for example.</p>
 142
 143
 144
-145
-146
-147
-148
-149
-150</pre>
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/result_data/item_rep.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_snapshot'>snapshot</span> <span class='op'>=</span> <span class='symbol'>:last</span><span class='rparen'>)</span>
   <span class='comment'># Get raw path
-</span>  <span class='id identifier rubyid_raw_path'>raw_path</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='lparen'>(</span><span class='symbol'>:snapshot</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='rparen'>)</span>
+</span>  <span class='id identifier rubyid_raw_path'>raw_path</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_raw_path'>raw_path</span><span class='lparen'>(</span><span class='label'>snapshot:</span> <span class='id identifier rubyid_snapshot'>snapshot</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_raw_path'>raw_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='comment'># Create parent directory

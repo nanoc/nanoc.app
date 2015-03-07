@@ -6,7 +6,7 @@
 <title>
   Class: Nanoc::ItemRepProxy
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -185,29 +185,6 @@ to be given as literals instead of as references to <span class='object_link'><a
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_proxy%3F-instance_method" title="#is_proxy? (instance method)">- (true) <strong>is_proxy?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  <span class="private note title">private</span>
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#layout-instance_method" title="#layout (instance method)">- (void) <strong>layout</strong>(layout_identifier, extra_filter_args = {}) </a>
     
 
@@ -223,6 +200,31 @@ to be given as literals instead of as references to <span class='object_link'><a
 
   
     <span class="summary_desc"><div class='inline'><p>Lays out the item using the given layout.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#proxy%3F-instance_method" title="#proxy? (instance method)">- (true) <strong>proxy?</strong> </a>
+    
+
+    
+      (also: #is_proxy?)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns true because this item is already a proxy, and therefore doesn’t need to be wrapped anymore.</p>
 </div></span>
   
 </li>
@@ -296,13 +298,13 @@ necessary compilation-related functionality.</p>
       <pre class="lines">
 
 
+22
+23
 24
-25
-26
-27</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_item_rep'>item_rep</span><span class='comma'>,</span> <span class='id identifier rubyid_compiler'>compiler</span><span class='rparen'>)</span>
   <span class='ivar'>@item_rep</span> <span class='op'>=</span> <span class='id identifier rubyid_item_rep'>item_rep</span>
@@ -395,84 +397,17 @@ filter’s #run method</p>
       <pre class="lines">
 
 
+43
+44
 45
-46
-47
-48</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_set_assigns'>set_assigns</span>
   <span class='ivar'>@item_rep</span><span class='period'>.</span><span class='id identifier rubyid_filter'>filter</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="is_proxy?-instance_method">
-  
-    - (<tt>true</tt>) <strong>is_proxy?</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p class="note private">
-  <strong>This method is part of a private API.</strong>
-  You should avoid using this method if possible, as it may be removed or be changed in the future.
-</p>
-<p>Returns true because this item is already a proxy, and therefore doesn’t
-need to be wrapped anymore.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>true</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-  <p class="tag_title">See Also:</p>
-  <ul class="see">
-    
-      <li><span class='object_link'><a href="ItemRep.html#is_proxy%3F-instance_method" title="Nanoc::ItemRep#is_proxy? (method)">Nanoc::ItemRep#is_proxy?</a></span></li>
-    
-      <li><span class='object_link'><a href="ItemRepRecorderProxy.html#is_proxy%3F-instance_method" title="Nanoc::ItemRepRecorderProxy#is_proxy? (method)">Nanoc::ItemRepRecorderProxy#is_proxy?</a></span></li>
-    
-  </ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-81
-82
-83</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 81</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_is_proxy?'>is_proxy?</span>
-  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -535,18 +470,18 @@ snapshot.</p>
       <pre class="lines">
 
 
+60
+61
 62
 63
 64
 65
 66
 67
-68
-69
-70</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout_identifier'>layout_identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_set_assigns'>set_assigns</span>
@@ -556,6 +491,77 @@ snapshot.</p>
   <span class='id identifier rubyid_filter_args'>filter_args</span> <span class='op'>=</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_extra_filter_args'>extra_filter_args</span><span class='rparen'>)</span>
 
   <span class='ivar'>@item_rep</span><span class='period'>.</span><span class='id identifier rubyid_layout'>layout</span><span class='lparen'>(</span><span class='id identifier rubyid_layout'>layout</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_args'>filter_args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="proxy?-instance_method">
+  
+    - (<tt>true</tt>) <strong>proxy?</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='is_proxy?-instance_method'>is_proxy?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns true because this item is already a proxy, and therefore doesn’t
+need to be wrapped anymore.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>true</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="ItemRep.html#proxy%3F-instance_method" title="Nanoc::ItemRep#proxy? (method)">Nanoc::ItemRep#proxy?</a></span></li>
+    
+      <li><span class='object_link'><a href="ItemRepRecorderProxy.html#proxy%3F-instance_method" title="Nanoc::ItemRepRecorderProxy#proxy? (method)">Nanoc::ItemRepRecorderProxy#proxy?</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/compilation/item_rep_proxy.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_proxy?'>proxy?</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
