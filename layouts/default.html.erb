@@ -5,7 +5,7 @@
         <title><%= @item[:full_title] || 'nanoc &raquo; ' + (content_for(@item, :title) || @item[:title]) %></title>
         <link href="<%= @items['/assets/style/screen/'].path %>" media="screen" rel="stylesheet">
         <link href="<%= @items['/assets/style/print/'].path %>"  media="print" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width">
     </head>
     <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
