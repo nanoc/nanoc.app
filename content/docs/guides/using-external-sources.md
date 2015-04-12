@@ -52,9 +52,11 @@ Create a sample database with sample data:
 	  photo_url: 'http://employees.test/photos/1.png'
 	)
 
-Create the file <span class="filename">lib/data_sources/employee_db</span> and put in the following:
+Create the file <span class="filename">lib/data_sources/employee_db.rb</span> and put in the following:
 
 	#!ruby
+	require 'sequel'
+
 	class HRDataSource < ::Nanoc::DataSource
 	end
 
@@ -145,4 +147,9 @@ Now it’s time to create the employee directory page. Create the file <span cla
 	  </tbody>
 	</table>
 
-Compile, and you will see the employee directory!
+Finally you have to stop nanoc from rendering pages from your employee data, so add this at the top of your <span class="filename">Rules</span> file:
+
+	#!ruby
+	ignore '/external/*'
+
+Now compile, and you will see the employee directory!
