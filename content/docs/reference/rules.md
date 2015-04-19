@@ -27,6 +27,8 @@ The code block should return the routed path for the relevant item. The code blo
 
 In the code block, you have access to `@rep`, which is the item representation that is currently being processed, and `@item`, which is an alias for `@rep.item`.
 
+When using a regular expression to match items, the block arguments will contain all matched groups.
+
 **Example #1**: The following rule will give the item with identifier `/404/` the path `/errors/404.php`:
 
 <pre title="Routing the “/404/” item to “/errors/404.php”"><code class="language-ruby">route "/404/" do
@@ -49,6 +51,12 @@ end</code></pre>
 
 <pre title="Routing sub-items of “/people/” to a “.txt” file"><code class="language-ruby">route "/people/*/", :rep => :text do
   item.identifier.chop + ".txt"
+end</code></pre>
+
+**Example #5**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier `/blog/2015-05-19-something/` will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
+
+<pre title="Routing items using regex matches"><code class="language-ruby">route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)] do |y, m, d, slug|
+  "/blog/#{y}/#{m}/#{slug}/index.html"
 end</code></pre>
 
 ## Compilation rules
