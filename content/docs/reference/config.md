@@ -6,7 +6,7 @@ is_dynamic: true
 ## `text_extensions`
 
 A list of file extensions that nanoc will consider to be textual rather than
-binary. If an item with an extension not in this list is found,  the file
+binary. If an item with an extension not in this list is found, the file
 will be considered as binary.
 
 	#!yaml
@@ -64,6 +64,13 @@ your output directory, you should probably exclude VCS directories such as
 	#!yaml
 	prune:
 	  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+
+## `commands_dirs`
+
+Directories to read commands from. This is useful when you have a set of commands that you want to share between sites.
+
+	#!yaml
+	commands_dirs: [ '../shared-commands' ]
 
 ## `data_sources`
 
