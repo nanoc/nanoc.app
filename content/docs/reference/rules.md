@@ -78,63 +78,15 @@ A compilation rule looks like this:
       # (compilation code here)
     end
 
-The argument for the `#compile` command is exactly the same as the argument
-for `#route`; see above for details.
+The argument for the [`#compile`](/docs/api/Nanoc/CompilerDSL.html#compile-instance_method)  is exactly the same as the argument for `#route`; see the [routing rules](#routing-rules) section above for details.
 
-Just like with routing rules, a `:rep` argument can be passed to the
-`#compile` call. This indicates the name of the representation this rule
-should apply to. This is `:default` by default, which means compilation
-rules apply to the default representation unless specified otherwise.
+The code block should execute the necessary actions for compiling the item. The return value of the block is ignored. There are three kinds actions that can be performed:
 
-The code block should execute the necessary actions for compiling the item. It
-does not have to return anything.
+* **filter** items, transforming their content
+* **layout** items, placing their content inside a layout
+* **snapshot** items, remembering their content at that point in time for reuse
 
-In the code block, you have access to `@rep`, which is the item representation
-that is currently being processed, and `@item`, which is an alias for
-`@rep.item`.
-
-A compilation action can either be a filter action, a layout action, or a
-snapshot action.
-
-To filter an item representation, call `#filter` pass the name of the filter as argument, along with any other filter arguments. For example, the following will call the `:erb` filter on the current item representation:
-
-    #!ruby
-    filter :erb
-
-Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another. For example, the following invokes the `:haml` filter with an additional parameter:
-
-    #!ruby
-    filter :haml, :format => :html5
-
-To lay out an item representation, call `#layout` and pass the layout identifier as argument. For example, the following will lay out the item representation using the `/default/` layout:
-
-    #!ruby
-    layout 'default'
-
-You can run multiple filters and layouts sequentially, like this:
-
-    #!ruby
-    filter :erb
-    filter :kramdown
-    layout 'default'
-    filter :rubypants
-
-To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument. For example, the following will create a `:foo` snapshot of the item representation that can later be referred to:
-
-    #!ruby
-    snapshot :foo
-
-You’ll usually call `#filter`, `#layout` and `#snapshot` without explicit receiver, but you can also call them on the `@rep` object if you want. The following actions are equivalent:
-
-    #!ruby
-    filter :erb
-    @rep.filter :erb
-
-    layout 'default'
-    @rep.layout 'default'
-
-    snapshot :foo
-    @rep.snapshot :foo
+The code block does not need to execute anything. An empy `#compile` block will not execute anything.
 
 **Example #1**: The following rule will not perform any actions, i.e. the item
 will not be filtered nor laid out:
@@ -143,15 +95,29 @@ will not be filtered nor laid out:
     compile '/sample/one/' do
     end
 
-**Example #2**: The following rule will filter the rep using the `erb` filter,
-but not lay out the rep:
+To filter an item representation, call `#filter` pass the name of the filter as the first argument.
+
+**Example #2**: The following rule will filter the item using the `erb` filter,
+but not perform any layouting:
 
     #!ruby
     compile '/samples/two/' do
       filter :erb
     end
 
-**Example #3**: The following rule will filter the rep using the `erb` filter,
+Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another.
+
+**Example #3**: The following rule will filter the rep using the
+`relativize_paths` filter with the filter argument `type` equal to `css`:
+
+    #!ruby
+    compile '/assets/style/' do
+      filter :relativize_paths, :type => :css
+    end
+
+To lay out an item representation, call `#layout` and pass the layout identifier as argument.
+
+**Example #4**: The following rule will filter the rep using the `erb` filter,
 lay out the rep using the `shiny` layout, and finally run the laid out rep
 through the `rubypants` filter:
 
@@ -162,33 +128,21 @@ through the `rubypants` filter:
       filter :rubypants
     end
 
-**Example #4**: The following rule will filter the rep using the
-`relativize_paths` filter with the filter argument `type` equal to `css`:
-
-    #!ruby
-    compile '/assets/style/' do
-      filter :relativize_paths, :type => :css
-    end
+In the code block, you have access to `rep` (also `@rep`), which is the item representation that is currently being processed, and `item` (or `@item`), which is an alias for `@rep.item`. These variables can be used as an explicit receiver for the actions, although this is usually not done.
 
 **Example #5**: The following rule will filter the rep and layout it by
 invoking `#filter` or `#layout` with an explicit receiver (with and without @ sign):
 
     #!ruby
     compile '/samples/three/' do
-      @rep.filter :erb
-      @rep.layout '/shiny/'
-      @rep.filter :rubypants
+      @rep.filter :erb         # equivalent to filter :erb
+      @rep.layout '/shiny/'    # equivalent to layout '/shiny/'
+      @rep.filter :rubypants   # equivalent to filter :rubypants
     end
 
-**Example #6**: The following rule will apply to all items below `/people/`,
-and only to textual representations (with name equal to `text`):
+To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument.
 
-    #!ruby
-    compile '/people/*', :rep => :text do
-      # don't filter or layout
-    end
-
-**Example #7**: The following rule will create a snapshot named `without_toc`
+**Example #6**: The following rule will create a snapshot named `without_toc`
 so that the content at that snapshot can then later be reused elsewhere:
 
     #!ruby
@@ -198,10 +152,19 @@ so that the content at that snapshot can then later be reused elsewhere:
       filter   :add_toc
     end
 
-**Example #8**: The following rule will be matched using a regular expression
-instead of with a string. It uses the `%r<>` syntax to define a regular
-expression, which avoids escaping slashes, but you could use `//` as well (with
-escaping):
+Just like with routing rules, a `:rep` argument can be passed to the `#compile` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means compilation rules apply to the default representation unless specified otherwise.
+
+**Example #7**: The following rule will apply to all items below `/people/`,
+and only to textual representations (with name equal to `text`):
+
+    #!ruby
+    compile '/people/*', :rep => :text do
+      # don't filter or layout
+    end
+
+When using a regular expression to match items, the block arguments will contain all matched groups. This is more useful for routing rules than it is for compilation rules.
+
+**Example #8**: The following rule will be matched using a regular expression instead of with a wildcard string:
 
     #!ruby
     compile %r</blog/\d{4}/.*/> do
