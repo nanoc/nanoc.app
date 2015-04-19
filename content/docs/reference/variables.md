@@ -32,7 +32,7 @@ At several points in the compilation process, the context contains several varia
 
 ## Finding items by identifier
 
-The `@items` array supports finding items by identifier by passing the identifier to the `#[]` method. For example,  will return the item with identifier `'/blah/'`:
+The `@items` array supports finding items by identifier by passing the identifier to the `#[]` method. For example, this will return the item with identifier `'/blah/'`:
 
 	#!ruby
 	@items['/blah/']
@@ -43,6 +43,11 @@ This is functionally identical to the following:
 	@items.find { |i| i.identifier == '/blah/' }
 
 The former is not only a lot shorter, but also significantly faster.
+
+Additionally, you can pass a regular expression to the `#[]` method, which will find items with identifiers matching that regex. For example, this will return items that are articles written in 2014:
+
+	#!ruby
+	@items[%r{\A/articles/2014/.*}]
 
 ## Common methods
 
