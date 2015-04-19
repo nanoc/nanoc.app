@@ -15,49 +15,59 @@ Each item has exactly one compilation rule and one routing rule. Similarly, each
 
 A routing rule looks like this:
 
-<pre title="An example (incomplete) routing rule"><code class="language-ruby">route '/foo/' do
-  # (routing code here)
-end</code></pre>
+    #!ruby
+    route '/foo/' do
+      # (routing code here)
+    end
 
-The argument for the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) method is the identifier of the item that should be compiled. It can also be a string that contains the `*` wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
+The argument for the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) method can be three things:
 
-A `:rep` argument can be passed to the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
+* the identifier of the item to match
+* a string that contains the `*` wildcard, which matches zero or more characters, to match against the item identifier
+* a regular expression to match against the item identifier
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
-In the code block, you have access to `@rep`, which is the item representation that is currently being processed, and `@item`, which is an alias for `@rep.item`.
+**Example #1**: The following rule will give the item with identifier `/404/` the path `/errors/404.php`:
+
+    #!ruby
+    route "/404/" do
+      "/errors/404.php"
+    end
+
+**Example #2**: The following rule will prevent all items with identifiers starting with `/links/`, including the `/links/` item itself, from being written (the items will still be compiled so that they can be included in other items, however):
+
+    #!ruby
+    route "/links/*/" do
+      nil
+    end
+
+In the code block, you have access to `rep` (also `@rep`), which is the item representation that is currently being processed, and `item` (or `@item`), which is an alias for `@rep.item`.
+
+**Example #3**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item `/foo/bar/` would get the path `/foo/bar/index.html`):
+
+    #!ruby
+    route "*" do
+      rep.item.identifier + "index.html"
+    end
 
 When using a regular expression to match items, the block arguments will contain all matched groups.
 
-**Example #1**: The following rule will give the item with identifier `/404/` the path `/errors/404.php`:
+**Example #4**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier `/blog/2015-05-19-something/` will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
 
-<pre title="Routing the “/404/” item to “/errors/404.php”"><code class="language-ruby">route "/404/" do
-  "/errors/404.php"
-end</code></pre>
+    #!ruby
+    route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)] do |y, m, d, slug|
+      "/blog/#{y}/#{m}/#{slug}/index.html"
+    end
 
-**Example #2**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item `/foo/bar/` would get the path `/foo/bar/index.html`):
+A `:rep` argument can be passed to the [`#route`](/docs/api/Nanoc/CompilerDSL.html#route-instance_method) call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
 
-<pre title="Routing using a fallback routing rule"><code class="language-ruby">route "*" do
-  rep.item.identifier + "index.html"
-end</code></pre>
+**Example #5**: The following rule will apply to all items below `/people/`, but not the `/people/` item itself, and only to textual representations (with name equal to `:text`):
 
-**Example #3**: The following rule will prevent all items with identifiers starting with `/links/`, including the `/links/` item itself, from being written (the items will still be compiled so that they can be included in other items, however):
-
-<pre title="Preventing the “/links/” item and its sub-items from being written"><code class="language-ruby">route "/links/*" do
-  nil
-end</code></pre>
-
-**Example #4**: The following rule will apply to all items below `/people/`, but not the `/people/` item itself, and only to textual representations (with name equal to `:text`):
-
-<pre title="Routing sub-items of “/people/” to a “.txt” file"><code class="language-ruby">route "/people/*/", :rep => :text do
-  item.identifier.chop + ".txt"
-end</code></pre>
-
-**Example #5**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier `/blog/2015-05-19-something/` will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
-
-<pre title="Routing items using regex matches"><code class="language-ruby">route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)] do |y, m, d, slug|
-  "/blog/#{y}/#{m}/#{slug}/index.html"
-end</code></pre>
+    #!ruby
+    route "/people/*/", :rep => :text do
+      item.identifier.chop + ".txt"
+    end
 
 ## Compilation rules
 
