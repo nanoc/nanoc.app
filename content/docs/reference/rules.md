@@ -73,9 +73,10 @@ A `:rep` argument can be passed to the [`#route`](/docs/api/Nanoc/CompilerDSL.ht
 
 A compilation rule looks like this:
 
-<pre title="An example (incomplete) compilation rule"><code class="language-ruby">compile "/foo/" do
-  # (compilation code here)
-end</code></pre>
+    #!ruby
+    compile "/foo/" do
+      # (compilation code here)
+    end
 
 The argument for the `#compile` command is exactly the same as the argument
 for `#route`; see above for details.
@@ -97,123 +98,115 @@ snapshot action.
 
 To filter an item representation, call `#filter` pass the name of the filter as argument, along with any other filter arguments. For example, the following will call the `:erb` filter on the current item representation:
 
-<pre title="Calling the “erb” filter"><code class="language-ruby">
-filter :erb</code></pre>
+    #!ruby
+    filter :erb
 
 Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another. For example, the following invokes the `:haml` filter with an additional parameter:
 
-<pre title="Calling the “haml” filter with extra arguments"><code class="language-ruby">
-filter :haml, :format => :html5</code></pre>
+    #!ruby
+    filter :haml, :format => :html5
 
 To lay out an item representation, call `#layout` and pass the layout identifier as argument. For example, the following will lay out the item representation using the `/default/` layout:
 
-<pre title="Laying out the item with the “default” layout"><code class="language-ruby">
-layout 'default'</code></pre>
+    #!ruby
+    layout 'default'
 
 You can run multiple filters and layouts sequentially, like this:
 
-<pre title="Calling multiple filters"><code class="language-ruby">
-filter :erb
-filter :kramdown
-layout 'default'
-filter :rubypants</code></pre>
+    #!ruby
+    filter :erb
+    filter :kramdown
+    layout 'default'
+    filter :rubypants
 
 To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument. For example, the following will create a `:foo` snapshot of the item representation that can later be referred to:
 
-<pre title="Creating a snapshot named “foo” of the current compiled content"><code class="language-ruby">
-snapshot :foo</code></pre>
+    #!ruby
+    snapshot :foo
 
 You’ll usually call `#filter`, `#layout` and `#snapshot` without explicit receiver, but you can also call them on the `@rep` object if you want. The following actions are equivalent:
 
-<pre title="Some examples of equivalent calls (with and without explicit receiver)"><code class="language-ruby">
-filter :erb
-@rep.filter :erb
+    #!ruby
+    filter :erb
+    @rep.filter :erb
 
-layout 'default'
-@rep.layout 'default'
+    layout 'default'
+    @rep.layout 'default'
 
-snapshot :foo
-@rep.snapshot :foo</code></pre>
+    snapshot :foo
+    @rep.snapshot :foo
 
 **Example #1**: The following rule will not perform any actions, i.e. the item
 will not be filtered nor laid out:
 
-<pre><code class="language-ruby">
-compile '/sample/one/' do
-end
-</code></pre>
+    #!ruby
+    compile '/sample/one/' do
+    end
 
 **Example #2**: The following rule will filter the rep using the `erb` filter,
 but not lay out the rep:
 
-<pre><code class="language-ruby">
-compile '/samples/two/' do
-  filter :erb
-end
-</code></pre>
+    #!ruby
+    compile '/samples/two/' do
+      filter :erb
+    end
 
 **Example #3**: The following rule will filter the rep using the `erb` filter,
 lay out the rep using the `shiny` layout, and finally run the laid out rep
 through the `rubypants` filter:
 
-<pre><code class="language-ruby">
-compile '/samples/three/' do
-  filter :erb
-  layout '/shiny/'
-  filter :rubypants
-end
-</code></pre>
+    #!ruby
+    compile '/samples/three/' do
+      filter :erb
+      layout '/shiny/'
+      filter :rubypants
+    end
 
 **Example #4**: The following rule will filter the rep using the
 `relativize_paths` filter with the filter argument `type` equal to `css`:
 
-<pre><code class="language-ruby">
-compile '/assets/style/' do
-  filter :relativize_paths, :type => :css
-end
-</code></pre>
+    #!ruby
+    compile '/assets/style/' do
+      filter :relativize_paths, :type => :css
+    end
 
 **Example #5**: The following rule will filter the rep and layout it by
 invoking `#filter` or `#layout` with an explicit receiver (with and without @ sign):
 
-<pre><code class="language-ruby">
-compile '/samples/three/' do
-  @rep.filter :erb
-  @rep.layout '/shiny/'
-  @rep.filter :rubypants
-end
-</code></pre>
+    #!ruby
+    compile '/samples/three/' do
+      @rep.filter :erb
+      @rep.layout '/shiny/'
+      @rep.filter :rubypants
+    end
 
 **Example #6**: The following rule will apply to all items below `/people/`,
 and only to textual representations (with name equal to `text`):
 
-<pre><code class="language-ruby">
-compile '/people/*', :rep => :text do
-  # don't filter or layout
-end
-</code></pre>
+    #!ruby
+    compile '/people/*', :rep => :text do
+      # don't filter or layout
+    end
 
 **Example #7**: The following rule will create a snapshot named `without_toc`
 so that the content at that snapshot can then later be reused elsewhere:
 
-<pre><code class="language-ruby">
-compile '/foo/' do
-  filter   :markdown
-  snapshot :without_toc
-  filter   :add_toc
-end
-</code></pre>
+    #!ruby
+    compile '/foo/' do
+      filter   :markdown
+      snapshot :without_toc
+      filter   :add_toc
+    end
 
 **Example #8**: The following rule will be matched using a regular expression
 instead of with a string. It uses the `%r<>` syntax to define a regular
 expression, which avoids escaping slashes, but you could use `//` as well (with
 escaping):
 
-<pre><code class="language-ruby">
-compile %r</blog/\d{4}/.*/> do
-  filter :kramdown
-end
-</code></pre>
+    #!ruby
+    compile %r</blog/\d{4}/.*/> do
+      filter :kramdown
+    end
 
 ## Layouting rules
 
@@ -231,17 +224,17 @@ will be passed on to the filter.
 **Example #1**: The following rule will make all layouts use the `:erb`
 filter:
 
-<pre><code class="language-ruby">
-layout '*', :erb</code></pre>
+    #!ruby
+    layout '*', :erb
 
 **Example #2**: The following rule will make the default layout use the `haml`
 filter and pass a filter argument:
 
-<pre><code class="language-ruby">
-layout '/default/', :haml, :format => :html5</code></pre>
+    #!ruby
+    layout '/default/', :haml, :format => :html5
 
 **Example #3**: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore, and ending with a slash. For example, “/foo/” and “/foo/_bar/” would not match, but “/_foo/”, “/_foo/bar/” and even “/_foo/_bar/” would:
 
-<pre><code class="language-ruby">
-layout %r{^/_.+/$}, :erb</code></pre>
+    #!ruby
+    layout %r{^/_.+/$}, :erb
 
