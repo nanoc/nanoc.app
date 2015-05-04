@@ -78,7 +78,7 @@ A compilation rule looks like this:
       # (compilation code here)
     end
 
-The argument for the [`#compile`](/docs/api/Nanoc/CompilerDSL.html#compile-instance_method)  is exactly the same as the argument for `#route`; see the [routing rules](#routing-rules) section above for details.
+The argument for the [`#compile`](/docs/api/Nanoc/CompilerDSL.html#compile-instance_method) is exactly the same as the argument for `#route`; see the [routing rules](#routing-rules) section above for details.
 
 The code block should execute the necessary actions for compiling the item. The return value of the block is ignored. There are three kinds actions that can be performed:
 
