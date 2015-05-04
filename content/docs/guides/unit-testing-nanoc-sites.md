@@ -5,7 +5,14 @@ title:    "Unit testing nanoc sites"
 The `check` command
 -------------------
 
-New in nanoc 3.5 is a <kbd>check</kbd> command that can be used to verify that the compiled site meets the requirements. Five checks are built-in to nanoc: `css`, `html`, `external_links` (or `elinks`), `internal_links` (or `ilinks`), and `stale` (the latter verifies whether no non-nanoc items are in the output directory).
+New in nanoc 3.5 is a <kbd>check</kbd> command that can be used to verify that the compiled site meets the requirements. Five checks are built-in to nanoc:
+
+* `css` verifies that the CSS is valid
+* `html` verifies that the HTML is valid
+* `external_links` (or `elinks`) verifies that external links are correct
+* `internal_links` (or `ilinks`) verifies that internal links are correct
+* `stale` verifies whether no non-nanoc items are in the output directory
+* `mixed_content` verifies that no content is included or linked to from a potentially insecure source
 
 A check can be run using <kbd>nanoc check <var>check-name</var></kbd>. For instance, the following will run the internal links check (`internal_links` or `ilinks`):
 
