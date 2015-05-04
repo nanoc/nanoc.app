@@ -222,7 +222,7 @@ route &#39;*&#39; do
 item.identifier.chop + &#39;.css&#39;
   elsif item.binary?
 # Write item with identifier /foo/ to /foo.ext
-item.identifier.chop + &#39;.&#39; + item[:extension]
+item.identifier.chop + (item[:extension] ? &#39;.&#39; + item[:extension] : &#39;&#39;)
   else
 # Write item with identifier /foo/ to /foo/index.html
 item.identifier + &#39;index.html&#39;</pre></dd>

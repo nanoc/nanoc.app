@@ -270,7 +270,7 @@ language is not overridden.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Runs the content through <a href="http://pygments.org/docs/cmdline/">pygmentize</a>, the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the content through <a href="http://pygments.org/docs/cmdline/">pygmentize</a>, the command-line frontend for <a href="http://pygments.org/">Pygments</a>.</p>
 </div></span>
   
 </li>
@@ -848,7 +848,7 @@ false if it is a fragment</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Runs the content through <a href="http://pygments.org/docs/cmdline/">pygmentize</a>,
-the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
+the command-line frontend for <a href="http://pygments.org/">Pygments</a>.</p>
 
 
   </div>
@@ -979,7 +979,7 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
   <span class='id identifier rubyid_check_availability'>check_availability</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pygmentize</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-V</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:encoding</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:nowrap</span><span class='rbracket'>]</span>   <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>True</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:nowrap</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>True</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pygmentize</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-l</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_language'>language</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-f</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>html</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-O</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_k'>k</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_v'>v</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -1099,7 +1099,7 @@ the commandline frontend for <a href="http://pygments.org/">Pygments</a>.</p>
   <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:lexer</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_language'>language</span>
   <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:encoding</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>utf-8</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:nowrap</span><span class='rbracket'>]</span>   <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>True</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='symbol'>:options</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:nowrap</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>True</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='const'>Pygments</span><span class='period'>.</span><span class='id identifier rubyid_highlight'>highlight</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1328,7 +1328,7 @@ invoked with a <code>:coderay =&gt; coderay_options_hash</code> option, the
 <ul>
   <li><code>:coderay</code> for <a href="http://coderay.rubychan.de/">Coderay</a></li>
   <li><code>:pygmentize</code> for <a href="http://pygments.org/docs/cmdline/">pygmentize</a>, the
-commandline frontend for <a href="http://pygments.org/">Pygments</a></li>
+command-line frontend for <a href="http://pygments.org/">Pygments</a></li>
   <li><code>:pygmentsrb</code> for <a href="https://github.com/tmm1/pygments.rb">pygments.rb</a>,
 a Ruby interface for <a href="http://pygments.org/">Pygments</a></li>
   <li><code>:simon_highlight</code> for <a href="http://www.andre-simon.de/doku/highlight/en/highlight.html">Highlight</a></li>

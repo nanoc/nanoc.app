@@ -196,7 +196,9 @@
 15
 16
 17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/nanoc/filters/sass/sass_filesystem_importer.rb', line 6</span>
@@ -208,8 +210,10 @@
 
   <span class='comment'># Create dependency
 </span>  <span class='id identifier rubyid_filter'>filter</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:nanoc_current_filter</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_item'>item</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_imported_filename_to_item'>imported_filename_to_item</span><span class='lparen'>(</span><span class='id identifier rubyid_full_filename'>full_filename</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_depend_on'>depend_on</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_filter'>filter</span>
+    <span class='id identifier rubyid_item'>item</span> <span class='op'>=</span> <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_imported_filename_to_item'>imported_filename_to_item</span><span class='lparen'>(</span><span class='id identifier rubyid_full_filename'>full_filename</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_depend_on'>depend_on</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># Call original _find
 </span>  <span class='id identifier rubyid__orig_find'>_orig_find</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
