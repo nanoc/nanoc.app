@@ -13,7 +13,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.19)
-    cri (2.6.1)
+    cri (2.7.0)
       colored (~> 1.2)
     ffi (1.9.8)
     formatador (0.2.5)
@@ -37,7 +37,7 @@ GEM
       htmlentities (>= 4.1.0)
       nokogiri (>= 1.5.0)
     htmlentities (4.3.3)
-    kramdown (1.6.0)
+    kramdown (1.7.0)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -45,7 +45,7 @@ GEM
     lumberjack (1.0.9)
     method_source (0.8.2)
     mini_portile (0.6.2)
-    nanoc (3.7.5)
+    nanoc (3.8.0)
       cri (~> 2.3)
     nanoc-typohero (1.0.0)
       nanoc (>= 3.6.7, < 4.0.0)
@@ -78,7 +78,7 @@ GEM
     tilt (2.0.1)
     timers (4.0.1)
       hitimes
-    typohero (0.0.4)
+    typohero (0.0.5)
     yard (0.8.7.6)
 
 PLATFORMS
