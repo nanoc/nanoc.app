@@ -33,7 +33,7 @@ class NavLinker
       html_classes << 'home'
     end
 
-    if @item == item || (item.identifier != '/' && @item.identifier.start_with?(item.identifier))
+    if @item == item || (item.identifier != '/' && @item.identifier.to_s.start_with?(item.identifier))
       html_classes << 'active'
     end
 

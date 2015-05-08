@@ -38,7 +38,7 @@ module NanocSite
           options[t.pair.name] = t.pair.text
         end
 
-        items << Nanoc::Item.new(
+        items << new_item(
           '-',
           {
             :type        => 'filter',
@@ -59,7 +59,7 @@ module NanocSite
       YARD::Registry.at('Nanoc::Helpers').children.each do |helper|
         slug    = helper.name.to_s.downcase.gsub(/^a-z0-9/, '')
 
-        items << Nanoc::Item.new(
+        items << new_item(
           '-',
           {
             :type        => 'helper',

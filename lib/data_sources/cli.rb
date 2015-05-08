@@ -27,7 +27,7 @@ module NanocSite
         od.reject { |k,v| k == :block }
       end
 
-      Nanoc::Item.new(
+      new_item(
         '-',
         {
           :type               => 'command',

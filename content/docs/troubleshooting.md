@@ -83,7 +83,7 @@ What _is_ possible, is modifying content and attributes in the preprocess phase.
 
 	#!ruby
 	preprocess do
-	  items.select { |i| i.identifier.start_with?('/blog/') }.each do |i|
+	  items.select { |i| i.identifier.to_s.start_with?('/blog/') }.each do |i|
 	    i[:date] = Date.parse(i.identifier[/\d{4}-\d{2}-\d{2}/])
 	  end
 	end

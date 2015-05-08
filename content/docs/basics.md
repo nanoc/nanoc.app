@@ -107,7 +107,7 @@ To get the raw, uncompiled content of a (textual) item, use [`Nanoc::Item#raw_co
 The default list of text extensions is the following:
 
 <pre><code class="language-yaml">
-text_extensions: [ <%= Nanoc::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
+text_extensions: [ <%= Nanoc::Int::Site::DEFAULT_CONFIG[:text_extensions].map { |i| "'#{i}'" }.join(', ') %> ]
 </code></pre>
 
 To get the path of the compiled item, use [`Nanoc::Item#path`](/docs/api/Nanoc/Item.html#path-instance_method). This path is relative to the output directory; it starts with a slash which indicates the web root, i.e. the output directory. The index filenames are stripped off the end of the path. You can pass a `:rep` option to get the path of a specific representation. For example, the path of an item that is compiled to `output/foo/index.html` is `/foo/`.
