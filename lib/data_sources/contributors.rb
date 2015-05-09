@@ -7,8 +7,8 @@ module NanocSite
     identifier :contributors
 
     def items
-      spec = Gem::Specification.find_by_name("nanoc")
-      raw_content = File.read(File.join(spec.gem_dir, 'README.md'))
+      path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
+      raw_content = File.read(File.join(path, 'README.md'))
       content = raw_content.lines.to_a.last
 
       item = Nanoc::Item.new(

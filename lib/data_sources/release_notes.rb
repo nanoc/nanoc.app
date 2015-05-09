@@ -8,8 +8,8 @@ module NanocSite
 
     def items
       # content
-      spec = Gem::Specification.find_by_name("nanoc")
-      raw_content = File.read(File.join(spec.gem_dir, 'NEWS.md'))
+      path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
+      raw_content = File.read(File.join(path, 'NEWS.md'))
       content = raw_content.sub(/^#.*$/, '') # remove h1
 
       # attributes
