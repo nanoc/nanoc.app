@@ -24,7 +24,7 @@ module NanocSite
         mtime      = File.mtime(filename)
         checksum   = checksum_for(filename)
 
-        Nanoc::Item.new(
+        new_item(
           filename,
           attributes,
           identifier,

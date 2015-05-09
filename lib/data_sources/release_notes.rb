@@ -19,7 +19,7 @@ module NanocSite
         extension: 'md',
       }
 
-      item = Nanoc::Item.new(content, attributes, '/release-notes/')
+      item = new_item(content, attributes, '/release-notes/')
 
       [ item ]
     end

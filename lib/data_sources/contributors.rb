@@ -11,7 +11,7 @@ module NanocSite
       raw_content = File.read(File.join(path, 'README.md'))
       content = raw_content.lines.to_a.last
 
-      item = Nanoc::Item.new(
+      item = new_item(
         content,
         { is_partial: true },
         '/contributing/contributors/'

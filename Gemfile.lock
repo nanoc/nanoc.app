@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/nanoc/nanoc.git
+  revision: 4620195cc31b786c94fe9912fd69a2ae300bb971
+  specs:
+    nanoc (4.0.0a1)
+      cri (~> 2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,9 +34,9 @@ GEM
       pry (>= 0.9.12)
       shellany (~> 0.0)
       thor (>= 0.18.1)
-    guard-nanoc (1.0.3)
-      guard (~> 2.8)
-      nanoc (~> 3.6)
+    guard-nanoc (1.0.2)
+      guard (>= 1.8.0)
+      nanoc (>= 3.6.3)
     haml (4.0.6)
       tilt
     hitimes (1.2.2)
@@ -45,8 +52,6 @@ GEM
     lumberjack (1.0.9)
     method_source (0.8.2)
     mini_portile (0.6.2)
-    nanoc (3.8.0)
-      cri (~> 2.3)
     nanoc-typohero (1.0.0)
       nanoc (>= 3.6.7, < 4.0.0)
       typohero (>= 0.0.4, < 1.0.0)
@@ -60,7 +65,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.6.0)
+    rack (1.6.1)
     rainpress (1.0)
     rake (10.4.2)
     rb-fsevent (0.9.4)
@@ -94,7 +99,7 @@ DEPENDENCIES
   haml
   html5small
   kramdown
-  nanoc
+  nanoc!
   nanoc-typohero
   nokogiri
   rainpress
