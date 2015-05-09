@@ -7,6 +7,18 @@ This document lists all backwards-incompatible changes made to nanoc 4.0, and co
 
 NOTE: The content of this document is volatile, as nanoc 4.0 is still a work in progress. Nothing described in this document is final. This document is also not guaranteed to be complete yet. If you believe something is missing, please do <a href="https://github.com/nanoc/nanoc.ws/issues/new">open a nanoc.ws issue</a>.
 
+## What to expect
+
+nanoc 4.0 does not have any new features. Features and optimisations are planned for 4.1 and beyond.
+
+The nanoc 3.x branch has remained entirely backwards-compatible (because nanoc sticks to [Semantic Versioning](http://semver.org/)). This is great, because it allows you to upgrade without being concerned with potential breakage.
+
+Unforutnately, in the six years since its initial release, nanoc 3 has accumulated a lot of cruft. This has made continued development increasingly difficult, and it is the main reason why some long-standing concerns have not been tackled yet.
+
+nanoc 4.0 breaks away from the backwards compatibility constraints, and provides an API that does not expose any internals (unlike nanoc 3.x’ API), giving us the necessary freedom to make some radical changes.
+
+The good news is that nanoc 4.0 is quite similar to 3.8. Upgrading a nanoc 3.x site to nanoc 4.0 will likely only take minutes, and some sites might not need any changes at all.
+
 ## Upgrade checklist
 
 * If you use nanoc with a Gemfile, ensure you call nanoc as <kbd>bundle exec nanoc</kbd>. nanoc longer attempts to load the Gemfile.
