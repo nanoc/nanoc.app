@@ -10,7 +10,7 @@ module NanocSite
       require 'nokogiri'
 
       # Get release notes page
-      content = @items.find { |i| i.identifier == '/release-notes/' }.compiled_content
+      content = @items['/release-notes'].compiled_content
       doc = Nokogiri::HTML(content)
 
       # Find and parse usable h2

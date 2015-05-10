@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title><%= @item[:full_title] || 'nanoc &raquo; ' + (content_for(@item, :title) || @item[:title]) %></title>
-        <link href="<%= @items['/assets/style/screen/'].path %>" media="screen" rel="stylesheet">
-        <link href="<%= @items['/assets/style/print/'].path %>"  media="print" rel="stylesheet">
+        <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
+        <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width">
     </head>
@@ -13,12 +13,12 @@
             <div class="header-content">
                 <nav class="main">
                     <ol>
-                        <%= nav_link @items['/'] %>
-                        <%= nav_link @items['/about/'] %>
-                        <%= nav_link @items['/install/'] %>
-                        <%= nav_link @items['/docs/'] %>
-                        <%= nav_link @items['/community/'] %>
-                        <%= nav_link @items['/contributing/'] %>
+                        <%= nav_link @items['/index.*'] %>
+                        <%= nav_link @items['/about.*'] %>
+                        <%= nav_link @items['/install.*'] %>
+                        <%= nav_link @items['/docs.*'] %>
+                        <%= nav_link @items['/community.*'] %>
+                        <%= nav_link @items['/contributing.*'] %>
                     </ol>
                 </nav>
                 <%#
