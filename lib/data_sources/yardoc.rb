@@ -51,7 +51,7 @@ module NanocSite
             :options     => options,
             :is_partial  => true,
           },
-          "/filters/#{slug}")
+          Nanoc::Identifier.new("/filters/#{slug}", style: :full))
       end
     end
 
@@ -80,7 +80,7 @@ module NanocSite
             end,
             :is_partial  => true,
           },
-          "/helpers/#{slug}")
+          Nanoc::Identifier.new("/helpers/#{slug}", style: :full))
       end
     end
 

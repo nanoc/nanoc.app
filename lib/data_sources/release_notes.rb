@@ -19,7 +19,10 @@ module NanocSite
         extension: 'md',
       }
 
-      item = new_item(content, attributes, '/release-notes/')
+      # identifier
+      identifier = Nanoc::Identifier.new('/release-notes', style: :full)
+
+      item = new_item(content, attributes, identifier)
 
       [ item ]
     end
