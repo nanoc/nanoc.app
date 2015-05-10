@@ -9,7 +9,7 @@ NOTE: The content of this document is volatile, as nanoc 4.0 is still a work in 
 
 ## What to expect
 
-nanoc 4.0 does not have any new features. Features and optimisations are planned for 4.1 and beyond.
+nanoc 4.0’s focus is not on features. Features and optimisations are planned for 4.1 and beyond. The only new feature at this point is [glob patterns](#glob-patterns-in-rules).
 
 The nanoc 3.x branch has remained entirely backwards-compatible (because nanoc sticks to [Semantic Versioning](http://semver.org/)). This is great, because it allows you to upgrade without being concerned with potential breakage.
 
@@ -68,3 +68,31 @@ Because nanoc’s focus is now more clearly on compiling content rather than man
 - the `update` and `sync` commands
 - VCS integration (along with `Nanoc::Extra::VCS`)
 - the `DataSource#create_item` and `DataSource#create_layout`.
+
+## Glob patterns in Rules
+
+nanoc 4 supports using globs. Globs are more powerful than nanoc’s original pattern syntax, and they are also more commonplace, such as in Unix shells.
+
+To enable globs, set `pattern_syntax` to `"glob"` in the configuration. For example:
+
+```yaml
+pattern_syntax: "glob"
+```
+
+The three most useful wildcards are the following:
+
+`*`
+: Matches any file or directory name. Does not cross directory boundaries. For example, `/projects/*.md` matches `/projects/nanoc.md`, but not `/projects/cri.adoc` nor `/projects/nanoc/about.md`.
+
+`**`
+: Matches any file or directory name, and crosses directory boundaries. For example, `/projects/**/*.md` matches both `/projects/nanoc.md` and `/projects/nanoc/history.md`.
+
+`[abc]`
+: Matches any single character in the set. For example, `/people/[kt]im.md` matches only `/people/kim.md` and `/people/tim.md`.
+
+`{foo,bar}`
+: Matches either string in the comma-separated list. More than two strings are possible. For example, `/c{at,ub,ount}s.txt` matches `/cats.txt`, `/cubs.txt` and `/counts.txt`.
+
+nanoc 4 uses Ruby’s [`File.fnmatch` method](http://ruby-doc.org/core/File.html#method-c-fnmatch) with the `File::FNM_PATHNAME` and `File::FNM_EXTGLOB` options enabled. Please consult the [`File.fnmatch`](http://ruby-doc.org/core/File.html#method-c-fnmatch) documentation for other supported patterns, and more comprehensive documentation.
+
+Patterns based on regular expressions are still supported in nanoc 4, so you can still use e.g. `%r{\A/projects/(cri|nanoc)\.md\Z}` to match both `/projects/nanoc.md` and `/projects/cri.md`.
