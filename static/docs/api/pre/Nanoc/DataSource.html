@@ -281,7 +281,7 @@ reference count goes from 1 to 0, the data source will be unloaded
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#items-instance_method" title="#items (instance method)">- (Array&lt;Nanoc::Int::Item&gt;) <strong>items</strong> </a>
+      <a href="#items-instance_method" title="#items (instance method)">- (Enumerable) <strong>items</strong> </a>
     
 
     
@@ -295,7 +295,7 @@ reference count goes from 1 to 0, the data source will be unloaded
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the list of items (represented by <span class='object_link'>Int::Item</span>) in this site.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the collection of items (represented by <span class='object_link'>Int::Item</span>) in this site.</p>
 </div></span>
   
 </li>
@@ -304,7 +304,7 @@ reference count goes from 1 to 0, the data source will be unloaded
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#layouts-instance_method" title="#layouts (instance method)">- (Array&lt;Nanoc::Int::Layout&gt;) <strong>layouts</strong> </a>
+      <a href="#layouts-instance_method" title="#layouts (instance method)">- (Enumerable) <strong>layouts</strong> </a>
     
 
     
@@ -318,7 +318,7 @@ reference count goes from 1 to 0, the data source will be unloaded
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the list of layouts (represented by <span class='object_link'>Int::Layout</span>) in this site.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the collection of layouts (represented by <span class='object_link'>Int::Layout</span>) in this site.</p>
 </div></span>
   
 </li>
@@ -350,7 +350,7 @@ reference count goes from 1 to 0, the data source will be unloaded
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#new_item-instance_method" title="#new_item (instance method)">- (Object) <strong>new_item</strong>(content, attributes, identifier, params = {}) </a>
+      <a href="#new_item-instance_method" title="#new_item (instance method)">- (Object) <strong>new_item</strong>(raw_content_or_raw_filename, attributes, identifier, params = {}) </a>
     
 
     
@@ -364,7 +364,7 @@ reference count goes from 1 to 0, the data source will be unloaded
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Creates a new in-memory item instance.</p>
 </div></span>
   
 </li>
@@ -373,7 +373,7 @@ reference count goes from 1 to 0, the data source will be unloaded
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#new_layout-instance_method" title="#new_layout (instance method)">- (Object) <strong>new_layout</strong>(content, attributes, identifier) </a>
+      <a href="#new_layout-instance_method" title="#new_layout (instance method)">- (Object) <strong>new_layout</strong>(raw_content, attributes, identifier) </a>
     
 
     
@@ -387,7 +387,7 @@ reference count goes from 1 to 0, the data source will be unloaded
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Creates a new in-memory layout instance.</p>
 </div></span>
   
 </li>
@@ -833,7 +833,7 @@ default implementation simply does nothing.</p>
       <div class="method_details ">
   <h3 class="signature " id="items-instance_method">
   
-    - (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Nanoc::Int::Item</span>&gt;</tt>) <strong>items</strong> 
+    - (<tt>Enumerable</tt>) <strong>items</strong> 
   
 
   
@@ -841,8 +841,8 @@ default implementation simply does nothing.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the list of items (represented by <span class='object_link'>Int::Item</span>) in this site.
-The default implementation simply returns an empty array.</p>
+    <p>Returns the collection of items (represented by <span class='object_link'>Int::Item</span>) in
+this site. The default implementation simply returns an empty array.</p>
 
 <p>Subclasses should not prepend <code>items_root</code> to the item’s identifiers, as
 this will be done automatically.</p>
@@ -861,12 +861,12 @@ default implementation simply does nothing.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Nanoc::Int::Item</span>&gt;</tt>)</span>
+        <span class='type'>(<tt>Enumerable</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>A list of items</p>
+        <div class='inline'><p>The collection of items</p>
 </div>
       
     </li>
@@ -897,7 +897,7 @@ default implementation simply does nothing.</p>
       <div class="method_details ">
   <h3 class="signature " id="layouts-instance_method">
   
-    - (<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Nanoc::Int::Layout</span>&gt;</tt>) <strong>layouts</strong> 
+    - (<tt>Enumerable</tt>) <strong>layouts</strong> 
   
 
   
@@ -905,8 +905,8 @@ default implementation simply does nothing.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the list of layouts (represented by <span class='object_link'>Int::Layout</span>) in this
-site. The default implementation simply returns an empty array.</p>
+    <p>Returns the collection of layouts (represented by <span class='object_link'>Int::Layout</span>) in
+this site. The default implementation simply returns an empty array.</p>
 
 <p>Subclasses should prepend <code>layout_root</code> to the layout’s identifiers,
 since this is not done automatically.</p>
@@ -925,12 +925,12 @@ default implementation simply does nothing.</p>
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'>Array</span>&lt;<span class='object_link'>Nanoc::Int::Layout</span>&gt;</tt>)</span>
+        <span class='type'>(<tt>Enumerable</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>A list of layouts</p>
+        <div class='inline'><p>The collection of layouts</p>
 </div>
       
     </li>
@@ -1012,27 +1012,137 @@ while it is still being used elsewhere.</p>
       <div class="method_details ">
   <h3 class="signature " id="new_item-instance_method">
   
-    - (<tt>Object</tt>) <strong>new_item</strong>(content, attributes, identifier, params = {}) 
+    - (<tt>Object</tt>) <strong>new_item</strong>(raw_content_or_raw_filename, attributes, identifier, params = {}) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new in-memory item instance. This is intended for use within
+the <span class='object_link'><a href="#items-instance_method" title="Nanoc::DataSource#items (method)">#items</a></span> method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>raw_content_or_raw_filename</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The uncompiled item content
+(if it is a textual item) or the path to the filename containing the
+content (if it is a binary item).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>attributes</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing this item’s attributes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item’s identifier.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Extra parameters.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:binary</span>
+          <span class="type">(<tt>Symbol</tt>, <tt>nil</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>true</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this item is
+binary</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-145
-146
-147</pre>
+160
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 160</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_new_item'>new_item</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_new_item'>new_item</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content_or_raw_filename'>raw_content_or_raw_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content_or_raw_filename'>raw_content_or_raw_filename</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1042,27 +1152,87 @@ while it is still being used elsewhere.</p>
       <div class="method_details ">
   <h3 class="signature " id="new_layout-instance_method">
   
-    - (<tt>Object</tt>) <strong>new_layout</strong>(content, attributes, identifier) 
+    - (<tt>Object</tt>) <strong>new_layout</strong>(raw_content, attributes, identifier) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new in-memory layout instance. This is intended for use within
+the <span class='object_link'><a href="#layouts-instance_method" title="Nanoc::DataSource#layouts (method)">#layouts</a></span> method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>raw_content</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The raw content of this layout.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>attributes</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing this layout’s attributes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This layout’s identifier.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-149
-150
-151</pre>
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/source_data/data_source.rb', line 172</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_new_layout'>new_layout</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
-  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>Layout</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_new_layout'>new_layout</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
+  <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>Layout</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_raw_content'>raw_content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

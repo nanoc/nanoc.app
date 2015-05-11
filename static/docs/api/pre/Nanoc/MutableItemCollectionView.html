@@ -119,7 +119,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong>(content, attributes, identifier, params = {}) </a>
+      <a href="#create-instance_method" title="#create (instance method)">- (self) <strong>create</strong>(content, attributes, identifier, params = {}) </a>
     
 
     
@@ -133,7 +133,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Creates a new item and adds it to the site’s collection of items.</p>
 </div></span>
   
 </li>
@@ -142,7 +142,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_if-instance_method" title="#delete_if (instance method)">- (Object) <strong>delete_if</strong>(&amp;block) </a>
+      <a href="#delete_if-instance_method" title="#delete_if (instance method)">- (self) <strong>delete_if</strong> {|item| ... }</a>
     
 
     
@@ -156,7 +156,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
+    <span class="summary_desc"><div class='inline'><p>Deletes every item for which the block evaluates to true.</p>
 </div></span>
   
 </li>
@@ -175,7 +175,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ItemCollectionView.html" title="Nanoc::ItemCollectionView (class)">ItemCollectionView</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="ItemCollectionView.html#%5B%5D-instance_method" title="Nanoc::ItemCollectionView#[] (method)">#[]</a></span>, <span class='object_link'><a href="ItemCollectionView.html#at-instance_method" title="Nanoc::ItemCollectionView#at (method)">#at</a></span>, <span class='object_link'><a href="ItemCollectionView.html#each-instance_method" title="Nanoc::ItemCollectionView#each (method)">#each</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="ItemCollectionView.html#%5B%5D-instance_method" title="Nanoc::ItemCollectionView#[] (method)">#[]</a></span>, <span class='object_link'><a href="ItemCollectionView.html#at-instance_method" title="Nanoc::ItemCollectionView#at (method)">#at</a></span>, <span class='object_link'><a href="ItemCollectionView.html#each-instance_method" title="Nanoc::ItemCollectionView#each (method)">#each</a></span>, <span class='object_link'><a href="ItemCollectionView.html#size-instance_method" title="Nanoc::ItemCollectionView#size (method)">#size</a></span></p>
 
   
 
@@ -186,27 +186,151 @@
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    - (<tt>Object</tt>) <strong>create</strong>(content, attributes, identifier, params = {}) 
+    - (<tt>self</tt>) <strong>create</strong>(content, attributes, identifier, params = {}) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a new item and adds it to the site’s collection of items.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>content</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The uncompiled item content (if it is a textual
+item) or the path to the filename containing the content (if it is a
+binary item).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>attributes</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A hash containing this item’s attributes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identifier</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Identifier.html" title="Nanoc::Identifier (class)">Nanoc::Identifier</a></span></tt>, <tt><span class='object_link'>String</span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>This item’s identifier.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'>Hash</span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Extra parameters.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:binary</span>
+          <span class="type">(<tt>Symbol</tt>, <tt>nil</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>true</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Whether or not this item is
+binary</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/views/mutable_item_collection.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/views/mutable_item_collection.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span> <span class='op'>&lt;&lt;</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -216,27 +340,80 @@
       <div class="method_details ">
   <h3 class="signature " id="delete_if-instance_method">
   
-    - (<tt>Object</tt>) <strong>delete_if</strong>(&amp;block) 
+    - (<tt>self</tt>) <strong>delete_if</strong> {|item| ... }
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Deletes every item for which the block evaluates to true.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yield Parameters:</p>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='name'>item</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ItemView.html" title="Nanoc::ItemView (class)">Nanoc::ItemView</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Yield Returns:</p>
+<ul class="yieldreturn">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-14
-15
-16</pre>
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/base/views/mutable_item_collection.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/views/mutable_item_collection.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_if'>delete_if</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_delete_if'>delete_if</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>self</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

@@ -112,6 +112,11 @@
           
         </dt>
         <dd><pre class="code">&lt;&lt;EOS unless defined? DEFAULT_CONFIG
+# The syntax to use for patterns in the Rules file. Can be either `&quot;glob&quot;`
+# (default) or `null`. The former will enable glob patterns, which behave like
+# Ruby’s File.fnmatch. The latter will enable nanoc 3.x-style patterns.
+pattern_syntax: glob
+
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
 # will be considered as binary.
@@ -176,6 +181,8 @@ allow_periods_in_identifiers: false
 # UTF-8 (which they should be!), change this.
 encoding: utf-8
 
+identifier_style: full
+
 # Configuration for the “check” command, which run unit tests on the site.
 checks:
   # Configuration for the “internal_links” checker, which checks whether all
@@ -192,40 +199,16 @@ checks:
         <dd><pre class="code">&lt;&lt;EOS unless defined? DEFAULT_RULES
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
-compile &#39;*&#39; do
-  if item[:extension] == &#39;css&#39;
-# don’t filter stylesheets
-  elsif item.binary?
-# don’t filter binary items
-  else
+compile &#39;/**/*.html&#39; do
 filter :erb
-layout &#39;default&#39;
-  end
+layout &#39;/default.*&#39;
 end
 
-route &#39;*&#39; do
-  if item[:extension] == &#39;css&#39;
-# Write item with identifier /foo/ to /foo.css
-item.identifier.chop + &#39;.css&#39;
-  elsif item.binary?
-# Write item with identifier /foo/ to /foo.ext
-item.identifier.chop + (item[:extension] ? &#39;.&#39; + item[:extension] : &#39;&#39;)
-  else
-# Write item with identifier /foo/ to /foo/index.html
-item.identifier + &#39;index.html&#39;</pre></dd>
+compile &#39;/**/*&#39; do
+end
+
+route &#39;/**/*&#39; do
+item.identifier.to_s</pre></dd>
       
         <dt id="DEFAULT_ITEM-constant" class="">DEFAULT_ITEM =
           
@@ -354,7 +337,7 @@ font-size</pre></dd>
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
     &lt;title&gt;A Brand New nanoc Site - &lt;%= @item[:title] %&gt;&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= @items[&#39;/stylesheet/&#39;].path %&gt;&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%= @items[&#39;/stylesheet.*&#39;].path %&gt;&quot;&gt;
 
     &lt;!-- you don&#39;t need to keep this, but it&#39;s cool for stats! --&gt;
     &lt;meta name=&quot;generator&quot; content=&quot;nanoc &lt;%= Nanoc::VERSION %&gt;&quot;&gt;
@@ -447,6 +430,24 @@ font-size</pre></dd>
       <pre class="lines">
 
 
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
 290
 291
 292
@@ -496,28 +497,10 @@ font-size</pre></dd>
 336
 337
 338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357</pre>
+339</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/create-site.rb', line 290</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/create-site.rb', line 272</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span>
   <span class='comment'># Check arguments
