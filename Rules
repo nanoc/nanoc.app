@@ -42,7 +42,7 @@ compile '/assets/style/*' do
 end
 
 route '/assets/style/*' do
-  item.identifier.chop + '-v' + rep.item[:version].to_s + '.css'
+  item.identifier.with_ext('') + '-v' + rep.item[:version].to_s + '.css'
 end
 
 # other
@@ -76,7 +76,6 @@ compile '/**/*' do
   filter :admonition
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
-  # TODO: fix
   if item.identifier.to_s == '/release-notes'
     filter :link_github_issues
   end
@@ -92,6 +91,10 @@ compile '/**/*' do
   filter :html5small
 end
 
+route '/index.*' do
+  '/index.html'
+end
+
 route '/**/*' do
   if item.binary?
     item.identifier.to_s
@@ -100,7 +103,6 @@ route '/**/*' do
   elsif item[:path]
     item[:path]
   else
-    # TODO: #without_ext, #in_dir, …
     item.identifier.with_ext('') + '/index.html'
   end
 end
