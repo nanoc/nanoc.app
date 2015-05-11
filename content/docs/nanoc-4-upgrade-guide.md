@@ -13,7 +13,7 @@ nanoc 4.0’s focus is not on features. Features and optimisations are planned f
 
 The nanoc 3.x branch has remained entirely backwards-compatible (because nanoc sticks to [Semantic Versioning](http://semver.org/)). This is great, because it allows you to upgrade without being concerned with potential breakage.
 
-Unforutnately, in the six years since its initial release, nanoc 3 has accumulated a lot of cruft. This has made continued development increasingly difficult, and it is the main reason why some long-standing concerns have not been tackled yet.
+Unfortunately, in the six years since its initial release, nanoc 3 has accumulated a lot of cruft. This has made continued development increasingly difficult, and it is the main reason why some long-standing concerns have not been tackled yet.
 
 nanoc 4.0 breaks away from the backwards compatibility constraints, and provides an API that does not expose any internals (unlike nanoc 3.x’ API), giving us the necessary freedom to make some radical changes.
 
