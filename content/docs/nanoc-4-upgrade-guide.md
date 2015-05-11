@@ -92,6 +92,4 @@ The three most useful wildcards are the following:
 `{foo,bar}`
 : Matches either string in the comma-separated list. More than two strings are possible. For example, `/c{at,ub,ount}s.txt` matches `/cats.txt`, `/cubs.txt` and `/counts.txt`.
 
-nanoc 4 uses Ruby’s [`File.fnmatch` method](http://ruby-doc.org/core/File.html#method-c-fnmatch) with the `File::FNM_PATHNAME` and `File::FNM_EXTGLOB` options enabled. Please consult the [`File.fnmatch`](http://ruby-doc.org/core/File.html#method-c-fnmatch) documentation for other supported patterns, and more comprehensive documentation.
-
 Patterns based on regular expressions are still supported in nanoc 4, so you can still use e.g. `%r{\A/projects/(cri|nanoc)\.md\Z}` to match both `/projects/nanoc.md` and `/projects/cri.md`.
