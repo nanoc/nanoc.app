@@ -75,9 +75,8 @@ nanoc 4 supports using globs. Globs are more powerful than nanoc’s original pa
 
 To enable globs, set `pattern_syntax` to `"glob"` in the configuration. For example:
 
-```yaml
-pattern_syntax: "glob"
-```
+    #!yaml
+    pattern_syntax: "glob"
 
 The three most useful wildcards are the following:
 
