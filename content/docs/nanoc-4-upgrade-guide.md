@@ -71,6 +71,8 @@ Because nanoc’s focus is now more clearly on compiling content rather than man
 
 ## Glob patterns in Rules
 
+NOTE: This is available in alpha 2 and up.
+
 nanoc 4 supports using globs. Globs are more powerful than nanoc’s original pattern syntax, and they are also more commonplace, such as in Unix shells.
 
 To enable globs, set `pattern_syntax` to `"glob"` in the configuration. For example:
@@ -93,3 +95,31 @@ The three most useful wildcards are the following:
 : Matches either string in the comma-separated list. More than two strings are possible. For example, `/c{at,ub,ount}s.txt` matches `/cats.txt`, `/cubs.txt` and `/counts.txt`.
 
 Patterns based on regular expressions are still supported in nanoc 4, so you can still use e.g. `%r{\A/projects/(cri|nanoc)\.md\Z}` to match both `/projects/nanoc.md` and `/projects/cri.md`.
+
+## Full-style identifiers
+
+NOTE: This is available in alpha 2 and up.
+
+When `identifier_style` is set to `"full"` in the data source config, identifiers will contain the file extension. For example:
+
+    #!yaml
+    data_sources:
+      -
+        type: filesystem_unified
+        identifier_style: full
+
+Such an identifier looks like `/assets/style/screen.sass`&mdash;quite similar to a filename.
+
+Full-style identifiers are particularly useful in combination with glob patterns, because rules can now match on extension directly. For example:
+
+    #!ruby
+    compile '/**/*.sass' do
+      filter :sass
+    end
+
+    compile '/**/*.md' do
+      filter :kramdown
+      layout '/default.html'
+    end
+
+NOTE: Items with full-style identifiers do not have children or parents, because the child-parent relationship is ambiguous in these cases.
