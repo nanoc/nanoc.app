@@ -58,6 +58,8 @@ The good news is that nanoc 4.0 is quite similar to 3.8. Upgrading a nanoc 3.x s
         [new_item('Hello', {}, '/hello/')]
       end
 
+* If you use the `static` data source, convert to [full-style identifiers](#full-style-identifiers).
+
 * If you get a `NoMethodError` that you did not expect, you might be using a private API that is no longer present in nanoc 4.0. In case of doubt, ask for help on the [discussion group](http://nanoc.ws/community/#discussion-groups).
 
 ## Removed content management features
