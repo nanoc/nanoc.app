@@ -21,6 +21,8 @@ The good news is that nanoc 4.0 is quite similar to 3.8. Upgrading a nanoc 3.x s
 
 ## Upgrade checklist
 
+* If you use Ruby 1.9.x or JRuby 1.7.x, upgrade to Ruby 2.0 or higher (preferably 2.2) or JRuby 9000.
+
 * If you use nanoc with a Gemfile, ensure you call nanoc as <kbd>bundle exec nanoc</kbd>. nanoc longer attempts to load the Gemfile.
 
 * If you use the `watch` and `autocompile` commands, use [guard-nanoc](https://github.com/guard/guard-nanoc) instead. Both `watch` and `autocompile` were deprecated in nanoc 3.6.
