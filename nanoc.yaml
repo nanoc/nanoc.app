@@ -10,6 +10,12 @@ data_sources:
     type: filesystem_unified
     identifier_style: full
   -
+    type: filesystem_unified
+    items_root: /static
+    content_dir: 'static'
+    layouts_dir: 'static_layouts'
+    identifier_style: full
+  -
     type: cli
     items_root: /docs/reference/commands/
     identifier_style: full
