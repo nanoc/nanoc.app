@@ -1,7 +1,8 @@
-PATH
-  remote: ../nanoc
+GIT
+  remote: git://github.com/nanoc/nanoc.git
+  revision: e87557f8b1e05626aa65353555dc3c88002dd323
   specs:
-    nanoc (4.0.0a1)
+    nanoc (4.0.0a2)
       cri (~> 2.3)
 
 GEM
