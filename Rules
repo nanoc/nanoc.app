@@ -55,11 +55,17 @@ compile '/robots.*' do
   filter :erb
 end
 
+# index
+
 compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, :type => :html
   filter :html5small
+end
+
+route '/index.*' do
+  '/index.html'
 end
 
 # fallback
@@ -89,10 +95,6 @@ compile '/**/*' do
   filter :fixup_whitespace
   filter :typohero
   filter :html5small
-end
-
-route '/index.*' do
-  '/index.html'
 end
 
 route '/**/*' do
