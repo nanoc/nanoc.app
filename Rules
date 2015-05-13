@@ -103,6 +103,6 @@ route '/**/*' do
   elsif item[:path]
     item[:path]
   else
-    item.identifier.with_ext('') + '/index.html'
+    item.identifier.without_ext + '/index.html'
   end
 end
