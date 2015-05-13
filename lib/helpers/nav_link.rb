@@ -29,7 +29,7 @@ class NavLinker
   def html_class_for(item)
     html_classes = []
 
-    if item.identifier == '/'
+    if item.identifier =~ '/index.*'
       html_classes << 'home'
     end
 
