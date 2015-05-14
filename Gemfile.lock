@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/nanoc/nanoc.git
-  revision: 524c952f1e38f5f95b567f630a0a1a0c9a8fa598
+  revision: 8dd77fac77c9d0082b347c6982eea329e41703d0
   specs:
-    nanoc (4.0.0a2)
+    nanoc (4.0.0b1)
       cri (~> 2.3)
 
 GEM
