@@ -63,6 +63,51 @@
 
     <div id="content"><div id='filecontents'><h1 id="nanoc-news">nanoc news</h1>
 
+<h2 id="b1-2015-05-">4.0.0b1 (2015-05-??)</h2>
+
+<p>Changes:</p>
+
+<ul>
+  <li>Removed tasks</li>
+  <li>Removed several private methods in the view API</li>
+  <li>Removed default <code>base_url</code> in tagging helper</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Removed unused options from CLI</li>
+  <li>Added <code>Nanoc::Identifier#without_ext</code></li>
+  <li>Made <code>Nanoc::Identifier#=~</code> work with a glob</li>
+  <li>Added <code>Nanoc::LayoutCollectionView#[]</code></li>
+  <li>Added <code>--force</code> to <code>create-site</code> command (#549) [David Alexander]</li>
+</ul>
+
+<p>Fixes:</p>
+
+<ul>
+  <li>Fixed <code>#passthrough</code> for identifiers with extensions</li>
+  <li>Fixed rendering helper for identifiers with extensions</li>
+  <li>Fixed filtering helper</li>
+</ul>
+
+<h2 id="a2-2015-05-12">4.0.0a2 (2015-05-12)</h2>
+
+<p>Features:</p>
+
+<ul>
+  <li>Glob patterns (opt-in by setting <code>pattern_syntax</code> to <code>"glob"</code> in the site configuration)</li>
+  <li>Identifiers with extensions (opt-in by setting <code>identifier_style</code> to <code>"full"</code> in the data source configuration)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Added several convenience methods to view classes (#570, #572)</li>
+</ul>
+
+<p>See the <a href="http://nanoc.ws/docs/nanoc-4-upgrade-guide/">nanoc 4 upgrade guide</a> for details.</p>
+
 <h2 id="a1-2015-05-09">4.0.0a1 (2015-05-09)</h2>
 
 <p>This is a major upgrade. For details on upgrading, see the <a href="http://nanoc.ws/docs/nanoc-4-upgrade-guide/">nanoc 4 upgrade guide</a>.</p>

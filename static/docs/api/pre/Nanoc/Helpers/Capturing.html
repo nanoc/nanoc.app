@@ -500,7 +500,7 @@ returns it.</p>
 
     <span class='comment'># Capture and store
 </span>    <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='id identifier rubyid_capture'>capture</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-    <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_captures_store'>captures_store</span><span class='lbracket'>[</span><span class='ivar'>@item</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span>
+    <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_unwrap'>unwrap</span><span class='period'>.</span><span class='id identifier rubyid_captures_store'>captures_store</span><span class='lbracket'>[</span><span class='ivar'>@item</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span>
   <span class='kw'>else</span> <span class='comment'># Get content
 </span>    <span class='comment'># Get args
 </span>    <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='int'>2</span>
@@ -512,7 +512,7 @@ returns it.</p>
     <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
 
     <span class='comment'># Create dependency
-</span>    <span class='id identifier rubyid_current_item'>current_item</span> <span class='op'>=</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id identifier rubyid_top'>top</span>
+</span>    <span class='id identifier rubyid_current_item'>current_item</span> <span class='op'>=</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_unwrap'>unwrap</span><span class='period'>.</span><span class='id identifier rubyid_compiler'>compiler</span><span class='period'>.</span><span class='id identifier rubyid_dependency_tracker'>dependency_tracker</span><span class='period'>.</span><span class='id identifier rubyid_top'>top</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_item'>item</span> <span class='op'>!=</span> <span class='id identifier rubyid_current_item'>current_item</span>
       <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_started</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
       <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='symbol'>:visit_ended</span><span class='comma'>,</span>   <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
@@ -521,8 +521,8 @@ returns it.</p>
 </span>      <span class='comment'># item from which we use content. For this, we need to manually edit
 </span>      <span class='comment'># the content attribute to reset it. :(
 </span>      <span class='comment'># FIXME: clean this up
-</span>      <span class='kw'>unless</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_captures_store_compiled_items'>captures_store_compiled_items</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_item'>item</span>
-        <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_captures_store_compiled_items'>captures_store_compiled_items</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_item'>item</span>
+</span>      <span class='kw'>unless</span> <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_unwrap'>unwrap</span><span class='period'>.</span><span class='id identifier rubyid_captures_store_compiled_items'>captures_store_compiled_items</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_item'>item</span>
+        <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_unwrap'>unwrap</span><span class='period'>.</span><span class='id identifier rubyid_captures_store_compiled_items'>captures_store_compiled_items</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_item'>item</span>
         <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_forced_outdated'>forced_outdated</span> <span class='op'>=</span> <span class='kw'>true</span>
         <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span>
           <span class='id identifier rubyid_raw_content'>raw_content</span> <span class='op'>=</span> <span class='id identifier rubyid_item'>item</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span>
@@ -533,7 +533,7 @@ returns it.</p>
     <span class='kw'>end</span>
 
     <span class='comment'># Get content
-</span>    <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_captures_store'>captures_store</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
+</span>    <span class='ivar'>@site</span><span class='period'>.</span><span class='id identifier rubyid_unwrap'>unwrap</span><span class='period'>.</span><span class='id identifier rubyid_captures_store'>captures_store</span><span class='lbracket'>[</span><span class='id identifier rubyid_item'>item</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

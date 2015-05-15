@@ -308,14 +308,14 @@
       <pre class="lines">
 
 
+154
+155
+156
 157
-158
-159
-160
-161</pre>
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@times</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -379,12 +379,12 @@
       <pre class="lines">
 
 
-152
-153
-154</pre>
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_enable_for?'>enable_for?</span><span class='lparen'>(</span><span class='id identifier rubyid_command_runner'>command_runner</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_command_runner'>command_runner</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:verbose</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -432,18 +432,18 @@
       <pre class="lines">
 
 
+161
+162
+163
 164
 165
 166
 167
 168
-169
-170
-171
-172</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>Int</span><span class='op'>::</span><span class='const'>NotificationCenter</span><span class='period'>.</span><span class='id identifier rubyid_on'>on</span><span class='lparen'>(</span><span class='symbol'>:filtering_started</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__rep'>_rep</span><span class='comma'>,</span> <span class='id identifier rubyid_filter_name'>filter_name</span><span class='op'>|</span>
@@ -491,13 +491,13 @@
       <pre class="lines">
 
 
-175
-176
-177
-178</pre>
+172
+173
+174
+175</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/cli/commands/compile.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='id identifier rubyid_print_profiling_feedback'>print_profiling_feedback</span>

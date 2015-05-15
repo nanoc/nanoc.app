@@ -399,6 +399,29 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reps-instance_method" title="#reps (instance method)">- (Enumerable&lt;Nanoc::ItemRepView&gt;) <strong>reps</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the representations of this item.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -1228,6 +1251,59 @@ binary items, returns <code>nil</code>.</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_raw_content'>raw_content</span>
   <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_raw_content'>raw_content</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reps-instance_method">
+  
+    - (<tt>Enumerable&lt;<span class='object_link'><a href="ItemRepView.html" title="Nanoc::ItemRepView (class)">Nanoc::ItemRepView</a></span>&gt;</tt>) <strong>reps</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the representations of this item.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Enumerable&lt;<span class='object_link'><a href="ItemRepView.html" title="Nanoc::ItemRepView (class)">Nanoc::ItemRepView</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/nanoc/base/views/item.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reps'>reps</span>
+  <span class='ivar'>@item</span><span class='period'>.</span><span class='id identifier rubyid_reps'>reps</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span> <span class='const'>Nanoc</span><span class='op'>::</span><span class='const'>ItemRepView</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
