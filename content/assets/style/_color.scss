@@ -130,8 +130,10 @@ body header {
     .header-content {
         background: $nav-bg-color;
 
-        nav li {
-            border-color: $nav-spacing-color;
+        nav {
+            li {
+                border-color: $nav-spacing-color;
+            }
 
             a:link, a:visited {
                 color: $light-fg-color;
@@ -140,10 +142,20 @@ body header {
             a:hover {
                 color: $emph-light-fg-color;
             }
-        }
 
-        nav li.active > span {
-            color: $emph-light-fg-color;
+            li.active > span {
+                color: $emph-light-fg-color;
+            }
+
+            .try-nanoc-4-beta {
+                a {
+                    background: #000;
+                }
+
+                a:hover {
+                    background: $link-color-a;
+                }
+            }
         }
     }
 }
