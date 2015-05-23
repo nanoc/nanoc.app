@@ -329,7 +329,10 @@ body.page .content {
                 list-style-type: decimal;
             }
 
-            ol ol {
+            ol > li > ol,
+            ol > li > ul,
+            ul > li > ol,
+            ul > li > ul {
                 margin-bottom: 0;
             }
 
@@ -391,8 +394,6 @@ body.page .content {
                     background: none;
                 }
             }
-
-
         }
 
         .side {
