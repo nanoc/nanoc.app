@@ -146,5 +146,3 @@ URI
 
 highlighted text
 : I love <mark>kitten</mark>s, and that is why I have 21!
-
-TODO: Use the `dfn` tag instead of a `span` with the `firstterm` class.
