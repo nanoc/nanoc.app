@@ -1,7 +1,9 @@
 ---
-title:    "Troubleshooting"
+title: "Troubleshooting"
+up_to_date_with_nanoc_4: true
 ---
 
+{:data-nav-title="“Found 3 content files…”""}
 ## Error: “Found 3 content files for X; expected 0 or 1”
 
 This error occurs when you have multiple files with the same base name, but different extensions. nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
@@ -9,111 +11,41 @@ This error occurs when you have multiple files with the same base name, but diff
 	content/assets/fonts/foo.eot
 	content/assets/fonts/foo.otf
 
-There are two ways of resolving this: either giving each file a unique base name and setting up routing rules to write them to the correct location, or using the _static_ data source which includes the extension inside the item identifier. Both solutions are described below.
+nanoc converts these filenames to _identifiers_, which (unless specified otherwise) do not contain the file extension. In the example given above, both filenames correspond to the identifier _/assets/fonts/foo_. Identifiers are required to be unique, and thus nanoc raises an error.
 
-### Solution #1: Renaming files
+New in nanoc 4 are full identifiers, which _do_ contain the file extension. We recommend upgrading to nanoc 4 and enabling full identifiers as well as glob patterns. See the [nanoc 4 upgrade guide](/docs/nanoc-4-upgrade-guide/) for details.
 
-The first solution involves renaming so that their base names are unique. For example:
+{:data-nav-title="“Can’t modify frozen…”"}
+## Error: “can’t modify frozen…”
 
-	content/assets/fonts/foo-eot.eot
-	content/assets/fonts/foo-otf.otf
-
-Now, you can set up routing rules so that these files are written with the correct filename. For example:
+Once the compilation process has started, content and attributes of layouts and items are _frozen_, which means they cannot be modified anymore. For example, the following rule is invalid and will cause a “can’t modify frozen Array” error:
 
 	#!ruby
-	route '/assets/fonts/*/' do
-	  # /fonts/foo-eot/ -> /fonts/foo.eot
-	  item.identifier.sub(/-.+\/$/, '') + item[:extension]
-	end
-
-### Solution #2: Using the static data source
-
-nanoc has support for multiple _data sources_, which provide items and layouts. By default, there is only one active: the _filesystem_ data source. This data source reads items from `content/` and layouts from `layouts/`. However, because it strips the file extensions from the item identifier (e.g. `content/foo.md` becomes `/foo/`), it is awkward to use in cases where there are multiple files with the same base name but a different extension.
-
-The `static` data source, bundled with nanoc, _does_ include the file extension in the identifier, and it also marks all items as binary, which makes this data source ideal for handling files that should not be processed but simply copied to the output directory. It loads items from `static/` instead of `content/`. So, for example, an item at `/static/assets/fonts/foo.eot` will get an identifier `/assets/fonts/foo.eot/`.
-
-Setting up the static data source is done by opening `nanoc.yaml` (on older sites: `config.yaml`) and adding the configuration for a new data source. For example:
-
-	#!yaml
-	data_sources:
-	  # ... filesystem data source here ...
-	  -
-	    type: static
-
-You can define an _items root_ here; a prefix that all items from this data source should have. An items root of `/foobar` will prefix items identifier `/foobar/` for all items coming from the static data source. For example, `static/assets/fonts/foo.eot` would have an identifier of `/foobar/assets/fonts/foo.eot/` instead of just `/assets/fonts/foo.eot/`. This makes it easier to define concise rules. I recommend an `items_root` of `'/assets/'`, like this:
-
-	#!yaml
-	data_sources:
-	  # ... filesystem data source here ...
-	  -
-	    type: static
-	    items_root: /assets/
-
-The next step involves setting up a compilation rule, which is quite easy. We match everything below `/assets/` (which is our items root) and let it do no processing at all:
-
-	#!ruby
-	compile '/assets/*' do
-	end
-
-The routing rule is a bit more complex. In here, we take the item identifier, strip off the items root and the trailing slash:
-
-	#!ruby
-	route '/assets/*' do
-	  # /assets/foo.html/ → /foo.html
-	  item.identifier[7..-2]
-	end
-
-And that’s it! Or you can use a `passthrough` rule (see below).
-
-	#!ruby
-	passthrough '/assets/*'
-
-## Error: “can’t modify frozen X”
-
-Once the compilation process has started, content and attributes of layouts and items are _frozen_, which means they cannot be modified anymore. For example, the following rule is invalid and will cause a “can’t modify frozen Item” error:
-
-	#!ruby
-	compile '/blog/*/'
-	  item[:date] = Date.parse(item.identifier[/\d{4}-\d{2}-\d{2}/])
+	compile '/articles/**/*'
+	  item[:tags] << 'article'
 	  filter :erb
 	  layout 'default'
 	end
 
-What _is_ possible, is modifying content and attributes in the preprocess phase. The preprocess phase is defined using the `preprocess` block in Rules. For example:
+What _is_ possible, is modifying content and attributes in the _preprocess_ phase. The preprocess phase is defined using the `preprocess` block in Rules. For example:
 
 	#!ruby
 	preprocess do
-	  items.select { |i| i.identifier.to_s.start_with?('/blog/') }.each do |i|
-	    i[:date] = Date.parse(i.identifier[/\d{4}-\d{2}-\d{2}/])
+	  items.select { |i| i.identifier =~ '/articles/**/*' }.each do |i|
+	    i[:tags] << 'article'
 	  end
 	end
 
-In the `preprocess` block, you can access `items`, `layouts`, `config` and `site`.
+In the `preprocess` block, you can access `items`, `layouts`, and `config`. See the [Variables page](/docs/reference/variables/) for details.
 
-## Textual filters cannot be used on binary items
+{:data-nav-title="“Textual filters cannot be used…”"}
+## Error: “Textual filters cannot be used on binary items“
 
 There are two item types in nanoc: textual and binary. Most filters that come with nanoc, such as `:erb` and `:haml`, are textual, meaning they take text as input and produce new text. It is also possible to define binary filters, such as an image thumbnail filter.
 
-It is not possible to run a textual filter on binary items; for example, running `:erb` on an item with filename `content/assets/images/puppy.jpg` will cause the “Textual filters cannot be used on binary items” error.
+It is not possible to run a textual filter on binary items; for example, running `:erb` on an item with filename <span class="filename">content/assets/images/puppy.jpg</span> will cause the “Textual filters cannot be used on binary items” error.
 
 When you are getting this error unexpectedly, double-check your Rules file and make sure that no binary item is filtered through a textual filter. Remember that nanoc will use the first matching rule only!
-
-## Pass through an item
-
-If you want to copy an item from `content/` to `output/` without doing any processing at all, then you can use the `#passthrough` method, like this:
-
-	#!ruby
-	passthrough '/assets/stylesheets/*/'
-
-This is a shorthand for the following:
-
-	#!ruby
-	route '/assets/stylesheets/*/' do
-	  item.identifier.chop + item[:extension]
-	end
-
-	compile '/assets/stylesheets/*/' do
-	end
 
 ## Character encoding issues
 
@@ -143,16 +75,17 @@ nanoc defaults to the current environment encoding, which might not be what you 
 
 * You can set an explicit encoding in the nanoc configuration file. This is the recommended approach, as it never hurts to be explicit.
 
-To set the encoding explicity in the site configuration, open <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> on older nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem_unified` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
+To set the encoding explicity in the site configuration, open <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> on older nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
 
 	#!yaml
 	data_sources:
 	  -
-	    type: filesystem_unified
+	    type: filesystem
 	    encoding: utf-8
 
 For bonus points, you can do all three. Setting up your content, environment and configuration as UTF-8 is the best way to avoid encoding issues now and in the future.
 
+{:data-nav-title="YAML timestamp issues"}
 ## Timestamps in YAML files parsed incorrectly
 
 If you work with datetime attributes (such as `created_at`, `published_at` and `updated_at`) and find that the time is one or more hours off, then this section applies to you.

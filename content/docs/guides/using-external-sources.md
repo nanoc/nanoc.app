@@ -1,12 +1,13 @@
 ---
 title: "Using external sources"
+up_to_date_with_nanoc_4: true
 ---
 
 One of nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
 
-## Example: reading from a HR database
+As an example, assume you work for a company that has a SQL database containing a employee directory, and you want to extract that information into a nice-looking web site. nanoc to the rescue!
 
-Assume you work for a company that has a SQL database containing a employee directory, and you want to extract that information into a nice-looking web site. nanoc to the rescue!
+## Setting up the database
 
 This example will use the following SQLite 3 schema:
 
@@ -52,6 +53,10 @@ Create a sample database with sample data:
 	  photo_url: 'http://employees.test/photos/1.png'
 	)
 
+At this point, we have a database set up, with some sample data to be used.
+
+## Writing the data source
+
 Create the file <span class="filename">lib/data_sources/employee_db.rb</span> and put in the following:
 
 	#!ruby
@@ -78,7 +83,7 @@ Data sources have an `#up` method, which can be overriden to perform actions to 
 	  end
 	end
 
-Then we can generate items. For every employee, represented by a row from the `employees` table in the database, we create a `Nanoc::Item`:
+Then we can generate items. For every employee, represented by a row from the `employees` table in the database, we create an item:
 
 	#!ruby
 	class HRDataSource < ::Nanoc::DataSource
@@ -88,9 +93,13 @@ Then we can generate items. For every employee, represented by a row from the `e
 	    @db = Sequel.sqlite('test.db')
 	  end
 
+	  def down
+	    @db.disconnect
+	  end
+
 	  def items
 	    @db[:employees].map do |employee|
-	      Nanoc::Item.new(
+	      new_item(
 	        '',
 	        employee,
 	        "/employees/#{employee[:id]}/"
@@ -99,7 +108,11 @@ Then we can generate items. For every employee, represented by a row from the `e
 	  end
 	end
 
-The first argument to the `Nanoc::Item` constructor is the content (empty in this case), the second is the attributes hash (which will have the keys `first_name`, `last_name`, and `photo_url`) and the third argument is the identifier.
+The first argument to the `#new_item` is the content (empty in this case), the second is the attributes hash (which will have the keys `first_name`, `last_name`, and `photo_url`) and the third argument is the identifier.
+
+The data source implementation is now ready to be used.
+
+## Using the data source
 
 Configure the data source in <span class="filename">nanoc.yaml</span>:
 
@@ -109,14 +122,14 @@ Configure the data source in <span class="filename">nanoc.yaml</span>:
 	    type:         hr
 	    items_root:   /external/hr
 
-The `type` is the same as the identifier of the data source, and `items_root` is a string that will be prefixed to all item identifiers coming from that data source. For example, employees will have identifiers like `"/external/hr/employees/1/"`.
+The `type` is the same as the identifier of the data source, and `items_root` is a string that will be prefixed to all item identifiers coming from that data source. For example, employees will have identifiers like `"/external/hr/employees/1"`.
 
 Create the file <span class="filename">lib/helpers.rb</span> and put in one function that will make it easier to find employees:
 
 	#!ruby
 	def sorted_employees
 	  employees = @items.select do |i|
-	    i.identifier.start_with?('/external/hr/employees/')
+	    i.identifier =~ '/external/hr/employees/*'
 	  end
 	  employees.sort_by do |e|
 	    [ e[:last_name], e[:first_name] ]
@@ -147,7 +160,7 @@ Now it’s time to create the employee directory page. Create the file <span cla
 	  </tbody>
 	</table>
 
-Finally you have to stop nanoc from rendering pages from your employee data, so add this at the top of your <span class="filename">Rules</span> file:
+Finally you have to stop nanoc from writing out pages for every employee item provided by the data source. For this, the `#ignore` rule comes in handy. Add this at the top of your <span class="filename">Rules</span> file:
 
 	#!ruby
 	ignore '/external/*'

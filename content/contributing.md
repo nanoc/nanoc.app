@@ -1,6 +1,7 @@
 ---
 title: "Contributing"
 is_dynamic: true
+up_to_date_with_nanoc_4: true
 ---
 
 nanoc is the effort of [dozens of people](#contributors). Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to nanoc.
@@ -141,4 +142,4 @@ Contributors
 
 These people have contributed to nanoc already:
 
-<i><%= @items['/contributing/contributors/'].raw_content %></i>
+<i><%= @items['/contributing/contributors'].raw_content %></i>

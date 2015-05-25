@@ -1,0 +1,39 @@
+dl.legacy dt:after {
+    content: "LEGACY";
+
+    margin-left: 10px;
+    padding: 1px 4px;
+
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    background: #777;
+    color: #fff;
+    border-radius: 4px;
+}
+
+a.wip {
+    position: relative;
+}
+
+a.wip:after {
+    content: "WIP";
+
+    position: absolute;
+    left: 100%;
+    top: 3px;
+
+    margin-left: 4px;
+    padding: 1px 4px;
+
+    line-height: 14px;
+    vertical-align: middle;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    background: #777;
+    color: #fff;
+    border-radius: 4px;
+}

@@ -1,11 +1,12 @@
 ---
 title: "Tutorial"
+up_to_date_with_nanoc_4: true
 ---
 
 This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
 a working nanoc installation
-: Check out the [Install](/install/) page for details on how to install Ruby, RubyGems and nanoc.
+: Check out the [Installation](/docs/installation/) page for details on how to install Ruby, RubyGems and nanoc.
 
 a basic understanding of Ruby
 : nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
@@ -67,6 +68,7 @@ nanoc will tell what is happening during the compilation process:
 <pre>Loading site data…
 Compiling site…
       <span class="log-create">create</span>  [0.01s] output/index.html
+      <span class="log-create">create</span>  [0.00s] output/stylesheet.css
 
 Site compiled in 0.01s.</pre>
 
@@ -157,8 +159,6 @@ Create a file named <span class="filename">content/about.html</span> and paste i
 
     <p>This is the about page for my new nanoc site.</p>
 
-NOTE: nanoc also provides a <span class="command">nanoc create-item</span> command that can be used to create new items. However, it doesn’t do anything more than creating a new file for you. In nanoc 4.0, the <span class="command">create-item</span> and <span class="command">create-layout</span> commands will be removed.
-
 Recompile the site by issuing <kbd>nanoc</kbd>. Notice that nanoc creates a file <span class="filename">output/about/index.html</span>. Open <span class="uri">http://localhost:3000/about/</span> in your browser, and admire your brand new about page. Shiny!
 
 TIP: If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the <span class="filename">content/about.html</span> page can have its metadata stored in <span class="filename">content/about.yaml</span> instead.
@@ -237,58 +237,58 @@ NOTE: {sudo-gem-install}
 
 The <span class="filename">Rules</span> file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell nanoc to use the kramdown filter.
 
-The first point of interest in the <span class="filename">Rules</span> is this <span class="firstterm">compilation rule</span>:
+The first point of interest in the <span class="filename">Rules</span> is the following two <span class="firstterm">compilation rules</span>:
 
     #!ruby
-    compile '*' do
-      if item[:extension] == 'css'
-        # don’t filter stylesheets
-      elsif item.binary?
-        # don’t filter binary items
+    compile '/**/*.html' do
+      layout '/default.*'
+    end
+
+    compile '/**/*' do
+    end
+
+Compilation rules describe how items are processed. The first rule matches items that have the <span class="filename">html</span> extension, and says that such items will be laid out using the default layout. The second rule matches all other items, and does no processing—the content of these items is not filtered nor laid out.
+
+NOTE: For more information on patterns, see the [identifiers and patterns](/docs/reference/identifiers-and-patterns/#patterns) page.
+
+The second point of interest is these two <span class="firstterm">routing rules</span>:
+
+    #!ruby
+    route '/**/*.{html,md}' do
+      if item.identifier =~ '/index.*'
+        '/index.html'
       else
-        filter :erb
-        layout 'default'
+        item.identifier.without_ext + '/index.html'
       end
     end
 
-The second point of interest is the <span class="firstterm">routing rule</span>:
-
-    #!ruby
-    route '*' do
-      if item[:extension] == 'css'
-        # Write item with identifier /foo/ to /foo.css
-        item.identifier.chop + '.css'
-      elsif item.binary?
-        # Write item with identifier /foo/ to /foo.ext
-        item.identifier.chop + '.' + item[:extension]
-      else
-        # Write item with identifier /foo/ to /foo/index.html
-        item.identifier + 'index.html'
-      end
+    route '/**/*' do
+      item.identifier.to_s
     end
 
-Compilation rules describe how items are processed, while routing rule describe where items are written to. Each item matches exactly one compilation rule and one routing rule.
+Routing rule describe where items are written to. The return value of a routing rule is the path that an item will be written to, and directly corresponds with the path in the URL of the relevant page.
 
-The string argument defines what items will be processed using this rule. The `*` wildcard matches zero or more characters, so in this case, both rules match all items.
+In most cases, routing rules use the <span class="firstterm">identifier</span> of an item. The identifier of an item is the full path to the source file, starting from the content directory. For example, the identifiers of the items in the current site are `/index.html`, `/stylesheet.css` and `/about.html`.
 
-Modify the compilation rule to add a check for the <span class="filename">md</span> file extension. In this case, run the `:kramdown` filter on items that have a <span class="filename">md</span> extension, and apply the default layout:
+NOTE: For more information on identifiers, see the [identifiers and patterns](/docs/reference/identifiers-and-patterns/#patterns) page.
+
+The first rule matches items that have the <span class="filename">html</span> or <span class="filename">md</span> extension. For the `/index.html` item, it assigns the path <span class="filename">/index.html</span>. For the `/about.html` item, it assigns the path <span class="filename">/about/index.html</span>. This approach ensures that all items have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to <span class="uri">/about/</span> rather than <span class="uri">/about.html</span>.
+
+The seond rule matches all other items, and assigns a path that is identical to the identifier. For example, the `/stylesheet.css` item will have the path <span class="filename">/stylesheet.css</span>.
+
+NOTE: For more information on rules, see the [rules](/docs/reference/rules/) page.
+
+Now that you know what compilation and routing rules are, we can customise the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
 
     #!ruby
-    compile '*' do
-      if item[:extension] == 'md'
-        filter :kramdown
-        layout 'default'
-      elsif item[:extension] == 'css'
-        # don’t filter stylesheets
-      elsif item.binary?
-        # don’t filter binary items
-      else
-        filter :erb
-        layout 'default'
-      end
+    compile '/**/*.md' do
+      filter :kramdown
+      layout '/default.*'
     end
 
-The routing rule still matches our needs, so keep that one intact.
+This rule matches any items ending with the <span class="filename">md</span> extension, and will run the `kramdown` filter, followed by laying out the item using the default layout.
+
+The routing rule still matches our needs, because it also applies to items with the <span class="filename">md</span> extension, so keep that one intact.
 
 Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In <span class="filename">output/index.html</span>, you will find the converted HTML:
 

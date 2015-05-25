@@ -1,5 +1,6 @@
 ---
 title:    "Community"
+up_to_date_with_nanoc_4: true
 ---
 
 Discussion groups

@@ -35,6 +35,10 @@ div.admonition-wrapper.todo:before {
     content: "\1F6C8";
 }
 
+div.admonition-wrapper.done:before {
+    content: "\2713";
+}
+
 div.admonition-wrapper .admonition:before {
     font-weight: bold;
     font-size: 90%;
@@ -54,5 +58,5 @@ div.admonition-wrapper.caution .admonition:before {
 }
 
 div.admonition-wrapper.todo .admonition:before {
-    content: "TO DO: ";
+    content: "WORK IN PROGRESS: ";
 }

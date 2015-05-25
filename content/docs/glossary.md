@@ -1,5 +1,6 @@
 ---
 title:    "Glossary"
+up_to_date_with_nanoc_4: true
 ---
 
 <dl class="glossary">
@@ -16,7 +17,7 @@ title:    "Glossary"
 	<dd>A <a href="#glossary-rule">rule</a> that defines how an <a href="#glossary-item">item</a> should be <a href="#glossary-filter">filtered</a> and/or <a href="#glossary-layout">laid out</a>.</dd>
 
 	<dt id="glossary-content-file">content file</dt>
-	<dd>A file containing the actual content of an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. Usually, there will also be a <a href="#glossary-meta-file">meta-file</a> containing <a href="#glossary-metadata">metadata</a> about that item or layout, although some <a href="#glossary-data-source">data sources</a> (e.g. <code>filesystem_combined</code>) merge the content file and the meta-file into a single file.</dd>
+	<dd>A file containing the actual content of an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. Usually, there will also be a <a href="#glossary-meta-file">meta-file</a> containing <a href="#glossary-metadata">metadata</a> about that item or layout, although some <a href="#glossary-data-source">data sources</a> (e.g. <code>filesystem</code>) merge the content file and the meta-file into a single file.</dd>
 
 	<dt id="glossary-data-source">data source</dt>
 	<dd>An object that reads data from a given location and turns this data into <a href="#glossary-item">items</a> and/or <a href="#glossary-layout">layouts</a>. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.</dd>
@@ -28,7 +29,7 @@ title:    "Glossary"
 	<dd>A module that, when included, offers additional functionality such as easy linking to pages, building XML sitemaps or Atom web feeds.</dd>
 
 	<dt id="glossary-identifier">identifier</dt>
-	<dd>A string that is used to uniquely identify an <a href="#glossary-item">item</a>. It starts and ends with a slash. It is used to construct <a href="#glossary-path">paths</a> of item <a href="#glossary-representation">representations</a>.</dd>
+	<dd>A string that is used to uniquely identify an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is used to construct <a href="#glossary-path">paths</a> of item <a href="#glossary-representation">representations</a>. <span class="see">See</see> <a href="/docs/reference/identifiers-and-patterns/">identifiers and patterns</a>.</dd>
 
 	<dt id="glossary-item">item</dt>
 	<dd>The main piece of unprocessed content in a <a href="#glossary-site">site</a>. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple <a href="#glossary-representation">representations</a>. It is sometimes referred to as a <a href="#glossary-page">page</a> or an <a href="#glossary-asset">asset</a>.</dd>

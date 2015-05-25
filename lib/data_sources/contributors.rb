@@ -14,7 +14,7 @@ module NanocSite
       item = new_item(
         content,
         { is_partial: true },
-        '/contributing/contributors/'
+        Nanoc::Identifier.new('/contributing/contributors', style: :full)
       )
 
       [ item ]

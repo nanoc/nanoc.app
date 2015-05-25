@@ -1,8 +1,9 @@
 ---
 title:      "Helpers"
 is_dynamic: true
+up_to_date_with_nanoc_4: true
 ---
 
-<% @item.children.sort_by { |i| i[:name].to_s }.each do |helper| %>
-	<%= render 'autodoc_partial', :item => helper %>
+<% @items.find_all('/docs/reference/helpers/*').sort_by { |i| i[:name].to_s }.each do |helper| %>
+	<%= render '/autodoc_partial.*', :item => helper %>
 <% end %>

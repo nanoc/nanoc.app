@@ -1,6 +1,8 @@
 ---
-title:      "Install"
+title: "Installation"
+nav_title: "Install"
 is_dynamic: true
+up_to_date_with_nanoc_4: true
 ---
 
 Install nanoc using RubyGems:
@@ -13,7 +15,7 @@ For detailed instructions, read on!
 
 ## Installing Ruby
 
-nanoc requires [Ruby](http://ruby-lang.org/) in order to run. nanoc supports the official Ruby interpreter from version 1.9.3 up, as well as JRuby.
+nanoc requires [Ruby](http://ruby-lang.org/) in order to run. nanoc supports the official Ruby interpreter from version 2.0 up, as well as JRuby from version 9000 up.
 
 Ruby may already be installed on your system. To check, open a terminal window and type <kbd>ruby --version</kbd>. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 

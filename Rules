@@ -13,58 +13,64 @@ preprocess do
   # TODO stylesheets -> is_hidden and is_partial
 end
 
-layout '*', :erb
+layout '/**/*', :erb
 
 # favicon
 
-passthrough '/favicon/'
+passthrough '/favicon.ico'
 
 # static
 
-compile '/static/*/' do
+compile '/static/**/*' do
 end
 
-route '/static/*/' do
-  # /static/foo.html/ → /foo.html
-  item.identifier.to_s[7..-2]
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
 end
 
 # stylesheets - partials
 
-ignore '/assets/style/_*/'
+ignore '/assets/style/_*'
 
 # stylesheets
 
-compile '/assets/style/*/' do
+compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
 end
 
-route '/assets/style/*/' do
-  item.identifier.chop + '-v' + rep.item[:version].to_s + '.css'
+route '/assets/style/*' do
+  item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
 end
 
 # other
 
-compile '/sitemap/' do
+compile '/sitemap.*' do
   filter :erb
 end
 
-compile '/robots/' do
+compile '/robots.*' do
   filter :erb
 end
 
-compile '/' do
+# index
+
+compile '/index.*' do
   filter :erb
-  layout '/default/'
+  layout '/default.*'
   filter :relativize_paths, :type => :html
-  filter :html5small
+  # filter :html5small
+end
+
+route '/index.*' do
+  '/index.html'
 end
 
 # fallback
 
-compile '*' do
+compile '/**/*' do
   if item[:is_partial]
     next
   end
@@ -76,11 +82,11 @@ compile '*' do
   filter :admonition
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
-  if item.identifier == '/release-notes/'
+  if item.identifier.to_s == '/release-notes'
     filter :link_github_issues
   end
 
-  layout '/default/'
+  layout '/default.*'
 
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
@@ -88,17 +94,17 @@ compile '*' do
   filter :remove_smartness_from_kbd
   filter :fixup_whitespace
   filter :typohero
-  filter :html5small
+  # filter :html5small
 end
 
-route '*' do
+route '/**/*' do
   if item.binary?
-    item.identifier.chop + '.' + item[:extension]
+    item.identifier.to_s
   elsif item[:is_partial]
     nil
   elsif item[:path]
     item[:path]
   else
-    rep.item.identifier + 'index.html'
+    item.identifier.without_ext + '/index.html'
   end
 end

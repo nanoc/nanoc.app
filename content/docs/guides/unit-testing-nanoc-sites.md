@@ -1,18 +1,10 @@
 ---
-title:    "Unit testing nanoc sites"
+title: "Testing nanoc sites"
+short_title: "Testing"
+up_to_date_with_nanoc_4: true
 ---
 
-The `check` command
--------------------
-
-New in nanoc 3.5 is a <kbd>check</kbd> command that can be used to verify that the compiled site meets the requirements. Five checks are built-in to nanoc:
-
-* `css` verifies that the CSS is valid
-* `html` verifies that the HTML is valid
-* `external_links` (or `elinks`) verifies that external links are correct
-* `internal_links` (or `ilinks`) verifies that internal links are correct
-* `stale` verifies whether no non-nanoc items are in the output directory
-* `mixed_content` verifies that no content is included or linked to from a potentially insecure source
+The <kbd>check</kbd> command is used to verify that a compiled site meets the requirements.
 
 A check can be run using <kbd>nanoc check <var>check-name</var></kbd>. For instance, the following will run the internal links check (`internal_links` or `ilinks`):
 
@@ -21,25 +13,64 @@ Loading site data… done
   Running internal_links check…   ok
 <span class="prompt">%</span></pre>
 
+Available checks
+----------------
+
+nanoc comes with the following checks:
+
+`css`
+: verifies that the CSS is valid
+
+`html`
+: verifies that the HTML is valid
+
+`external_links`
+`elinks`
+: verifies that external links are correct
+
+`internal_links`
+`ilinks`
+: verifies that internal links are correct
+
+`stale`
+: verifies whether no non-nanoc items are in the output directory
+
+`mixed_content`
+: verifies that no content is included or linked to from a potentially insecure source
+
 Deployment-time checks
 ----------------------
 
-A file named `Checks` at the root of a nanoc site can define which checks should be run before a <kbd>nanoc deploy</kbd>. Here is what a Checks file could look like:
+A file named <span class="filename">Checks</span> at the root of a nanoc site defines which checks should be run before a <kbd>nanoc deploy</kbd>.
 
-<pre title="Defining checks to be run before deployment"><code class="language-ruby">
+Here is an example <span class="filename">Checks</span> file that ensures that a nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
+
+<pre><code class="language-ruby">
 deploy_check :internal_links
 deploy_check :stale
 </code></pre>
 
-These checks will be performed before deploying. Here’s what a <kbd>nanoc deploy</kbd> looks like with a Checks file:
+Here’s what a <kbd>nanoc deploy</kbd> looks like when all checks pass:
 
-<pre title="Deploying with a Checks file"><span class="prompt">%</span> <kbd>nanoc deploy</kbd>
+<pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd>
 Loading site data… done
 Running issue checks…
-  Running internal_links check…       ok
-  Running stale check…                ok
-  Running no_unprocessed_erb check…   ok
+  Running internal_links check…   <span class="log-check-ok">ok</span>
+  Running stale check…            <span class="log-check-ok">ok</span>
 No issues found. Deploying!
+<span class="prompt">%</span></pre>
+
+Here’s what a <kbd>nanoc deploy</kbd> looks like when some checks fail:
+
+<pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd>
+Loading site data… done
+Running issue checks…
+  Running check internal_links…   <span class="log-check-error">error</span>
+  Running check stale…            <span class="log-check-ok">ok</span>
+Issues found!
+  output/docs/guides/unit-testing-nanoc-sites/index.html:
+    [ <span class="log-check-error">ERROR</span> ] internal_links - broken reference to ../../api/Nanoc/Site.html
+Issues found, deploy aborted.
 <span class="prompt">%</span></pre>
 
 To run the checks marked for deployment without deploying, use <kbd>nanoc check --deploy</kbd>.
@@ -51,9 +82,9 @@ The `Checks` file is also used to define custom checks. Here is an example check
 
 <pre title="Defining a custom check"><code class="language-ruby">
 check :no_unprocessed_erb do
-  self.output_filenames.each do |fn|
+  @output_filenames.each do |fn|
     if fn =~ /html$/ &amp;&amp; File.read(fn).match(/&lt;%/)
-      self.add_issue("erb detected", :subject => fn)
+      add_issue("erb detected", :subject => fn)
     end
   end
 end
@@ -61,13 +92,4 @@ end
 
 In a custom check, you can use `#add_issue`. The first argument is the description of the problem, and the `:subject` option defines the location of the problem (usually a filename).
 
-The following data methods are available in a custom check:
-
-`output_filenames`
-: A list of filenames in the output directory corresponding to items. This list
-  does not include files that are in output but do not have a corresponding item.
-
-`site`
-: The [Nanoc::Site](/docs/api/Nanoc/Site.html) instance representing the current
-  site. To get the items, layouts or configuration, use `#items`, `#layouts` and
-  `#config`, respectively.
+In a custom check, the variables `@config`, `@items`, and `@layouts` are available, in addition to `@output_filenames`, which is the collection of filenames in the output directory that correspond to an item in the site. See the [variables](/docs/reference/variables/) page for details.

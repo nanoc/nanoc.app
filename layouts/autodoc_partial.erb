@@ -15,11 +15,10 @@
 <% filter :kramdown do %>
 <%= @item[:description] || @item[:summary] %>
 <% if @item[:aliases] && @item[:aliases].size > 0 %>Also known as <%= @item[:aliases].map { |i| "<code>#{i}</code>" }.join(', ') %>.<% end %>
-<% if @item[:full_name] %>See its <a href="/docs/api/<%= @item[:full_name].gsub('::', '/') %>.html">API documentation</a> for details.<% end %>
 <% end %>
 
 <% if @item[:options] && !@item[:options].empty? %>
-    <h3>Options</h3>
+    <p>It takes the following options:</p>
     <dl>
         <% @item[:options].each do |name, description| %>
             <dt><code><%= name %></code></dt>
@@ -29,28 +28,27 @@
 <% end %>
 
 <% if @item[:option_definitions] && !@item[:option_definitions].empty? %>
-    <h3>Options</h3>
     <dl>
     <% @item[:option_definitions].each do |opt_def| %>
-        <dt><kbd>-<%= opt_def[:short] %></kbd> <kbd>--<%= opt_def[:long] %></kbd></dt>
+        <dt><% if opt_def[:short] %><kbd>-<%= opt_def[:short] %>&#8194;</kbd><% end %><kbd>--<%= opt_def[:long] %></kbd></dt>
         <dd><%= opt_def[:desc] %></dd>
     <% end %>
     </dl>
 <% end %>
 
-<% if @item[:examples] && !@item[:examples].empty? %>
-    <h3>Examples</h3>
-    <% @item[:examples].each do |example| %>
-        <pre title="<%=h example[:title] %>"><code><%=h example[:code].strip %></code></pre>
-    <% end %>
-<% end %>
-
 <% if @item[:functions] && !@item[:functions].empty? %>
-    <h3>Functions</h3>
     <dl>
         <% @item[:functions].each do |function| %>
             <dt><code><%= function[:signature] %></code></dt>
             <dd><% filter :kramdown do %><%= function[:summary] %><% end %></dd>
         <% end %>
     </dl>
+<% end %>
+
+<% if @item[:examples] && !@item[:examples].empty? %>
+    <h3>Examples</h3>
+    <% @item[:examples].each do |example| %>
+        <p><%=h example[:title] %>:</p>
+        <pre><code><%=h example[:code].strip %></code></pre>
+    <% end %>
 <% end %>
