@@ -210,7 +210,7 @@ For a layout to be useful, it must output the item’s content at a certain poin
   &lt;/body>
 &lt;/html></code></pre>
 
-An item is put into a layout by calling the `layout` function in a compilation rule. See the [Compilation Rules](#compilation-rules) section for details.
+An item is put into a layout by calling the `layout` function in a compilation rule. See the [Compilation Rules](/docs/reference/rules/#compilation-rules) section for details.
 
 During compilation, layouts cannot be modified. You can, however, adjust the layout content and attributes in the preprocessor.
 
