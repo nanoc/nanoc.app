@@ -39,7 +39,7 @@ module NanocSite
           :usage              => cmd.usage,
           :is_partial         => true,
         },
-        "/#{slug}/")
+        Nanoc::Identifier.new("/#{slug}", style: :full))
     end
 
   end

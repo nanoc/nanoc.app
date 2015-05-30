@@ -1,18 +1,34 @@
+pattern_syntax: glob
+
 enable_output_diff: true
 
 prune:
   auto_prune: true
 
 data_sources:
-  - type:         filesystem_unified
-  - type:         cli
-    items_root:   /docs/reference/commands/
-  - type:         yard
-    items_root:   /docs/reference/
-  - type:         static
-    items_root:   /static/
-  - type:         release_notes
-  - type:         contributors
+  -
+    type: filesystem_unified
+    identifier_style: full
+  -
+    type: filesystem_unified
+    items_root: /static
+    content_dir: 'static'
+    layouts_dir: 'static_layouts'
+    identifier_style: full
+  -
+    type: cli
+    items_root: /docs/reference/commands/
+    identifier_style: full
+  -
+    type: yard
+    items_root: /docs/reference/
+    identifier_style: full
+  -
+    type: release_notes
+    identifier_style: full
+  -
+    type: contributors
+    identifier_style: full
 
 base_url: http://nanoc.ws
 

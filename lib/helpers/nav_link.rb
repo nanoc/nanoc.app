@@ -29,11 +29,11 @@ class NavLinker
   def html_class_for(item)
     html_classes = []
 
-    if item.identifier == '/'
+    if item.identifier =~ '/index.*'
       html_classes << 'home'
     end
 
-    if @item == item || (item.identifier != '/' && @item.identifier.to_s.start_with?(item.identifier))
+    if @item == item || @item.identifier.with_ext('').start_with?(item.identifier.with_ext(''))
       html_classes << 'active'
     end
 
