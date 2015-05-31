@@ -1,6 +1,5 @@
 ---
 title:    "Glossary"
-up_to_date_with_nanoc_4: true
 ---
 
 <dl class="glossary">
@@ -29,7 +28,7 @@ up_to_date_with_nanoc_4: true
 	<dd>A module that, when included, offers additional functionality such as easy linking to pages, building XML sitemaps or Atom web feeds.</dd>
 
 	<dt id="glossary-identifier">identifier</dt>
-	<dd>A string that is used to uniquely identify an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is used to construct <a href="#glossary-path">paths</a> of item <a href="#glossary-representation">representations</a>. <span class="see">See</see> <a href="/docs/reference/identifiers-and-patterns/">identifiers and patterns</a>.</dd>
+	<dd>A string that is used to uniquely identify an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is used to construct <a href="#glossary-path">paths</a> of item <a href="#glossary-representation">representations</a>. <span class="see">See</span> <a href="/doc/identifiers-and-patterns/">identifiers and patterns</a>.</dd>
 
 	<dt id="glossary-item">item</dt>
 	<dd>The main piece of unprocessed content in a <a href="#glossary-site">site</a>. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple <a href="#glossary-representation">representations</a>. It is sometimes referred to as a <a href="#glossary-page">page</a> or an <a href="#glossary-asset">asset</a>.</dd>
@@ -53,13 +52,13 @@ up_to_date_with_nanoc_4: true
 	<dd>A string containing the path, relative to the <a href="#glossary-output-directory">output directory</a>, to a compiled <a href="#glossary-representation">item representation</a>.</dd>
 
 	<dt id="glossary-page">page</dt>
-	<dd><span class="see">see <a href="#glossary-item">item</a></span></dd>
+	<dd><span class="see">see</span> <a href="#glossary-item">item</a></dd>
 
 	<dt id="glossary-partial">partial</dt>
 	<dd>A <a href="#glossary-layout">layout</a> that is not used for embedding content, but rather used for being embedded in layouts or <a href="#glossary-item">items</a> using the <code>Rendering</code> helper.</dd>
 
 	<dt id="glossary-rep">rep</dt>
-	<dd><span class="see">see <a href="#glossary-representation">representation</a></span></dd>
+	<dd><span class="see">see</span> <a href="#glossary-representation">representation</a></dd>
 
 	<dt id="glossary-representation">representation</dt>
 	<dd>A "version" of an <a href="#glossary-item">item</a>. For example, an item can have a HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a <a href="#glossary-path">path</a>).</dd>

@@ -1,12 +1,11 @@
 ---
 title: "Tutorial"
-up_to_date_with_nanoc_4: true
 ---
 
 This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
 
 a working nanoc installation
-: Check out the [Installation](/docs/installation/) page for details on how to install Ruby, RubyGems and nanoc.
+: Check out the [Installation](/doc/installation/) page for details on how to install Ruby, RubyGems and nanoc.
 
 a basic understanding of Ruby
 : nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend [Ruby in Twenty Minutes](https://www.ruby-lang.org/en/documentation/quickstart/).
@@ -249,7 +248,7 @@ The first point of interest in the <span class="filename">Rules</span> is the fo
 
 Compilation rules describe how items are processed. The first rule matches items that have the <span class="filename">html</span> extension, and says that such items will be laid out using the default layout. The second rule matches all other items, and does no processing—the content of these items is not filtered nor laid out.
 
-NOTE: For more information on patterns, see the [identifiers and patterns](/docs/reference/identifiers-and-patterns/#patterns) page.
+NOTE: For more information on patterns, see the [identifiers and patterns](/doc/identifiers-and-patterns/#patterns) page.
 
 The second point of interest is these two <span class="firstterm">routing rules</span>:
 
@@ -270,13 +269,13 @@ Routing rule describe where items are written to. The return value of a routing 
 
 In most cases, routing rules use the <span class="firstterm">identifier</span> of an item. The identifier of an item is the full path to the source file, starting from the content directory. For example, the identifiers of the items in the current site are `/index.html`, `/stylesheet.css` and `/about.html`.
 
-NOTE: For more information on identifiers, see the [identifiers and patterns](/docs/reference/identifiers-and-patterns/#patterns) page.
+NOTE: For more information on identifiers, see the [identifiers and patterns](/doc/identifiers-and-patterns/#patterns) page.
 
 The first rule matches items that have the <span class="filename">html</span> or <span class="filename">md</span> extension. For the `/index.html` item, it assigns the path <span class="filename">/index.html</span>. For the `/about.html` item, it assigns the path <span class="filename">/about/index.html</span>. This approach ensures that all items have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to <span class="uri">/about/</span> rather than <span class="uri">/about.html</span>.
 
 The seond rule matches all other items, and assigns a path that is identical to the identifier. For example, the `/stylesheet.css` item will have the path <span class="filename">/stylesheet.css</span>.
 
-NOTE: For more information on rules, see the [rules](/docs/reference/rules/) page.
+NOTE: For more information on rules, see the [rules](/doc/rules/) page.
 
 Now that you know what compilation and routing rules are, we can customise the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
 
@@ -337,7 +336,7 @@ Recompile the site and open both the home page and the about page in your web br
 Use a predefined helper
 -----------------------
 
-nanoc is bundled with a handful of helpers, including [a tagging helper](/docs/reference/helpers/#tagging). To use this tagging helper, replace the contents of <span class="filename">lib/tags.rb</span> with this:
+nanoc is bundled with a handful of helpers, including [a tagging helper](/doc/reference/helpers/#tagging). To use this tagging helper, replace the contents of <span class="filename">lib/tags.rb</span> with this:
 
     #!ruby
     include Nanoc::Helpers::Tagging
@@ -354,6 +353,6 @@ Recompile the site. The tags in the compiled HTML files in the <span class="file
 Next steps
 ----------
 
-You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the [nanoc documentation](/docs/). If you’re stuck with a nanoc problem, get help on the [nanoc discussion group](https://groups.google.com/forum/#!forum/nanoc).
+You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the [nanoc documentation](/doc/). If you’re stuck with a nanoc problem, get help on the [nanoc discussion group](https://groups.google.com/forum/#!forum/nanoc).
 
 We’d love to hear your feedback about the nanoc documentation. Is something wrong? Is something unclear? Tell us by [opening an issue on GitHub](https://github.com/nanoc/nanoc.ws/issues/new). Thanks!

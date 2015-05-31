@@ -1,7 +1,6 @@
 ---
 title:      "The command-line interface"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 Interacting with nanoc happens through a command-line tool named <span class="command">nanoc</span>. This tool has sub-commands, which you can invoke like this:
@@ -34,7 +33,7 @@ To get a list of all commands and global options, invoke the <span class="comman
 
 <pre><span class="prompt">%</span> <kbd>nanoc help</kbd></pre>
 
-A reference of all commands is available on the <%= link_to_id('/docs/reference/commands.*') %> reference page, as well as the command line itself.
+A reference of all commands is available on the <%= link_to_id('/doc/reference/commands.*') %> reference page, as well as the command line itself.
 
 Writing commands
 ----------------

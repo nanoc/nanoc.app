@@ -1,12 +1,11 @@
 ---
 title: "Filters"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 Filters are used for transforming an item’s content.
 
-One commonly used filter is [`:erb`](/docs/reference/filters/#erb), which interprets the item’s content as text with embedded Ruby. Another commonly used filter is [`:kramdown`](/docs/reference/filters/#kramdown), which takes Markdown as its input and produces an HTML fragment.
+One commonly used filter is [`:erb`](/doc/reference/filters/#erb), which interprets the item’s content as text with embedded Ruby. Another commonly used filter is [`:kramdown`](/doc/reference/filters/#kramdown), which takes Markdown as its input and produces an HTML fragment.
 
 Filters can be applied to both textual and binary items. An example of a binary filter is a image thumbnail filter. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
@@ -18,9 +17,9 @@ Filters are called within compilation rules. Here is an example rule that applie
       layout '/default.*'
     end
 
-For details on compilation rules, see the <%= link_to_id('/docs/reference/rules.*') %> reference page.
+For details on compilation rules, see the <%= link_to_id('/doc/rules.*') %> reference page.
 
-nanoc comes with a handful of filters. Check out the [filters reference](/docs/reference/filters/) for a list of filters bundled with nanoc.
+nanoc comes with a handful of filters. Check out the [filters reference](/doc/reference/filters/) for a list of filters bundled with nanoc.
 
 Writing filters
 ---------------
@@ -44,7 +43,7 @@ The `content` argument to the `#run` method is a string that contains the conten
 
 Filters that output textual content should return the filtered content at the end of the method.
 
-Filters have access to `@item`, `@item_rep`, `@items`, `@layouts` and `@config`. See the <%= link_to_id('/docs/reference/variables.*') %> reference page for details.
+Filters have access to `@item`, `@item_rep`, `@items`, `@layouts` and `@config`. See the <%= link_to_id('/doc/reference/variables.*') %> reference page for details.
 
 ### Binary filters
 

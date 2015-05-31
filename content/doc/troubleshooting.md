@@ -1,6 +1,5 @@
 ---
 title: "Troubleshooting"
-up_to_date_with_nanoc_4: true
 ---
 
 {:data-nav-title="“Found 3 content files…”""}
@@ -13,7 +12,7 @@ This error occurs when you have multiple files with the same base name, but diff
 
 nanoc converts these filenames to _identifiers_, which (unless specified otherwise) do not contain the file extension. In the example given above, both filenames correspond to the identifier _/assets/fonts/foo_. Identifiers are required to be unique, and thus nanoc raises an error.
 
-New in nanoc 4 are full identifiers, which _do_ contain the file extension. We recommend upgrading to nanoc 4 and enabling full identifiers as well as glob patterns. See the [nanoc 4 upgrade guide](/docs/nanoc-4-upgrade-guide/) for details.
+New in nanoc 4 are full identifiers, which _do_ contain the file extension. We recommend upgrading to nanoc 4 and enabling full identifiers as well as glob patterns. See the [nanoc 4 upgrade guide](/doc/nanoc-4-upgrade-guide/) for details.
 
 {:data-nav-title="“Can’t modify frozen…”"}
 ## Error: “can’t modify frozen…”
@@ -36,7 +35,7 @@ What _is_ possible, is modifying content and attributes in the _preprocess_ phas
 	  end
 	end
 
-In the `preprocess` block, you can access `items`, `layouts`, and `config`. See the [Variables page](/docs/reference/variables/) for details.
+In the `preprocess` block, you can access `items`, `layouts`, and `config`. See the [Variables page](/doc/reference/variables/) for details.
 
 {:data-nav-title="“Textual filters cannot be used…”"}
 ## Error: “Textual filters cannot be used on binary items“

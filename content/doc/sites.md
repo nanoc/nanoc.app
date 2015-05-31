@@ -1,12 +1,11 @@
 ---
 title: "Sites"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 A site managed by nanoc is a directory with a specific structure. It contains source data, as well as processing instructions that describe how the site should be compiled.
 
-By default, nanoc uses the `filesystem` data source, which means that source data is stored inside the <span class="filename">content/</span> directory. nanoc can read from other sources too, including databases or web APIs. For details, see the <%= link_to_id('/docs/data-sources.*') %> page.
+By default, nanoc uses the `filesystem` data source, which means that source data is stored inside the <span class="filename">content/</span> directory. nanoc can read from other sources too, including databases or web APIs. For details, see the <%= link_to_id('/doc/data-sources.*') %> page.
 
 ## Creating a site
 
@@ -48,7 +47,7 @@ A site has the following files and directories:
 
 ## Code
 
-nanoc will load all Ruby source files in the <span class="filename">lib/</span> directory before it starts compiling. All method definitions, class definitions, … will be available during the compilation process. This directory is useful for putting in custom <a href="/docs/helpers/">helpers</a>, custom <a href="/docs/filters/">filters</a>, custom <a href="/docs/data-sources/">data sources</a>, etc.
+nanoc will load all Ruby source files in the <span class="filename">lib/</span> directory before it starts compiling. All method definitions, class definitions, … will be available during the compilation process. This directory is useful for putting in custom <a href="/doc/helpers/">helpers</a>, custom <a href="/doc/filters/">filters</a>, custom <a href="/doc/data-sources/">data sources</a>, etc.
 
 ## Compiling a site
 
@@ -57,7 +56,7 @@ To compile a site, invoke <span class="command">nanoc</span> on the command line
 <pre><span class="prompt">%</span> <kbd>nanoc</kbd>
 Loading site data… done
 Compiling site…
-      update  [0.05s]  output/docs/sites/index.html
+      update  [0.05s]  output/doc/sites/index.html
 
 Site compiled in 2.42s.</pre>
 

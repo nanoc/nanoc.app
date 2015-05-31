@@ -1,7 +1,6 @@
 ---
 title:      "Rules"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 The <span class="filename">Rules</span> file contains the processing instructions for all items in a nanoc site. Three different kinds of rules exist:
@@ -26,7 +25,7 @@ A routing rule describes the path that an item representation is written to insi
       # (routing code here)
     end
 
-The argument for the `#route` method call is a [pattern](/docs/reference/identifiers-and-patterns/#patterns).
+The argument for the `#route` method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
@@ -44,7 +43,7 @@ The code block should return the routed path for the relevant item. The code blo
       nil
     end
 
-In the code block, nanoc exposes `@item` and `@rep`, among others. See the [Variables](/docs/reference/variables/) page for details.
+In the code block, nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
 
 **Example #3**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item <span class="filename">/foo/bar.html</span> would get the path <span class="filename">/foo/bar/index.html</span>):
 
@@ -89,7 +88,7 @@ A compilation rule describes how an item should be transformed. It has the follo
       # (compilation code here)
     end
 
-The argument for the `#compile` method call is a [pattern](/docs/reference/identifiers-and-patterns/#patterns).
+The argument for the `#compile` method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
 
 The code block should execute the necessary actions for compiling the item. The return value of the block is ignored. There are three kinds actions that can be performed:
 
@@ -134,7 +133,7 @@ To lay out an item representation, call `#layout` and pass the layout identifier
       filter :rubypants
     end
 
-In the code block, nanoc exposes `@item` and `@rep`, among others. See the [Variables](/docs/reference/variables/) page for details.
+In the code block, nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
 
 **Example #5**: The following rule will only invoke the `:erb` filter if the item’s `:is_dynamic` attribute is set:
 

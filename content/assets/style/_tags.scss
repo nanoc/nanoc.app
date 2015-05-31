@@ -37,3 +37,34 @@ a.wip:after {
     color: #fff;
     border-radius: 4px;
 }
+
+pre.legacy:before {
+    content: "LEGACY";
+
+    background: #999;
+    color: #fff;
+}
+
+pre.new:before {
+    content: "NEW";
+
+    background: $link-color-a;
+    color: #fff;
+}
+
+pre.legacy:before,
+pre.new:before {
+    position: relative;
+    top: -10px;
+    right: -10px;
+
+    line-height: 15px;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    float: right;
+
+    padding: 3px 6px 3px 8px;
+}

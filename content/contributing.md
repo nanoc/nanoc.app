@@ -1,7 +1,6 @@
 ---
 title: "Contributing"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 nanoc is the effort of [dozens of people](#contributors). Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to nanoc.
@@ -72,7 +71,7 @@ To test your locally modified version of nanoc on a local nanoc site, edit your 
 
 NOTE: You can also invoke nanoc by calling <span class="command">nanoc</span> using the full path to the <span class="filename">bin/nanoc</span> in your cloned repository. However, we recommend using [Bundler](http://bundler.io/) instead.
 
-After making your modifications, make sure that the source code documentation is up-to-date. nanoc uses [YARD](http://yardoc.org/) for its source code docs. The [YARD getting started guide](http://rubydoc.info/gems/yard/file/docs/GettingStarted.md) is a helpful resource when writing YARD documentation.
+After making your modifications, make sure that the source code documentation is up-to-date. nanoc uses [YARD](http://yardoc.org/) for its source code docs. The [YARD getting started guide](http://rubydoc.info/gems/yard/file/doc/GettingStarted.md) is a helpful resource when writing YARD documentation.
 
 Finally, create a pull request. Make sure the submit your pull request against the branch you originally started off (`master` or `release-3.7.x`).
 

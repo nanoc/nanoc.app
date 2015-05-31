@@ -1,7 +1,6 @@
 ---
 title: "Helpers"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 A helper is a module with functions that can be used during filtering.
@@ -11,7 +10,7 @@ Helpers need to be activated before they can be used. To activate a helper, `inc
 	#!ruby
 	include Nanoc::Helpers::Blogging
 
-Take a look at the [helpers reference](/docs/reference/helpers/) for a list of helpers that are included with nanoc.
+Take a look at the [helpers reference](/doc/reference/helpers/) for a list of helpers that are included with nanoc.
 
 Writing helpers
 ---------------

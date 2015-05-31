@@ -1,9 +1,0 @@
----
-title:      "Command-line interface"
-is_dynamic: true
-up_to_date_with_nanoc_4: true
----
-
-<% @items.find_all('/docs/reference/commands/*').sort_by { |i| i[:name].to_s }.each do |command| %>
-<%= render '/autodoc_partial.*', :item => command %>
-<% end %>

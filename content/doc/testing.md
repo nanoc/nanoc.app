@@ -1,7 +1,6 @@
 ---
 title: "Testing nanoc sites"
 short_title: "Testing"
-up_to_date_with_nanoc_4: true
 ---
 
 The <kbd>check</kbd> command is used to verify that a compiled site meets the requirements.
@@ -68,7 +67,7 @@ Running issue checks…
   Running check internal_links…   <span class="log-check-error">error</span>
   Running check stale…            <span class="log-check-ok">ok</span>
 Issues found!
-  output/docs/guides/unit-testing-nanoc-sites/index.html:
+  output/doc/guides/unit-testing-nanoc-sites/index.html:
     [ <span class="log-check-error">ERROR</span> ] internal_links - broken reference to ../../api/Nanoc/Site.html
 Issues found, deploy aborted.
 <span class="prompt">%</span></pre>
@@ -92,4 +91,4 @@ end
 
 In a custom check, you can use `#add_issue`. The first argument is the description of the problem, and the `:subject` option defines the location of the problem (usually a filename).
 
-In a custom check, the variables `@config`, `@items`, and `@layouts` are available, in addition to `@output_filenames`, which is the collection of filenames in the output directory that correspond to an item in the site. See the [variables](/docs/reference/variables/) page for details.
+In a custom check, the variables `@config`, `@items`, and `@layouts` are available, in addition to `@output_filenames`, which is the collection of filenames in the output directory that correspond to an item in the site. See the [variables](/doc/reference/variables/) page for details.

@@ -1,7 +1,6 @@
 ---
 title:      "Items and layouts"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 Items
@@ -9,9 +8,9 @@ Items
 
 Pages, such as an about page, and assets, such as a stylesheet or an image, are collectively called _items_.
 
-An item has content, attributes, and an [identifier](<%= items['/docs/reference/identifiers-and-patterns.*'].path %>).
+An item has content, attributes, and an [identifier](<%= items['/doc/identifiers-and-patterns.*'].path %>).
 
-Item content can be textual or binary. If the extension of the item is included in the site configuration’s [`text_extension`](/docs/reference/config/#text_extensions) list, it is considered to be textual; otherwise, it will be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
+Item content can be textual or binary. If the extension of the item is included in the site configuration’s [`text_extension`](/doc/reference/config/#text_extensions) list, it is considered to be textual; otherwise, it will be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
 
 Each item has attributes (metadata) associated with it. This metadata consists of key-value pairs. All attributes are free-form; there are no predefined attributes.
 
@@ -60,9 +59,9 @@ The following is a minimal layout that includes the content using `yield`, and e
 	  </body>
 	</html>
 
-An item is laid out using `#layout` function in a compilation rule. See the <%= link_to_id('/docs/reference/rules.*') %> page for details.
+An item is laid out using `#layout` function in a compilation rule. See the <%= link_to_id('/doc/rules.*') %> page for details.
 
-Just like items, layouts have attributes and an [identifier](<%= items['/docs/reference/identifiers-and-patterns.*'].path %>).
+Just like items, layouts have attributes and an [identifier](<%= items['/doc/identifiers-and-patterns.*'].path %>).
 
 ### Partials
 

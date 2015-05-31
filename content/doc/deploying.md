@@ -1,7 +1,6 @@
 ---
 title: "Deploying nanoc sites"
 short_title: "Deploying"
-up_to_date_with_nanoc_4: true
 ---
 
 There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronise” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.

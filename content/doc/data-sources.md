@@ -1,7 +1,6 @@
 ---
 title: "Data sources"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 <span class="firstterm">Data sources</span> provide items and layouts. A nanoc site has one or more data sources. By default, a site uses the [filesystem data source](#the-filesystem-data-source).
@@ -15,7 +14,7 @@ The site configuration contains the configurations for each used data source. Fo
         identifier_style: full
       -
         type: cli
-        items_root: /docs/reference/commands/
+        items_root: /doc/reference/commands/
         identifier_style: full
 
 The data source configuration is a list of hashes. Each hash can have the following keys:
@@ -123,7 +122,7 @@ The `#items` and `#layouts` methods return a collection of items and layouts, re
 : A hash with attributes of this item or layout.
 
 `identifier`
-: A `Nanoc::Identifier` instance, or a string that will be converted to an identifier. See the <%= link_to_id('/docs/reference/identifiers-and-patterns.*') %> page for details.
+: A `Nanoc::Identifier` instance, or a string that will be converted to an identifier. See the <%= link_to_id('/doc/identifiers-and-patterns.*') %> page for details.
 
 To create a binary item, also pass `binary: true` to the `#new_item` method.
 
@@ -154,4 +153,4 @@ If a data source needs to do work before data becomes available, such as establi
       end
     end
 
-See the <%= link_to_id('/docs/guides/using-external-sources.*') %> page for more information on using external data sources such as databases.
+See the <%= link_to_id('/doc/guides/using-external-sources.*') %> page for more information on using external data sources such as databases.

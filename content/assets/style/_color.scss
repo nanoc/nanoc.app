@@ -152,13 +152,10 @@ body header {
                 color: $emph-light-fg-color;
             }
 
-            .try-nanoc-4-beta {
-                a {
+            .for-nanoc-4-beta {
+                span {
+                    color: $light-fg-color;
                     background: #000;
-                }
-
-                a:hover {
-                    background: $link-color-a;
                 }
             }
         }

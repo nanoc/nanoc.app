@@ -1,0 +1,8 @@
+---
+title:      "Helpers"
+is_dynamic: true
+---
+
+<% @items.find_all('/doc/reference/helpers/*').sort_by { |i| i[:name].to_s }.each do |helper| %>
+	<%= render '/autodoc_partial.*', :item => helper %>
+<% end %>

@@ -2,7 +2,6 @@
 title: "Installation"
 nav_title: "Install"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 Install nanoc using RubyGems:

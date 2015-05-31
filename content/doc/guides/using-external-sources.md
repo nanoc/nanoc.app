@@ -1,6 +1,5 @@
 ---
 title: "Using external sources"
-up_to_date_with_nanoc_4: true
 ---
 
 One of nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
@@ -128,9 +127,7 @@ Create the file <span class="filename">lib/helpers.rb</span> and put in one func
 
 	#!ruby
 	def sorted_employees
-	  employees = @items.select do |i|
-	    i.identifier =~ '/external/hr/employees/*'
-	  end
+	  employees = @items.find_all('/external/hr/employees/*')
 	  employees.sort_by do |e|
 	    [ e[:last_name], e[:first_name] ]
 	  end

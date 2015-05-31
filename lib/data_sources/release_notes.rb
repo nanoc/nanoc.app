@@ -16,8 +16,7 @@ module NanocSite
       attributes = {
         title: 'Release Notes',
         markdown: 'basic',
-        extension: 'md',
-        up_to_date_with_nanoc_4: true,
+        extension: 'md'
       }
 
       # identifier

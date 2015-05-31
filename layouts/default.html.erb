@@ -18,11 +18,11 @@
                     <ol>
                         <%= nav_link @items['/index.*'] %>
                         <%= nav_link @items['/about.*'] %>
-                        <%= nav_link @items['/docs.*'] %>
+                        <%= nav_link @items['/doc.*'] %>
                         <%= nav_link @items['/community.*'] %>
                         <%= nav_link @items['/contributing.*'] %>
                     </ol>
-                    <span class="try-nanoc-4-beta"><a href="http://v4.nanoc.ws/docs/nanoc-4-upgrade-guide/">Try nanoc 4 beta!</a></span>
+                    <span class="for-nanoc-4-beta"><span>(for nanoc 4 beta)</span></span>
                 </nav>
                 <%#
                 <div class="search">
@@ -58,9 +58,6 @@
                     </div>
                 </div>
                 <div class="article-content">
-                    <% if @item.identifier != '/index.*' && !@item[:up_to_date_with_nanoc_4] %>
-                        <div class="admonition-wrapper todo"><div class=admonition>The contents of this page have not yet been updated for the upcoming nanoc 4 release.</div></div>
-                    <% end %>
                     <%= yield %>
                 </div>
             </article>

@@ -1,7 +1,6 @@
 ---
 title:      "Variables"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 At several moments in the compilation process, nanoc exposes several variables containing site data. These variables take the appearance of Ruby instance variables, i.e. prefixed with an `@` sigil (e.g. `@items`).

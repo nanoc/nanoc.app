@@ -1,7 +1,6 @@
 ---
 title:      "Configuration"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 ## `text_extensions`
@@ -11,7 +10,7 @@ binary. If an item with an extension not in this list is found, the file
 will be considered as binary.
 
 	#!yaml
-	text_extensions: <%= array_to_yaml(Nanoc::Int::Site::DEFAULT_CONFIG[:text_extensions]) %>
+	text_extensions: <%= array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:text_extensions]) %>
 
 ## `output_dir`
 
@@ -20,7 +19,7 @@ can be an absolute path starting with a slash, but it can also be path
 relative to the site directory.
 
 	#!yaml
-	output_dir: <%= Nanoc::Int::Site::DEFAULT_CONFIG[:output_dir] %>
+	output_dir: <%= Nanoc::Int::Configuration::DEFAULT_CONFIG[:output_dir] %>
 
 ## `index_filenames`
 
@@ -30,7 +29,7 @@ server when a directory is requested. Usually, index files are named
 such as “default.htm”. This list is used by nanoc to generate pretty URLs.
 
 	#!yaml
-	index_filenames: <%= array_to_yaml(Nanoc::Int::Site::DEFAULT_CONFIG[:index_filenames]) %>
+	index_filenames: <%= array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:index_filenames]) %>
 
 ## `enable_output_diff`
 
@@ -43,7 +42,7 @@ before and after the last site compilation.
 
 ## `prune`
 
-The `prune` section contains options for the [prune](/docs/reference/commands/#prune) command, which deletes stray files from the output directory.
+The `prune` section contains options for the [prune](/doc/reference/commands/#prune) command, which deletes stray files from the output directory.
 
 	#!yaml
 	prune:
@@ -71,4 +70,11 @@ The data sources contains the definition of the data sources of this site. It is
 	    type: pentabarf # a custom data source
 	    items_root: /conference/
 
-For details, see the <%= link_to_id('/docs/data-sources.*') %> page.
+For details, see the <%= link_to_id('/doc/data-sources.*') %> page.
+
+## `string_pattern_type`
+
+Sets the type of string pattern to use. Can be `glob` or `legacy`. See the <%= link_to_id '/doc/identifiers-and-patterns.*' %> page for details.
+
+	#!yaml
+	string_pattern_type: glob

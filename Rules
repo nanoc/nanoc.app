@@ -19,21 +19,14 @@ layout '/**/*', :erb
 
 passthrough '/favicon.ico'
 
-# static
+# assets
 
-compile '/static/**/*' do
-end
-
-route '/static/**/*' do
-  # /static/foo.html → /foo.html
-  item.identifier.to_s.sub(/\A\/static/, '')
-end
-
-# stylesheets - partials
-
-ignore '/assets/style/_*'
+passthrough '/assets/fonts/**/*'
+passthrough '/assets/images/**/*'
 
 # stylesheets
+
+ignore '/assets/style/_*'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
@@ -61,11 +54,23 @@ compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, :type => :html
-  # filter :html5small
+  filter :html5small
 end
 
 route '/index.*' do
   '/index.html'
+end
+
+# 404
+
+compile '/404.*' do
+  layout '/default.*'
+  filter :typohero
+  filter :html5small
+end
+
+route '/404.*' do
+  '/404.html'
 end
 
 # fallback
@@ -94,7 +99,7 @@ compile '/**/*' do
   filter :remove_smartness_from_kbd
   filter :fixup_whitespace
   filter :typohero
-  # filter :html5small
+  filter :html5small
 end
 
 route '/**/*' do

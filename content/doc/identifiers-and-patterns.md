@@ -1,7 +1,6 @@
 ---
 title:      "Identifiers and patterns"
 is_dynamic: true
-up_to_date_with_nanoc_4: true
 ---
 
 In nanoc, every item (page or asset) and every layout has a unique _identifier_: a string derived from the file’s path. A _pattern_ is an expression that is used to select items or layouts based on their identifier.
