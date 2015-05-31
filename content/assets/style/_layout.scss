@@ -251,6 +251,24 @@ body header {
                     background-size: 32px 32px;
                 }
             }
+
+            @media (max-width: 719px) {
+                .try-nanoc-4-beta {
+                    display: none;
+                }
+            }
+
+            .try-nanoc-4-beta {
+                float: right;
+                font-size: 13px;
+
+                a {
+                    display: inline-block;
+                    height: 100%;
+                    padding: 10px 18px 11px 18px;
+                    border-radius: 0;
+                }
+            }
         }
     }
 }
