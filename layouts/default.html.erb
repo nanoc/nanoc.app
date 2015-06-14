@@ -7,6 +7,9 @@
         <link href="<%= @items['/assets/style/print/'].path %>"  media="print" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width">
+        <% if @item[:redirect_to] %>
+            <meta http-equiv="refresh" content="0;URL='<%= @item[:redirect_to] %>'">
+        <% end %>
     </head>
     <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
         <header>

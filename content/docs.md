@@ -57,6 +57,7 @@ Topics
   <%= detailed_toc_for('/docs/guides/creating-multilingual-sites/') %>
   <%= detailed_toc_for('/docs/guides/using-external-sources/') %>
   <li><%= link_to_id '/docs/troubleshooting/' %></li>
+  <li><a href="/docs/nanoc-4-upgrade-guide/">nanoc 4 upgrade guide</a></li>
 </ol>
 
 References
@@ -71,10 +72,3 @@ References
   <%= detailed_toc_for('/docs/reference/rules/',     limit: 0) %>
   <li><a href="/docs/api/">API documentation</a></li>
 </ol>
-
-Other resources
----------------
-
-There is a preliminary [nanoc 4 upgrade guide](nanoc-4-upgrade-guide) that you can use if you want to play around with nanoc 4.
-
-NOTE: nanoc 4 is currently in an early stage. Neither nanoc 4 nor this document are in a final form.
