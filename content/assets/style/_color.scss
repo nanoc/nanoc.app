@@ -119,20 +119,40 @@ div.admonition-wrapper:before {
     color: #fff;
 }
 
+div.admonition-wrapper.tip {
+    box-shadow: inset 0 0 0 1px $link-color-a;
+}
+
 div.admonition-wrapper.tip:before {
     background-color: $link-color-a;
+}
+
+div.admonition-wrapper.note {
+    box-shadow: inset 0 0 0 1px $link-color-a;
 }
 
 div.admonition-wrapper.note:before {
     background-color: $link-color-a;
 }
 
+div.admonition-wrapper.caution {
+    box-shadow: inset 0 0 0 1px $emph-color;
+}
+
 div.admonition-wrapper.caution:before {
     background-color: $emph-color;
 }
 
+div.admonition-wrapper.done {
+    box-shadow: inset 0 0 0 1px $admon-color-done;
+}
+
 div.admonition-wrapper.done:before {
     background-color: $admon-color-done;
+}
+
+div.admonition-wrapper.todo {
+    box-shadow: inset 0 0 0 1px desaturate($emph-color, 75%);
 }
 
 div.admonition-wrapper.todo:before {
