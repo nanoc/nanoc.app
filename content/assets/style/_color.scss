@@ -32,6 +32,7 @@ $footer-fg-color:       shade($light-fg-color, 40%);
 $admon-color-tip:       adjust-hue($link-color-a, 240deg);
 $admon-color-note:      $link-color-a;
 $admon-color-caution:   $emph-color;
+$admon-color-done:      adjust-hue($link-color-a, -120%);
 
 
 
@@ -120,6 +121,10 @@ div.admonition-wrapper.caution:before {
     background-color: $emph-color;
 }
 
+div.admonition-wrapper.done:before {
+    background-color: $admon-color-done;
+}
+
 div.admonition-wrapper.todo:before {
     background-color: desaturate($emph-color, 75%);
 }
@@ -147,13 +152,10 @@ body header {
                 color: $emph-light-fg-color;
             }
 
-            .try-nanoc-4-beta {
-                a {
+            .for-nanoc-4-beta {
+                span {
+                    color: $light-fg-color;
                     background: #000;
-                }
-
-                a:hover {
-                    background: $link-color-a;
                 }
             }
         }
@@ -165,7 +167,7 @@ body.page {
         background: $semilight-bg-color;
     }
 
-    .details, .open-source-site, .nanoc-4-note {
+    .details, .open-source-site {
         background: rgba(255, 255, 255, 0.7);
     }
 

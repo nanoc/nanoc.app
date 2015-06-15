@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title><%= @item[:full_title] || 'nanoc &raquo; ' + (content_for(@item, :title) || @item[:title]) %></title>
-        <link href="<%= @items['/assets/style/screen/'].path %>" media="screen" rel="stylesheet">
-        <link href="<%= @items['/assets/style/print/'].path %>"  media="print" rel="stylesheet">
+        <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
+        <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width">
         <% if @item[:redirect_to] %>
@@ -16,14 +16,13 @@
             <div class="header-content">
                 <nav class="main">
                     <ol>
-                        <%= nav_link @items['/'] %>
-                        <%= nav_link @items['/about/'] %>
-                        <%= nav_link @items['/install/'] %>
-                        <%= nav_link @items['/docs/'] %>
-                        <%= nav_link @items['/community/'] %>
-                        <%= nav_link @items['/contributing/'] %>
+                        <%= nav_link @items['/index.*'] %>
+                        <%= nav_link @items['/about.*'] %>
+                        <%= nav_link @items['/doc.*'] %>
+                        <%= nav_link @items['/community.*'] %>
+                        <%= nav_link @items['/contributing.*'] %>
                     </ol>
-                    <span class="try-nanoc-4-beta"><a href="http://v4.nanoc.ws/docs/nanoc-4-upgrade-guide/">Try nanoc 4 beta!</a></span>
+                    <span class="for-nanoc-4-beta"><span>(for nanoc 4 beta)</span></span>
                 </nav>
                 <%#
                 <div class="search">
@@ -49,7 +48,7 @@
                         </div>
                     <% elsif !@item[:skip_details] %>
                         <div class="details">
-                            <h3>Table of Contents</h3>
+                            <h3>Table of contents</h3>
                             <%= link_back %>
                             {{TOC}}
                         </div>
@@ -57,11 +56,6 @@
                     <div class="open-source-site">
                         <p>This site is <a href="http://github.com/nanoc/nanoc.ws">hosted on GitHub</a>. If you want to help out, do report issues and submit pull requests!</p>
                     </div>
-                    <% if @item[:for_nanoc_4] %>
-                    <div class="nanoc-4-note">
-                        <p>The contents of this page reflect the upcoming nanoc 4 version. Do not rely on this material for nanoc 3.x.</p>
-                    </div>
-                    <% end %>
                 </div>
                 <div class="article-content">
                     <%= yield %>

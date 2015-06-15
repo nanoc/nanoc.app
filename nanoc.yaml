@@ -4,24 +4,18 @@ prune:
   auto_prune: true
 
 data_sources:
-  - type:         filesystem_unified
-  - type:         cli
-    items_root:   /docs/reference/commands/
-  - type:         yard
-    items_root:   /docs/reference/
-  - type:         static
-    items_root:   /static/
-  - type:         release_notes
-  - type:         contributors
+  - type: filesystem
+  - type: cli
+    items_root: /doc/reference/commands/
+  - type: yard
+    items_root: /doc/reference/
+  - type: release_notes
+  - type: contributors
 
 base_url: http://nanoc.ws
 
 deploy:
   default:
     kind: rsync
-    dst: "bhakti:/srv/http/nanoc.ws"
-    options: [ '--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times' ]
-  staging:
-    kind: rsync
-    dst: "bhakti:/srv/http/staging.nanoc.ws"
-    options: [ '--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times' ]
+    dst: "bhakti:/srv/http/v4.nanoc.ws"
+    options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']

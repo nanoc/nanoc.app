@@ -10,7 +10,8 @@ module NanocSite
         # Find all top-level sections
         doc = Nokogiri::HTML(content)
         headers = doc.xpath('//h2').map do |header|
-          { :title => header.inner_html, :id => header['id'] }
+          title = header['data-nav-title'] || header.inner_html
+          { :title => title, :id => header['id'] }
         end
 
         if headers.empty?
