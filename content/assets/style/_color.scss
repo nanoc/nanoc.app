@@ -1,27 +1,35 @@
 // Reusable colors
-$emph-color:            rgb(210, 67, 27);
+$emph-color:            saturate(rgb(210, 67, 27), 40%);
+$lighter-emph-color:    tint($emph-color, 30%);
+
+// Intro
+$intro-bg-color:        $lighter-emph-color;
+$intro-fg-color:        #fff;
 
 // background
-$bg-color:              #f1f0eb;
-$semilight-bg-color:    adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
+$bg-color:              tint(#f1f0eb, 40%);
+$hero-bg-color:         adjust-hue(saturate(shade($bg-color, 15%), 15%), -30%);
 $top-bg-color:          shade($bg-color, 70%);
 $footer-bg-color:       $top-bg-color;
 $footer-border-color:   shade($bg-color, 50%);
 $nav-bg-color:          shade($top-bg-color, 60%);
 $search-bg-color:       shade($top-bg-color, 30%);
 $nav-spacing-color:     $top-bg-color;
-$explanation-bg-color:  shade($emph-color, 10%);
+$explanation-bg-color:  $lighter-emph-color;
 $ticker-bg-color:       shade($bg-color, 70%);
-$chooser-unit-bg-color: $emph-color;
+$chooser-unit-bg-color: $lighter-emph-color;
 $tr-odd-color:          shade($bg-color, 5%);
+$sidebar-bg-color:      rgba(255, 255, 255, 0.8);
 
 // foreground
 $tagline-color:         tint($top-bg-color, 40%);
+// $active-bar-color:      rgb(210, 67, 27);
+$active-bar-color:      $emph-color;
 $dark-fg-color:         $search-bg-color;
 $light-fg-color:        #ddd6d4;
 $emph-light-fg-color:   #fff;
 $chooser-unit-fg-color: #fff;
-$link-color-a:          #2366ad;
+$link-color-a:          saturate(#2366ad, 20%);
 $link-color-b:          #fff;
 $footer-link-color-a:   $light-fg-color;
 $footer-link-color-b:   shade($footer-bg-color, 40%);
@@ -33,6 +41,9 @@ $admon-color-tip:       adjust-hue($link-color-a, 240deg);
 $admon-color-note:      $link-color-a;
 $admon-color-caution:   $emph-color;
 $admon-color-done:      adjust-hue($link-color-a, -120%);
+
+$border-color:          shade($bg-color, 5%);
+$emph-bg-color:         tint($bg-color, 60%);
 
 
 
@@ -93,36 +104,55 @@ figure {
 }
 
 pre {
-    border: 1px solid shade($bg-color, 20%);
-    background: tint($bg-color, 50%);
-}
-
-pre:after {
-    background: shade($bg-color, 20%);
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: $emph-bg-color;
 }
 
 div.admonition-wrapper {
-    background: shade($bg-color, 5%);
+    box-shadow: inset 0 0 0 1px $border-color;
+
+    background: $emph-bg-color;
 }
 
 div.admonition-wrapper:before {
     color: #fff;
 }
 
+div.admonition-wrapper.tip {
+    box-shadow: inset 0 0 0 1px $link-color-a;
+}
+
 div.admonition-wrapper.tip:before {
     background-color: $link-color-a;
+}
+
+div.admonition-wrapper.note {
+    box-shadow: inset 0 0 0 1px $link-color-a;
 }
 
 div.admonition-wrapper.note:before {
     background-color: $link-color-a;
 }
 
+div.admonition-wrapper.caution {
+    box-shadow: inset 0 0 0 1px $emph-color;
+}
+
 div.admonition-wrapper.caution:before {
     background-color: $emph-color;
 }
 
+div.admonition-wrapper.done {
+    box-shadow: inset 0 0 0 1px $admon-color-done;
+}
+
 div.admonition-wrapper.done:before {
     background-color: $admon-color-done;
+}
+
+div.admonition-wrapper.todo {
+    box-shadow: inset 0 0 0 1px desaturate($emph-color, 75%);
 }
 
 div.admonition-wrapper.todo:before {
@@ -152,6 +182,23 @@ body header {
                 color: $emph-light-fg-color;
             }
 
+            @media (min-width: 720px) {
+                li.active > span,
+                li.active > a {
+                    border-top: 3px solid $active-bar-color;
+                }
+            }
+
+            @media (max-width: 719px) {
+                li.active:nth-child(even) {
+                    border-left: 3px solid $active-bar-color;
+                }
+
+                li.active:nth-child(odd) {
+                    border-right: 3px solid $active-bar-color;
+                }
+            }
+
             .for-nanoc-4-beta {
                 span {
                     color: $light-fg-color;
@@ -164,15 +211,15 @@ body header {
 
 body.page {
     .intro {
-        background: $semilight-bg-color;
+        background: $intro-bg-color;
+
+        h1 {
+            color: $intro-fg-color;
+        }
     }
 
-    .details, .open-source-site {
-        background: rgba(255, 255, 255, 0.7);
-    }
-
-    .open-source-site {
-        border-color: #fff;
+    .details {
+        background: $sidebar-bg-color;
     }
 
     tr.odd td {
@@ -187,7 +234,7 @@ body.home {
     }
 
     .hero {
-        background-color: $semilight-bg-color;
+        background-color: $hero-bg-color;
 
         .caption {
             background: shade($bg-color, 5%);

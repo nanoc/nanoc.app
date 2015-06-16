@@ -12,9 +12,9 @@ $grid-padding:  0;
 // GENERAL STYLING
 
 body {
-    font-family: "Open Sans";
+    font-family: "Source Sans Pro";
     font-weight: normal;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
 }
 
@@ -51,6 +51,8 @@ pre {
 
 div.admonition-wrapper {
     margin: 0 0 20px 0;
+
+    border-radius: 4px;
 }
 
 div.admonition-wrapper:before {
@@ -60,6 +62,8 @@ div.admonition-wrapper:before {
     width: 28px;
 
     padding: 10px;
+
+    border-radius: 4px 0 0 4px;
 }
 
 div.admonition-wrapper .admonition {
@@ -173,8 +177,6 @@ body header {
 
                     li.active > span,
                     li.active > a {
-                        // TODO move this to _colors.scss
-                        border-top: 3px solid rgb(210, 67, 27);
                         padding-top: 7px;
                         border-radius: 0;
                     }
@@ -203,14 +205,10 @@ body header {
                     }
 
                     li.active:nth-child(even) {
-                        // TODO move this to _colors.scss
-                        border-left: 3px solid rgb(210, 67, 27);
                         padding-right: 3px;
                     }
 
                     li.active:nth-child(odd) {
-                        // TODO move this to _colors.scss
-                        border-right: 3px solid rgb(210, 67, 27);
                         padding-left: 3px;
                     }
                 }
@@ -495,7 +493,7 @@ body.page .content {
                 margin: 40px 0 0 0;
             }
 
-            .details, .open-source-site {
+            .details {
                 padding: 20px;
                 margin-bottom: 20px;
             }
@@ -536,16 +534,6 @@ body.page .content {
 
                 ul li {
                     list-style-type: none;
-                }
-            }
-
-            .open-source-site {
-                border-width: 6px;
-                border-style: solid;
-
-                p {
-                    font-size: 12px;
-                    padding: 0;
                 }
             }
         }
@@ -803,7 +791,7 @@ body.home .support {
 
 footer {
     p {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     a {

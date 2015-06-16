@@ -43,6 +43,7 @@ pre.legacy:before {
 
     background: #999;
     color: #fff;
+    border-top-right-radius: 4px;
 }
 
 pre.new:before {
@@ -50,6 +51,7 @@ pre.new:before {
 
     background: $link-color-a;
     color: #fff;
+    border-top-right-radius: 4px;
 }
 
 pre.legacy:before,
