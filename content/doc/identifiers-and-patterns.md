@@ -76,8 +76,8 @@ For glob patterns, nanoc supports the following wildcards:
 `*`
 : Matches any file or directory name. Does not cross directory boundaries. For example, `/projects/*.md` matches `/projects/nanoc.md`, but not `/projects/cri.adoc` nor `/projects/nanoc/about.md`.
 
-`**`
-: Matches any file or directory name, and crosses directory boundaries. For example, `/projects/**/*.md` matches both `/projects/nanoc.md` and `/projects/nanoc/history.md`.
+`**/`
+: Matches zero or more levels of nested directories. For example, `/projects/**/*.md` matches both `/projects/nanoc.md` and `/projects/nanoc/history.md`.
 
 `?`
 : Matches a single character.
