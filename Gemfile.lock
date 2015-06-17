@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/nanoc/nanoc.git
-  revision: 6cbde38c8dc2799d616875dd15a0d94308a26faf
+  revision: cd83379099246a54c76d7a5cf13222ddfb8b6d75
   specs:
     nanoc (4.0.0b4)
       cri (~> 2.3)
@@ -74,7 +74,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.6.1)
+    rack (1.6.2)
     rainpress (1.0)
     rake (10.4.2)
     rb-fsevent (0.9.5)
