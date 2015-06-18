@@ -17,10 +17,10 @@ legacy
 
 The following methods are useful for full identifiers:
 
-`identifier.with_ext(string)` &rarr; String
+`identifier.with_ext(string)` &rarr; `String`
 : identifier with the extension replaced with the given string
 
-`identifier.without_ext` &rarr; String
+`identifier.without_ext` &rarr; `String`
 : identifier with the extension removed
 
 Here are some examples:
@@ -37,10 +37,10 @@ Here are some examples:
 The following methods are useful for legacy identifiers:
 
 {: .legacy}
-`identifier.chop` &rarr; String
+`identifier.chop` &rarr; `String`
 : identifier with the last character removed
 
-`identifier + string` &rarr; String
+`identifier + string` &rarr; `String`
 : identifier with the given string appended
 
 Here are some examples:
