@@ -12,6 +12,11 @@ IRC channel
 
 There is a [nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the [nanoc discussion group](http://groups.google.com/group/nanoc) instead (see above).
 
+GitHub
+------
+
+The [nanoc GitHub repository](http://github.com/nanoc/nanoc) is where development happens, issues are discussed and pull requests reviewed. The process is open and anyone is invited to participate. Be sure to check out the [Contributing](/contributing/) page as well.
+
 Wiki
 ----
 
