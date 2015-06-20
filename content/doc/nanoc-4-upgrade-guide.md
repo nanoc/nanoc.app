@@ -240,6 +240,18 @@ To use identifiers with extensions:
           item.identifier.with_ext('html')
         end
 
+6.  Replace calls in the form of `@items['/pattern/'].children` with a call to `#find_all` that matches the children. For example:
+
+    {: .legacy}
+        #!ruby
+        # Without identifiers with extensions
+        @items['/articles/'].children
+
+    {: .new}
+        #!ruby
+        # With identifiers with extensions
+        @items.find_all('/articles/*')
+
 ### Upgrading from the static data source
 
 NOTE: This section assumes that glob patterns and identifiers with extensions have been enabled.
