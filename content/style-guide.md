@@ -117,14 +117,6 @@ Here is a caution:
 
 CAUTION: The <span class="command">rm</span> command can cause data loss.
 
-Here is a to-do item:
-
-TODO: Finish this section.
-
-Here is a done item:
-
-DONE: This section is entirely up-to-date!
-
 ### Figures
 
 <figure class="fullwidth">
