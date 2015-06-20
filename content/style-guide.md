@@ -27,6 +27,22 @@ Some code:
 	  puts("Uh… hi?")
 	end
 
+{: .legacy}
+	#!ruby
+	# Old approach -- NO LONGER WORKS!
+	compile '*' do
+	  rep.filter :erb
+	  rep.layout 'default'
+	end
+
+{: .new}
+	#!ruby
+	# New approach
+	compile '*' do
+	  filter :erb
+	  layout 'default'
+	end
+
 Some terminal input and output:
 
 <pre><span class="prompt">~%</span> <kbd>bundle exec nanoc</kbd>
@@ -78,8 +94,14 @@ DSL
 : Digital subscriber line
 
 moshi
-mothersip
+mothership
 : Something scary
+
+Some definition lists with tags:
+
+{: .legacy}
+`@item.parent` &rarr; _item_ / `nil`
+: The parent of this item
 
 ### Admonitions
 
@@ -98,6 +120,10 @@ CAUTION: The <span class="command">rm</span> command can cause data loss.
 Here is a to-do item:
 
 TODO: Finish this section.
+
+Here is a done item:
+
+DONE: This section is entirely up-to-date!
 
 ### Figures
 

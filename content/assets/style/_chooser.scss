@@ -1,0 +1,97 @@
+@import "susy";
+
+@import "colors.scss";
+
+body.home .chooser {
+    @include container;
+
+    padding: 40px 20px 40px 20px;
+
+    .chooser-unit {
+        h2 {
+            a {
+                padding: 4px 8px;
+            }
+
+            padding: 20px 0;
+            font-size: 20px;
+            font-style: normal;
+        }
+    }
+
+    .chooser-unit:before {
+        content: "";
+
+        border-color: $chooser-unit-fg-color;
+        background-color: $chooser-unit-bg-color;
+
+        display: block;
+        width: 100px;
+        height: 100px;
+
+        margin: 0 auto;
+
+        border-width: 12px;
+        border-style: double;
+        @include border-radius(100px);
+
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 53px;
+    }
+
+    @media (min-width: 720px) {
+        .chooser-unit {
+            @include span-columns(4, 12);
+            text-align: center;
+        }
+
+        .chooser-unit:last-child {
+            @include span-columns(4 omega, 12);
+        }
+
+        .chooser-unit:before {
+            width: 100px;
+            height: 100px;
+
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 719px) {
+        .chooser-unit {
+            @include span-columns(12, 12);
+            margin: 0 0 20px 0;
+        }
+
+        .chooser-unit:last-child {
+            @include span-columns(12 omega, 12);
+        }
+
+        h2, p {
+            margin-left: 110px;
+        }
+
+        .chooser-unit:before {
+            width:  70px;
+            height: 70px;
+
+            clear: left;
+            float: left;
+
+            background-size: 40px auto;
+        }
+    }
+
+    .install-nanoc:before {
+        background-image: url(/assets/images/chooser-download.png);
+    }
+
+    .take-the-tutorial:before {
+        background-image: url(/assets/images/chooser-tour.png);
+    }
+
+    .learn-more:before {
+        background-image: url(/assets/images/chooser-learn.png);
+    }
+}

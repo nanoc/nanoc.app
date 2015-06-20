@@ -1,15 +1,33 @@
+@import "colors.scss";
+
 div.admonition-wrapper {
+    border-radius: 4px;
+
+    background: $admon-bg-color;
+
     display: table;
 
     width: 100%;
     padding: 0;
+    margin: 0 0 20px 0;
 }
 
 div.admonition-wrapper:before {
     display: table-cell;
 
+    color: $admon-side-fg-color;
+
     font-family: Entypo;
     font-weight: normal;
+    font-size: 48px;
+
+    line-height: 20px;
+
+    width: 28px;
+
+    padding: 10px;
+
+    border-radius: 4px 0 0 4px;
 
     text-align: center;
     vertical-align: middle;
@@ -17,25 +35,51 @@ div.admonition-wrapper:before {
 
 div.admonition-wrapper .admonition {
     display: table-cell;
+    padding: 10px;
+}
+
+div.admonition-wrapper.tip {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-tip;
 }
 
 div.admonition-wrapper.tip:before {
+    background-color: $admon-side-bg-color-tip;
     content: "\1F393";
 }
 
+div.admonition-wrapper.note {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-note;
+}
+
 div.admonition-wrapper.note:before {
+    background-color: $admon-side-bg-color-note;
     content: "\270E";
 }
 
+div.admonition-wrapper.caution {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-caution;
+}
+
 div.admonition-wrapper.caution:before {
+    background-color: $admon-side-bg-color-caution;
     content: "\26A0";
 }
 
+div.admonition-wrapper.todo {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-todo;
+}
+
 div.admonition-wrapper.todo:before {
+    background-color: $admon-side-bg-color-todo;
     content: "\1F6C8";
 }
 
+div.admonition-wrapper.done {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-done;
+}
+
 div.admonition-wrapper.done:before {
+    background-color: $admon-side-bg-color-done;
     content: "\2713";
 }
 

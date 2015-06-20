@@ -1,15 +1,19 @@
 ---
-version:    42
+version:    43
 is_hidden:  true
 is_dynamic: true
 ---
 
 @import "compass/reset";
 
+@import "base.scss";
 @import "fonts.scss";
+@import "hero.scss";
 @import "layout.scss";
-@import "color.scss";
 @import "code.scss";
 @import "admonition.scss";
 @import "text.scss";
 @import "tags.scss";
+@import "nav.scss";
+@import "chooser.scss";
+@import "figures.scss";

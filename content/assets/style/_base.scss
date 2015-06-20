@@ -1,0 +1,70 @@
+@import "colors.scss";
+
+@import "compass/css3/border-radius";
+
+body {
+    background: $color-offwhite;
+
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    font-size: 15px;
+
+    line-height: 20px;
+}
+
+a {
+    text-decoration: none;
+    padding: 0 2px;
+    margin: 0 -1px;
+    @include border-radius(3px);
+}
+
+dd {
+    margin: 0 0 20px 20px;
+}
+
+pre, code, kbd, var, .attribute, .command {
+    font-size: 13px;
+}
+
+blockquote {
+    font-style: italic;
+    margin-left: 20px;
+}
+
+pre {
+    border-radius: 4px;
+
+    box-shadow: 0 1px 1px $pre-shadow-color;
+
+    background: $pre-bg-color;
+
+    padding: 10px;
+    margin: 0 0 20px 0;
+
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $header-color;
+}
+
+dt {
+    color: $dt-color;
+}
+
+article {
+    a:link,
+    a:visited {
+        color: $link-color;
+    }
+
+    a:hover {
+        background-color: $link-color;
+        color:            $link-color-hover;
+    }
+}

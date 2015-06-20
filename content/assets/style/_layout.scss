@@ -2,134 +2,14 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/transform";
 
+@import "colors.scss";
+
 $total-columns: 12;
 $column-width:  60px;
 $gutter-width:  20px;
 $grid-padding:  0;
 
 @include border-box-sizing;
-
-// GENERAL STYLING
-
-body {
-    font-family: "Source Sans Pro";
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 20px;
-}
-
-a {
-    text-decoration: none;
-    padding: 0 2px;
-    margin: 0 -1px;
-    @include border-radius(3px);
-}
-
-dd {
-    margin: 0 0 20px 20px;
-}
-
-pre, code, kbd, var, .attribute, .command {
-    font-size: 13px;
-}
-
-blockquote {
-    font-style: italic;
-    margin-left: 20px;
-}
-
-pre {
-    padding: 10px;
-    margin: 0 0 20px 0;
-
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
-}
-
-div.admonition-wrapper {
-    margin: 0 0 20px 0;
-
-    border-radius: 4px;
-}
-
-div.admonition-wrapper:before {
-    font-size: 48px;
-    line-height: 20px;
-
-    width: 28px;
-
-    padding: 10px;
-
-    border-radius: 4px 0 0 4px;
-}
-
-div.admonition-wrapper .admonition {
-    padding: 10px;
-}
-
-// SPECIAL STYLING
-
-table.comparison {
-    td {
-        padding: 5px 20px 5px 5px;
-    }
-}
-
-table.dl {
-    td {
-        vertical-align: top;
-    }
-
-    td.name {
-        padding-right: 20px;
-    }
-
-    td.summary {
-        width: 100%;
-    }
-
-    td.name {
-        white-space: nowrap;
-    }
-}
-
-.search input {
-    font-size: 13px;
-    margin: 8px 0;
-    padding: 4px 10px;
-    border: none;
-    @include border-radius(10px);
-
-    :focus {
-        outline: none
-    }
-}
-
-figure {
-    img {
-        display: block;
-
-        width: 100%;
-
-        border-width: 1px;
-        border-style: solid;
-    }
-
-    figcaption {
-        padding: 5px 10px;
-        margin: 0 0 20px 0;
-
-        display: block;
-
-        font-size: 12px;
-        font-style: italic;
-    }
-}
-
-// SPECIFIC STYLING
 
 body header {
     padding: 0 20px;
@@ -138,205 +18,20 @@ body header {
         @media (min-width: 720px) {
             @include container;
         }
+    }
+}
 
-/*
-        .search {
-            @media (min-width: 720px) {
-                @include span-columns(2 omega, 12);
+body.page {
+    .intro {
+        background: $intro-bg-color;
 
-                text-align: right;
-            }
-            @media (max-width: 719px) {
-                text-align: center;
-            }
-
-            padding: 0 10px;
-
-            input {
-                width: 100%;
-            }
+        h1 {
+            color: $intro-fg-color;
         }
-*/
-        nav {
-            @media (min-width: 720px) {
-                @include span-columns(12 omega, 12);
-            }
+    }
 
-            ol {
-                text-align: center;
-                list-style-type: none;
-
-                @media (min-width: 720px) {
-                    li {
-                        float: left;
-                        zoom: 1;
-                        padding: 10px 0;
-                        border-right-width: 1px;
-                        border-right-style: solid;
-                    }
-
-                    li.active > span,
-                    li.active > a {
-                        padding-top: 7px;
-                        border-radius: 0;
-                    }
-                }
-
-                @media (max-width: 719px) {
-                    li:first-child {
-                        width: 100%;
-                    }
-
-                    li {
-                        display: inline-block;
-                        width: 50%;
-                        padding: 0;
-                    }
-
-                    li > a,
-                    li > span {
-                        display: inline-block;
-                        padding: 10px 0;
-                        width: 100%;
-                    }
-
-                    li.active:nth-child(odd):first-child {
-                        border: none;
-                    }
-
-                    li.active:nth-child(even) {
-                        padding-right: 3px;
-                    }
-
-                    li.active:nth-child(odd) {
-                        padding-left: 3px;
-                    }
-                }
-
-                li > a,
-                li > span {
-                    font-size: 15px;
-                    margin: 0;
-                    padding: 10px 18px;
-                }
-
-                li.home {
-                    padding: 0;
-                }
-
-                li.home.active > span {
-                    border: 0;
-                    padding-top: 10px;
-                }
-
-                li.home > a,
-                li.home > span {
-                    display: inline-block;
-                    width: 52px;
-                    height: 100%;
-                    padding: 10px 0;
-                }
-
-                li.home > a > span,
-                li.home > span > span {
-                    visibility: hidden;
-                }
-
-                li.home > a {
-                    background: url(/assets/images/logo-nav.png) no-repeat center 4px;
-                    background-size: 32px 32px;
-                }
-
-                li.home > a:hover {
-                    background: url(/assets/images/logo-nav-hover.png) no-repeat center 4px;
-                    background-size: 32px 32px;
-                }
-
-                li.home.active > span {
-                    background: url(/assets/images/logo-nav-active.png) no-repeat center 4px;
-                    background-size: 32px 32px;
-                }
-            }
-
-            @media (max-width: 719px) {
-                .for-nanoc-4-beta {
-                    display: none;
-                }
-            }
-
-            .for-nanoc-4-beta {
-                float: right;
-                font-size: 13px;
-
-                span {
-                    display: inline-block;
-                    height: 100%;
-                    padding: 10px 18px 11px 18px;
-                    border-radius: 0;
-                    position: relative;
-                }
-
-                span:after {
-                    content: "The content of this web site" "\A" "applies to nanoc 4 beta.";
-
-                    text-align: right;
-
-                    white-space:pre;
-
-                    position: absolute;
-                    top: 60px;
-                    right: 20px;
-
-                    display: block;
-                    opacity: 0;
-
-                    padding: 10px 14px;
-
-                    color: #fff;
-
-                    background: rgba(0, 0, 0, 0.7);
-                    border-radius: 10px;
-
-                    z-index: 99;
-
-                    transition: all 0.4s;
-                    -webkit-transition: all 0.4s;
-                }
-
-                span:before {
-                    border: solid;
-                    border-color: rgba(0, 0, 0, 0.7) transparent;
-                    border-width: 0 7px 7px 7px;
-
-                    content: "";
-
-                    display: block;
-                    opacity: 0;
-
-                    position: absolute;
-                    width: 0;
-                    top: 53px;
-                    right: 40px;
-
-                    z-index: 99;
-
-                    transition: all 0.4s;
-                    -webkit-transition: all 0.4s;
-                }
-
-                span:hover:before {
-                    opacity: 1.0;
-
-                    transform: translate(0, -8px);
-                }
-
-                span:hover:after {
-                    opacity: 1.0;
-
-                    transform: translate(0, -8px);
-                }
-            }
-        }
+    .details {
+        background: $sidebar-bg-color;
     }
 }
 
@@ -546,40 +241,30 @@ body.page .content {
     }
 }
 
-body.home .hero {
-    .hero-content {
-        @include container;
-        height: 300px;
-        overflow: hidden;
+body.home {
+    .explanation {
+        background: $intro-bg-color;
+        color: $intro-fg-color;
+    }
 
-        @media (max-width: 719px) {
-            padding-top: 10px;
-            height: 160px;
-        }
+    .ticker {
+        background: $dark-bg-color;
+        color: $dark-fg-color;
 
-        .slides {
-            position: relative;
-            top: -10px;
+        @include dark-background-links;
+    }
 
-            .slide {
-                position: absolute;
-                top: 0;
-                left: 0;
+    .support {
+        border-color: $chooser-unit-border-color;
 
-                a {
-                    display: block;
-                    background: none;
-                }
-
-                img {
-                    border: 0;
-                    display: block;
-                    width: 100%;
-                }
+        .support-content {
+            h3:before {
+                border-color: $chooser-unit-bg-color;
             }
-        }
 
-        #slide-1 {
+            h3 {
+                color: $header-color;
+            }
         }
     }
 }
@@ -619,151 +304,6 @@ body.home .ticker {
     }
 }
 
-@keyframes shake {
-    0%   { left:  0px;  }
-    25%  { left: -10px; }
-    50%  { left:  10px; }
-    75%  { left: -10px; }
-    100% { left:  0px;  }
-}
-
-@-moz-keyframes shake {
-    0%   { left:  0px;  }
-    25%  { left: -10px; }
-    50%  { left:  10px; }
-    75%  { left: -10px; }
-    100% { left:  0px;  }
-}
-
-@-webkit-keyframes shake {
-    0%   { left:  0px;  }
-    25%  { left: -10px; }
-    50%  { left:  10px; }
-    75%  { left: -10px; }
-    100% { left:  0px;  }
-}
-
-body.home .announcement {
-    padding: 40px 0;
-
-    position: relative;
-
-    animation-name: shake;
-    animation-duration: 0.5s;
-    animation-delay: 1s;
-    animation-iteration-count: 1;
-
-    -moz-animation-name: shake;
-    -moz-animation-duration: 0.5s;
-    -moz-animation-delay: 1s;
-    -moz-animation-iteration-count: 1;
-
-    -webkit-animation-name: shake;
-    -webkit-animation-duration: 0.5s;
-    -webkit-animation-delay: 1s;
-    -webkit-animation-iteration-count: 1;
-
-    font-size: 16px;
-    text-align: center;
-
-    span {
-        padding: 10px 15px;
-
-        border-radius: 5px;
-    }
-}
-
-body.home .chooser {
-    @include container;
-
-    padding: 40px 20px 40px 20px;
-
-    .chooser-unit {
-        h2 {
-            a {
-                padding: 4px 8px;
-            }
-
-            padding: 20px 0;
-            font-size: 20px;
-            font-style: normal;
-        }
-    }
-
-    .chooser-unit:before {
-        content: "";
-
-        display: block;
-        width: 100px;
-        height: 100px;
-
-        margin: 0 auto;
-
-        border-width: 12px;
-        border-style: double;
-        @include border-radius(100px);
-
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 53px;
-    }
-
-    @media (min-width: 720px) {
-        .chooser-unit {
-            @include span-columns(4, 12);
-            text-align: center;
-        }
-
-        .chooser-unit:last-child {
-            @include span-columns(4 omega, 12);
-        }
-
-        .chooser-unit:before {
-            width: 100px;
-            height: 100px;
-
-            margin: 0 auto;
-        }
-    }
-
-    @media (max-width: 719px) {
-        .chooser-unit {
-            @include span-columns(12, 12);
-            margin: 0 0 20px 0;
-        }
-
-        .chooser-unit:last-child {
-            @include span-columns(12 omega, 12);
-        }
-
-        h2, p {
-            margin-left: 110px;
-        }
-
-        .chooser-unit:before {
-            width:  70px;
-            height: 70px;
-
-            clear: left;
-            float: left;
-
-            background-size: 40px auto;
-        }
-    }
-
-    .install-nanoc:before {
-        background-image: url(/assets/images/chooser-download.png);
-    }
-
-    .take-the-tutorial:before {
-        background-image: url(/assets/images/chooser-tour.png);
-    }
-
-    .learn-more:before {
-        background-image: url(/assets/images/chooser-learn.png);
-    }
-}
-
 body.home .support {
     @include container;
 
@@ -786,6 +326,23 @@ body.home .support {
             font-size: 20px;
             line-height: 40px;
         }
+    }
+}
+
+footer {
+    background: $dark-bg-color url(/assets/images/background-dark.png);
+
+    @include dark-background-links;
+
+    .links {
+        div, li:before {
+            color: $dark-fg-color;
+        }
+    }
+
+    .copyright {
+        border-color: $dark-border-color;
+        color: $dark-fg-color;
     }
 }
 

@@ -1,3 +1,5 @@
+@import "colors.scss";
+
 dl.legacy dt:after {
     content: "LEGACY";
 
@@ -8,8 +10,8 @@ dl.legacy dt:after {
     font-weight: bold;
     letter-spacing: 1px;
 
-    background: #777;
-    color: #fff;
+    background: $tag-legacy-bg-color;
+    color: $tag-legacy-fg-color;
     border-radius: 4px;
 }
 
@@ -33,24 +35,24 @@ a.wip:after {
     font-weight: bold;
     letter-spacing: 1px;
 
-    background: #777;
-    color: #fff;
+    background: $tag-wip-bg-color;
+    color: $tag-wip-fg-color;
     border-radius: 4px;
 }
 
 pre.legacy:before {
     content: "LEGACY";
 
-    background: #999;
-    color: #fff;
+    background: $tag-legacy-bg-color;
+    color: $tag-legacy-fg-color;
     border-top-right-radius: 4px;
 }
 
 pre.new:before {
     content: "NEW";
 
-    background: $link-color-a;
-    color: #fff;
+    background: $tag-new-bg-color;
+    color: $tag-new-fg-color;
     border-top-right-radius: 4px;
 }
 
