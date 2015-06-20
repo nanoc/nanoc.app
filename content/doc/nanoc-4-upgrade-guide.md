@@ -192,7 +192,7 @@ To use identifiers with extensions:
           layout '/default.*'
         end
 
-3.  Remove the trailing slash from any argument of `@items[…]` and `@layouts[]` calls anywhere in the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
+3.  Remove the trailing slash from any argument of `@items[…]` and `@layouts[…]` calls, as well as `render` calls, anywhere in the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
 
     {: .legacy}
         #!ruby
