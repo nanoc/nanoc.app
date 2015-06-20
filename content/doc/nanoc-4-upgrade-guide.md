@@ -32,7 +32,6 @@ The following steps will get a nanoc 3 site working on nanoc 4 with a minimal am
 
   {: .legacy}
       #!ruby
-      # Old approach -- NO LONGER WORKS!
       compile '*' do
         rep.filter :erb
         rep.layout 'default'
@@ -40,7 +39,6 @@ The following steps will get a nanoc 3 site working on nanoc 4 with a minimal am
 
   {: .new}
       #!ruby
-      # New approach
       compile '*' do
         filter :erb
         layout 'default'
@@ -50,26 +48,22 @@ The following steps will get a nanoc 3 site working on nanoc 4 with a minimal am
 
   {: .legacy}
       #!ruby
-      # Old approach -- NO LONGER WORKS!
       @items << Nanoc::Item.new('Hello', {}, '/hello/')
 
   {: .new}
       #!ruby
-      # New approach
       @items.create('Hello', {}, '/hello/')
 
 * In data sources, use `#new_item` or `#new_layout` rather than instantiating `Nanoc::Item` or `Nanoc::Layout`. For example:
 
   {: .legacy}
       #!ruby
-      # Old approach -- NO LONGER WORKS!
       def items
         [Nanoc::Item.new('Hello', {}, '/hello/')]
       end
 
   {: .new}
       #!ruby
-      # New approach
       def items
         [new_item('Hello', {}, '/hello/')]
       end
@@ -120,14 +114,12 @@ To use glob patterns:
 
     {: .legacy}
         #!ruby
-        # With legacy patterns
         compile '/articles/*/' do
           layout '/default/'
         end
 
     {: .new}
         #!ruby
-        # With glob patterns
         compile '/articles/**/*/' do
           layout '/default/'
         end
@@ -136,12 +128,10 @@ To use glob patterns:
 
     {: .legacy}
         #!ruby
-        # With legacy patterns
         @items['/articles/*/']
 
     {: .new}
         #!ruby
-        # With glob patterns
         @items['/articles/**/*/']
 
 This approach should work out of the box: nanoc should not raise errors and the output diff should be empty.
@@ -168,8 +158,6 @@ To use identifiers with extensions:
 
     {: .legacy}
         #!ruby
-        # Without identifiers with extensions
-
         compile '/articles/**/*/' do
           filter :kramdown
           layout '/default/'
@@ -181,8 +169,6 @@ To use identifiers with extensions:
 
     {: .new}
         #!ruby
-        # With identifiers with extensions
-
         compile '/articles/**/*' do
           filter :kramdown
           layout '/default.*'
@@ -192,17 +178,60 @@ To use identifiers with extensions:
           layout '/default.*'
         end
 
-3.  Remove the trailing slash from any argument of `@items[…]` and `@layouts[]` calls anywhere in the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
+3.  Remove the trailing slash from any argument of `@items[…]` and `@layouts[…]` calls, as well as `render` calls, anywhere in the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
 
     {: .legacy}
         #!ruby
-        # Without identifiers with extensions
         @items['/about/']
+        @layouts['/default/']
 
     {: .new}
         #!ruby
-        # With identifiers with extensions
         @items['/about.*']
+        @layouts['/default.*']
+
+    {: .legacy}
+        #!rhtml
+        <%= render '/root/' %>
+
+    {: .new}
+        #!rhtml
+        <%= render '/root.*' %>
+
+4.  Update the routing rules to output the correct path. For example:
+
+    {: .legacy}
+        #!ruby
+        route '/articles/*/' do
+          # /articles/foo/ gets written to /articles/foo/index.html
+          item.identifier + 'index.html'
+        end
+
+    {: .new}
+        #!ruby
+        route '/articles/**/*' do
+          # /articles/foo.md gets written to /articles/foo/index.html
+          item.identifier.without_ext + '/index.html'
+        end
+
+5.  Create a routing rule that matches index files in the content directory (such as <span class="filename">content/index.md</span> or <span class="filename">content/blog/index.md</span>). For example, put the following _before_ any rules matching `/**/*`:
+
+    {: .new}
+        #!ruby
+        route '/**/index.*' do
+          # /projects/index.md gets written to /projects/index.html
+          item.identifier.with_ext('html')
+        end
+
+6.  Replace calls in the form of `@items['/pattern/'].children` with a call to `#find_all` that matches the children. For example:
+
+    {: .legacy}
+        #!ruby
+        @items['/articles/'].children
+
+    {: .new}
+        #!ruby
+        @items.find_all('/articles/*')
 
 ### Upgrading from the static data source
 
@@ -253,12 +282,10 @@ A final improvement would be to move the contents of the <span class="filename">
 
   {: .legacy}
       #!ruby
-      # Old approach -- NO LONGER WORKS!
       item.identifier[7..-2]
 
   {: .new}
       #!ruby
-      # New approach
       item.identifier.to_s[7..-2]
 
 * If you get a `NoMethodError` that you did not expect, you might be using a private API that is no longer present in nanoc 4.0. In case of doubt, ask for help on the [discussion group](http://nanoc.ws/community/#discussion-groups).
