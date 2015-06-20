@@ -8,7 +8,7 @@ $color-blue:                  #0e65c2;
 $color-orange-light:          tint($color-orange, 30%);
 $color-offwhite:              desaturate(tint($color-orange-light, 90%), 70%);
 $color-offwhite-light:        tint($color-offwhite, 60%);
-$color-offwhite-dark:         desaturate(tint($color-orange-light, 70%), 50%);
+$color-offwhite-dark:         desaturate(tint($color-blue, 80%), 10%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-green:                 adjust-hue($color-blue, -120%);
 $color-dark-40:               shade($color-offwhite, 15%);
