@@ -222,6 +222,7 @@ To use identifiers with extensions:
         #!ruby
         # Without identifiers with extensions
         route '/articles/*/' do
+          # /articles/foo/ gets written to /articles/foo/index.html
           item.identifier + 'index.html'
         end
 
@@ -229,6 +230,7 @@ To use identifiers with extensions:
         #!ruby
         # With identifiers with extensions
         route '/articles/**/*' do
+          # /articles/foo.md gets written to /articles/foo/index.html
           item.identifier.without_ext + '/index.html'
         end
 
@@ -237,6 +239,7 @@ To use identifiers with extensions:
     {: .new}
         #!ruby
         route '/**/index.*' do
+          # /projects/index.md gets written to /projects/index.html
           item.identifier.with_ext('html')
         end
 
