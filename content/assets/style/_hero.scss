@@ -3,7 +3,7 @@
 @import "colors.scss";
 
 .hero {
-    background-color: $hero-bg-color;
+    background: $hero-bg-color url(/assets/images/symphony.png);
 }
 
 .hero-content {
