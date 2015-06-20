@@ -57,7 +57,7 @@ The attributes for an item or a layout are typically stored in the metadata sect
 
     #!yaml
     ---
-    full_title: "nanoc: a static site generator written in Ruby > home"
+    full_title: "nanoc: a static-site generator written in Ruby > home"
     short_title: "Home"
     has_raw_layout: true
     ---

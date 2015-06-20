@@ -132,7 +132,7 @@ Items, such as this home page, can contain metadata. This metadata is defined in
 title: Home
 ---</code></pre>
 
-NOTE: The term <span class="firstterm">metadata section</span> is often used instead of frontmatter in the context of nanoc. Other static site generators, such as Jekyll, use the term frontmatter almost exclusively.
+NOTE: The term <span class="firstterm">metadata section</span> is often used instead of frontmatter in the context of nanoc. Other static-site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
 The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the [YAML cookbook](http://www.yaml.org/YAML_for_ruby.html). There are no pre-defined attributes in nanoc, and you are free to invent your own attributes.
 

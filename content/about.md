@@ -3,9 +3,9 @@ title: "About nanoc"
 short_title: "About"
 ---
 
-nanoc is a flexible <span class="firstterm">static site generator</span>.
+nanoc is a flexible <span class="firstterm">static-site generator</span>.
 
-A static site generator, often abbreviated as <span class="firstterm">SSG</span>, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
+A static-site generator, often abbreviated as <span class="firstterm">SSG</span>, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
 
 nanoc is not:
 
@@ -17,10 +17,10 @@ a web application
 
 Because nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
 
-Advantages of static site generators
+Advantages of static-site generators
 ------------------------------------
 
-Static site generators have several advantages over classical content management systems:
+Static-site generators have several advantages over classical content management systems:
 
 fast
 : Static files can be served fast. There is no database or templating layer that slows requests down. Additionally, web servers will automatically set caching headers (such as `Last-Modified`) for static files, which reduce bandwidth usage.
@@ -32,7 +32,7 @@ previewable
 : Because static sites are developed locally, you can play around with the site to your heart’s content without affecting the live site.
 
 versionable
-: Static site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as [Git](http://git-scm.com/). Because of this, many sites built with static site generators are open-source.
+: Static-site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as [Git](http://git-scm.com/). Because of this, many sites built with static-site generators are open-source.
 
 NOTE: Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plaintext, etc.
 
@@ -56,4 +56,4 @@ Programmability combined with free-form metadata is what makes nanoc flexible. I
 Similar projects
 ----------------
 
-There are several static site generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, check out [this list of static site generators](http://staticsitegenerators.net/).
+There are several static-site generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, check out [this list of static-site generators](http://staticsitegenerators.net/).
