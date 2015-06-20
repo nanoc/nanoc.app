@@ -1,0 +1,95 @@
+// Core colors
+$color-orange:                #ed3400;
+$color-white:                 #fff;
+$color-black:                 #000;
+$color-blue:                  #0e65c2;
+
+// Derived colors
+$color-orange-light:          tint($color-orange, 30%);
+$color-offwhite:              desaturate(tint($color-orange-light, 90%), 70%);
+$color-offwhite-light:        tint($color-offwhite, 60%);
+$color-offwhite-dark:         desaturate(tint($color-orange-light, 70%), 50%);
+$color-gray:                  desaturate($color-blue, 60%);
+$color-green:                 adjust-hue($color-blue, -120%);
+$color-dark-40:               shade($color-offwhite, 15%);
+$color-dark-60:               shade($color-offwhite, 40%);
+$color-dark-80:               shade($color-offwhite, 70%);
+$color-dark-95:               shade($color-offwhite, 95%);
+
+// Intro
+$intro-bg-color:              $color-orange-light;
+$intro-fg-color:              $color-white;
+
+// Admonitions
+$admon-bg-color:              $color-offwhite-light;
+$admon-side-bg-color-tip:     $color-blue;
+$admon-side-bg-color-note:    $color-blue;
+$admon-side-bg-color-caution: $color-orange;
+$admon-side-bg-color-todo:    $color-gray;
+$admon-side-bg-color-done:    $color-green;
+$admon-side-fg-color:         $color-white;
+
+// Dark sections
+$dark-fg-color:               $color-dark-60;
+$dark-bg-color:               $color-dark-80;
+$dark-border-color:           $color-dark-60;
+$dark-link-color:             $color-dark-40;
+$dark-link-color-hover:       $color-dark-80;
+
+// Links
+$link-color:                  $color-blue;
+$link-color-hover:            $color-white;
+
+// Code
+$pre-bg-color:                $color-offwhite-light;
+$pre-shadow-color:            rgba(0, 0, 0, 0.2);
+$code-prompt-color:           rgba(0, 0, 0, 0.5);
+
+// Hero
+$hero-bg-color:               $color-offwhite-dark;
+
+// Navigation
+$nav-bg-color:                $color-dark-95;
+$nav-sides-bg-color:          $color-dark-80;
+$nav-spacing-color:           $color-dark-80;
+$nav-active-bar-color:        $color-orange;
+$nav-link-color:              $color-dark-40;
+$nav-link-color-hover:        $color-white;
+$nav-link-color-active:       $color-white;
+$nav-nanoc4-fg-color:         $color-white;
+$nav-nanoc4-bg-color:         $color-black;
+
+// Chooser
+$chooser-unit-bg-color:       $color-orange-light;
+$chooser-unit-fg-color:       $color-offwhite;
+$chooser-unit-border-color:   $color-orange-light;
+
+// Tags
+$tag-legacy-bg-color:         $color-dark-60;
+$tag-legacy-fg-color:         $color-white;
+$tag-wip-bg-color:            $color-dark-60;
+$tag-wip-fg-color:            $color-white;
+$tag-new-bg-color:            $color-blue;
+$tag-new-fg-color:            $color-white;
+
+// Figures
+$figure-bg-color:             $color-white;
+$figure-caption-bg-color:     $color-dark-40;
+
+// Sidebar
+$sidebar-bg-color:            rgba(255, 255, 255, 0.8);
+
+// Typography
+$header-color:                $color-orange;
+$dt-color:                    $color-orange;
+
+@mixin dark-background-links {
+    a:link, a:visited {
+        color: $dark-link-color;
+    }
+
+    a:hover {
+        background-color: $dark-link-color;
+        color:            $dark-link-color-hover;
+    }
+}

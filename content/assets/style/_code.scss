@@ -1,7 +1,9 @@
 @import "compass/typography/text/force-wrap";
 
+@import "colors.scss";
+
 .prompt {
-    color: rgba(0, 0, 0, 0.5);
+    color: $code-prompt-color;
 }
 
 pre {
