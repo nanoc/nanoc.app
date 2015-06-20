@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/nanoc/nanoc.git
-  revision: cd83379099246a54c76d7a5cf13222ddfb8b6d75
+  revision: a5c553f8044b5040babcf4cec1e4014d572ddc5f
   specs:
     nanoc (4.0.0b4)
       cri (~> 2.3)
@@ -54,7 +54,7 @@ GEM
     htmlentities (4.3.3)
     json (1.8.3)
     kramdown (1.7.0)
-    listen (2.10.0)
+    listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -74,7 +74,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.6.2)
+    rack (1.6.4)
     rainpress (1.0)
     rake (10.4.2)
     rb-fsevent (0.9.5)
