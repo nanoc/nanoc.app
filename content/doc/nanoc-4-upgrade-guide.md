@@ -220,6 +220,14 @@ To use identifiers with extensions:
           item.identifier.without_ext + '/index.html'
         end
 
+5.  Create a routing rule that matches index files in the content directory (such as <span class="filename">content/index.md</span> or <span class="filename">content/blog/index.md</span>). For example, put the following _before_ any rules matching `/**/*`:
+
+    {: .new}
+        #!ruby
+        route '/**/index.*' do
+          item.identifier.with_ext('html')
+        end
+
 ### Upgrading from the static data source
 
 NOTE: This section assumes that glob patterns and identifiers with extensions have been enabled.
