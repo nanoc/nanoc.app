@@ -204,6 +204,22 @@ To use identifiers with extensions:
         # With identifiers with extensions
         @items['/about.*']
 
+4.  Update the routing rules to output the correct path. For example:
+
+    {: .legacy}
+        #!ruby
+        # Without identifiers with extensions
+        route '/articles/*/' do
+          item.identifier + 'index.html'
+        end
+
+    {: .new}
+        #!ruby
+        # With identifiers with extensions
+        route '/articles/**/*' do
+          item.identifier.without_ext + '/index.html'
+        end
+
 ### Upgrading from the static data source
 
 NOTE: This section assumes that glob patterns and identifiers with extensions have been enabled.
