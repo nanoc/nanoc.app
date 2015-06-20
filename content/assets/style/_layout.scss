@@ -358,10 +358,6 @@ footer {
     padding: 0;
     margin: 60px 0 -40px 0;
 
-    background-image: url(/assets/images/shadow-top.png), url(/assets/images/shadow-bottom.png);
-    background-position: top left, bottom left;
-    background-repeat: repeat-x;
-
     .footer-content {
         @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
             @include container;
