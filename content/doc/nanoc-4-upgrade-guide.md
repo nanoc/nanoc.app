@@ -198,11 +198,23 @@ To use identifiers with extensions:
         #!ruby
         # Without identifiers with extensions
         @items['/about/']
+        @layouts['/default/']
 
     {: .new}
         #!ruby
         # With identifiers with extensions
         @items['/about.*']
+        @layouts['/default.*']
+
+    {: .legacy}
+        #!rhtml
+        <!-- Without identifiers with extensions -->
+        <%= render '/root/' %>
+
+    {: .new}
+        #!rhtml
+        <!-- With identifiers with extensions -->
+        <%= render '/root.*' %>
 
 4.  Update the routing rules to output the correct path. For example:
 
