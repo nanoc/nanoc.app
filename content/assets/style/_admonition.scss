@@ -3,8 +3,6 @@
 div.admonition-wrapper {
     border-radius: 4px;
 
-    background: $admon-bg-color;
-
     display: table;
 
     width: 100%;
@@ -40,6 +38,7 @@ div.admonition-wrapper .admonition {
 
 div.admonition-wrapper.tip {
     box-shadow: inset 0 0 0 1px $admon-side-bg-color-tip;
+    background: $admon-bg-color-tip;
 }
 
 div.admonition-wrapper.tip:before {
@@ -49,6 +48,7 @@ div.admonition-wrapper.tip:before {
 
 div.admonition-wrapper.note {
     box-shadow: inset 0 0 0 1px $admon-side-bg-color-note;
+    background: $admon-bg-color-note;
 }
 
 div.admonition-wrapper.note:before {
@@ -58,6 +58,7 @@ div.admonition-wrapper.note:before {
 
 div.admonition-wrapper.caution {
     box-shadow: inset 0 0 0 1px $admon-side-bg-color-caution;
+    background: $admon-bg-color-caution;
 }
 
 div.admonition-wrapper.caution:before {
@@ -67,6 +68,7 @@ div.admonition-wrapper.caution:before {
 
 div.admonition-wrapper.todo {
     box-shadow: inset 0 0 0 1px $admon-side-bg-color-todo;
+    background: $admon-bg-color-todo;
 }
 
 div.admonition-wrapper.todo:before {
@@ -76,6 +78,7 @@ div.admonition-wrapper.todo:before {
 
 div.admonition-wrapper.done {
     box-shadow: inset 0 0 0 1px $admon-side-bg-color-done;
+    background: $admon-bg-color-done;
 }
 
 div.admonition-wrapper.done:before {
