@@ -9,11 +9,13 @@ preprocess do
   config[:nanoc_version_info] = Nanoc.version_information
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
-
-  # TODO stylesheets -> is_hidden and is_partial
 end
 
 layout '/**/*', :erb
+
+# Partials
+
+ignore '/**/_*'
 
 # favicon
 
@@ -25,8 +27,6 @@ passthrough '/assets/fonts/**/*'
 passthrough '/assets/images/**/*'
 
 # stylesheets
-
-ignore '/assets/style/_*'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
@@ -76,10 +76,6 @@ end
 # fallback
 
 compile '/**/*' do
-  if item[:is_partial]
-    next
-  end
-
   filter :erb if item[:is_dynamic]
   if 'md' == item[:extension]
     filter :kramdown, :auto_ids => false
@@ -105,8 +101,6 @@ end
 route '/**/*' do
   if item.binary?
     item.identifier.to_s
-  elsif item[:is_partial]
-    nil
   elsif item[:path]
     item[:path]
   else

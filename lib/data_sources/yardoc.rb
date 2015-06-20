@@ -49,9 +49,8 @@ module NanocSite
             :identifiers => identifiers,
             :examples    => examples,
             :options     => options,
-            :is_partial  => true,
           },
-          Nanoc::Identifier.new("/filters/#{slug}", style: :full))
+          Nanoc::Identifier.new("/filters/_#{slug}", style: :full))
       end
     end
 
@@ -78,9 +77,8 @@ module NanocSite
                 :signature   => signature
               }
             end,
-            :is_partial  => true,
           },
-          Nanoc::Identifier.new("/helpers/#{slug}", style: :full))
+          Nanoc::Identifier.new("/helpers/_#{slug}", style: :full))
       end
     end
 

@@ -1,9 +1,7 @@
 # encoding: utf-8
 
 module NanocSite
-
   class ContributorsDataSource < Nanoc::DataSource
-
     identifier :contributors
 
     def items
@@ -13,13 +11,11 @@ module NanocSite
 
       item = new_item(
         content,
-        { is_partial: true },
-        Nanoc::Identifier.new('/contributing/contributors', style: :full)
+        {},
+        Nanoc::Identifier.new('/contributing/_contributors')
       )
 
-      [ item ]
+      [item]
     end
-
   end
-
 end

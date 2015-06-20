@@ -36,10 +36,9 @@ module NanocSite
           :description        => cmd.description,
           :aliases            => cmd.aliases,
           :option_definitions => opt_defs,
-          :usage              => cmd.usage,
-          :is_partial         => true,
+          :usage              => cmd.usage
         },
-        Nanoc::Identifier.new("/#{slug}", style: :full))
+        Nanoc::Identifier.new("/_#{slug}", style: :full))
     end
 
   end

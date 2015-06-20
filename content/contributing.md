@@ -141,4 +141,4 @@ Contributors
 
 These people have contributed to nanoc already:
 
-<i><%= @items['/contributing/contributors'].raw_content %></i>
+<i><%= @items['/contributing/_contributors'].raw_content %></i>
