@@ -96,21 +96,45 @@ To use glob patterns:
         #!yaml
         string_pattern_type: glob
 
-2.  Ensure that all string patterns in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]` and `@layouts[…]`, start and end with a slash. This is an intermediate step. For example:
+2.  Ensure that all string patterns in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]`, `@layouts[…]`, and `#render` throughout the site, start and end with a slash. This is an intermediate step. For example:
 
     {: .legacy}
         #!ruby
+        # Before
         compile 'articles/*' do
           layout 'default'
         end
 
     {: .legacy}
         #!ruby
+        # After
         compile '/articles/*/' do
           layout '/default/'
         end
 
-3.  Replace `*` and `+` with `**/*` in the arguments to `#compile`, `#route` and `#layout` in the <span class="filename">Rules</span> file. For example:
+    {: .legacy}
+        #!ruby
+        # Before
+        @items['foo']
+        @layouts['/bar']
+
+    {: .legacy}
+        #!ruby
+        # After
+        @items['/foo/']
+        @layouts['/bar/']
+
+    {: .legacy}
+        #!rhtml
+        <!-- Before -->
+        <%= render 'header' %>
+
+    {: .legacy}
+        #!rhtml
+        <!-- After -->
+        <%= render '/header/' %>
+
+3.  Replace `*` and `+` with `**/*` in all string patterns in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]`, `@layouts[…]`, and `#render` throughout the site. For example:
 
     {: .legacy}
         #!ruby
@@ -123,8 +147,6 @@ To use glob patterns:
         compile '/articles/**/*/' do
           layout '/default/'
         end
-
-4.  Replace `*` and `+` with `**/*` in calls to `@items[…]` and `@layouts[…]` throughout the site. For example:
 
     {: .legacy}
         #!ruby
@@ -154,7 +176,7 @@ To use identifiers with extensions:
         #!yaml
         identifier_type: full
 
-2.  Remove the trailing slash from any argument to `#compile`, `#route` and `#layout` in the <span class="filename">Rules</span> file. If the pattern does not end with a “`*`”, add “`.*`”. For example:
+2.  Remove the trailing slash from any argument to `#compile`, `#route` and `#layout` in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]`, `@layouts[…]`, and `#render` throughout the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
 
     {: .legacy}
         #!ruby
@@ -177,8 +199,6 @@ To use identifiers with extensions:
         compile '/about.*' do
           layout '/default.*'
         end
-
-3.  Remove the trailing slash from any argument of `@items[…]` and `@layouts[…]` calls, as well as `render` calls, anywhere in the site. If the pattern does not end with a “`*`”, add “`.*`”. For example:
 
     {: .legacy}
         #!ruby
