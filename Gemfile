@@ -7,7 +7,7 @@ gem 'compass'     # for advanced CSS
 gem 'guard-nanoc', github: 'guard/guard-nanoc', branch: 'nanoc-4'
 gem 'haml'        # for layouts with clean sources
 gem 'kramdown'    # for advanced markdown
-gem 'nanoc', github: 'nanoc/nanoc'
+gem 'nanoc', github: 'nanoc/nanoc', branch: 'release-4.0.x'
 gem 'nokogiri'    # for parsing HTML
 gem 'rake'
 gem 'rainpress'   # for compact CSS
