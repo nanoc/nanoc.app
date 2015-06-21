@@ -1,18 +1,18 @@
 GIT
   remote: git://github.com/guard/guard-nanoc.git
-  revision: c2890500ba2804a322f46eae18e9d3a06054078c
-  branch: nanoc-4
+  revision: 7a44c90333a4077c63a710bbf36216299929d27d
   specs:
-    guard-nanoc (1.0.3)
+    guard-nanoc (2.0.0b1)
       guard (~> 2.8)
       guard-compat (~> 1.0)
       nanoc (~> 4.0.0b4)
 
 GIT
   remote: git://github.com/nanoc/nanoc.git
-  revision: a5c553f8044b5040babcf4cec1e4014d572ddc5f
+  revision: c85f7243780b0c8db72eeae57713e3c013c5ee1a
+  branch: release-4.0.x
   specs:
-    nanoc (4.0.0b4)
+    nanoc (4.0.0rc1)
       cri (~> 2.3)
 
 GEM
@@ -123,4 +123,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.10.3
+   1.10.4
