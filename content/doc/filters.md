@@ -19,21 +19,21 @@ Filters are called within compilation rules. Here is an example rule that applie
 
 For details on compilation rules, see the <%= link_to_id('/doc/rules.*') %> reference page.
 
-nanoc comes with a handful of filters. Check out the [filters reference](/doc/reference/filters/) for a list of filters bundled with nanoc.
+Nanoc comes with a handful of filters. Check out the [filters reference](/doc/reference/filters/) for a list of filters bundled with Nanoc.
 
 Writing filters
 ---------------
 
 Filters are classes that inherit from `Nanoc::Filter`. Writing custom filters is done by subclassing this class and overriding the `#run` method, which is responsible for transforming the content.
 
-Here is an example (textual) filter that replaces any occurrences of “nanoc sucks” by “nanoc rocks”:
+Here is an example (textual) filter that replaces any occurrences of “Nanoc sucks” by “Nanoc rocks”:
 
     #!ruby
     class CensorFilter < Nanoc::Filter
       identifier :censor
 
       def run(content, params = {})
-        content.gsub('nanoc sucks', 'nanoc rocks')
+        content.gsub('Nanoc sucks', 'Nanoc rocks')
       end
     end
 

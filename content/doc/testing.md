@@ -1,5 +1,5 @@
 ---
-title: "Testing nanoc sites"
+title: "Testing Nanoc sites"
 short_title: "Testing"
 ---
 
@@ -15,7 +15,7 @@ Loading site data… done
 Available checks
 ----------------
 
-nanoc comes with the following checks:
+Nanoc comes with the following checks:
 
 `css`
 : verifies that the CSS is valid
@@ -32,7 +32,7 @@ nanoc comes with the following checks:
 : verifies that internal links are correct
 
 `stale`
-: verifies whether no non-nanoc items are in the output directory
+: verifies whether no non-Nanoc items are in the output directory
 
 `mixed_content`
 : verifies that no content is included or linked to from a potentially insecure source
@@ -40,9 +40,9 @@ nanoc comes with the following checks:
 Deployment-time checks
 ----------------------
 
-A file named <span class="filename">Checks</span> at the root of a nanoc site defines which checks should be run before a <kbd>nanoc deploy</kbd>.
+A file named <span class="filename">Checks</span> at the root of a Nanoc site defines which checks should be run before a <kbd>nanoc deploy</kbd>.
 
-Here is an example <span class="filename">Checks</span> file that ensures that a nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
+Here is an example <span class="filename">Checks</span> file that ensures that a Nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
 
 <pre><code class="language-ruby">
 deploy_check :internal_links

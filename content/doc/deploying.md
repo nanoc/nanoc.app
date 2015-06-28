@@ -1,5 +1,5 @@
 ---
-title: "Deploying nanoc sites"
+title: "Deploying Nanoc sites"
 short_title: "Deploying"
 ---
 
@@ -8,7 +8,7 @@ There are quite a few ways to deploy a site to a web host. The most traditional 
 With rsync
 ----------
 
-If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately nanoc provides a “deploy” command that can make this quite a bit easier: a simple <kbd>nanoc deploy</kbd> will deploy your site.
+If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check <kbd>man rsync</kbd> in case of doubt), but fortunately Nanoc provides a “deploy” command that can make this quite a bit easier: a simple <kbd>nanoc deploy</kbd> will deploy your site.
 
 To use the deploy command, open the <span class="filename">nanoc.yaml</span> (on older sites: <span class="filename">config.yaml</span>) file and add a `deploy` hash. Inside, add a hash with a key that describes the destination (for example, `public` or `staging`). Inside this hash, set `dst` to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set `kind` to `rsync`. Here’s what it will look like:
 
@@ -33,11 +33,11 @@ If you want to check whether the executed `rsync` command is really correct, you
 
 ### Deleting stray files
 
-nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you _do_ want to let <kbd>nanoc deploy</kbd> remove any files on the destination that are not part of the nanoc site, you can modify the options used for rsync to include `--delete-after`, like this:
+Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you _do_ want to let <kbd>nanoc deploy</kbd> remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include `--delete-after`, like this:
 
 <pre title="Custom rsync options in the deployment configuration"><code class="language-yaml">options: [ '-aP', '--delete-after' ]</code></pre>
 
-CAUTION: This will remove all files and directories that do not correspond to nanoc items in the destination. Make sure that the destination does not contain anything that you still need.
+CAUTION: This will remove all files and directories that do not correspond to Nanoc items in the destination. Make sure that the destination does not contain anything that you still need.
 
 With GitHub Pages or Bitbucket
 ------------------------------
@@ -81,7 +81,7 @@ Add the <span class="filename">output/</span> directory to your <span class="fil
 
 ### Publish
 
-To publish your nanoc site, first compile site:
+To publish your Nanoc site, first compile site:
 
 <pre><span class="prompt">%</span> <kbd>nanoc</kbd></pre>
 
@@ -116,7 +116,7 @@ To use fog for deployment, install the <span class="productname">fog</span> gem 
 
 The `kind` attribute, which identifies the kind of deployer to use, should be set to `fog`. You’ll also need to specify `provider`, containing the name of the fog provider that you want to use. Each provider has their own configuration; see the [fog provider documentation](http://fog.io/about/provider_documentation.html) for details. For buckets whose names contain periods, `path_style` should be set to `true`.
 
-To publish your nanoc site, use the <span class="command">deploy</span> command, as usual:
+To publish your Nanoc site, use the <span class="command">deploy</span> command, as usual:
 
 <pre><span class="prompt">%</span> <kbd>nanoc deploy</kbd>
 Loading site data… done

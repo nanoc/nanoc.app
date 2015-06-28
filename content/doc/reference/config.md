@@ -5,7 +5,7 @@ is_dynamic: true
 
 ## `text_extensions`
 
-A list of file extensions that nanoc will consider to be textual rather than
+A list of file extensions that Nanoc will consider to be textual rather than
 binary. If an item with an extension not in this list is found, the file
 will be considered as binary.
 
@@ -26,7 +26,7 @@ relative to the site directory.
 A list of index filenames, i.e. names of files that will be served by a web
 server when a directory is requested. Usually, index files are named
 “index.html”, but depending on the web server, this may be something else,
-such as “default.htm”. This list is used by nanoc to generate pretty URLs.
+such as “default.htm”. This list is used by Nanoc to generate pretty URLs.
 
 	#!yaml
 	index_filenames: <%= array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:index_filenames]) %>
@@ -49,7 +49,7 @@ The `prune` section contains options for the [prune](/doc/reference/commands/#pr
 	  auto_prune: true
 	  exclude: [ '.git', '.hg', '.svn', 'CVS' ]
 
-When `auto_prune` is true, nanoc will automatically remove files not managed by nanoc from the output directory.
+When `auto_prune` is true, Nanoc will automatically remove files not managed by Nanoc from the output directory.
 
 The `exclude` option determines which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as <span class="filename">.git</span> or <span class="filename">.hg</span>.
 

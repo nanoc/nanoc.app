@@ -3,11 +3,11 @@ title:      "Identifiers and patterns"
 is_dynamic: true
 ---
 
-In nanoc, every item (page or asset) and every layout has a unique _identifier_: a string derived from the file’s path. A _pattern_ is an expression that is used to select items or layouts based on their identifier.
+In Nanoc, every item (page or asset) and every layout has a unique _identifier_: a string derived from the file’s path. A _pattern_ is an expression that is used to select items or layouts based on their identifier.
 
 ## Identifiers
 
-Identifiers come in two types: the _full_ type, new in nanoc 4, and the _legacy_ type, used in nanoc 3.
+Identifiers come in two types: the _full_ type, new in Nanoc 4, and the _legacy_ type, used in Nanoc 3.
 
 full
 : An identifier with the full type is the filename, with the path to the content directory removed. For example, the file <span class="filename">/Users/denis/stoneship/content/about.md</span> will have the full identifier _/about.md_.
@@ -69,9 +69,9 @@ Patterns are used to find items and layouts based on their identifier. They come
 
 Glob patterns are strings that contain wildcard characters. An example of a glob pattern is `/projects/*.md`. Globs are commonplace in Unix-like environments.
 
-Glob patterns are the default in nanoc 4.
+Glob patterns are the default in Nanoc 4.
 
-For glob patterns, nanoc supports the following wildcards:
+For glob patterns, Nanoc supports the following wildcards:
 
 `*`
 : Matches any file or directory name. Does not cross directory boundaries. For example, `/projects/*.md` matches `/projects/nanoc.md`, but not `/projects/cri.adoc` nor `/projects/nanoc/about.md`.
@@ -107,7 +107,7 @@ To enable legacy patterns, set `string_pattern_type` to `"legacy"` in the config
     #!yaml
     string_pattern_type: "legacy"
 
-For legacy patterns, nanoc supports the following wildcards:
+For legacy patterns, Nanoc supports the following wildcards:
 
 `*`
 : Matches zero or more characters, including a slash. For example, `/projects/*/` matches `/projects/nanoc/` and `/projects/nanoc/about`, but not `/projects/`.

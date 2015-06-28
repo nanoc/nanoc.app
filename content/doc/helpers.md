@@ -10,7 +10,7 @@ Helpers need to be activated before they can be used. To activate a helper, `inc
 	#!ruby
 	include Nanoc::Helpers::Blogging
 
-Take a look at the [helpers reference](/doc/reference/helpers/) for a list of helpers that are included with nanoc.
+Take a look at the [helpers reference](/doc/reference/helpers/) for a list of helpers that are included with Nanoc.
 
 Writing helpers
 ---------------
@@ -39,7 +39,7 @@ The methods provided by this helper can now be used during filering. For example
 
 ### Pitfall: helper load order
 
-Files in the <span class="filename">lib/</span> directory are loaded alphabetically. This can cause nanoc to try to `include` a helper before it is loaded.
+Files in the <span class="filename">lib/</span> directory are loaded alphabetically. This can cause Nanoc to try to `include` a helper before it is loaded.
 
 For example, this situation will arise if helpers live in a <span class="filename">lib/helpers/</span> directory, with the <span class="filename">lib/helpers.rb</span> file containing the `#include` calls:
 

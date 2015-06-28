@@ -2,9 +2,9 @@
 title: "Using external sources"
 ---
 
-One of nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
+One of Nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
 
-As an example, assume you work for a company that has a SQL database containing a employee directory, and you want to extract that information into a nice-looking web site. nanoc to the rescue!
+As an example, assume you work for a company that has a SQL database containing a employee directory, and you want to extract that information into a nice-looking web site. Nanoc to the rescue!
 
 ## Setting up the database
 
@@ -18,9 +18,9 @@ This example will use the following SQLite 3 schema:
 	    photo_url  TEXT NOT NULL
 	)
 
-To pull in this data into nanoc, we can generate an item for every employee. Such an item would not have any content (except perhaps the employee’s bio, if any), but the item would store the employee details as attributes.
+To pull in this data into Nanoc, we can generate an item for every employee. Such an item would not have any content (except perhaps the employee’s bio, if any), but the item would store the employee details as attributes.
 
-TIP: It helps to not think of nanoc items as just pages or assets. Items can represent much more varied data, such as recipes, reviews, teams, people (with a team identifier), projects (with a team identifier), etc.
+TIP: It helps to not think of Nanoc items as just pages or assets. Items can represent much more varied data, such as recipes, reviews, teams, people (with a team identifier), projects (with a team identifier), etc.
 
 In this example, we’ll use [Sequel](http://sequel.jeremyevans.net/) in combination with [SQLite3](https://sqlite.org/). To install the dependencies:
 
@@ -157,7 +157,7 @@ Now it’s time to create the employee directory page. Create the file <span cla
 	  </tbody>
 	</table>
 
-Finally you have to stop nanoc from writing out pages for every employee item provided by the data source. For this, the `#ignore` rule comes in handy. Add this at the top of your <span class="filename">Rules</span> file:
+Finally you have to stop Nanoc from writing out pages for every employee item provided by the data source. For this, the `#ignore` rule comes in handy. Add this at the top of your <span class="filename">Rules</span> file:
 
 	#!ruby
 	ignore '/external/*'

@@ -1,21 +1,21 @@
 ---
-title: "About nanoc"
+title: "About Nanoc"
 short_title: "About"
 ---
 
-nanoc is a flexible <span class="firstterm">static-site generator</span>.
+Nanoc is a flexible <span class="firstterm">static-site generator</span>.
 
 A static-site generator, often abbreviated as <span class="firstterm">SSG</span>, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
 
-nanoc is not:
+Nanoc is not:
 
 a <abbr title="content management system">CMS</abbr>
 : It does not help in managing content; it merely processes it. Management of content is usually done on the filesystem.
 
 a web application
-: nanoc is a command-line application. With nanoc, developing sites happens on a local machine, and the generated site is deployed when it is finished.
+: Nanoc is a command-line application. With Nanoc, developing sites happens on a local machine, and the generated site is deployed when it is finished.
 
-Because nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
+Because Nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
 
 Advantages of static-site generators
 ------------------------------------
@@ -36,10 +36,10 @@ versionable
 
 NOTE: Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plaintext, etc.
 
-Why use nanoc?
+Why use Nanoc?
 --------------
 
-nanoc is suitable for a wide variety of sites, including personal blogs, portfolios and product web sites. Some unique features of nanoc include:
+Nanoc is suitable for a wide variety of sites, including personal blogs, portfolios and product web sites. Some unique features of Nanoc include:
 
 * support for free-form metadata
 * support for various markup languages (Markdown, AsciiDoc, Textile, …)
@@ -49,11 +49,11 @@ nanoc is suitable for a wide variety of sites, including personal blogs, portfol
 * integration with various deployment mechanisms
 * ability to run pre-deployment checks
 
-Some of the sites built with nanoc include the <a href="https://developer.github.com/">GitHub Developer site</a>, the <a href="http://www.dadt.com/uglybetty/">Ugly Betty site</a> and the <a href="http://guides.spreecommerce.com/api/">Spree Commerce API site</a>.
+Some of the sites built with Nanoc include the <a href="https://developer.github.com/">GitHub Developer site</a>, the <a href="http://www.dadt.com/uglybetty/">Ugly Betty site</a> and the <a href="http://guides.spreecommerce.com/api/">Spree Commerce API site</a>.
 
-Programmability combined with free-form metadata is what makes nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialised ways. Nothing in nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
+Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialised ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
 Similar projects
 ----------------
 
-There are several static-site generators floating around. Some of them are like nanoc, and some of them aren’t similar at all. If nanoc doesn’t fulfill your needs, check out [this list of static-site generators](http://staticsitegenerators.net/).
+There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, check out [this list of static-site generators](http://staticsitegenerators.net/).
