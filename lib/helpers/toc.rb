@@ -92,3 +92,18 @@ def detailed_toc_for(item_identifier, params={})
   out << '</li>'
   out
 end
+
+def sidebar_toc_for(item)
+  out = ''
+
+  item[:toc].each do |section|
+    out << '<h4>' + section[:title] + '</h4>'
+    out << '<ul>'
+    section[:children].each do |child_glob|
+      out << '<li>' + link_to_id(child_glob) + '</li>'
+    end
+    out << '</ul>'
+  end
+
+  out
+end
