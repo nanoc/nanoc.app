@@ -3,7 +3,7 @@ title: "Data sources"
 is_dynamic: true
 ---
 
-<span class="firstterm">Data sources</span> provide items and layouts. A nanoc site has one or more data sources. By default, a site uses the [filesystem data source](#the-filesystem-data-source).
+<span class="firstterm">Data sources</span> provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the [filesystem data source](#the-filesystem-data-source).
 
 The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the nanoc.ws web site:
 
@@ -33,7 +33,7 @@ The `items_root` and `layouts_root` values will be prefixed to the identifiers o
 The filesystem data source
 --------------------------
 
-nanoc comes with a _filesystem_ data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the <span class="filename">content/</span> directory, and layouts from the <span class="filename">layouts/</span> directory.
+Nanoc comes with a _filesystem_ data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the <span class="filename">content/</span> directory, and layouts from the <span class="filename">layouts/</span> directory.
 
 <pre><span class="prompt">%</span> <kbd>tree content</kbd>
 content
@@ -57,7 +57,7 @@ The attributes for an item or a layout are typically stored in the metadata sect
 
     #!yaml
     ---
-    full_title: "nanoc: a static-site generator written in Ruby > home"
+    full_title: "Nanoc: a static-site generator written in Ruby > home"
     short_title: "Home"
     has_raw_layout: true
     ---
@@ -86,12 +86,12 @@ The `layouts_dir` option contains the path to the directory where the layouts ar
 
 The `encoding` option sets the encoding used for reading files. It should be a value understood by Ruby’s `Encoding`. If no encoding is set in the configuration, one will be inferred from the environment.
 
-NOTE: Because inferring the encoding from the environment is so unreliable, the final version of nanoc 4 might default to UTF-8.
+NOTE: Because inferring the encoding from the environment is so unreliable, the final version of Nanoc 4 might default to UTF-8.
 
 Writing data sources
 --------------------
 
-Here is an example data source implementation that provides a single item with the identifier `/release-notes.md` and containing the content of the <span class="filename">NEWS.md</span> file of nanoc:
+Here is an example data source implementation that provides a single item with the identifier `/release-notes.md` and containing the content of the <span class="filename">NEWS.md</span> file of Nanoc:
 
     #!ruby
     class ReleaseNotesDataSource < Nanoc::DataSource

@@ -5,7 +5,7 @@ title: "Creating multilingual sites"
 Multilingual sites
 ------------------
 
-Creating a site in multiple languages can be tedious, but nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the [Myst Online web site](http://mystonline.com/). Feel free to check out the [source for the Myst Online web site](https://github.com/ddfreyne/myst-online-site) to see the details about how it is done.
+Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the [Myst Online web site](http://mystonline.com/). Feel free to check out the [source for the Myst Online web site](https://github.com/ddfreyne/myst-online-site) to see the details about how it is done.
 
 A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
@@ -224,7 +224,7 @@ The global `$base_url` variable contains the base URL for the web site. For the 
     #!php
     $base_url = 'http://mystonline.com';
 
-… or you can set the `base_url` confguration attribute in `nanoc.yaml` (or `config.yaml` for older sites) and generate the PHP code for setting it (a bit icky, but DRYer):
+… or you can set the `base_url` confguration attribute in <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> for older sites) and generate the PHP code for setting it (a bit icky, but DRYer):
 
     #!php
     $base_url = '<%= @site.config[:base_url] %>';

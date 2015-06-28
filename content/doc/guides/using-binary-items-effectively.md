@@ -2,16 +2,16 @@
 title: "Using binary items effectively"
 ---
 
-Along with textual items, nanoc also supports binary items. Binary items are not loaded into memory, enabling nanoc to handle large files. Examples of binary items include images, fonts, audio files, and videos.
+Along with textual items, Nanoc also supports binary items. Binary items are not loaded into memory, enabling Nanoc to handle large files. Examples of binary items include images, fonts, audio files, and videos.
 
 This page gives an example of how binary items can be used.
 
 Building an image gallery
 -------------------------
 
-If you want to include a gallery on your web site, containing thumbnails that link to full-size images, you can let nanoc handle the thumbnail generation instead of generating the thumbnails up front.
+If you want to include a gallery on your web site, containing thumbnails that link to full-size images, you can let Nanoc handle the thumbnail generation instead of generating the thumbnails up front.
 
-NOTE: If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. nanoc’s dependency resolution is not yet perfect; nanoc may decide to recompile items even though they do not need to.
+NOTE: If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. Nanoc’s dependency resolution is not yet perfect; Nanoc may decide to recompile items even though they do not need to.
 
 This example assumes that several images are stored in the <span class="filename">content/gallery</span> folder. A file at <span class="filename">content/gallery.html</span> corresponds to the gallery page itself; this item is filtered through ERB and, for the time being, contains a list of links to full-size images:
 

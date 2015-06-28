@@ -1,22 +1,22 @@
 ---
-title: "nanoc 4 upgrade guide"
+title: "Nanoc 4 upgrade guide"
 ---
 
-nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
+Nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
 
-The good news is that nanoc 4.0 is quite similar to 3.8. Upgrading a nanoc 3.x site to nanoc 4.0 only takes minutes.
+The good news is that Nanoc 4.0 is quite similar to 3.8. Upgrading a Nanoc 3.x site to Nanoc 4.0 only takes minutes.
 
 ## Why upgrade?
 
-* nanoc 4 brings identifiers with extensions, and thereby solves a long-standing usability issue. It also introduces glob patterns, which makes rules easier to write.
+* Nanoc 4 brings identifiers with extensions, and thereby solves a long-standing usability issue. It also introduces glob patterns, which makes rules easier to write.
 
-* nanoc 4 paves the way for new features and performance improvements. nanoc 3 exposed its internals in a public API, making it hard to make significant changes.
+* Nanoc 4 paves the way for new features and performance improvements. Nanoc 3 exposed its internals in a public API, making it hard to make significant changes.
 
-* nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
+* Nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
 
 ## Quick upgrade guide
 
-The following steps will get a nanoc 3 site working on nanoc 4 with a minimal amount of changes.
+The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal amount of changes.
 
 * Upgrade to Ruby 2.2 or higher, or JRuby 9000.
 
@@ -156,7 +156,7 @@ To use glob patterns:
         #!ruby
         @items['/articles/**/*/']
 
-This approach should work out of the box: nanoc should not raise errors and the output diff should be empty.
+This approach should work out of the box: Nanoc should not raise errors and the output diff should be empty.
 
 ### Enabling identifiers with extensions
 
@@ -257,7 +257,7 @@ To use identifiers with extensions:
 
 NOTE: This section assumes that glob patterns and identifiers with extensions have been enabled.
 
-The static data source no longer exists in nanoc 4. It existed in nanoc 3 to work around the problem of identifiers not including the file extension, which is no longer the case in nanoc 4.
+The static data source no longer exists in Nanoc 4. It existed in Nanoc 3 to work around the problem of identifiers not including the file extension, which is no longer the case in Nanoc 4.
 
 Theoretically, with identifiers with extensions enabed, it is possible to move the contents of the <span class="filename">static/</span> directory into <span class="filename">content/</span>. This can be tricky, however, because some rules that did not match any items in <span class="filename">static/</span> might now match.
 
@@ -290,15 +290,15 @@ Lastly, update the rules to copy these items as-is, but without the `/static` pr
       item.identifier.to_s.sub(/\A\/static/, '')
     end
 
-This approach should work out of the box: nanoc should not raise errors and the output diff should be empty.
+This approach should work out of the box: Nanoc should not raise errors and the output diff should be empty.
 
 A final improvement would be to move the contents of the <span class="filename">static/</span> directory into <span class="filename">content/</span>. The main thing to watch out for with this approach is rules that accidentally match the wrong items.
 
 ## Troubleshooting
 
-* If you use nanoc with a Gemfile, ensure you call nanoc as <kbd>bundle exec nanoc</kbd>. nanoc no longer attempts to load the Gemfile.
+* If you use Nanoc with a Gemfile, ensure you call Nanoc as <kbd>bundle exec nanoc</kbd>. Nanoc no longer attempts to load the Gemfile.
 
-* If you get a `NoMethodError` error on `Nanoc::Identifier`, call `.to_s` on the identifier before doing anything with it. In nanoc 4.x, identifiers have their own class and are no longer strings.
+* If you get a `NoMethodError` error on `Nanoc::Identifier`, call `.to_s` on the identifier before doing anything with it. In Nanoc 4.x, identifiers have their own class and are no longer strings.
 
   {: .legacy}
       #!ruby
@@ -308,13 +308,13 @@ A final improvement would be to move the contents of the <span class="filename">
       #!ruby
       item.identifier.to_s[7..-2]
 
-* If you get a `NoMethodError` that you did not expect, you might be using a private API that is no longer present in nanoc 4.0. In case of doubt, ask for help on the [discussion group](http://nanoc.ws/community/#discussion-groups).
+* If you get a `NoMethodError` that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the [discussion group](http://nanoc.ws/community/#discussion-groups).
 
 ## Removed features
 
-The `watch` and `autocompile` commands have been removed. Both were deprecated in nanoc 3.6. Use [guard-nanoc](https://github.com/guard/guard-nanoc) instead.
+The `watch` and `autocompile` commands have been removed. Both were deprecated in Nanoc 3.6. Use [guard-nanoc](https://github.com/guard/guard-nanoc) instead.
 
-Because nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
+Because Nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
 
 - the `create-item` and `create-layout` commands
 - the `update` and `sync` commands

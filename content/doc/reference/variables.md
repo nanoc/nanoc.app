@@ -3,7 +3,7 @@ title:      "Variables"
 is_dynamic: true
 ---
 
-At several moments in the compilation process, nanoc exposes several variables containing site data. These variables take the appearance of Ruby instance variables, i.e. prefixed with an `@` sigil (e.g. `@items`).
+At several moments in the compilation process, Nanoc exposes several variables containing site data. These variables take the appearance of Ruby instance variables, i.e. prefixed with an `@` sigil (e.g. `@items`).
 
 NOTE: These variables can also be accessed without the `@` sigil (e.g. `items`). Some filters may not support the `@` notation; in this case, the `@` should be dropped.
 
@@ -32,7 +32,7 @@ There are three contexts in which variables are exposed: in the `preprocess` blo
 
 ## `@config`
 
-The `@config` variable contains the site configuration, read from _nanoc.yaml_.
+The `@config` variable contains the site configuration, read from <span class="filename">nanoc.yaml</span> or <span class="filename">config.yaml</span>.
 
 `@config[:some_key]` &rarr; _object_
 : The attribute for the given key, or `nil` if the key is not found.

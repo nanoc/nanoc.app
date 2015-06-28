@@ -2,7 +2,7 @@
 title: Style guide
 ---
 
-This page is designed to collect all the different elements used on the nanoc web site.
+This page is designed to collect all the different elements used on the Nanoc web site.
 
 ## Block-level elements
 
@@ -86,7 +86,7 @@ These are long lists (with paragraphs):
 
 ### Definition lists
 
-nanoc
+Nanoc
 : A tool for generating static sites
 
 DSL
@@ -111,7 +111,7 @@ TIP: Prefix lines with `TIP:` to turn them into tip admonitions.
 
 Here is a note:
 
-NOTE: Admonitions are handled by a nanoc filter and not by Markdown.
+NOTE: Admonitions are handled by a Nanoc filter and not by Markdown.
 
 Here is a caution:
 
@@ -120,14 +120,14 @@ CAUTION: The <span class="command">rm</span> command can cause data loss.
 ### Figures
 
 <figure class="fullwidth">
-	<img src="/assets/images/tutorial/default-site.png" alt="Screenshot of what a brand new nanoc site looks like">
-	<figcaption>Screenshot of what a brand new nanoc site looks like</figcaption>
+	<img src="/assets/images/tutorial/default-site.png" alt="Screenshot of what a brand new Nanoc site looks like">
+	<figcaption>Screenshot of what a brand new Nanoc site looks like</figcaption>
 </figure>
 
 ## Inline elements
 
 link
-: The <a href="http://nanoc.ws/">nanoc web site</a> is pretty.
+: The <a href="http://nanoc.ws/">Nanoc web site</a> is pretty.
 
 emphasis
 : You should <em>never</em> have to reboot your computer after installation.

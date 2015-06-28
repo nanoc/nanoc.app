@@ -3,7 +3,7 @@ title:      "The command-line interface"
 is_dynamic: true
 ---
 
-Interacting with nanoc happens through a command-line tool named <span class="command">nanoc</span>. This tool has sub-commands, which you can invoke like this:
+Interacting with Nanoc happens through a command-line tool named <span class="command">nanoc</span>. This tool has sub-commands, which you can invoke like this:
 
 <pre><span class="prompt">%</span> <kbd>nanoc</kbd> <var>command</var></pre>
 
