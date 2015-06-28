@@ -12,16 +12,22 @@ def seq_nav_links
 
   prev_item = index && index > 0 ? ordered_items[index-1] : nil
   if prev_item
-    s << '<span class="seq-nav-link">' + link_to('← prev', prev_item) + '</span>'
+    s << '<span class="seq-nav-link">'
+    s << link_to('← prev', prev_item, title: prev_item[:title])
+    s << '</span>'
   else
     s << '<span class="seq-nav-link disabled">← prev</span>'
   end
 
-  s << '<span class="seq-nav-link">' + link_to('up', root) + '</span>'
+  s << '<span class="seq-nav-link">'
+  s << link_to('up', root, title: root[:title])
+  s << '</span>'
 
   next_item = index && index < ordered_items.size ? ordered_items[index+1] : nil
   if next_item
-    s << '<span class="seq-nav-link">' + link_to('next →', next_item) + '</span>'
+    s << '<span class="seq-nav-link">'
+    s << link_to('next →', next_item, title: next_item[:title])
+    s << '</span>'
   else
     s << '<span class="seq-nav-link disabled">next →</span>'
   end
