@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title><%= @item[:full_title] || 'Nanoc &raquo; ' + (content_for(@item, :title) || @item[:title]) %></title>
+        <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
         <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
         <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
@@ -31,22 +31,23 @@
 <% else %>
         <div class="intro">
             <div class="intro-content">
-                <h1><%= @item[:title] || content_for(@item, :title )%></h1>
+                <h1><%= @item[:title] %></h1>
             </div>
         </div>
         <div class="content">
             <article>
                 <div class="side<%= @item[:skip_details] ? ' no-details' : '' %>">
-                    <% if content_for(@item, :details) %>
+                    <% if @item[:toc] %>
                         <div class="details">
-                            <%= content_for(@item, :details) %>
+                            <h3>Table of contents</h3>
+                            <%= sidebar_toc_for(@item) %>
                         </div>
                     <% elsif !@item[:skip_details] %>
                         <div class="details">
                             <h3>Table of contents</h3>
-                            <%= link_back %>
                             {{TOC}}
                         </div>
+                        <%= seq_nav_links %>
                     <% end %>
                 </div>
                 <div class="article-content">
