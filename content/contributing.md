@@ -24,7 +24,7 @@ When reporting a bug, please make sure you include as many details as you can ab
 Submitting feature requests
 ---------------------------
 
-If you have an idea for a new feature, check whether or not it’s on the [Nanoc Trello board](https://trello.com/b/dlEWOOBW/nanoc-4-0) yet. If it is not, start a discussion on the [Nanoc Google group](https://groups.google.com/forum/?fromgroups#!forum/nanoc).
+If you have an idea for a new feature, start a discussion on the [Nanoc Google group](https://groups.google.com/forum/?fromgroups#!forum/nanoc).
 
 Reviewing pull requests
 -----------------------
