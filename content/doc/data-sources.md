@@ -86,8 +86,6 @@ The `layouts_dir` option contains the path to the directory where the layouts ar
 
 The `encoding` option sets the encoding used for reading files. It should be a value understood by Ruby’s `Encoding`. If no encoding is set in the configuration, one will be inferred from the environment.
 
-NOTE: Because inferring the encoding from the environment is so unreliable, the final version of Nanoc 4 might default to UTF-8.
-
 Writing data sources
 --------------------
 
