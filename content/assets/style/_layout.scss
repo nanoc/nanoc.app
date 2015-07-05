@@ -335,7 +335,7 @@ footer {
     @include dark-background-links;
 
     .links {
-        div, li:before {
+        div, li:after {
             color: $dark-fg-color;
         }
     }
@@ -371,12 +371,12 @@ footer {
                     display: inline-block;
                 }
 
-                li:before {
+                li:after {
                     padding: 0 5px;
                     content: "\00B7";
                 }
 
-                li:first-child:before {
+                li:last-child:after {
                     padding: 0;
                     content: "";
                 }
