@@ -191,7 +191,7 @@ In addition to the first two arguments, extra arguments can be supplied; these w
     #!ruby
     layout '/default.*', :haml, format: :html5
 
-**Example #3**: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, <span class="filename">/foo.erb</span> and <span class="filename">/foo/_bar.haml</span> would not match, but <span class="filename">/_foo.erb, <span class="filename">/_foo/bar.html</span> and even <span class="filename">/_foo/_bar.erb</span> would:
+**Example #3**: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, <span class="filename">/foo.erb</span> and <span class="filename">/foo/_bar.haml</span> would not match, but <span class="filename">/_foo.erb</span>, <span class="filename">/_foo/bar.html</span> and even <span class="filename">/_foo/_bar.erb</span> would:
 
     #!ruby
     layout %r{\A/_}, :erb
