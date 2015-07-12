@@ -1,32 +1,24 @@
-# encoding: utf-8
+Class.new(Nanoc::DataSource) do
+  identifier :release_notes
 
-module NanocSite
+  def items
+    # content
+    path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
+    raw_content = File.read("#{path}/NEWS.md")
+    content = raw_content.sub(/^#.*$/, '') # remove h1
 
-  class ReleaseNotesDataSource < Nanoc::DataSource
+    # attributes
+    attributes = {
+      title: 'Release Notes',
+      markdown: 'basic',
+      extension: 'md'
+    }
 
-    identifier :release_notes
+    # identifier
+    identifier = Nanoc::Identifier.new('/release-notes', style: :full)
 
-    def items
-      # content
-      path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
-      raw_content = File.read("#{path}/NEWS.md")
-      content = raw_content.sub(/^#.*$/, '') # remove h1
+    item = new_item(content, attributes, identifier)
 
-      # attributes
-      attributes = {
-        title: 'Release Notes',
-        markdown: 'basic',
-        extension: 'md'
-      }
-
-      # identifier
-      identifier = Nanoc::Identifier.new('/release-notes', style: :full)
-
-      item = new_item(content, attributes, identifier)
-
-      [ item ]
-    end
-
+    [ item ]
   end
-
 end
