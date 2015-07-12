@@ -10,7 +10,7 @@ Install Nanoc using RubyGems:
 
 NOTE: {sudo-gem-install}
 
-For detailed instructions, read on!
+Next up is the [tutorial](/doc/tutorial/). For detailed installation instructions, read on!
 
 ## Installing Ruby
 
