@@ -14,6 +14,19 @@ The good news is that Nanoc 4.0 is quite similar to 3.8. Upgrading a Nanoc 3.x s
 
 * Nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
 
+## Installing Nanoc 4
+
+You can install the Nanoc 4 pre-release using RubyGems:
+
+<pre><span class="prompt">%</span> <kbd>gem install nanoc --pre</kbd></pre>
+
+NOTE: {sudo-gem-install}
+
+We recommend using [Bundler](http://bundler.io/) to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the <span class="filename">Gemfile</span> that looks like this:
+
+    #!ruby
+    gem 'nanoc', '~> 4.0.0rc2'
+
 ## Quick upgrade guide
 
 The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal amount of changes.
