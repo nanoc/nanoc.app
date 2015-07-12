@@ -1,6 +1,4 @@
-# encoding: utf-8
-
-class AdmonitionFilter < Nanoc::Filter
+Class.new(Nanoc::Filter) do
   SUDO_GEM_CONTENT = 'If the <span class="command">{cmd}</span> command fails with a permission error, you likely have to prefix the command with <kbd>sudo</kbd>. Do not use <span class="command">sudo</span> until you have tried the command without it; using <span class="command">sudo</span> when not appropriate will damage your RubyGems installation.'
 
   identifier :admonition
