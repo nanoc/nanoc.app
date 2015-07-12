@@ -1,5 +1,6 @@
 ---
 title: "Nanoc 4 upgrade guide"
+is_dynamic: true
 ---
 
 Nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
@@ -14,11 +15,30 @@ The good news is that Nanoc 4.0 is quite similar to 3.8. Upgrading a Nanoc 3.x s
 
 * Nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
 
+## Installing Nanoc 4
+
+Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.2 and up, and JRuby 9000 and up:
+
+<pre><span class="prompt">%</span> <kbd>ruby --version</kbd>
+<%= config[:ruby_version_info] %>
+<span class="prompt">%</span> </pre>
+
+To upgrade Ruby, follow the [installation instructions on the Ruby web site](https://www.ruby-lang.org/en/documentation/installation/).
+
+You can install the Nanoc 4 pre-release using RubyGems:
+
+<pre><span class="prompt">%</span> <kbd>gem install nanoc --pre</kbd></pre>
+
+NOTE: {sudo-gem-install}
+
+We recommend using [Bundler](http://bundler.io/) to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the <span class="filename">Gemfile</span> that looks like this:
+
+    #!ruby
+    gem 'nanoc', '~> 4.0.0rc2'
+
 ## Quick upgrade guide
 
 The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal amount of changes.
-
-* Upgrade to Ruby 2.2 or higher, or JRuby 9000.
 
 * Change mentions of `Nanoc3` to `Nanoc`.
 
@@ -127,12 +147,12 @@ To use glob patterns:
     {: .legacy}
         #!rhtml
         <!-- Before -->
-        <%= render 'header' %>
+        <%%= render 'header' %>
 
     {: .legacy}
         #!rhtml
         <!-- After -->
-        <%= render '/header/' %>
+        <%%= render '/header/' %>
 
 3.  Replace `*` and `+` with `**/*` in all string patterns in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]`, `@layouts[…]`, and `#render` throughout the site. For example:
 
@@ -212,11 +232,11 @@ To use identifiers with extensions:
 
     {: .legacy}
         #!rhtml
-        <%= render '/root/' %>
+        <%%= render '/root/' %>
 
     {: .new}
         #!rhtml
-        <%= render '/root.*' %>
+        <%%= render '/root.*' %>
 
 4.  Update the routing rules to output the correct path. For example:
 
