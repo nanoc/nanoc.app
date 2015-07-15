@@ -5,7 +5,7 @@
         <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
         <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
         <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Roboto+Mono:400,400italic,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width">
         <% if @item[:redirect_to] %>
             <meta http-equiv="refresh" content="0;URL='<%= @item[:redirect_to] %>'">
