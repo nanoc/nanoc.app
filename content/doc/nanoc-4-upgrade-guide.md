@@ -44,9 +44,37 @@ The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal am
 
 * Change mentions of `@site.config` to `@config`.
 
-* Add `identifier_type: legacy` to the individual data source configurations.
+* Add `identifier_type: legacy` to the individual data source configurations. For example:
 
-* Add `string_pattern_type: legacy` to the configuration file.
+  {: .legacy}
+      #!yaml
+      data_sources:
+        -
+          type: filesystem
+
+  {: .new}
+      #!yaml
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
+
+* Add `string_pattern_type: legacy` to the configuration file. For example:
+
+  {: .legacy}
+      #!yaml
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
+
+  {: .new}
+      #!yaml
+      string_pattern_type: legacy
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
 
 * In Rules, remove the `rep.` prefix from `filter`, `layout` and `snapshot`. For example:
 
