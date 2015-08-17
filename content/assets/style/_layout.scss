@@ -353,6 +353,7 @@ footer {
 
     a {
         padding: 0 2px;
+        margin: 0;
     }
 
     padding: 0;
@@ -367,7 +368,11 @@ footer {
             padding: 40px 0;
 
             ul {
+                margin-left: -2px;
+
                 li {
+                    padding: 0 2px;
+                    margin: 0 -2px;
                     display: inline-block;
                 }
 
