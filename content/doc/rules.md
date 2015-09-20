@@ -67,7 +67,7 @@ A `:rep` argument can be passed to the `#route` call. This indicates the name of
 
     #!ruby
     route "/people/**/*", rep: :text do
-      item.identifier.with_ext("txt")
+      item.identifier.without_ext + '.txt'
     end
 
 When a `:snapshot` argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the `:snapshot` argument is `:last`, meaning that compiled items will only be written once they have been fully compiled.
@@ -76,7 +76,7 @@ When a `:snapshot` argument is passed to a routing rule definition, then that ro
 
     #!ruby
     route "/people/**/*", snapshot: :raw do
-      item.identifier.with_ext("txt")
+      item.identifier.without_ext + '.txt'
     end
 
 ## Compilation rules

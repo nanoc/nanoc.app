@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/nanoc/nanoc.git
-  revision: 1191fedfe0b775553082e24acb17358747023d6d
+  revision: 11fd20c7f8b6a72e593718008b2af8b39ce07ba9
   branch: release-4.0.x
   specs:
     nanoc (4.0.0rc2)
@@ -63,7 +63,7 @@ GEM
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    notiffany (0.0.7)
+    notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
     pry (0.10.1)

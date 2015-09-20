@@ -17,11 +17,20 @@ legacy
 
 The following methods are useful for full identifiers:
 
-`identifier.with_ext(string)` &rarr; `String`
-: identifier with the extension replaced with the given string
-
 `identifier.without_ext` &rarr; `String`
-: identifier with the extension removed
+: identifier with the last extension removed
+
+`identifier.without_exts` &rarr; `String`
+: identifier with all extensions removed
+
+`identifier.ext` &rarr; `String`
+: the last extension of this identifier
+
+`identifier.exts` &rarr; `String`
+: all extensions of this identifier
+
+`identifier + string` &rarr; `String`
+: identifier with the given string appended
 
 Here are some examples:
 
@@ -31,17 +40,14 @@ Here are some examples:
     identifier.without_ext
     # => "/about"
 
-    identifier.with_ext('html')
+    identifier + '.html'
     # => "/about.html"
 
-The following methods are useful for legacy identifiers:
+The following method is useful for legacy identifiers:
 
 {: .legacy}
 `identifier.chop` &rarr; `String`
 : identifier with the last character removed
-
-`identifier + string` &rarr; `String`
-: identifier with the given string appended
 
 Here are some examples:
 

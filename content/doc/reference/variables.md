@@ -108,6 +108,9 @@ The `@item` variable contains the item that is currently being processed. This v
 `@item[:someattribute]` &rarr; _object_
 : The attribute for the given key.
 
+`@item.attributes` &rarr; `Hash`
+: A hash containing all attributes of this item.
+
 `@item.binary?` &rarr; `true` / `false`
 : Whether or not the source content of this item is binary.
 
@@ -177,6 +180,9 @@ The `@layout` variable contains the layout that is currently being used. This va
 
 `@layout[:someattribute]` &rarr; _object_
 : The attribute for the given key.
+
+`@layout.attributes` &rarr; `Hash`
+: A hash containing all attributes of this layout.
 
 `@layout.fetch(:some_key, fallback)` &rarr; _object_
 : The attribute for the given key, or `fallback` if the key is not found.
