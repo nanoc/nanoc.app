@@ -33,7 +33,7 @@ class NavLinker
       html_classes << 'home'
     end
 
-    if @item == item || @item.identifier.with_ext('').start_with?(item.identifier.with_ext(''))
+    if @item == item || @item.identifier.without_ext.start_with?(item.identifier.without_ext)
       html_classes << 'active'
     end
 

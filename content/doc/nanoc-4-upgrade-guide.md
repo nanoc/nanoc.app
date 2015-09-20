@@ -34,7 +34,7 @@ NOTE: {sudo-gem-install}
 We recommend using [Bundler](http://bundler.io/) to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the <span class="filename">Gemfile</span> that looks like this:
 
     #!ruby
-    gem 'nanoc', '~> 4.0.0rc2'
+    gem 'nanoc', '~> 4.0.0rc3'
 
 ## Quick upgrade guide
 
@@ -288,7 +288,7 @@ To use identifiers with extensions:
         #!ruby
         route '/**/index.*' do
           # /projects/index.md gets written to /projects/index.html
-          item.identifier.with_ext('html')
+          item.identifier.without_ext + '.html'
         end
 
 6.  Replace calls in the form of `@items['/pattern/'].children` with a call to `#find_all` that matches the children. For example:
