@@ -253,20 +253,6 @@ body.home {
 
         @include dark-background-links;
     }
-
-    .support {
-        border-color: $chooser-unit-border-color;
-
-        .support-content {
-            h3:before {
-                border-color: $chooser-unit-bg-color;
-            }
-
-            h3 {
-                color: $header-color;
-            }
-        }
-    }
 }
 
 body.home .explanation {
