@@ -296,10 +296,12 @@ To use identifiers with extensions:
     {: .legacy}
         #!ruby
         @items['/articles/'].children
+        @item.children
 
     {: .new}
         #!ruby
         @items.find_all('/articles/*')
+        @items.find_all(@item.identifier.without_ext + '/*')
 
 ### Upgrading from the static data source
 
