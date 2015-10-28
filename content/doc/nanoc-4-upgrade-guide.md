@@ -291,7 +291,7 @@ To use identifiers with extensions:
           item.identifier.without_ext + '.html'
         end
 
-6.  Replace calls in the form of `@items['/pattern/'].children` with a call to `#find_all` that matches the children. For example:
+6.  Replace calls to `#children` with a call to `#find_all`, passing a pattern that matches the children. For example:
 
     {: .legacy}
         #!ruby
@@ -302,6 +302,18 @@ To use identifiers with extensions:
         #!ruby
         @items.find_all('/articles/*')
         @items.find_all(@item.identifier.without_ext + '/*')
+
+7.  Replace calls to `#parent` with a call to `#[]`, passing a pattern that matches the parent. For example:
+
+    {: .legacy}
+        #!ruby
+        @item.parent
+
+    {: .new}
+        #!ruby
+        @items[@item.identifier.to_s.sub(/[^\/]+$/, '').chop + '.*']
+
+NOTE: When using identifiers with extensions, the children and parent of an item are no longer unambiguous. For example, the two items <span class="filename">/foo.md</span> and <span class="filename">/foo.adoc</span> both have <span class="filename">/foo/bar.md</span> as a child, and <span class="filename">/foo/bar.md</span> has two parents.
 
 ### Upgrading from the static data source
 
