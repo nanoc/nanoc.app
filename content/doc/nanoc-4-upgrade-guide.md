@@ -309,7 +309,7 @@ NOTE: This section assumes that glob patterns and identifiers with extensions ha
 
 The static data source no longer exists in Nanoc 4. It existed in Nanoc 3 to work around the problem of identifiers not including the file extension, which is no longer the case in Nanoc 4.
 
-Theoretically, with identifiers with extensions enabed, it is possible to move the contents of the <span class="filename">static/</span> directory into <span class="filename">content/</span>. This can be tricky, however, because some rules that did not match any items in <span class="filename">static/</span> might now match.
+Theoretically, with identifiers with extensions enabled, it is possible to move the contents of the <span class="filename">static/</span> directory into <span class="filename">content/</span>. This can be tricky, however, because some rules that did not match any items in <span class="filename">static/</span> might now match.
 
 Because of this, the recommend approach for upgrading is to keep the <span class="filename">static/</span> directory, and set up a new data source that reads from this directory.
 
