@@ -25,9 +25,9 @@ Before installing, ensure you have a supported version of Ruby. Nanoc supports R
 
 To upgrade Ruby, follow the [installation instructions on the Ruby web site](https://www.ruby-lang.org/en/documentation/installation/).
 
-You can install the Nanoc 4 pre-release using RubyGems:
+You can install Nanoc 4 using RubyGems:
 
-<pre><span class="prompt">%</span> <kbd>gem install nanoc --pre</kbd></pre>
+<pre><span class="prompt">%</span> <kbd>gem install nanoc</kbd></pre>
 
 NOTE: {sudo-gem-install}
 
