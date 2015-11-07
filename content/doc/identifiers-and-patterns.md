@@ -40,8 +40,8 @@ Here are some examples:
     identifier.without_ext
     # => "/about"
 
-    identifier + '.html'
-    # => "/about.html"
+    identifier.ext
+    # => "md"
 
 The following method is useful for legacy identifiers:
 
