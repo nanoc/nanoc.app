@@ -34,7 +34,7 @@ NOTE: {sudo-gem-install}
 We recommend using [Bundler](http://bundler.io/) to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the <span class="filename">Gemfile</span> that looks like this:
 
     #!ruby
-    gem 'nanoc', '~> 4.0.0rc3'
+    gem 'nanoc', '~> 4.0'
 
 ## Quick upgrade guide
 
