@@ -148,38 +148,32 @@ To use glob patterns:
 
     {: .legacy}
         #!ruby
-        # Before
         compile 'articles/*' do
           layout 'default'
         end
 
-    {: .legacy}
+    {: .new}
         #!ruby
-        # After
         compile '/articles/*/' do
           layout '/default/'
         end
 
     {: .legacy}
         #!ruby
-        # Before
         @items['foo']
         @layouts['/bar']
 
-    {: .legacy}
+    {: .new}
         #!ruby
-        # After
         @items['/foo/']
         @layouts['/bar/']
 
     {: .legacy}
         #!rhtml
-        <!-- Before -->
         <%%= render 'header' %>
 
-    {: .legacy}
+    {: .new}
         #!rhtml
-        <!-- After -->
         <%%= render '/header/' %>
 
 3.  Replace `*` and `+` with `**/*` in all string patterns in the <span class="filename">Rules</span> file, as well as in calls to `@items[…]`, `@layouts[…]`, and `#render` throughout the site. For example:
