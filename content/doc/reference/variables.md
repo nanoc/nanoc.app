@@ -206,7 +206,7 @@ The following methods are available during preprocessing:
 
 ## `@item_rep` or `@rep`
 
-The `@item_rep` variable contains the item representation that is currently being processed. It is also available as `@rep`. This variable is available wwhile filtering and laying out an item.
+The `@item_rep` variable contains the item representation that is currently being processed. It is also available as `@rep`. This variable is available while filtering and laying out an item.
 
 `@item_rep.binary?` &rarr; `true` / `false`
 : Whether or not the content of this item representation is binary.
