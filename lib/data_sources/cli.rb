@@ -35,6 +35,6 @@ Class.new(Nanoc::DataSource) do
         :option_definitions => opt_defs,
         :usage              => cmd.usage
       },
-      Nanoc::Identifier.new("/_#{slug}", style: :full))
+      Nanoc::Identifier.new("/_#{slug}"))
   end
 end

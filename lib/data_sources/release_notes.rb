@@ -15,7 +15,7 @@ Class.new(Nanoc::DataSource) do
     }
 
     # identifier
-    identifier = Nanoc::Identifier.new('/release-notes', style: :full)
+    identifier = Nanoc::Identifier.new('/release-notes')
 
     item = new_item(content, attributes, identifier)
 

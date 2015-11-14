@@ -45,7 +45,7 @@ Class.new(Nanoc::DataSource) do
           :examples    => examples,
           :options     => options,
         },
-        Nanoc::Identifier.new("/filters/_#{slug}", style: :full))
+        Nanoc::Identifier.new("/filters/_#{slug}"))
     end
   end
 
@@ -73,7 +73,7 @@ Class.new(Nanoc::DataSource) do
             }
           end,
         },
-        Nanoc::Identifier.new("/helpers/_#{slug}", style: :full))
+        Nanoc::Identifier.new("/helpers/_#{slug}"))
     end
   end
 end
