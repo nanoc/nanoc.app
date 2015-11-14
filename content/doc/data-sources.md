@@ -10,12 +10,10 @@ The site configuration contains the configurations for each used data source. Fo
     #!yaml
     data_sources:
       -
-        type: filesystem_unified
-        identifier_style: full
+        type: filesystem
       -
         type: cli
         items_root: /doc/reference/commands/
-        identifier_style: full
 
 The data source configuration is a list of hashes. Each hash can have the following keys:
 
