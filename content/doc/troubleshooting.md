@@ -2,7 +2,7 @@
 title: "Troubleshooting"
 ---
 
-{:data-nav-title="“Found 3 content files…”""}
+{:data-nav-title="“Found 3 content files…”"}
 ## Error: “Found 3 content files for X; expected 0 or 1”
 
 This error occurs when you have multiple files with the same base name, but different extensions. Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
