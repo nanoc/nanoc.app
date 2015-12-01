@@ -5,14 +5,14 @@ title: "Troubleshooting"
 {:data-nav-title="“Found 3 content files…”"}
 ## Error: “Found 3 content files for X; expected 0 or 1”
 
-This error occurs when you have multiple files with the same base name, but different extensions. Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
+This error occurs for legacy identifiers when there are multiple files with the same base name, but different extensions. When using legacy identifiers, Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
 
 	content/assets/fonts/foo.eot
 	content/assets/fonts/foo.otf
 
-Nanoc converts these filenames to _identifiers_, which (unless specified otherwise) do not contain the file extension. In the example given above, both filenames correspond to the identifier _/assets/fonts/foo_. Identifiers are required to be unique, and thus Nanoc raises an error.
+Nanoc converts these filenames to _identifiers_ which do not contain the file extension. In the example given above, both filenames correspond to the identifier _/assets/fonts/foo/_. Identifiers are required to be unique, and thus Nanoc raises an error.
 
-New in Nanoc 4 are full identifiers, which _do_ contain the file extension. We recommend upgrading to Nanoc 4 and enabling full identifiers as well as glob patterns. See the [Nanoc 4 upgrade guide](/doc/nanoc-4-upgrade-guide/) for details.
+New in Nanoc 4 are full identifiers, which _do_ contain the file extension. We recommend upgrading to Nanoc 4 and enabling full identifiers as well as glob patterns. See the [Nanoc 4 upgrade guide](/doc/nanoc-4-upgrade-guide/) and [Identifiers and patterns](/doc/identifiers-and-patterns/) for details.
 
 {:data-nav-title="“Can’t modify frozen…”"}
 ## Error: “can’t modify frozen…”
