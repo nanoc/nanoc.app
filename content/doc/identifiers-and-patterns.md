@@ -116,7 +116,7 @@ To enable legacy patterns, set `string_pattern_type` to `"legacy"` in the config
 For legacy patterns, Nanoc supports the following wildcards:
 
 `*`
-: Matches zero or more characters, including a slash. For example, `/projects/*/` matches `/projects/nanoc/` and `/projects/nanoc/about`, but not `/projects/`.
+: Matches zero or more characters, including a slash. For example, `/projects/*/` matches `/projects/nanoc/` and `/projects/nanoc/about/`, but not `/projects/`.
 
 `+`
-: Matches one or more characters, including a slash. For example, `/projects/+` matches `/projects/nanoc/` and `/projects/nanoc/about`, but not `/projects/`.
+: Matches one or more characters, including a slash. For example, `/projects/+` matches `/projects/nanoc/` and `/projects/nanoc/about/`, but not `/projects/`.
