@@ -84,6 +84,17 @@ If you’re a release manager, you can follow these steps to release a new versi
 
 CAUTION: Being a release manager grants you considerable power, but remember that with great power comes great responsibility.
 
+### Requirements
+
+Before you start, ensure that you have access to the following:
+
+* GitHub push access
+* RubyGems push access
+* IRC channel operator access
+* Web site push access
+
+If you are missing any of these, let me (Denis) know and I’ll set you up.
+
 ### Preparing for a release
 
 Preparing a release means ensuring that the version that is about to be released meets the requirements. To prepare for a release, follow these steps:
@@ -95,8 +106,6 @@ Preparing a release means ensuring that the version that is about to be released
 3. Run the tests using <kbd>bundle exec rake</kbd>.
 
 4. As a final check, compile the Nanoc site with the Nanoc gem in the <span class="filename">Gemfile</span> pointing to your local Nanoc working copy, and verify locally that the release notes page is as expected.
-
-5. Make sure you have received the permissions to do all of the steps below. If you haven’t , let me (Denis) know and I’ll set you up. You’ll need GitHub push privileges, RubyGems push privileges, IRC channel operator access, and web site push access.
 
 ### Releasing the new version
 
