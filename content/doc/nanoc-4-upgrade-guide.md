@@ -116,6 +116,26 @@ The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal am
         [new_item('Hello', {}, '/hello/')]
       end
 
+* Replace `.reps[0]` by `.reps[:default]`. For example:
+
+  {: .legacy}
+      #!ruby
+      item.reps[0].path
+
+  {: .new}
+      #!ruby
+      item.reps[:default].path
+
+* Replace calls to `#rep_named` by <code>reps[<var>something</var>]</code>, where <var>something</var> is the argument to `#rep_named`. For example:
+
+  {: .legacy}
+      #!ruby
+      item.rep_named(:raw).path
+
+  {: .new}
+      #!ruby
+      item.reps[:raw].path
+
 * If you use the static data source, disable it for now and follow the extended upgrade instructions below.
 
 ## Extended upgrade guide
