@@ -145,6 +145,8 @@ To announce the new release, follow these steps:
 
 4. Update the topic of the <i>#nanoc</i> IRC channel.
 
+5. Update the version mentioned on the [Nanoc Wikipedia page](https://en.wikipedia.org/wiki/Nanoc).
+
 Contributor Code of Conduct
 ---------------------------
 
