@@ -44,7 +44,7 @@ GEM
     lumberjack (1.0.9)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
-    nanoc (4.0.2)
+    nanoc (4.1.0a1)
       cri (~> 2.3)
     nanoc-typohero (1.0.1)
       nanoc (>= 3.6.7, < 5.0.0)
@@ -93,7 +93,7 @@ DEPENDENCIES
   haml
   html5small
   kramdown
-  nanoc (~> 4.0)
+  nanoc (~> 4.1.0a)
   nanoc-typohero
   nokogiri
   rainpress
