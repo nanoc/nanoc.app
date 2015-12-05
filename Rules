@@ -13,67 +13,43 @@ end
 
 layout '/**/*', :erb
 
-# Partials
-
 ignore '/**/_*'
 
-# favicon
-
 passthrough '/favicon.ico'
-
-# assets
-
 passthrough '/assets/fonts/**/*'
 passthrough '/assets/images/**/*'
-
-# stylesheets
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
   filter :rainpress
+  write item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
 end
-
-route '/assets/style/*' do
-  item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
-end
-
-# other
 
 compile '/sitemap.*' do
   filter :erb
+  write '/sitemap.xml'
 end
 
 compile '/robots.*' do
   filter :erb
+  write '/robots.txt'
 end
-
-# index
 
 compile '/index.*' do
   filter :erb
   layout '/default.*'
-  filter :relativize_paths, :type => :html
+  filter :relativize_paths, type: :html
   filter :html5small
+  write '/index.html'
 end
-
-route '/index.*' do
-  '/index.html'
-end
-
-# 404
 
 compile '/404.*' do
   layout '/default.*'
   filter :typohero
   filter :html5small
+  write '/404.html'
 end
-
-route '/404.*' do
-  '/404.html'
-end
-
-# fallback
 
 compile '/**/*' do
   filter :erb if item[:is_dynamic]
@@ -95,14 +71,12 @@ compile '/**/*' do
   filter :fixup_whitespace
   filter :typohero
   filter :html5small
-end
 
-route '/**/*' do
   if item.binary?
-    item.identifier.to_s
+    write item.identifier.to_s
   elsif item[:path]
-    item[:path]
+    write item[:path]
   else
-    item.identifier.without_ext + '/index.html'
+    write item.identifier.without_ext + '/index.html'
   end
 end
