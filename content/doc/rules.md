@@ -14,7 +14,7 @@ routing rules
 layouting rules
 : These rules describe the filter that should be used for a given layout.
 
-For every item, Nanoc finds one compilation rule and one routing rule. Similarly, for every layout, Nanoc finds one layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
+For every item, Nanoc finds the first matching compilation rule. Similarly, for every layout, Nanoc finds the first matching layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
 
 ## Compilation rules
 
