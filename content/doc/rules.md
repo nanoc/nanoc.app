@@ -45,11 +45,11 @@ The code block does not need to execute anything. An empty `#compile` block will
 
 A compilation rule can end with a `#write` call, which takes the path to the file to write compiled content to.
 
-**Example**: This compilation rule will copy <span class="filename">/people/denis.md</span> to <span class="filename">/people/denis/index.html</span> without further processing:
+**Example**: This compilation rule will copy <span class="filename">/images/denis.jpg</span> without further processing:
 
     #!ruby
-    compile '/**/*.md' do
-      write item.identifier.without_ext + '/index.html'
+    compile '/images/**/*' do
+      write item.identifier.to_s
     end
 
 To filter an item representation, call `#filter` pass the name of the filter as the first argument.
@@ -127,7 +127,7 @@ When using a regular expression to match items, the block arguments will contain
 
 ## Routing rules
 
-A routing rule describes the path that an item representation is written to inside the output directory. It has the following shape:
+Routing rules are an alternative way to specify where a compiled item should be written to. It has the following shape:
 
     #!ruby
     route '/some/pattern.*' do
@@ -137,6 +137,25 @@ A routing rule describes the path that an item representation is written to insi
 The argument for the `#route` method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
+
+A compilation rule that ends with a `#write` call can be written as a combination of a compilation rule and a routing rule. Typically, using `#write` in the compile block leads to a more compact and easier-to-understand Rules file, but separate `#route` calls can nonetheless be useful.
+
+**Example**: The following compile/route rules are equivalent:
+
+    #!ruby
+    compile "/*.md" do
+      filter :kramdown
+    end
+
+    route "/*.md" do
+      item.identifier.without_ext + '/index.html'
+    end
+^
+    #!ruby
+    compile "/*.md" do
+      filter :kramdown
+      write item.identifier.without_ext + '/index.html'
+    end
 
 **Example**: The following rule will give the item with identifier <span class="filename">/404.erb</span> the path <span class="filename">/errors/404.php</span>:
 
