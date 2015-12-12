@@ -37,15 +37,24 @@ Lastly, a compilation block can end with a **write** action, which will write th
 
 The code block does not need to execute anything. An empty `#compile` block will not execute anything.
 
-**Example #1**: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
+**Example**: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
 
     #!ruby
     compile '/images/**/*' do
     end
 
+A compilation rule can end with a `#write` call, which takes the path to the file to write compiled content to.
+
+**Example**: This compilation rule will copy <span class="filename">/people/denis.md</span> to <span class="filename">/people/denis/index.html</span> without further processing:
+
+    #!ruby
+    compile '/**/*.md' do
+      write item.identifier.without_ext + '/index.html'
+    end
+
 To filter an item representation, call `#filter` pass the name of the filter as the first argument.
 
-**Example #2**: The following rule will filter items with identifiers ending in `.md` using the `:kramdown` filter, but not perform any layouting:
+**Example**: The following rule will filter items with identifiers ending in `.md` using the `:kramdown` filter, but not perform any layouting:
 
     #!ruby
     compile '/**/*.md' do
@@ -54,7 +63,7 @@ To filter an item representation, call `#filter` pass the name of the filter as 
 
 Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another.
 
-**Example #3**: The following rule will filter CSS items using the `:relativize_paths` filter, with the filter argument `type` set to `:css`:
+**Example**: The following rule will filter CSS items using the `:relativize_paths` filter, with the filter argument `type` set to `:css`:
 
     #!ruby
     compile '/**/*.css' do
@@ -63,7 +72,7 @@ Additional parameters can be given to invocations of `#filter`. This is used by 
 
 To lay out an item representation, call `#layout` and pass the layout identifier as argument.
 
-**Example #4**: The following rule will filter the rep using the `erb` filter, lay out the rep using the layout that matches the `/shiny.*` pattern, and finally run the laid out rep through the `:rubypants` filter:
+**Example**: The following rule will filter the rep using the `erb` filter, lay out the rep using the layout that matches the `/shiny.*` pattern, and finally run the laid out rep through the `:rubypants` filter:
 
     #!ruby
     compile '/about.*' do
@@ -74,7 +83,7 @@ To lay out an item representation, call `#layout` and pass the layout identifier
 
 In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
 
-**Example #5**: The following rule will only invoke the `:erb` filter if the item’s `:is_dynamic` attribute is set:
+**Example**: The following rule will only invoke the `:erb` filter if the item’s `:is_dynamic` attribute is set:
 
     #!ruby
     compile '/about.*' do
@@ -83,7 +92,7 @@ In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Vari
 
 To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument.
 
-**Example #6**: The following rule will create a snapshot named `:without_toc` so that the content at that snapshot can then later be reused elsewhere:
+**Example**: The following rule will create a snapshot named `:without_toc` so that the content at that snapshot can then later be reused elsewhere:
 
     #!ruby
     compile '/foo/' do
@@ -94,7 +103,7 @@ To take a snapshot of an item representation, call `#snapshot` and pass the snap
 
 A `:rep` argument can be passed to the `#compile` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means compilation rules apply to the default representation unless specified otherwise.
 
-**Example #7**: The following rule will apply to all items below <span class="filename">/people</span>, and only to textual representations (with name equal to `:text`):
+**Example**: The following rule will apply to all items below <span class="filename">/people</span>, and only to textual representations (with name equal to `:text`):
 
     #!ruby
     compile '/people/**/*', rep: :text do
@@ -103,22 +112,11 @@ A `:rep` argument can be passed to the `#compile` call. This indicates the name 
 
 When using a regular expression to match items, the block arguments will contain all matched groups. This is more useful for routing rules than it is for compilation rules.
 
-**Example #8**: The following rule will be matched using a regular expression instead of with a wildcard string:
+**Example**: The following rule will be matched using a regular expression instead of with a wildcard string:
 
     #!ruby
     compile %r<\A/blog/\d{4}/.*> do
       filter :kramdown
-    end
-
-A compilation rule can end with a `#write` call, which takes the path to the file to write compiled content to.
-
-**Example #9**: This compilation rule filters and lays out <span class="filename">/people/denis.md</span>, and then writes it to <span class="filename">/people/denis/index.html</span>:
-
-    #!ruby
-    compile '/**/*.md' do
-      filter :kramdown
-      layout '/default.*'
-      write item.identifier.without_ext + '/index.html'
     end
 
 ## Routing rules
@@ -134,14 +132,14 @@ The argument for the `#route` method call is a [pattern](/doc/identifiers-and-pa
 
 The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
-**Example #1**: The following rule will give the item with identifier <span class="filename">/404.erb</span> the path <span class="filename">/errors/404.php</span>:
+**Example**: The following rule will give the item with identifier <span class="filename">/404.erb</span> the path <span class="filename">/errors/404.php</span>:
 
     #!ruby
     route "/404.erb" do
       "/errors/404.php"
     end
 
-**Example #2**: The following rule will prevent all items below <span class="filename">/links</span> from being written:
+**Example**: The following rule will prevent all items below <span class="filename">/links</span> from being written:
 
     #!ruby
     route "/links/**/*" do
@@ -150,7 +148,7 @@ The code block should return the routed path for the relevant item. The code blo
 
 In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
 
-**Example #3**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item <span class="filename">/foo/bar.html</span> would get the path <span class="filename">/foo/bar/index.html</span>):
+**Example**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item <span class="filename">/foo/bar.html</span> would get the path <span class="filename">/foo/bar/index.html</span>):
 
     #!ruby
     route "/**/*" do
@@ -159,7 +157,7 @@ In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Vari
 
 When using a regular expression to match items, the block arguments will contain all matched groups.
 
-**Example #4**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier <span class="filename">/blog/2015-05-19-something.md</span> will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
+**Example**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier <span class="filename">/blog/2015-05-19-something.md</span> will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
 
     #!ruby
     route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
@@ -168,7 +166,7 @@ When using a regular expression to match items, the block arguments will contain
 
 Just like with `#compile` calls, a `:rep` argument can be passed to the `#route` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
 
-**Example #5**: The following rule will apply to all textual representations of all items below <span class="filename">/people</span> (for example, the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
+**Example**: The following rule will apply to all textual representations of all items below <span class="filename">/people</span> (for example, the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
 
     #!ruby
     route "/people/**/*", rep: :text do
@@ -177,7 +175,7 @@ Just like with `#compile` calls, a `:rep` argument can be passed to the `#route`
 
 When a `:snapshot` argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the `:snapshot` argument is `:last`, meaning that compiled items will only be written once they have been fully compiled.
 
-**Example #6**: The following rules will apply to the `raw` snapshot of all items below <span class="filename">/people</span> (for example, the raw snapshot of the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
+**Example**: The following rules will apply to the `raw` snapshot of all items below <span class="filename">/people</span> (for example, the raw snapshot of the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
 
     #!ruby
     route "/people/**/*", snapshot: :raw do
@@ -194,17 +192,17 @@ The second should be the identifier of the filter to use.
 
 In addition to the first two arguments, extra arguments can be supplied; these will be passed on to the filter.
 
-**Example #1**: The following rule will make all layouts use the `:erb` filter:
+**Example**: The following rule will make all layouts use the `:erb` filter:
 
     #!ruby
     layout '/**/*', :erb
 
-**Example #2**: The following rule will make the default layout use the `haml` filter and pass a filter argument:
+**Example**: The following rule will make the default layout use the `haml` filter and pass a filter argument:
 
     #!ruby
     layout '/default.*', :haml, format: :html5
 
-**Example #3**: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, <span class="filename">/foo.erb</span> and <span class="filename">/foo/_bar.haml</span> would not match, but <span class="filename">/_foo.erb</span>, <span class="filename">/_foo/bar.html</span> and even <span class="filename">/_foo/_bar.erb</span> would:
+**Example**: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, <span class="filename">/foo.erb</span> and <span class="filename">/foo/_bar.haml</span> would not match, but <span class="filename">/_foo.erb</span>, <span class="filename">/_foo/bar.html</span> and even <span class="filename">/_foo/_bar.erb</span> would:
 
     #!ruby
     layout %r{\A/_}, :erb
