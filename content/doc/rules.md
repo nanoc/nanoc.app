@@ -5,79 +5,16 @@ is_dynamic: true
 
 The <span class="filename">Rules</span> file contains the processing instructions for all items in a Nanoc site. Three different kinds of rules exist:
 
-routing rules
-: These rules describe the path where the compiled items should be written to.
-
 compilation rules
 : These rules describe the actions that should be executed during compilation (filtering, layouting, and snapshotting).
+
+routing rules
+: These rules describe the path where the compiled items should be written to.
 
 layouting rules
 : These rules describe the filter that should be used for a given layout.
 
 For every item, Nanoc finds one compilation rule and one routing rule. Similarly, for every layout, Nanoc finds one layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
-
-## Routing rules
-
-A routing rule describes the path that an item representation is written to inside the output directory. It has the following shape:
-
-    #!ruby
-    route '/some/pattern.*' do
-      # (routing code here)
-    end
-
-The argument for the `#route` method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
-
-The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
-
-**Example #1**: The following rule will give the item with identifier <span class="filename">/404.erb</span> the path <span class="filename">/errors/404.php</span>:
-
-    #!ruby
-    route "/404.erb" do
-      "/errors/404.php"
-    end
-
-**Example #2**: The following rule will prevent all items below <span class="filename">/links</span> from being written:
-
-    #!ruby
-    route "/links/**/*" do
-      nil
-    end
-
-In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
-
-**Example #3**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item <span class="filename">/foo/bar.html</span> would get the path <span class="filename">/foo/bar/index.html</span>):
-
-    #!ruby
-    route "/**/*" do
-      @item.identifier.without_ext + "/index.html"
-    end
-
-When using a regular expression to match items, the block arguments will contain all matched groups.
-
-**Example #4**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier <span class="filename">/blog/2015-05-19-something.md</span> will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
-
-    #!ruby
-    route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
-      "/blog/#{y}/#{m}/#{slug}/index.html"
-    end
-
-A `:rep` argument can be passed to the `#route` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
-
-**Example #5**: The following rule will apply to all textual representations of all items below <span class="filename">/people</span> (for example, the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
-
-    #!ruby
-    route "/people/**/*", rep: :text do
-      item.identifier.without_ext + '.txt'
-    end
-
-When a `:snapshot` argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the `:snapshot` argument is `:last`, meaning that compiled items will only be written once they have been fully compiled.
-
-**Example #6**: The following rules will apply to the `raw` snapshot of all items below <span class="filename">/people</span> (for example, the raw snapshot of the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
-
-    #!ruby
-    route "/people/**/*", snapshot: :raw do
-      item.identifier.without_ext + '.txt'
-    end
 
 ## Compilation rules
 
@@ -169,6 +106,69 @@ When using a regular expression to match items, the block arguments will contain
     #!ruby
     compile %r<\A/blog/\d{4}/.*> do
       filter :kramdown
+    end
+
+## Routing rules
+
+A routing rule describes the path that an item representation is written to inside the output directory. It has the following shape:
+
+    #!ruby
+    route '/some/pattern.*' do
+      # (routing code here)
+    end
+
+The argument for the `#route` method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
+
+The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
+
+**Example #1**: The following rule will give the item with identifier <span class="filename">/404.erb</span> the path <span class="filename">/errors/404.php</span>:
+
+    #!ruby
+    route "/404.erb" do
+      "/errors/404.php"
+    end
+
+**Example #2**: The following rule will prevent all items below <span class="filename">/links</span> from being written:
+
+    #!ruby
+    route "/links/**/*" do
+      nil
+    end
+
+In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
+
+**Example #3**: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item <span class="filename">/foo/bar.html</span> would get the path <span class="filename">/foo/bar/index.html</span>):
+
+    #!ruby
+    route "/**/*" do
+      @item.identifier.without_ext + "/index.html"
+    end
+
+When using a regular expression to match items, the block arguments will contain all matched groups.
+
+**Example #4**: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier <span class="filename">/blog/2015-05-19-something.md</span> will be routed to <span class="filename">/blog/2015/05/something/index.html</span>):
+
+    #!ruby
+    route %r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
+      "/blog/#{y}/#{m}/#{slug}/index.html"
+    end
+
+A `:rep` argument can be passed to the `#route` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
+
+**Example #5**: The following rule will apply to all textual representations of all items below <span class="filename">/people</span> (for example, the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
+
+    #!ruby
+    route "/people/**/*", rep: :text do
+      item.identifier.without_ext + '.txt'
+    end
+
+When a `:snapshot` argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the `:snapshot` argument is `:last`, meaning that compiled items will only be written once they have been fully compiled.
+
+**Example #6**: The following rules will apply to the `raw` snapshot of all items below <span class="filename">/people</span> (for example, the raw snapshot of the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
+
+    #!ruby
+    route "/people/**/*", snapshot: :raw do
+      item.identifier.without_ext + '.txt'
     end
 
 ## Layouting rules
