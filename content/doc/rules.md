@@ -54,11 +54,12 @@ A compilation rule can end with a `#write` call, which takes the path to the fil
 
 To filter an item representation, call `#filter` pass the name of the filter as the first argument.
 
-**Example**: The following rule will filter items with identifiers ending in `.md` using the `:kramdown` filter, but not perform any layouting:
+**Example**: The following rule will filter items with identifiers ending in `.md` using the `:kramdown` filter, but not perform any layouting, and then write it with a `.html` extension, so that <span class="filename">/about.md</span> is written to <span class="filename">/about.html</span>:
 
     #!ruby
     compile '/**/*.md' do
       filter :kramdown
+      write @item.identifier.without_ext + '.html'
     end
 
 Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another.
@@ -68,6 +69,7 @@ Additional parameters can be given to invocations of `#filter`. This is used by 
     #!ruby
     compile '/**/*.css' do
       filter :relativize_paths, type: :css
+      write @item.identifier.without_ext + '.css'
     end
 
 To lay out an item representation, call `#layout` and pass the layout identifier as argument.
@@ -79,6 +81,7 @@ To lay out an item representation, call `#layout` and pass the layout identifier
       filter :erb
       layout '/shiny.*'
       filter :rubypants
+      write @item.identifier.without_ext + '/index.html'
     end
 
 In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Variables](/doc/reference/variables/) page for details.
@@ -88,6 +91,7 @@ In the code block, Nanoc exposes `@item` and `@rep`, among others. See the [Vari
     #!ruby
     compile '/about.*' do
       filter :erb if @item[:is_dynamic]
+      write @item.identifier.without_ext + '/index.html'
     end
 
 To take a snapshot of an item representation, call `#snapshot` and pass the snapshot name as argument.
@@ -95,10 +99,11 @@ To take a snapshot of an item representation, call `#snapshot` and pass the snap
 **Example**: The following rule will create a snapshot named `:without_toc` so that the content at that snapshot can then later be reused elsewhere:
 
     #!ruby
-    compile '/foo/' do
-      filter   :markdown
+    compile '/foo/*' do
+      filter :markdown
       snapshot :without_toc
-      filter   :add_toc
+      filter :add_toc
+      write @item.identifier.without_ext + '/index.html'
     end
 
 A `:rep` argument can be passed to the `#compile` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means compilation rules apply to the default representation unless specified otherwise.
@@ -107,7 +112,7 @@ A `:rep` argument can be passed to the `#compile` call. This indicates the name 
 
     #!ruby
     compile '/people/**/*', rep: :text do
-      # don't filter or layout
+      write @item.identifier.without_ext + '.txt'
     end
 
 When using a regular expression to match items, the block arguments will contain all matched groups. This is more useful for routing rules than it is for compilation rules.
@@ -117,6 +122,7 @@ When using a regular expression to match items, the block arguments will contain
     #!ruby
     compile %r<\A/blog/\d{4}/.*> do
       filter :kramdown
+      write @item.identifier.without_ext + '/index.html'
     end
 
 ## Routing rules
