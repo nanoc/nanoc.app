@@ -33,6 +33,8 @@ The code block should execute the necessary actions for compiling the item. The 
 * **layout** items, placing their content inside a layout
 * **snapshot** items, remembering their content at that point in time for reuse
 
+Lastly, a compilation block can end with a **write** action, which will write the compiled content to a file with the given name. (Alternatively, you can use [routing rules](#routing-rules) to describe where compiled content should be written to.)
+
 The code block does not need to execute anything. An empty `#compile` block will not execute anything.
 
 **Example #1**: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
@@ -106,6 +108,17 @@ When using a regular expression to match items, the block arguments will contain
     #!ruby
     compile %r<\A/blog/\d{4}/.*> do
       filter :kramdown
+    end
+
+A compilation rule can end with a `#write` call, which takes the path to the file to write compiled content to.
+
+**Example #9**: This compilation rule filters and lays out <span class="filename">/people/denis.md</span>, and then writes it to <span class="filename">/people/denis/index.html</span>:
+
+    #!ruby
+    compile '/**/*.md' do
+      filter :kramdown
+      layout '/default.*'
+      write item.identifier.without_ext + '/index.html'
     end
 
 ## Routing rules
