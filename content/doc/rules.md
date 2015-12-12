@@ -248,3 +248,14 @@ Preprocessors can be used for various purposes. Here are two sample uses:
 * A preprocessor could set a `language_code` attribute based on the item path. An item such as `/en/about/` would get an attribute `language_code` equal to `'en'`. This would eliminate the need for helpers such as `language_code_of`.
 
 * A preprocessor could create new (in-memory) items for a given set of items. This can be useful for creating pages that contain paginated items.
+
+## Post-processing
+
+The <span class="filename">Rules</span> file can contain a `#postprocess` block. This post-process block is executed after the site is compiled. Post-processing is useful to model tasks that are tricky to model in Nanoc’s workflow, such as updating a search index. For example:
+
+    #!ruby
+    postprocess do
+      items.select(&:modified).each do |item|
+        update_search_index(item.path, item.compiled_content(snapshot: :last))
+      end
+    end

@@ -28,7 +28,7 @@ The following variables exist:
 `@config`
 : The site configuration as a hash.
 
-There are three contexts in which variables are exposed: in the `preprocess` block, within `compile` and `route` rules, and during filtering/layouting.
+There are three contexts in which variables are exposed: in the `preprocess`/`postprocess` block, within `compile` and `route` rules, and during filtering/layouting.
 
 ## `@config`
 
@@ -171,6 +171,11 @@ The item reps collection (`@item.reps`) has the following methods:
 
 `@item.reps.size` &rarr; `Integer`
 : The number of item representations.
+
+The following methods are available during postprocessing:
+
+`@item.modified?` &rarr; _boolean_
+: `true` if the item’s compiled content has changed; `false` otherwise.
 
 Item representation collections include Ruby’s `Enumerable`, which means useful methods such as `#map` and `#select` are available.
 
