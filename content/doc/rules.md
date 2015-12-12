@@ -92,7 +92,7 @@ To take a snapshot of an item representation, call `#snapshot` and pass the snap
       filter   :add_toc
     end
 
-Just like with routing rules, a `:rep` argument can be passed to the `#compile` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means compilation rules apply to the default representation unless specified otherwise.
+A `:rep` argument can be passed to the `#compile` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means compilation rules apply to the default representation unless specified otherwise.
 
 **Example #7**: The following rule will apply to all items below <span class="filename">/people</span>, and only to textual representations (with name equal to `:text`):
 
@@ -166,7 +166,7 @@ When using a regular expression to match items, the block arguments will contain
       "/blog/#{y}/#{m}/#{slug}/index.html"
     end
 
-A `:rep` argument can be passed to the `#route` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
+Just like with `#compile` calls, a `:rep` argument can be passed to the `#route` call. This indicates the name of the representation this rule should apply to. This is `:default` by default, which means routing rules apply to the default representation unless specified otherwise.
 
 **Example #5**: The following rule will apply to all textual representations of all items below <span class="filename">/people</span> (for example, the item <span class="filename">/people/denis.md</span> would get the path <span class="filename">/people/denis.txt</span>):
 
