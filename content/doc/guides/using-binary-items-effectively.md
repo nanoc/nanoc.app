@@ -101,7 +101,7 @@ When the site is compiled now, you’ll find both <span class="filename">output/
     <% end %>
     </ul>
 
-If you want to give each thumbnail a bit of `ALT` text, you can do so by treating the `ALT` text as metadata that you want to assign to that item. To do so, create a metadata file for the item you want to give the `ALT` text; this file will have the same name as the image file itself, but a different extension (“.yaml”). For example, an image at <span class="filename">content/gallery/rick.jpg</span> would have a metadata file named <span class="filename">content/gallery/rick.yaml</span>. Inside the newly created YAML file, add the `ALT` text, like this:
+If you want to give each thumbnail a bit of `ALT` text, you can do so by treating the `ALT` text as metadata that you want to assign to that item. To do so, create a metadata file for the item you want to give the `ALT` text; this file will have the same name as the image file itself, but a different extension (`.yaml`). For example, an image at <span class="filename">content/gallery/rick.jpg</span> would have a metadata file named <span class="filename">content/gallery/rick.yaml</span>. Inside the newly created YAML file, add the `ALT` text, like this:
 
     #!yaml
     alt: "A picture of a kitten that looks cute but is actually quite evil"

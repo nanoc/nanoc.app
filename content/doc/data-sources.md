@@ -69,7 +69,7 @@ images
 ├── dataflow.png
 └── dataflow.yaml</pre>
 
-The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the <span class="filename">/Users/denis/stoneship/content/about.md</span> file will have the identifier _/about.md_.
+The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the <span class="filename">/Users/denis/stoneship/content/about.md</span> file will have the identifier <span class="filename">/about.md</span>.
 
 ### Configuration
 

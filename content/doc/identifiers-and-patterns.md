@@ -10,7 +10,7 @@ In Nanoc, every item (page or asset) and every layout has a unique _identifier_:
 Identifiers come in two types: the _full_ type, new in Nanoc 4, and the _legacy_ type, used in Nanoc 3.
 
 full
-: An identifier with the full type is the filename, with the path to the content directory removed. For example, the file <span class="filename">/Users/denis/stoneship/content/about.md</span> will have the full identifier _/about.md_.
+: An identifier with the full type is the filename, with the path to the content directory removed. For example, the file <span class="filename">/Users/denis/stoneship/content/about.md</span> will have the full identifier `/about.md`.
 
 legacy
 : An identifier with the legacy type is the filename, with the path to the content directory removed, the extension removed, and a slash appended. For example, the file <span class="filename">/Users/denis/stoneship/content/about.md</span> will have the legacy identifier _/about/_. This corresponds closely with paths in clean URLs.

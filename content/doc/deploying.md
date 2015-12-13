@@ -42,7 +42,7 @@ CAUTION: This will remove all files and directories that do not correspond to Na
 With GitHub Pages or Bitbucket
 ------------------------------
 
-[GitHub](https://github.com/) and [Bitbucket](https://bitbucket.org/) are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with nanoc.
+[GitHub](https://github.com/) and [Bitbucket](https://bitbucket.org/) are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
 ### GitHub Pages setup
 

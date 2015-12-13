@@ -66,4 +66,4 @@ To pass additional options when compiling a site, invoke the <span class="comman
 
 Nanoc will not compile items that are not outdated. If you want to force Nanoc to recompile everything, delete the output directory and re-run the compile command.
 
-You can use [guard-nanoc](https://github.com/guard/guard-nanoc) to automatically recompile the site when it changes.
+You can use [<span class="productname">guard-nanoc</span>](https://github.com/guard/guard-nanoc) to automatically recompile the site when it changes.
