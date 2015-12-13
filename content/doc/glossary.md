@@ -25,7 +25,7 @@ title:    "Glossary"
 	<dd>An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (<code>erb</code>, <code>haml</code>), filters that transform from text to HTML (<code>bluecloth</code>, <code>redcloth</code>), filters that “clean” HTML (<code>rubypants</code>), and more.</dd>
 
 	<dt id="glossary-helper">helper</dt>
-	<dd>A module that, when included, offers additional functionality such as easy linking to pages, building XML sitemaps or Atom web feeds.</dd>
+	<dd>A module that, when included, offers additional functionality such as easy linking to pages, building XML site maps or Atom web feeds.</dd>
 
 	<dt id="glossary-identifier">identifier</dt>
 	<dd>A string that is used to uniquely identify an <a href="#glossary-item">item</a> or a <a href="#glossary-layout">layout</a>. It is used to construct <a href="#glossary-path">paths</a> of item <a href="#glossary-representation">representations</a>. <span class="see">See</span> <a href="/doc/identifiers-and-patterns/">identifiers and patterns</a>.</dd>

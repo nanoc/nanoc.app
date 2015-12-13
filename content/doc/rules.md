@@ -62,7 +62,7 @@ To filter an item representation, call `#filter` pass the name of the filter as 
       write @item.identifier.without_ext + '.html'
     end
 
-Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behaviour in one way or another.
+Additional parameters can be given to invocations of `#filter`. This is used by some filters, such as the Haml one (`:haml`), to alter filter behavior in one way or another.
 
 **Example**: The following rule will filter CSS items using the `:relativize_paths` filter, with the filter argument `type` set to `:css`:
 
@@ -264,9 +264,9 @@ This is a shorthand for the following:
     compile '/assets/style/_*' do
     end
 
-## Pre-processing
+## Preprocessing
 
-The <span class="filename">Rules</span> file can contain a `#preprocess` block. This pre-process block is executed before the site is compiled, and has access to all site data.
+The <span class="filename">Rules</span> file can contain a `#preprocess` block. This preprocess block is executed before the site is compiled, and has access to all site data.
 
 Here is an example preprocess block that sets the `author` attribute to `denis` for every article:
 

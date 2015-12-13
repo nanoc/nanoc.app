@@ -106,7 +106,7 @@ An example of a regular expression pattern is `%r{\A/projects/(cri|nanoc)\.md\z}
 
 ### Legacy patterns
 
-Legacy patterns are strings that contain wildcard characters. The wildcard characters behave differently than the glob wildchard characters.
+Legacy patterns are strings that contain wildcard characters. The wildcard characters behave differently than the glob wildcard characters.
 
 To enable legacy patterns, set `string_pattern_type` to `"legacy"` in the configuration. For example:
 

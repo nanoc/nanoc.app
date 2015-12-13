@@ -60,7 +60,7 @@ Compiling site…
 
 Site compiled in 2.42s.</pre>
 
-It is recommended to use [Bundler](http://bundler.io/) with Nanoc sites. When using bundler, compiling a site is done by invoking <span class="command">bundle exec nanoc</span> on the command line.
+It is recommended to use [Bundler](http://bundler.io/) with Nanoc sites. When using Bundler, compiling a site is done by invoking <span class="command">bundle exec nanoc</span> on the command line.
 
 To pass additional options when compiling a site, invoke the <span class="command">nanoc compile</span>, and pass the desired options.
 
