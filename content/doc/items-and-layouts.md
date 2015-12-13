@@ -21,7 +21,7 @@ Every item has one or more <span class="firstterm">item representations</span> (
 * a HTML representation, which will be the default for almost all sites
 * a RSS representation, useful for the home page for a blog
 * a JSON representation, so that the site can act as a read-only web API
-* a [cue sheet](http://en.wikipedia.org/wiki/Cue_sheet_%28computing%29) representation, useful for tracklist pages
+* a [cue sheet](http://en.wikipedia.org/wiki/Cue_sheet_%28computing%29) representation, useful for track list pages
 
 An item rep has a name, which usually refers to the format the content is in (`html`, `json`, `rss`, …). Unless otherwise specified, there will be a default representation, aptly named `default`.
 

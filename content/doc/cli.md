@@ -22,8 +22,8 @@ aliases: cs
 create a site
 
     Create a new site at the given path. The site will use the compact
-    filesystem data source by default, but this can be changed by
-    using the --datasource commandline option.
+    file system data source by default, but this can be changed by
+    using the --datasource command-line option.
 
 options:
 
@@ -66,6 +66,6 @@ Here is an example command:
 
 The name of the command is derived from the filename. For example, a command defined in <span class="filename">commands/dostuff.rb</span> will have the name `dostuff`, and it can thus be invoked as <kbd>nanoc dostuff</kbd>.
 
-Commands can be nested; for example, the command at <span class="filename">commands/foo/bar.rb</span> will be a subcommand of the command at <span class="filename">commands/foo.rb</span>, and can be invoked as <kbd>nanoc foo bar</kbd>.
+Commands can be nested; for example, the command at <span class="filename">commands/foo/bar.rb</span> will be a sub-command of the command at <span class="filename">commands/foo.rb</span>, and can be invoked as <kbd>nanoc foo bar</kbd>.
 
 For details on how to create commands, check out the documentation for [Cri](http://rubydoc.info/gems/cri), the framework used by Nanoc for generating commands.

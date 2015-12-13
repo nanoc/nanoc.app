@@ -277,7 +277,7 @@ The second rule matches all other items, and assigns a path that is identical to
 
 NOTE: For more information on rules, see the [rules](/doc/rules/) page.
 
-Now that you know what compilation and routing rules are, we can customise the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
+Now that you know what compilation and routing rules are, we can customize the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
 
     #!ruby
     compile '/**/*.md' do
