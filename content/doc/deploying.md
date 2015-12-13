@@ -3,7 +3,7 @@ title: "Deploying Nanoc sites"
 short_title: "Deploying"
 ---
 
-There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronise” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.
+There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronize” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.
 
 With rsync
 ----------
@@ -46,9 +46,9 @@ With GitHub Pages or Bitbucket
 
 ### GitHub Pages setup
 
-The publishing of a website based on a Git repo to GitHub Pages is [described in Github's help pages](https://help.github.com/articles/creating-project-pages-manually).
+The publishing of a website based on a Git repository to GitHub Pages is [described in GitHub's help pages](https://help.github.com/articles/creating-project-pages-manually).
 
-Clone the current repo into the <span class="filename">output/</span> directory, create an orphaned branch dedicated to GitHub Pages named `gh-pages`, and check out the new branch:
+Clone the current repository into the <span class="filename">output/</span> directory, create an orphaned branch dedicated to GitHub Pages named `gh-pages`, and check out the new branch:
 
 <pre><span class="prompt">%</span> <kbd>git clone . output</kbd>
 <span class="prompt">%</span> <kbd>cd output</kbd>
@@ -56,7 +56,7 @@ Clone the current repo into the <span class="filename">output/</span> directory,
 <span class="prompt">output@master%</span> <kbd>git checkout gh-pages</kbd>
 <span class="prompt">output@gh-pages%</span> <kbd>cd ..</kbd></pre>
 
-Change the remote for this repo, replacing <var>repo-url</var> with the URL to the repository:
+Change the remote for this repository, replacing <var>repo-url</var> with the URL to the repository:
 
 <pre><span class="prompt">output@gh-pages%</span> <kbd>git remote rm origin</kbd>
 <span class="prompt">output@gh-pages%</span> <kbd>git remote add origin</kbd> <var>repo-url</var></pre>
@@ -65,7 +65,7 @@ Add the <span class="filename">output/</span> directory to your <span class="fil
 
 ### Bitbucket setup
 
-The publishing of a website based on a Git repo to Bitbucket is [described in Bitbucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
+The publishing of a website based on a Git repository to Bitbucket is [described in Bitbucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
 
 Bitbucket supports publishing a website at <var>username</var>.bitbucket.org, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <var>username</var>.bitbucket.org.
 

@@ -9,7 +9,7 @@ Creating a site in multiple languages can be tedious, but Nanoc can nonetheless 
 
 A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
-For the Myst Online site, I decided to organise the pages in different languages by creating a top-level directory containing the abbreviated language name (en for English, nl for Dutch, fr for French, etc). Inside the language-specific directory, each page has a path that is also translated (so no /nl/play, but rather /nl/speel). Here’s an example:
+For the Myst Online site, I decided to organize the pages in different languages by creating a top-level directory containing the abbreviated language name (en for English, nl for Dutch, fr for French, etc). Inside the language-specific directory, each page has a path that is also translated (so no /nl/play, but rather /nl/speel). Here’s an example:
 
     /en
       /about

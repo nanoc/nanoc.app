@@ -108,7 +108,7 @@ Here is an example of an audio synthesis filter:
 
     #!ruby
     class SynthesiseAudio < Nanoc::Filter
-      identifier :synthesise_audio
+      identifier :synthesize_audio
       type :text => :binary
 
       def run(content, params = {})

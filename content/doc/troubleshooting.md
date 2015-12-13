@@ -76,18 +76,19 @@ Nanoc defaults to the current environment encoding, which might not be what you 
 
 To set the encoding explicitly in the site configuration, open <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> on older Nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
 
-	#!yaml
-	data_sources:
-	  -
-	    type: filesystem
-	    encoding: utf-8
+```yaml
+data_sources:
+  -
+    type: filesystem
+    encoding: utf-8
+```
 
 For bonus points, you can do all three. Setting up your content, environment and configuration as UTF-8 is the best way to avoid encoding issues now and in the future.
 
 {:data-nav-title="YAML timestamp issues"}
 ## Timestamps in YAML files parsed incorrectly
 
-If you work with datetime attributes (such as `created_at`, `published_at` and `updated_at`) and find that the time is one or more hours off, then this section applies to you.
+If you work with date/time attributes (such as `created_at`, `published_at` and `updated_at`) and find that the time is one or more hours off, then this section applies to you.
 
 If you use timestamps in the `.yaml` file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the [YAML timestamp specification](http://yaml.org/type/timestamp.html):
 

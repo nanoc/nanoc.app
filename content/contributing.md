@@ -127,7 +127,7 @@ To announce the new release, follow these steps:
 
 2. Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
-3. Send an announcement e-mail to the [Nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain Rubygems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based off the following:
+3. Send an announcement e-mail to the [Nanoc mailing list](http://groups.google.com/group/nanoc). Include the version number, link to the release notes, instructions for how to update (using plain RubyGems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based off the following:
 
    <pre class="template">Hi,
 
