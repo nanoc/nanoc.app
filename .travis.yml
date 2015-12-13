@@ -1,4 +1,8 @@
 language: ruby
+branches:
+  only:
+    - "master"
+    - "/^release-/"
 rvm:
   - 2.2.0
 cache: bundler
