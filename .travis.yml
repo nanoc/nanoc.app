@@ -1,7 +1,10 @@
 language: ruby
 rvm:
   - 2.2.0
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libaspell-dev aspell-en
 cache: bundler
-sudo: false
+sudo: required
 git:
   depth: 10

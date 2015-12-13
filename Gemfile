@@ -19,3 +19,4 @@ gem 'yard'        # for loading filter and helper docs
 gem 'html5small'
 gem 'nanoc-typohero'
 gem 'w3c_validators'
+gem 'ffi-aspell'
