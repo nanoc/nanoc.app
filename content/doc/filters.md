@@ -92,7 +92,7 @@ Here is an example of a filter that resizes images to a given width:
 
 ### Text-to-binary and binary-to-text filters
 
-Filters that convert textual content to binary content or vice versa have the type delcaration `type :text => :binary` or `type :text => :binary`, respectively. For example:
+Filters that convert textual content to binary content or vice versa have the type declaration `type :text => :binary` or `type :text => :binary`, respectively. For example:
 
     #!ruby
     class SampleTextualToBinaryFilter < Nanoc::Filter

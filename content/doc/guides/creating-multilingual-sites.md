@@ -224,7 +224,7 @@ The global `$base_url` variable contains the base URL for the web site. For the 
     #!php
     $base_url = 'http://mystonline.com';
 
-… or you can set the `base_url` confguration attribute in <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> for older sites) and generate the PHP code for setting it (a bit icky, but DRYer):
+… or you can set the `base_url` configuration attribute in <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> for older sites) and generate the PHP code for setting it (a bit icky, but DRYer):
 
     #!php
     $base_url = '<%= @site.config[:base_url] %>';

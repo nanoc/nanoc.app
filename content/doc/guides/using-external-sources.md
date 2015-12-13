@@ -71,7 +71,7 @@ A data source is responsible for loading data, and is represented by the `Nanoc:
 	  identifier :hr
 	end
 
-Data sources have an `#up` method, which can be overriden to perform actions to establish a connection with the remote data source. In this example, implement it so that it connects to the database:
+Data sources have an `#up` method, which can be overridden to perform actions to establish a connection with the remote data source. In this example, implement it so that it connects to the database:
 
 	#!ruby
 	class HRDataSource < ::Nanoc::DataSource

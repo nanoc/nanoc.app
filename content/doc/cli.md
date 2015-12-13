@@ -68,4 +68,4 @@ The name of the command is derived from the filename. For example, a command def
 
 Commands can be nested; for example, the command at <span class="filename">commands/foo/bar.rb</span> will be a subcommand of the command at <span class="filename">commands/foo.rb</span>, and can be invoked as <kbd>nanoc foo bar</kbd>.
 
-For details on how to create commands, check out the documentation for [Cri](http://rubydoc.info/gems/cri), the framework used by nanoc for generating commands.
+For details on how to create commands, check out the documentation for [Cri](http://rubydoc.info/gems/cri), the framework used by Nanoc for generating commands.
