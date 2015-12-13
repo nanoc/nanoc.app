@@ -28,7 +28,7 @@ A site has the following files and directories:
 : contains the site configuration
 
 <span class="filename">Rules</span>
-: contains compilation, routing and layout rules
+: contains compilation, routing and layouting rules
 
 <span class="filename">content/</span>
 : contains the uncompiled items
