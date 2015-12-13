@@ -76,12 +76,11 @@ Nanoc defaults to the current environment encoding, which might not be what you 
 
 To set the encoding explicitly in the site configuration, open <span class="filename">nanoc.yaml</span> (or <span class="filename">config.yaml</span> on older Nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the `filesystem` data source there. In this section, add something similar to `encoding: utf-8` (replacing `utf-8` with whatever you really want). It could look like this:
 
-```yaml
-data_sources:
-  -
-    type: filesystem
-    encoding: utf-8
-```
+    #!yaml
+    data_sources:
+      -
+        type: filesystem
+        encoding: utf-8
 
 For bonus points, you can do all three. Setting up your content, environment and configuration as UTF-8 is the best way to avoid encoding issues now and in the future.
 
