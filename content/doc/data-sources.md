@@ -5,7 +5,7 @@ is_dynamic: true
 
 <span class="firstterm">Data sources</span> provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the [filesystem data source](#the-filesystem-data-source).
 
-The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the nanoc.ws web site:
+The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc web site:
 
     #!yaml
     data_sources:

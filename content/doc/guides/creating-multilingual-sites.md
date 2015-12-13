@@ -219,7 +219,7 @@ The PHP `redirect()` function still needs to be implemented. This function creat
       exit();
     }
 
-The global `$base_url` variable contains the base URL for the web site. For the Myst Online web site, this is “http://mystonline.com”. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
+The global `$base_url` variable contains the base URL for the web site. For the Myst Online web site, this is <span class="uri">http://mystonline.com</span>. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
 
     #!php
     $base_url = 'http://mystonline.com';
