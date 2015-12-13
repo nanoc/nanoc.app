@@ -44,7 +44,7 @@ GEM
     lumberjack (1.0.9)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
-    nanoc (4.1.0rc1)
+    nanoc (4.1.0rc2)
       cri (~> 2.3)
     nanoc-typohero (1.0.1)
       nanoc (>= 3.6.7, < 5.0.0)
