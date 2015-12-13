@@ -14,7 +14,7 @@ compilation rules
 layouting rules
 : These rules describe the filter that should be used for a given layout.
 
-For every item, Nanoc finds one compiation rule and one routing rule. Similarly, for every layout, Nanoc finds one layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
+For every item, Nanoc finds one compilation rule and one routing rule. Similarly, for every layout, Nanoc finds one layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
 
 ## Routing rules
 
@@ -96,7 +96,7 @@ The code block should execute the necessary actions for compiling the item. The 
 * **layout** items, placing their content inside a layout
 * **snapshot** items, remembering their content at that point in time for reuse
 
-The code block does not need to execute anything. An empy `#compile` block will not execute anything.
+The code block does not need to execute anything. An empty `#compile` block will not execute anything.
 
 **Example #1**: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
 

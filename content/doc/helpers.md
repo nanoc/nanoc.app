@@ -32,7 +32,7 @@ To use this helper, `include` it, for instance in <span class="filename">lib/hel
 	#!ruby
 	include RandomTextHelper
 
-The methods provided by this helper can now be used during filering. For example, the default layout, assuming it is filtered using ERB, can now generate random text like this:
+The methods provided by this helper can now be used during filtering. For example, the default layout, assuming it is filtered using ERB, can now generate random text like this:
 
 	#!erb
 	<p><%%= random_text %></p>

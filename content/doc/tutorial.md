@@ -273,7 +273,7 @@ NOTE: For more information on identifiers, see the [identifiers and patterns](/d
 
 The first rule matches items that have the <span class="filename">html</span> or <span class="filename">md</span> extension. For the `/index.html` item, it assigns the path <span class="filename">/index.html</span>. For the `/about.html` item, it assigns the path <span class="filename">/about/index.html</span>. This approach ensures that all items have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to <span class="uri">/about/</span> rather than <span class="uri">/about.html</span>.
 
-The seond rule matches all other items, and assigns a path that is identical to the identifier. For example, the `/stylesheet.css` item will have the path <span class="filename">/stylesheet.css</span>.
+The second rule matches all other items, and assigns a path that is identical to the identifier. For example, the `/stylesheet.css` item will have the path <span class="filename">/stylesheet.css</span>.
 
 NOTE: For more information on rules, see the [rules](/doc/rules/) page.
 
@@ -343,7 +343,7 @@ Nanoc is bundled with a handful of helpers, including [a tagging helper](/doc/re
 
 This will make all functions defined in the `Nanoc::Helpers::Tagging` module available for use.
 
-Modify the layout and replace the paragraph that dispays the tags with a call to `#tags_for`, which is defined in the tagging helper:
+Modify the layout and replace the paragraph that displays the tags with a call to `#tags_for`, which is defined in the tagging helper:
 
     #!html
     <p>Tags: <%= tags_for(@item) %></p>
