@@ -17,5 +17,5 @@ base_url: http://nanoc.ws
 deploy:
   default:
     kind: rsync
-    dst: "bhakti:/srv/http/nanoc.ws"
+    dst: "/Users/ddfreyne/Documents/Web/nanoc.ws"
     options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']
