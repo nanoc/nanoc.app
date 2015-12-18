@@ -14,6 +14,8 @@ GEM
     cri (2.7.0)
       colored (~> 1.2)
     ffi (1.9.10)
+    ffi-aspell (1.1.0)
+      ffi
     formatador (0.2.5)
     fssm (0.2.10)
     guard (2.13.0)
@@ -89,6 +91,7 @@ DEPENDENCIES
   builder
   coderay
   compass
+  ffi-aspell
   guard-nanoc
   haml
   html5small

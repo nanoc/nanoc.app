@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+eval File.read('spell.rb', encoding: 'UTF-8')
+
 check :no_unprocessed_erb do
   self.output_filenames.each do |fn|
     if fn =~ /html$/ && File.read(fn).match(/<%/)
@@ -27,8 +29,39 @@ check :no_smartness_in_kbd do
   end
 end
 
+check :spelling do
+  acceptable_words = Set.new(File.readlines('acceptable_words.txt').map(&:strip))
+
+  acceptable_files = [
+    # These are auto-generated from Nanoc’s API documentation. Fixing these is a task for later.
+    'output/doc/reference/commands/index.html',
+    'output/doc/reference/filters/index.html',
+    'output/doc/reference/helpers/index.html',
+    'output/doc/reference/config/index.html',
+
+    # The release notes contain lots of old, write-once, unmaintained content. Fixing these is a task for later.
+    'output/release-notes/index.html',
+
+    # The style guide uses nonsensical text.
+    'output/style-guide/index.html',
+  ]
+
+  checker = NanocSpellChecker.new(acceptable_words, Dir.glob('output/**/*.html') - acceptable_files)
+
+  misspelled_words = checker.run
+
+  misspelled_words.keys.sort.each do |key|
+    next if acceptable_files.include?(key)
+
+    misspelled_words[key].each do |value|
+      self.add_issue("misspelled word: #{value}", subject: key)
+    end
+  end
+end
+
 deploy_check :ilinks
 deploy_check :stale
 deploy_check :no_unprocessed_erb
 deploy_check :valid_sitemap
 deploy_check :no_smartness_in_kbd
+deploy_check :spelling
