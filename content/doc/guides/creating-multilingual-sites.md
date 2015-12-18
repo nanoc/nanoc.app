@@ -9,7 +9,7 @@ Creating a site in multiple languages can be tedious, but Nanoc can nonetheless 
 
 A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
-For the Myst Online site, I decided to organize the pages in different languages by creating a top-level directory containing the abbreviated language name (en for English, nl for Dutch, fr for French, etc). Inside the language-specific directory, each page has a path that is also translated (so no /nl/play, but rather /nl/speel). Here’s an example:
+For the Myst Online site, I decided to organize the pages in different languages by creating a top-level directory containing the abbreviated language name (`en` for English, `nl` for Dutch, `fr` for French, etc). Inside the language-specific directory, each page has a path that is also translated (so no <span class="uri">/nl/play</span>, but rather <span class="uri">/nl/speel</span>). Here’s an example:
 
     /en
       /about
@@ -45,7 +45,7 @@ One useful function that will be necessary later on is `#language_code_of`, whic
       (item.identifier.to_s.match(/^\/([a-z]{2})\//) || [])[1]
      end
 
-Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online web site, I chose the English identifier as the canonical identifier, but the choice you make here is fairly arbitrary. For example, the “/en/about” page has “/about” as its canonical identifier, and “/nl/speel” has “/play” as its canonical identifier. The canonical identifier is probably best stored in a `canonical_identifier` attribute.
+Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online web site, I chose the English identifier as the canonical identifier, but the choice you make here is fairly arbitrary. For example, the <span class="uri">/en/about</span> page has `/about` as its canonical identifier, and <span class="uri">/nl/speel</span> has `/play` as its canonical identifier. The canonical identifier is probably best stored in a `canonical_identifier` attribute.
 
 Now, it is possible to find all translations of a given item simply by finding all items with the same canonical identifier. This is fairly simple:
 
@@ -56,7 +56,7 @@ Now, it is possible to find all translations of a given item simply by finding a
       end
     end
 
-One more function is necessary: one that converts a language code into the language name (in the language itself, so it should not return “Dutch” for “nl” but it should return “Nederlands”). Here’s now this function works:
+One more function is necessary: one that converts a language code into the language name (in the language itself, so it should not return “Dutch” for `nl` but it should return “Nederlands”). Here’s now this function works:
 
     #!ruby
     LANGUAGE_CODE_TO_NAME_MAPPING = {
@@ -139,7 +139,7 @@ Redirects
 
 At this point, the site is already a lot friendlier for people from different languages. One thing is still missing , though: a landing page that redirects people to the language of their choice. This means that the landing page will require server-side scripting. For the Myst Online site, I used PHP as this is a widely available scripting language for creating web sites, but other languages such as Ruby would have worked as well. A good way of redirecting visitors is to check the contents of the `Accept-Language` HTTP header, find the preferred language, and then redirect them to the appropriate page.
 
-Here’s the PHP code for parsing the header and returning a list of language codes requested by the user agent, sorted by decreasing preference (“qval”):
+Here’s the PHP code for parsing the header and returning a list of language codes requested by the user agent, sorted by decreasing preference using `qval`:
 
     #!php
     // Parse the Accept-Language header
@@ -219,7 +219,7 @@ The PHP `redirect()` function still needs to be implemented. This function creat
       exit();
     }
 
-The global `$base_url` variable contains the base URL for the web site. For the Myst Online web site, this is “http://mystonline.com”. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
+The global `$base_url` variable contains the base URL for the web site. For the Myst Online web site, this is <span class="uri">http://mystonline.com</span>. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
 
     #!php
     $base_url = 'http://mystonline.com';

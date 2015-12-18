@@ -42,7 +42,7 @@ CAUTION: This will remove all files and directories that do not correspond to Na
 With GitHub Pages or Bitbucket
 ------------------------------
 
-[GitHub](https://github.com/) and [Bitbucket](https://bitbucket.org/) are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with nanoc.
+[GitHub](https://github.com/) and [Bitbucket](https://bitbucket.org/) are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
 ### GitHub Pages setup
 
@@ -67,9 +67,9 @@ Add the <span class="filename">output/</span> directory to your <span class="fil
 
 The publishing of a website based on a Git repository to Bitbucket is [described in Bitbucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
 
-Bitbucket supports publishing a website at <var>username</var>.bitbucket.org, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <var>username</var>.bitbucket.org.
+Bitbucket supports publishing a website at <span class="uri"><var>username</var>.bitbucket.org</span>, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <span class="uri"><var>username</var>.bitbucket.org</span>.
 
-First of all, create the Bitbucket repository <var>username</var>.bitbucket.org. For example, _ddfreyne.bitbucket.org_.
+First of all, create the Bitbucket repository <span class="uri"><var>username</var>.bitbucket.org</span>.. For example, <span class="uri">ddfreyne.bitbucket.org</span>.
 
 Create a new Git repository inside the <span class="filename">output/</span> directory, replacing <var>repo-url</var> with the URL to the repository (e.g. `git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git`):
 
@@ -94,7 +94,7 @@ Enter the <span class="filename">output/</span> directory, add and commit everyt
 
 After a few seconds, the updated site will appear at <span class="uri">http://<var>username</var>.github.io/<var>repo-name</var></span> for GitHub, or <span class="uri">http://<var>username</var>.bitbucket.org</span> for Bitbucket.
 
-For GitHub, we recommend removing the _gh-pages_ branch from the base repository, since it is quite likely to be out of sync with the _gh-pages_ branch in the repository in the <span class="filename">output/</span> directory.
+For GitHub, we recommend removing the `gh-pages` branch from the base repository, since it is quite likely to be out of sync with the `gh-pages` branch in the repository in the <span class="filename">output/</span> directory.
 
 With fog
 --------

@@ -5,7 +5,7 @@ is_dynamic: true
 
 <span class="firstterm">Data sources</span> provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the [filesystem data source](#the-filesystem-data-source).
 
-The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the nanoc.ws web site:
+The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc web site:
 
     #!yaml
     data_sources:
@@ -69,7 +69,7 @@ images
 ├── dataflow.png
 └── dataflow.yaml</pre>
 
-The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the <span class="filename">/Users/denis/stoneship/content/about.md</span> file will have the identifier _/about.md_.
+The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the <span class="filename">/Users/denis/stoneship/content/about.md</span> file will have the identifier <span class="filename">/about.md</span>.
 
 ### Configuration
 

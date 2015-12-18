@@ -19,3 +19,7 @@ deploy:
     kind: rsync
     dst: "/Users/ddfreyne/Documents/Web/nanoc.ws"
     options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']
+  next:
+    kind: rsync
+    dst: "/Users/ddfreyne/Documents/Web/next.nanoc.ws"
+    options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']

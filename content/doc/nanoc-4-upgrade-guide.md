@@ -394,7 +394,7 @@ A final improvement would be to move the contents of the <span class="filename">
 
 ## Removed features
 
-The `watch` and `autocompile` commands have been removed. Both were deprecated in Nanoc 3.6. Use [guard-nanoc](https://github.com/guard/guard-nanoc) instead.
+The `watch` and `autocompile` commands have been removed. Both were deprecated in Nanoc 3.6. Use [<span class="productname">guard-nanoc</span>](https://github.com/guard/guard-nanoc) instead.
 
 Because Nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
 

@@ -10,7 +10,7 @@ Nanoc has a [discussion group](http://groups.google.com/group/nanoc) hosted at G
 IRC channel
 ----------
 
-There is a [Nanoc IRC channel](irc://chat.freenode.net/#nanoc) named #nanoc at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the [Nanoc discussion group](http://groups.google.com/group/nanoc) instead (see above).
+There is a [Nanoc IRC channel](irc://chat.freenode.net/#nanoc) named <span class="uri">#nanoc</span> at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the [Nanoc discussion group](http://groups.google.com/group/nanoc) instead (see above).
 
 GitHub
 ------

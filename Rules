@@ -53,6 +53,9 @@ end
 
 compile '/**/*' do
   filter :erb if item[:is_dynamic]
+  if item.identifier.to_s == '/release-notes'
+    filter :fix_contributor_brackets
+  end
   if 'md' == item[:extension]
     filter :kramdown, :auto_ids => false
   end
