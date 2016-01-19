@@ -1,0 +1,13 @@
+{
+    "name": "Nanoc",
+    "package": "nanoc.ws",
+    "index": "output/index.html",
+    "selectors": {
+        "title": "Guide"
+    },
+    "ignore": [
+    ],
+    "icon32x32": "content/assets/images/logo-nav-active.png",
+    "allowJS": false,
+    "ExternalURL": ""
+}
