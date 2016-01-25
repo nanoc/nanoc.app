@@ -1,0 +1,46 @@
+---
+title:      "Documentation"
+is_dynamic: true
+toc:
+  - title: 'Getting started'
+    children:
+      - '/doc/installation.*'
+      - '/doc/tutorial.*'
+  - title: 'Topics'
+    children:
+      - '/doc/sites.*'
+      - '/doc/items-and-layouts.*'
+      - '/doc/cli.*'
+      - '/doc/identifiers-and-patterns.*'
+      - '/doc/rules.*'
+      - '/doc/filters.*'
+      - '/doc/helpers.*'
+      - '/doc/deploying.*'
+      - '/doc/testing.*'
+      - '/doc/data-sources.*'
+      - '/doc/troubleshooting.*'
+      - '/doc/glossary.*'
+      - '/doc/nanoc-4-upgrade-guide.*'
+  - title: 'Tips and tricks'
+    children:
+      - '/doc/guides/using-binary-items-effectively.*'
+      - '/doc/guides/creating-multilingual-sites.*'
+      - '/doc/guides/using-external-sources.*'
+  - title: 'References'
+    compact: true
+    children:
+      - '/doc/reference/filters.*'
+      - '/doc/reference/helpers.*'
+      - '/doc/reference/commands.*'
+      - '/doc/reference/config.*'
+      - '/doc/reference/variables.*'
+---
+
+<% item[:toc].each do |part| %>
+\part{<%= part[:title] %>}
+
+<% part[:children].each do |child_glob| %>
+<%= @items[child_glob].compiled_content(rep: :latex, snapshot: :last) %>
+<% end %>
+
+<% end %>

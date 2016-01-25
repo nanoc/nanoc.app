@@ -51,6 +51,22 @@ compile '/404.*' do
   write '/404.html'
 end
 
+compile '/doc/**/*', rep: :latex do
+  filter :erb if item[:is_dynamic]
+  filter :admonition
+  filter :remove_pre_code_language
+  filter :kramdown_latex
+  layout '/latex-chapter.erb'
+end
+
+compile '/book.*' do
+  filter :erb
+  layout '/latex-book.erb'
+  snapshot :latex, path: item.identifier.without_ext + '.tex'
+  filter :latex2pdf
+  write item.identifier.without_ext + '.pdf'
+end
+
 compile '/**/*' do
   filter :erb if item[:is_dynamic]
   if item.identifier.to_s == '/release-notes'

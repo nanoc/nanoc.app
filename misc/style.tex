@@ -1,0 +1,153 @@
+\setromanfont[Mapping=tex-text]{GentiumPlus}
+\setsansfont{Source Sans Pro}
+\setmonofont[Scale=0.8]{Input Mono Condensed}
+
+%%%%%%%%%%
+
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+
+%%%%%%%%%%
+
+\setlength{\heavyrulewidth}{0.15em}
+
+\setlist[description]{leftmargin=8em,style=nextline}
+
+%%%%%%%%%%
+
+\newtcolorbox{tip}{colback=white, colframe=green!50!black, title=Tip!}
+\newtcolorbox{note}{colback=white, colframe=blue, title=Note}
+\newtcolorbox{caution}{colback=white, colframe=black!50!red, title=Caution!}
+
+\makeatletter
+\lst@InputCatcodes
+\def\lst@DefEC{%
+ \lst@CCECUse \lst@ProcessLetter
+  ^^80^^81^^82^^83^^84^^85^^86^^87^^88^^89^^8a^^8b^^8c^^8d^^8e^^8f%
+  ^^90^^91^^92^^93^^94^^95^^96^^97^^98^^99^^9a^^9b^^9c^^9d^^9e^^9f%
+  ^^a0^^a1^^a2^^a3^^a4^^a5^^a6^^a7^^a8^^a9^^aa^^ab^^ac^^ad^^ae^^af%
+  ^^b0^^b1^^b2^^b3^^b4^^b5^^b6^^b7^^b8^^b9^^ba^^bb^^bc^^bd^^be^^bf%
+  ^^c0^^c1^^c2^^c3^^c4^^c5^^c6^^c7^^c8^^c9^^ca^^cb^^cc^^cd^^ce^^cf%
+  ^^d0^^d1^^d2^^d3^^d4^^d5^^d6^^d7^^d8^^d9^^da^^db^^dc^^dd^^de^^df%
+  ^^e0^^e1^^e2^^e3^^e4^^e5^^e6^^e7^^e8^^e9^^ea^^eb^^ec^^ed^^ee^^ef%
+  ^^f0^^f1^^f2^^f3^^f4^^f5^^f6^^f7^^f8^^f9^^fa^^fb^^fc^^fd^^fe^^ff%
+  ^^^^2018^^^^2019^^^^201c^^^^201d^^^^2026% quotes
+  ^^^^251c^^^^2502^^^^2514^^^^2500% box drawing
+  ^^00}
+\lst@RestoreCatcodes
+\makeatother
+
+%%%%%%%%%%
+
+% Create
+\makeatletter
+\makechapterstyle{thesis}{%
+	\renewcommand{\chapnamefont}{\fontspec{Source Sans Pro} \LARGE}
+	\renewcommand{\chapnumfont}{\fontspec{Source Sans Pro} \LARGE}
+	\renewcommand{\chaptitlefont}{\fontspec{Source Sans Pro} \LARGE}
+
+	\renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
+	\renewcommand{\printchaptername}{}
+	\renewcommand{\chapternamenum}{}
+	\renewcommand{\printchapternum}{\chapnumfont \thechapter}
+	\renewcommand{\printchaptertitle}[1]{%
+		\chaptitlefont \MakeUppercase{##1}%
+	}
+	\renewcommand{\afterchapternum}{. \space}
+	\renewcommand{\afterchaptertitle}{\par \nobreak \vskip \afterchapskip}
+}
+\makeatother
+
+% Use
+\chapterstyle{thesis}
+
+%%%%%%%%%%
+
+\renewcommand*{\cftchapterfont}{\fontspec{Source Sans Pro}}
+\renewcommand*{\cftchapterpagefont}{\fontspec{Source Sans Pro}}
+
+\renewcommand*{\cftchapteraftersnum}{.}
+\renewcommand*{\cftsectionaftersnum}{.}
+
+%%%%%%%%%%
+
+\captionnamefont{\fontspec{Source Sans Pro} \normalsize}
+\captiontitlefont{\itshape}
+
+\changecaptionwidth
+\captionwidth{13cm}
+
+%%%%%%%%%%
+
+\setsecnumdepth{chapter}
+
+\setsecnumformat{}
+\def\sectionmark#1{\markboth{#1}{#1}}
+
+\setsecheadstyle{\raggedright \fontspec{Source Sans Pro} \Large}
+
+\setsubsecheadstyle{\raggedright \fontspec{Source Sans Pro} \large}
+
+\setparaheadstyle{\fontspec{Source Sans Pro} \normalsize}
+
+%%%%%%%%%%
+
+\definecolor{background-color}{gray}{0.95}
+\definecolor{border-color}{gray}{0.70}
+
+\lstset{%
+	basicstyle=\fontspec{Input Mono Condensed} \small,
+	columns=fullflexible,
+	breaklines=true,
+	breakautoindent=false,
+	breakatwhitespace=true,
+	escapeinside={(*@}{@*)},
+	extendedchars=true,
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+
+\tcolorboxenvironment{lstlisting}{colback=black!10, left=6pt, right=6pt, top=6pt, bottom=6pt, boxrule=0pt, boxsep=0pt, sharp corners}
+
+%%%%%%%%%%
+
+\makepagestyle{thesis}
+
+\makeoddhead{thesis}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\rightmark}
+\makeoddfoot{thesis}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}
+\makeevenhead{thesis}{\fontspec{Source Sans Pro}\fontsize{9}{9}\leftmark}{}{}
+\makeevenfoot{thesis}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}{}{}
+
+\makeoddhead{plain}{}{}{}
+\makeoddfoot{plain}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}
+\makeevenhead{plain}{}{}{}
+\makeevenfoot{plain}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}{}{}
+
+\makepsmarks{thesis}{%
+	\nouppercaseheads
+	\createmark{chapter}{both}{nonumber}{}{}
+	\createmark{section}{right}{nonumber}{}{}
+	\createplainmark{toc}{both}{\contentsname}
+	\createplainmark{lof}{both}{\listfigurename}
+	\createplainmark{lot}{both}{\listtablename}
+	\createplainmark{bib}{both}{\bibname}
+	\createplainmark{index}{both}{\indexname}
+	\createplainmark{glossary}{both}{\glossaryname}
+}
+
+\pagestyle{thesis}
+
+%%%%%%%%%%
+
+\setlength{\parskip}{3ex}
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+\linespread{1.07}
+
+\titlespacing{\section}      {0pt}{3ex}{0pt}
+\titlespacing{\subsection}   {0pt}{3ex}{0pt}
+\titlespacing{\subsubsection}{0pt}{3ex}{0pt}
+\titlespacing{\paragraph}    {0pt}{0pt}{1em}
