@@ -56,10 +56,10 @@ compile '/**/*' do
   if item.identifier.to_s == '/release-notes'
     filter :fix_contributor_brackets
   end
+  filter :admonition
   if 'md' == item[:extension]
     filter :kramdown, :auto_ids => false
   end
-  filter :admonition
   filter :remove_spacing_around_pre
   filter :add_ids_to_headers
   if item.identifier.to_s == '/release-notes'
