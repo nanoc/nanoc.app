@@ -44,10 +44,9 @@ A file named <span class="filename">Checks</span> at the root of a Nanoc site de
 
 Here is an example <span class="filename">Checks</span> file that ensures that a Nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
 
-<pre><code class="language-ruby">
-deploy_check :internal_links
-deploy_check :stale
-</code></pre>
+    #!ruby
+    deploy_check :internal_links
+    deploy_check :stale
 
 Here’s what a <kbd>nanoc deploy</kbd> looks like when all checks pass:
 

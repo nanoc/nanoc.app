@@ -98,21 +98,20 @@ Edit the home page
 
 Pages and assets, commonly referred to as <span class="firstterm">items</span>, are stored in the <span class="filename">content/</span> directory. Open the <span class="filename">content/index.html</span> file:
 
-<pre><code>---
-title: Home
----
+    ---
+    title: Home
+    ---
 
-&lt;h1>A Brand New Nanoc Site&lt;/h1>
+    <h1>A Brand New Nanoc Site</h1>
 
-&lt;p>You’ve just created a new Nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:&lt;/p>
+    <p>You’ve just created a new Nanoc site. The page you are looking at right now is the home page for your site. To get started, consider replacing this default homepage with your own customized homepage. Some pointers on how to do so:</p>
 
-…</code></pre>
+    …
 
 Add a paragraph somewhere in the file. I recommend adding the following:
 
-<pre><code class="language-html">
-&lt;p>Another Nanoc convert! Master will be pleased.&lt;/p>
-</code></pre>
+    #!html
+    <p>Another Nanoc convert! Master will be pleased.</p>
 
 Recompile the site by running <kbd>nanoc</kbd>:
 
@@ -128,9 +127,10 @@ Make sure that the preview server (<kbd>nanoc view</kbd>) is still running, and 
 
 Items, such as this home page, can contain metadata. This metadata is defined in the <span class="firstterm">frontmatter</span> of a file. The home page’s frontmatter is quite simple:
 
-<pre><code class="language-yaml">---
-title: Home
----</code></pre>
+    #!yaml
+    ---
+    title: Home
+    ---
 
 NOTE: The term <span class="firstterm">metadata section</span> is often used instead of frontmatter in the context of Nanoc. Other static-site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
@@ -138,9 +138,10 @@ The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out
 
 Change the value of the <span class="attribute">title</span> attribute to something else:
 
-<pre><code class="language-yaml">---
-title: "Denis’ Guide to Awesomeness"
----</code></pre>
+    #!yaml
+    ---
+    title: "Denis’ Guide to Awesomeness"
+    ---
 
 Recompile the site and reload <span class="uri">http://localhost:3000/</span> in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the [Customize the layout](#customize-the-layout) section below.)
 

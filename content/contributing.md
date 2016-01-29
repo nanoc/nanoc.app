@@ -67,7 +67,8 @@ Now you can make modifications to the source code. You can find the source code 
 
 To test your locally modified version of Nanoc on a local Nanoc site, edit your site’s <span class="filename">Gemfile</span> and let the `nanoc` gem point to the locally modified version:
 
-<pre><code class="language-ruby">gem 'nanoc', :path => '/home/denis/projects/nanoc'</code></pre>
+    #!ruby
+    gem 'nanoc', path: '/home/denis/projects/nanoc'
 
 NOTE: You can also invoke Nanoc by calling <span class="command">nanoc</span> using the full path to the <span class="filename">bin/nanoc</span> in your cloned repository. However, we recommend using [Bundler](http://bundler.io/) instead.
 
