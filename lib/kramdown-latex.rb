@@ -100,6 +100,10 @@ module Kramdown
               "\\emph{#{inner(el, opts)}}"
             elsif classes.include?('filename')
               "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
+            elsif classes.include?('glob')
+              "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
+            elsif classes.include?('identifier')
+              "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
             elsif classes.include?('uri')
               "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
             elsif classes.include?('productname')
