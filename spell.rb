@@ -22,7 +22,7 @@ class NanocSpellChecker
       end
 
       if node.name == 'span'
-        if %w( filename uri command prompt productname ).include?(node['class'])
+        if %w( filename identifier glob uri command prompt productname ).include?(node['class'])
           return
         end
       end

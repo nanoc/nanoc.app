@@ -240,6 +240,7 @@ Whitt
 wiki
 Wiki
 Wikipedia
+Wildcard
 wildcard
 wildcards
 Willems

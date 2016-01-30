@@ -73,28 +73,30 @@ Patterns are used to find items and layouts based on their identifier. They come
 
 ### Glob patterns
 
-Glob patterns are strings that contain wildcard characters. An example of a glob pattern is `/projects/*.md`. Globs are commonplace in Unix-like environments.
+Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in a identifier. An example of a glob pattern is <span class="glob">/projects/*.md</span>, which matches all files with a <span class="filename">md</span> extension in the <span class="filename">/projects</span> directory.
 
-Glob patterns are the default in Nanoc 4.
+Globs are commonplace in Unix-like environments. For example, the Unix command for listing all files with the <span class="filename">md</span> extension in the current directory is <span class="command">ls *.md</span>. In this example, the argument to the <span class="command">ls</span> command is a wildcard.
 
-For glob patterns, Nanoc supports the following wildcards:
+Nanoc supports the following wildcards in glob patterns:
 
-`*`
-: Matches any file or directory name. Does not cross directory boundaries. For example, `/projects/*.md` matches `/projects/nanoc.md`, but not `/projects/cri.adoc` nor `/projects/nanoc/about.md`.
+<dl>
+  <dt><code>*</code></dt>
+  <dd>Matches any file or directory name. Does not cross directory boundaries. For example, <span class="glob">/projects/*.md</span> matches <span class="identifier">/projects/nanoc.md</span>, but not <span class="identifier">/projects/cri.adoc</span> nor <span class="identifier">/projects/nanoc/about.md</span>.</dd>
 
-`**/`
-: Matches zero or more levels of nested directories. For example, `/projects/**/*.md` matches both `/projects/nanoc.md` and `/projects/nanoc/history.md`.
+  <dt><code>**/</code></dt>
+  <dd>Matches zero or more levels of nested directories. For example, <span class="glob">/projects/**/*.md</span> matches both <span class="identifier">/projects/nanoc.md</span> and <span class="identifier">/projects/nanoc/history.md</span>.</dd>
 
-`?`
-: Matches a single character.
+  <dt><code>?</code></dt>
+  <dd>Matches a single character.</dd>
 
-`[abc]`
-: Matches any single character in the set. For example, `/people/[kt]im.md` matches only `/people/kim.md` and `/people/tim.md`.
+  <dt><code>[abc]</code></dt>
+  <dd>Matches any single character in the set. For example, <span class="glob">/people/[kt]im.md</span> matches only <span class="identifier">/people/kim.md</span> and <span class="identifier">/people/tim.md</span>.</dd>
 
-`{foo,bar}`
-: Matches either string in the comma-separated list. More than two strings are possible. For example, `/c{at,ub,ount}s.txt` matches `/cats.txt`, `/cubs.txt` and `/counts.txt`.
+  <dt><code>{foo,bar}</code></dt>
+  <dd>Matches either string in the comma-separated list. More than two strings are possible. For example, <span class="glob">/c{at,ub,ount}s.txt</span> matches <span class="identifier">/cats.txt</span>, <span class="identifier">/cubs.txt</span> and <span class="identifier">/counts.txt</span>, but not <span class="identifier">/cabs.txt</span>.</dd>
+</dl>
 
-A glob pattern that matches every item is `/**/*`. A glob pattern that matches every item/layout with the extension `md` is `/**/*.md`.
+<p>A glob pattern that matches every item is <span class="glob">/**/*</span>. A glob pattern that matches every item/layout with the extension <span class="filename">md</span> is <span class="glob">/**/*.md</span>.</p>
 
 ### Regular expression patterns
 
