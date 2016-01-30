@@ -52,12 +52,14 @@ compile '/404.*' do
   write '/404.html'
 end
 
-compile '/doc/**/*', rep: :latex do
-  filter :erb if item[:is_dynamic]
-  filter :admonition
-  filter :remove_lang_from_pre
-  filter :kramdown2latex
-  layout '/latex-chapter.erb'
+compile '/**/*', rep: :latex do
+  if item.identifier =~ '/doc/**/*' || item.identifier =~ '/about.*'
+    filter :erb if item[:is_dynamic]
+    filter :admonition
+    filter :remove_lang_from_pre
+    filter :kramdown2latex
+    layout '/latex-chapter.erb'
+  end
 end
 
 compile '/book.*' do
