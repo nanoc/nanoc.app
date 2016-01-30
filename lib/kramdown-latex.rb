@@ -33,7 +33,11 @@ module Kramdown
       end
 
       def convert_text(el, opts)
-        escape(el.value, opts)
+        if opts[:nanocws_no_escape]
+          el.value
+        else
+          escape(el.value, opts)
+        end
       end
 
       def convert_html_element(el, opts)
@@ -95,9 +99,9 @@ module Kramdown
             if classes.include?('firstterm')
               "\\emph{#{inner(el, opts)}}"
             elsif classes.include?('filename')
-              "\\emph{#{inner(el, opts)}}"
+              "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
             elsif classes.include?('uri')
-              "\\emph{#{inner(el, opts)}}"
+              "\\emph{\\url{#{inner(el, opts.merge(nanocws_no_escape: true))}}}"
             elsif classes.include?('productname')
               "\\emph{#{inner(el, opts)}}"
             elsif classes.include?('see')
