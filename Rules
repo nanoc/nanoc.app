@@ -18,6 +18,7 @@ ignore '/**/_*'
 passthrough '/favicon.ico'
 passthrough '/assets/fonts/**/*'
 passthrough '/assets/images/**/*'
+ignore '/assets/style/*.tex'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options

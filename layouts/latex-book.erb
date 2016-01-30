@@ -26,7 +26,7 @@
 \setulmarginsandblock{0.8in}{0.8in}{*} % Upper and lower margin
 \checkandfixthelayout
 
-\input{<%= File.dirname(@item[:filename]) + '/../misc/style.tex' %>}
+\input{<%= @items['/assets/style/book.tex'][:content_filename] %>}
 
 \setcounter{tocdepth}{2}
 
