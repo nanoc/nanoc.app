@@ -40,26 +40,14 @@
 
 %%%%%%%%%%
 
-% Create
 \makeatletter
 \makechapterstyle{thesis}{%
-	\renewcommand{\chapnamefont}{\fontspec{Source Sans Pro} \LARGE}
-	\renewcommand{\chapnumfont}{\fontspec{Source Sans Pro} \LARGE}
-	\renewcommand{\chaptitlefont}{\fontspec{Source Sans Pro} \LARGE}
-
-	\renewcommand{\chapterheadstart}{\vspace*{\beforechapskip}}
-	\renewcommand{\printchaptername}{}
-	\renewcommand{\chapternamenum}{}
-	\renewcommand{\printchapternum}{\chapnumfont \thechapter}
-	\renewcommand{\printchaptertitle}[1]{%
-		\chaptitlefont \MakeUppercase{##1}%
-	}
-	\renewcommand{\afterchapternum}{. \space}
-	\renewcommand{\afterchaptertitle}{\par \nobreak \vskip \afterchapskip}
+	\renewcommand{\chapnamefont}{\fontspec{Source Sans Pro Light} \large}
+	\renewcommand{\chapnumfont}{\fontspec{Source Sans Pro Light} \large}
+	\renewcommand{\chaptitlefont}{\fontspec{Source Sans Pro Light} \HUGE}
 }
 \makeatother
 
-% Use
 \chapterstyle{thesis}
 
 %%%%%%%%%%
@@ -93,10 +81,8 @@
 \setsecnumformat{}
 \def\sectionmark#1{\markboth{#1}{#1}}
 
-\setsecheadstyle{\raggedright \fontspec{Source Sans Pro} \Large}
-
-\setsubsecheadstyle{\raggedright \fontspec{Source Sans Pro} \large}
-
+\setsecheadstyle{\raggedright \fontspec{Source Sans Pro} \bfseries \Large}
+\setsubsecheadstyle{\raggedright \fontspec{Source Sans Pro} \bfseries \large}
 \setparaheadstyle{\fontspec{Source Sans Pro} \normalsize}
 
 %%%%%%%%%%
