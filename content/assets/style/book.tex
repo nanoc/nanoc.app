@@ -111,15 +111,15 @@
 
 \makepagestyle{thesis}
 
-\makeoddhead{thesis}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\rightmark}
-\makeoddfoot{thesis}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}
-\makeevenhead{thesis}{\fontspec{Source Sans Pro}\fontsize{9}{9}\leftmark}{}{}
-\makeevenfoot{thesis}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}{}{}
+\makeoddhead{thesis}{}{}{}
+\makeoddfoot{thesis}{}{}{\fontspec{Source Sans Pro}{\fontsize{9}{9}\rightmark} — {\fontsize{9}{9}\bfseries\thepage}}
+\makeevenhead{thesis}{}{}{}
+\makeevenfoot{thesis}{\fontspec{Source Sans Pro}{\fontsize{9}{9}\bfseries\thepage} — {\fontsize{9}{9}\leftmark}}{}{}
 
 \makeoddhead{plain}{}{}{}
-\makeoddfoot{plain}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}
+\makeoddfoot{plain}{}{}{\fontspec{Source Sans Pro}\fontsize{9}{9}\bfseries\thepage}
 \makeevenhead{plain}{}{}{}
-\makeevenfoot{plain}{\fontspec{Source Sans Pro}\fontsize{9}{9}\thepage}{}{}
+\makeevenfoot{plain}{\fontspec{Source Sans Pro}\fontsize{9}{9}\bfseries\thepage}{}{}
 
 \makepsmarks{thesis}{%
 	\nouppercaseheads
