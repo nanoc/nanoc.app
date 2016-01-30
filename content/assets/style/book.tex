@@ -16,9 +16,9 @@
 
 %%%%%%%%%%
 
-\newtcolorbox{tip}{colback=white, colframe=green!50!black, title=Tip!}
-\newtcolorbox{note}{colback=white, colframe=blue, title=Note}
-\newtcolorbox{caution}{colback=white, colframe=black!50!red, title=Caution!}
+\newtcolorbox{tip}{enhanced, arc=0mm, outer arc=0mm, colback=white, colframe=black, boxrule=0.5pt, before upper={\textbf{\fontspec{Source Sans Pro} Tip!} \space}}
+\newtcolorbox{note}{enhanced, arc=0mm, outer arc=0mm, colback=white, colframe=black, boxrule=0.5pt, before upper={\textbf{\fontspec{Source Sans Pro} Note:} \space}}
+\newtcolorbox{caution}{enhanced, arc=0mm, outer arc=0mm, colback=white, colframe=black, boxrule=0.5pt, before upper={\textbf{\fontspec{Source Sans Pro} Caution!} \space}}
 
 \makeatletter
 \lst@InputCatcodes
