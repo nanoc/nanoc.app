@@ -49,7 +49,7 @@ Nanoc is suitable for a wide variety of sites, including personal blogs, portfol
 * integration with various deployment mechanisms
 * ability to run pre-deployment checks
 
-Some of the sites built with Nanoc include the <a href="https://developer.github.com/">GitHub Developer site</a>, the <a href="http://www.dadt.com/uglybetty/">Ugly Betty site</a> and the <a href="http://guides.spreecommerce.com/api/">Spree Commerce API site</a>.
+Some of the sites built with Nanoc include the [GitHub Developer site](https://developer.github.com/), the [Ugly Betty site](http://www.dadt.com/uglybetty/) and the [Spree Commerce API site](http://guides.spreecommerce.com/api/).
 
 Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 

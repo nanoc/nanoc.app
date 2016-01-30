@@ -78,15 +78,14 @@ Custom checks
 
 The `Checks` file is also used to define custom checks. Here is an example check that verifies that no compiled files contain <code>&lt;%</code> and therefore likely include unprocessed ERB instructions:
 
-<pre title="Defining a custom check"><code class="language-ruby">
-check :no_unprocessed_erb do
-  @output_filenames.each do |fn|
-    if fn =~ /html$/ &amp;&amp; File.read(fn).match(/&lt;%/)
-      add_issue("erb detected", :subject => fn)
+    #!ruby
+    check :no_unprocessed_erb do
+      @output_filenames.each do |fn|
+        if fn =~ /html$/ && File.read(fn).match(/<%/)
+          add_issue("erb detected", :subject => fn)
+        end
+      end
     end
-  end
-end
-</code></pre>
 
 In a custom check, you can use `#add_issue`. The first argument is the description of the problem, and the `:subject` option defines the location of the problem (usually a filename).
 
