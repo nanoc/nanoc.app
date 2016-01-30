@@ -54,8 +54,8 @@ end
 compile '/doc/**/*', rep: :latex do
   filter :erb if item[:is_dynamic]
   filter :admonition
-  filter :remove_pre_code_language
-  filter :kramdown_latex
+  filter :remove_lang_from_pre
+  filter :kramdown2latex
   layout '/latex-chapter.erb'
 end
 
