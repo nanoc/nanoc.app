@@ -64,11 +64,19 @@
 
 %%%%%%%%%%
 
-\renewcommand*{\cftchapterfont}{\fontspec{Source Sans Pro}}
-\renewcommand*{\cftchapterpagefont}{\fontspec{Source Sans Pro}}
+\renewcommand*{\cftpartfont}{\fontspec{Source Sans Pro} \bfseries \itshape}
+\renewcommand*{\cftchapterfont}{\fontspec{Source Sans Pro} \bfseries}
 
-\renewcommand*{\cftchapteraftersnum}{.}
-\renewcommand*{\cftsectionaftersnum}{.}
+\renewcommand*{\cftpartpagefont}{\fontspec{Source Sans Pro} \bfseries \itshape}
+\renewcommand*{\cftchapterpagefont}{\fontspec{Source Sans Pro} \bfseries}
+
+\renewcommand*{\cftpartaftersnum}{}
+\renewcommand*{\cftchapteraftersnum}{}
+\renewcommand*{\cftsectionaftersnum}{}
+
+\setlength{\cftbeforepartskip}{5ex}
+
+\settocdepth{section}
 
 %%%%%%%%%%
 
