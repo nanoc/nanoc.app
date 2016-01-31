@@ -64,7 +64,9 @@ Class.new(Nanoc::Filter) do
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname'
         [{ name: 'span', attributes: { class: node.name } }]
       when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
-        [{ name: node.name, attributes: {} }]
+        attributes = node.attributes.split(',').map { |piece| piece.split('=') }
+        is_legacy = attributes.any? { |a| a[0] == 'legacy' }
+        [{ name: node.name, attributes: is_legacy ? { class: 'legacy' } : {} }]
       when 'note', 'tip', 'caution'
         [
           { name: 'div', attributes: { class: "admonition-wrapper #{node.name}" } },
