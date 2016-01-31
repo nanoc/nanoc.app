@@ -30,7 +30,8 @@ Class.new(Nanoc::Filter) do
       when 'code', 'attribute'
         wrap_inline('texttt', node, options)
       when 'command', 'kbd'
-        wrap_inline(%w( texttt textbf ), node, options)
+        names = options[:directly_in_lstlisting] ? %w( textbf ) : %w( texttt textbf )
+        wrap_inline(names, node, options)
       when 'identifier', 'glob', 'filename', 'uri'
         wrap_inline(%w( emph url ), node, options)
       when 'h2'
