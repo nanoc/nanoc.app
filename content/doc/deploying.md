@@ -67,9 +67,9 @@ Add the <span class="filename">output/</span> directory to your <span class="fil
 
 The publishing of a website based on a Git repository to Bitbucket is [described in Bitbucket's help pages](https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket).
 
-Bitbucket supports publishing a website at <span class="uri"><var>username</var>.bitbucket.org</span>, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <span class="uri"><var>username</var>.bitbucket.org</span>.
+Bitbucket supports publishing a website at <span class="uri">username.bitbucket.org</span>, where <var>username</var> is your Bitbucket account name. The contents of the web site will be read from a repository named <span class="uri">username.bitbucket.org</span>.
 
-First of all, create the Bitbucket repository <span class="uri"><var>username</var>.bitbucket.org</span>.. For example, <span class="uri">ddfreyne.bitbucket.org</span>.
+First of all, create a Bitbucket repository corresponding to your Bitbucket web site address, e.g. <span class="uri">ddfreyne.bitbucket.org</span>.
 
 Create a new Git repository inside the <span class="filename">output/</span> directory, replacing <var>repo-url</var> with the URL to the repository (e.g. `git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git`):
 
@@ -92,7 +92,7 @@ Enter the <span class="filename">output/</span> directory, add and commit everyt
 <span class="prompt">output%</span> <kbd>git commit -m 'Update compiled output'</kbd>
 <span class="prompt">output%</span> <kbd>git push</kbd></pre>
 
-After a few seconds, the updated site will appear at <span class="uri">http://<var>username</var>.github.io/<var>repo-name</var></span> for GitHub, or <span class="uri">http://<var>username</var>.bitbucket.org</span> for Bitbucket.
+After a few seconds, the updated site will appear at <span class="uri">http://username.github.io/repo-name</span> for GitHub, or <span class="uri">http://username.bitbucket.org</span> for Bitbucket.
 
 For GitHub, we recommend removing the `gh-pages` branch from the base repository, since it is quite likely to be out of sync with the `gh-pages` branch in the repository in the <span class="filename">output/</span> directory.
 

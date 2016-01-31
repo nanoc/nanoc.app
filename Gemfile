@@ -19,3 +19,4 @@ gem 'yard'        # for loading filter and helper docs
 gem 'htmlcompressor'
 gem 'w3c_validators'
 gem 'ffi-aspell'
+gem 'd-mark', github: 'ddfreyne/d-mark'
