@@ -57,7 +57,7 @@ compile '/**/*' do
     filter :fix_contributor_brackets
   end
   if 'dmark' == item.identifier.ext
-    filter :admonition, dmark: true
+    filter :dmark_subst
     filter :dmark2html
   else
     filter :admonition
