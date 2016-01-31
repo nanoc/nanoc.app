@@ -1,0 +1,366 @@
+---
+title: "Nanoc 4 upgrade guide"
+---
+
+p. Nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
+
+p. The good news is that Nanoc 4.0 is quite similar to 3.8. Upgrading a Nanoc 3.x site to Nanoc 4.0 only takes minutes.
+
+h2. Why upgrade?
+
+ul[spacious].
+  li. Nanoc 4 brings identifiers with extensions, and thereby solves a long-standing usability issue. It also introduces glob patterns, which makes rules easier to write.
+
+  li. Nanoc 4 paves the way for new features and performance improvements. Nanoc 3 exposed its internals in a public API, making it hard to make significant changes.
+
+  li. Nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
+
+h2. Installing Nanoc 4
+
+p. Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.2 and up, and JRuby 9000 and up:
+
+listing.
+  %prompt{%%} %kbd{ruby --version}
+  %erb{config[:ruby_version_info]}
+  %prompt{%%}
+
+p. To upgrade Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
+
+p. You can install Nanoc 4 using RubyGems:
+
+listing.
+  %prompt{%%} %kbd{gem install nanoc}
+
+note. %entity{sudo-gem-install}
+
+p. We recommend using %ref[url=http://bundler.io/]{Bundler} to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the %filename{Gemfile} that looks like this:
+
+listing[lang=ruby].
+  gem 'nanoc', '~> 4.0'
+
+h2[id=quick-upgrade-guide]. Quick upgrade guide
+
+p. The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal amount of changes.
+
+ol[spacious].
+  li. Change mentions of %code{Nanoc3} to %code{Nanoc}.
+
+  li. Change mentions of %code{@site.config} to %code{@config}.
+
+  li. Add %code{identifier_type: legacy} to the individual data source configurations. For example:
+
+    listing[lang=yaml,legacy].
+      data_sources:
+        -
+          type: filesystem
+
+    listing[lang=yaml,new].
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
+
+  li. Add %code{string_pattern_type: legacy} to the configuration file. For example:
+
+    listing[lang=yaml,legacy].
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
+
+    listing[lang=yaml,new].
+      string_pattern_type: legacy
+      data_sources:
+        -
+          type: filesystem
+          identifier_type: legacy
+
+  li. In Rules, remove the %code{rep.} prefix from %code{filter}, %code{layout} and %code{snapshot}. For example:
+
+    listing[lang=ruby,legacy].
+      compile '*' do
+        rep.filter :erb
+        rep.layout 'default'
+      end
+
+    listing[lang=ruby,new].
+      compile '*' do
+        filter :erb
+        layout 'default'
+      end
+
+  li. In the %code{preprocess} block, use %code{@items.create} rather than instantiating %code{Nanoc::Item}. For example:
+
+    listing[lang=ruby,legacy].
+      @items << Nanoc::Item.new('Hello', {%}, '/hello/')
+
+    listing[lang=ruby,new].
+      @items.create('Hello', {%}, '/hello/')
+
+  li. In data sources, use %code{#new_item} or %code{#new_layout} rather than instantiating %code{Nanoc::Item} or %code{Nanoc::Layout}. For example:
+
+    listing[lang=ruby,legacy].
+      def items
+        [Nanoc::Item.new('Hello', {%}, '/hello/')]
+      end
+
+    listing[lang=ruby,new].
+      def items
+        [new_item('Hello', {%}, '/hello/')]
+      end
+
+  li. Replace %code{.reps[0]} by %code{.reps[:default]}. For example:
+
+    listing[lang=ruby,legacy].
+      item.reps[0].path
+
+    listing[lang=ruby,new].
+      item.reps[:default].path
+
+  li. Replace calls to %code{#rep_named} by %code{reps[%var{something}]}, where %var{something} is the argument to %code{#rep_named}. For example:
+
+    listing[lang=ruby,legacy].
+      item.rep_named(:raw).path
+
+    listing[lang=ruby,new].
+      item.reps[:raw].path
+
+  li. If you use the static data source, disable it for now and follow the extended upgrade instructions below.
+
+h2. Extended upgrade guide
+
+p. This section describes how to upgrade a site to identifiers with extensions and glob patterns. For details, see %ref[item=/doc/identifiers-and-patterns.*]{}.
+
+p. This section assumes you have already upgraded the site following the instructions in %ref[frag=quick-upgrade-guide]{} above.
+
+p. Before you start, add %code{enable_output_diff: true} to the configuration file. This will let the %command{compile} command write out a diff with the changes to the compiled output. This diff will allow you to verify that no unexpected changes occur.
+
+tip. If you use a filter that minifies HTML content, such as %code{html5small}, we recommend turning it off before upgrading the site, so that the output diff becomes easier to read.
+
+h3. Enabling glob patterns
+
+p. Before enabling them, ensure you are familiar with glob patterns. For details, see %ref[item=/doc/identifiers-and-patterns.*,frag=glob-patterns]{}.
+
+p. To use glob patterns:
+
+ol[spacious].
+  li. Set %code{string_pattern_type} to %code{glob} in the configuration file. For example:
+
+    listing[lang=yaml,legacy].
+      string_pattern_type: legacy
+
+    listing[lang=yaml,new].
+      string_pattern_type: glob
+
+  li. Ensure that all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site, start and end with a slash. This is an intermediate step. For example:
+
+    listing[lang=ruby,legacy].
+      # Before
+      compile 'articles/*' do
+        layout 'default'
+      end
+
+    listing[lang=ruby,legacy].
+      # After
+      compile '/articles/*/' do
+        layout '/default/'
+      end
+
+    listing[lang=ruby,legacy].
+      # Before
+      @items['foo']
+      @layouts['/bar']
+
+    listing[lang=ruby,legacy].
+      # After
+      @items['/foo/']
+      @layouts['/bar/']
+
+    listing[lang=rhtml,legacy].
+      <!-- Before -->
+      <%%= render 'header' %%>
+
+    listing[lang=rhtml,legacy].
+      <!-- After -->
+      <%%= render '/header/' %%>
+
+  li. Replace %code{*} and %code{+} with %code{**/*} in all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. For example:
+
+    listing[lang=ruby,legacy].
+      compile '/articles/*/' do
+        layout '/default/'
+      end
+
+    listing[lang=ruby,new].
+      compile '/articles/**/*/' do
+        layout '/default/'
+      end
+
+    listing[lang=ruby,legacy].
+      @items['/articles/*/']
+
+    listing[lang=ruby,new].
+      @items['/articles/**/*/']
+
+p. This approach should work out of the box: Nanoc should not raise errors and the output diff should be empty.
+
+h3. Enabling identifiers with extensions
+
+note. This section assumes that glob patterns have been enabled.
+
+p. Before enabling them, ensure you are familiar with identifiers with extensions. See %ref[item=/doc/identifiers-and-patterns.*,frag=identifiers]{} for documentation.
+
+p. To use identifiers with extensions:
+
+ol[spacious].
+  li. Set %code{identifier_type} to %code{full} in the configuration file. For example:
+
+    listing[lang=yaml,legacy].
+      identifier_type: legacy
+
+    listing[lang=yaml,new].
+      identifier_type: full
+
+  li. Remove the trailing slash from any argument to %code{#compile}, %code{#route} and %code{#layout} in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. If the pattern does not end with a “%code{*}”, add “%code{.*}”. For example:
+
+    listing[lang=ruby,legacy].
+      compile '/articles/**/*/' do
+        filter :kramdown
+        layout '/default/'
+      end
+
+      compile '/about/' do
+        layout '/default/'
+      end
+
+    listing[lang=ruby,new].
+      compile '/articles/**/*' do
+        filter :kramdown
+        layout '/default.*'
+      end
+
+      compile '/about.*' do
+        layout '/default.*'
+      end
+
+    listing[lang=ruby,legacy].
+      @items['/about/']
+      @layouts['/default/']
+
+    listing[lang=ruby,new].
+      @items['/about.*']
+      @layouts['/default.*']
+
+    listing[lang=rhtml,legacy].
+      <%%= render '/root/' %%>
+
+    listing[lang=rhtml,new].
+      <%%= render '/root.*' %%>
+
+  li. Update the routing rules to output the correct path. For example:
+
+    listing[lang=ruby,legacy].
+      route '/articles/*/' do
+        # /articles/foo/ gets written to /articles/foo/index.html
+        item.identifier + 'index.html'
+      end
+
+    listing[lang=ruby,new].
+      route '/articles/**/*' do
+        # /articles/foo.md gets written to /articles/foo/index.html
+        item.identifier.without_ext + '/index.html'
+      end
+
+  li. Create a routing rule that matches index files in the content directory (such as %filename{content/index.md} or %filename{content/blog/index.md}). For example, put the following %emph{before} any rules matching %code{/**/*}:
+
+    listing[lang=ruby,new].
+      route '/**/index.*' do
+        # /projects/index.md gets written to /projects/index.html
+        item.identifier.without_ext + '.html'
+      end
+
+  li. Replace calls to %code{#children} with a call to %code{#find_all}, passing a pattern that matches the children. For example:
+
+    listing[lang=ruby,legacy].
+      @items['/articles/'].children
+      @item.children
+
+    listing[lang=ruby,new].
+      @items.find_all('/articles/*')
+      @items.find_all(@item.identifier.without_ext + '/*')
+
+  li. Replace calls to %code{#parent} with a call to %code{#[]}, passing a pattern that matches the parent. For example:
+
+    listing[lang=ruby,legacy].
+      @item.parent
+
+    listing[lang=ruby,new].
+      @items[@item.identifier.to_s.sub(/[^\/]+$/, '').chop + '.*']
+
+note. When using identifiers with extensions, the children and parent of an item are no longer unambiguous. For example, the two items %filename{/foo.md} and %filename{/foo.adoc} both have %filename{/foo/bar.md} as a child, and %filename{/foo/bar.md} has two parents.
+
+h3. Upgrading from the static data source
+
+note. This section assumes that glob patterns and identifiers with extensions have been enabled.
+
+p. The static data source no longer exists in Nanoc 4. It existed in Nanoc 3 to work around the problem of identifiers not including the file extension, which is no longer the case in Nanoc 4.
+
+p. Theoretically, with identifiers with extensions enabled, it is possible to move the contents of the %filename{static/} directory into %filename{content/}. This can be tricky, however, because some rules that did not match any items in %filename{static/} might now match.
+
+p. Because of this, the recommend approach for upgrading is to keep the %filename{static/} directory, and set up a new data source that reads from this directory.
+
+p. In the site configuration, re-enable the static data source, change its type to %code{filesystem}, set %code{content_dir} to %code{"static"} and %code{layouts_dir} to %code{null}:
+
+listing[lang=yaml,new].
+  data_sources:
+    -
+      type: filesystem
+    -
+      type: filesystem
+      items_root: /static
+      content_dir: 'static'
+      layouts_dir: null
+
+p. The null value for the %code{layouts_dir} option prevents this data source from loading layouts—the other data source already does so.
+
+p. Lastly, update the rules to copy these items as-is, but without the %code{/static} prefix:
+
+listing[lang=ruby,new].
+  compile '/static/**/*' do
+  end
+
+  route '/static/**/*' do
+    # /static/foo.html → /foo.html
+    item.identifier.to_s.sub(/\A\/static/, '')
+  end
+
+p. This approach should work out of the box: Nanoc should not raise errors and the output diff should be empty.
+
+p. A final improvement would be to move the contents of the %filename{static/} directory into %filename{content/}. The main thing to watch out for with this approach is rules that accidentally match the wrong items.
+
+h2. Troubleshooting
+
+ol[spacious].
+  li. If you use Nanoc with a Gemfile, ensure you call Nanoc as %kbd{bundle exec nanoc}. Nanoc no longer attempts to load the Gemfile.
+
+  li. If you get a %code{NoMethodError} error on %code{Nanoc::Identifier}, call %code{.to_s} on the identifier before doing anything with it. In Nanoc 4.x, identifiers have their own class and are no longer strings.
+
+  listing[lang=ruby,legacy].
+    item.identifier[7..-2]
+
+  listing[lang=ruby,new].
+    item.identifier.to_s[7..-2]
+
+  li. If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=http://nanoc.ws/community/#discussion-groups]{discussion group}.
+
+h2. Removed features
+
+p. The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} instead.
+
+p. Because Nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
+
+ol.
+  li. the %code{create-item} and %code{create-layout} commands
+  li. the %code{update} and %code{sync} commands
+  li. VCS integration (along with %code{Nanoc::Extra::VCS})
+  li. the %code{DataSource#create_item} and %code{DataSource#create_layout} methods.

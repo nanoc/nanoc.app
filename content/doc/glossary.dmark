@@ -1,0 +1,73 @@
+---
+title: "Glossary"
+---
+
+dl[glossary].
+  dt[id=glossary-asset]. asset
+  dd. %see{see} %ref[bare,frag=glossary-item]{item}
+
+  dt[id=glossary-attribute]. attribute
+  dd. A key-value pair that contains extra %ref[bare,frag=glossary-metadata]{metadata} about an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}.
+
+  dt[id=glossary-compilation]. compilation
+  dd. The act of %ref[bare,frag=glossary-filter]{filtering} and %ref[bare,frag=glossary-layout]{laying out} all %ref[bare,frag=glossary-item]{items} in a %ref[bare,frag=glossary-site]{site}, according to %ref[bare,frag=glossary-routing-rule]{routing rules}, %ref[bare,frag=glossary-compilation-rule]{compilation rules} and %ref[bare,frag=glossary-layout-rule]{layout rules}.
+
+  dt[id=glossary-compilation-rule]. compilation rule
+  dd. A %ref[bare,frag=glossary-rule]{rule} that defines how an %ref[bare,frag=glossary-item]{item} should be %ref[bare,frag=glossary-filter]{filtered} and/or %ref[bare,frag=glossary-layout]{laid out}.
+
+  dt[id=glossary-content-file]. content file
+  dd. A file containing the actual content of an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}. Usually, there will also be a %ref[bare,frag=glossary-meta-file]{meta-file} containing %ref[bare,frag=glossary-metadata]{metadata} about that item or layout, although some %ref[bare,frag=glossary-data-source]{data sources} (e.g. %code{filesystem}) merge the content file and the meta-file into a single file.
+
+  dt[id=glossary-data-source]. data source
+  dd. An object that reads data from a given location and turns this data into %ref[bare,frag=glossary-item]{items} and/or %ref[bare,frag=glossary-layout]{layouts}. By default, data can be read from the filesystem, but data sources for databases and online web services are also possible.
+
+  dt[id=glossary-filter]. filter
+  dd. An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (%code{erb}, %code{haml}), filters that transform from text to HTML (%code{bluecloth}, %code{redcloth}), filters that “clean” HTML (%code{rubypants}), and more.
+
+  dt[id=glossary-helper]. helper
+  dd. A module that, when included, offers additional functionality such as easy linking to pages, building XML site maps or Atom web feeds.
+
+  dt[id=glossary-identifier]. identifier
+  dd. A string that is used to uniquely identify an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}. It is used to construct %ref[bare,frag=glossary-path]{paths} of item %ref[bare,frag=glossary-representation]{representations}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
+
+  dt[id=glossary-item]. item
+  dd. The main piece of unprocessed content in a %ref[bare,frag=glossary-site]{site}. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple %ref[bare,frag=glossary-representation]{representations}. It is sometimes referred to as a %ref[bare,frag=glossary-page]{page} or an %ref[bare,frag=glossary-asset]{asset}.
+
+  dt[id=glossary-layout]. layout
+  dd. An object consisting of content and %ref[bare,frag=glossary-metadata]{metadata} that embeds content from %ref[bare,frag=glossary-item]{items} or layouts. For example, it can be used to add headers, footers and sidebars to pages.
+
+  dt[id=glossary-layout-rule]. layout rule
+  dd. A %ref[bare,frag=glossary-rule]{rule} that specifies what %ref[bare,frag=glossary-filter]{filter} should be used when processing a %ref[bare,frag=glossary-layout]{layout}.
+
+  dt[id=glossary-metadata]. metadata
+  dd. A collection of %ref[bare,frag=glossary-attribute]{attributes}, usually stored in a %ref[bare,frag=glossary-meta-file]{meta-file}, for an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}.
+
+  dt[id=glossary-meta-file]. meta-file
+  dd. A file containing %ref[bare,frag=glossary-metadata]{metadata} about an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}. It is usually paired with a %ref[bare,frag=glossary-content-file]{content file}. Some %ref[bare,frag=glossary-data-source]{data sources} put the metadata and the content in a single file.
+
+  dt[id=glossary-output-directory]. output directory
+  dd. The directory to which compiled %ref[bare,frag=glossary-representation]{item representations} are written.
+
+  dt[id=glossary-path]. path
+  dd. A string containing the path, relative to the %ref[bare,frag=glossary-output-directory]{output directory}, to a compiled %ref[bare,frag=glossary-representation]{item representation}.
+
+  dt[id=glossary-page]. page
+  dd. %see{see} %ref[bare,frag=glossary-item]{item}
+
+  dt[id=glossary-partial]. partial
+  dd. A %ref[bare,frag=glossary-layout]{layout} that is not used for embedding content, but rather used for being embedded in layouts or %ref[bare,frag=glossary-item]{items} using the %code{Rendering} helper.
+
+  dt[id=glossary-rep]. rep
+  dd. %see{see} %ref[bare,frag=glossary-representation]{representation}
+
+  dt[id=glossary-representation]. representation
+  dd. A "version" of an %ref[bare,frag=glossary-item]{item}. For example, an item can have a HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a %ref[bare,frag=glossary-path]{path}).
+
+  dt[id=glossary-routing-rule]. routing rule
+  dd. A %ref[bare,frag=glossary-rule]{rule} that defines what %ref[bare,frag=glossary-path]{path} a %ref[bare,frag=glossary-representation]{representation} should get.
+
+  dt[id=glossary-rule]. rule
+  dd. A bit of code that defines how an %ref[bare,frag=glossary-item]{item} should be processed (routed using a %ref[bare,frag=glossary-routing-rule]{routing rule} and compiled using a %ref[bare,frag=glossary-compilation-rule]{compilation rule}), or which %ref[bare,frag=glossary-filter]{filter} should be used for processing a given %ref[bare,frag=glossary-layout]{layout} in a %ref[bare,frag=glossary-layout-rule]{layout rule}.
+
+  dt[id=glossary-site]. site
+  dd. A directory containing %ref[bare,frag=glossary-item]{items}, %ref[bare,frag=glossary-layout]{layouts}, %ref[bare,frag=glossary-rule]{rules} and custom code. It can also refer to the compiled site, which can be found in the uncompiled site’s %ref[bare,frag=glossary-output-directory]{output directory}.

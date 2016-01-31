@@ -116,6 +116,14 @@ body.page .content {
                 margin-bottom: 0;
             }
 
+            ul.spacious li, ol.spacious li {
+              margin-bottom: 20px;
+            }
+
+            ul.spacious li pre, ol.spacious li pre {
+              margin-top: 20px;
+            }
+
             ol.toc {
                 margin-left: 0;
             }

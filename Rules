@@ -6,7 +6,7 @@ require 'susy'
 Compass.add_project_configuration 'compass_config.rb'
 
 preprocess do
-  config[:nanoc_version_info] = Nanoc.version_information
+  config[:nanoc_version_info] = Nanoc.version_information.strip
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
 end
@@ -45,24 +45,33 @@ compile '/index.*' do
 end
 
 compile '/404.*' do
+  filter :dmark2html
   layout '/default.*'
   filter :htmlcompressor
   write '/404.html'
 end
 
-compile '/**/*' do
-  filter :erb if item[:is_dynamic]
-  if item.identifier.to_s == '/release-notes'
-    filter :fix_contributor_brackets
-  end
-  filter :admonition
-  if 'md' == item[:extension]
-    filter :kramdown, :auto_ids => false
-  end
-  filter :remove_spacing_around_pre
+compile '/release-notes' do
+  filter :fix_contributor_brackets
+  filter :kramdown, :auto_ids => false
   filter :add_ids_to_headers
-  if item.identifier.to_s == '/release-notes'
-    filter :link_github_issues
+  filter :link_github_issues
+  layout '/default.*'
+  filter :add_toc
+  filter :relativize_paths, type: :html
+  filter :htmlcompressor
+  write item.identifier.without_ext + '/index.html'
+end
+
+compile '/**/*' do
+  case item.identifier.ext
+  when 'erb'
+    filter :erb
+    filter :add_ids_to_headers
+  when 'dmark'
+    filter :dmark2html
+  else
+    filter :add_ids_to_headers
   end
 
   layout '/default.*'
@@ -70,13 +79,10 @@ compile '/**/*' do
   filter :add_toc
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
-  filter :fixup_whitespace
   filter :htmlcompressor
 
   if item.binary?
     write item.identifier.to_s
-  elsif item[:path]
-    write item[:path]
   else
     write item.identifier.without_ext + '/index.html'
   end

@@ -1,0 +1,180 @@
+---
+title: Style guide
+---
+
+p. This page is designed to collect all the different elements used on the Nanoc web site.
+
+h2. Block-level elements
+
+h3. Paragraphs
+
+p. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+p. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+h3. Blockquote
+
+blockquote. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+
+h3. Preformatted text
+
+p. Some code:
+
+listing[lang=ruby].
+  def say_hi_to(person, params = {%})
+    puts("What’s up, #{person.first_name%}?")
+  rescue
+    puts("Uh… hi?")
+  end
+
+listing[lang=ruby,legacy].
+  # Old approach -- NO LONGER WORKS!
+  compile '*' do
+    rep.filter :erb
+    rep.layout 'default'
+  end
+
+listing[lang=ruby,new].
+  # New approach
+  compile '*' do
+    filter :erb
+    layout 'default'
+  end
+
+p. Some terminal input and output:
+
+listing.
+  %prompt{~%%} %kbd{bundle exec nanoc}
+  Loading site data… done
+  Compiling site…
+
+  Site compiled in 26357.65s.
+
+h3. Unordered lists
+
+p. These are short lists (no paragraphs):
+
+ul.
+  li. A short but cute
+    ul.
+      li. unordered list
+      li. with exactly
+  li. five
+  li. elements
+
+p. These are long lists (with paragraphs):
+
+ul.
+  li.
+    p. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  li.
+    p. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+
+h3. Ordered lists
+
+p. These are short lists (no paragraphs):
+
+ol.
+  li. An ordered list
+  li. with three
+  li. elements
+    ol.
+      li. and even
+      li. some sub-elements
+  li. followed by a root-level element
+
+p. These are long lists (with paragraphs):
+
+ol.
+  li.
+    p. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  li.
+    p. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+
+h3. Definition lists
+
+dl.
+  dt. Nanoc
+  dd. A tool for generating static sites
+
+  dt. DSL
+  dd. Domain-specific language
+  dd. Digital subscriber line
+
+  dt. moshi
+  dt. mothership
+  dd. Something scary
+
+p. Some definition lists with tags:
+
+dl[legacy].
+  dt. %code{@item.parent} → %var{item} or %code{nil}
+  dd. The parent of this item
+
+h3. Admonitions
+
+p. Here is a tip:
+
+tip. Prefix lines with %code{TIP:} to turn them into tip admonitions.
+
+p. Here is a note:
+
+note. Admonitions are handled by a Nanoc filter and not by Markdown.
+
+p. Here is a caution:
+
+caution. The %command{rm} command can cause data loss.
+
+h3[id=figures]. Figures
+
+figure.
+  img. /assets/images/tutorial/default-site.png
+  caption. Screenshot of what a brand new Nanoc site looks like
+
+h2. Inline elements
+
+dl.
+  dt. link to URL
+  dd. The %ref[url=http://nanoc.ws/]{Nanoc web site} is pretty.
+
+  dt. link to item
+  dd. For details, see %ref[item=/about.*]{}.
+
+  dt. link to fragment
+  dd. For details, see %ref[frag=figures]{}.
+
+  dt. link to item with fragment
+  dd. For details, see %ref[item=/doc/identifiers-and-patterns.*,frag=glob-patterns]{}.
+
+  dt. emphasis
+  dd. You should %emph{never} have to reboot your computer after installation.
+
+  dt. strong emphasis
+  dd. You should %strong{never} have a passwordless root account.
+
+  dt. command
+  dd. The %command{compile} command is used to compile a site.
+
+  dt. user input
+  dd. To use it, type %kbd{nanoc compile} into the terminal.
+
+  dt. replaceable text
+  dd. Replace %var{repo-url} with the URL of the repository.
+
+  dt. abbreviation
+  dd. Be elegant (and maybe incomprehensible) with Ruby %abbr[title=domain specific language]{DSL}s.
+
+  dt. first term
+  dd. To achieve this goal, we use the %firstterm{outdatedness checker}.
+
+  dt. code
+  dd. The %code{def} keyword is used to define a function or method.
+
+  dt. filename
+  dd. Open the %filename{content/index.md} file.
+
+  dt. product name
+  dd. We love the %productname{cri} library for building command-line interfaces.
+
+  dt. URI
+  dd. Go to %uri{http://example.com/} to see a sample web page.

@@ -119,6 +119,7 @@ Michal
 minifies
 mtime
 mtimes
+multibyte
 Muñoz
 Nanoc
 Nanoc's
@@ -164,6 +165,7 @@ recompiles
 recurses
 RedCloth
 regex
+RegexpError
 Reitinger
 Rémi
 Remko
@@ -240,8 +242,8 @@ Whitt
 wiki
 Wiki
 Wikipedia
-Wildcard
 wildcard
+Wildcard
 wildcards
 Willems
 Windows’
