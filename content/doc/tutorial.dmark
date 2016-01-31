@@ -149,7 +149,7 @@ listing[lang=yaml].
   title: "Denis’ Guide to Awesomeness"
   ---
 
-p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the %ref[frag=#customize-the-layout) section below.]{Customize the layout}
+p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the %ref[frag=customize-the-layout]{Customize the layout} section below.
 
 h2. Add a page
 

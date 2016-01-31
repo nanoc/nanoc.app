@@ -103,6 +103,8 @@ Class.new(Nanoc::Filter) do
           { name: 'div', attributes: attributes.merge(class: 'admonition') },
         ]
       when 'ref'
+        # TODO: support both item *and* frag
+        
         if node.attributes['item']
           pattern = node.attributes['item']
           path = @items[pattern].path
