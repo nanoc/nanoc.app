@@ -54,9 +54,8 @@ Class.new(Nanoc::Filter) do
       # returns e.g. [{name: 'pre', attributes: {}}]
 
       attributes = {}
-      node_attributes = node.attributes.split(',').map { |piece| piece.split('=') }
-      if node_attributes.any? { |a| a[0] == 'id' }
-        attributes.merge!(id: node_attributes.find { |a| a[0] == 'id' }.last)
+      if node.attributes['id']
+        attributes.merge!(id: node.attributes['id'])
       end
 
       case node.name
@@ -70,7 +69,7 @@ Class.new(Nanoc::Filter) do
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
       when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
-        is_legacy = node_attributes.any? { |a| a[0] == 'legacy' }
+        is_legacy = node.attributes['legacy']
         [{ name: node.name, attributes: attributes.merge(is_legacy ? { class: 'legacy' } : {}) }]
       when 'note', 'tip', 'caution'
         [
@@ -78,15 +77,15 @@ Class.new(Nanoc::Filter) do
           { name: 'div', attributes: attributes.merge(class: 'admonition') },
         ]
       when 'ref'
-        if node_attributes.any? { |a| a[0] == 'item' }
-          pattern = node_attributes.find { |a| a[0] == 'item' }.last
+        if node.attributes['item']
+          pattern = node.attributes['item']
           path = @items[pattern].path
           [{ name: 'a', attributes: attributes.merge(href: path) }]
-        elsif node_attributes.any? { |a| a[0] == 'url' }
-          url = node_attributes.find { |a| a[0] == 'url' }.last
+        elsif node.attributes['url']
+          url = node.attributes['url']
           [{ name: 'a', attributes: attributes.merge(href: url) }]
-        elsif node_attributes.any? { |a| a[0] == 'frag' }
-          frag = node_attributes.find { |a| a[0] == 'frag' }.last
+        elsif node.attributes['frag']
+          frag = node.attributes['frag']
           [{ name: 'a', attributes: attributes.merge(href: "##{frag}") }]
         else
           raise "Cannot translate ref #{node.inspect}"
