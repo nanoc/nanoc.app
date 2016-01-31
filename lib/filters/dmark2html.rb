@@ -4,6 +4,8 @@ Class.new(Nanoc::Filter) do
   identifier :dmark2html
 
   class NanocWsHTMLTranslator < DMark::Translator
+    include Nanoc::Helpers::HTMLEscape
+
     def initialize(tree, items)
       super(tree)
       @items = items
@@ -14,7 +16,7 @@ Class.new(Nanoc::Filter) do
       when DMark::Nodes::RootNode
         handle_children(node)
       when DMark::Nodes::TextNode
-        out << node.text
+        out << h(node.text)
       when DMark::Nodes::ElementNode
         tags = tags_for(node)
 
@@ -36,7 +38,7 @@ Class.new(Nanoc::Filter) do
             out << ' '
             out << key.to_s
             out << '="'
-            out << value
+            out << h(value)
             out << '"'
           end
         end
@@ -66,7 +68,7 @@ Class.new(Nanoc::Filter) do
         ]
       when 'emph'
         [{ name: 'em', attributes: attributes }]
-      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see'
+      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-update', 'uri', 'attribute'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
       when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
         is_legacy = node.attributes['legacy']
@@ -90,6 +92,9 @@ Class.new(Nanoc::Filter) do
         else
           raise "Cannot translate ref #{node.inspect}"
         end
+      when 'figure', 'src', 'caption'
+        # TODO
+        []
       else
         raise "Cannot translate #{node.name}"
       end
