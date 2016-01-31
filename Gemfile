@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'nanoc', path: '../nanoc'
+gem 'nanoc', '~> 4.1'
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
 gem 'coderay'     # for syntax highlighting
@@ -20,4 +20,4 @@ gem 'html5small'
 gem 'nanoc-typohero'
 gem 'w3c_validators'
 gem 'ffi-aspell'
-gem 'dmark', github: 'ddfreyne/dmark'
+gem 'dmark', github: 'ddfreyne/d-mark'
