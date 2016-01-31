@@ -28,7 +28,7 @@ dl[glossary].
   dd. A module that, when included, offers additional functionality such as easy linking to pages, building XML site maps or Atom web feeds.
 
   dt[id=glossary-identifier]. identifier
-  dd. A string that is used to uniquely identify an %ref[frag=glossary-item]{item} or a %ref[frag=glossary-layout]{layout}. It is used to construct %ref[frag=glossary-path]{paths} of item %ref[frag=glossary-representation]{representations}. %see{See} %ref[item=/doc/identifiers-and-patterns.*]{identifiers and patterns}.
+  dd. A string that is used to uniquely identify an %ref[frag=glossary-item]{item} or a %ref[frag=glossary-layout]{layout}. It is used to construct %ref[frag=glossary-path]{paths} of item %ref[frag=glossary-representation]{representations}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
   dt[id=glossary-item]. item
   dd. The main piece of unprocessed content in a %ref[frag=glossary-site]{site}. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple %ref[frag=glossary-representation]{representations}. It is sometimes referred to as a %ref[frag=glossary-page]{page} or an %ref[frag=glossary-asset]{asset}.

@@ -4,6 +4,13 @@ Class.new(Nanoc::Filter) do
   identifier :dmark2latex
 
   class NanocWsLaTeXTranslator < DMark::Translator
+    def initialize(tree, item, items)
+      super(tree)
+
+      @item = item
+      @items = items
+    end
+
     def handle(node, options = {})
       case node
       when DMark::Nodes::RootNode
@@ -11,12 +18,51 @@ Class.new(Nanoc::Filter) do
       when DMark::Nodes::TextNode
         out << escape_string(node.text, options)
       when DMark::Nodes::ElementNode
-        handle_element_node(node, options)
+        case node.name
+        when 'ref'
+          handle_ref(node, options)
+        else
+          handle_element_node(node, options)
+        end
       end
     end
 
     def handle_children(node, options)
       node.children.each { |child| handle(child, options) }
+    end
+
+    def handle_ref(node, options)
+      if node.attributes['item']
+        pattern, frag = node.attributes['item'].split('#', 2)
+        item = @items[pattern]
+        if item.nil?
+          raise "Cannot find an item matching pattern #{pattern.inspect} to link to"
+        end
+
+        out << 'the '
+        if node.attributes['frag']
+          out << 'relevant section'
+          out << ' in the '
+        end
+        out << item[:title]
+        out << ' chapter on '
+        out << '\\cpageref{chap:' << item.identifier << '}'
+      elsif node.attributes['url']
+        # TODO
+      elsif node.attributes['frag']
+        # TODO
+        handle_children(node, options)
+      else
+        raise "Cannot translate ref #{node.inspect}"
+      end
+    end
+
+    def text_content_of(node)
+      if node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
+        raise "Expected node #{node.name} to have one text child node"
+      else
+        node.children.first.text
+      end
     end
 
     def handle_element_node(node, options)
@@ -63,8 +109,6 @@ Class.new(Nanoc::Filter) do
       when 'note', 'tip', 'caution'
         # TODO
       when 'figure', 'img', 'caption'
-        # TODO
-      when 'ref'
         # TODO
       else
         raise "Cannot translate #{node.name}"
@@ -128,6 +172,6 @@ Class.new(Nanoc::Filter) do
   def run(content, params = {})
     tokens = DMark::Lexer.new(content).run
     tree = DMark::Parser.new(tokens).run
-    NanocWsLaTeXTranslator.new(tree).run
+    NanocWsLaTeXTranslator.new(tree, @item, @items).run
   end
 end
