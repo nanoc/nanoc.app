@@ -53,34 +53,41 @@ Class.new(Nanoc::Filter) do
     def tags_for(node)
       # returns e.g. [{name: 'pre', attributes: {}}]
 
+      attributes = {}
+      node_attributes = node.attributes.split(',').map { |piece| piece.split('=') }
+      if node_attributes.any? { |a| a[0] == 'id' }
+        attributes.merge!(id: node_attributes.find { |a| a[0] == 'id' }.last)
+      end
+
       case node.name
       when 'listing'
         [
-          { name: 'pre', attributes: {} },
-          { name: 'code', attributes: {} },
+          { name: 'pre', attributes: attributes },
+          { name: 'code', attributes: attributes },
         ]
       when 'emph'
-        [{ name: 'em', attributes: {} }]
-      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname'
-        [{ name: 'span', attributes: { class: node.name } }]
+        [{ name: 'em', attributes: attributes }]
+      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see'
+        [{ name: 'span', attributes: attributes.merge(class: node.name) }]
       when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
-        attributes = node.attributes.split(',').map { |piece| piece.split('=') }
-        is_legacy = attributes.any? { |a| a[0] == 'legacy' }
-        [{ name: node.name, attributes: is_legacy ? { class: 'legacy' } : {} }]
+        is_legacy = node_attributes.any? { |a| a[0] == 'legacy' }
+        [{ name: node.name, attributes: attributes.merge(is_legacy ? { class: 'legacy' } : {}) }]
       when 'note', 'tip', 'caution'
         [
-          { name: 'div', attributes: { class: "admonition-wrapper #{node.name}" } },
-          { name: 'div', attributes: { class: 'admonition' } },
+          { name: 'div', attributes: attributes.merge(class: "admonition-wrapper #{node.name}") },
+          { name: 'div', attributes: attributes.merge(class: 'admonition') },
         ]
       when 'ref'
-        attributes = node.attributes.split(',').map { |piece| piece.split('=') }
-        if attributes.any? { |a| a[0] == 'item' }
-          pattern = attributes.first { |a| a[0] == 'item' }.last
+        if node_attributes.any? { |a| a[0] == 'item' }
+          pattern = node_attributes.find { |a| a[0] == 'item' }.last
           path = @items[pattern].path
-          [{ name: 'a', attributes: { href: path } }]
-        elsif attributes.any? { |a| a[0] == 'url' }
-          url = attributes.first { |a| a[0] == 'url' }.last
-          [{ name: 'a', attributes: { href: url } }]
+          [{ name: 'a', attributes: attributes.merge(href: path) }]
+        elsif node_attributes.any? { |a| a[0] == 'url' }
+          url = node_attributes.find { |a| a[0] == 'url' }.last
+          [{ name: 'a', attributes: attributes.merge(href: url) }]
+        elsif node_attributes.any? { |a| a[0] == 'frag' }
+          frag = node_attributes.find { |a| a[0] == 'frag' }.last
+          [{ name: 'a', attributes: attributes.merge(href: "##{frag}") }]
         else
           raise "Cannot translate ref #{node.inspect}"
         end
