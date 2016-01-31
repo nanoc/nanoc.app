@@ -107,7 +107,9 @@ Class.new(Nanoc::Filter) do
       when 'log-create', 'log-update', 'prompt'
         handle_children(node, options)
       when 'note', 'tip', 'caution'
-        # TODO
+        out << '\\begin{' << node.name << "}\n"
+        handle_children(node, options)
+        out << '\\end{' << node.name << "}\n"
       when 'figure', 'img', 'caption'
         # TODO
       when 'blockquote'
