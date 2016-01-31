@@ -188,7 +188,7 @@ dl.
   dt. %code{<%%= code %%>}
   dd. Runs the code between %code{<%%=} and %code{%%>}, and displays the return value on the web page
 
-tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the <a href="#write-pages-in-markdown">Write pages in Markdown</a> section below.
+tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the %ref[frag=write-pages-in-markdown]{Write pages in Markdown} section below.
 
 p. The %code{<%%= yield %%>} instruction is replaced with the item’s compiled content when compiling.
 
@@ -197,10 +197,10 @@ p. The file also contains the %code{<%%= @item[:title] %%>} instruction near the
 p. Because Nanoc attributes are free-form, you can make up your own attributes. Set the %attribute{author} attribute on the about page:
 
 listing[lang=yaml].
-    ---
-    title: "About me and my cats"
-    author: "John Doe"
-    ---
+  ---
+  title: "About me and my cats"
+  author: "John Doe"
+  ---
 
 p. Modify the layout to show the value of the %attribute{author} attribute. Add the following snippet to the layout:
 
