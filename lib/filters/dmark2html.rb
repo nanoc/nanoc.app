@@ -8,6 +8,7 @@ Class.new(Nanoc::Filter) do
 
     def initialize(tree, items)
       super(tree)
+
       @items = items
     end
 
@@ -56,15 +57,21 @@ Class.new(Nanoc::Filter) do
       # returns e.g. [{name: 'pre', attributes: {}}]
 
       attributes = {}
+
       if node.attributes['id']
         attributes.merge!(id: node.attributes['id'])
       end
 
       case node.name
       when 'listing'
+        code_attributes = {}
+        if node.attributes['lang']
+          code_attributes[:class] = "language-#{node.attributes['lang']}"
+        end
+
         [
           { name: 'pre', attributes: attributes },
-          { name: 'code', attributes: attributes },
+          { name: 'code', attributes: code_attributes },
         ]
       when 'emph'
         [{ name: 'em', attributes: attributes }]
