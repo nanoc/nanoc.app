@@ -94,8 +94,8 @@ listing.
 
 p. Open a web browser and navigate to %uri{http://localhost:3000/}. You’ll see something like this:
 
-figure[fullwidth].
-  src. /assets/images/tutorial/default-site.png
+figure.
+  img. /assets/images/tutorial/default-site.png
   caption. Screenshot of what a brand new Nanoc site looks like
 
 h2. Edit the home page

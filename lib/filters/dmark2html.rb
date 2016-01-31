@@ -19,11 +19,16 @@ Class.new(Nanoc::Filter) do
       when DMark::Nodes::TextNode
         out << h(node.text)
       when DMark::Nodes::ElementNode
-        tags = tags_for(node)
+        case node.name
+        when 'img'
+          handle_img(node)
+        else
+          tags = tags_for(node)
 
-        output_start_tags(tags)
-        handle_children(node)
-        output_end_tags(tags)
+          output_start_tags(tags)
+          handle_children(node)
+          output_end_tags(tags)
+        end
       end
     end
 
@@ -53,6 +58,16 @@ Class.new(Nanoc::Filter) do
       end
     end
 
+    def handle_img(node)
+      if node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
+        raise 'Expected img node to have one text child node'
+      else
+        src = node.children.first.text
+        tags = [{ name: 'img', attributes: { src: src } }]
+        output_start_tags(tags)
+      end
+    end
+
     def tags_for(node)
       # returns e.g. [{name: 'pre', attributes: {}}]
 
@@ -75,9 +90,11 @@ Class.new(Nanoc::Filter) do
         ]
       when 'emph'
         [{ name: 'em', attributes: attributes }]
+      when 'caption'
+        [{ name: 'figcaption', attributes: attributes }]
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-update', 'uri', 'attribute'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li', 'figure'
         is_legacy = node.attributes['legacy']
         [{ name: node.name, attributes: attributes.merge(is_legacy ? { class: 'legacy' } : {}) }]
       when 'note', 'tip', 'caution'
@@ -99,9 +116,6 @@ Class.new(Nanoc::Filter) do
         else
           raise "Cannot translate ref #{node.inspect}"
         end
-      when 'figure', 'src', 'caption'
-        # TODO
-        []
       else
         raise "Cannot translate #{node.name}"
       end
