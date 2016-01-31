@@ -24,11 +24,11 @@ listing.
 p. Nanoc lists all files being generated as result of this command:
 
 listing.
-  %log-create{create}  nanoc.yaml
-  %log-create{create}  Rules
-  %log-create{create}  content/index.html
-  %log-create{create}  content/stylesheet.css
-  %log-create{create}  layouts/default.html
+        %log-create{create}  nanoc.yaml
+        %log-create{create}  Rules
+        %log-create{create}  content/index.html
+        %log-create{create}  content/stylesheet.css
+        %log-create{create}  layouts/default.html
   Created a blank Nanoc site at 'tutorial'. Enjoy!
 
 p. A Nanoc-powered site is a directory with a specific structure. The newly generated %filename{tutorial/} directory has a handful of files and directories:
