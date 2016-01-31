@@ -57,7 +57,7 @@ compile '/**/*', rep: :latex do
     filter :erb if item[:is_dynamic]
     case item.identifier.ext
     when 'dmark'
-      filter :admonition, dmark: true
+      filter :dmark_subst
       filter :dmark2latex
     else
       filter :admonition
@@ -83,7 +83,7 @@ compile '/**/*' do
     filter :fix_contributor_brackets
   end
   if 'dmark' == item.identifier.ext
-    filter :admonition, dmark: true
+    filter :dmark_subst
     filter :dmark2html
   else
     filter :admonition

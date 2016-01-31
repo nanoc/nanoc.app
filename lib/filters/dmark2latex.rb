@@ -25,13 +25,13 @@ Class.new(Nanoc::Filter) do
         out << '\\begin{lstlisting}' << "\n"
         handle_children(node, options.merge(directly_in_lstlisting: true))
         out << '\\end{lstlisting}' << "\n"
-      when 'emph', 'firstterm', 'class', 'productname'
+      when 'emph', 'firstterm', 'class', 'productname', 'see'
         wrap_inline('emph', node, options)
-      when 'code', 'prompt'
+      when 'code', 'attribute'
         wrap_inline('texttt', node, options)
       when 'command', 'kbd'
         wrap_inline(%w( texttt textbf ), node, options)
-      when 'identifier', 'glob', 'filename'
+      when 'identifier', 'glob', 'filename', 'uri'
         wrap_inline(%w( emph url ), node, options)
       when 'h2'
         wrap_inline('section', node, options)
@@ -57,7 +57,11 @@ Class.new(Nanoc::Filter) do
       when 'p', 'dd'
         handle_children(node, options)
         out << "\n"
+      when 'log-create', 'log-update', 'prompt'
+        handle_children(node, options)
       when 'note', 'tip', 'caution'
+        # TODO
+      when 'figure', 'img', 'caption'
         # TODO
       when 'ref'
         # TODO

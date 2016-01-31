@@ -4,8 +4,11 @@ Class.new(Nanoc::Filter) do
   identifier :dmark2html
 
   class NanocWsHTMLTranslator < DMark::Translator
+    include Nanoc::Helpers::HTMLEscape
+
     def initialize(tree, items)
       super(tree)
+
       @items = items
     end
 
@@ -14,13 +17,18 @@ Class.new(Nanoc::Filter) do
       when DMark::Nodes::RootNode
         handle_children(node)
       when DMark::Nodes::TextNode
-        out << node.text
+        out << h(node.text)
       when DMark::Nodes::ElementNode
-        tags = tags_for(node)
+        case node.name
+        when 'img'
+          handle_img(node)
+        else
+          tags = tags_for(node)
 
-        output_start_tags(tags)
-        handle_children(node)
-        output_end_tags(tags)
+          output_start_tags(tags)
+          handle_children(node)
+          output_end_tags(tags)
+        end
       end
     end
 
@@ -36,7 +44,7 @@ Class.new(Nanoc::Filter) do
             out << ' '
             out << key.to_s
             out << '="'
-            out << value
+            out << h(value)
             out << '"'
           end
         end
@@ -50,35 +58,63 @@ Class.new(Nanoc::Filter) do
       end
     end
 
+    def handle_img(node)
+      if node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
+        raise 'Expected img node to have one text child node'
+      else
+        src = node.children.first.text
+        tags = [{ name: 'img', attributes: { src: src } }]
+        output_start_tags(tags)
+      end
+    end
+
     def tags_for(node)
       # returns e.g. [{name: 'pre', attributes: {}}]
 
+      attributes = {}
+
+      if node.attributes['id']
+        attributes.merge!(id: node.attributes['id'])
+      end
+
       case node.name
       when 'listing'
+        code_attributes = {}
+        if node.attributes['lang']
+          code_attributes[:class] = "language-#{node.attributes['lang']}"
+        end
+
         [
-          { name: 'pre', attributes: {} },
-          { name: 'code', attributes: {} },
+          { name: 'pre', attributes: attributes },
+          { name: 'code', attributes: code_attributes },
         ]
       when 'emph'
-        [{ name: 'em', attributes: {} }]
-      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname'
-        [{ name: 'span', attributes: { class: node.name } }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li'
-        [{ name: node.name, attributes: {} }]
+        [{ name: 'em', attributes: attributes }]
+      when 'caption'
+        [{ name: 'figcaption', attributes: attributes }]
+      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-update', 'uri', 'attribute'
+        [{ name: 'span', attributes: attributes.merge(class: node.name) }]
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li', 'figure'
+        is_legacy = node.attributes['legacy']
+        [{ name: node.name, attributes: attributes.merge(is_legacy ? { class: 'legacy' } : {}) }]
       when 'note', 'tip', 'caution'
         [
-          { name: 'div', attributes: { class: "admonition-wrapper #{node.name}" } },
-          { name: 'div', attributes: { class: 'admonition' } },
+          { name: 'div', attributes: attributes.merge(class: "admonition-wrapper #{node.name}") },
+          { name: 'div', attributes: attributes.merge(class: 'admonition') },
         ]
       when 'ref'
-        attributes = node.attributes.split(',').map { |piece| piece.split('=') }
-        if attributes.any? { |a| a[0] == 'item' }
-          pattern = attributes.first { |a| a[0] == 'item' }.last
+        # TODO: support both item *and* frag
+        
+        if node.attributes['item']
+          pattern = node.attributes['item']
           path = @items[pattern].path
-          [{ name: 'a', attributes: { href: path } }]
-        elsif attributes.any? { |a| a[0] == 'url' }
-          url = attributes.first { |a| a[0] == 'url' }.last
-          [{ name: 'a', attributes: { href: url } }]
+          [{ name: 'a', attributes: attributes.merge(href: path) }]
+        elsif node.attributes['url']
+          url = node.attributes['url']
+          [{ name: 'a', attributes: attributes.merge(href: url) }]
+        elsif node.attributes['frag']
+          frag = node.attributes['frag']
+          [{ name: 'a', attributes: attributes.merge(href: "##{frag}") }]
         else
           raise "Cannot translate ref #{node.inspect}"
         end
