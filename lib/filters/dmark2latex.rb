@@ -73,7 +73,7 @@ Class.new(Nanoc::Filter) do
         out << '\\end{lstlisting}' << "\n"
       when 'emph', 'firstterm', 'class', 'productname', 'see'
         wrap_inline('emph', node, options)
-      when 'code', 'attribute'
+      when 'code', 'attribute', 'output'
         wrap_inline('texttt', node, options)
       when 'command', 'kbd'
         names = options[:directly_in_lstlisting] ? %w( textbf ) : %w( texttt textbf )
@@ -109,6 +109,8 @@ Class.new(Nanoc::Filter) do
       when 'note', 'tip', 'caution'
         # TODO
       when 'figure', 'img', 'caption'
+        # TODO
+      when 'blockquote'
         # TODO
       else
         raise "Cannot translate #{node.name}"

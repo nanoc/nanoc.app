@@ -88,7 +88,11 @@ Class.new(Nanoc::Filter) do
         output_end_tags(tags)
       elsif node.attributes['url']
         url = node.attributes['url']
-        [{ name: 'a', attributes: { href: url } }]
+        tags = [{ name: 'a', attributes: { href: url } }]
+
+        output_start_tags(tags)
+        handle_children(node)
+        output_end_tags(tags)
       elsif node.attributes['frag']
         tags = [{ name: 'a', attributes: { href: '#' + node.attributes['frag'] } }]
 
@@ -132,11 +136,16 @@ Class.new(Nanoc::Filter) do
         [{ name: 'em', attributes: attributes }]
       when 'caption'
         [{ name: 'figcaption', attributes: attributes }]
-      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-update', 'uri', 'attribute'
+      when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-update', 'uri', 'attribute', 'output'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li', 'figure'
-        is_legacy = node.attributes['legacy']
-        [{ name: node.name, attributes: attributes.merge(is_legacy ? { class: 'legacy' } : {}) }]
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li', 'figure', 'blockquote'
+        if node.attributes['legacy']
+          attributes.merge!(class: 'legacy')
+        end
+        if node.attributes['nav-title']
+          attributes.merge!('data-nav-title': node.attributes['nav-title'])
+        end
+        [{ name: node.name, attributes: attributes }]
       when 'note', 'tip', 'caution'
         [
           { name: 'div', attributes: attributes.merge(class: "admonition-wrapper #{node.name}") },
