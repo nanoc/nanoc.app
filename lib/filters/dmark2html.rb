@@ -79,8 +79,9 @@ Class.new(Nanoc::Filter) do
         out << 'the '
         output_start_tags(tags)
         if frag
-          # FIXME: find section name dynamically
-          out << 'relevant section'
+          target_node = node_with_id(frag)
+          # FIXME: relevant section?!
+          out << (target_node ? text_content_of(target_node) : 'relevant section')
           out << ' in the '
         end
         out << item[:title]
@@ -97,15 +98,46 @@ Class.new(Nanoc::Filter) do
         tags = [{ name: 'a', attributes: { href: '#' + node.attributes['frag'] } }]
 
         output_start_tags(tags)
-        handle_children(node)
+        target_node = node_with_id(node.attributes['frag'])
+        if target_node.nil?
+          raise "Cannot build ref to #{node.attributes['frag']}: no such node"
+        end
+        p [node.attributes['frag'], target_node]
+        content =
+          begin
+            text_content_of(node)
+          rescue
+            ''
+          end
+        if content.empty?
+          content = text_content_of(target_node)
+        end
+
+        out << content
         output_end_tags(tags)
       else
         raise "Cannot translate ref #{node.inspect}"
       end
     end
 
+    def node_with_id(id, parent = @tree)
+      # FIXME: ugly implementation
+
+      if parent.respond_to?(:attributes) && parent.attributes['id'] == id
+        parent
+      else
+        parent.children.each do |child|
+          candidate = node_with_id(id, child)
+          return candidate if candidate
+        end
+        nil
+      end
+    end
+
     def text_content_of(node)
-      if node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
+      if node.nil?
+        raise ArgumentError, "Cannot get text content of nil node"
+      elsif node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
         raise "Expected node #{node.name} to have one text child node"
       else
         node.children.first.text
