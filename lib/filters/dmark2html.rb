@@ -102,7 +102,6 @@ Class.new(Nanoc::Filter) do
         if target_node.nil?
           raise "Cannot build ref to #{node.attributes['frag']}: no such node"
         end
-        p [node.attributes['frag'], target_node]
         content =
           begin
             text_content_of(node)
@@ -110,7 +109,12 @@ Class.new(Nanoc::Filter) do
             ''
           end
         if content.empty?
-          content = text_content_of(target_node)
+          content =
+            if node.attributes['bare']
+              text_content_of(target_node)
+            else
+              'the ' + text_content_of(target_node) + ' section'
+            end
         end
 
         out << content
