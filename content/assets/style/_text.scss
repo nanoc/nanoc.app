@@ -6,7 +6,7 @@
     hyphens: auto;
 }
 
-pre, code, kbd, samp, var, .attribute, .command {
+pre, code, kbd, samp, var, .attribute, .command, .output {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
@@ -42,7 +42,7 @@ blockquote {
 	font-style: italic;
 }
 
-pre, code, kbd, var, .attribute, .command {
+pre, code, kbd, var, samp, .output, .attribute, .command {
     font-family: "Roboto Mono", Consolas, Inconsolata, Monaco, monospace;
 }
 

@@ -6,7 +6,7 @@ p. This tutorial takes approximately twenty minutes to complete. You need three 
 
 dl.
   dt. a working Nanoc installation
-  dd. Check out the %ref[item=/doc/installation.*]{Installation} page for details on how to install Ruby, RubyGems and Nanoc.
+  dd. Check out %ref[item=/doc/installation.*]{} for details on how to install Ruby, RubyGems and Nanoc.
 
   dt. a basic understanding of Ruby
   dd. Nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend %ref[url=https://www.ruby-lang.org/en/documentation/quickstart/]{Ruby in Twenty Minutes}.
@@ -149,7 +149,7 @@ listing[lang=yaml].
   title: "Denis’ Guide to Awesomeness"
   ---
 
-p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in the %ref[frag=customize-the-layout]{Customize the layout} section below.
+p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in %ref[frag]{customize-the-layout} below.
 
 h2. Add a page
 
@@ -188,7 +188,9 @@ dl.
   dt. %code{<%%= code %%>}
   dd. Runs the code between %code{<%%=} and %code{%%>}, and displays the return value on the web page
 
-tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in the %ref[frag=write-pages-in-markdown]{Write pages in Markdown} section below.
+caution. Fragment links are broken!
+
+tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag]{write-pages-in-markdown} below.
 
 p. The %code{<%%= yield %%>} instruction is replaced with the item’s compiled content when compiling.
 
@@ -255,7 +257,7 @@ listing[lang=ruby].
 
 p. Compilation rules describe how items are processed. The first rule matches items that have the %filename{html} extension, and says that such items will be laid out using the default layout. The second rule matches all other items, and does no processing—the content of these items is not filtered nor laid out.
 
-note. For more information on patterns, see the %ref[item=/doc/identifiers-and-patterns.*]{identifiers and patterns} page.
+note. For more information on patterns, see %ref[item=/doc/identifiers-and-patterns.*]{}.
 
 p. The second point of interest is these two %firstterm{routing rules}:
 
@@ -276,13 +278,13 @@ p. Routing rule describe where items are written to. The return value of a routi
 
 p. In most cases, routing rules use the %firstterm{identifier} of an item. The identifier of an item is the full path to the source file, starting from the content directory. For example, the identifiers of the items in the current site are %identifier{/index.html}, %identifier{/stylesheet.css} and %identifier{/about.html}.
 
-note. For more information on identifiers, see the %ref[item=/doc/identifiers-and-patterns.*]{identifiers and patterns} page.
+note. For more information on identifiers, see %ref[item=/doc/identifiers-and-patterns.*]{}.
 
 p. The first rule matches items that have the %filename{html} or %filename{md} extension. For the %identifier{/index.html} item, it assigns the path %filename{/index.html}. For the %identifier{/about.html} item, it assigns the path %filename{/about/index.html}. This approach ensures that all items have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
 
 p. The second rule matches all other items, and assigns a path that is identical to the identifier. For example, the %identifier{/stylesheet.css} item will have the path %filename{/stylesheet.css}.
 
-note. For more information on rules, see the %ref[item=/doc/rules.*]{rules} page.
+note. For more information on rules, see %ref[item=/doc/rules.*]{}.
 
 p. Now that you know what compilation and routing rules are, we can customize the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
 
@@ -341,7 +343,7 @@ p. Recompile the site and open both the home page and the about page in your web
 
 h2. Use a predefined helper
 
-p. Nanoc is bundled with a handful of helpers, including %ref[item=/doc/reference/helpers.*,frag=tagging]{a tagging helper}. To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
+p. Nanoc is bundled with a handful of helpers, including a tagging helper (see %ref[item=/doc/reference/helpers.*#tagging]{} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
 
 listing[lang=ruby].
   include Nanoc::Helpers::Tagging
@@ -357,6 +359,6 @@ p. Recompile the site. The tags in the compiled HTML files in the %filename{outp
 
 h2. Next steps
 
-p. You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the %ref[item=/doc.*]{Nanoc documentation}. If you’re stuck with a Nanoc problem, get help on the %ref[url=https://groups.google.com/forum/#!forum/nanoc]{Nanoc discussion group}.
+p. You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the documentation. If you’re stuck with a Nanoc problem, get help on the %ref[url=https://groups.google.com/forum/#!forum/nanoc]{Nanoc discussion group}.
 
 p. We’d love to hear your feedback about the Nanoc documentation. Is something wrong? Is something unclear? Tell us by %ref[url=https://github.com/nanoc/nanoc.ws/issues/new]{opening an issue on GitHub}. Thanks!

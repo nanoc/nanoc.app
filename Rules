@@ -6,7 +6,7 @@ require 'susy'
 Compass.add_project_configuration 'compass_config.rb'
 
 preprocess do
-  config[:nanoc_version_info] = Nanoc.version_information
+  config[:nanoc_version_info] = Nanoc.version_information.strip
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
 end
