@@ -1,0 +1,72 @@
+---
+title:      "The command-line interface"
+is_dynamic: true
+---
+
+p. Interacting with Nanoc happens through a command-line tool named %command{nanoc}. This tool has sub-commands, which you can invoke like this:
+
+listing.
+  %prompt{%%} %kbd{nanoc} %var{command}
+
+p. Here, %var{command} is the name of the command you’re invoking.
+
+h2. Getting help
+
+p. To get help on a command, invoke the %command{help} command with the command you’re interested in as the argument. For example, this is the help for the %command{create-site} command:
+
+listing.
+  %prompt{%%} %kbd{nanoc help create-site}
+  nanoc create-site [path]
+
+  aliases: cs
+
+  create a site
+
+      Create a new site at the given path. The site will use the compact
+      file system data source by default, but this can be changed by
+      using the --datasource command-line option.
+
+  options:
+
+     -d --datasource specify the data source for the new site</pre>
+
+p. To get a list of all commands and global options, invoke the %command{help} command without arguments:
+
+listing.
+  %prompt{%%} %kbd{nanoc help}
+
+p. A reference of all commands is available in %ref[item=/doc/reference/commands.*]{}, as well as the command line itself.
+
+h2. Writing commands
+
+p. Custom commands live inside the %filename{commands/} directory in the site directory. Commands are Ruby source files, where the filename corresponds to the command name.
+
+p. Here is an example command:
+
+listing[lang=ruby].
+  usage       'dostuff [options]'
+  aliases     :ds, :stuff
+  summary     'does stuff'
+  description 'This command does a lot of stuff. I really mean a lot.'
+
+  flag   :h, :help,  'show help for this command' do |value, cmd|
+    puts cmd.help
+    exit 0
+  end
+  flag   :m, :more,  'do even more stuff'
+  option :s, :stuff, 'specify stuff to do', :argument => :optional
+
+  run do |opts, args, cmd|
+    stuff = opts[:stuff] || 'generic stuff'
+    puts "Doing #{stuff%}!"
+
+    if opts[:more]
+      puts 'Doing it even more!'
+    end
+  end
+
+p. The name of the command is derived from the filename. For example, a command defined in %filename{commands/dostuff.rb} will have the name %code{dostuff}, and it can thus be invoked as %command{nanoc dostuff}.
+
+p. Commands can be nested; for example, the command at %filename{commands/foo/bar.rb} will be a sub-command of the command at %filename{commands/foo.rb}, and can be invoked as %command{nanoc foo bar}.
+
+p. For details on how to create commands, check out the documentation for %ref[url=http://rubydoc.info/gems/cri]{Cri}, the framework used by Nanoc for generating commands.
