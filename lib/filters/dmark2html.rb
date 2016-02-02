@@ -66,25 +66,47 @@ Class.new(Nanoc::Filter) do
       output_start_tags(tags)
     end
 
+    def item_and_frag_for(s)
+      pattern, frag = s.split('#', 2)
+      item = @items[pattern]
+      if item.nil?
+        raise "Cannot find an item matching #{pattern} to link to"
+      end
+      [item, frag]
+    end
+
+    def node_for_item_and_frag(item, frag)
+      tokens = DMark::Lexer.new(item.raw_content).run
+      item_tree = DMark::Parser.new(tokens).run
+
+      node_with_id(frag, parent: item_tree)
+    rescue DMark::Lexer::LexerError
+      nil
+    end
+
     def handle_ref(node)
       if node.attributes['item']
-        pattern, frag = node.attributes['item'].split('#', 2)
-        item = @items[pattern]
-        if item.nil?
-          raise "Cannot find an item matching #{pattern} to link to"
-        end
-        path = frag ? item.path + '#' + frag : item.path
-        tags = [{ name: 'a', attributes: { href: path } }]
+        target_item, frag = item_and_frag_for(node.attributes['item'])
 
+        target_path = frag ? target_item.path + '#' + frag : target_item.path
+
+        # Find target node
+        target_node =
+          if @item == target_item
+            node_with_id(frag)
+          else
+            node_for_item_and_frag(target_item, frag)
+          end
+
+        # Output
+        tags = [{ name: 'a', attributes: { href: target_path } }]
         out << 'the '
         output_start_tags(tags)
         if frag
-          target_node = node_with_id(frag)
-          # FIXME: relevant section?!
-          out << (target_node ? text_content_of(target_node) : 'relevant section')
-          out << ' in the '
+          out << (target_node ? text_content_of(target_node) : '???')
+          out << ' section in the '
         end
-        out << item[:title]
+        out << target_item[:title]
         out << ' chapter'
         output_end_tags(tags)
       elsif node.attributes['url']
@@ -97,7 +119,6 @@ Class.new(Nanoc::Filter) do
       elsif node.attributes['frag']
         tags = [{ name: 'a', attributes: { href: '#' + node.attributes['frag'] } }]
 
-        output_start_tags(tags)
         target_node = node_with_id(node.attributes['frag'])
         if target_node.nil?
           raise "Cannot build ref to #{node.attributes['frag']}: no such node"
@@ -117,6 +138,7 @@ Class.new(Nanoc::Filter) do
             end
         end
 
+        output_start_tags(tags)
         out << content
         output_end_tags(tags)
       else
@@ -124,14 +146,14 @@ Class.new(Nanoc::Filter) do
       end
     end
 
-    def node_with_id(id, parent = @tree)
+    def node_with_id(id, parent: @tree)
       # FIXME: ugly implementation
 
       if parent.respond_to?(:attributes) && parent.attributes['id'] == id
         parent
       else
         parent.children.each do |child|
-          candidate = node_with_id(id, child)
+          candidate = node_with_id(id, parent: child)
           return candidate if candidate
         end
         nil
