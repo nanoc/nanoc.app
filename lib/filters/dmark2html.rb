@@ -6,10 +6,11 @@ Class.new(Nanoc::Filter) do
   class NanocWsHTMLTranslator < DMark::Translator
     include Nanoc::Helpers::HTMLEscape
 
-    def initialize(tree, items)
+    def initialize(tree, items, item)
       super(tree)
 
       @items = items
+      @item = item
     end
 
     def handle(node)
@@ -66,94 +67,88 @@ Class.new(Nanoc::Filter) do
       output_start_tags(tags)
     end
 
-    def item_and_frag_for(s)
-      pattern, frag = s.split('#', 2)
-      item = @items[pattern]
-      if item.nil?
-        raise "Cannot find an item matching #{pattern} to link to"
-      end
-      [item, frag]
-    end
-
-    def node_for_item_and_frag(item, frag)
+    def tree_for(item)
+      # FIXME: raw_content is not good enough
       tokens = DMark::Lexer.new(item.raw_content).run
-      item_tree = DMark::Parser.new(tokens).run
-
-      node_with_id(frag, parent: item_tree)
+      DMark::Parser.new(tokens).run
     rescue DMark::Lexer::LexerError
       nil
     end
 
     def handle_ref(node)
-      if node.attributes['item']
-        target_item, frag = item_and_frag_for(node.attributes['item'])
-
-        target_path = frag ? target_item.path + '#' + frag : target_item.path
-
-        # Find target node
-        target_node =
-          if @item == target_item
-            node_with_id(frag)
-          else
-            node_for_item_and_frag(target_item, frag)
-          end
-
-        # Output
-        tags = [{ name: 'a', attributes: { href: target_path } }]
-        out << 'the '
-        output_start_tags(tags)
-        if frag
-          out << (target_node ? text_content_of(target_node) : '???')
-          out << ' section in the '
-        end
-        out << target_item[:title]
-        out << ' chapter'
-        output_end_tags(tags)
-      elsif node.attributes['url']
+      if node.attributes['url']
         url = node.attributes['url']
         tags = [{ name: 'a', attributes: { href: url } }]
 
         output_start_tags(tags)
         handle_children(node)
         output_end_tags(tags)
-      elsif node.attributes['frag']
-        tags = [{ name: 'a', attributes: { href: '#' + node.attributes['frag'] } }]
+        return
+      end
 
-        target_node = node_with_id(node.attributes['frag'])
-        if target_node.nil?
-          raise "Cannot build ref to #{node.attributes['frag']}: no such node"
-        end
-        content =
-          begin
-            text_content_of(node)
-          rescue
-            ''
-          end
-        if content.empty?
-          content =
-            if node.attributes['bare']
-              text_content_of(target_node)
-            else
-              'the ' + text_content_of(target_node) + ' section'
-            end
+      target_item = node.attributes['item'] ? @items[node.attributes['item']] : @item
+      raise "%ref error: canot find item for #{node.attributes['item'].inspect}" if target_item.nil?
+
+      target_frag = node.attributes['frag']
+      target_path = target_frag ? target_item.path + '#' + target_frag : target_item.path
+      target_tree = @item == target_item ? @tree : tree_for(target_item)
+      target_node = target_tree && target_frag ? node_with_id(target_frag, tree: target_tree) : nil
+      # FIXME: require target_tree
+
+      content =
+        begin
+          text_content_of(node)
+        rescue
+          nil
         end
 
+      tags = [{ name: 'a', attributes: { href: target_path } }]
+      if content
         output_start_tags(tags)
         out << content
         output_end_tags(tags)
       else
-        raise "Cannot translate ref #{node.inspect}"
+        if node.attributes['bare']
+          output_start_tags(tags)
+          out << (target_frag ? safe_text_content_of(target_node, target_item, target_frag) : target_item[:title])
+          output_end_tags(tags)
+        else
+          if target_frag
+            out << 'the '
+            output_start_tags(tags)
+            out << safe_text_content_of(target_node, target_item, target_frag)
+            output_end_tags(tags)
+            out << ' section'
+          end
+
+          if target_frag && target_item != @item
+            out << ' in the '
+          end
+
+          if target_item != @item
+            out << ' in the '
+            out << target_item[:title]
+            out << ' chapter'
+          end
+        end
       end
     end
 
-    def node_with_id(id, parent: @tree)
+    def safe_text_content_of(node, item, frag)
+      text_content_of(node)
+    rescue
+      $stderr.puts "WARNING: failed to get text content for item=#{item.identifier} frag=#{frag}; falling back to `???`"
+      '???'
+    end
+
+    def node_with_id(id, tree: @tree)
       # FIXME: ugly implementation
 
-      if parent.respond_to?(:attributes) && parent.attributes['id'] == id
-        parent
+      if tree.respond_to?(:attributes) && tree.attributes['id'] == id
+        tree
       else
-        parent.children.each do |child|
-          candidate = node_with_id(id, parent: child)
+        tree.children.each do |child|
+          candidate = node_with_id(id, tree: child)
           return candidate if candidate
         end
         nil
@@ -218,6 +213,6 @@ Class.new(Nanoc::Filter) do
   def run(content, params = {})
     tokens = DMark::Lexer.new(content).run
     tree = DMark::Parser.new(tokens).run
-    NanocWsHTMLTranslator.new(tree, @items).run
+    NanocWsHTMLTranslator.new(tree, @items, @item).run
   end
 end

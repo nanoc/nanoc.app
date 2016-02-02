@@ -345,7 +345,7 @@ p. Recompile the site and open both the home page and the about page in your web
 
 h2. Use a predefined helper
 
-p. Nanoc is bundled with a handful of helpers, including a tagging helper (see %ref[item=/doc/reference/helpers.*#tagging]{} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
+p. Nanoc is bundled with a handful of helpers, including a tagging helper (see %ref[item=/doc/reference/helpers.*,frag=tagging]{} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
 
 listing[lang=ruby].
   include Nanoc::Helpers::Tagging
