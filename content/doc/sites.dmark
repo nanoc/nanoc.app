@@ -21,28 +21,29 @@ listing.
 
 h2. Directory structure
 
-A site has the following files and directories:
+p. A site has the following files and directories:
 
-%filename{nanoc.yaml} (or %filename{config.yaml} on older sites)
-: contains the site configuration
+dl.
+  dt. %filename{nanoc.yaml} (or %filename{config.yaml} on older sites)
+  dd. contains the site configuration
 
-%filename{Rules}
-: contains compilation, routing and layouting rules
+  dt. %filename{Rules}
+  dd. contains compilation, routing and layouting rules
 
-%filename{content/}
-: contains the uncompiled items
+  dt. %filename{content/}
+  dd. contains the uncompiled items
 
-%filename{layouts/}
-: contains the layouts
+  dt. %filename{layouts/}
+  dd. contains the layouts
 
-%filename{lib/}
-: contains custom site-specific code (filters, helpers, …)
+  dt. %filename{lib/}
+  dd. contains custom site-specific code (filters, helpers, …)
 
-%filename{output/}
-: contains the compiled site
+  dt. %filename{output/}
+  dd. contains the compiled site
 
-%filename{tmp/}
-: contains data used for speeding up compilation (can be safely emptied)
+  dt. %filename{tmp/}
+  dd. contains data used for speeding up compilation (can be safely emptied)
 
 h2. Code
 
