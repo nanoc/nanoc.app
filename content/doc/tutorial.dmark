@@ -85,7 +85,7 @@ p. The recommended way of previewing a site is using the %kbd{nanoc view} comman
 listing.
   %prompt{tutorial%%} %kbd{gem install adsf}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. Now you can start a web server by running %kbd{nanoc view}:
 
@@ -239,7 +239,7 @@ p. Before we can use the %productname{kramdown} gem, it needs to be installed:
 listing.
   %prompt{%%} %kbd{gem install kramdown}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. The %filename{Rules} file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell Nanoc to use the kramdown filter.
 

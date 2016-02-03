@@ -25,6 +25,8 @@ Class.new(Nanoc::Filter) do
           handle_img(node)
         when 'ref'
           handle_ref(node)
+        when 'entity'
+          handle_entity(node)
         else
           tags = tags_for(node)
 
@@ -128,6 +130,28 @@ Class.new(Nanoc::Filter) do
           end
         end
       end
+    end
+
+    SUDO_GEM_CONTENT_DMARK = 'If the %command{<cmd>} command fails with a permission error, you likely have to prefix the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'
+
+    SUDO_GEM_INSTALL_CONTENT_DMARK = SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem install')
+
+    SUDO_GEM_UPDATE_SYSTEM_CONTENT_DMARK = SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem update --system')
+
+    def handle_entity(node)
+      entity = text_content_of(node)
+
+      content =
+        case entity
+        when 'sudo-gem-install'
+          SUDO_GEM_INSTALL_CONTENT_DMARK
+        when 'sudo-gem-update-system'
+          SUDO_GEM_UPDATE_SYSTEM_CONTENT_DMARK
+        end
+
+      tokens = DMark::Lexer.new('').lex_inline(content, 0)
+      tree = DMark::Parser.new(tokens).run
+      out << NanocWsHTMLTranslator.new(tree, @items, @item).run
     end
 
     def safe_text_content_of(node, item, frag)

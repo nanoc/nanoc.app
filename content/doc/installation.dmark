@@ -9,7 +9,7 @@ p. Install Nanoc using RubyGems:
 listing.
   %prompt{%%} %kbd{gem install nanoc}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. After installing, head over to %ref[item=/doc/tutorial.*]{}! For detailed installation instructions, read on.
 
@@ -33,7 +33,7 @@ p. All dependencies are now taken care of, and installing Nanoc should now be ea
 listing.
   %prompt{%%} %kbd{gem install nanoc}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. To make sure that Nanoc was installed correctly, run %kbd{nanoc --version}. It should print the version number along with some other information, like this:
 

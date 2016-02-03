@@ -32,7 +32,7 @@ p. You can install Nanoc 4 using RubyGems:
 listing.
   %prompt{%%} %kbd{gem install nanoc}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. We recommend using %ref[url=http://bundler.io/]{Bundler} to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the %filename{Gemfile} that looks like this:
 
