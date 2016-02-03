@@ -27,7 +27,7 @@ listing.
 
   options:
 
-     -d --datasource specify the data source for the new site</pre>
+     -d --datasource specify the data source for the new site
 
 p. To get a list of all commands and global options, invoke the %command{help} command without arguments:
 
