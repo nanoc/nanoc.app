@@ -113,8 +113,9 @@ Class.new(Nanoc::Filter) do
           out << (target_frag ? safe_text_content_of(target_node, target_item, target_frag) : target_item[:title])
           output_end_tags(tags)
         else
+          out << 'the '
+
           if target_frag
-            out << 'the '
             output_start_tags(tags)
             out << safe_text_content_of(target_node, target_item, target_frag)
             output_end_tags(tags)
@@ -126,8 +127,10 @@ Class.new(Nanoc::Filter) do
           end
 
           if target_item != @item
-            out << ' in the '
+            item_tags = [{ name: 'a', attributes: { href: target_item.path } }]
+            output_start_tags(item_tags)
             out << target_item[:title]
+            output_end_tags(item_tags)
             out << ' chapter'
           end
         end
@@ -191,9 +194,15 @@ Class.new(Nanoc::Filter) do
         [{ name: 'figcaption', attributes: attributes }]
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'li', 'figure', 'blockquote', 'var'
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var'
         if node.attributes['legacy']
           attributes.merge!(class: 'legacy')
+        end
+        if node.attributes['new']
+          attributes.merge!(class: 'new')
+        end
+        if node.attributes['spacious']
+          attributes.merge!(class: 'spacious')
         end
         if node.attributes['nav-title']
           attributes.merge!('data-nav-title': node.attributes['nav-title'])
@@ -213,6 +222,7 @@ Class.new(Nanoc::Filter) do
   def run(content, params = {})
     tokens = DMark::Lexer.new(content).run
     tree = DMark::Parser.new(tokens).run
+
     NanocWsHTMLTranslator.new(tree, @items, @item).run
   end
 end

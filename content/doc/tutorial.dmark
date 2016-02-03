@@ -188,8 +188,6 @@ dl.
   dt. %code{<%%= code %%>}
   dd. Runs the code between %code{<%%=} and %code{%%>}, and displays the return value on the web page
 
-caution. Fragment links are broken!
-
 tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag=write-pages-in-markdown]{} below.
 
 p. The %code{<%%= yield %%>} instruction is replaced with the item’s compiled content when compiling.
@@ -230,11 +228,9 @@ listing.
 
   ## Shopping list
 
-  \1. Bread
-  \2. Butter
-  \3. Refined uranium
-
-caution. Fix the necessary escaping in the list above!
+  1. Bread
+  2. Butter
+  3. Refined uranium
 
 p. Rename the %filename{content/index.html} file to %filename{content/index.md}. %filename{md} is a file extension that is commonly used with Markdown.
 

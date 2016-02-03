@@ -5,7 +5,7 @@ is_dynamic: true
 
 p. In Nanoc, every item (page or asset) and every layout has a unique %firstterm{identifier}: a string derived from the file’s path. A %firstterm{pattern} is an expression that is used to select items or layouts based on their identifier.
 
-h2. Identifiers
+h2[id=identifiers]. Identifiers
 
 p. Identifiers come in two types: the %emph{full} type, new in Nanoc 4, and the %emph{legacy} type, used in Nanoc 3.
 
@@ -74,7 +74,7 @@ ul.
   li. regular expression patterns
   li. legacy patterns
 
-h3. Glob patterns
+h3[id=glob-patterns]. Glob patterns
 
 p. Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in a identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
 
