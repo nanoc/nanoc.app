@@ -25,7 +25,7 @@ listing.
   <%= config[:ruby_version_info] %>
   %prompt{%%}
 
-p. To upgrade Ruby, follow the %ref[uri=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
+p. To upgrade Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
 
 p. You can install Nanoc 4 using RubyGems:
 
@@ -34,7 +34,7 @@ listing.
 
 note. <sudo-gem-install>
 
-p. We recommend using %ref[uri=http://bundler.io/]{Bundler} to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the %filename{Gemfile} that looks like this:
+p. We recommend using %ref[url=http://bundler.io/]{Bundler} to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the %filename{Gemfile} that looks like this:
 
 listing[lang=ruby].
     gem 'nanoc', '~> 4.0'
@@ -352,11 +352,11 @@ ol[spacious].
   listing[lang=ruby,new].
     item.identifier.to_s[7..-2]
 
-  li. If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[uri=http://nanoc.ws/community/#discussion-groups]{discussion group}.
+  li. If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=http://nanoc.ws/community/#discussion-groups]{discussion group}.
 
 h2. Removed features
 
-p. The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[uri=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} instead.
+p. The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} instead.
 
 p. Because Nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
 
