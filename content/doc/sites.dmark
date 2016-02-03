@@ -1,0 +1,70 @@
+---
+title: "Sites"
+is_dynamic: true
+---
+
+p. A site managed by Nanoc is a directory with a specific structure. It contains source data, as well as processing instructions that describe how the site should be compiled.
+
+p. By default, Nanoc uses the %code{filesystem} data source, which means that source data is stored inside the %filename{content/} directory. Nanoc can read from other sources too, including databases or web APIs. For details, see %ref[item=/doc/data-sources.*]{}.
+
+h2. Creating a site
+
+p. To create a site, use the %command{create-site} command. This command takes the site name as an argument. For example:
+
+listing.
+  %prompt{%%} %kbd{nanoc create-site tutorial}
+      %log-create{create}  nanoc.yaml
+      %log-create{create}  Rules
+      %log-create{create}  content/index.html
+      %log-create{create}  content/stylesheet.css
+      %log-create{create}  layouts/default.html
+  Created a blank Nanoc site at 'tutorial'. Enjoy!
+
+h2. Directory structure
+
+A site has the following files and directories:
+
+%filename{nanoc.yaml} (or %filename{config.yaml} on older sites)
+: contains the site configuration
+
+%filename{Rules}
+: contains compilation, routing and layouting rules
+
+%filename{content/}
+: contains the uncompiled items
+
+%filename{layouts/}
+: contains the layouts
+
+%filename{lib/}
+: contains custom site-specific code (filters, helpers, …)
+
+%filename{output/}
+: contains the compiled site
+
+%filename{tmp/}
+: contains data used for speeding up compilation (can be safely emptied)
+
+h2. Code
+
+p. Nanoc will load all Ruby source files in the %filename{lib/} directory before it starts compiling. All method definitions, class definitions, … will be available during the compilation process. This directory is useful for putting in custom %ref[item=/doc/helpers.*]{helpers}, custom %ref[item=/doc/filters.*]{filters}, custom %ref[item=/doc/data-sources.*]{data sources}, etc.
+
+h2. Compiling a site
+
+p. To compile a site, invoke %command{nanoc} on the command line. For example:
+
+listing.
+  %prompt{%%} %kbd{nanoc}
+  Loading site data… done
+  Compiling site…
+        update  [0.05s]  output/doc/sites/index.html
+
+  Site compiled in 2.42s.
+
+p. It is recommended to use %ref[url=http://bundler.io/]{Bundler} with Nanoc sites. When using Bundler, compiling a site is done by invoking %command{bundle exec nanoc} on the command line.
+
+p. To pass additional options when compiling a site, invoke the %command{nanoc compile}, and pass the desired options.
+
+p. Nanoc will not compile items that are not outdated. If you want to force Nanoc to recompile everything, delete the output directory and re-run the compile command.
+
+p. You can use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} to automatically recompile the site when it changes.
