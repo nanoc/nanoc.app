@@ -1,6 +1,5 @@
 ---
-title:      "Rules"
-is_dynamic: true
+title: "Rules"
 ---
 
 p. The %filename{Rules} file contains the processing instructions for all items in a Nanoc site. Three different kinds of rules exist:

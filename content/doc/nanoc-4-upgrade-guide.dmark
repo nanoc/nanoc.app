@@ -1,6 +1,5 @@
 ---
 title: "Nanoc 4 upgrade guide"
-is_dynamic: true
 ---
 
 p. Nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
@@ -22,7 +21,7 @@ p. Before installing, ensure you have a supported version of Ruby. Nanoc support
 
 listing.
   %prompt{%%} %kbd{ruby --version}
-  <%= config[:ruby_version_info] %>
+  %erb{config[:ruby_version_info]}
   %prompt{%%}
 
 p. To upgrade Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
@@ -37,7 +36,7 @@ note. %entity{sudo-gem-install}
 p. We recommend using %ref[url=http://bundler.io/]{Bundler} to manage dependencies. When using Bundler, ensure there is a line for Nanoc in the %filename{Gemfile} that looks like this:
 
 listing[lang=ruby].
-    gem 'nanoc', '~> 4.0'
+  gem 'nanoc', '~> 4.0'
 
 h2[id=quick-upgrade-guide]. Quick upgrade guide
 
@@ -179,11 +178,11 @@ ol[spacious].
 
     listing[lang=rhtml,legacy].
       <!-- Before -->
-      <%%%= render 'header' %%>
+      <%%= render 'header' %%>
 
     listing[lang=rhtml,legacy].
       <!-- After -->
-      <%%%= render '/header/' %%>
+      <%%= render '/header/' %%>
 
   li. Replace %code{*} and %code{+} with %code{**/*} in all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. For example:
 
@@ -253,10 +252,10 @@ ol[spacious].
       @layouts['/default.*']
 
     listing[lang=rhtml,legacy].
-      <%%%= render '/root/' %%>
+      <%%= render '/root/' %%>
 
     listing[lang=rhtml,new].
-      <%%%= render '/root.*' %%>
+      <%%= render '/root.*' %%>
 
   li. Update the routing rules to output the correct path. For example:
 

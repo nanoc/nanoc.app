@@ -1,6 +1,5 @@
 ---
 title: "Sites"
-is_dynamic: true
 ---
 
 p. A site managed by Nanoc is a directory with a specific structure. It contains source data, as well as processing instructions that describe how the site should be compiled.

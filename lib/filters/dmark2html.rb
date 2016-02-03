@@ -6,11 +6,12 @@ Class.new(Nanoc::Filter) do
   class NanocWsHTMLTranslator < DMark::Translator
     include Nanoc::Helpers::HTMLEscape
 
-    def initialize(tree, items, item)
+    def initialize(tree, items, item, binding_x)
       super(tree)
 
       @items = items
       @item = item
+      @binding = binding_x
     end
 
     def handle(node)
@@ -27,6 +28,8 @@ Class.new(Nanoc::Filter) do
           handle_ref(node)
         when 'entity'
           handle_entity(node)
+        when 'erb'
+          handle_erb(node)
         else
           tags = tags_for(node)
 
@@ -151,7 +154,11 @@ Class.new(Nanoc::Filter) do
 
       tokens = DMark::Lexer.new('').lex_inline(content, 0)
       tree = DMark::Parser.new(tokens).run
-      out << NanocWsHTMLTranslator.new(tree, @items, @item).run
+      out << NanocWsHTMLTranslator.new(tree, @items, @item, @binding).run
+    end
+
+    def handle_erb(node)
+      out << eval(text_content_of(node), @binding)
     end
 
     def safe_text_content_of(node, item, frag)
@@ -252,6 +259,6 @@ Class.new(Nanoc::Filter) do
     tokens = DMark::Lexer.new(content).run
     tree = DMark::Parser.new(tokens).run
 
-    NanocWsHTMLTranslator.new(tree, @items, @item).run
+    NanocWsHTMLTranslator.new(tree, @items, @item, binding).run
   end
 end
