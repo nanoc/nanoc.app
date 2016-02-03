@@ -95,17 +95,10 @@ Class.new(Nanoc::Filter) do
       target_node = target_tree && target_frag ? node_with_id(target_frag, tree: target_tree) : nil
       # FIXME: require target_tree
 
-      content =
-        begin
-          text_content_of(node)
-        rescue
-          nil
-        end
-
       tags = [{ name: 'a', attributes: { href: target_path } }]
-      if content
+      if has_content?(node)
         output_start_tags(tags)
-        out << content
+        handle_children(node)
         output_end_tags(tags)
       else
         if node.attributes['bare']
@@ -142,6 +135,18 @@ Class.new(Nanoc::Filter) do
     rescue
       $stderr.puts "WARNING: failed to get text content for item=#{item.identifier} frag=#{frag}; falling back to `???`"
       '???'
+    end
+
+    def has_content?(node)
+      if node.nil? || node.children.empty?
+        false
+      elsif node.children.any? { |n| !n.is_a?(DMark::Nodes::TextNode) }
+        true
+      elsif node.children.all? { |n| n.text.empty? }
+        false
+      else
+        true
+      end
     end
 
     def node_with_id(id, tree: @tree)
