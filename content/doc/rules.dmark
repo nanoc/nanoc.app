@@ -1,0 +1,300 @@
+---
+title:      "Rules"
+is_dynamic: true
+---
+
+p. The %filename{Rules} file contains the processing instructions for all items in a Nanoc site. Three different kinds of rules exist:
+
+dl.
+  dt. compilation rules
+  dd. These rules describe the actions that should be executed during compilation (filtering, layouting, and snapshotting).
+
+  dt. routing rules
+  dd. These rules describe the path where the compiled items should be written to.
+
+  dt. layouting rules
+  dd. These rules describe the filter that should be used for a given layout.
+
+p. For every item, Nanoc finds the first matching compilation rule. Similarly, for every layout, Nanoc finds the first matching layouting rule. The first matching rule that is found in the rules file is used. If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
+
+h2. Compilation rules
+
+p. A compilation rule describes how an item should be transformed. It has the following shape:
+
+listing[lang=ruby].
+  compile "/some/pattern.*" do
+    # (compilation code here)
+  end
+
+p. The argument for the %code{#compile} method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
+
+p. The code block should execute the necessary actions for compiling the item. The return value of the block is ignored. There are three kinds actions that can be performed:
+
+ul.
+  li. %emph{filter} items, transforming their content
+  li. %emph{layout} items, placing their content inside a layout
+  li. %emph{snapshot} items, remembering their content at that point in time for reuse
+
+p. Lastly, a compilation block can end with a %emph{write} action, which will write the compiled content to a file with the given name. (Alternatively, you can use [routing rules](#routing-rules) to describe where compiled content should be written to.)
+
+p. The code block does not need to execute anything. An empty %code{#compile} block will not execute anything.
+
+p. %strong{Example}: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
+
+listing[lang=ruby].
+  compile '/images/**/*' do
+  end
+
+p. A compilation rule can end with a %code{#write} call, which takes the path to the file to write compiled content to.
+
+p. %strong{Example}: This compilation rule will copy %filename{/images/denis.jpg} without further processing:
+
+listing[lang=ruby].
+  compile '/images/**/*' do
+    write item.identifier.to_s
+  end
+
+p. To filter an item representation, call %code{#filter} pass the name of the filter as the first argument.
+
+p. %strong{Example}: The following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
+
+listing[lang=ruby].
+  compile '/**/*.md' do
+    filter :kramdown
+    write @item.identifier.without_ext + '.html'
+  end
+
+p. Additional parameters can be given to invocations of %code{#filter}. This is used by some filters, such as the Haml one (%code{:haml}), to alter filter behavior in one way or another.
+
+p. %strong{Example}: The following rule will filter CSS items using the %code{:relativize_paths} filter, with the filter argument %code{type} set to %code{:css}:
+
+listing[lang=ruby].
+  compile '/**/*.css' do
+    filter :relativize_paths, type: :css
+    write @item.identifier.without_ext + '.css'
+  end
+
+p. To lay out an item representation, call %code{#layout} and pass the layout identifier as argument.
+
+p. %strong{Example}: The following rule will filter the rep using the %code{erb} filter, lay out the rep using the layout that matches the %code{/shiny.*} pattern, and finally run the laid out rep through the %code{:rubypants} filter:
+
+listing[lang=ruby].
+  compile '/about.*' do
+    filter :erb
+    layout '/shiny.*'
+    filter :rubypants
+    write @item.identifier.without_ext + '/index.html'
+  end
+
+p. In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the [Variables](/doc/reference/variables/) page for details.
+
+p. %strong{Example}: The following rule will only invoke the %code{:erb} filter if the item’s %code{:is_dynamic} attribute is set:
+
+listing[lang=ruby].
+  compile '/about.*' do
+    filter :erb if @item[:is_dynamic]
+    write @item.identifier.without_ext + '/index.html'
+  end
+
+p. To take a snapshot of an item representation, call %code{#snapshot} and pass the snapshot name as argument.
+
+p. %strong{Example}: The following rule will create a snapshot named %code{:without_toc} so that the content at that snapshot can then later be reused elsewhere:
+
+listing[lang=ruby].
+  compile '/foo/*' do
+    filter :markdown
+    snapshot :without_toc
+    filter :add_toc
+    write @item.identifier.without_ext + '/index.html'
+  end
+
+p. A %code{:rep} argument can be passed to the %code{#compile} call. This indicates the name of the representation this rule should apply to. This is %code{:default} by default, which means compilation rules apply to the default representation unless specified otherwise.
+
+p. %strong{Example}: The following rule will apply to all items below %filename{/people}, and only to textual representations (with name equal to %code{:text}):
+
+listing[lang=ruby].
+  compile '/people/**/*', rep: :text do
+    write @item.identifier.without_ext + '.txt'
+  end
+
+p. When using a regular expression to match items, the block arguments will contain all matched groups. This is more useful for routing rules than it is for compilation rules.
+
+p. %strong{Example}: The following rule will be matched using a regular expression instead of with a wildcard string:
+
+listing[lang=ruby].
+  compile %%r<\A/blog/\d{4%}/.*> do
+    filter :kramdown
+    write @item.identifier.without_ext + '/index.html'
+  end
+
+h2. Routing rules
+
+p. Routing rules are an alternative way to specify where a compiled item should be written to. It has the following shape:
+
+listing[lang=ruby].
+  route '/some/pattern.*' do
+    # (routing code here)
+  end
+
+p. The argument for the %code{#route} method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
+
+p. The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
+
+p. A compilation rule that ends with a %code{#write} call can be written as a combination of a compilation rule and a routing rule. Typically, using %code{#write} in the compile block leads to a more compact and easier-to-understand Rules file, but separate %code{#route} calls can nonetheless be useful.
+
+p. %strong{Example}: The following compile/route rules are equivalent:
+
+listing[lang=ruby].
+  compile "/*.md" do
+    filter :kramdown
+  end
+
+  route "/*.md" do
+    item.identifier.without_ext + '/index.html'
+  end
+
+listing[lang=ruby].
+  compile "/*.md" do
+    filter :kramdown
+    write item.identifier.without_ext + '/index.html'
+  end
+
+p. %strong{Example}: The following rule will give the item with identifier %filename{/404.erb} the path %filename{/errors/404.php}:
+
+listing[lang=ruby].
+  route "/404.erb" do
+    "/errors/404.php"
+  end
+
+p. %strong{Example}: The following rule will prevent all items below %filename{/links} from being written:
+
+listing[lang=ruby].
+  route "/links/**/*" do
+    nil
+  end
+
+p. In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the [Variables](/doc/reference/variables/) page for details.
+
+p. %strong{Example}: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item %filename{/foo/bar.html} would get the path %filename{/foo/bar/index.html}):
+
+listing[lang=ruby].
+  route "/**/*" do
+    @item.identifier.without_ext + "/index.html"
+  end
+
+p. When using a regular expression to match items, the block arguments will contain all matched groups.
+
+p. %strong{Example}: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier %filename{/blog/2015-05-19-something.md} will be routed to %filename{/blog/2015/05/something/index.html}):
+
+listing[lang=ruby].
+  route %%r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
+    "/blog/#{y%}/#{m%}/#{slug%}/index.html"
+  end
+
+p. Just like with %code{#compile} calls, a %code{:rep} argument can be passed to the %code{#route} call. This indicates the name of the representation this rule should apply to. This is %code{:default} by default, which means routing rules apply to the default representation unless specified otherwise.
+
+p. %strong{Example}: The following rule will apply to all textual representations of all items below %filename{/people} (for example, the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
+
+listing[lang=ruby].
+  route "/people/**/*", rep: :text do
+    item.identifier.without_ext + '.txt'
+  end
+
+p. When a %code{:snapshot} argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the %code{:snapshot} argument is %code{:last}, meaning that compiled items will only be written once they have been fully compiled.
+
+p. %strong{Example}: The following rules will apply to the %code{raw} snapshot of all items below %filename{/people} (for example, the raw snapshot of the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
+
+listing[lang=ruby].
+  route "/people/**/*", snapshot: :raw do
+    item.identifier.without_ext + '.txt'
+  end
+
+h2. Layouting rules
+
+p. To specify the filter used for a layout, use the %code{#layout} method.
+
+p. The first argument should be a string containing the identifier of the layout. It can also be a string that contains the %code{*} wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
+
+p. The second should be the identifier of the filter to use.
+
+p. In addition to the first two arguments, extra arguments can be supplied; these will be passed on to the filter.
+
+p. %strong{Example}: The following rule will make all layouts use the %code{:erb} filter:
+
+listing[lang=ruby].
+  layout '/**/*', :erb
+
+p. %strong{Example}: The following rule will make the default layout use the %code{haml} filter and pass a filter argument:
+
+listing[lang=ruby].
+  layout '/default.*', :haml, format: :html5
+
+p. %strong{Example}: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html} and even %filename{/_foo/_bar.erb} would:
+
+listing[lang=ruby].
+  layout %%r{\A/_%}, :erb
+
+h2. Convenience methods
+
+p. The %code{#passthrough} method does no filtering or laying out, and copies the matched item as-is. For example:
+
+listing[lang=ruby].
+  passthrough '/assets/images/**/*'
+
+p. This is a shorthand for the following:
+
+listing[lang=ruby].
+  route '/assets/images/**/*' do
+    item.identifier.to_s
+  end
+
+  compile '/assets/images/**/*' do
+  end
+
+p. The %code{#ignore} method does no filtering or laying out, and does not write out the matched item. This is useful for items that are only intended to be included in other items. For example:
+
+listing[lang=ruby].
+  ignore '/assets/style/_*'
+
+p. This is a shorthand for the following:
+
+listing[lang=ruby].
+  route '/assets/style/_*' do
+    nil
+  end
+
+  compile '/assets/style/_*' do
+  end
+
+h2. Preprocessing
+
+p. The %filename{Rules} file can contain a %code{#preprocess} block. This preprocess block is executed before the site is compiled, and has access to all site data.
+
+p. Here is an example preprocess block that sets the %code{author} attribute to %code{denis} for every article:
+
+listing[lang=ruby].
+  preprocess do
+    @items.each do |item|
+      item[:author] = 'denis'
+    end
+  end
+
+p. Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content and the path, but also add and remove items.
+
+p. Preprocessors can be used for various purposes. Here are two sample uses:
+
+ul[spacious].
+  li. A preprocessor could set a %code{language_code} attribute based on the item path. An item such as %code{/en/about/} would get an attribute %code{language_code} equal to %code{'en'}. This would eliminate the need for helpers such as %code{language_code_of}.
+
+  li. A preprocessor could create new (in-memory) items for a given set of items. This can be useful for creating pages that contain paginated items.
+
+h2. Post-processing
+
+p. The %filename{Rules} file can contain a %code{#postprocess} block. This post-process block is executed after the site is compiled. Post-processing is useful to model tasks that are tricky to model in Nanoc’s workflow, such as updating a search index. For example:
+
+listing[lang=ruby].
+  postprocess do
+    items.select(&:modified).each do |item|
+      update_search_index(item.path, item.compiled_content(snapshot: :last))
+    end
+  end

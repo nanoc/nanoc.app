@@ -199,7 +199,7 @@ Class.new(Nanoc::Filter) do
         [{ name: 'figcaption', attributes: attributes }]
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var'
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong'
         if node.attributes['legacy']
           attributes.merge!(class: 'legacy')
         end
