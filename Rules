@@ -46,7 +46,6 @@ end
 
 compile '/404.*' do
   layout '/default.*'
-  filter :typohero
   filter :htmlcompressor
   write '/404.html'
 end
@@ -72,7 +71,6 @@ compile '/**/*' do
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
-  filter :typohero
   filter :htmlcompressor
 
   if item.binary?
