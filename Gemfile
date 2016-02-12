@@ -17,6 +17,5 @@ gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
 gem 'htmlcompressor'
-gem 'nanoc-typohero'
 gem 'w3c_validators'
 gem 'ffi-aspell'
