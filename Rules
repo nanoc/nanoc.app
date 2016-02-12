@@ -18,6 +18,7 @@ ignore '/**/_*'
 passthrough '/favicon.ico'
 passthrough '/assets/fonts/**/*'
 passthrough '/assets/images/**/*'
+ignore '/assets/style/*.tex'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
@@ -48,6 +49,24 @@ compile '/404.*' do
   layout '/default.*'
   filter :htmlcompressor
   write '/404.html'
+end
+
+compile '/**/*', rep: :latex do
+  if item.identifier =~ '/doc/**/*' || item.identifier =~ '/about.*'
+    filter :erb if item[:is_dynamic]
+    filter :admonition
+    filter :remove_lang_from_pre
+    filter :kramdown2latex
+    layout '/latex-chapter.erb'
+  end
+end
+
+compile '/book.*' do
+  filter :erb
+  layout '/latex-book.erb'
+  snapshot :latex, path: item.identifier.without_ext + '.tex'
+  filter :latex2pdf
+  write item.identifier.without_ext + '.pdf'
 end
 
 compile '/**/*' do
