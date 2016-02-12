@@ -34,10 +34,7 @@ GEM
       nanoc (~> 4.0)
     haml (4.0.7)
       tilt
-    html5small (0.4.0)
-      htmlentities (>= 4.1.0)
-      nokogiri (>= 1.5.0)
-    htmlentities (4.3.4)
+    htmlcompressor (0.3.0)
     json (1.8.3)
     kramdown (1.9.0)
     listen (3.0.5)
@@ -94,7 +91,7 @@ DEPENDENCIES
   ffi-aspell
   guard-nanoc
   haml
-  html5small
+  htmlcompressor
   kramdown
   nanoc (~> 4.1)
   nanoc-typohero

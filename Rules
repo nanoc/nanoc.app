@@ -40,14 +40,14 @@ compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, type: :html
-  filter :html5small
+  filter :htmlcompressor
   write '/index.html'
 end
 
 compile '/404.*' do
   layout '/default.*'
   filter :typohero
-  filter :html5small
+  filter :htmlcompressor
   write '/404.html'
 end
 
@@ -73,7 +73,7 @@ compile '/**/*' do
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
   filter :typohero
-  filter :html5small
+  filter :htmlcompressor
 
   if item.binary?
     write item.identifier.to_s
