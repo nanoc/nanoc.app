@@ -104,7 +104,7 @@ p. For GitHub, we recommend removing the %code{gh-pages} branch from the base re
 
 h2. With fog
 
-p. %ref[url=fog]{http://fog.io} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
+p. %ref[url=http://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
 
 p. To use fog for deployment, install the %productname{fog} gem (or add it to the %filename{Gemfile} and run %kbd{bundle install}). Change the deployment configuration in %filename{nanoc.yaml} to reflect the fog configuration. Here is an example for Amazon S3:
 
