@@ -85,7 +85,7 @@ p. The recommended way of previewing a site is using the %kbd{nanoc view} comman
 listing.
   %prompt{tutorial%%} %kbd{gem install adsf}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. Now you can start a web server by running %kbd{nanoc view}:
 
@@ -149,7 +149,7 @@ listing[lang=yaml].
   title: "Denis’ Guide to Awesomeness"
   ---
 
-p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. (The mechanism behind this will be explained in %ref[frag]{customize-the-layout} below.
+p. Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. The mechanism behind this will be explained in %ref[frag=customize-the-layout]{} below.
 
 h2. Add a page
 
@@ -168,7 +168,7 @@ p. Recompile the site by issuing %kbd{nanoc}. Notice that Nanoc creates a file %
 
 tip. If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the %filename{content/about.html} page can have its metadata stored in %filename{content/about.yaml} instead.
 
-h2. Customize the layout
+h2[id=customize-the-layout]. Customize the layout
 
 p. The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, %filename{layouts/default.html}, your text editor. It *almost* looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the %code{<%%= yield %%>} one:
 
@@ -188,7 +188,7 @@ dl.
   dt. %code{<%%= code %%>}
   dd. Runs the code between %code{<%%=} and %code{%%>}, and displays the return value on the web page
 
-tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag]{write-pages-in-markdown} below.
+tip. Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag=write-pages-in-markdown]{} below.
 
 p. The %code{<%%= yield %%>} instruction is replaced with the item’s compiled content when compiling.
 
@@ -211,7 +211,7 @@ listing[lang=html].
 
 p. Recompile the site and open both the home page and the about page. The about page contains a paragraph mentioning John Doe as the author, while the home page does not.
 
-h2. Write pages in Markdown
+h2[id=write-pages-in-markdown]. Write pages in Markdown
 
 p. Nanoc has %firstterm{filters}, which transform content from one format into another.
 
@@ -228,9 +228,9 @@ listing.
 
   ## Shopping list
 
-  \1. Bread
-  \2. Butter
-  \3. Refined uranium
+  1. Bread
+  2. Butter
+  3. Refined uranium
 
 p. Rename the %filename{content/index.html} file to %filename{content/index.md}. %filename{md} is a file extension that is commonly used with Markdown.
 
@@ -239,7 +239,7 @@ p. Before we can use the %productname{kramdown} gem, it needs to be installed:
 listing.
   %prompt{%%} %kbd{gem install kramdown}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. The %filename{Rules} file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell Nanoc to use the kramdown filter.
 
@@ -282,7 +282,7 @@ p. The first rule matches items that have the %filename{html} or %filename{md} e
 
 p. The second rule matches all other items, and assigns a path that is identical to the identifier. For example, the %identifier{/stylesheet.css} item will have the path %filename{/stylesheet.css}.
 
-note. For more information on rules, see %ref[item=/doc/rules.*]{} page.
+note. For more information on rules, see %ref[item=/doc/rules.*]{}.
 
 p. Now that you know what compilation and routing rules are, we can customize the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
 
@@ -341,7 +341,7 @@ p. Recompile the site and open both the home page and the about page in your web
 
 h2. Use a predefined helper
 
-p. Nanoc is bundled with a handful of helpers, including a tagging helper (see %ref[item=/doc/reference/helpers.*#tagging]{} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
+p. Nanoc is bundled with a handful of helpers, including a tagging helper (see %ref[item=/doc/reference/helpers.*,frag=tagging]{} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
 
 listing[lang=ruby].
   include Nanoc::Helpers::Tagging

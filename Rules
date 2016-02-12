@@ -41,14 +41,13 @@ compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, type: :html
-  filter :html5small
+  filter :htmlcompressor
   write '/index.html'
 end
 
 compile '/404.*' do
   layout '/default.*'
-  filter :typohero
-  filter :html5small
+  filter :htmlcompressor
   write '/404.html'
 end
 
@@ -57,7 +56,6 @@ compile '/**/*', rep: :latex do
     filter :erb if item[:is_dynamic]
     case item.identifier.ext
     when 'dmark'
-      filter :dmark_subst
       filter :dmark2latex
     else
       filter :admonition
@@ -83,7 +81,6 @@ compile '/**/*' do
     filter :fix_contributor_brackets
   end
   if 'dmark' == item.identifier.ext
-    filter :dmark_subst
     filter :dmark2html
   else
     filter :admonition
@@ -103,8 +100,7 @@ compile '/**/*' do
   filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :fixup_whitespace
-  filter :typohero
-  filter :html5small
+  filter :htmlcompressor
 
   if item.binary?
     write item.identifier.to_s

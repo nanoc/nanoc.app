@@ -5,10 +5,12 @@ branches:
     - "/^release-/"
 rvm:
   - 2.2.0
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq libaspell-dev aspell-en
 cache: bundler
-sudo: required
+sudo: false
 git:
   depth: 10
+addons:
+  apt:
+    packages:
+    - libaspell-dev
+    - aspell-en

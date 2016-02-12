@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/ddfreyne/d-mark.git
+  revision: c1a9acb42a1276649ef03fe849de533b89b63e21
+  specs:
+    d-mark (0.2.0)
+      treetop (~> 1.4)
+
+GIT
+  remote: git://github.com/nanoc/nanoc.git
+  revision: 2024849b7ab9ecbf7a31bdd2a22e3d2d37405e0f
+  branch: release-4.1.x
+  specs:
+    nanoc (4.1.3)
+      cri (~> 2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,7 +28,6 @@ GEM
       sass (~> 3.2.19)
     cri (2.7.0)
       colored (~> 1.2)
-    d-mark (0.1)
     ffi (1.9.10)
     ffi-aspell (1.1.0)
       ffi
@@ -35,10 +49,7 @@ GEM
       nanoc (~> 4.0)
     haml (4.0.7)
       tilt
-    html5small (0.4.0)
-      htmlentities (>= 4.1.0)
-      nokogiri (>= 1.5.0)
-    htmlentities (4.3.4)
+    htmlcompressor (0.3.0)
     json (1.8.3)
     kramdown (1.9.0)
     listen (3.0.5)
@@ -47,17 +58,13 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
-    nanoc (4.1.3)
-      cri (~> 2.3)
-    nanoc-typohero (1.0.1)
-      nanoc (>= 3.6.7, < 5.0.0)
-      typohero (>= 0.0.4, < 1.0.0)
     nenv (0.2.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    polyglot (0.3.5)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -78,7 +85,8 @@ GEM
     systemu (2.6.5)
     thor (0.19.1)
     tilt (2.0.2)
-    typohero (0.0.5)
+    treetop (1.6.3)
+      polyglot (~> 0.3)
     w3c_validators (1.2)
       json
       nokogiri
@@ -92,14 +100,13 @@ DEPENDENCIES
   builder
   coderay
   compass
-  d-mark
+  d-mark!
   ffi-aspell
   guard-nanoc
   haml
-  html5small
+  htmlcompressor
   kramdown
-  nanoc (~> 4.1)
-  nanoc-typohero
+  nanoc!
   nokogiri
   rainpress
   rake

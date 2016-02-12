@@ -1,7 +1,6 @@
 ---
 title: "Installation"
 nav_title: "Install"
-is_dynamic: true
 ---
 
 p. Install Nanoc using RubyGems:
@@ -9,7 +8,7 @@ p. Install Nanoc using RubyGems:
 listing.
   %prompt{%%} %kbd{gem install nanoc}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. After installing, head over to %ref[item=/doc/tutorial.*]{}! For detailed installation instructions, read on.
 
@@ -21,7 +20,7 @@ p. Ruby may already be installed on your system. To check, open a terminal windo
 
 listing.
   %prompt{%%} %kbd{ruby --version}
-  <%= indent_for_dmark(2, config[:ruby_version_info]) %>
+  %erb{config[:ruby_version_info]}
   %prompt{%%}
 
 p. To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
@@ -33,18 +32,18 @@ p. All dependencies are now taken care of, and installing Nanoc should now be ea
 listing.
   %prompt{%%} %kbd{gem install nanoc}
 
-note. <sudo-gem-install>
+note. %entity{sudo-gem-install}
 
 p. To make sure that Nanoc was installed correctly, run %kbd{nanoc --version}. It should print the version number along with some other information, like this:
 
 listing.
   %prompt{%%} %kbd{nanoc --version}
-  <%= indent_for_dmark(2, config[:nanoc_version_info]) %>
+  %erb{config[:nanoc_version_info]}
   %prompt{%%}
 
 p. If you get a “command not found” error when trying to run %command{nanoc}, you might have to adjust your %code{$PATH} to include the path to the directory where RubyGems installs executables.
 
-p. The current version of Nanoc is is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
+p. The current version of Nanoc is is %erb{latest_release_info[:version]}, released on %erb{latest_release_info[:date].format_as_date}. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
 
 p. If you’re on Windows and are using the Windows console, it’s probably a good idea to install the %productname{win32console} gem using %kbd{gem install win32console} to allow Nanoc to use pretty colors when writing stuff to the terminal.
 

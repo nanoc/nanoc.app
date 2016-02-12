@@ -1,26 +1,29 @@
-require 'dmark'
+require 'd-mark'
 
 Class.new(Nanoc::Filter) do
   identifier :dmark2latex
 
   class NanocWsLaTeXTranslator < DMark::Translator
-    def initialize(tree, item, items)
-      super(tree)
+    def initialize(nodes, item, items, binding_x)
+      super(nodes)
 
       @item = item
       @items = items
+      @binding = binding_x
     end
 
     def handle(node, options = {})
       case node
-      when DMark::Nodes::RootNode
-        handle_children(node, options)
-      when DMark::Nodes::TextNode
-        out << escape_string(node.text, options)
-      when DMark::Nodes::ElementNode
+      when String
+        out << escape_string(node, options)
+      when DMark::Parser::ElementNode
         case node.name
         when 'ref'
           handle_ref(node, options)
+        when 'entity'
+          handle_entity(node)
+        when 'erb'
+          handle_erb(node)
         else
           handle_element_node(node, options)
         end
@@ -29,6 +32,31 @@ Class.new(Nanoc::Filter) do
 
     def handle_children(node, options)
       node.children.each { |child| handle(child, options) }
+    end
+
+    SUDO_GEM_CONTENT_DMARK = 'If the %command{<cmd>} command fails with a permission error, you likely have to prefix the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'
+
+    SUDO_GEM_INSTALL_CONTENT_DMARK = SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem install')
+
+    SUDO_GEM_UPDATE_SYSTEM_CONTENT_DMARK = SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem update --system')
+
+    def handle_entity(node)
+      entity = text_content_of(node)
+
+      content =
+        case entity
+        when 'sudo-gem-install'
+          SUDO_GEM_INSTALL_CONTENT_DMARK
+        when 'sudo-gem-update-system'
+          SUDO_GEM_UPDATE_SYSTEM_CONTENT_DMARK
+        end
+
+      nodes = DMark::Parser.new(content).read_inline_content
+      out << NanocWsLaTeXTranslator.new(nodes, @items, @item, @binding).run
+    end
+
+    def handle_erb(node)
+      out << eval(text_content_of(node), @binding)
     end
 
     def handle_ref(node, options)
@@ -58,10 +86,10 @@ Class.new(Nanoc::Filter) do
     end
 
     def text_content_of(node)
-      if node.children.size != 1 || !node.children.first.is_a?(DMark::Nodes::TextNode)
+      if node.children.size != 1 || !node.children.first.is_a?(String)
         raise "Expected node #{node.name} to have one text child node"
       else
-        node.children.first.text
+        node.children.first
       end
     end
 
@@ -71,8 +99,10 @@ Class.new(Nanoc::Filter) do
         out << '\\begin{lstlisting}' << "\n"
         handle_children(node, options.merge(directly_in_lstlisting: true))
         out << '\\end{lstlisting}' << "\n"
-      when 'emph', 'firstterm', 'class', 'productname', 'see'
+      when 'emph', 'firstterm', 'class', 'productname', 'see', 'var', 'log-create', 'log-check-ok', 'log-check-error', 'log-update'
         wrap_inline('emph', node, options)
+      when 'strong'
+        wrap_inline('textbf', node, options)
       when 'code', 'attribute', 'output'
         wrap_inline('texttt', node, options)
       when 'command', 'kbd'
@@ -87,6 +117,11 @@ Class.new(Nanoc::Filter) do
         wrap_inline('subsection', node, options)
         out << "\n"
       when 'ul'
+        out << '\\begin{itemize}' << "\n"
+        handle_children(node, options)
+        out << '\\end{itemize}' << "\n"
+      when 'ol'
+        # FIXME: needs to be numbered
         out << '\\begin{itemize}' << "\n"
         handle_children(node, options)
         out << '\\end{itemize}' << "\n"
@@ -174,8 +209,7 @@ Class.new(Nanoc::Filter) do
   end
 
   def run(content, params = {})
-    tokens = DMark::Lexer.new(content).run
-    tree = DMark::Parser.new(tokens).run
-    NanocWsLaTeXTranslator.new(tree, @item, @items).run
+    nodes = DMark::Parser.new(content.sub(/\A\n/, '')).parse
+    NanocWsLaTeXTranslator.new(nodes, @item, @items, binding).run
   end
 end

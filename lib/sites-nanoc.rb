@@ -33,7 +33,3 @@ class Numeric
     Date::MONTHNAMES[self]
   end
 end
-
-def indent_for_dmark(num, s)
-  s.lines.map.with_index { |l, i| (i == 0 ? '' : ' ' * num) + l }.join
-end

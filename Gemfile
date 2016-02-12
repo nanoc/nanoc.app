@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'nanoc', '~> 4.1'
+gem 'nanoc', github: 'nanoc/nanoc', branch: 'release-4.1.x'
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
 gem 'coderay'     # for syntax highlighting
@@ -16,8 +16,7 @@ gem 'sass', '~> 3.2.13'
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
 gem 'yard'        # for loading filter and helper docs
-gem 'html5small'
-gem 'nanoc-typohero'
+gem 'htmlcompressor'
 gem 'w3c_validators'
 gem 'ffi-aspell'
-gem 'd-mark'
+gem 'd-mark', github: 'ddfreyne/d-mark'
