@@ -5,6 +5,14 @@ GIT
     d-mark (0.2.0)
       treetop (~> 1.4)
 
+GIT
+  remote: git://github.com/nanoc/nanoc.git
+  revision: 2024849b7ab9ecbf7a31bdd2a22e3d2d37405e0f
+  branch: release-4.1.x
+  specs:
+    nanoc (4.1.3)
+      cri (~> 2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -50,8 +58,6 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
-    nanoc (4.1.3)
-      cri (~> 2.3)
     nenv (0.2.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -100,7 +106,7 @@ DEPENDENCIES
   haml
   htmlcompressor
   kramdown
-  nanoc (~> 4.1)
+  nanoc!
   nokogiri
   rainpress
   rake
