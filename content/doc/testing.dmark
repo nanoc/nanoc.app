@@ -1,0 +1,93 @@
+---
+title: "Testing Nanoc sites"
+short_title: "Testing"
+---
+
+p. The %command{check} command is used to verify that a compiled site meets the requirements.
+
+p. A check can be run using %kbd{nanoc check %var{check-name}}. For instance, the following will run the internal links check (%code{internal_links} or %code{ilinks}):
+
+listing.
+  %prompt{%%} %kbd{nanoc check ilinks}
+  Loading site data… done
+    Running internal_links check…   %log-check-ok{ok}
+  %prompt{%%}
+
+h2. Available checks
+
+p. Nanoc comes with the following checks:
+
+dl.
+  dt. %code{css}
+  dd. verifies that the CSS is valid
+
+  dt. %code{html}
+  dd. verifies that the HTML is valid
+
+  dt. %code{external_links}
+  dt. %code{elinks}
+  dd. verifies that external links are correct
+
+  dt. %code{internal_links}
+  dt. %code{ilinks}
+  dd. verifies that internal links are correct
+
+  dt. %code{stale}
+  dd. verifies whether no non-Nanoc items are in the output directory
+
+  dt. %code{mixed_content}
+  dd. verifies that no content is included or linked to from a potentially insecure source
+
+h2. Deployment-time checks
+
+p. A file named %filename{Checks} at the root of a Nanoc site defines which checks should be run before a %kbd{nanoc deploy}.
+
+p. Here is an example %filename{Checks} file that ensures that a Nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
+
+listing[lang=ruby].
+  deploy_check :internal_links
+  deploy_check :stale
+
+p. Here’s what a %kbd{nanoc deploy} looks like when all checks pass:
+
+listing.
+  %prompt{%%} %kbd{nanoc deploy}
+  Loading site data… done
+  Running issue checks…
+    Running internal_links check…   %log-check-ok{ok}
+    Running stale check…            %log-check-ok{ok}
+  No issues found. Deploying!
+  %prompt{%%}
+
+p. Here’s what a %kbd{nanoc deploy} looks like when some checks fail:
+
+listing.
+  %prompt{%%} %kbd{nanoc deploy}
+  Loading site data… done
+  Running issue checks…
+    Running check internal_links…   %log-check-error{error}
+    Running check stale…            %log-check-ok{ok}
+  Issues found!
+    output/doc/guides/unit-testing-nanoc-sites/index.html:
+      [ %log-check-error{ERROR} ] internal_links - broken reference to ../../api/Nanoc/Site.html
+  Issues found, deploy aborted.
+  %prompt{%%}
+
+p. To run the checks marked for deployment without deploying, use %kbd{nanoc check --deploy}.
+
+h2. Custom checks
+
+p. The %filename{Checks} file is also used to define custom checks. Here is an example check that verifies that no compiled files contain %code{<%%} and therefore likely include unprocessed ERB instructions:
+
+listing[lang=ruby].
+  check :no_unprocessed_erb do
+    @output_filenames.each do |fn|
+      if fn =~ /html$/ && File.read(fn).match(/<%%/)
+        add_issue("erb detected", :subject => fn)
+      end
+    end
+  end
+
+p. In a custom check, you can use %code{#add_issue}. The first argument is the description of the problem, and the %code{:subject} option defines the location of the problem (usually a filename).
+
+p. In a custom check, the variables %code{@config}, %code{@items}, and %code{@layouts} are available, in addition to %code{@output_filenames}, which is the collection of filenames in the output directory that correspond to an item in the site. For details, see %ref[item=/doc/reference/variables.*]{}.
