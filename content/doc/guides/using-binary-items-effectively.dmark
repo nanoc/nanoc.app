@@ -1,0 +1,121 @@
+---
+title: "Using binary items effectively"
+---
+
+p. Along with textual items, Nanoc also supports binary items. Binary items are not loaded into memory, enabling Nanoc to handle large files. Examples of binary items include images, fonts, audio files, and videos.
+
+p. This page gives an example of how binary items can be used.
+
+h2. Building an image gallery
+
+p. If you want to include a gallery on your web site, containing thumbnails that link to full-size images, you can let Nanoc handle the thumbnail generation instead of generating the thumbnails up front.
+
+note. If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. Nanoc’s dependency resolution is not yet perfect; Nanoc may decide to recompile items even though they do not need to.
+
+p. This example assumes that several images are stored in the %filename{content/gallery} folder. A file at %filename{content/gallery.html} corresponds to the gallery page itself; this item is filtered through ERB and, for the time being, contains a list of links to full-size images:
+
+listing[lang=rhtml].
+  <ul>
+  <%% @items.find_all('/gallery/*').each do |img| %%>
+    <li><a href="<%%= img.path %%>"><%%= img.path %%></a></li>
+  <%% end %%>
+  </ul>
+
+p. Ensure that the gallery page is filtered using ERB. For example:
+
+listing[lang=ruby].
+  compile '/gallery.*'
+    filter :erb
+  end
+
+p. The images themselves will be copied as-is. To do so, add the following to the %filename{Rules} file, at the top:
+
+listing[lang=ruby].
+  passthrough '/gallery/*'
+
+p. At this point, the image gallery is functioning, but does not yet include thumbnails
+
+h3. Generating thumbnails
+
+p. This gallery page will be enhanced so that it displays a list of thumbnails of these images, rather than the paths to the images.
+
+p. To generate the image thumbnails, a custom filter will be necessary. Depending on what OS you are on, and what software you have installed, you may need to use different filters. On Mac OS X, you can use %command{sips}, so place this in %filename{lib/filters/thumbnailize.rb}:
+
+listing[lang=ruby].
+  class Thumbnailize < Nanoc::Filter
+    identifier :thumbnailize
+    type       :binary
+
+    def run(filename, params = {%})
+      system(
+        'sips',
+        '--resampleWidth',
+        params[:width].to_s,
+        '--out',
+        output_filename,
+        filename
+      )
+    end
+  end
+
+p. On platforms that have %command{convert}, which is part of %ref[url=http://www.imagemagick.org/]{ImageMagick} and %ref[url=http://www.graphicsmagick.org/]{GraphicsMagick}, you can use the following filter instead:
+
+listing[lang=ruby].
+  class Thumbnailize < Nanoc::Filter
+    identifier :thumbnailize
+    type       :binary
+
+    def run(filename, params = {%})
+      system(
+        'convert',
+        '-resize',
+        params[:width].to_s,
+        filename,
+        output_filename
+      )
+    end
+  end
+
+p. To generate the actual thumbnails, the images will need a %code{:thumbnail} representation, and accompanying compilation/routing rules:
+
+listing[lang=ruby].
+  compile '/gallery/*', rep: :thumbnail do
+    filter :thumbnailize, width: 200
+  end
+
+  route '/gallery/*', rep: :thumbnail do
+    item.identifier.without_ext + '-thumbnail.' + item.ext
+  end
+
+p. When the site is compiled now, you’ll find both %filename{output/gallery/some_image.jpg} as well as %filename{output/gallery/some_image-thumbnail.jpg}, corresponding to the full-size image and its thumbnail. The gallery page can now be updated so that it displays the thumbnails:
+
+listing[lang=rhtml].
+  <ul>
+  <%% @items.find_all('/gallery/*').each do |img| %%>
+    <li>
+      <a href="<%%= img.path %%>">
+        <img src="<%%= img.path(rep: :thumbnail) %%>">
+      </a>
+    </li>
+  <%% end %%>
+  </ul>
+
+p. If you want to give each thumbnail a bit of %code{ALT} text, you can do so by treating the %code{ALT} text as metadata that you want to assign to that item. To do so, create a metadata file for the item you want to give the %code{ALT} text; this file will have the same name as the image file itself, but a different extension (%code{.yaml}). For example, an image at %filename{content/gallery/rick.jpg} would have a metadata file named %filename{content/gallery/rick.yaml}. Inside the newly created YAML file, add the %code{ALT} text, like this:
+
+listing[lang=yaml].
+  alt: "A picture of a kitten that looks cute but is actually quite evil"
+
+p. Writing the ALT text on the gallery page is now as simple as printing the %code{img[:alt]} text, like this:
+
+listing[lang=rhtml].
+  <ul>
+  <%% @items.find_all('/gallery/*').each do |img| %%>
+    <li>
+      <a href="<%%= img.path %%>">
+        <img src="<%%= img.path(rep: thumbnail) %%>" alt="<%%= img[:alt] %%>">
+      </a>
+    </li>
+  <%% end %%>
+  </ul>
+
+p. And done! All that’s left at this point is styling the page.

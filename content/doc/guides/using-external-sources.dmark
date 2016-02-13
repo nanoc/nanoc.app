@@ -1,0 +1,164 @@
+---
+title: "Using external sources"
+---
+
+p. One of Nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
+
+p. As an example, assume you work for a company that has a SQL database containing a employee directory, and you want to extract that information into a nice-looking web site. Nanoc to the rescue!
+
+h2. Setting up the database
+
+p. This example will use the following SQLite 3 schema:
+
+listing[lang=sql].
+  CREATE TABLE employees (
+      id         INTEGER PRIMARY KEY NOT NULL,
+      first_name TEXT NOT NULL,
+      last_name  TEXT NOT NULL,
+      photo_url  TEXT NOT NULL
+  )
+
+p. To pull in this data into Nanoc, we can generate an item for every employee. Such an item would not have any content (except perhaps the employee’s bio, if any), but the item would store the employee details as attributes.
+
+tip. It helps to not think of Nanoc items as just pages or assets. Items can represent much more varied data, such as recipes, reviews, teams, people (with a team identifier), projects (with a team identifier), etc.
+
+p. In this example, we’ll use %ref[url=http://sequel.jeremyevans.net/]{Sequel} in combination with %ref[url=https://sqlite.org/]{SQLite3}. To install the dependencies:
+
+listing.
+  %prompt{%%} %kbd{gem install sequel}
+  %prompt{%%} %kbd{gem install sqlite3}
+
+p. Create a sample database with sample data:
+
+listing[lang=ruby].
+  require 'sequel'
+
+  DB = Sequel.sqlite('test.db')
+
+  sql = <<EOS
+  CREATE TABLE employees (
+      id         INTEGER PRIMARY KEY NOT NULL,
+      first_name TEXT NOT NULL,
+      last_name  TEXT NOT NULL,
+      photo_url  TEXT NOT NULL
+  )
+  EOS
+
+  DB[:employees].insert(
+    id: 1,
+    first_name: 'Denis',
+    last_name: 'Defreyne',
+    photo_url: 'http://employees.test/photos/1.png'
+  )
+
+p. At this point, we have a database set up, with some sample data to be used.
+
+h2. Writing the data source
+
+p. Create the file %filename{lib/data_sources/employee_db.rb} and put in the following:
+
+listing[lang=ruby].
+  require 'sequel'
+
+  class HRDataSource < ::Nanoc::DataSource
+  end
+
+p. A data source is responsible for loading data, and is represented by the %code{Nanoc::DataSource} class. Each data source has a unique identifier, which is a Ruby symbol. Add the line %code{identifier :hr} inside the newly created data source class:
+
+listing[lang=ruby].
+  class HRDataSource < ::Nanoc::DataSource
+    identifier :hr
+  end
+
+p. Data sources have an %code{#up} method, which can be overridden to perform actions to establish a connection with the remote data source. In this example, implement it so that it connects to the database:
+
+listing[lang=ruby].
+  class HRDataSource < ::Nanoc::DataSource
+    identifier :hr
+
+    def up
+      @db = Sequel.sqlite('test.db')
+    end
+  end
+
+p. Then we can generate items. For every employee, represented by a row from the %code{employees} table in the database, we create an item:
+
+listing[lang=ruby].
+  class HRDataSource < ::Nanoc::DataSource
+    identifier :hr
+
+    def up
+      @db = Sequel.sqlite('test.db')
+    end
+
+    def down
+      @db.disconnect
+    end
+
+    def items
+      @db[:employees].map do |employee|
+        new_item(
+          '',
+          employee,
+          "/employees/#{employee[:id]%}/"
+        )
+      end
+    end
+  end
+
+p. The first argument to the %code{#new_item} is the content (empty in this case), the second is the attributes hash (which will have the keys %code{first_name}, %code{last_name}, and %code{photo_url}) and the third argument is the identifier.
+
+p. The data source implementation is now ready to be used.
+
+h2. Using the data source
+
+p. Configure the data source in %filename{nanoc.yaml}:
+
+listing[lang=yaml].
+  data_sources:
+    -
+      type:         hr
+      items_root:   /external/hr
+
+p. The %code{type} is the same as the identifier of the data source, and %code{items_root} is a string that will be prefixed to all item identifiers coming from that data source. For example, employees will have identifiers like %code{"/external/hr/employees/1"}.
+
+p. Create the file %filename{lib/helpers.rb} and put in one function that will make it easier to find employees:
+
+listing[lang=ruby].
+  def sorted_employees
+    employees = @items.find_all('/external/hr/employees/*')
+    employees.sort_by do |e|
+      [ e[:last_name], e[:first_name] ]
+    end
+  end
+
+p. Now it’s time to create the employee directory page. Create the file %filename{content/employees.erb} and put in the following code, which will find all employees and print them:
+
+listing[lang=html].
+  <h1>Employees</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%% sorted_employees.each do |e| %%>
+        <tr>
+          <td><%%= e[:photo_url] %%></td>
+          <td><%%= e[:first_name] %%></td>
+          <td><%%= e[:last_name] %%></td>
+        </tr>
+      <%% end %%>
+    </tbody>
+  </table>
+
+p. Finally you have to stop Nanoc from writing out pages for every employee item provided by the data source. For this, the %code{#ignore} rule comes in handy. Add this at the top of your %filename{Rules} file:
+
+listing[lang=ruby].
+  ignore '/external/*'
+
+p. Now compile, and you will see the employee directory!
