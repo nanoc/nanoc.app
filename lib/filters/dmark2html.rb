@@ -218,9 +218,11 @@ Class.new(Nanoc::Filter) do
         if node.attributes['lang']
           code_attributes[:class] = "language-#{node.attributes['lang']}"
         end
-        if node.attributes['template']
-          attributes[:class] = 'template'
-        end
+        classes = []
+        classes << 'template' if node.attributes['template']
+        classes << 'legacy' if node.attributes['legacy']
+        classes << 'new' if node.attributes['new']
+        attributes[:class] = classes.join(' ') if classes.any?
 
         [
           { name: 'pre', attributes: attributes },
