@@ -243,21 +243,19 @@ note. %entity{sudo-gem-install}
 
 p. The %filename{Rules} file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell Nanoc to use the kramdown filter.
 
-p. The first point of interest in the %filename{Rules} is the following two %firstterm{compilation rules}:
+p. This %filename{Rules} file comes with a commented-out %firstterm{compilation rule} specifically for kramdown:
 
 listing[lang=ruby].
-  compile '/**/*.html' do
-    layout '/default.*'
-  end
+  #compile '/**/*.md' do
+  #  filter :kramdown
+  #  layout '/default.*'
+  #end
 
-  compile '/**/*' do
-  end
+p. Uncomment this block of code by removing the %code{#}s.
 
-p. Compilation rules describe how items are processed. The first rule matches items that have the %filename{html} extension, and says that such items will be laid out using the default layout. The second rule matches all other items, and does no processing—the content of these items is not filtered nor laid out.
+p. Compilation rules describe how items are processed. This particular rule matches items that have the %filename{md} extension, and tells Nanoc to apply the %code{:kramdown} filter to matching items, and then lay them out using the default layout.
 
-note. For more information on patterns, see %ref[item=/doc/identifiers-and-patterns.*]{}.
-
-p. The second point of interest is these two %firstterm{routing rules}:
+p. Right below this compilation rule is a %firstterm{routing rule}:
 
 listing[lang=ruby].
   route '/**/*.{html,md%}' do
@@ -268,33 +266,11 @@ listing[lang=ruby].
     end
   end
 
-  route '/**/*' do
-    item.identifier.to_s
-  end
-
 p. Routing rule describe where items are written to. The return value of a routing rule is the path that an item will be written to, and directly corresponds with the path in the URL of the relevant page.
 
-p. In most cases, routing rules use the %firstterm{identifier} of an item. The identifier of an item is the full path to the source file, starting from the content directory. For example, the identifiers of the items in the current site are %identifier{/index.html}, %identifier{/stylesheet.css} and %identifier{/about.html}.
+p. This rule matches items that have the %filename{html} or %filename{md} extension. For the %identifier{/index.html} item, it assigns the path %filename{/index.html}. For the %identifier{/about.html} item, it assigns the path %filename{/about/index.html}. By putting every output file in its own directory and giving it the filename %filename{index.html}, we ensure that all pages have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
 
-note. For more information on identifiers, see %ref[item=/doc/identifiers-and-patterns.*]{}.
-
-p. The first rule matches items that have the %filename{html} or %filename{md} extension. For the %identifier{/index.html} item, it assigns the path %filename{/index.html}. For the %identifier{/about.html} item, it assigns the path %filename{/about/index.html}. This approach ensures that all items have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
-
-p. The second rule matches all other items, and assigns a path that is identical to the identifier. For example, the %identifier{/stylesheet.css} item will have the path %filename{/stylesheet.css}.
-
-note. For more information on rules, see %ref[item=/doc/rules.*]{}.
-
-p. Now that you know what compilation and routing rules are, we can customize the rules to handle Markdown files. There is a commented-out example compilation rule that fits our purpose. Uncomment the commented-out compilation rule:
-
-listing[lang=ruby].
-  compile '/**/*.md' do
-    filter :kramdown
-    layout '/default.*'
-  end
-
-p. This rule matches any items ending with the %filename{md} extension, and will run the %code{kramdown} filter, followed by laying out the item using the default layout.
-
-p. The routing rule still matches our needs, because it also applies to items with the %filename{md} extension, so keep that one intact.
+note. For more information on rules, see %ref[item=/doc/rules.*]{}. For more information on identifiers and patterns, see %ref[item=/doc/identifiers-and-patterns.*]{}.
 
 p. Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In %filename{output/index.html}, you will find the converted HTML:
 
