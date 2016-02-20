@@ -18,7 +18,7 @@ Class.new(Nanoc::Filter) do
       case node
       when String
         out << h(node)
-      when DMark::Parser::ElementNode
+      when DMark::ElementNode
         case node.name
         when 'img'
           handle_img(node)
@@ -69,7 +69,7 @@ Class.new(Nanoc::Filter) do
 
     def nodes_for_item(item)
       if item.identifier.ext == 'dmark'
-        DMark::Parser.new(item.raw_content.sub(/\A\n/, '')).parse
+        DMark::Parser.new(item.raw_content).parse
       else
         nil
       end
@@ -177,13 +177,13 @@ Class.new(Nanoc::Filter) do
     def node_with_id(id, nodes: @nodes)
       # FIXME: ugly implementation
 
-      candidate = nodes.find { |n| n.is_a?(DMark::Parser::ElementNode) && n.attributes['id'] == id }
+      candidate = nodes.find { |n| n.is_a?(DMark::ElementNode) && n.attributes['id'] == id }
       return candidate if candidate
 
       nodes.each do |node|
         case node
         when String
-        when DMark::Parser::ElementNode
+        when DMark::ElementNode
           candidate = node_with_id(id, nodes: node.children)
           return candidate if candidate
         end
@@ -196,7 +196,7 @@ Class.new(Nanoc::Filter) do
       case node
       when String
         node
-      when DMark::Parser::ElementNode
+      when DMark::ElementNode
         node.children.map { |c| text_content_of(c) }.join
       else
         raise "Unknown node type: #{node.class}"
@@ -268,7 +268,7 @@ Class.new(Nanoc::Filter) do
   end
 
   def run(content, params = {})
-    nodes = DMark::Parser.new(content.sub(/\A\n/, '')).parse
+    nodes = DMark::Parser.new(content).parse
     NanocWsHTMLTranslator.new(nodes, @items, @item, binding).run
   end
 end
