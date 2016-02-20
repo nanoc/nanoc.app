@@ -17,7 +17,7 @@ ul[spacious].
 
 h2. Installing Nanoc 4
 
-p. Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.2 and up, and JRuby 9000 and up:
+p. Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.1 and up, and JRuby 9000 and up:
 
 listing.
   %prompt{%%} %kbd{ruby --version}
