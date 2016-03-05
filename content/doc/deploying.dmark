@@ -39,7 +39,7 @@ p. Nanoc will, by default, only update files that have changes, and not remove a
 listing[lang=yaml].
   options: [ '-aP', '--delete-after' ]
 
-caution. This will remove all files and directories that do not correspond to Nanoc items in the destination. Make sure that the destination does not contain anything that you still need.
+caution. This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
 
 h2. With GitHub Pages or Bitbucket
 
