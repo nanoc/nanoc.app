@@ -54,17 +54,24 @@ p. Clone the current repository into the %filename{output/} directory, create an
 listing.
   %prompt{%%} %kbd{git clone . output}
   %prompt{%%} %kbd{cd output}
-  %prompt{output@master%%} %kbd{git branch --orphan gh-pages}
+  %prompt{output@master%%} %kbd{git checkout --orphan gh-pages}
   %prompt{output@master%%} %kbd{git checkout gh-pages}
-  %prompt{output@gh-pages%%} %kbd{cd ..}
+  %prompt{output@gh-pages%%} %kbd{git rm -rf .}
 
-p. Change the remote for this repository, replacing %var{repo-url} with the URL to the repository:
+p. Change the remote for this repository to point to the GitHub repository, rather than the local repository. To do so, execute the following %command{git remote} commands, replacing %var{repo-url} with the URL to the repository:
 
 listing.
   %prompt{output@gh-pages%%} %kbd{git remote rm origin}
   %prompt{output@gh-pages%%} %kbd{git remote add origin} %var{repo-url}
 
-p. Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
+p. Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain the %filename{output/} directory.
+
+p. Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
+
+listing[lang=yaml].
+  prune:
+    auto_prune: true
+    exclude: [ '.git' ]
 
 h3. Bitbucket setup
 
@@ -85,12 +92,12 @@ p. Add the %filename{output/} directory to your %filename{.gitignore}. Make sure
 
 h3. Publish
 
-p. To publish your Nanoc site, first compile site:
+p. Before publishing the site, compile it:
 
 listing.
   %prompt{%%} %kbd{nanoc}
 
-p. Enter the %filename{output/} directory, add and commit everything, and push:
+p. To publish the site, either use %ref[target=https://github.com/nanoc/nanoc-git]{nanoc-git}, or publish manually by entering the %filename{output/} directory, adding and commiting everything, and finally pushing:
 
 listing.
   %prompt{%%} %kbd{cd output}
