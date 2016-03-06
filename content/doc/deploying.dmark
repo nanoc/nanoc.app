@@ -3,15 +3,15 @@ title: "Deploying Nanoc sites"
 short_title: "Deploying"
 ---
 
-p. There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronize” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.
+#p There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronize” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.
 
-h2. With rsync
+#h2 With rsync
 
-p. If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check %command{man rsync} in case of doubt), but fortunately Nanoc provides a “deploy” command that can make this quite a bit easier: a simple %command{nanoc deploy} will deploy your site.
+#p If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check %command{man rsync} in case of doubt), but fortunately Nanoc provides a “deploy” command that can make this quite a bit easier: a simple %command{nanoc deploy} will deploy your site.
 
-p. To use the deploy command, open the %filename{nanoc.yaml} (on older sites: %filename{config.yaml}) file and add a %code{deploy} hash. Inside, add a hash with a key that describes the destination (for example, %code{public} or %code{staging}). Inside this hash, set %code{dst} to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set %code{kind} to %code{rsync}. Here’s what it will look like:
+#p To use the deploy command, open the %filename{nanoc.yaml} (on older sites: %filename{config.yaml}) file and add a %code{deploy} hash. Inside, add a hash with a key that describes the destination (for example, %code{public} or %code{staging}). Inside this hash, set %code{dst} to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set %code{kind} to %code{rsync}. Here’s what it will look like:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   deploy:
     public:
       kind: rsync
@@ -20,102 +20,102 @@ listing[lang=yaml].
       kind: rsync
       dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
 
-p. By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it a %command{--target} option, like this:
+#p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it a %command{--target} option, like this:
 
-listing.
+#listing
   %prompt{%%} %kbd{nanoc deploy --target staging}
 
-p. This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
+#p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
 
-p. If you want to check whether the executed %command{rsync} command is really correct, you can perform a dry run by passing %command{--dry-run}. The rsync command will be printed, but not executed. For example:
+#p If you want to check whether the executed %command{rsync} command is really correct, you can perform a dry run by passing %command{--dry-run}. The rsync command will be printed, but not executed. For example:
 
-listing.
+#listing
   %prompt{%%} %kbd{nanoc deploy --target public --dry-run}
 
-h3. Deleting stray files
+#h3 Deleting stray files
 
-p. Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
+#p Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   options: [ '-aP', '--delete-after' ]
 
-caution. This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
+#caution This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
 
-h2. With GitHub Pages or Bitbucket
+#h2 With GitHub Pages or Bitbucket
 
-p. %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
+#p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
-h3. GitHub Pages setup
+#h3 GitHub Pages setup
 
-p. The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
+#p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
 
-p. Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, and check out the new branch:
+#p Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, and check out the new branch:
 
-listing.
+#listing
   %prompt{%%} %kbd{git clone . output}
   %prompt{%%} %kbd{cd output}
   %prompt{output@master%%} %kbd{git checkout --orphan gh-pages}
   %prompt{output@master%%} %kbd{git checkout gh-pages}
   %prompt{output@gh-pages%%} %kbd{git rm -rf .}
 
-p. Change the remote for this repository to point to the GitHub repository, rather than the local repository. To do so, execute the following %command{git remote} commands, replacing %var{repo-url} with the URL to the repository:
+#p Change the remote for this repository to point to the GitHub repository, rather than the local repository. To do so, execute the following %command{git remote} commands, replacing %var{repo-url} with the URL to the repository:
 
-listing.
+#listing
   %prompt{output@gh-pages%%} %kbd{git remote rm origin}
   %prompt{output@gh-pages%%} %kbd{git remote add origin} %var{repo-url}
 
-p. Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain the %filename{output/} directory.
+#p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain the %filename{output/} directory.
 
-p. Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
+#p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   prune:
     auto_prune: true
     exclude: [ '.git' ]
 
-h3. Bitbucket setup
+#h3 Bitbucket setup
 
-p. The publishing of a website based on a Git repository to Bitbucket is %ref[url=https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket]{described in Bitbucket's help pages}.
+#p The publishing of a website based on a Git repository to Bitbucket is %ref[url=https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket]{described in Bitbucket's help pages}.
 
-p. Bitbucket supports publishing a website at %uri{username.bitbucket.org}, where %var{username} is your Bitbucket account name. The contents of the web site will be read from a repository named %uri{username.bitbucket.org}.
+#p Bitbucket supports publishing a website at %uri{username.bitbucket.org}, where %var{username} is your Bitbucket account name. The contents of the web site will be read from a repository named %uri{username.bitbucket.org}.
 
-p. First of all, create a Bitbucket repository corresponding to your Bitbucket web site address, e.g. %uri{ddfreyne.bitbucket.org}.
+#p First of all, create a Bitbucket repository corresponding to your Bitbucket web site address, e.g. %uri{ddfreyne.bitbucket.org}.
 
-p. Create a new Git repository inside the %filename{output/} directory, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git}):
+#p Create a new Git repository inside the %filename{output/} directory, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git}):
 
-listing.
+#listing
   %prompt{%%} %kbd{git init output/}
   %prompt{%%} %kbd{cd output/}
   %prompt{output%%} %kbd{git remote add origin} %var{repo-url}
 
-p. Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
+#p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
-h3. Publish
+#h3 Publish
 
-p. Before publishing the site, compile it:
+#p Before publishing the site, compile it:
 
-listing.
+#listing
   %prompt{%%} %kbd{nanoc}
 
-p. To publish the site, either use %ref[target=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}}, or publish manually by entering the %filename{output/} directory, adding and committing everything, and finally pushing:
+#p To publish the site, either use %ref[target=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}}, or publish manually by entering the %filename{output/} directory, adding and committing everything, and finally pushing:
 
-listing.
+#listing
   %prompt{%%} %kbd{cd output}
   %prompt{output%%} %kbd{git add .}
   %prompt{output%%} %kbd{git commit -m 'Update compiled output'}
   %prompt{output%%} %kbd{git push}
 
-p. After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
+#p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
 
-p. For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is quite likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
+#p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is quite likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
 
-h2. With fog
+#h2 With fog
 
-p. %ref[url=http://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
+#p %ref[url=http://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
 
-p. To use fog for deployment, install the %productname{fog} gem (or add it to the %filename{Gemfile} and run %kbd{bundle install}). Change the deployment configuration in %filename{nanoc.yaml} to reflect the fog configuration. Here is an example for Amazon S3:
+#p To use fog for deployment, install the %productname{fog} gem (or add it to the %filename{Gemfile} and run %kbd{bundle install}). Change the deployment configuration in %filename{nanoc.yaml} to reflect the fog configuration. Here is an example for Amazon S3:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   deploy:
     default:
       kind:                  fog
@@ -126,11 +126,11 @@ listing[lang=yaml].
       aws_secret_access_key: fd6eb5b112a894026d7b82aab3cafadaa63fce39
       path_style:            true
 
-p. The %code{kind} attribute, which identifies the kind of deployer to use, should be set to %code{fog}. You’ll also need to specify %code{provider}, containing the name of the fog provider that you want to use. Each provider has their own configuration; see the %ref[url=http://fog.io/about/provider_documentation.html]{fog provider documentation} for details. For buckets whose names contain periods, %code{path_style} should be set to %code{true}.
+#p The %code{kind} attribute, which identifies the kind of deployer to use, should be set to %code{fog}. You’ll also need to specify %code{provider}, containing the name of the fog provider that you want to use. Each provider has their own configuration; see the %ref[url=http://fog.io/about/provider_documentation.html]{fog provider documentation} for details. For buckets whose names contain periods, %code{path_style} should be set to %code{true}.
 
-p. To publish your Nanoc site, use the %command{deploy} command, as usual:
+#p To publish your Nanoc site, use the %command{deploy} command, as usual:
 
-listing.
+#listing
   %prompt{%%} %kbd{nanoc deploy}
   Loading site data… done
   Connecting

@@ -3,57 +3,57 @@ title: "About Nanoc"
 short_title: "About"
 ---
 
-p. Nanoc is a flexible %firstterm{static-site generator}.
+#p Nanoc is a flexible %firstterm{static-site generator}.
 
-p. A static-site generator, often abbreviated as %firstterm{SSG}, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
+#p A static-site generator, often abbreviated as %firstterm{SSG}, is a tool that transforms content from one format, such as Markdown or AsciiDoc, into another format, usually HTML, and lays out pages so that the site’s look and feel is consistent across all pages. Static sites can be deployed to any web server.
 
-p. Nanoc is not:
+#p Nanoc is not:
 
-dl.
-  dt. a %abbr[title=content management system]{CMS}
-  dd. It does not help in managing content; it merely processes it. Management of content is usually done on the file system.
+#dl
+  #dt a %abbr[title=content management system]{CMS}
+  #dd It does not help in managing content; it merely processes it. Management of content is usually done on the file system.
 
-  dt. a web application
-  dd. Nanoc is a command-line application. With Nanoc, developing sites happens on a local machine, and the generated site is deployed when it is finished.
+  #dt a web application
+  #dd Nanoc is a command-line application. With Nanoc, developing sites happens on a local machine, and the generated site is deployed when it is finished.
 
-p. Because Nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
+#p Because Nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
 
-h2. Advantages of static-site generators
+#h2 Advantages of static-site generators
 
-p. Static-site generators have several advantages over classical content management systems:
+#p Static-site generators have several advantages over classical content management systems:
 
-dl.
-  dt. fast
-  dd. Static files can be served fast. There is no database or templating layer that slows requests down. Additionally, web servers will automatically set caching headers (such as %code{Last-Modified}) for static files, which reduce bandwidth usage.
+#dl
+  #dt fast
+  #dd Static files can be served fast. There is no database or templating layer that slows requests down. Additionally, web servers will automatically set caching headers (such as %code{Last-Modified}) for static files, which reduce bandwidth usage.
 
-  dt. secure
-  dd. Static sites do not contain dynamic content, and are therefore immune to most common attacks.
+  #dt secure
+  #dd Static sites do not contain dynamic content, and are therefore immune to most common attacks.
 
-  dt. previewable
-  dd. Because static sites are developed locally, you can play around with the site to your heart’s content without affecting the live site.
+  #dt previewable
+  #dd Because static sites are developed locally, you can play around with the site to your heart’s content without affecting the live site.
 
-  dt. versionable
-  dd. Static-site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as %ref[url=http://git-scm.com/]{Git}. Because of this, many sites built with static-site generators are open-source.
+  #dt versionable
+  #dd Static-site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as %ref[url=http://git-scm.com/]{Git}. Because of this, many sites built with static-site generators are open-source.
 
-note. Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plain text, etc.
+#note Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plain text, etc.
 
-h2. Why use Nanoc?
+#h2 Why use Nanoc?
 
-p. Nanoc is suitable for a wide variety of sites, including personal blogs, portfolios and product web sites. Some unique features of Nanoc include:
+#p Nanoc is suitable for a wide variety of sites, including personal blogs, portfolios and product web sites. Some unique features of Nanoc include:
 
-ul.
-  li. support for free-form metadata
-  li. support for various markup languages (Markdown, AsciiDoc, Textile, …)
-  li. support for various templating languages (eRuby, Haml, Mustache, …)
-  li. ability to write custom filters and helpers
-  li. ability to pull in data from other sources (databases, web APIs, …)
-  li. integration with various deployment mechanisms
-  li. ability to run pre-deployment checks
+#ul
+  #li support for free-form metadata
+  #li support for various markup languages (Markdown, AsciiDoc, Textile, …)
+  #li support for various templating languages (eRuby, Haml, Mustache, …)
+  #li ability to write custom filters and helpers
+  #li ability to pull in data from other sources (databases, web APIs, …)
+  #li integration with various deployment mechanisms
+  #li ability to run pre-deployment checks
 
-p. Some of the sites built with Nanoc include the %ref[url=https://developer.github.com/]{GitHub Developer site}, the %ref[url=http://www.dadt.com/uglybetty/]{Ugly Betty site} and the %ref[url=http://guides.spreecommerce.com/api/]{Spree Commerce API site}.
+#p Some of the sites built with Nanoc include the %ref[url=https://developer.github.com/]{GitHub Developer site}, the %ref[url=http://www.dadt.com/uglybetty/]{Ugly Betty site} and the %ref[url=http://guides.spreecommerce.com/api/]{Spree Commerce API site}.
 
-p. Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
+#p Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
-h2. Similar projects
+#h2 Similar projects
 
-p. There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, check out %ref[url=http://staticsitegenerators.net/]{this list of static-site generators}.
+#p There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, check out %ref[url=http://staticsitegenerators.net/]{this list of static-site generators}.

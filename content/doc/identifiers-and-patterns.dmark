@@ -2,40 +2,40 @@
 title: "Identifiers and patterns"
 ---
 
-p. In Nanoc, every item (page or asset) and every layout has a unique %firstterm{identifier}: a string derived from the file’s path. A %firstterm{pattern} is an expression that is used to select items or layouts based on their identifier.
+#p In Nanoc, every item (page or asset) and every layout has a unique %firstterm{identifier}: a string derived from the file’s path. A %firstterm{pattern} is an expression that is used to select items or layouts based on their identifier.
 
-h2[id=identifiers]. Identifiers
+#h2[id=identifiers] Identifiers
 
-p. Identifiers come in two types: the %emph{full} type, new in Nanoc 4, and the %emph{legacy} type, used in Nanoc 3.
+#p Identifiers come in two types: the %emph{full} type, new in Nanoc 4, and the %emph{legacy} type, used in Nanoc 3.
 
-dl.
-  dt. full
-  dd. An identifier with the full type is the filename, with the path to the content directory removed. For example, the file %filename{/Users/denis/stoneship/content/about.md} will have the full identifier %identifier{/about.md}.
+#dl
+  #dt full
+  #dd An identifier with the full type is the filename, with the path to the content directory removed. For example, the file %filename{/Users/denis/stoneship/content/about.md} will have the full identifier %identifier{/about.md}.
 
-  dt. legacy
-  dd. An identifier with the legacy type is the filename, with the path to the content directory removed, the extension removed, and a slash appended. For example, the file %filename{/Users/denis/stoneship/content/about.md} will have the legacy identifier %identifier{/about/}. This corresponds closely with paths in clean URLs.
+  #dt legacy
+  #dd An identifier with the legacy type is the filename, with the path to the content directory removed, the extension removed, and a slash appended. For example, the file %filename{/Users/denis/stoneship/content/about.md} will have the legacy identifier %identifier{/about/}. This corresponds closely with paths in clean URLs.
 
-p. The following methods are useful for full identifiers:
+#p The following methods are useful for full identifiers:
 
-dl.
-  dt. %code{identifier.without_ext} → %class{String}
-  dd. identifier with the last extension removed
+#dl
+  #dt %code{identifier.without_ext} → %class{String}
+  #dd identifier with the last extension removed
 
-  dt. %code{identifier.without_exts} → %class{String}
-  dd. identifier with all extensions removed
+  #dt %code{identifier.without_exts} → %class{String}
+  #dd identifier with all extensions removed
 
-  dt. %code{identifier.ext} → %class{String}
-  dd. the last extension of this identifier
+  #dt %code{identifier.ext} → %class{String}
+  #dd the last extension of this identifier
 
-  dt. %code{identifier.exts} → %class{String}
-  dd. all extensions of this identifier
+  #dt %code{identifier.exts} → %class{String}
+  #dd all extensions of this identifier
 
-  dt. %code{identifier + string} → %class{String}
-  dd. identifier with the given string appended
+  #dt %code{identifier + string} → %class{String}
+  #dd identifier with the given string appended
 
-p. Here are some examples:
+#p Here are some examples:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   identifier = Nanoc::Identifier.new('/about.md')
 
   identifier.without_ext
@@ -44,15 +44,15 @@ listing[lang=ruby].
   identifier.ext
   # => "md"
 
-p. The following method is useful for legacy identifiers:
+#p The following method is useful for legacy identifiers:
 
-dl[legacy].
-  dt. %code{identifier.chop} → %class{String}
-  dd. identifier with the last character removed
+#dl[legacy]
+  #dt %code{identifier.chop} → %class{String}
+  #dd identifier with the last character removed
 
-p. Here are some examples:
+#p Here are some examples:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   identifier = Nanoc::Identifier.new('/about/', type: :legacy)
 
   identifier.chop
@@ -64,63 +64,63 @@ listing[lang=ruby].
   identifier + 'index.html'
   # => "/about/index.html"
 
-h2. Patterns
+#h2 Patterns
 
-p. Patterns are used to find items and layouts based on their identifier. They come in three varieties:
+#p Patterns are used to find items and layouts based on their identifier. They come in three varieties:
 
-ul.
-  li. glob patterns
-  li. regular expression patterns
-  li. legacy patterns
+#ul
+  #li glob patterns
+  #li regular expression patterns
+  #li legacy patterns
 
-h3[id=glob-patterns]. Glob patterns
+#h3[id=glob-patterns] Glob patterns
 
-p. Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in a identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
+#p Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in a identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
 
-p. Globs are commonplace in Unix-like environments. For example, the Unix command for listing all files with the %filename{md} extension in the current directory is %command{ls *.md}. In this example, the argument to the %command{ls} command is a wildcard.
+#p Globs are commonplace in Unix-like environments. For example, the Unix command for listing all files with the %filename{md} extension in the current directory is %command{ls *.md}. In this example, the argument to the %command{ls} command is a wildcard.
 
-p. Nanoc supports the following wildcards in glob patterns:
+#p Nanoc supports the following wildcards in glob patterns:
 
-dl.
-  dt. %code{*}
-  dd. Matches any file or directory name. Does not cross directory boundaries. For example, %glob{/projects/*.md} matches %identifier{/projects/nanoc.md}, but not %identifier{/projects/cri.adoc} nor %identifier{/projects/nanoc/about.md}.
+#dl
+  #dt %code{*}
+  #dd Matches any file or directory name. Does not cross directory boundaries. For example, %glob{/projects/*.md} matches %identifier{/projects/nanoc.md}, but not %identifier{/projects/cri.adoc} nor %identifier{/projects/nanoc/about.md}.
 
-  dt. %code{**/}
-  dd. Matches zero or more levels of nested directories. For example, %glob{/projects/**/*.md} matches both %identifier{/projects/nanoc.md} and %identifier{/projects/nanoc/history.md}.
+  #dt %code{**/}
+  #dd Matches zero or more levels of nested directories. For example, %glob{/projects/**/*.md} matches both %identifier{/projects/nanoc.md} and %identifier{/projects/nanoc/history.md}.
 
-  dt. %code{?}
-  dd. Matches a single character.
+  #dt %code{?}
+  #dd Matches a single character.
 
-  dt. %code{[abc]}
-  dd. Matches any single character in the set. For example, %glob{/people/[kt]im.md} matches only %identifier{/people/kim.md} and %identifier{/people/tim.md}.
+  #dt %code{[abc]}
+  #dd Matches any single character in the set. For example, %glob{/people/[kt]im.md} matches only %identifier{/people/kim.md} and %identifier{/people/tim.md}.
 
-  dt. %code{{foo,bar%}}
-  dd. Matches either string in the comma-separated list. More than two strings are possible. For example, %glob{/c{at,ub,ount%}s.txt} matches %identifier{/cats.txt}, %identifier{/cubs.txt} and %identifier{/counts.txt}, but not %identifier{/cabs.txt}.
+  #dt %code{{foo,bar%}}
+  #dd Matches either string in the comma-separated list. More than two strings are possible. For example, %glob{/c{at,ub,ount%}s.txt} matches %identifier{/cats.txt}, %identifier{/cubs.txt} and %identifier{/counts.txt}, but not %identifier{/cabs.txt}.
 
-p. A glob pattern that matches every item is %glob{/**/*}. A glob pattern that matches every item/layout with the extension %filename{md} is %glob{/**/*.md}.
+#p A glob pattern that matches every item is %glob{/**/*}. A glob pattern that matches every item/layout with the extension %filename{md} is %glob{/**/*.md}.
 
-h3. Regular expression patterns
+#h3 Regular expression patterns
 
-p. You can use a regular expression to select items and layouts.
+#p You can use a regular expression to select items and layouts.
 
-p. For matching identifiers, the %code{%%r{…%}} syntax is (arguably) nicer than the %code{/…/} syntax. The latter is not a good fit for identifiers (or filenames), because all slashes need to be escaped. The %code{\A} and %code{\z} anchors are also useful to make sure the entire identifier is matched.
+#p For matching identifiers, the %code{%%r{…%}} syntax is (arguably) nicer than the %code{/…/} syntax. The latter is not a good fit for identifiers (or filenames), because all slashes need to be escaped. The %code{\A} and %code{\z} anchors are also useful to make sure the entire identifier is matched.
 
-p. An example of a regular expression pattern is %code{%%r{\A/projects/(cri|nanoc)\.md\z%}}, which matches both %identifier{/projects/nanoc.md} and %identifier{/projects/cri.md}.
+#p An example of a regular expression pattern is %code{%%r{\A/projects/(cri|nanoc)\.md\z%}}, which matches both %identifier{/projects/nanoc.md} and %identifier{/projects/cri.md}.
 
-h3. Legacy patterns
+#h3 Legacy patterns
 
-p. Legacy patterns are strings that contain wildcard characters. The wildcard characters behave differently than the glob wildcard characters.
+#p Legacy patterns are strings that contain wildcard characters. The wildcard characters behave differently than the glob wildcard characters.
 
-p. To enable legacy patterns, set %code{string_pattern_type} to %code{"legacy"} in the configuration. For example:
+#p To enable legacy patterns, set %code{string_pattern_type} to %code{"legacy"} in the configuration. For example:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   string_pattern_type: "legacy"
 
-p. For legacy patterns, Nanoc supports the following wildcards:
+#p For legacy patterns, Nanoc supports the following wildcards:
 
-dl.
-  dt. %code{*}
-  dd. Matches zero or more characters, including a slash. For example, %glob{/projects/*/} matches %glob{/projects/nanoc/} and %identifier{/projects/nanoc/about/}, but not %identifier{/projects/}.
+#dl
+  #dt %code{*}
+  #dd Matches zero or more characters, including a slash. For example, %glob{/projects/*/} matches %glob{/projects/nanoc/} and %identifier{/projects/nanoc/about/}, but not %identifier{/projects/}.
 
-  dt. %code{+}
-  dd. Matches one or more characters, including a slash. For example, %glob{/projects/+} matches %identifier{/projects/nanoc/} and %identifier{/projects/nanoc/about/}, but not %identifier{/projects/}.
+  #dt %code{+}
+  #dd Matches one or more characters, including a slash. For example, %glob{/projects/+} matches %identifier{/projects/nanoc/} and %identifier{/projects/nanoc/about/}, but not %identifier{/projects/}.

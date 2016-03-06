@@ -2,18 +2,18 @@
 title: "Community"
 ---
 
-h2. Discussion groups
+#h2 Discussion groups
 
-p. Nanoc has a %ref[url=http://groups.google.com/group/nanoc]{discussion group} hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble.
+#p Nanoc has a %ref[url=http://groups.google.com/group/nanoc]{discussion group} hosted at Google Groups. There probably is no better place to ask for help if you’re having trouble.
 
-h2. IRC channel
+#h2 IRC channel
 
-p. There is a %ref[url=irc://chat.freenode.net/#nanoc]{Nanoc IRC channel} named %uri{#nanoc} at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc discussion group} instead (see above).
+#p There is a %ref[url=irc://chat.freenode.net/#nanoc]{Nanoc IRC channel} named %uri{#nanoc} at freenode. Feel free to drop to get support or discuss development. I’m not always around, so stick around for a while or send a message to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc discussion group} instead (see above).
 
-h2. GitHub
+#h2 GitHub
 
-p. The %ref[url=http://github.com/nanoc/nanoc]{Nanoc GitHub repository} is where development happens, issues are discussed and pull requests reviewed. The process is open and anyone is invited to participate. Be sure to check out %ref[item=/contributing.*]{} as well.
+#p The %ref[url=http://github.com/nanoc/nanoc]{Nanoc GitHub repository} is where development happens, issues are discussed and pull requests reviewed. The process is open and anyone is invited to participate. Be sure to check out %ref[item=/contributing.*]{} as well.
 
-h2. Wiki
+#h2 Wiki
 
-p. The %ref[url=http://github.com/nanoc/nanoc/wiki]{Nanoc wiki} at GitHub contains a collection of useful tips and tricks, sample Nanoc sites (including this very site) which you can check out to improve your Nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.
+#p The %ref[url=http://github.com/nanoc/nanoc/wiki]{Nanoc wiki} at GitHub contains a collection of useful tips and tricks, sample Nanoc sites (including this very site) which you can check out to improve your Nanoc-fu, third-party extensions and more. It is also the place where development-related brainstorming goes on.

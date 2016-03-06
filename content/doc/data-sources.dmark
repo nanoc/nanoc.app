@@ -2,11 +2,11 @@
 title: "Data sources"
 ---
 
-p. %firstterm{Data sources} provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the %ref[frag=the-filesystem-data-source]{filesystem data source}.
+#p %firstterm{Data sources} provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the %ref[frag=the-filesystem-data-source]{filesystem data source}.
 
-p. The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc web site:
+#p The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc web site:
 
-listing[lang=yaml].
+#listing[lang=yaml]
   data_sources:
     -
       type: filesystem
@@ -14,25 +14,25 @@ listing[lang=yaml].
       type: cli
       items_root: /doc/reference/commands/
 
-p. The data source configuration is a list of hashes. Each hash can have the following keys:
+#p The data source configuration is a list of hashes. Each hash can have the following keys:
 
-dl.
-  dt. %code{type}
-  dd. The identifier of data source to use
+#dl
+  #dt %code{type}
+  #dd The identifier of data source to use
 
-  dt. %code{items_root}
-  dd. The root where items should be mounted (optional)
+  #dt %code{items_root}
+  #dd The root where items should be mounted (optional)
 
-  dt. %code{layouts_root}
-  dd. The root where layouts should be mounted (optional)
+  #dt %code{layouts_root}
+  #dd The root where layouts should be mounted (optional)
 
-p. The %code{items_root} and %code{layouts_root} values will be prefixed to the identifiers of any items and layouts, respectively, obtained from this data source. For example, a data source might provide an item with identifier %code{/denis.md}, which, when the %code{items_root} is set to %code{/people}, will become %code{/people/denis.md}.
+#p The %code{items_root} and %code{layouts_root} values will be prefixed to the identifiers of any items and layouts, respectively, obtained from this data source. For example, a data source might provide an item with identifier %code{/denis.md}, which, when the %code{items_root} is set to %code{/people}, will become %code{/people/denis.md}.
 
-h2. The filesystem data source
+#h2 The filesystem data source
 
-p. Nanoc comes with a %productname{filesystem} data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the %filename{content/} directory, and layouts from the %filename{layouts/} directory.
+#p Nanoc comes with a %productname{filesystem} data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the %filename{content/} directory, and layouts from the %filename{layouts/} directory.
 
-listing.
+#listing
   %prompt{%%} %kbd{tree content}
   content
   ├── 404.html
@@ -45,16 +45,16 @@ listing.
   ├── contributing.md
   └── index.md
 
-listing.
+#listing
   %prompt{%%} %kbd{tree layouts}
   layouts
   ├── article.erb
   ├── default.erb
   └── home.erb
 
-p. The attributes for an item or a layout are typically stored in the metadata section or frontmatter, inside the file itself. The metadata is contained within a pair of triple dashes, like this:
+#p The attributes for an item or a layout are typically stored in the metadata section or frontmatter, inside the file itself. The metadata is contained within a pair of triple dashes, like this:
 
-listing.
+#listing
   ---
   full_title: "Nanoc: a static-site generator written in Ruby > home"
   short_title: "Home"
@@ -63,34 +63,34 @@ listing.
 
   Main content goes here…
 
-p. Attributes can also be stored in a separate file with the same base name but with the %code{.yaml} extension.. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
+#p Attributes can also be stored in a separate file with the same base name but with the %code{.yaml} extension.. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
 
-listing.
+#listing
   %prompt{%%} %kbd{tree content/assets/images}
   images
   ├── dataflow.png
   └── dataflow.yaml
 
-p. The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the %filename{/Users/denis/stoneship/content/about.md} file will have the identifier %filename{/about.md}.
+#p The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the %filename{/Users/denis/stoneship/content/about.md} file will have the identifier %filename{/about.md}.
 
-h3. Configuration
+#h3 Configuration
 
-listing[lang=yaml].
+#listing[lang=yaml]
   content_dir: content
   layouts_dir: layouts
   encoding: utf-8
 
-p. The %code{content_dir} option contains the path to the directory where the content is stored. By default, it is %filename{content}.
+#p The %code{content_dir} option contains the path to the directory where the content is stored. By default, it is %filename{content}.
 
-p. The %code{layouts_dir} option contains the path to the directory where the layouts are stored. By default, it is %filename{layouts}.
+#p The %code{layouts_dir} option contains the path to the directory where the layouts are stored. By default, it is %filename{layouts}.
 
-p. The %code{encoding} option sets the encoding used for reading files. It should be a value understood by Ruby’s %code{Encoding}. If no encoding is set in the configuration, one will be inferred from the environment.
+#p The %code{encoding} option sets the encoding used for reading files. It should be a value understood by Ruby’s %code{Encoding}. If no encoding is set in the configuration, one will be inferred from the environment.
 
-h2. Writing data sources
+#h2 Writing data sources
 
-p. Here is an example data source implementation that provides a single item with the identifier %code{/release-notes.md} and containing the content of the %filename{NEWS.md} file of Nanoc:
+#p Here is an example data source implementation that provides a single item with the identifier %code{/release-notes.md} and containing the content of the %filename{NEWS.md} file of Nanoc:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class ReleaseNotesDataSource < Nanoc::DataSource
     identifier :release_notes
 
@@ -108,27 +108,27 @@ listing[lang=ruby].
     end
   end
 
-p. Each data source has an identifier. This identifier is used in the configuration file to specify which data source should be used to fetch data. In the example above, the identifier is %code{release_notes}.
+#p Each data source has an identifier. This identifier is used in the configuration file to specify which data source should be used to fetch data. In the example above, the identifier is %code{release_notes}.
 
-p. The %code{#items} and %code{#layouts} methods return a collection of items and layouts, respectively. To instantiate items and layouts, use %code{#new_item} and %code{#new_layout}, respectively. These methods take three arguments:
+#p The %code{#items} and %code{#layouts} methods return a collection of items and layouts, respectively. To instantiate items and layouts, use %code{#new_item} and %code{#new_layout}, respectively. These methods take three arguments:
 
-dl.
-  dt. %code{content_or_filename}
-  dd. The content of the item or layout, or a filename if the item is a binary item.
+#dl
+  #dt %code{content_or_filename}
+  #dd The content of the item or layout, or a filename if the item is a binary item.
 
-  dt. %code{attributes}
-  dd. A hash with attributes of this item or layout.
+  #dt %code{attributes}
+  #dd A hash with attributes of this item or layout.
 
-  dt. %code{identifier}
-  dd. A %code{Nanoc::Identifier} instance, or a string that will be converted to an identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
+  #dt %code{identifier}
+  #dd A %code{Nanoc::Identifier} instance, or a string that will be converted to an identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
-p. To create a binary item, also pass %code{binary: true} to the %code{#new_item} method.
+#p To create a binary item, also pass %code{binary: true} to the %code{#new_item} method.
 
-p. The configuration for this data source is available in %code{@config}.
+#p The configuration for this data source is available in %code{@config}.
 
-p. If a data source needs to do work before data becomes available, such as establishing a connection, it can do so in the %code{#up} method. The %code{#down} method can be used to undo the work, such as tearing down the connection. Here is an example data source that reads from a SQLite database:
+#p If a data source needs to do work before data becomes available, such as establishing a connection, it can do so in the %code{#up} method. The %code{#down} method can be used to undo the work, such as tearing down the connection. Here is an example data source that reads from a SQLite database:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class HRDataSource < ::Nanoc::DataSource
     identifier :hr
 
@@ -151,4 +151,4 @@ listing[lang=ruby].
     end
   end
 
-p. See %ref[item=/doc/guides/using-external-sources.*]{} for more information on using external data sources such as databases.
+#p See %ref[item=/doc/guides/using-external-sources.*]{} for more information on using external data sources such as databases.

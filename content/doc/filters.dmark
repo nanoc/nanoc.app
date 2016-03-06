@@ -2,31 +2,31 @@
 title: "Filters"
 ---
 
-p. Filters are used for transforming an item’s content.
+#p Filters are used for transforming an item’s content.
 
-p. One commonly used filter is %ref[item=/doc/reference/filters.*,frag=erb]{%code{:erb}}, which interprets the item’s content as text with embedded Ruby. Another commonly used filter is %ref[item=/doc/reference/filters.*,frag=kramdown]{%code{:kramdown}}, which takes Markdown as its input and produces an HTML fragment.
+#p One commonly used filter is %ref[item=/doc/reference/filters.*,frag=erb]{%code{:erb}}, which interprets the item’s content as text with embedded Ruby. Another commonly used filter is %ref[item=/doc/reference/filters.*,frag=kramdown]{%code{:kramdown}}, which takes Markdown as its input and produces an HTML fragment.
 
-p. Filters can be applied to both textual and binary items. An example of a binary filter is a image thumbnail filter. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
+#p Filters can be applied to both textual and binary items. An example of a binary filter is a image thumbnail filter. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
-p. Filters are called within compilation rules. Here is an example rule that applies the %code{:kramdown} filter with the %code{:auto_ids} option set to false:
+#p Filters are called within compilation rules. Here is an example rule that applies the %code{:kramdown} filter with the %code{:auto_ids} option set to false:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   compile '/**/*.md' do
     filter :kramdown, auto_ids: false
     layout '/default.*'
   end
 
-p. For details on compilation rules, see %ref[item=/doc/rules.*]{}.
+#p For details on compilation rules, see %ref[item=/doc/rules.*]{}.
 
-p. Nanoc comes with a handful of filters. Check out %ref[item=/doc/reference/filters.*]{} for a list of filters bundled with Nanoc.
+#p Nanoc comes with a handful of filters. Check out %ref[item=/doc/reference/filters.*]{} for a list of filters bundled with Nanoc.
 
-h2. Writing filters
+#h2 Writing filters
 
-p. Filters are classes that inherit from %code{Nanoc::Filter}. Writing custom filters is done by subclassing this class and overriding the %code{#run} method, which is responsible for transforming the content.
+#p Filters are classes that inherit from %code{Nanoc::Filter}. Writing custom filters is done by subclassing this class and overriding the %code{#run} method, which is responsible for transforming the content.
 
-p. Here is an example (textual) filter that replaces any occurrences of “Nanoc sucks” by “Nanoc rocks”:
+#p Here is an example (textual) filter that replaces any occurrences of “Nanoc sucks” by “Nanoc rocks”:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class CensorFilter < Nanoc::Filter
     identifier :censor
 
@@ -35,19 +35,19 @@ listing[lang=ruby].
     end
   end
 
-p. Each filter needs an identifier, so that it can be used in a call to %code{#filter} in a compilation rule. A filter identifier is set using %code{#identifier}. In the example above, the identifier is set to %code{:censor}.
+#p Each filter needs an identifier, so that it can be used in a call to %code{#filter} in a compilation rule. A filter identifier is set using %code{#identifier}. In the example above, the identifier is set to %code{:censor}.
 
-p. The %code{content} argument to the %code{#run} method is a string that contains the content to be transformed. The %code{params} argument is taken from the %code{#filter} call in the compilation rule.
+#p The %code{content} argument to the %code{#run} method is a string that contains the content to be transformed. The %code{params} argument is taken from the %code{#filter} call in the compilation rule.
 
-p. Filters that output textual content should return the filtered content at the end of the method.
+#p Filters that output textual content should return the filtered content at the end of the method.
 
-p. Filters have access to %code{@item}, %code{@item_rep}, %code{@items}, %code{@layouts} and %code{@config}. For details, see %ref[item=/doc/reference/variables.*]{}.
+#p Filters have access to %code{@item}, %code{@item_rep}, %code{@items}, %code{@layouts} and %code{@config}. For details, see %ref[item=/doc/reference/variables.*]{}.
 
-h3. Binary filters
+#h3 Binary filters
 
-p. A filter is marked as a binary filter using the %code{#type} method. For example:
+#p A filter is marked as a binary filter using the %code{#type} method. For example:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class SampleBinaryFilter < Nanoc::Filter
     identifier :sample_binary
     type :binary
@@ -55,9 +55,9 @@ listing[lang=ruby].
     # (other code here)
   end
 
-p. The %code{#run} method for binary filters takes a %code{filename} argument, rather than a %code{content} argument. This %code{filename} argument contains the path to the file to be filtered. For example:
+#p The %code{#run} method for binary filters takes a %code{filename} argument, rather than a %code{content} argument. This %code{filename} argument contains the path to the file to be filtered. For example:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class SampleBinaryFilter < Nanoc::Filter
     identifier :sample_binary
     type :binary
@@ -67,13 +67,13 @@ listing[lang=ruby].
     end
   end
 
-p. Filters that output binary content should not return content, but rather write it to the location returned by the %code{#output_filename} method.
+#p Filters that output binary content should not return content, but rather write it to the location returned by the %code{#output_filename} method.
 
-p. When writing filters that apply to binary data, make sure that you check the exit code and any errors generated by the sub-process that you are invoking (if any). If the sub-process exists with an error, you should raise an error in the filter.
+#p When writing filters that apply to binary data, make sure that you check the exit code and any errors generated by the sub-process that you are invoking (if any). If the sub-process exists with an error, you should raise an error in the filter.
 
-p. Here is an example of a filter that resizes images to a given width:
+#p Here is an example of a filter that resizes images to a given width:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class ResizeFilter < Nanoc::Filter
     identifier :resize
     type :binary
@@ -88,11 +88,11 @@ listing[lang=ruby].
     end
   end
 
-h3. Text-to-binary and binary-to-text filters
+#h3 Text-to-binary and binary-to-text filters
 
-p. Filters that convert textual content to binary content or vice versa have the type declaration %code{type :text => :binary} or %code{type :text => :binary}, respectively. For example:
+#p Filters that convert textual content to binary content or vice versa have the type declaration %code{type :text => :binary} or %code{type :text => :binary}, respectively. For example:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class SampleTextualToBinaryFilter < Nanoc::Filter
     identifier :sample_textual_to_binary
     type :text => :binary
@@ -100,11 +100,11 @@ listing[lang=ruby].
     # (other code here)
   end
 
-p. A text-to-binary filter will receive a %code{content} string as its first argument, and should write the generated binary content to %code{#output_filename}. A binary-to-text filter will receive a %code{filename} string argument, and should return the filtered content.
+#p A text-to-binary filter will receive a %code{content} string as its first argument, and should write the generated binary content to %code{#output_filename}. A binary-to-text filter will receive a %code{filename} string argument, and should return the filtered content.
 
-p. Here is an example of an audio synthesis filter:
+#p Here is an example of an audio synthesis filter:
 
-listing[lang=ruby].
+#listing[lang=ruby]
   class SynthesiseAudio < Nanoc::Filter
     identifier :synthesize_audio
     type :text => :binary
