@@ -64,7 +64,7 @@ title: "Configuration"
 
 #h2 %code{string_pattern_type}
 
-#p Sets the type of string pattern to use. Can be %code{glob} or %code{legacy}. See the %ref[item=/doc/identifiers-and-patterns.*]{} page for details.
+#p Sets the type of string pattern to use. Can be %code{glob} or %code{legacy}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
 #listing[lang=yaml]
   string_pattern_type: glob
