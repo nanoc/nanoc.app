@@ -14,28 +14,43 @@ Class.new(Nanoc::Filter) do
       @binding = binding_x
     end
 
-    def handle(node)
-      case node
-      when String
-        out << h(node)
-      when DMark::ElementNode
-        case node.name
-        when 'img'
-          handle_img(node)
-        when 'ref'
-          handle_ref(node)
-        when 'entity'
-          handle_entity(node)
-        when 'erb'
-          handle_erb(node)
-        else
-          tags = tags_for(node)
+    def handle_string(string)
+      out << h(string)
+    end
 
-          output_start_tags(tags)
-          handle_children(node)
-          output_end_tags(tags)
+    def handle_element(element, path)
+      case element.name
+      when 'img'
+        handle_img(element)
+      when 'ref'
+        handle_ref(element, path)
+      when 'entity'
+        handle_entity(element)
+      when 'erb'
+        handle_erb(element)
+      when 'section'
+        handle_children(element, path)
+      when 'h'
+        depth = path.count { |node| node.name == 'section' } + 1
+        wrap("h#{depth}") { handle_children(element, path) }
+      else
+        tags = tags_for(element)
+        if tags.nil?
+          p tags
+          p element
         end
+
+        output_start_tags(tags)
+        handle_children(element, path)
+        output_end_tags(tags)
       end
+    end
+
+    def wrap(name, params = {})
+      params_string = params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('')
+      out << "<#{name}#{params_string}>"
+      yield
+      out << "</#{name}>"
     end
 
     def output_start_tags(tags)
@@ -75,13 +90,13 @@ Class.new(Nanoc::Filter) do
       end
     end
 
-    def handle_ref(node)
+    def handle_ref(node, path)
       if node.attributes['url']
         url = node.attributes['url']
         tags = [{ name: 'a', attributes: { href: url } }]
 
         output_start_tags(tags)
-        handle_children(node)
+        handle_children(node, path)
         output_end_tags(tags)
         return
       end
@@ -98,7 +113,7 @@ Class.new(Nanoc::Filter) do
       tags = [{ name: 'a', attributes: { href: target_path } }]
       if has_content?(node)
         output_start_tags(tags)
-        handle_children(node)
+        handle_children(node, path)
         output_end_tags(tags)
       else
         if node.attributes['bare']
@@ -239,7 +254,7 @@ Class.new(Nanoc::Filter) do
         [{ name: 'figcaption', attributes: attributes }]
       when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
         [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong'
+      when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
         if node.attributes['legacy']
           attributes[:class] = 'legacy'
         end

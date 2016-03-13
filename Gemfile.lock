@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ddfreyne/d-mark.git
+  revision: c745dd5ddff6f132932f961150b662067e4a3b14
+  specs:
+    d-mark (1.0.0a2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,7 +19,6 @@ GEM
       sass (~> 3.2.19)
     cri (2.7.0)
       colored (~> 1.2)
-    d-mark (1.0.0a2)
     ffi (1.9.10)
     ffi-aspell (1.1.0)
       ffi
@@ -85,7 +90,7 @@ DEPENDENCIES
   builder
   coderay
   compass
-  d-mark (~> 1.0.0a1)
+  d-mark!
   ffi-aspell
   guard-nanoc
   haml
