@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/ddfreyne/d-mark.git
-  revision: c745dd5ddff6f132932f961150b662067e4a3b14
+  revision: 2e95851412c14596401d691b0dd49984603d6121
   specs:
     d-mark (1.0.0a2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    adsf (1.2.0)
+    adsf (1.2.1)
       rack (>= 1.0.0)
     builder (3.2.2)
     chunky_png (1.3.5)
@@ -63,7 +63,7 @@ GEM
       slop (~> 3.4)
     rack (1.6.4)
     rainpress (1.0)
-    rake (10.5.0)
+    rake (11.1.1)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
