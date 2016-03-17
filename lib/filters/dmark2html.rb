@@ -30,17 +30,46 @@ class NanocWsHTMLTranslator < DMark::Translator
       handle_entity(element, context)
     when 'erb'
       handle_erb(element, context)
+    when 'listing'
+      handle_listing(element, context)
     when 'section'
       depth = context.fetch(:depth, 1) + 1
       handle_children(element, context.merge(depth: depth))
     when 'h'
       depth = context.fetch(:depth, 1)
       wrap("h#{depth}") { handle_children(element, context) }
+    when 'emph'
+      wrap('em') { handle_children(element, context) }
+    when 'abbr'
+      attributes = element.attributes['title'] ? { title: element.attributes['title'] } : {}
+      wrap('abbr', attributes) { handle_children(element, context) }
+    when 'caption'
+      wrap('figcaption') { handle_children(element, context) }
+    when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
+      wrap('span', class: element.name) { handle_children(element, context) }
+    when 'note', 'tip', 'caution'
+      wrap('div', class: "admonition-wrapper #{element.name}") do
+        wrap('div', class: "admonition") do
+          handle_children(element, context)
+        end
+      end
+    when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
+      attributes = {}
+
+      attributes[:class] = 'legacy' if element.attributes['legacy']
+      attributes[:class] = 'new' if element.attributes['new']
+      attributes[:class] = 'spacious' if element.attributes['spacious']
+      attributes[:'data-nav-title'] = element.attributes['nav-title'] if element.attributes['nav-title']
+
+      if element.attributes['id']
+        attributes[:id] = element.attributes['id']
+      elsif element.name =~ /\Ah\d/
+        attributes[:id] = text_content_of(element).downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
+      end
+
+      wrap(element.name, attributes) { handle_children(element, context) }
     else
-      wrap_tags(
-        tags_for(element),
-        handle_children(element, context),
-      )
+      raise "Cannot translate #{node.name}"
     end
   end
 
@@ -66,17 +95,41 @@ class NanocWsHTMLTranslator < DMark::Translator
   end
 
   def handle_img(node, context)
-    src = text_content_of(node)
-    tags = [{ name: 'img', attributes: { src: src } }]
-    start_tags_for(tags)
+    wrap_empty('img', src: text_content_of(node))
+  end
+
+  def handle_listing(element, context)
+    code_attributes = {}
+
+    pre_classes = []
+    pre_classes << 'template' if element.attributes['template']
+    pre_classes << 'legacy' if element.attributes['legacy']
+    pre_classes << 'new' if element.attributes['new']
+    pre_attrs =
+      if pre_classes.any?
+        { class: pre_classes.join(' ') }
+      else
+        {}
+      end
+
+    code_attrs =
+      if element.attributes['lang']
+        { class: 'language-' + element.attributes['lang'] }
+      else
+        {}
+      end
+
+    wrap('pre', pre_attrs) do
+      wrap('code', code_attrs) do
+        handle_children(element, context)
+      end
+    end
   end
 
   def handle_ref(node, context)
     if node.attributes['url']
-      url = node.attributes['url']
-      tags = [{ name: 'a', attributes: { href: url } }]
-
-      return wrap_tags(tags, handle_children(node, context))
+      href = node.attributes['url']
+      return wrap('a', href: href) { handle_children(node, context) }
     end
 
     target_item = node.attributes['item'] ? context[:items][node.attributes['item']] : context[:item]
@@ -89,18 +142,22 @@ class NanocWsHTMLTranslator < DMark::Translator
 
     tags = [{ name: 'a', attributes: { href: target_path } }]
     if has_content?(node)
-      wrap_tags(tags, handle_children(node, context))
+      wrap('a', href: target_path) { handle_children(node, context) }
     else
       if node.attributes['bare']
-        out = (target_frag ? text_content_of(target_node) : target_item[:title])
-
-        wrap_tags(tags, out)
+        wrap('a', href: target_path) do
+          if target_frag
+            text_content_of(target_node)
+          else
+            target_item[:title]
+          end
+        end
       else
         out = []
         out << 'the '
 
         if target_frag
-          out << wrap_tags(tags, text_content_of(target_node))
+          out << wrap('a', href: target_path) { text_content_of(target_node) }
           out << ' section'
         end
 
@@ -109,8 +166,7 @@ class NanocWsHTMLTranslator < DMark::Translator
         end
 
         if target_item != context[:item]
-          item_tags = [{ name: 'a', attributes: { href: target_item.path } }]
-          out << wrap_tags(item_tags, target_item[:title])
+          out << wrap('a', href: target_item.path) { target_item[:title] }
           out << ' page'
         end
       end
@@ -122,13 +178,23 @@ class NanocWsHTMLTranslator < DMark::Translator
   # Helper methods
 
   def wrap(name, params = {})
-    params_string = params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('')
-
     [
-      "<#{name}#{params_string}>",
+      start_tag(name, params),
       yield,
-      "</#{name}>",
+      end_tag(name),
     ]
+  end
+
+  def wrap_empty(name, params = {})
+    [start_tag(name, params)]
+  end
+
+  def start_tag(name, params)
+    '<' + name + params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('') + '>'
+  end
+
+  def end_tag(name)
+    '</' + name + '>'
   end
 
   def nodes_for_item(item)
@@ -148,40 +214,6 @@ class NanocWsHTMLTranslator < DMark::Translator
     else
       raise "Unknown node type: #{node.class}"
     end
-  end
-
-  # Helper methods - deprecated
-
-  def wrap_tags(tags, subj)
-    [
-      start_tags_for(tags),
-      subj,
-      end_tags_for(tags),
-    ]
-  end
-
-  def start_tags_for(tags)
-    out = ''
-    tags.each do |tag|
-      out << '<'
-      out << tag[:name]
-      if tag[:attributes]
-        tag[:attributes].each_pair do |key, value|
-          out << ' '
-          out << key.to_s
-          out << '="'
-          out << h(value)
-          out << '"'
-        end
-      end
-      out << '>'
-    end
-
-    [out]
-  end
-
-  def end_tags_for(tags)
-    tags.reverse_each.map { |tag| ["</#{tag[:name]}>"] }
   end
 
   def has_content?(node)
@@ -212,69 +244,6 @@ class NanocWsHTMLTranslator < DMark::Translator
     end
 
     nil
-  end
-
-  def tags_for(node)
-    # returns e.g. [{name: 'pre', attributes: {}}]
-
-    attributes = {}
-
-    if node.attributes['id']
-      attributes.merge!(id: node.attributes['id'])
-    end
-
-    case node.name
-    when 'listing'
-      code_attributes = {}
-      if node.attributes['lang']
-        code_attributes[:class] = "language-#{node.attributes['lang']}"
-      end
-      classes = []
-      classes << 'template' if node.attributes['template']
-      classes << 'legacy' if node.attributes['legacy']
-      classes << 'new' if node.attributes['new']
-      attributes[:class] = classes.join(' ') if classes.any?
-
-      [
-        { name: 'pre', attributes: attributes },
-        { name: 'code', attributes: code_attributes },
-      ]
-    when 'emph'
-      [{ name: 'em', attributes: attributes }]
-    when 'abbr'
-      if node.attributes['title']
-        attributes[:title] = node.attributes['title']
-      end
-      [{ name: 'abbr', attributes: attributes }]
-    when 'caption'
-      [{ name: 'figcaption', attributes: attributes }]
-    when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
-      [{ name: 'span', attributes: attributes.merge(class: node.name) }]
-    when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'h3', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
-      if node.attributes['legacy']
-        attributes[:class] = 'legacy'
-      end
-      if node.attributes['new']
-        attributes[:class] = 'new'
-      end
-      if node.attributes['spacious']
-        attributes[:class] = 'spacious'
-      end
-      if node.attributes['nav-title']
-        attributes[:'data-nav-title'] = node.attributes['nav-title']
-      end
-      if node.name =~ /\Ah\d/
-        attributes[:id] = text_content_of(node).downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
-      end
-      [{ name: node.name, attributes: attributes }]
-    when 'note', 'tip', 'caution'
-      [
-        { name: 'div', attributes: attributes.merge(class: "admonition-wrapper #{node.name}") },
-        { name: 'div', attributes: attributes.merge(class: 'admonition') },
-      ]
-    else
-      raise "Cannot translate #{node.name}"
-    end
   end
 end
 
