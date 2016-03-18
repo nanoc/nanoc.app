@@ -66,6 +66,16 @@ div.admonition-wrapper.caution:before {
     content: "\26A0";
 }
 
+div.admonition-wrapper.todo {
+    box-shadow: inset 0 0 0 1px $admon-side-bg-color-todo;
+    background: $admon-bg-color-todo;
+}
+
+div.admonition-wrapper.todo:before {
+    background-color: $admon-side-bg-color-todo;
+    content: "\26A0";
+}
+
 div.admonition-wrapper .admonition:before {
     font-weight: bold;
     font-size: 90%;
@@ -86,4 +96,12 @@ div.admonition-wrapper.caution .admonition:before {
 
 div.admonition-wrapper.todo .admonition:before {
     content: "WORK IN PROGRESS: ";
+}
+
+body.page div.admonition-wrapper p:first-child {
+  margin-top: 10px;
+}
+
+body.page div.admonition-wrapper p:last-child {
+    margin-bottom: 0;
 }

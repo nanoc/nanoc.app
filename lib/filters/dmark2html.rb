@@ -37,7 +37,8 @@ class NanocWsHTMLTranslator < DMark::Translator
       handle_children(element, context.merge(depth: depth))
     when 'h'
       depth = context.fetch(:depth, 1)
-      wrap("h#{depth}") { handle_children(element, context) }
+      id = to_id(text_content_of(element))
+      wrap("h#{depth}", id: id) { handle_children(element, context) }
     when 'emph'
       wrap('em') { handle_children(element, context) }
     when 'abbr'
@@ -47,7 +48,7 @@ class NanocWsHTMLTranslator < DMark::Translator
       wrap('figcaption') { handle_children(element, context) }
     when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
       wrap('span', class: element.name) { handle_children(element, context) }
-    when 'note', 'tip', 'caution'
+    when 'note', 'tip', 'caution', 'todo'
       wrap('div', class: "admonition-wrapper #{element.name}") do
         wrap('div', class: "admonition") do
           handle_children(element, context)
@@ -64,7 +65,7 @@ class NanocWsHTMLTranslator < DMark::Translator
       if element.attributes['id']
         attributes[:id] = element.attributes['id']
       elsif element.name =~ /\Ah\d/
-        attributes[:id] = text_content_of(element).downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
+        attributes[:id] = to_id(text_content_of(element))
       end
 
       wrap(element.name, attributes) { handle_children(element, context) }
@@ -175,6 +176,10 @@ class NanocWsHTMLTranslator < DMark::Translator
   end
 
   # Helper methods
+
+  def to_id(string)
+    string.downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
+  end
 
   def wrap(name, params = {})
     [

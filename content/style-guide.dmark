@@ -166,5 +166,7 @@ title: Style guide
     #dt product name
     #dd We love the %productname{cri} library for building command-line interfaces.
 
+      #todo Remove %code{productname}, as it doesn’t provide any value and should not be styled differently.
+
     #dt URI
     #dd Go to %uri{http://example.com/} to see a sample web page.
