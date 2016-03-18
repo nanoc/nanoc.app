@@ -9,6 +9,7 @@ preprocess do
   config[:nanoc_version_info] = Nanoc.version_information.strip
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
+  config[:generate_pdf] = !ENV['PDF'].nil?
 end
 
 layout '/**/*', :erb
@@ -18,6 +19,7 @@ ignore '/**/_*'
 passthrough '/favicon.ico'
 passthrough '/assets/fonts/**/*'
 passthrough '/assets/images/**/*'
+ignore '/assets/style/*.tex'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
@@ -61,6 +63,30 @@ compile '/release-notes' do
   filter :relativize_paths, type: :html
   filter :htmlcompressor
   write item.identifier.without_ext + '/index.html'
+end
+
+compile '/**/*', rep: :latex do
+  if config[:generate_pdf] && (item.identifier =~ '/doc/**/*' || item.identifier =~ '/about.*')
+    filter :erb if item[:is_dynamic]
+    case item.identifier.ext
+    when 'dmark'
+      filter :dmark2latex
+    else
+      filter :kramdown2latex
+    end
+    layout '/latex-chapter.erb'
+    snapshot :latex, path: item.identifier.without_ext + '.tex'
+  end
+end
+
+compile '/book.*' do
+  if config[:generate_pdf]
+    filter :erb
+    layout '/latex-book.erb'
+    snapshot :latex, path: item.identifier.without_ext + '.tex'
+    filter :latex2pdf
+    write item.identifier.without_ext + '.pdf'
+  end
 end
 
 compile '/**/*' do
