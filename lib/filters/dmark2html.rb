@@ -140,7 +140,6 @@ class NanocWsHTMLTranslator < DMark::Translator
     target_nodes = context[:item] == target_item ? context[:nodes] : nodes_for_item(target_item)
     target_node = (target_nodes && target_frag) ? node_with_id(target_frag, nodes: target_nodes) : nil
 
-    tags = [{ name: 'a', attributes: { href: target_path } }]
     if has_content?(node)
       wrap('a', href: target_path) { handle_children(node, context) }
     else
