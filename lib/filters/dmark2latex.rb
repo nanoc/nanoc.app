@@ -73,6 +73,7 @@ class NanocWsLaTeXTranslator < DMark::Translator
       out = []
       out << 'the '
       if node.attributes['frag']
+        # TODO
         out << 'relevant section'
         out << ' in the '
       end
@@ -86,8 +87,15 @@ class NanocWsLaTeXTranslator < DMark::Translator
         '\footnote{', escape_string(node.attributes['url'], context), '}'
       ]
     elsif node.attributes['frag']
-      # TODO
-      handle_children(node, context)
+      data_for_children = handle_children(node, context)
+      if data_for_children.empty?
+        # TODO
+        out = []
+        out << 'the ??? section on '
+        out << '\\cpageref{section:' << node.attributes['frag'] << '}'
+      else
+        data_for_children
+      end
     else
       raise "Cannot translate ref #{node.inspect}"
     end
@@ -136,13 +144,19 @@ class NanocWsLaTeXTranslator < DMark::Translator
         "\n",
       ]
     when 'h2'
+      id = to_id(text_content_of(node))
+
       [
         wrap_inline('section', node, context),
+        '\label{section:', id, '}',
         "\n",
       ]
     when 'h3'
+      id = to_id(text_content_of(node))
+
       [
         wrap_inline('subsection', node, context),
+        '\label{section:', id, '}',
         "\n",
       ]
     when 'ul'
@@ -230,6 +244,11 @@ class NanocWsLaTeXTranslator < DMark::Translator
         ESCAPE_MAP[m]
       end
     end
+  end
+
+  # TODO: deduplicate
+  def to_id(string)
+    string.downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
   end
 
   # TODO: deduplicate

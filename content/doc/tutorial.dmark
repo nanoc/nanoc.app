@@ -149,7 +149,7 @@ title: "Tutorial"
   title: "Denis’ Guide to Awesomeness"
   ---
 
-#p Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. The mechanism behind this will be explained in %ref[frag=customize-the-layout]{} below.
+#p Recompile the site and reload %uri{http://localhost:3000/} in your browser. You will see that the browser’s title bar displays the new page title now. The mechanism behind this will be explained in %ref[frag=customize-the-layout]{}.
 
 #h2 Add a page
 
@@ -188,7 +188,7 @@ title: "Tutorial"
   #dt %code{<%%= code %%>}
   #dd Runs the code between %code{<%%=} and %code{%%>}, and displays the return value on the web page
 
-#tip Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag=write-pages-in-markdown]{} below.
+#tip Nanoc is not limited to eRuby. It comes with support for Haml and Mustache, and adding support for other layout engines is easy using filters, which are explained in %ref[frag=write-pages-in-markdown]{}.
 
 #p The %code{<%%= yield %%>} instruction is replaced with the item’s compiled content when compiling.
 
