@@ -415,7 +415,7 @@ title: "Filters"
     filter :redcloth, no_span_caps: true
 
 #section %h{%code{:relativize_paths}}
-  #p The %code{:relativize_paths} filter will find all absolute paths in (X)HTML or CSS content, and converts them into relative paths.
+  #p The %code{:relativize_paths} filter finds all absolute paths in (X)HTML or CSS content, and converts them into relative paths.
 
   #p The %code{:type} option specifies the type of content, and can be %code{:html}, %code{:xhtml} or %code{:css}. This option must be specified, as the filter cannot reliably determine the type of content by itself.
 
