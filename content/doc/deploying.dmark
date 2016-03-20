@@ -49,7 +49,7 @@ short_title: "Deploying"
 
 #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
 
-#p Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, and check out the new branch:
+#p Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, check out the new branch and remove everything in it:
 
 #listing
   %prompt{%%} %kbd{git clone . output}
