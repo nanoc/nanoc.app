@@ -81,8 +81,10 @@ class NanocWsLaTeXTranslator < DMark::Translator
       out << '\\cpageref{chap:' << item.identifier << '}'
       out
     elsif node.attributes['url']
-      # TODO
-      []
+      [
+        handle_children(node, context),
+        '\footnote{', escape_string(node.attributes['url'], context), '}'
+      ]
     elsif node.attributes['frag']
       # TODO
       handle_children(node, context)
