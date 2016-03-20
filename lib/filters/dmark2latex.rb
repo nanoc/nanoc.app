@@ -63,16 +63,14 @@ class NanocWsLaTeXTranslator < DMark::Translator
   end
 
   def handle_ref(node, context)
-    # FIXME: todo
-    return []
-
     if node.attributes['item']
       pattern, frag = node.attributes['item'].split('#', 2)
-      item = @items[pattern]
+      item = context[:items][pattern]
       if item.nil?
         raise "Cannot find an item matching pattern #{pattern.inspect} to link to"
       end
 
+      out = []
       out << 'the '
       if node.attributes['frag']
         out << 'relevant section'
@@ -81,8 +79,10 @@ class NanocWsLaTeXTranslator < DMark::Translator
       out << item[:title]
       out << ' chapter on '
       out << '\\cpageref{chap:' << item.identifier << '}'
+      out
     elsif node.attributes['url']
       # TODO
+      []
     elsif node.attributes['frag']
       # TODO
       handle_children(node, context)
