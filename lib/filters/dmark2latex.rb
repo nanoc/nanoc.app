@@ -101,7 +101,12 @@ class NanocWsLaTeXTranslator < DMark::Translator
         '\\end{lstlisting}',
         "\n",
       ]
-    when 'emph', 'firstterm', 'class', 'productname', 'see', 'var', 'log-create', 'log-check-ok', 'log-check-error', 'log-update'
+    when 'firstterm'
+      [
+        '\index{', text_content_of(node), '}',
+        wrap_inline('emph', node, context)
+      ]
+    when 'emph', 'class', 'productname', 'see', 'var', 'log-create', 'log-check-ok', 'log-check-error', 'log-update'
       wrap_inline('emph', node, context)
     when 'strong'
       wrap_inline('textbf', node, context)
@@ -222,6 +227,18 @@ class NanocWsLaTeXTranslator < DMark::Translator
       string.gsub(ESCAPE_REGEX) do |m|
         ESCAPE_MAP[m]
       end
+    end
+  end
+
+  # TODO: deduplicate
+  def text_content_of(node)
+    case node
+    when String
+      node
+    when DMark::ElementNode
+      node.children.map { |c| text_content_of(c) }.join
+    else
+      raise "Unknown node type: #{node.class}"
     end
   end
 

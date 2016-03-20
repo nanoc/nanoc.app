@@ -2,6 +2,9 @@ Class.new(Nanoc::Filter) do
   identifier :latex2pdf
   type :text => :binary
 
+  TMP_BASENAME = 'nanoc-latex'
+  TMP_EXTENSION = '.tex'
+
   def run(content, params = {})
     unless system('which', 'xelatex', out: '/dev/null')
       $stderr.puts "Warning: `xelatex` not found; PDF generation disabled."
@@ -9,15 +12,25 @@ Class.new(Nanoc::Filter) do
       return
     end
 
-    Tempfile.open(['nanoc-latex', '.tex']) do |f|
+    Tempfile.open([TMP_BASENAME, TMP_EXTENSION]) do |f|
       f.write(content)
       f.flush
 
-      3.times do
-        system('xelatex', '-halt-on-error', '-output-directory', File.dirname(f.path), f.path)
-      end
+      run_latex(f)
+      FileUtils.cd(File.dirname(f.path)) { run_makeindex(f) }
+      run_latex(f)
+      run_latex(f)
 
       system('mv', f.path.sub('.tex', '.pdf'), output_filename)
     end
+  end
+
+  def run_latex(f)
+    system('xelatex', '-halt-on-error', '-output-directory', File.dirname(f.path), f.path)
+  end
+
+  def run_makeindex(f)
+    basename = File.basename(f.path, TMP_EXTENSION)
+    system('makeindex', basename)
   end
 end

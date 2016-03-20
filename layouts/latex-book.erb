@@ -20,12 +20,15 @@
 \usepackage[listings,skins]{tcolorbox}
 \usepackage{enumitem}
 \usepackage{cleveref}
+\usepackage{makeidx}
 
 \setstocksize{9.25in}{7.5in}
 \settrimmedsize{\stockheight}{\stockwidth}{*}
 \setlrmarginsandblock{1in}{1in}{*} % Left and right margin
 \setulmarginsandblock{0.8in}{0.8in}{*} % Upper and lower margin
 \checkandfixthelayout
+
+\makeindex
 
 \input{<%= @items['/assets/style/book.tex'][:content_filename] %>}
 
@@ -51,5 +54,9 @@
 \pagestyle{thesis}
 
 <%= yield %>
+
+\backmatter
+
+\printindex
 
 \end{document}
