@@ -244,23 +244,6 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     end
   end
 
-  # TODO: deduplicate
-  def to_id(string)
-    string.downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
-  end
-
-  # TODO: deduplicate
-  def text_content_of(node)
-    case node
-    when String
-      node
-    when DMark::ElementNode
-      node.children.map { |c| text_content_of(c) }.join
-    else
-      raise "Unknown node type: #{node.class}"
-    end
-  end
-
   LSTLISTING_ESCAPE_BEGIN = '(*@'
   LSTLISTING_ESCAPE_END = '@*)'
 
