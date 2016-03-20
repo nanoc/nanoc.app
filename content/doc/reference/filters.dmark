@@ -426,7 +426,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :relativize_paths, type: :html
 
-  #p In HTML, all %code{href} and %code{src} attributes will be relativized, aong with several . In CSS, all %code{url()} references will be relativized.
+  #p In HTML, all %code{href} and %code{src} attributes will be relativized. In CSS, all %code{url()} references will be relativized.
 
   #p To customize which attributes to normalise in (X)HTML, pass a list of XPath selectors to the %code{:select} option. For example, the following will only relativize paths if they occur within %code{href} attributes:
 
