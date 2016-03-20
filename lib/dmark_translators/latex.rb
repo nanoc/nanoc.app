@@ -60,43 +60,56 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     end
   end
 
-  def handle_ref(node, context)
-    if node.attributes['item']
-      pattern, frag = node.attributes['item'].split('#', 2)
-      item = context[:items][pattern]
-      if item.nil?
-        raise "Cannot find an item matching pattern #{pattern.inspect} to link to"
+  def handle_ref_with_url(node, context, url)
+    [
+      handle_children(node, context),
+      '\footnote{', escape_string(node.attributes['url'], context), '}'
+    ]
+  end
+
+  def handle_ref_with_content(node, context, target_item, frag)
+    # FIXME: ???
+    handle_children(node, context)
+  end
+
+  def handle_ref_bare(node, context, target_item, frag, target_node)
+    handle_children(node, context)
+  end
+
+  def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
+    [
+      'the ',
+      text_content_of(target_node),
+      ' section'
+    ]
+  end
+
+  def handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+    [
+      ' in '
+    ]
+  end
+
+  def handle_ref_insert_chapter_ref(node, context, target_item, frag)
+    [
+      'the ',
+      target_item[:title],
+      ' chapter'
+    ]
+  end
+
+  def handle_ref_insert_end(node, context, target_item, frag, target_node)
+    ref =
+      if target_item
+        'chap:' + target_item.identifier.to_s
+      else
+        'section:' + frag
       end
 
-      out = []
-      out << 'the '
-      if node.attributes['frag']
-        # TODO
-        out << 'relevant section'
-        out << ' in the '
-      end
-      out << item[:title]
-      out << ' chapter on '
-      out << '\\cpageref{chap:' << item.identifier << '}'
-      out
-    elsif node.attributes['url']
-      [
-        handle_children(node, context),
-        '\footnote{', escape_string(node.attributes['url'], context), '}'
-      ]
-    elsif node.attributes['frag']
-      data_for_children = handle_children(node, context)
-      if data_for_children.empty?
-        # TODO
-        out = []
-        out << 'the ??? section on '
-        out << '\\cpageref{section:' << node.attributes['frag'] << '}'
-      else
-        data_for_children
-      end
-    else
-      raise "Cannot translate ref #{node.inspect}"
-    end
+    [
+      ' on ',
+      '\\cpageref{', ref, '}',
+    ]
   end
 
   def handle_element_node(node, context)

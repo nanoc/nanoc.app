@@ -125,55 +125,58 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
     end
   end
 
-  def handle_ref(node, context)
-    if node.attributes['url']
-      href = node.attributes['url']
-      return wrap('a', href: href) { handle_children(node, context) }
-    end
+  def handle_ref_with_url(node, context, url)
+    wrap('a', href: url) { handle_children(node, context) }
+  end
 
-    if node.attributes['item'].nil? && node.attributes['frag'].nil?
-      raise "Cannot create ref: no `url`, `item` or `frag` given"
-    end
+  def handle_ref_with_content(node, context, target_item, frag)
+    href = href_for(target_item, frag)
+    wrap('a', href: href) { handle_children(node, context) }
+  end
 
-    target_item = node.attributes['item'] ? context[:items][node.attributes['item']] : context[:item]
-    raise "%ref error: canot find item for #{node.attributes['item'].inspect}" if target_item.nil?
-
-    target_frag = node.attributes['frag']
-    target_path = target_frag ? target_item.path + '#' + target_frag : target_item.path
-    target_nodes = context[:item] == target_item ? context[:nodes] : nodes_for_item(target_item)
-    target_node = (target_nodes && target_frag) ? node_with_id(target_frag, nodes: target_nodes) : nil
-
-    if has_content?(node)
-      wrap('a', href: target_path) { handle_children(node, context) }
-    else
-      if node.attributes['bare']
-        wrap('a', href: target_path) do
-          if target_frag
-            text_content_of(target_node)
-          else
-            target_item[:title]
-          end
-        end
+  def handle_ref_bare(node, context, target_item, frag, target_node)
+    href = href_for(target_item, frag)
+    wrap('a', href: href) do
+      if frag
+        text_content_of(target_node)
       else
-        out = []
-        out << 'the '
-
-        if target_frag
-          out << wrap('a', href: target_path) { text_content_of(target_node) }
-          out << ' section'
-        end
-
-        if target_frag && target_item != context[:item]
-          out << ' on the '
-        end
-
-        if target_item != context[:item]
-          out << wrap('a', href: target_item.path) { target_item[:title] }
-          out << ' page'
-        end
+        target_item[:title]
       end
+    end
+  end
 
-      out
+  def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
+    href = href_for(target_item, frag)
+    [
+      'the ',
+      wrap('a', href: href) { text_content_of(target_node) },
+      ' section'
+    ]
+  end
+
+  def handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+    [
+      ' on '
+    ]
+  end
+
+  def handle_ref_insert_chapter_ref(node, context, target_item, frag)
+    [
+      'the ',
+      wrap('a', href: target_item.path) { target_item[:title] },
+      ' page'
+    ]
+  end
+
+  def handle_ref_insert_end(node, context, target_item, frag, target_node)
+    []
+  end
+
+  def href_for(target_item, frag)
+    if frag
+      target_item.path + '#' + frag
+    else
+      target_item.path
     end
   end
 
