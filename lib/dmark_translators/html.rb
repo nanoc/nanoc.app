@@ -131,6 +131,10 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
       return wrap('a', href: href) { handle_children(node, context) }
     end
 
+    if node.attributes['item'].nil? && node.attributes['frag'].nil?
+      raise "Cannot create ref: no `url`, `item` or `frag` given"
+    end
+
     target_item = node.attributes['item'] ? context[:items][node.attributes['item']] : context[:item]
     raise "%ref error: canot find item for #{node.attributes['item'].inspect}" if target_item.nil?
 
