@@ -97,7 +97,7 @@ short_title: "Deploying"
 #listing
   %prompt{%%} %kbd{nanoc}
 
-#p To publish the site, either use %ref[target=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}}, or publish manually by entering the %filename{output/} directory, adding and committing everything, and finally pushing:
+#p To publish the site, either use %ref[url=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}}, or publish manually by entering the %filename{output/} directory, adding and committing everything, and finally pushing:
 
 #listing
   %prompt{%%} %kbd{cd output}
