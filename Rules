@@ -75,7 +75,6 @@ compile '/**/*', rep: :latex do
       filter :kramdown2latex
     end
     layout '/latex-chapter.erb'
-    snapshot :latex, path: item.identifier.without_ext + '.tex'
   end
 end
 
@@ -83,7 +82,6 @@ compile '/book.*' do
   if config[:generate_pdf]
     filter :erb
     layout '/latex-book.erb'
-    snapshot :latex, path: item.identifier.without_ext + '.tex'
     filter :latex2pdf
     write item.identifier.without_ext + '.pdf'
   end
