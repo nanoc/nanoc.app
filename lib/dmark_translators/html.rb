@@ -68,7 +68,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
 
       wrap(element.name, attributes) { handle_children(element, context) }
     else
-      raise "Cannot translate #{node.name}"
+      raise "Cannot translate #{element.name}"
     end
   end
 
