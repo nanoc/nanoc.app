@@ -415,7 +415,9 @@ title: "Filters"
     filter :redcloth, no_span_caps: true
 
 #section %h{%code{:relativize_paths}}
-  #p The %code{:relativize_paths} filter finds all absolute paths in (X)HTML or CSS content, and converts them into relative paths.
+  #p The %code{:relativize_paths} filter finds all absolute paths in (X)HTML or CSS content, and converts them into relative paths. This is particularly useful for sites that are not deployed at the root of a domain.
+
+  #p For example, the GitHub Pages site for %ref[url=http://ddfreyne.github.io/d-mark/]{D★Mark} is hosted at %uri{http://ddfreyne.github.io/d-mark/}. The D★Mark page has a reference to its stylesheet at %filename{/assets/style.css}, which the %code{:relativize_paths} filter turns into %filename{assets/style.css}, so that the stylesheet can be found even if the site is not deployed at the root of the domain.
 
   #p The %code{:type} option specifies the type of content, and can be %code{:html}, %code{:xhtml} or %code{:css}. This option must be specified, as the filter cannot reliably determine the type of content by itself.
 
