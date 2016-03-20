@@ -55,7 +55,6 @@ short_title: "Deploying"
   %prompt{%%} %kbd{git clone . output}
   %prompt{%%} %kbd{cd output}
   %prompt{output@master%%} %kbd{git checkout --orphan gh-pages}
-  %prompt{output@master%%} %kbd{git checkout gh-pages}
   %prompt{output@gh-pages%%} %kbd{git rm -rf .}
 
 #p Change the remote for this repository to point to the GitHub repository, rather than the local repository. To do so, execute the following %command{git remote} commands, replacing %var{repo-url} with the URL to the repository:
