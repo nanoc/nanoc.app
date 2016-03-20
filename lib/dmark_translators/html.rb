@@ -1,6 +1,4 @@
-require 'd-mark'
-
-class NanocWsHTMLTranslator < DMark::Translator
+class NanocWsHTMLTranslator < NanocWsCommonTranslator
   include Nanoc::Helpers::HTMLEscape
 
   SUDO_GEM_CONTENT_DMARK =
@@ -248,32 +246,5 @@ class NanocWsHTMLTranslator < DMark::Translator
     end
 
     nil
-  end
-end
-
-Class.new(Nanoc::Filter) do
-  identifier :dmark2html
-
-  def run(content, params = {})
-    nodes = DMark::Parser.new(content).parse
-    context = { items: @items, item: @item, nodes: nodes, binding: binding }
-    NanocWsHTMLTranslator.translate(nodes, context)
-  rescue => e
-    case e
-    when DMark::Parser::ParserError
-      line = content.lines[e.line_nr]
-
-      lines = [
-        e.message,
-        "",
-        line,
-        "\e[31m" + ' ' * e.col_nr + '↑' + "\e[0m",
-      ]
-
-      fancy_msg = lines.map { |l| "\e[34m[D*Mark]\e[0m #{l.strip}\n" }.join('')
-      raise "D*Mark parser error\n" + fancy_msg
-    else
-      raise e
-    end
   end
 end
