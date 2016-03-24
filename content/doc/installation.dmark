@@ -10,7 +10,7 @@ nav_title: "Install"
 
 #note %entity{sudo-gem-install}
 
-#p After installing, head over to %ref[item=/doc/tutorial.*]{}! For detailed installation instructions, read on.
+#p For detailed installation instructions, read on.
 
 #h2 Installing Ruby
 
