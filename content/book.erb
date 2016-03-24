@@ -1,13 +1,11 @@
 ---
 title:      "Documentation"
-is_dynamic: true
 toc:
   - title: 'Getting started'
     children:
       - '/doc/about.*'
-      - '/doc/installation.*'
       - '/doc/tutorial.*'
-  - title: 'Topics'
+  - title: 'Using Nanoc'
     children:
       - '/doc/sites.*'
       - '/doc/items-and-layouts.*'
@@ -19,9 +17,6 @@ toc:
       - '/doc/deploying.*'
       - '/doc/testing.*'
       - '/doc/data-sources.*'
-      - '/doc/troubleshooting.*'
-      - '/doc/glossary.*'
-      - '/doc/nanoc-4-upgrade-guide.*'
   - title: 'Tips and tricks'
     children:
       - '/doc/guides/using-binary-items-effectively.*'
@@ -35,6 +30,12 @@ toc:
       - '/doc/reference/commands.*'
       - '/doc/reference/config.*'
       - '/doc/reference/variables.*'
+  - title: 'Appendices'
+    children:
+      - '/doc/installation.*'
+      - '/doc/troubleshooting.*'
+      - '/doc/nanoc-4-upgrade-guide.*'
+      - '/doc/glossary.*'
 ---
 
 <% item[:toc].each do |part| %>
