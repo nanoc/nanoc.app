@@ -66,7 +66,7 @@ compile '/release-notes' do
 end
 
 compile '/**/*', rep: :latex do
-  if config[:generate_pdf] && (item.identifier =~ '/doc/**/*' || item.identifier =~ '/about.*')
+  if config[:generate_pdf] && item.identifier =~ '/doc/**/*'
     filter :erb if item[:is_dynamic]
     case item.identifier.ext
     when 'dmark'
@@ -107,6 +107,9 @@ compile '/**/*' do
 
   if item.binary?
     write item.identifier.to_s
+  elsif item.identifier =~ '/doc/about.*'
+    # TODO: Remove me, and set up a redirect from /about to /doc/about
+    write '/about/index.html'
   else
     write item.identifier.without_ext + '/index.html'
   end

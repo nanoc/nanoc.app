@@ -128,7 +128,7 @@ title: Style guide
     #dd The %ref[url=http://nanoc.ws/]{Nanoc web site} is pretty.
 
     #dt link to item
-    #dd For details, see %ref[item=/about.*]{}.
+    #dd For details, see %ref[item=/doc/about.*]{}.
 
     #dt link to fragment
     #dd For details, see %ref[frag=figures]{}.
