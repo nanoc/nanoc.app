@@ -41,7 +41,6 @@ title: "Data sources"
   │   └── style
   │       ├── print.scss
   │       └── screen.scss
-  ├── community.md
   ├── contributing.md
   └── index.md
 
