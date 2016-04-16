@@ -93,10 +93,10 @@ def detailed_toc_for(item_identifier, params={})
   out
 end
 
-def sidebar_toc_for(item)
+def doc_toc
   out = ''
 
-  item[:toc].each do |section|
+  @config[:toc].each do |section|
     out << '<h4>' + section[:title] + '</h4>'
     out << '<ul>'
     section[:children].each do |child_glob|

@@ -27,7 +27,7 @@
                     <% if @item.identifier =~ %r{^/doc(/|\.)} %>
                         <div class="details">
                             <h3>Table of contents</h3>
-                            <%= sidebar_toc_for(@items['/doc.*']) %>
+                            <%= doc_toc %>
                         </div>
                     <% elsif !@item[:skip_details] %>
                         <div class="details">
