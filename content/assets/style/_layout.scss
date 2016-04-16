@@ -11,14 +11,8 @@ $grid-padding:  0;
 
 @include border-box-sizing;
 
-body header {
-    padding: 0 20px;
-
-    .header-content {
-        @media (min-width: 720px) {
-            @include container;
-        }
-    }
+body {
+    border-top: 6px solid $nav-sides-bg-color;
 }
 
 body.page {
