@@ -10,7 +10,7 @@
     ul {
         text-align: center;
 
-        padding: 40px 0 20px 0;
+        padding: 40px 0 10px 0;
 
         li {
             display: inline;
@@ -46,29 +46,33 @@
 
 .hero-content {
     @include container;
-    padding-top: 20px;
-    height: 460px;
+    padding-top: 10px;
+    height: 480px;
 
     @media (max-width: 819px) {
         padding-top: 10px;
-        height: 400px;
+        height: 430px;
+
+        img {
+            margin-top: -20px;
+        }
     }
 
     @media (max-width: 719px) {
         padding-top: 10px;
-        height: 350px;
+        height: 380px;
     }
 
     @media (max-width: 619px) {
-        height: 300px;
+        height: 330px;
     }
 
     @media (max-width: 519px) {
-        height: 250px;
+        height: 280px;
     }
 
     @media (max-width: 419px) {
-        height: 200px;
+        height: 230px;
     }
 
     .slides {
