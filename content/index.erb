@@ -12,6 +12,11 @@ raw_layout:       true
         </div>
     </div>
     <div class="hero">
+        <ul>
+            <li><a href="/doc/installation/">Installation</a></li>
+            <li><a href="/doc/tutorial/">Tutorial</a></li>
+            <li><a href="/about/">Documentation</a></li>
+        </ul>
         <div class="hero-content">
             <div class="slides">
                 <div class="slide">
@@ -45,25 +50,6 @@ raw_layout:       true
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="ticker">
-        <div class="ticker-content">
-            The current release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. Check out the <a href="/release-notes/">release notes</a> for details.
-        </div>
-    </div>
-    <div class="chooser">
-        <div class="chooser-unit install-nanoc">
-            <h2><a href="/doc/installation/">Install Nanoc</a></h2>
-            <p>A simple <kbd>gem install nanoc</kbd> will get you going, but we’ve provided detailed instructions for those who are unfamiliar with Ruby.</p>
-        </div>
-        <div class="chooser-unit take-the-tutorial">
-            <h2><a href="/doc/tutorial/">Take the tutorial</a></h2>
-            <p>This short tutorial will show you how Nanoc works, and teach you the basics &mdash; enough to get a small web site up and running.</p>
-        </div>
-        <div class="chooser-unit learn-more">
-            <h2><a href="/doc/">Learn more</a></h2>
-            <p>Nanoc comes with vast amounts of documentation, covering everything from basic usage to extending Nanoc with custom filters, data sources and more.</p>
         </div>
     </div>
 </article>

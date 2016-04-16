@@ -11,62 +11,85 @@ $grid-padding:  0;
 
 @include border-box-sizing;
 
-body header {
-    padding: 0 20px;
-
-    .header-content {
-        @media (min-width: 720px) {
-            @include container;
-        }
-    }
+body {
+    border-top: 6px solid $page-top-border-color;
 }
 
 body.page {
     .intro {
         background: $intro-bg-color;
 
-        h1 {
-            color: $intro-fg-color;
+        .intro-content {
+            @media (min-width: 720px) {
+                @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
+                    @include container;
+                }
+            }
+
+            @media (max-width: 719px) {
+                padding: 20px;
+            }
+
+            padding: 20px 0;
+
+            position: relative;
+
+            .section {
+                font-size: 20px;
+            }
+
+            h1 {
+                font-size: 30px;
+                line-height: 40px;
+                color: $intro-fg-color;
+            }
+
+            p {
+                @media (min-width: 720px) {
+                    @include span-columns(8, 12);
+                }
+
+                font-size: 15px;
+                padding-top: 40px;
+            }
+
+            a.back {
+                :link, :visited {
+                    color: $intro-link-fg-color;
+                }
+
+                :hover {
+                    color: $intro-link-fg-color-hover;
+                }
+            }
+
+            span.deco {
+              margin: 0 8px;
+              color: $intro-deco-fg-color;
+            }
+
+            a.home {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                right: 40px;
+                top: 10px;
+
+                background: url(/assets/images/logo-nav.png) center center no-repeat;
+
+                :hover {
+                    background-image: url(/assets/images/logo-nav-hover.png);
+                }
+
+                span {
+                    display: none;
+                }
+            }
         }
     }
 
     .details {
         background: $sidebar-bg-color;
-    }
-}
-
-body.page .intro {
-    .intro-content {
-        @media (min-width: 720px) {
-            @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
-                @include container;
-            }
-        }
-
-        @media (max-width: 719px) {
-            padding: 20px;
-        }
-
-        padding-top: 40px;
-        padding-bottom: 40px;
-
-        .section {
-            font-size: 20px;
-        }
-
-        h1 {
-            font-size: 36px;
-            line-height: 40px;
-        }
-
-        p {
-            @media (min-width: 720px) {
-                @include span-columns(8, 12);
-            }
-
-            font-size: 15px;
-            padding-top: 40px;
-        }
     }
 }
 
@@ -187,9 +210,6 @@ body.page .content {
         .side {
             @media (min-width: 720px) {
                 @include span-columns(4 omega, 12);
-
-                position: relative;
-                top: -60px;
             }
 
             @media (max-width: 719px) {
@@ -198,20 +218,19 @@ body.page .content {
 
             .details {
                 padding: 20px;
-                margin-bottom: 20px;
-            }
+                margin: 20px 0 20px 0;
 
-            .details {
                 h3 {
-                    font-size: 20px;
-                    padding-bottom: 20px;
-
-                    @media (max-width: 719px) {
-                        display: none;
-                    }
+                    display: none;
                 }
 
                 h4 + ul {
+                    margin-top: 0;
+                }
+
+                h3 + h4,
+                h3 + ul,
+                h3 + ol {
                     margin-top: 0;
                 }
 
@@ -238,6 +257,15 @@ body.page .content {
                 ul li {
                     list-style-type: none;
                 }
+
+                ul li span.active {
+                  font-weight: bold;
+                }
+
+                ul > li > ol.toc {
+                  margin-top: 0;
+                  margin-left: 20px;
+                }
             }
         }
 
@@ -251,15 +279,8 @@ body.page .content {
 
 body.home {
     .explanation {
-        background: $intro-bg-color;
-        color: $intro-fg-color;
-    }
-
-    .ticker {
-        background: $dark-bg-color;
-        color: $dark-fg-color;
-
-        @include dark-background-links;
+        background: $explanation-bg-color;
+        color: $explanation-fg-color;
     }
 }
 
@@ -324,30 +345,24 @@ body.home .support {
 }
 
 footer {
-    background: $dark-bg-color url(/assets/images/background-dark.png);
+    background: $footer-bg-color;
 
-    @include dark-background-links;
-
-    .links {
-        div, li:after {
-            color: $dark-fg-color;
-        }
-    }
-
-    .copyright {
-        border-color: $dark-border-color;
-        color: $dark-fg-color;
-    }
-}
-
-footer {
     p {
-        font-size: 13px;
+        color: $footer-fg-color;
     }
 
     a {
         padding: 0 2px;
         margin: 0;
+
+        :link, :visited {
+            color: $footer-link-color;
+        }
+
+        :hover {
+            background-color: $footer-link-hover-fg-color;
+            color:            $footer-link-hover-bg-color;
+        }
     }
 
     padding: 0;
@@ -358,8 +373,16 @@ footer {
             @include container;
         }
 
+        p {
+            padding: 40px 0 20px 0;
+        }
+
         .links {
-            padding: 40px 0;
+            div, li:after {
+                color: $footer-fg-color;
+            }
+
+            padding: 0 0 40px 0;
 
             ul {
                 margin-left: -2px;
@@ -386,8 +409,11 @@ footer {
             padding: 20px 0 40px 0;
             border-top-width: 1px;
             border-top-style: solid;
+            border-color: $footer-border-color;
+            color: $footer-fg-color;
 
             p {
+                font-size: 13px;
                 max-width: 700px;
                 padding-left: 55px;
                 background: url(/assets/images/logo-footer.png) left center no-repeat;

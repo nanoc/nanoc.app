@@ -4,12 +4,41 @@
 
 .hero {
     background: $hero-bg-color url(/assets/images/symphony.png);
+
+    margin-bottom: -60px;
+
+    ul {
+        text-align: center;
+
+        padding: 40px 0 20px 0;
+
+        li {
+            display: inline;
+
+            margin: 0 20px;
+        }
+
+        a {
+            padding: 8px 20px;
+            font-size: 24px;
+            font-style: normal;
+        }
+
+        a:link, a:visited {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        a:hover {
+            background-color: $link-color-hover;
+            color:            $link-color;
+        }
+    }
 }
 
 .hero-content {
     @include container;
-    height: 300px;
-    overflow: hidden;
+    padding-top: 20px;
+    height: 460px;
 
     @media (max-width: 719px) {
         padding-top: 10px;

@@ -93,14 +93,21 @@ def detailed_toc_for(item_identifier, params={})
   out
 end
 
-def sidebar_toc_for(item)
+def doc_toc
   out = ''
 
-  item[:toc].each do |section|
+  @config[:toc].each do |section|
     out << '<h4>' + section[:title] + '</h4>'
     out << '<ul>'
     section[:children].each do |child_glob|
-      out << '<li>' + link_to_id(child_glob) + '</li>'
+      out << '<li>'
+      if @item.identifier =~ child_glob
+        out << '<span class=active>' << title_of_id(child_glob) << '</span>'
+        out << '{{TOC}}'
+      else
+        out << link_to_id(child_glob)
+      end
+      out << '</li>'
     end
     out << '</ul>'
   end
