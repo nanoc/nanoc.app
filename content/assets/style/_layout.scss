@@ -239,7 +239,7 @@ body.page .content {
                   font-weight: bold;
                 }
 
-                ol.toc {
+                ul > li > ol.toc {
                   margin-top: 0;
                   margin-left: 20px;
                 }
