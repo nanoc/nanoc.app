@@ -12,7 +12,7 @@ $grid-padding:  0;
 @include border-box-sizing;
 
 body {
-    border-top: 6px solid $nav-sides-bg-color;
+    border-top: 6px solid $page-top-border-color;
 }
 
 body.page {
