@@ -282,13 +282,6 @@ body.home {
         background: $intro-bg-color;
         color: $intro-fg-color;
     }
-
-    .ticker {
-        background: $dark-bg-color;
-        color: $dark-fg-color;
-
-        @include dark-background-links;
-    }
 }
 
 body.home .explanation {
@@ -352,17 +345,24 @@ body.home .support {
 }
 
 footer {
-    background: $dark-bg-color url(/assets/images/background-dark.png);
-
-    @include dark-background-links;
+    background: $footer-bg-color;
 
     p {
-        color: $dark-fg-color;
+        color: $footer-fg-color;
     }
 
     a {
         padding: 0 2px;
         margin: 0;
+
+        :link, :visited {
+            color: $footer-link-color;
+        }
+
+        :hover {
+            background-color: $footer-link-hover-fg-color;
+            color:            $footer-link-hover-bg-color;
+        }
     }
 
     padding: 0;
@@ -379,7 +379,7 @@ footer {
 
         .links {
             div, li:after {
-                color: $dark-fg-color;
+                color: $footer-fg-color;
             }
 
             padding: 0 0 40px 0;
@@ -409,8 +409,8 @@ footer {
             padding: 20px 0 40px 0;
             border-top-width: 1px;
             border-top-style: solid;
-            border-color: $dark-border-color;
-            color: $dark-fg-color;
+            border-color: $footer-border-color;
+            color: $footer-fg-color;
 
             p {
                 font-size: 13px;

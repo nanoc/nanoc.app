@@ -77,13 +77,10 @@ $sidebar-bg-color:            $color-offwhite;
 $header-color:                $color-orange;
 $dt-color:                    $color-black;
 
-@mixin dark-background-links {
-    a:link, a:visited {
-        color: $dark-link-color;
-    }
-
-    a:hover {
-        background-color: $dark-link-color;
-        color:            $dark-link-color-hover;
-    }
-}
+// Footer
+$footer-bg-color:             $dark-bg-color;
+$footer-fg-color:             $dark-fg-color;
+$footer-border-color:         $dark-border-color;
+$footer-link-color:           $dark-link-color;
+$footer-link-hover-fg-color:  $dark-link-color;
+$footer-link-hover-bg-color:  $dark-link-color-hover;
