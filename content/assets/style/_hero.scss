@@ -18,6 +18,15 @@
             margin: 0 20px;
         }
 
+        @media (max-width: 619px) {
+            padding: 40px 0 0 0;
+
+            li {
+                display: block;
+                margin: 0 0 40px 0;
+            }
+        }
+
         a {
             padding: 8px 20px;
             font-size: 24px;
@@ -40,9 +49,26 @@
     padding-top: 20px;
     height: 460px;
 
+    @media (max-width: 819px) {
+        padding-top: 10px;
+        height: 400px;
+    }
+
     @media (max-width: 719px) {
         padding-top: 10px;
-        height: 160px;
+        height: 350px;
+    }
+
+    @media (max-width: 619px) {
+        height: 300px;
+    }
+
+    @media (max-width: 519px) {
+        height: 250px;
+    }
+
+    @media (max-width: 419px) {
+        height: 200px;
     }
 
     .slides {
