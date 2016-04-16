@@ -68,6 +68,12 @@ body.page {
               color: $intro-deco-fg-color;
             }
 
+            @media (max-width: 619px) {
+                a.home {
+                    display: none;
+                }
+            }
+
             a.home {
                 position: absolute;
                 width: 60px;
