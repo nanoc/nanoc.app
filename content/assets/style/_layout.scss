@@ -187,9 +187,6 @@ body.page .content {
         .side {
             @media (min-width: 720px) {
                 @include span-columns(4 omega, 12);
-
-                position: relative;
-                top: -60px;
             }
 
             @media (max-width: 719px) {
@@ -198,20 +195,19 @@ body.page .content {
 
             .details {
                 padding: 20px;
-                margin-bottom: 20px;
-            }
+                margin: 20px 0 20px 0;
 
-            .details {
                 h3 {
-                    font-size: 20px;
-                    padding-bottom: 20px;
-
-                    @media (max-width: 719px) {
-                        display: none;
-                    }
+                    display: none;
                 }
 
                 h4 + ul {
+                    margin-top: 0;
+                }
+
+                h3 + h4,
+                h3 + ul,
+                h3 + ol {
                     margin-top: 0;
                 }
 
