@@ -2,8 +2,6 @@
 title: "Creating multilingual sites"
 ---
 
-#h2 Multilingual sites
-
 #p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online web site}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online web site} to see the details about how it is done.
 
 #p A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
