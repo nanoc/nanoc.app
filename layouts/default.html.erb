@@ -17,8 +17,8 @@
 <% else %>
         <div class="intro">
             <div class="intro-content">
-                <a href="/"><span>Home</span></a>
-                <h1><%= @item[:title] %></h1>
+                <a class="home" href="/"><span>Home</span></a>
+                <h1><%= @item.identifier =~ '/index.*' ? '' : '<a class=back href="/">Nanoc</a><span class=deco>»</span>' %><%= @item[:title] %></h1>
             </div>
         </div>
         <div class="content">
