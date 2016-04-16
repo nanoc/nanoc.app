@@ -18,8 +18,14 @@ ignore '/**/_*'
 
 passthrough '/favicon.ico'
 passthrough '/assets/fonts/**/*'
-passthrough '/assets/images/**/*'
 ignore '/assets/style/*.tex'
+
+compile '/assets/images/hero/*' do
+  digest = Digest::SHA1.hexdigest(File.read(item[:filename]))
+  write item.identifier.without_ext + '-' + digest[0..15] + item.identifier.ext
+end
+
+passthrough '/assets/images/**/*'
 
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
