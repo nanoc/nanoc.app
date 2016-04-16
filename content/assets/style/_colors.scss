@@ -34,12 +34,13 @@ $admon-bg-color-note:         mix($admon-side-bg-color-note, $color-offwhite-lig
 $admon-bg-color-caution:      mix($admon-side-bg-color-caution, $color-offwhite-light, 7%);
 $admon-bg-color-todo:         mix($admon-side-bg-color-todo, $color-offwhite-light, 7%);
 
-// Dark sections
-$dark-fg-color:               $color-dark-60;
-$dark-bg-color:               $color-dark-80;
-$dark-border-color:           $color-dark-60;
-$dark-link-color:             $color-dark-40;
-$dark-link-color-hover:       $color-dark-80;
+// Footer
+$footer-bg-color:             $color-offwhite;
+$footer-fg-color:             $color-dark-60;
+$footer-border-color:         $color-dark-40;
+$footer-link-color:           $color-dark-95;
+$footer-link-hover-fg-color:  $color-dark-95;
+$footer-link-hover-bg-color:  $color-offwhite;
 
 // Links
 $link-color:                  $color-blue;
@@ -76,11 +77,3 @@ $sidebar-bg-color:            $color-offwhite;
 // Typography
 $header-color:                $color-orange;
 $dt-color:                    $color-black;
-
-// Footer
-$footer-bg-color:             $dark-bg-color;
-$footer-fg-color:             $dark-fg-color;
-$footer-border-color:         $dark-border-color;
-$footer-link-color:           $dark-link-color;
-$footer-link-hover-fg-color:  $dark-link-color;
-$footer-link-hover-bg-color:  $dark-link-color-hover;
