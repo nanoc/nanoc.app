@@ -25,8 +25,30 @@ body.page {
     .intro {
         background: $intro-bg-color;
 
-        h1 {
-            color: $intro-fg-color;
+        .intro-content {
+            position: relative;
+
+            h1 {
+                color: $intro-fg-color;
+            }
+
+            a {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                right: 40px;
+                top: 30px;
+
+                background: url(/assets/images/logo-nav.png) center center no-repeat;
+
+                :hover {
+                    background-image: url(/assets/images/logo-nav-hover.png);
+                }
+
+                span {
+                    display: none;
+                }
+            }
         }
     }
 
