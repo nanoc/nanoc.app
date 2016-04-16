@@ -20,10 +20,37 @@ body.page {
         background: $intro-bg-color;
 
         .intro-content {
+            @media (min-width: 720px) {
+                @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
+                    @include container;
+                }
+            }
+
+            @media (max-width: 719px) {
+                padding: 20px;
+            }
+
+            padding: 20px 0;
+
             position: relative;
 
+            .section {
+                font-size: 20px;
+            }
+
             h1 {
+                font-size: 30px;
+                line-height: 40px;
                 color: $intro-fg-color;
+            }
+
+            p {
+                @media (min-width: 720px) {
+                    @include span-columns(8, 12);
+                }
+
+                font-size: 15px;
+                padding-top: 40px;
             }
 
             a {
@@ -31,7 +58,7 @@ body.page {
                 width: 60px;
                 height: 60px;
                 right: 40px;
-                top: 30px;
+                top: 10px;
 
                 background: url(/assets/images/logo-nav.png) center center no-repeat;
 
@@ -48,41 +75,6 @@ body.page {
 
     .details {
         background: $sidebar-bg-color;
-    }
-}
-
-body.page .intro {
-    .intro-content {
-        @media (min-width: 720px) {
-            @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
-                @include container;
-            }
-        }
-
-        @media (max-width: 719px) {
-            padding: 20px;
-        }
-
-        padding-top: 40px;
-        padding-bottom: 40px;
-
-        .section {
-            font-size: 20px;
-        }
-
-        h1 {
-            font-size: 36px;
-            line-height: 40px;
-        }
-
-        p {
-            @media (min-width: 720px) {
-                @include span-columns(8, 12);
-            }
-
-            font-size: 15px;
-            padding-top: 40px;
-        }
     }
 }
 
