@@ -328,21 +328,8 @@ footer {
 
     @include dark-background-links;
 
-    .links {
-        div, li:after {
-            color: $dark-fg-color;
-        }
-    }
-
-    .copyright {
-        border-color: $dark-border-color;
-        color: $dark-fg-color;
-    }
-}
-
-footer {
     p {
-        font-size: 13px;
+        color: $dark-fg-color;
     }
 
     a {
@@ -358,8 +345,16 @@ footer {
             @include container;
         }
 
+        p {
+            padding: 40px 0 20px 0;
+        }
+
         .links {
-            padding: 40px 0;
+            div, li:after {
+                color: $dark-fg-color;
+            }
+
+            padding: 0 0 40px 0;
 
             ul {
                 margin-left: -2px;
@@ -386,8 +381,11 @@ footer {
             padding: 20px 0 40px 0;
             border-top-width: 1px;
             border-top-style: solid;
+            border-color: $dark-border-color;
+            color: $dark-fg-color;
 
             p {
+                font-size: 13px;
                 max-width: 700px;
                 padding-left: 55px;
                 background: url(/assets/images/logo-footer.png) left center no-repeat;
