@@ -1,5 +1,5 @@
 ---
-title: "The command-line interface"
+title: "Command-line interface"
 ---
 
 #p Interacting with Nanoc happens through a command-line tool named %command{nanoc}. This tool has sub-commands, which you can invoke like this:
