@@ -234,6 +234,15 @@ body.page .content {
                 ul li {
                     list-style-type: none;
                 }
+
+                ul li span.active {
+                  font-weight: bold;
+                }
+
+                ol.toc {
+                  margin-top: 0;
+                  margin-left: 20px;
+                }
             }
         }
 

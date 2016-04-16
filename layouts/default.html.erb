@@ -34,10 +34,10 @@
         <div class="content">
             <article>
                 <div class="side<%= @item[:skip_details] ? ' no-details' : '' %>">
-                    <% if @item[:toc] %>
+                    <% if @item.identifier =~ %r{^/doc(/|\.)} %>
                         <div class="details">
                             <h3>Table of contents</h3>
-                            <%= sidebar_toc_for(@item) %>
+                            <%= sidebar_toc_for(@items['/doc.*']) %>
                         </div>
                     <% elsif !@item[:skip_details] %>
                         <div class="details">
