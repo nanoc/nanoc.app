@@ -305,45 +305,6 @@ body.home .explanation {
     }
 }
 
-body.home .ticker {
-    .ticker-content {
-        @include container;
-
-        padding: 10px;
-        font-size: 13px;
-        text-align: center;
-
-        span {
-            font-weight: bold;
-        }
-    }
-}
-
-body.home .support {
-    @include container;
-
-    border-top-width: 1px;
-    border-top-style: solid;
-    padding: 40px 20px 40px 20px;
-
-    .support-content {
-        @media (min-width: 720px) {
-            padding: 0 60px 0 240px;
-            position: relative;
-
-            background-position: 100px 15px;
-            background-repeat: no-repeat;
-            background-image: url(/assets/images/heart.png);
-            background-size: 82px;
-        }
-
-        h3 {
-            font-size: 20px;
-            line-height: 40px;
-        }
-    }
-}
-
 footer {
     background: $footer-bg-color;
 
