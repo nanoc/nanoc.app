@@ -1,5 +1,6 @@
 ---
-title:      "Documentation"
+title: "Documentation"
+redirect_to: "/about/"
 toc:
   - title: 'Getting started'
     children:
@@ -37,12 +38,3 @@ toc:
       - '/doc/nanoc-4-upgrade-guide.*'
       - '/doc/glossary.*'
 ---
-
-<% item[:toc].each do |section| %>
-  <h2><%= section[:title] %></h2>
-  <ol class="toc<%= section[:compact] ? '' : ' big' %>">
-    <% section[:children].each do |child_glob| %>
-      <%= detailed_toc_for(child_glob, limit: (section[:compact] ? 0 : 5)) %>
-    <% end %>
-  </ol>
-<% end %>
