@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'nanoc', '~> 4.x'
+gem 'nanoc', '~> 4.1'
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
 gem 'coderay'     # for syntax highlighting
