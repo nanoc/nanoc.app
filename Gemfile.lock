@@ -49,7 +49,7 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.0.0)
-    nanoc (4.1.5)
+    nanoc (4.2.0b1)
       cri (~> 2.3)
     nenv (0.3.0)
     nokogiri (1.6.7.2)
@@ -97,7 +97,7 @@ DEPENDENCIES
   haml
   htmlcompressor
   kramdown
-  nanoc (~> 4.1)
+  nanoc (~> 4.2.0b)
   nokogiri
   rainpress
   rake
