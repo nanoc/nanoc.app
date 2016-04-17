@@ -97,7 +97,7 @@ DEPENDENCIES
   haml
   htmlcompressor
   kramdown
-  nanoc (~> 4.2.0b)
+  nanoc (~> 4.x)
   nokogiri
   rainpress
   rake
