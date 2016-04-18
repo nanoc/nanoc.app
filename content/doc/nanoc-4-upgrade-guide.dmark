@@ -273,23 +273,23 @@ title: "Nanoc 4 upgrade guide"
             item.identifier.without_ext + '.html'
           end
 
-      #li Replace calls to %code{#children} with a call to %code{#find_all}, passing a pattern that matches the children. For example:
+      #li If the site has calls to %code{#children}, ensure the %filename{lib/helpers.rb} file contains %code{include Nanoc::Helpers::ChildParent}, and replace method calls to %code{#children} with a function call to %code{#children_of}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @items['/articles/'].children
           @item.children
 
         #listing[lang=ruby,new]
-          @items.find_all('/articles/*')
-          @items.find_all(@item.identifier.without_ext + '/*')
+          children_of(@items['/articles/'])
+          children_of(@item)
 
-      #li Replace calls to %code{#parent} with a call to %code{#[]}, passing a pattern that matches the parent. For example:
+      #li If the site has calls to %code{#parent}, ensure the %filename{lib/helpers.rb} file contains %code{include Nanoc::Helpers::ChildParent}, and replace method calls to %code{#parent} with a function call to %code{#parent_of}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @item.parent
 
         #listing[lang=ruby,new]
-          @items[@item.identifier.to_s.sub(/[^\/]+$/, '').chop + '.*']
+          parent_of(@item)
 
     #note When using identifiers with extensions, the children and parent of an item are no longer unambiguous. For example, the two items %filename{/foo.md} and %filename{/foo.adoc} both have %filename{/foo/bar.md} as a child, and %filename{/foo/bar.md} has two parents.
 
