@@ -41,7 +41,7 @@ title: "Filters"
 
 #p Filters that output textual content should return the filtered content at the end of the method.
 
-#p Filters have access to %code{@item}, %code{@item_rep}, %code{@items}, %code{@layouts} and %code{@config}. For details, see %ref[item=/doc/reference/variables.*]{}.
+#p Filters have access to %code{@item}, %code{@item_rep}, %code{@items}, %code{@layouts}, and %code{@config}. For details, see %ref[item=/doc/reference/variables.*]{}.
 
 #h3 Binary filters
 

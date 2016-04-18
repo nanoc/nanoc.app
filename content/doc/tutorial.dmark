@@ -6,7 +6,7 @@ title: "Tutorial"
 
 #dl
   #dt a working Nanoc installation
-  #dd Check out %ref[item=/doc/installation.*]{} for details on how to install Ruby, RubyGems and Nanoc.
+  #dd Check out %ref[item=/doc/installation.*]{} for details on how to install Ruby, RubyGems, and Nanoc.
 
   #dt a basic understanding of Ruby
   #dd Nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend %ref[url=https://www.ruby-lang.org/en/documentation/quickstart/]{Ruby in Twenty Minutes}.

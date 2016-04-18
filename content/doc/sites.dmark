@@ -28,7 +28,7 @@ title: "Sites"
   #dd contains the site configuration
 
   #dt %filename{Rules}
-  #dd contains compilation, routing and layouting rules
+  #dd contains compilation, routing, and layouting rules
 
   #dt %filename{content/}
   #dd contains the uncompiled items
