@@ -34,7 +34,7 @@ title: "Glossary"
   #dd The main piece of unprocessed content in a %ref[bare,frag=glossary-site]{site}. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple %ref[bare,frag=glossary-representation]{representations}. It is sometimes referred to as a %ref[bare,frag=glossary-page]{page} or an %ref[bare,frag=glossary-asset]{asset}.
 
   #dt[id=glossary-layout] layout
-  #dd An object consisting of content and %ref[bare,frag=glossary-metadata]{metadata} that embeds content from %ref[bare,frag=glossary-item]{items} or layouts. For example, it can be used to add headers, footers and sidebars to pages.
+  #dd An object consisting of content and %ref[bare,frag=glossary-metadata]{metadata} that embeds content from %ref[bare,frag=glossary-item]{items} or layouts. For example, it can be used to add headers, footers, and sidebars to pages.
 
   #dt[id=glossary-layout-rule] layout rule
   #dd A %ref[bare,frag=glossary-rule]{rule} that specifies what %ref[bare,frag=glossary-filter]{filter} should be used when processing a %ref[bare,frag=glossary-layout]{layout}.

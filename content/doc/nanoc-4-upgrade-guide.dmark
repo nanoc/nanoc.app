@@ -75,7 +75,7 @@ title: "Nanoc 4 upgrade guide"
           type: filesystem
           identifier_type: legacy
 
-  #li In Rules, remove the %code{rep.} prefix from %code{filter}, %code{layout} and %code{snapshot}. For example:
+  #li In Rules, remove the %code{rep.} prefix from %code{filter}, %code{layout}, and %code{snapshot}. For example:
 
     #listing[lang=ruby,legacy]
       compile '*' do
@@ -221,7 +221,7 @@ title: "Nanoc 4 upgrade guide"
     #listing[lang=yaml,new]
       identifier_type: full
 
-  #li Remove the trailing slash from any argument to %code{#compile}, %code{#route} and %code{#layout} in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. If the pattern does not end with a “%code{*}”, add “%code{.*}”. For example:
+  #li Remove the trailing slash from any argument to %code{#compile}, %code{#route}, and %code{#layout} in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. If the pattern does not end with a “%code{*}”, add “%code{.*}”. For example:
 
     #listing[lang=ruby,legacy]
       compile '/articles/**/*/' do

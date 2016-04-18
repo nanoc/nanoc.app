@@ -228,7 +228,7 @@ title: "Rules"
 #listing[lang=ruby]
   layout '/default.*', :haml, format: :html5
 
-#p %strong{Example}: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html} and even %filename{/_foo/_bar.erb} would:
+#p %strong{Example}: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html}, and even %filename{/_foo/_bar.erb} would:
 
 #listing[lang=ruby]
   layout %%r{\A/_%}, :erb
@@ -278,7 +278,7 @@ title: "Rules"
     end
   end
 
-#p Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content and the path, but also add and remove items.
+#p Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content, and the path, but also add and remove items.
 
 #p Preprocessors can be used for various purposes. Here are two sample uses:
 

@@ -95,7 +95,7 @@ title: "Identifiers and patterns"
   #dd Matches any single character in the set. For example, %glob{/people/[kt]im.md} matches only %identifier{/people/kim.md} and %identifier{/people/tim.md}.
 
   #dt %code{{foo,bar%}}
-  #dd Matches either string in the comma-separated list. More than two strings are possible. For example, %glob{/c{at,ub,ount%}s.txt} matches %identifier{/cats.txt}, %identifier{/cubs.txt} and %identifier{/counts.txt}, but not %identifier{/cabs.txt}.
+  #dd Matches either string in the comma-separated list. More than two strings are possible. For example, %glob{/c{at,ub,ount%}s.txt} matches %identifier{/cats.txt}, %identifier{/cubs.txt}, and %identifier{/counts.txt}, but not %identifier{/cabs.txt}.
 
 #p A glob pattern that matches every item is %glob{/**/*}. A glob pattern that matches every item/layout with the extension %filename{md} is %glob{/**/*.md}.
 
