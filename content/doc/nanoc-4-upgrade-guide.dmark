@@ -160,7 +160,7 @@ title: "Nanoc 4 upgrade guide"
         layout 'default'
       end
 
-    #listing[lang=ruby,legacy]
+    #listing[lang=ruby,new]
       # After
       compile '/articles/*/' do
         layout '/default/'
@@ -171,7 +171,7 @@ title: "Nanoc 4 upgrade guide"
       @items['foo']
       @layouts['/bar']
 
-    #listing[lang=ruby,legacy]
+    #listing[lang=ruby,new]
       # After
       @items['/foo/']
       @layouts['/bar/']
@@ -180,7 +180,7 @@ title: "Nanoc 4 upgrade guide"
       <!-- Before -->
       <%%= render 'header' %%>
 
-    #listing[lang=rhtml,legacy]
+    #listing[lang=rhtml,new]
       <!-- After -->
       <%%= render '/header/' %%>
 
