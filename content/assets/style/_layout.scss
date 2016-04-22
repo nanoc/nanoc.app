@@ -332,7 +332,7 @@ footer {
         }
     }
 
-    padding: 0;
+    padding: 0 0 40px 0;
     margin: 60px 0 -40px 0;
 
     .footer-content {
@@ -373,16 +373,25 @@ footer {
         }
 
         .copyright {
-            padding: 20px 0 40px 0;
+            padding: 20px 0;
             border-top-width: 1px;
             border-top-style: solid;
             border-color: $footer-border-color;
             color: $footer-fg-color;
 
+            position: relative;
+
+            @media (min-width: 819px) {
+                background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
+                background-size: 117px 100px;
+            }
+
             p {
                 font-size: 13px;
                 max-width: 700px;
-                padding-left: 55px;
+
+                padding: 20px 0 20px 55px;
+
                 background: url(/assets/images/logo-footer.png) left center no-repeat;
                 background-size: 40px 40px;
             }
