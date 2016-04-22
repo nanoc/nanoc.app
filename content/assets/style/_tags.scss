@@ -48,6 +48,14 @@ pre.legacy:before {
     border-top-right-radius: 4px;
 }
 
+pre.legacy-intermediate:before {
+    content: "LEGACY - INTERMEDIATE";
+
+    background: $tag-legacy-intermediate-bg-color;
+    color: $tag-legacy-intermediate-fg-color;
+    border-top-right-radius: 4px;
+}
+
 pre.new:before {
     content: "NEW";
 
@@ -57,6 +65,7 @@ pre.new:before {
 }
 
 pre.legacy:before,
+pre.legacy-intermediate:before,
 pre.new:before {
     position: relative;
     top: -10px;

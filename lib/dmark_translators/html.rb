@@ -59,6 +59,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
       attributes = {}
 
       attributes[:class] = 'legacy' if element.attributes['legacy']
+      attributes[:class] = 'legacy-intermediate' if element.attributes['legacy-intermediate']
       attributes[:class] = 'new' if element.attributes['new']
       attributes[:class] = 'spacious' if element.attributes['spacious']
       attributes[:'data-nav-title'] = element.attributes['nav-title'] if element.attributes['nav-title']
@@ -106,6 +107,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
     pre_classes = []
     pre_classes << 'template' if element.attributes['template']
     pre_classes << 'legacy' if element.attributes['legacy']
+    pre_classes << 'legacy-intermediate' if element.attributes['legacy-intermediate']
     pre_classes << 'new' if element.attributes['new']
     pre_attrs =
       if pre_classes.any?
