@@ -36,7 +36,7 @@ title: "Nanoc 4 upgrade guide"
   #listing[lang=ruby]
     gem 'nanoc', '~> 4.0'
 
-#section[id=quick-upgrade-guide] %h{Quick upgrade guide}
+#section %h[id=quick-upgrade-guide]{Quick upgrade guide}
   #p The following steps will get a Nanoc 3 site working on Nanoc 4 with a minimal amount of changes.
 
   #ol[spacious]
