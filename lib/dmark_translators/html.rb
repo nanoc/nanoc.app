@@ -36,7 +36,10 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
     when 'h'
       depth = context.fetch(:depth, 1)
       id = to_id(text_content_of(element))
-      wrap("h#{depth}", id: id) { handle_children(element, context) }
+
+      attributes = { id: id }
+      attributes = attributes.merge('data-nav-title' => element.attributes['nav-title']) if element.attributes['nav-title']
+      wrap("h#{depth}", attributes) { handle_children(element, context) }
     when 'emph'
       wrap('em') { handle_children(element, context) }
     when 'abbr'
