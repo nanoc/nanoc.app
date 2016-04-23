@@ -1,0 +1,42 @@
+{
+    "name": "Nanoc",
+    "package": "nanoc",
+    "index": "index.html",
+    "selectors": {
+        "h2": {
+          "type": "Command",
+          "regexp": "^",
+          "replacement": "",
+          "matchpath": "doc/reference/commands/.*\\.html"
+        },
+        "html h2": {
+          "type": "Class",
+          "regexp": "^",
+          "replacement": "Filter: ",
+          "matchpath": "doc/reference/filters/.*\\.html"
+        },
+        "body h2": {
+          "type": "Class",
+          "regexp": "^",
+          "replacement": "Helper: ",
+          "matchpath": "doc/reference/helpers/.*\\.html"
+        },
+        "html body h2": {
+          "type": "Variable",
+          "regexp": "^",
+          "replacement": "",
+          "matchpath": "doc/reference/variables/.*\\.html"
+        },
+        "title": {
+          "type": "Guide",
+          "regexp": "Nanoc » ",
+          "replacement": "",
+          "matchpath": "doc/.*\\.html"
+        }
+    },
+    "ignore": [
+    ],
+    "icon32x32": "output/favicon.ico",
+    "allowJS": false,
+    "ExternalURL": "http://nanoc.ws"
+}
