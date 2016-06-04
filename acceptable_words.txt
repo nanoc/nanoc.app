@@ -24,6 +24,7 @@ Bühler
 Bundler
 Byford
 Bynens
+checksum
 checksummer
 Chu
 Cichra
