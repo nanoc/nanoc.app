@@ -119,7 +119,14 @@ title: "Data sources"
     #dt %code{identifier}
     #dd A %code{Nanoc::Identifier} instance, or a string that will be converted to an identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
-  #p To create a binary item, also pass %code{binary: true} to the %code{#new_item} method.
+  #p You can pass the following options to %code{#new_item} and %code{#new_layout}:
+
+  #dl
+    #dt %code{:binary} (defaults to %code{false})
+    #dd A boolean that indicates whether or not this item is a binary item. (Only applies to items; not applicable to layouts.)
+
+    #dt %code{:checksum_data} (defaults to %code{nil})
+    #dd Data to be used for generating a checksum. This can be any Ruby object, though it will typically be a String. If unspecified, the checksum will be generated from the content and attributes. Passing in custom checksum data can lead to a speed-up, provided that the calculation of the checksum data is not slow.
 
   #p The configuration for this data source is available in %code{@config}.
 
