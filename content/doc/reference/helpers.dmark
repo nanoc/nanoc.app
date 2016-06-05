@@ -397,7 +397,7 @@ title: "Helpers"
 
       #p This function takes the following arguments:
 
-      #dl
+      #dl[compact]
         #dt %var{identifier} (%code{String})
         #dd The identifier of the layout that should be rendered
 
@@ -546,7 +546,7 @@ title: "Helpers"
 
       #p This function takes the following options:
 
-      #dl
+      #dl[compact]
         #dt %code{:items} (%code{Array})
         #dd A list of items to include in the sitemap
 
