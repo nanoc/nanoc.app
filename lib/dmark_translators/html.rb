@@ -62,6 +62,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
       attributes[:class] = 'legacy-intermediate' if element.attributes['legacy-intermediate']
       attributes[:class] = 'new' if element.attributes['new']
       attributes[:class] = 'spacious' if element.attributes['spacious']
+      attributes[:class] = 'compact' if element.attributes['compact']
       attributes[:'data-nav-title'] = element.attributes['nav-title'] if element.attributes['nav-title']
 
       if element.attributes['id']

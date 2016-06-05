@@ -1,0 +1,560 @@
+---
+title: "Helpers"
+---
+
+#section %h{%code{Blogging}}
+  #p Provides functionality for building blogs, such as finding articles and constructing feeds.
+
+  #p This helper requires all blog articles to have the %code{kind} attribute set to  %code{"article"}, and %code{created_at} set to the article’s publication timestamp. Some functions in this blogging helper, such as the %code{#atom_feed} function, require additional attributes to be set; these attributes are described in the documentation for these functions.
+
+  #p All time objects in item attributes, site configuration attributes or method parameters can either be a %code{Time} instance, or a string in any format parseable by %code{Time.parse}.
+
+  #dl
+    #dt %code{#articles()} → %code{Array}
+    #dd
+      #p Returns an unsorted list of articles, i.e. items where the %code{kind} attribute is set to %code{"article"}.
+
+    #dt %code{#sorted_articles()} → %code{Array}
+    #dd
+      #p Returns a sorted list of articles, i.e. items where the %code{kind} attribute is set to %code{"article"}. Articles are sorted by descending creation date, so newer articles appear before older articles.
+
+    #dt %code{#atom_feed()} → %code{String}
+    #dd
+      #p Returns a string representing the atom feed containing recent articles, sorted by descending creation date.
+
+      #p For this method to be useful, the following attributes must be set on blog articles:
+
+      #dl[compact]
+        #dt %code{title}
+        #dd The title of the blog post
+
+        #dt %code{created_at}
+        #dd (described above)
+
+        #dt %code{kind}
+        #dd (described above) — optional if you are passing an explicit list of articles using the %code{:articles} parameter
+
+      #p The following attributes can optionally be set on blog articles to change the behaviour of the Atom feed:
+
+      #dl[compact]
+        #dt %code{excerpt}
+        #dd An excerpt of the article, which is usually only a few lines long.
+
+        #dt %code{custom_path_in_feed}
+        #dd The path that will be used instead of the normal path in the feed. This can be useful when including non-outputted items in a feed; such items could have their custom feed path set to the blog path instead, for example.
+
+        #dt %code{custom_url_in_feed}
+        #dd The url that will be used instead of the normal url in the feed (generated from the site’s base url + the item rep’s path). This can be useful when building a link-blog where the URL of article is a remote location.
+
+        #dt %code{updated_at}
+        #dd The time when the article was last modified. If this attribute is not present, the %code{created_at} attribute will be used as the time when the article was last modified.
+
+      #p The site configuration will need to have the following attributes:
+
+      #dl[compact]
+        #dt %code{base_url}
+        #dd The URL to the site, without trailing slash. For example, if the site is at %uri{http://example.com/}, the %code{base_url} would be %code{"http://example.com"}.
+
+      #p The feed item will need to know about the feed title, the feed author name, and the URI corresponding to the author. These can be specified using parameters, as attributes in the feed item, or in the site configuration.
+
+      #dl[compact]
+        #dt %code{title}
+        #dd The title of the feed, which is usually also the title of the blog.
+
+        #dt %code{author_name}
+        #dd The name of the item’s author.
+
+        #dt %code{author_uri}
+        #dd The URI for the item’s author, such as the author’s web site URL.
+
+      #p The feed item can have the following optional attributes:
+
+      #dl[compact]
+        #dt %code{feed_url}
+        #dd The custom URL of the feed. This can be useful when the private feed URL shouldn’t be exposed; for example, when using FeedBurner this would be set to the public FeedBurner URL.
+
+      #p To construct a feed, create a new item and make sure that it is filtered with %code{:erb} or %code{:erubis}; it should not be laid out. Ensure that it is routed to the proper path, e.g. %identifier{/blog.xml}. It may also be useful to set the %code{is_hidden} attribute to true, so that helpers such as the sitemap helper will ignore the item. The content of the feed item should be %code{<%%= atom_feed %%>}.
+
+      #p Here is an example for defining compilation and routing rules for a feed item:
+
+      #listing[lang=ruby]
+        compile '/blog/feed/' do
+          filter :erb
+          write '/blog.xml'
+        end
+
+      #p Here is an example for limiting the number of items in a feed:
+
+      #listing[lang=rhtml]
+        <%%= atom_feed limit: 10 %%>
+
+      #p The %code{#atom_feed} function takes the following options:
+
+      #dl
+        #dt %code{:limit} (%code{Number})
+        #dd The maximum number of articles to show. By default, 5 items will be included.
+
+        #dt %code{:articles} (%code{Array})
+        #dd A list of articles to include in the feed. By default, the list of items returned by %code{#articles} function will be used.
+
+        #dt %code{:preserve_order} (%code{Boolean})
+        #dd Whether or not the ordering of the list of articles should be preserved. If %code{false} or unspecified, the articles will be sorted by %code{created_at}. If %code{true}, the list of articles will be used as-is, and is assumed to end with the most recent article.
+
+        #dt %code{:content_proc} (%code{Proc})
+        #dd A proc that returns the content of the given article, which is passed as a parameter. This function may not return nil. By default, it will return the compiled content of item at the %code{:pre} snapshot.
+
+        #dt %code{:excerpt_proc} (%code{proc})
+        #dd A proc that returns the excerpt of the given article, passed as a parameter. This function should return nil if there is no excerpt. By default, it will return the content of the %code{excerpt} attribute of the item.
+
+        #dt %code{:title} (%code{String})
+        #dd The feed's title, if it is not given in the item attributes.
+
+        #dt %code{:author_name} (%code{String})
+        #dd The name of the feed's author, if it is not given in the item attributes.
+
+        #dt %code{:author_uri} (%code{String})
+        #dd The URI of the feed's author, if it is not given in the item attributes.
+
+        #dt %code{:icon} (%code{String})
+        #dd The URI of the feed's icon.
+
+        #dt %code{:logo} (%code{String})
+        #dd The URI of the feed's logo.
+
+    #dt %code{url_for(%var{item})} → %code{String}
+    #dd
+      #p Returns the URL for the given item. It will return the URL containing the custom path in the feed if possible, otherwise the normal path.
+
+    #dt %code{feed_url()} → %code{String}
+    #dd
+      #p Returns the URL of the feed. It will return the custom feed URL if set, or otherwise the normal feed URL.
+
+    #dt %code{atom_tag_for(%var{item})} → %code{String}
+    #dd
+      #p Returns an URI containing an unique ID for the given item. This will be used in the Atom feed to uniquely identify articles. These IDs are created using a procedure suggested by Mark Pilgrim and described in his %ref[url=http://web.archive.org/web/20110915110202/http://diveintomark.org/archives/2004/05/28/howto-atom-id]{“How to make a good ID in Atom” blog post}.
+
+    #dt %code{attribute_to_time(%var{arg})} → %code{Time}
+    #dd
+      #p Converts the given attribute (which can be a string, a Time, a Date or a DateTime) into a Time. When given a Date instance or a string, the argument is assumed to be in the local timezone.
+
+#section %h{%code{Breadcrumbs}}
+  #p The %code{Breadcrumbs} helper provides support for breadcrumbs, which allow the user to go up in the page hierarchy.
+
+  #note This helper currently only works with legacy identifiers, and is not compatible with full identifiers.
+
+  #dl
+    #dt %code{#breadcrumbs_trail()} → Array
+    #dd
+      #p Creates a breadcrumb trail leading from the current item to its parent, to its parent’s parent, etc, until the root item is reached. This function does not require that each intermediate item exist; for example, if there is no %identifier{/foo/} item, breadcrumbs for a %identifier{/foo/bar/} item will contain a %code{nil} element.
+
+      #p This function returns an array containing the breadcrumbs, starting with the root item and ending with the item itself.
+
+  #section %h{Examples}
+    #p Getting the breadcrumbs for the %identifier{/projects/nanoc/history/} item, assuming that there is no %identifier{/projects/} item:
+
+    #listing[lang=ruby]
+      breadcrumbs_trail
+      # => [
+      #   <Item* identifier="/">,
+      #   nil,
+      #   <Item* identifier="/projects/nanoc/">,
+      #   <Item* identifier="/projects/nanoc/history/">,
+      # ]
+
+#section %h{%code{Capturing}}
+  #p The %code{Capturing} helper provides functionality for capturing content in one place and reusing this content elsewhere.
+
+  #p For example, suppose you want the sidebar of your site to contain a short summary of the item. You could put the summary in the meta file, but that’s not possible when the summary contains eRuby. You could also put the sidebar inside the actual item, but that’s not very pretty. Instead, you write the summary on the item itself, but capture it, and print it in the sidebar layout.
+
+  #p This helper has been tested with ERB and Haml. Other filters may not work correctly.
+
+  #dl
+    #dt %code{content_for(name, params = {%}, &block)} → %code{nil}
+    #dd
+      #p Captures the content inside the block and stores it so that it can be referenced later on. This same method, is used for getting the captured content as well as setting it. When capturing, the content of the block itself will not be outputted.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{name} (%code{Symbol}, %code{String})
+        #dd The base name of the attribute into which the content should be stored
+
+      #p By default, capturing content with the same name will raise an error if the newly captured content differs from the previously captured content. This behavior can be changed by providing a different %code{:existing} option to this method:
+
+      #dl[compact]
+        #dt %code{:error}
+        #dd When content already exists and is not identical, raise an error.
+
+        #dt %code{:overwrite}
+        #dd Overwrite the previously captured content with the newly captured content.
+
+        #dt %code{:append}
+        #dd Append the newly captured content to the previously captured content.
+
+    #dt %code{content_for(item, name)} → %code{String}
+    #dd
+      #p Fetches the capture with the given name from the given item and returns it.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{item} (%code{Item})
+        #dd The item for which to get the capture
+
+        #dt %var{name} (%code{Symbol}, %code{String})
+        #dd The name of the capture to fetch
+
+    #dt %code{capture(&block)} → %code{String}
+    #dd
+      #p Evaluates the given block and returns its contents. The contents of the block is not outputted.
+
+  #section %h{Examples}
+    #p Capturing the content for %code{summary}:
+
+    #listing[lang=rhtml]
+      <%% content_for :summary do %%>
+        <p>On this item, Nanoc is introduced, blah blah.</p>
+      <%% end %%>
+
+    #p Showing captured content in a sidebar:
+
+    #listing[lang=rhtml]
+      <div id="sidebar">
+        <h3>Summary</h3>
+        <%%= content_for(@item, :summary) || '(no summary)' %%>
+      </div>
+
+#section %h{%code{ChildParent}}
+  #p The %code{ChildParent} helper provides functionality for fetching the children and the parent of a given item. This works for both full identifiers and legacy identifiers.
+
+  #dl
+    #dt %code{#parent_of(%var{item})}
+    #dd
+      #p Returns the parent of the given item.
+
+      #p For items with legacy identifiers, the parent is the item where the identifier contains one less component than the identifier of the given item. For example, the parent of the %identifier{/projects/nanoc/} item is the %identifier{/projects/} item.
+
+      #p For items with full identifiers, the parent is the item where the identifier contains one less component than the identifier of the given item, and ends with any extension. For example, the parent of the %identifier{/projects/nanoc.md} item could be the %identifier{/projects.md} item, or the %identifier{/projects.html} item, etc. Note that the parent is ambiguous for items that have a full identifier; only the first candidate parent item will be returned.
+
+    #dt %code{#children_of(%var{item})}
+    #dd
+      #p Returns the children of the given item.
+
+      #p For items with legacy identifiers, the children are the items where the identifier contains one more component than the identifier of the given item. For example, the children of the %identifier{/projects/} item could be %identifier{/projects/nanoc/} and %identifier{/projects/cri/}, but not %identifier{/about/} nor %identifier{/projects/nanoc/history/}.
+
+      #p For items with full identifiers, the children are the item where the identifier starts with the identifier of the given item, minus the extension, followed by a slash. For example, the children of the %identifier{/projects.md} item could be the %identifier{/projects/nanoc.md} and %identifier{/projects/cri.adoc} items , but not %identifier{/about.md} nor %identifier{/projects/nanoc/history.md}.
+
+#section %h{%code{Filtering}}
+  #p The %code{Filtering} helper provides functionality for filtering parts of an item or a layout.
+
+  #dl[compact]
+    #dt %code{#filter(%var{filter_name}, %var{arguments} = {%}, &block)}
+    #dd
+      #p Filters the content in the given block with the %var{filter_name} filter, and outputs it. The %var{arguments} argument is passed as-is to the filter. This function does not return anything; instead, the filtered contents is directly appended to the output buffer (%code{_erbout}).
+
+      #note This function has been tested with ERB and Haml, as both filters use the %code{_erbout} variable. Other filters may not work correctly.
+
+  #section %h{Examples}
+    #p Running the %code{:rubypants} filter on a specific paragraph:
+
+    #listing[lang=rhtml]
+      <p>Lorem ipsum dolor sit amet...</p>
+
+      <%% filter :rubypants do %%>
+        <p>Consectetur adipisicing elit...</p>
+      <%% end %%>
+
+#section %h{%code{HTMLEscape}}
+  #p The %code{HTMLEscape} helper contains functionality for HTML-escaping strings. Only the characters %code{&}, %code{<}, %code{>}, and %code{"} are escaped.
+
+  #dl
+    #dt %code{html_escape(%var{string} = nil, &block)}
+    #dd When given a string, returns the HTML-escaped representation of the given string. When given a block, the contents of the block will be escaped and appended to the output buffer, %code{_erbout}.
+
+  #section %h{Examples}
+    #p Escaping a string:
+
+    #listing[lang=ruby]
+      h('<br>')
+      # => '&lt;br&gt;'
+
+    #p Escaping with a block:
+
+    #listing[lang=rhtml]
+      <%% h do %%>
+        <h1>Hello <em>world</em>!</h1>
+      <%% end %%>
+
+    #p The buffer will now contain %code{&lt;h1&gt;Hello &lt;em&gt;world&lt;/em&gt;!&lt;/h1&gt;}.
+
+#section %h{%code{LinkTo}}
+  #p The %code{LinkTo} helper contains functions for linking to items and item representations.
+
+  #dl
+    #dt %code{link_to(%var{text}, %var{target}, %var{attributes} = {%})} → %code{String}
+    #dd
+      #p Creates a HTML link to the given path or item representation, and with the given text. All attributes of the %code{a} element, including the %code{href} attribute, will be HTML-escaped; the contents of the %code{a} element, which can contain markup, will not be HTML-escaped.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{text} (%code{String})
+        #dd The visible link text
+
+        #dt %var{target} (%code{String, Item})
+        #dd The path/URL, item or item representation that should be linked to
+
+        #dt %var{attributes} (%code{Hash})
+        #dd A hash containing HTML attributes (e.g. %code{rel}, %code{title}, …) that will be added to the link.
+
+    #dt %code{link_to_unless_current(%var{text}, %var{target}, %var{attributes} = {%})} → %code{String}
+    #dd
+      #p Creates a HTML link using %code{#link_to}, except when the linked item is the current one. In this case, a span element with class %code{active} and with the given text will be created. The HTML-escaping rules for %code{#link_to} apply here as well.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{text} (%code{String})
+        #dd The visible link text
+
+        #dt %var{target} (%code{String, Item})
+        #dd The path/URL, item or item representation that should be linked to
+
+        #dt %var{attributes} (%code{Hash})
+        #dd A hash containing HTML attributes (e.g. %code{rel}, %code{title}, …) that will be added to the link.
+
+    #dt %code{relative_path_to(%var{target})} → %code{String}
+    #dd
+      #p Returns the relative path from the current item to the given path or item representation. The returned path will not be HTML-escaped.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{target} (%code{String, Item})
+        #dd The path/URL, item or item representation to which the relative path should be generated
+
+  #section %h{Examples}
+    #p Linking to a path:
+
+    #listing[lang=ruby]
+      link_to('Blog', '/blog/')
+      # => '<a href="/blog/">Blog</a>'
+
+    #p Linking to an item:
+
+    #listing[lang=ruby]
+      about = @items.find { |i| i.identifier == '/about/' %}
+      link_to('About Me', about)
+      # => '<a href="/about.html">About Me</a>'
+
+    #p Linking to an item representation:
+
+    #listing[lang=ruby]
+      about = @items.find { |i| i.identifier == '/about/' %}
+      link_to('My vCard', about.rep(:vcard))
+      # => '<a href="/about.vcf">My vCard</a>'
+
+    #p Linking with custom attributes:
+
+    #listing[lang=ruby]
+      link_to('Blog', '/blog/', :title => 'My super cool blog')
+      # => '<a title="My super cool blog" href="/blog/">Blog</a>'
+
+    #p Linking to a different page, unless current:
+
+    #listing[lang=ruby]
+      link_to_unless_current('Blog', '/blog/')
+      # => '<a href="/blog/">Blog</a>'
+
+    #p Linking to the same page, unless current:
+
+    #listing[lang=ruby]
+      link_to_unless_current('This Item', @item)
+      # => '<span class="active">This Item</span>'
+
+    #p Finding the relative path to an item:
+
+    #listing[lang=ruby]
+      # (assuming that the current item’s path is /foo/bar/)
+      relative_path_to('/foo/qux/')
+      # => '../qux/'
+
+#section %h{%code{Rendering}}
+  #p The %code{Rendering} helper provides functionality for rendering layouts as partials.
+
+  #dl
+    #dt %code{render(%var{identifier}, %var{other_assigns} = {%}, &block)}
+    #dd
+      #p Renders the given layout. The given layout will be run through the first matching layout rule.
+
+      #p When this method is invoked without a block, the return value will be the rendered layout (a string) and %code{_erbout} will not be modified.
+
+      #p When this method is invoked with a block, an empty string will be returned and the rendered content will be appended to %code{_erbout}. In this case, the content of the block will be captured (using the %ref[frag=capturing]{Capturing}) and this content will be made available with %code{yield}. In other words, a %code{yield} inside the partial will output the content of the block passed to the method.
+
+      #note The reason why %code{#render} with a block has this behaviour of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
+
+      #p The assigns (%code{@item}, %code{@config}, …) will be available in the partial. It is also possible to pass custom assigns to the method; these assigns will be made available as instance variables inside the partial.
+
+      #p This function takes the following arguments:
+
+      #dl
+        #dt %var{identifier} (%code{String})
+        #dd The identifier of the layout that should be rendered
+
+        #dt %var{other_assigns} (%code{Hash})
+        #dd A hash containing extra assigns that will be made available as instance variables in the partial
+
+  #section %h{Examples}
+    #p Rendering a head and a foot partial around some text:
+
+    #listing[lang=rhtml]
+      <%%= render 'head' %%> - MIDDLE - <%%= render 'foot' %%>
+
+    #p This example returns %code{"HEAD - MIDDLE - FOOT"}.
+
+    #p Rendering a head partial with a custom title:
+
+    #listing[lang=rhtml]
+      <!-- The 'head' layout -->
+      <h1><%%= @title %%></h1>
+
+      <!-- The item/layout where the partial is rendered -->
+      <%%= render 'head', :title => 'Foo' %%>
+
+    #p This example returns %code{"<h1>Foo</h1>"}.
+
+    #p Yielding inside a partial:
+
+    #listing[lang=rhtml]
+      <!-- The 'box' partial -->
+      <div class="box">
+        <%%= yield %%>
+      </div>
+
+      <!-- The item/layout where the partial is rendered -->
+      <%% render 'box' do %%>
+        I'm boxy! Luvz!
+      <%% end %%>
+
+      <!-- Result -->
+      <div class="box">
+        I'm boxy! Luvz!
+      </div>
+
+#section %h{%code{Tagging}}
+  #p The %code{Tagging} helper provides support for managing tags added to items.
+
+  #p To add tags to items, set the %code{tags} attribute to an array of tags that should be applied to the item. For example:
+
+  #listing[yaml]
+    tags: [ 'foo', 'bar', 'baz' ]
+
+  #dl
+    #dt %code{tags_for(%var{item}, %var{base_url}:, %var{none_text}:, %var{separator}:)} → %code{String}
+    #dd
+      #p Returns a formatted list of tags for the given item as a string. The tags will be linked using the %code{#link_for_tag} function; the HTML-escaping rules for %code{#link_for_tag} apply here as well.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{base_url} (%code{String, nil})
+        #dd The URL to which the tag will be appended to construct the link URL. This URL must have a trailing slash. The function will return a tags string without tag page link if the param is not provided.
+
+        #dt %var{none_text} (%code{String})
+        #dd The text to display when the item has no tags. By default, %code{'(none)'} will be used.
+
+        #dt %var{separator} (%code{String})
+        #dd The separator to put between tags. By default, %code{', '} will be used, so that tags are comma-separated.
+
+    #dt %code{items_with_tag(%var{tag})} → %code{String}
+    #dd
+      #p Find all items with the given tag.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{tag} (%code{String})
+        #dd The tag for which to find all items
+
+    #dt %code{link_for_tag(%var{tag}, %var{base_url})} → %code{String}
+    #dd
+      #p Returns a link to to the specified tag. The link is marked up using the rel-tag microformat. The %code{href} attribute of the link will be HTML-escaped, as will the content of the %code{a} element.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{tag} (%code{String})
+        #dd The name of the tag, which should consist of letters and numbers (no spaces, slashes, or other special characters).
+
+        #dt %var{base_url} (%code{String})
+        #dd The URL to which the tag will be appended to construct the link URL. This URL must have a trailing slash.
+
+#section %h{%code{Text}}
+  #p The %code{Text} helper contains several useful text-related helper functions.
+
+  #dl
+    #dt %code{excerptize(%var{string}, %var{length}: 25, %var{omission}: '...')} → %code{String}
+    #dd
+      #p Returns an excerpt for the given string. HTML tags are ignored, so if you don't want them to turn up, they should be stripped from the string before passing it to the excerpt function.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{string} (%code{String})
+        #dd The string for which to build an excerpt
+
+        #dt %var{length} (%code{Integer})
+        #dd The maximum number of characters this excerpt can contain, including the omission.
+
+        #dt %var{omission} (%code{String})
+        #dd The string to append to the excerpt when the excerpt is shorter than the original string
+
+    #dt %code{strip_html(%var{string})} → %code{String}
+    #dd
+      #p Strips all HTML tags out of the given string.
+
+      #p This function takes the following arguments:
+
+      #dl[compact]
+        #dt %var{string} (%code{String})
+        #dd The string from which to strip all HTML
+
+#section %h{%code{XMLSitemap}}
+  #p The %code{XMLSitemap} helper contains functionality for building XML sitemaps that will be crawled by search engines. See the %ref[url=http://www.sitemaps.org]{Sitemaps protocol site} for details.
+
+  #dl
+    #dt %code{xml_sitemap(%var{params} = {%})} → %code{String}
+    #dd
+      #p Builds an XML sitemap and returns it.
+
+      #p The following attributes can optionally be set on items to change the behaviour of the sitemap:
+
+      #dl[compact]
+        #dt %code{changefreq}
+        #dd The estimated change frequency as defined by the Sitemaps protocol
+
+        #dt %code{priority}
+        #dd The item's priority, ranging from 0.0 to 1.0, as defined by the Sitemaps protocol
+
+      #p The sitemap will also include dates on which the items were updated. These are generated automatically; the way this happens depends on the used data source (the filesystem data source checks the file mtimes, for instance).
+
+      #p The site configuration will need to have the following attributes:
+
+      #dl[compact]
+        #dt %code{base_url}
+        #dd The URL to the site, without trailing slash. For example, if the site is at %code{"http://example.com/"}, the %code{base_url} would be %code{"http://example.com"}.
+
+      #p This function takes the following options:
+
+      #dl
+        #dt %code{:items} (%code{Array})
+        #dd A list of items to include in the sitemap
+
+        #dt %code{:rep_select} (%code{Proc})
+        #dd A proc to filter reps through. If the proc returns true, the rep will be included; otherwise, it will not.
+
+  #section %h{Examples}
+    #p Excluding binary items from the sitemap:
+
+    #listing[lang=rhtml]
+      <%%= xml_sitemap :items => @items.reject{ |i| i[:is_hidden] || i.binary? %} %%>
