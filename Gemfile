@@ -15,7 +15,6 @@ gem 'rubypants'   # for pretty typography
 gem 'sass', '~> 3.2.13'
 gem 'susy'        # for nice grids
 gem 'systemu'     # for invoking rsync etc
-gem 'yard'        # for loading filter and helper docs
 gem 'htmlcompressor'
 gem 'w3c_validators'
 gem 'ffi-aspell'

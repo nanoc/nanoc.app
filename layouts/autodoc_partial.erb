@@ -1,10 +1,8 @@
 <h2 id="<%= @item[:name] %>">
     <% if @item[:type] == "command" %>
         <code><%= @item[:name] %></code>
-    <% elsif @item[:identifiers] && !@item[:identifiers].empty? %>
-        <code>:<%= @item[:identifiers].first %></code>
     <% else %>
-        <%= @item[:name] %>
+        <% raise "unknown thing: #{@item.inspect}" %>
     <% end %>
 </h2>
 
@@ -34,21 +32,4 @@
         <dd><%= opt_def[:desc] %></dd>
     <% end %>
     </dl>
-<% end %>
-
-<% if @item[:functions] && !@item[:functions].empty? %>
-    <dl>
-        <% @item[:functions].each do |function| %>
-            <dt><code><%= function[:signature] %></code></dt>
-            <dd><% filter :kramdown do %><%= function[:summary] %><% end %></dd>
-        <% end %>
-    </dl>
-<% end %>
-
-<% if @item[:examples] && !@item[:examples].empty? %>
-    <h3>Examples</h3>
-    <% @item[:examples].each do |example| %>
-        <p><%=h example[:title] %>:</p>
-        <pre><code><%=h example[:code].strip %></code></pre>
-    <% end %>
 <% end %>

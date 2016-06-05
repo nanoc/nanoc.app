@@ -9,8 +9,6 @@ data_sources:
   - type: filesystem
   - type: cli
     items_root: /doc/reference/commands/
-  - type: yard
-    items_root: /doc/reference/
   - type: release_notes
   - type: contributors
 
