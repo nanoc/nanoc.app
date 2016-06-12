@@ -25,7 +25,7 @@ title: "Rules"
     # (compilation code here)
   end
 
-#p The argument for the %code{#compile} method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
+#p The argument for the %code{#compile} method call is a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern}.
 
 #p The code block should execute the necessary actions for compiling the item. The return value of the block is ignored. There are three kinds actions that can be performed:
 
@@ -34,7 +34,7 @@ title: "Rules"
   #li %emph{layout} items, placing their content inside a layout
   #li %emph{snapshot} items, remembering their content at that point in time for reuse
 
-#p Lastly, a compilation block can end with a %emph{write} action, which will write the compiled content to a file with the given name. (Alternatively, you can use [routing rules](#routing-rules) to describe where compiled content should be written to.)
+#p Lastly, a compilation block can end with a %emph{write} action, which will write the compiled content to a file with the given name. (Alternatively, you can use %ref[frag=routing-rules]{routing rules} to describe where compiled content should be written to.)
 
 #p The code block does not need to execute anything. An empty %code{#compile} block will not execute anything.
 
@@ -85,7 +85,7 @@ title: "Rules"
     write @item.identifier.without_ext + '/index.html'
   end
 
-#p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the [Variables](/doc/reference/variables/) page for details.
+#p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
 
 #p %strong{Example}: The following rule will only invoke the %code{:erb} filter if the item’s %code{:is_dynamic} attribute is set:
 
@@ -135,7 +135,7 @@ title: "Rules"
     # (routing code here)
   end
 
-#p The argument for the %code{#route} method call is a [pattern](/doc/identifiers-and-patterns/#patterns).
+#p The argument for the %code{#route} method call is a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern}.
 
 #p The code block should return the routed path for the relevant item. The code block can return nil, in which case the item will not be written.
 
@@ -172,7 +172,7 @@ title: "Rules"
     nil
   end
 
-#p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the [Variables](/doc/reference/variables/) page for details.
+#p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
 
 #p %strong{Example}: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item %filename{/foo/bar.html} would get the path %filename{/foo/bar/index.html}):
 
