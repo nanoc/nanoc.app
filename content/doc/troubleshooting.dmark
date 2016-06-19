@@ -89,3 +89,17 @@ title: "Troubleshooting"
   #blockquote If the time zone is omitted, the timestamp is assumed to be specified in UTC. The time part may be omitted altogether, resulting in a date format. In such a case, the time part is assumed to be %code{00:00:00Z} (start of day, UTC).
 
   #p We recommend always specifying the time zone.
+
+#section %h{Hidden files are ignored}
+  #p Nanoc intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as OS X and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance, OS X will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
+
+  #p To create a hidden file or directory in the output directory of a Nanoc site, ensure that the source file or directory in the %filename{content} directory does not have a name that starts with a period, and create a routing rule that prefixes the name with a period.
+
+  #p For example, to use %ref[url=https://github.com/blog/572-bypassing-jekyll-on-github-pages]{GitHub’s %filename{.nojekyll} file}, which prevents a GitHub site from being processed by Jekyll, create an empty file at %filename{content/nojekyll}, and set up the following rule:
+
+  #listing[lang=ruby]
+    compile '/nojekyll' do
+      write '/.nojekyll'
+    end
+
+  #p After compilation, the output directory will now contain a %filename{output/.nojekyll} file.
