@@ -73,6 +73,7 @@ Garnier
 Gemfile
 GitHub
 GitHub's
+Gitter
 Goodside
 Google
 GraphicsMagick
@@ -93,7 +94,6 @@ Ihmels
 ImageMagick
 Inline
 IRB
-IRC
 Jeugt
 JRuby
 JSON
