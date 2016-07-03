@@ -111,6 +111,8 @@ title: "Contributing"
 
       #li Push the changes to GitHub (%kbd{git push}). Don’t forget to also push the tags (%kbd{git push --tags}).
 
+      #li Close the %ref[url=https://github.com/nanoc/nanoc/milestones]{GitHub milestone} for this version, and ensure milestones for the next patch and minor versions exist. For example, when releasing 4.2.3, close the milestone for 4.2.3, and ensure milestones for both 4.2.4 and 4.3 exist.
+
   #section %h{Spread the word}
     #p To announce the new release, follow these steps:
 
