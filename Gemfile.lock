@@ -53,7 +53,7 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.2.2)
+    nanoc (4.2.3)
       cri (~> 2.3)
       hamster (~> 3.0)
     nenv (0.3.0)
