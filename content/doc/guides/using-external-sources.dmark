@@ -131,7 +131,7 @@ title: "Using external sources"
 
   #p Now it’s time to create the employee directory page. Create the file %filename{content/employees.erb} and put in the following code, which will find all employees and print them:
 
-  #listing[lang=html]
+  #listing[lang=rhtml]
     <h1>Employees</h1>
 
     <table>

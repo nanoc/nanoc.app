@@ -1,3 +1,5 @@
+require 'coderay'
+
 class GenericHTMLTranslator < NanocWsCommonTranslator
   # TODO: replace
   include Nanoc::Helpers::HTMLEscape
@@ -162,6 +164,14 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
   # Overridden methods
 
+  def handle_string(string, context)
+    if context.fetch(:html_escape, true)
+      [h(string)]
+    else
+      [string]
+    end
+  end
+
   def extra_attributes_for_element(element, context)
     attributes = {}
 
@@ -265,7 +275,12 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
     wrap('pre', pre_attrs) do
       wrap('code', code_attrs) do
-        handle_children(element, context)
+        if element.attributes['lang']
+          addition = translate(element.children, context.merge(html_escape: false))
+          CodeRay.scan(addition, element.attributes['lang']).html
+        else
+          translate(element.children, context)
+        end
       end
     end
   end

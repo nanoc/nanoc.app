@@ -103,7 +103,6 @@ compile '/**/*' do
   layout '/default.*'
 
   filter :add_toc
-  filter :colorize_syntax, :is_fullpage => true
   filter :relativize_paths, :type => :html
   filter :htmlcompressor
 
