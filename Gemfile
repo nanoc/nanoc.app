@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'nanoc', '~> 4.1'
+gem 'nanoc', '~> 4.2'
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
 gem 'coderay'     # for syntax highlighting
@@ -20,3 +20,4 @@ gem 'w3c_validators'
 gem 'ffi-aspell'
 gem 'd-mark', github: 'ddfreyne/d-mark'
 gem 'terminal-notifier-guard'
+gem 'stackprof'
