@@ -554,7 +554,14 @@ title: "Helpers"
         #dd A proc to filter reps through. If the proc returns true, the rep will be included; otherwise, it will not.
 
   #section %h{Examples}
-    #p Building a sitemap from all HTML files:
+    #p Typically, the value for the %code{:items} option to the %code{#xml_sitemap} method will be all items with a path that ends in %filename{.html}. For example:
 
     #listing[lang=rhtml]
-      <%%= xml_sitemap items: items.select { |i| i.path.end_with?('.html') %} %%>
+      <%%= xml_sitemap(items: items.select { |i| i.path.end_with?('.html') %}) %%>
+
+    #p If you want to hide certain items from the XML sitemap, you can add %code{is_hidden: true} to the frontmatter of those items, and then exclude such items from the XML sitemap:
+
+    #listing[lang=rhtml]
+      <%%= xml_sitemap(
+        items: items.select { |i| !i[:is_hidden] && i.path.end_with?('.html') %}
+      ) %%>
