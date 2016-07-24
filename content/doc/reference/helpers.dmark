@@ -554,7 +554,7 @@ title: "Helpers"
         #dd A proc to filter reps through. If the proc returns true, the rep will be included; otherwise, it will not.
 
   #section %h{Examples}
-    #p Excluding binary items from the sitemap:
+    #p Building a sitemap from all HTML files:
 
     #listing[lang=rhtml]
-      <%%= xml_sitemap :items => @items.reject{ |i| i[:is_hidden] || i.binary? %} %%>
+      <%%= xml_sitemap items: items.select { |i| i.path.end_with?('.html') %} %%>
