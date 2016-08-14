@@ -82,7 +82,7 @@ title: "Using binary items effectively"
       end
 
       route '/gallery/*', rep: :thumbnail do
-        item.identifier.without_ext + '-thumbnail.' + item.ext
+        item.identifier.without_ext + '-thumbnail.' + item.identifier.ext
       end
 
     #p When the site is compiled now, you’ll find both %filename{output/gallery/some_image.jpg} as well as %filename{output/gallery/some_image-thumbnail.jpg}, corresponding to the full-size image and its thumbnail. The gallery page can now be updated so that it displays the thumbnails:
