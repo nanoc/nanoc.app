@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
+group 'nanoc' do # automatically required by Nanoc
+  gem 'guard-nanoc'
+end
+
 gem 'nanoc', '~> 4.2'
 gem 'adsf'        # for viewing
 gem 'builder'     # for feeds
 gem 'coderay'     # for syntax highlighting
 gem 'compass'     # for advanced CSS
-gem 'guard-nanoc'
 gem 'haml'        # for layouts with clean sources
 gem 'kramdown'    # for advanced markdown
 gem 'nokogiri'    # for parsing HTML
