@@ -35,6 +35,13 @@ title: "Filters"
     end
   end
 
+#p Alternatively, there is a shorthand using %code{Nanoc::Filter.define}:
+
+#listing[lang=ruby]
+  Nanoc::Filter.define(:censor) do |content, params|
+    content.gsub('Nanoc sucks', 'Nanoc rocks')
+  end
+
 #p Each filter needs an identifier, so that it can be used in a call to %code{#filter} in a compilation rule. A filter identifier is set using %code{#identifier}. In the example above, the identifier is set to %code{:censor}.
 
 #p The %code{content} argument to the %code{#run} method is a string that contains the content to be transformed. The %code{params} argument is taken from the %code{#filter} call in the compilation rule.
