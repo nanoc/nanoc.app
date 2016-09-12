@@ -74,3 +74,4 @@ deploy_check :no_markdown_links_in_output
 deploy_check :valid_sitemap
 deploy_check :no_smartness_in_kbd
 deploy_check :spelling
+deploy_check :mixed_content
