@@ -70,7 +70,8 @@ body.page {
 
             @media (max-width: 619px) {
                 .search {
-                    /* TODO */
+                    /* TODO: Figure out search on mobile */
+                    display: none;
                 }
             }
 
