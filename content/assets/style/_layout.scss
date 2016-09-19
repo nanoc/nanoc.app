@@ -69,26 +69,33 @@ body.page {
             }
 
             @media (max-width: 619px) {
-                a.home {
-                    display: none;
+                .search {
+                    /* TODO */
                 }
             }
 
-            a.home {
+            .search {
                 position: absolute;
-                width: 60px;
-                height: 60px;
-                right: 40px;
-                top: 10px;
+                width: 350px;
+                height: 30px;
+                right: 20px;
+                top: 30px;
+                text-align: right;
 
-                background: url(/assets/images/logo-nav.png) center center no-repeat;
+                input {
+                  width: 300px;
+                  height: 30px;
 
-                :hover {
-                    background-image: url(/assets/images/logo-nav-hover.png);
-                }
+                  color: #777;
 
-                span {
-                    display: none;
+                  font-family: "Source Sans Pro";
+                  font-size: 18px;
+
+                  background: #fff;
+                  border: none;
+                  border-radius: 15px;
+
+                  padding: 5px 10px;
                 }
             }
         }
