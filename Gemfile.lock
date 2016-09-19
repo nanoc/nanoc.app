@@ -10,7 +10,7 @@ GEM
     adsf (1.2.1)
       rack (>= 1.0.0)
     builder (3.2.2)
-    chunky_png (1.3.6)
+    chunky_png (1.3.7)
     coderay (1.1.1)
     colored (1.2)
     compass (0.12.7)
@@ -120,4 +120,4 @@ DEPENDENCIES
   w3c_validators
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
