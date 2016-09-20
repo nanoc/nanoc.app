@@ -73,12 +73,14 @@ end
 
 compile '/**/*', rep: :latex do
   if config[:generate_pdf] && item.identifier =~ '/doc/**/*'
-    filter :erb if item[:is_dynamic]
     case item.identifier.ext
+    when 'erb'
+      filter :erb
     when 'dmark'
       filter :dmark2latex
+    when nil
     else
-      filter :kramdown2latex
+      raise
     end
     layout '/latex-chapter.erb'
   end

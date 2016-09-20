@@ -1,0 +1,9 @@
+#h2 <%= @item[:name] %>
+
+#listing <%= @item[:usage] %>
+
+<% filter :kramdown2dmark do %><%= @item[:description] || @item[:summary] %><% end %>
+
+<% if @item[:aliases] && @item[:aliases].size > 0 %>#p Also known as <%= @item[:aliases].map { |i| "%command{#{i}}" }.join(', ') %>.<% end %>
+
+<%= dmark_options_for(@item) %>
