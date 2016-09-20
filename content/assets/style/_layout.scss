@@ -80,24 +80,35 @@ body.page {
                 width: 350px;
                 height: 30px;
                 right: 20px;
-                top: 30px;
+                top: 25px;
                 text-align: right;
 
                 input {
                   width: 300px;
                   height: 30px;
 
-                  color: #777;
+                  color: #555;
 
                   font-family: "Source Sans Pro";
-                  font-size: 18px;
+                  font-size: 16px;
 
                   background: #fff;
                   border: none;
                   border-radius: 15px;
 
-                  padding: 5px 10px;
+                  padding: 5px 18px;
+                  border: 2px solid $search-placeholder-border-color;
                 }
+
+                input:focus {
+                    outline: none;
+                    border: 2px solid $search-border-color;
+                }
+
+                input::-webkit-input-placeholder { color: #bbb; }
+                input:-moz-placeholder           { color: #bbb; opacity: 1; }
+                input::-moz-placeholder          { color: #bbb; opacity: 1; }
+                input:-ms-input-placeholder      { color: #bbb; }
             }
         }
     }

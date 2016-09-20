@@ -71,7 +71,7 @@ GEM
       slop (~> 3.4)
     rack (2.0.1)
     rainpress (1.0)
-    rake (11.2.2)
+    rake (11.3.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
