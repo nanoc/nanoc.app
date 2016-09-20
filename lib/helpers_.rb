@@ -7,3 +7,4 @@ include Nanoc::Helpers::Rendering
 # Custom
 include NanocSite::ReleaseNotes
 include NanocSite::LinkToId
+include NanocSite::Commands

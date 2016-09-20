@@ -209,7 +209,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     when 'p', 'dd'
       [
         handle_children(node, context),
-        "\n",
+        "\n\n",
       ]
     when 'log-create', 'log-update', 'prompt'
       handle_children(node, context)

@@ -8,6 +8,7 @@ Class.new(Nanoc::DataSource) do
       Nanoc::CLI.setup
     end
     root_cmd = Nanoc::CLI.root_command
+    items << cmd_to_item(root_cmd)
 
     root_cmd.subcommands.select { |c| !c.hidden? }.each do |subcmd|
       items << cmd_to_item(subcmd)
