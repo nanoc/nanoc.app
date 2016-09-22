@@ -4,6 +4,7 @@ enable_output_diff: true
 
 prune:
   auto_prune: true
+  exclude: ['.git']
 
 data_sources:
   - type: filesystem
@@ -23,6 +24,11 @@ deploy:
     kind: rsync
     dst: "/Users/ddfreyne/Documents/Web/next.nanoc.ws"
     options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']
+  git:
+    kind: git
+    remote: git@bhakti:/srv/git/nanoc.ws.git
+    branch: prod
+    forced: true
 
 toc:
   - title: 'Getting started'
