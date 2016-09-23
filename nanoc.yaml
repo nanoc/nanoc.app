@@ -17,9 +17,10 @@ base_url: http://nanoc.ws
 
 deploy:
   default:
-    kind: rsync
-    dst: "/Users/ddfreyne/Documents/Web/nanoc.ws"
-    options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']
+    kind: git
+    remote: git@bhakti:/srv/git/nanoc.ws.git
+    branch: prod
+    forced: true
   staging:
     kind: git
     remote: git@bhakti:/srv/git/staging.nanoc.ws.git
