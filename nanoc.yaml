@@ -20,9 +20,9 @@ deploy:
     kind: rsync
     dst: "/Users/ddfreyne/Documents/Web/nanoc.ws"
     options: ['--recursive', '--times', '--compress', '--delete-after', '--omit-dir-times']
-  next:
+  staging:
     kind: git
-    remote: git@bhakti:/srv/git/next.nanoc.ws.git
+    remote: git@bhakti:/srv/git/staging.nanoc.ws.git
     branch: prod
     forced: true
 
