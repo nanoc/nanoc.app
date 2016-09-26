@@ -20,17 +20,17 @@ short_title: "Deploying"
       kind: rsync
       dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
 
-#p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it a %command{--target} option, like this:
+#p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it the name of a target, like this:
 
 #listing
-  %prompt{%%} %kbd{nanoc deploy --target staging}
+  %prompt{%%} %kbd{nanoc deploy staging}
 
 #p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
 
 #p If you want to check whether the executed %command{rsync} command is really correct, you can perform a dry run by passing %command{--dry-run}. The rsync command will be printed, but not executed. For example:
 
 #listing
-  %prompt{%%} %kbd{nanoc deploy --target public --dry-run}
+  %prompt{%%} %kbd{nanoc deploy public --dry-run}
 
 #h3 Deleting stray files
 
