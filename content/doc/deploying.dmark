@@ -3,7 +3,22 @@ title: "Deploying Nanoc sites"
 short_title: "Deploying"
 ---
 
-#p There are quite a few ways to deploy a site to a web host. The most traditional way of uploading a site involves using FTP to transfer the files (perhaps using an “update” or “synchronize” option). If your web host provides access via SSH, you can use SCP or SFTP to deploy a site.
+#p Because Nanoc sites are typically static sites, they can be deployed in traditional ways such as uploading them via (S)FTP. Nanoc provides functionality for automating deployment through the %command{nanoc deploy} command, which is described below.
+
+#p The Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites) can contain a %code{deploy} section, such as the following:
+
+#listing[lang=yaml]
+  deploy:
+    default:
+      kind: git
+      remote: git@int.nanoc.ws:/srv/http/nanoc.ws.git
+      branch: prod
+      forced: true
+    staging:
+      kind: rsync
+      dst:  "int.nanoc.ws:/srv/http/staging.nanoc.ws"
+
+#p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
 #section %h{With rsync}
   #p If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check %command{man rsync} in case of doubt), but fortunately Nanoc provides a “deploy” command that can make this quite a bit easier: a simple %command{nanoc deploy} will deploy your site.
