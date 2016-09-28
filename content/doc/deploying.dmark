@@ -3,7 +3,7 @@ title: "Deploying Nanoc sites"
 short_title: "Deploying"
 ---
 
-#p Because Nanoc sites are typically static sites, they can be deployed in traditional ways such as uploading them via (S)FTP. Nanoc provides functionality for automating deployment through the %command{nanoc deploy} command, which is described below.
+#p Nanoc provides functionality for automating deployment through the %command{nanoc deploy} command. The automated deployment setup is described below.
 
 #p The Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites) can contain a %code{deploy} section, such as the following:
 
@@ -21,9 +21,7 @@ short_title: "Deploying"
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
 #section %h{With rsync}
-  #p If your web host supports rsync, then deploying a site can be fully automated, and the transfer itself can be quite fast, too. rsync is unfortunately a bit cumbersome, providing a great deal of options (check %command{man rsync} in case of doubt), but fortunately Nanoc provides a “deploy” command that can make this quite a bit easier: a simple %command{nanoc deploy} will deploy your site.
-
-  #p To use the deploy command, open the %filename{nanoc.yaml} (on older sites: %filename{config.yaml}) file and add a %code{deploy} hash. Inside, add a hash with a key that describes the destination (for example, %code{public} or %code{staging}). Inside this hash, set %code{dst} to the destination, in the format used by rsync and scp, to where the files should be uploaded, and set %code{kind} to %code{rsync}. Here’s what it will look like:
+  #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
 
   #listing[lang=yaml]
     deploy:
@@ -34,14 +32,14 @@ short_title: "Deploying"
         kind: rsync
         dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
 
-  #p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted; however, be aware that files with the same name will be overwritten. To run the deploy command, pass it the name of a target, like this:
+  #p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted, but existing files with the same name will be overwritten. To deploy, run %command{deploy} with the name of a target, like this:
 
   #listing
     %prompt{%%} %kbd{nanoc deploy staging}
 
   #p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
 
-  #p If you want to check whether the executed %command{rsync} command is really correct, you can perform a dry run by passing %command{--dry-run}. The rsync command will be printed, but not executed. For example:
+  #p Io check whether the executed %command{rsync} command is correct, perform a dry run by passing %command{--dry-run}. The %command{rsync} command will be printed, but not executed. For example:
 
   #listing
     %prompt{%%} %kbd{nanoc deploy public --dry-run}
