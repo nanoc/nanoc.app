@@ -117,7 +117,7 @@ short_title: "Deploying"
 
   #p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
 
-  #p Io check whether the executed %command{rsync} command is correct, perform a dry run by passing %command{--dry-run}. The %command{rsync} command will be printed, but not executed. For example:
+  #p To check whether the executed %command{rsync} command is correct, perform a dry run by passing %command{--dry-run}. The %command{rsync} command will be printed, but not executed. For example:
 
   #listing
     %prompt{%%} %kbd{nanoc deploy public --dry-run}
