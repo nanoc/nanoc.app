@@ -20,38 +20,6 @@ short_title: "Deploying"
 
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
-#section %h{With rsync}
-  #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
-
-  #listing[lang=yaml]
-    deploy:
-      public:
-        kind: rsync
-        dst:  "stoneship.org:/var/www/sites/example.com/public"
-      staging:
-        kind: rsync
-        dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
-
-  #p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted, but existing files with the same name will be overwritten. To deploy, run %command{deploy} with the name of a target, like this:
-
-  #listing
-    %prompt{%%} %kbd{nanoc deploy staging}
-
-  #p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
-
-  #p Io check whether the executed %command{rsync} command is correct, perform a dry run by passing %command{--dry-run}. The %command{rsync} command will be printed, but not executed. For example:
-
-  #listing
-    %prompt{%%} %kbd{nanoc deploy public --dry-run}
-
-  #section %h{Deleting stray files}
-    #p Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
-
-    #listing[lang=yaml]
-      options: [ '-aP', '--delete-after' ]
-
-    #caution This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
-
 #section %h{With GitHub Pages or Bitbucket}
   #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
@@ -129,6 +97,38 @@ short_title: "Deploying"
     #p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
 
     #p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is quite likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
+
+#section %h{With rsync}
+  #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
+
+  #listing[lang=yaml]
+    deploy:
+      public:
+        kind: rsync
+        dst:  "stoneship.org:/var/www/sites/example.com/public"
+      staging:
+        kind: rsync
+        dst:  "stoneship.org:/var/www/sites/example.com/public/staging"
+
+  #p By default, the rsync deployer will upload all files in the output directory to the given location. None of the existing files in the target location will be deleted, but existing files with the same name will be overwritten. To deploy, run %command{deploy} with the name of a target, like this:
+
+  #listing
+    %prompt{%%} %kbd{nanoc deploy staging}
+
+  #p This will deploy using the “staging” configuration. Replace “staging” with “public” if you want to deploy to the location marked with “public”.
+
+  #p Io check whether the executed %command{rsync} command is correct, perform a dry run by passing %command{--dry-run}. The %command{rsync} command will be printed, but not executed. For example:
+
+  #listing
+    %prompt{%%} %kbd{nanoc deploy public --dry-run}
+
+  #section %h{Deleting stray files}
+    #p Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
+
+    #listing[lang=yaml]
+      options: [ '-aP', '--delete-after' ]
+
+    #caution This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
 
 #section %h{With fog}
   #p %ref[url=http://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
