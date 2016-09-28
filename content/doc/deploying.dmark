@@ -85,19 +85,33 @@ short_title: "Deploying"
 
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
+  #section %h{Automated deployment}
+    #p To deploy the site using the %command{nanoc deploy} command, add %ref[url=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}} to the %filename{Gemfile} inside the %code{nanoc} group, and run %command{bundle install}:
+
+    #listing[lang=ruby]
+      group 'nanoc' do
+        gem 'nanoc-git'
+      end
+
+    #listing
+      %prompt{%%} %kbd{bundle install}
+
+    #p In the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites), add a deployment target with the target %code{git}:
+
+    #listing[lang=yaml]
+      deploy:
+        default:
+          kind: git
+          branch: gh-pages
+
+    #p For Bitbucket, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pags}.
+
   #section %h{Publish}
-    #p Before publishing the site, compile it:
+    #p To publish a site, compile it and run %command{deploy}:
 
     #listing
-      %prompt{%%} %kbd{nanoc}
-
-    #p To publish the site, either use %ref[url=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}}, or publish manually by entering the %filename{output/} directory, adding and committing everything, and finally pushing:
-
-    #listing
-      %prompt{%%} %kbd{cd output}
-      %prompt{output%%} %kbd{git add .}
-      %prompt{output%%} %kbd{git commit -m 'Update compiled output'}
-      %prompt{output%%} %kbd{git push}
+      %prompt{%%} %kbd{bundle exec nanoc}
+      %prompt{%%} %kbd{bundle exec nanoc deploy}
 
     #p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
 
