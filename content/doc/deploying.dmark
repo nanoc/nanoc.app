@@ -48,6 +48,7 @@ short_title: "Deploying"
     #p Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, check out the new branch and remove everything in it:
 
     #listing
+      %prompt{%%} %kbd{rm -rf output}
       %prompt{%%} %kbd{git clone . output}
       %prompt{%%} %kbd{cd output}
       %prompt{output@master%%} %kbd{git checkout --orphan gh-pages}
