@@ -9,6 +9,8 @@ cache: bundler
 sudo: false
 git:
   depth: 10
+before_install:
+  - gem install bundler
 addons:
   apt:
     packages:
