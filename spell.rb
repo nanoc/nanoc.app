@@ -69,6 +69,10 @@ class NanocSpellChecker
         # Skip correct words
         next if speller.correct?(word)
 
+        # Try variations
+        variations = [word.sub(/'$/, '')]
+        next if variations.any? { |v| speller.correct?(v) }
+
         # Record
         misspelled_words[filename] ||= []
         misspelled_words[filename] << word
