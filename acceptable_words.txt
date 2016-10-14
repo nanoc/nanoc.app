@@ -108,6 +108,7 @@ kramdown
 layouting
 Layouting
 Liu
+Lorin
 Lynagh
 Maeda
 Mankuta
@@ -243,6 +244,8 @@ Vlatko
 Vokes
 von
 Vuotto
+Werthen
+whitequark
 Whitt
 wiki
 Wiki
