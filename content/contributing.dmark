@@ -39,18 +39,7 @@ title: "Contributing"
   #listing
     %prompt{~%%} %kbd{git clone git://github.com/nanoc/nanoc.git}
 
-  #p Pick the right branch to start off:
-
-  #ul
-    #li If you want to add a feature, use the %code{master} branch.
-    #li If you want to add a bug fix, use the %code{release-4.1.x} branch.
-
-  #p You can switch to the right branch using %command{git checkout}:
-
-  #listing
-    %prompt{nanoc%%} %kbd{git checkout release-4.1.x}
-
-  #p Create a branch off one of the two existing branches mentioned above. Pick a good name; the convention is to prefix the branch name with %code{bug/} when it is a bug and with %code{feature/} if it is a feature. Once you’ve picked a branch name, create the branch:
+  #p Create a new branch. Pick a good name; the convention is to prefix the branch name with %code{bug/} when it is a bug and with %code{feature/} if it is a feature. Once you’ve picked a branch name, create the branch:
 
   #listing
     %prompt{nanoc%%} %kbd{git checkout -b bug/fix-colors-on-windows}
@@ -68,9 +57,7 @@ title: "Contributing"
 
   #p After making your modifications, make sure that the source code documentation is up-to-date. Nanoc uses %ref[url=http://yardoc.org/]{YARD} for its source code docs. The %ref[url=http://rubydoc.info/gems/yard/file/doc/GettingStarted.md]{YARD getting started guide} is a helpful resource when writing YARD documentation.
 
-  #p Finally, create a pull request. Make sure the submit your pull request against the branch you originally started off (%code{master} or %code{release-4.1.x}).
-
-  #p Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
+  #p Finally, create a pull request. Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
 #section %h{Releasing Nanoc}
   #p If you’re a release manager, you can follow these steps to release a new version of Nanoc. Before you start, make sure that you’ve got the approval of at least one other release manager (and preferably also the approval of Denis).
