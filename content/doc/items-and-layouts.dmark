@@ -2,81 +2,76 @@
 title: "Items and layouts"
 ---
 
-#h2 Items
+#section %h{Items}
+  #p Pages, such as an about page, and assets, such as a stylesheet or an image, are collectively called %firstterm{items}.
 
-#p Pages, such as an about page, and assets, such as a stylesheet or an image, are collectively called %firstterm{items}.
+  #p An item has content, attributes, and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
 
-#p An item has content, attributes, and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
+  #p Item content can be textual or binary. If the extension of the item is included in the site configuration’s %ref[item=/doc/reference/config.*,frag=text_extensions]{%code{text_extension}} list, it is considered to be textual; otherwise, it will be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
 
-#p Item content can be textual or binary. If the extension of the item is included in the site configuration’s %ref[item=/doc/reference/config.*,frag=text_extensions]{%code{text_extension}} list, it is considered to be textual; otherwise, it will be binary. Binary items don’t have their content stored in-memory. Instead, binary items have a filename pointing to the file containing the content.
+  #p Each item has attributes (metadata) associated with it. This metadata consists of key-value pairs. All attributes are free-form; there are no predefined attributes.
 
-#p Each item has attributes (metadata) associated with it. This metadata consists of key-value pairs. All attributes are free-form; there are no predefined attributes.
+  #section %h{Item representations}
+    #p Every item has one or more %firstterm{item representations} (or “reps” for short). An item representation is the compiled form of an item. Some examples of item representations:
 
-#h3 Item representations
+    #ul
+      #li a HTML representation, which will be the default for almost all sites
+      #li a RSS representation, useful for the home page for a blog
+      #li a JSON representation, so that the site can act as a read-only web API
+      #li a %ref[url=http://en.wikipedia.org/wiki/Cue_sheet_(computing)]{cue sheet} representation, useful for track list pages
 
-#p Every item has one or more %firstterm{item representations} (or “reps” for short). An item representation is the compiled form of an item. Some examples of item representations:
+    #p An item rep has a name, which usually refers to the format the content is in (%code{html}, %code{json}, %code{rss}, …). Unless otherwise specified, there will be a default representation, aptly named %code{default}.
 
-#ul
-  #li a HTML representation, which will be the default for almost all sites
-  #li a RSS representation, useful for the home page for a blog
-  #li a JSON representation, so that the site can act as a read-only web API
-  #li a %ref[url=http://en.wikipedia.org/wiki/Cue_sheet_(computing)]{cue sheet} representation, useful for track list pages
+  #section %h{Item snapshots}
+    #p A %firstterm{snapshot} is the compiled content at a specific point during the compilation process. Snapshots can be generated manually, but some snapshots are generated automatically.
 
-#p An item rep has a name, which usually refers to the format the content is in (%code{html}, %code{json}, %code{rss}, …). Unless otherwise specified, there will be a default representation, aptly named %code{default}.
+    #p The following snapshots are generated automatically:
 
-#h3 Item snapshots
+    #dl
+      #dt %code{:raw}
+      #dd The content right before actual compilation is started
 
-#p A %firstterm{snapshot} is the compiled content at a specific point during the compilation process. Snapshots can be generated manually, but some snapshots are generated automatically.
+      #dt %code{:pre}
+      #dd The content right before the item is laid out
 
-#p The following snapshots are generated automatically:
+      #dt %code{:last}
+      #dd The most recent compiled content
 
-#dl
-  #dt %code{:raw}
-  #dd The content right before actual compilation is started
+    #p Binary items cannot have snapshots.
 
-  #dt %code{:pre}
-  #dd The content right before the item is laid out
+#section %h{Layouts}
+  #p A %firstterm{layout} is the “frame” for content to go in to. Typically, a layout adds a header and a footer to a page.
 
-  #dt %code{:last}
-  #dd The most recent compiled content
+  #p The following is a minimal layout that includes the content using %code{yield}, and emits some metadata:
 
-#p Binary items cannot have snapshots.
+  #listing[lang=eruby]
+    <html>
+      <head>
+        <title><%%=h @item[:title] %%></title>
+      </head>
+      <body>
+        <%%= yield %%>
+      </body>
+    </html>
 
-#h2 Layouts
+  #p An item is laid out using %code{#layout} function in a compilation rule. See %ref[item=/doc/rules.*]{} page for details.
 
-#p A %firstterm{layout} is the “frame” for content to go in to. Typically, a layout adds a header and a footer to a page.
+  #p Just like items, layouts have attributes and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
 
-#p The following is a minimal layout that includes the content using %code{yield}, and emits some metadata:
+  #section %h{Partials}
+    #p A layout can be used as a %firstterm{partial}. A partial is a layout that is not used for laying out an item, but is rather intended to be included into another item or layout. Because of this, partials typically do call %code{yield}.
 
-#listing[lang=eruby]
-  <html>
-    <head>
-      <title><%%=h @item[:title] %%></title>
-    </head>
-    <body>
-      <%%= yield %%>
-    </body>
-  </html>
+    #p To enable partials, first %code{include} the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
 
-#p An item is laid out using %code{#layout} function in a compilation rule. See %ref[item=/doc/rules.*]{} page for details.
+    #listing[lang=ruby]
+      include Nanoc::Helpers::Rendering
 
-#p Just like items, layouts have attributes and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
+    #p To render a partial, call %code{#render} with the identifier or a glob as an argument:
 
-#h3 Partials
+    #listing[lang=eruby]
+      <%%= render '/head.*' %%>
 
-#p A layout can be used as a %firstterm{partial}. A partial is a layout that is not used for laying out an item, but is rather intended to be included into another item or layout. Because of this, partials typically do call %code{yield}.
+    #p It is also possible to pass custom variables to rendered partials by putting them into a hash passed to %code{#render}. The following example will make a %code{@title} variable (set to %code{"Foo"} in this example) available in the %code{head} layout:
 
-#p To enable partials, first %code{include} the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
-
-#listing[lang=ruby]
-  include Nanoc::Helpers::Rendering
-
-#p To render a partial, call %code{#render} with the identifier or a glob as an argument:
-
-#listing[lang=eruby]
-  <%%= render '/head.*' %%>
-
-#p It is also possible to pass custom variables to rendered partials by putting them into a hash passed to %code{#render}. The following example will make a %code{@title} variable (set to %code{"Foo"} in this example) available in the %code{head} layout:
-
-#listing[lang=eruby]
-  <%%= render '/head.*', :title => 'Foo' %%>
+    #listing[lang=eruby]
+      <%%= render '/head.*', :title => 'Foo' %%>
