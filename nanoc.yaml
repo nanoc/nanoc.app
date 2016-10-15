@@ -49,6 +49,7 @@ toc:
       - '/doc/guides/using-binary-items-effectively.*'
       - '/doc/guides/creating-multilingual-sites.*'
       - '/doc/guides/using-external-sources.*'
+      - '/doc/guides/creating-pdfs.*'
   - title: 'References'
     compact: true
     children:
