@@ -103,3 +103,11 @@ title: "Troubleshooting"
     end
 
   #p After compilation, the output directory will now contain a %filename{output/.nojekyll} file.
+
+#section %h[nav-title=Helpers methods not found]{My helper methods cause a %code{NoMethodError}!}
+  #p When calling a method in a helper results in a %code{NoMethodError}, you might not have activated the helper. To activate a helper, %code{include} it, like this (in a file in the %filename{lib/} directory, such as %filename{lib/helpers.rb}):
+
+  #listing[lang=ruby]
+    include Nanoc::Helpers::Blogging
+
+  #p Make sure to double-check the spelling of the method that is being invoked.
