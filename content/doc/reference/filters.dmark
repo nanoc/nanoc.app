@@ -2,6 +2,8 @@
 title: "Filters"
 ---
 
+#p The following is a list of all filters that come bundled with Nanoc.
+
 #section %h{%code{:asciidoc}}
   #p The %code{:asciidoc} filter invokes the commandline tool of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}. This filter takes no options.
 

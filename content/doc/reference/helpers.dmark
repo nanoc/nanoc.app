@@ -2,6 +2,10 @@
 title: "Helpers"
 ---
 
+#p The following is a list of all helpers that come bundled with Nanoc.
+
+#note Helpers need to be activated before they can be used. For details on how to do so, see %ref[item=/doc/helpers.*]{}.
+
 #section %h{%code{Blogging}}
   #p Provides functionality for building blogs, such as finding articles and constructing feeds.
 
