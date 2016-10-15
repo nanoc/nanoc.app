@@ -28,6 +28,8 @@ title: "Data sources"
 
 #p The %code{items_root} and %code{layouts_root} values will be prefixed to the identifiers of any items and layouts, respectively, obtained from this data source. For example, a data source might provide an item with identifier %code{/denis.md}, which, when the %code{items_root} is set to %code{/people}, will become %code{/people/denis.md}.
 
+#p Note that individual data sources can have more configuration options.
+
 #section %h{The filesystem data source}
   #p Nanoc comes with a %productname{filesystem} data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the %filename{content/} directory, and layouts from the %filename{layouts/} directory.
 
