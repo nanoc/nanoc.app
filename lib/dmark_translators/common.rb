@@ -18,7 +18,11 @@ class NanocWsCommonTranslator < DMark::Translator
 
   def nodes_for_item(item)
     if item.identifier.ext == 'dmark'
-      DMark::Parser.new(item.raw_content).parse
+      begin
+        DMark::Parser.new(item.raw_content).parse
+      rescue => e
+        handle_error(e, item.raw_content)
+      end
     else
       nil
     end
