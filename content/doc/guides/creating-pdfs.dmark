@@ -66,6 +66,8 @@ title: "Creating PDFs"
 
     \end{document%}
 
+  #p The extra packages are needed by kramdown; it generates LaTeX content that makes use of these packages.
+
   #p Secondly, we’ll need a filter that converts LaTeX to PDF. Since LaTeX is text and PDF is not, the filter will need to convert from %code{:text} to %code{:binary}. The filter itself will invoke an external executable that generates the PDF (in this case, %command{pdflatex}). The filter is somewhat complex, partially due to the complexity of invoking the executable:
 
   #listing[lang=ruby]
