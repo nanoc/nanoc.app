@@ -262,7 +262,7 @@ title: "Rules"
     end
 
 #section %h{Preprocessing}
-  #p The %filename{Rules} file can contain a %code{#preprocess} block. This preprocess block is executed before the site is compiled, and has access to all site data.
+  #p The %filename{Rules} file can contain a %code{#preprocess} block. This preprocess block is executed before the site is compiled, and has access to all site data (%code{@config}, %code{@items}, and %code{@layouts}). Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content, and the path, but also add and remove items.
 
   #p Here is an example preprocess block that sets the %code{author} attribute to %code{denis} for every article:
 
@@ -273,7 +273,21 @@ title: "Rules"
       end
     end
 
-  #p Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content, and the path, but also add and remove items.
+  #p Here is an example preprocess block that finds all unique tags, and creates collection pages for them:
+
+  #listing[lang=ruby]
+    preprocess do
+      tags = @items.map { |i| i[:tags] %}.uniq
+      tags.each do |tag|
+        content = ''
+        attributes = { tag: tag %}
+        identifier = "/tags/#{tag%}"
+
+        @items.create(content, attributes, identifier)
+      end
+    end
+
+  #p To make the tag pages work, you’d handle tag items specifically (using a glob %code{/tags/*} to match them) by applying a layout that finds and shows all items for the tag page’s tag. Doing this is left as an exercise to the reader.
 
   #p Preprocessors can be used for various purposes. Here are two sample uses:
 
