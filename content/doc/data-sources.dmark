@@ -86,7 +86,7 @@ title: "Data sources"
 
   #p The %code{encoding} option sets the encoding used for reading files. It should be a value understood by Ruby’s %code{Encoding}. If no encoding is set in the configuration, one will be inferred from the environment.
 
-  #p The %code{extra_files} option contains filename glob patterns and tells Nanoc to load files that would by default be ignored. For example, even though the filesysem data source ignores hidden files by default, the sample configuration above will make sure that %filename{.htaccess} files will be loaded.
+  #p The %code{extra_files} option contains filename glob patterns and tells Nanoc to load files that would by default be ignored. For example, even though the filesystem data source ignores hidden files by default, the sample configuration above will make sure that %filename{.htaccess} files will be loaded.
 
 #section %h{Writing data sources}
   #p Here is an example data source implementation that provides a single item with the identifier %code{/release-notes.md} and containing the content of the %filename{NEWS.md} file of Nanoc:
