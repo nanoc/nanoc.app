@@ -12,13 +12,13 @@
             <meta http-equiv="refresh" content="0;URL='<%= @item[:redirect_to] %>'">
         <% end %>
     </head>
-    <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>">
+    <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>" id="nanoc">
 <% if @item[:has_basic_layout] %>
     <%= yield %>
 <% else %>
         <div class="intro">
             <div class="intro-content">
-                <div class="search"><input type="search" id="search-field" placeholder="Search…"></div>
+                <div class="search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
                 <h1><%= @item.identifier =~ '/index.*' ? '' : '<a class=back href="/">Nanoc</a><span class=deco>»</span>' %><%= @item[:title] %></h1>
             </div>
         </div>

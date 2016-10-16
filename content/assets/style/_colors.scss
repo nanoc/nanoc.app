@@ -9,6 +9,8 @@ $color-orange-light:          tint($color-orange, 30%);
 $color-offwhite:              desaturate(tint($color-orange-light, 90%), 70%);
 $color-offwhite-light:        tint($color-offwhite, 60%);
 $color-offwhite-dark:         desaturate(tint($color-blue, 80%), 10%);
+$color-offwhite-orange:       tint($color-orange, 95%);
+$color-offwhite-blue:         tint($color-blue, 95%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-green:                 adjust-hue($color-blue, -120%);
 $color-dark-40:               shade($color-offwhite, 15%);
@@ -66,6 +68,11 @@ $search-border-color:               $color-offwhite-dark;
 $search-placeholder-bg-color:       $color-white;
 $search-placeholder-fg-color:       $color-gray;
 $search-placeholder-border-color:   $color-white;
+$search-results-l0-fg-color:        $color-orange;
+$search-results-l1-fg-color:        $color-black;
+$search-results-higlight-fg-color:  $color-orange;
+$search-results-higlight-bg-color:  $color-offwhite-orange;
+$search-results-selection-bg-color: $color-offwhite-orange;
 
 // Body
 $page-bg-color:               $color-white;

@@ -1,0 +1,20 @@
+#search-box {
+  .algolia-docsearch-suggestion--category-header {
+    color: $search-results-l0-fg-color;
+  }
+
+  .algolia-docsearch-suggestion--title {
+    color: $search-results-l1-fg-color;
+  }
+
+  .algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
+  .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+    color: $search-results-higlight-fg-color;
+    background-color: $search-results-higlight-bg-color;
+    box-shadow: none;
+  }
+
+  .ds-cursor .algolia-docsearch-suggestion--content {
+    background-color: $search-results-selection-bg-color;
+  }
+}
