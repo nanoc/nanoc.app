@@ -1,6 +1,19 @@
 #!/usr/bin/env ruby
 
+require 'open3'
+require 'json'
+
 eval File.read('spell.rb', encoding: 'UTF-8')
+
+check :html5 do
+  cmd = 'java -jar vendor/vnu.jar --format json --skip-non-html output/'
+  res = Open3.popen3(cmd) { |_stdin, _stdout, stderr| stderr.read }
+
+  JSON.parse(res).fetch('messages', []).each do |err|
+    subject = err['url'].sub(/^file:#{Regexp.escape File.dirname(__FILE__)}\//, '')
+    add_issue("#{err['message']} (line #{err['lastLine']}, column #{err['firstColumn']})", subject: subject)
+  end
+end
 
 check :no_unprocessed_erb do
   self.output_filenames.each do |fn|
