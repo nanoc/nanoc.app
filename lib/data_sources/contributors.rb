@@ -2,6 +2,8 @@ Class.new(Nanoc::DataSource) do
   identifier :contributors
 
   def items
+    return [] unless defined?(Bundler)
+
     path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
     raw_content = File.read(File.join(path, 'README.md'))
     content = raw_content.lines.to_a.last

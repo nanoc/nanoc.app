@@ -2,6 +2,8 @@ Class.new(Nanoc::DataSource) do
   identifier :release_notes
 
   def items
+    return [] unless defined?(Bundler)
+
     # content
     path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
     raw_content = File.read("#{path}/NEWS.md")
