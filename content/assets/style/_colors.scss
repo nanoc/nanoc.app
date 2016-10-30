@@ -5,18 +5,18 @@ $color-black:                 #000;
 $color-blue:                  #0e65c2;
 
 // Derived colors
-$color-orange-light:          mix($color-orange, $color-white, 30%);
-$color-offwhite:              desaturate(mix($color-orange-light, $color-white, 90%), 70%);
-$color-offwhite-light:        mix($color-offwhite, $color-white, 60%);
-$color-offwhite-dark:         desaturate(mix($color-blue, $color-white, 80%), 10%);
-$color-offwhite-orange:       mix($color-orange, $color-white, 95%);
-$color-offwhite-blue:         mix($color-blue, $color-white, 95%);
+$color-orange-light:          mix($color-orange, $color-white, 70%);
+$color-offwhite:              desaturate(mix($color-orange-light, $color-white, 10%), 70%);
+$color-offwhite-light:        mix($color-offwhite, $color-white, 40%);
+$color-offwhite-dark:         desaturate(mix($color-blue, $color-white, 20%), 10%);
+$color-offwhite-orange:       mix($color-orange, $color-white, 5%);
+$color-offwhite-blue:         mix($color-blue, $color-white, 5%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-green:                 adjust-hue($color-blue, -120%);
-$color-dark-40:               mix($color-offwhite, $color-black, 15%);
-$color-dark-60:               mix($color-offwhite, $color-black, 40%);
-$color-dark-80:               mix($color-offwhite, $color-black, 70%);
-$color-dark-95:               mix($color-offwhite, $color-black, 95%);
+$color-dark-40:               mix($color-offwhite, $color-black, 100%-15%);
+$color-dark-60:               mix($color-offwhite, $color-black, 100%-40%);
+$color-dark-80:               mix($color-offwhite, $color-black, 100%-70%);
+$color-dark-95:               mix($color-offwhite, $color-black, 100%-95%);
 
 // Explanation
 $explanation-bg-color:        $color-white;

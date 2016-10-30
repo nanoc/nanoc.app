@@ -2,10 +2,13 @@
 
 @import "colors.scss";
 
-$total-columns: 12;
-$column-width:  60px;
-$gutter-width:  20px;
-$grid-padding:  0;
+$susy: (
+  columns: 12,
+  column-width: 60px,
+  gutters: 0.33333,
+  gutter-position: split,
+  global-box-sizing: border-box,
+);
 
 body {
     border-top: 6px solid $page-top-border-color;
@@ -16,68 +19,47 @@ body.page {
         background: $intro-bg-color;
 
         .intro-content {
-            @media (min-width: 720px) {
-                @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
-                    @include container;
-                }
-            }
-
             @media (max-width: 719px) {
                 padding: 20px;
             }
 
+            @include container;
+
             padding: 20px 0;
 
-            position: relative;
-
-            .section {
-                font-size: 20px;
-            }
-
             h1 {
+                @include span(8);
+
                 font-size: 30px;
+
                 line-height: 40px;
+
                 color: $intro-fg-color;
-            }
 
-            p {
-                @media (min-width: 720px) {
-                    @include span-columns(8, 12);
+                a.back {
+                    :link, :visited {
+                        color: $intro-link-fg-color;
+                    }
+
+                    :hover {
+                        color: $intro-link-fg-color-hover;
+                    }
                 }
 
-                font-size: 15px;
-                padding-top: 40px;
-            }
-
-            a.back {
-                :link, :visited {
-                    color: $intro-link-fg-color;
-                }
-
-                :hover {
-                    color: $intro-link-fg-color-hover;
-                }
-            }
-
-            span.deco {
-              margin: 0 8px;
-              color: $intro-deco-fg-color;
-            }
-
-            @media (max-width: 619px) {
-                .search {
-                    /* TODO: Figure out search on mobile */
-                    display: none;
+                span.deco {
+                  margin: 0 8px;
+                  color: $intro-deco-fg-color;
                 }
             }
 
             .search {
-                position: absolute;
-                width: 350px;
-                height: 30px;
-                right: 20px;
-                top: 25px;
-                text-align: right;
+                @include span(last 4);
+
+                @media (max-width: 619px) {
+                    display: none;
+                }
+
+                padding-top: 5px;
 
                 input {
                   width: 300px;
@@ -116,11 +98,7 @@ body.page {
 
 body.page .content {
     article {
-        @media (min-width: 720px) {
-            @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
-                @include container;
-            }
-        }
+        @include container;
 
         @media (max-width: 719px) {
             padding-left: 20px;
@@ -134,7 +112,7 @@ body.page .content {
             padding-top: 40px;
 
             @media (min-width: 720px) {
-                @include span-columns(8, 12);
+                @include span(8);
             }
 
             ul, ol, pre, p, dl, h2, h3 {
@@ -235,7 +213,7 @@ body.page .content {
 
         .side {
             @media (min-width: 720px) {
-                @include span-columns(4 omega, 12);
+                @include span(last 4);
             }
 
             @media (max-width: 719px) {
@@ -315,11 +293,12 @@ body.home .explanation {
         @include container;
 
         p {
-            padding: 40px 20px;
+            @media (min-width: 720px) {
+                @include span(isolate 80% at 10%);
 
-            font-size: 32px;
-            line-height: 40px;
-            text-align: center;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
 
             @media (max-width: 719px) {
                 padding: 20px;
@@ -327,6 +306,10 @@ body.home .explanation {
                 font-size: 24px;
                 line-height: 30px;
             }
+
+            font-size: 32px;
+            line-height: 40px;
+            text-align: center;
         }
     }
 }
@@ -356,15 +339,17 @@ footer {
     margin: 60px 0 -40px 0;
 
     .footer-content {
-        @include with-grid-settings($total-columns, $column-width, $gutter-width, 20px) {
-            @include container;
-        }
+        @include container;
 
         p {
+            @include span(12);
+
             padding: 40px 0 20px 0;
         }
 
         .links {
+            @include span(12);
+
             div, li:after {
                 color: $footer-fg-color;
             }
@@ -393,28 +378,28 @@ footer {
         }
 
         .copyright {
+            @include span(12);
+
             padding: 20px 0;
             border-top-width: 1px;
             border-top-style: solid;
             border-color: $footer-border-color;
             color: $footer-fg-color;
 
-            position: relative;
-
-            @media (min-width: 819px) {
-                /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
-                background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
-                background-size: 117px 100px;
-            }
-
-            p {
+            div {
                 font-size: 13px;
-                max-width: 700px;
+                max-width: 650px;
 
                 padding: 20px 0 20px 55px;
 
                 background: url(/assets/images/logo-footer.png) left center no-repeat;
                 background-size: 40px 40px;
+            }
+
+            @media (min-width: 819px) {
+                /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
+                background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
+                background-size: 117px 100px;
             }
         }
     }
