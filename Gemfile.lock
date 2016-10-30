@@ -49,6 +49,7 @@ GEM
     htmlcompressor (0.3.1)
     json (2.0.2)
     kramdown (1.12.0)
+    libv8 (3.16.14.15)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -92,6 +93,9 @@ GEM
       sass (>= 3.2.0)
     systemu (2.6.5)
     terminal-notifier-guard (1.7.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     tilt (2.0.5)
     w3c_validators (1.2)
@@ -124,6 +128,7 @@ DEPENDENCIES
   susy
   systemu
   terminal-notifier-guard
+  therubyracer
   w3c_validators
 
 BUNDLED WITH
