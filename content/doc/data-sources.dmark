@@ -80,7 +80,7 @@ title: "Data sources"
     layouts_dir: layouts
     encoding: utf-8
     extra_files:
-      - "**/.htacces"
+      - "**/.htaccess"
 
   #p The %code{content_dir} option contains the path to the directory where the content is stored. By default, it is %filename{content}.
 
