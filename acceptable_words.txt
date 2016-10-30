@@ -3,8 +3,6 @@
 3rd
 API
 APIs
-LaTeX
-PDFs
 Armston
 Arnau
 Aronoff
@@ -107,6 +105,7 @@ Karékinian
 Keveney
 Kosturjak
 kramdown
+LaTeX
 layouting
 Layouting
 Liu
@@ -143,6 +142,7 @@ Pandoc
 PandocRuby
 Papis
 passwordless
+PDFs
 Peeters
 Pennisi
 PHP
