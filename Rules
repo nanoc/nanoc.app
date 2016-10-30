@@ -30,6 +30,7 @@ passthrough '/assets/images/**/*'
 compile '/assets/style/*' do
   filter :sass, Compass.sass_engine_options
   filter :relativize_paths, :type => :css
+  filter :autoprefixer
   filter :rainpress
   write item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
 end

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
+  gem 'autoprefixer-rails'
   gem 'guard-nanoc'
   gem 'nanoc-git'
 end
