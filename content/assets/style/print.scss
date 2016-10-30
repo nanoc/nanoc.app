@@ -7,8 +7,6 @@ is_hidden: true
 @import "admonition.scss";
 @import "text.scss";
 
-@import "compass/css3/box-sizing";
-
 @page
 {
     size: auto;
@@ -22,7 +20,7 @@ footer,
 }
 
 * {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 }
 
 /* Page break behavior */
@@ -111,9 +109,6 @@ pre {
     border-bottom: 1pt solid black;
 
     white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
     word-wrap: break-word;
 }
 

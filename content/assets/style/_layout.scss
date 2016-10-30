@@ -1,6 +1,4 @@
 @import "susy";
-@import "compass/css3/border-radius";
-@import "compass/css3/transform";
 
 @import "colors.scss";
 
@@ -8,8 +6,6 @@ $total-columns: 12;
 $column-width:  60px;
 $gutter-width:  20px;
 $grid-padding:  0;
-
-@include border-box-sizing;
 
 body {
     border-top: 6px solid $page-top-border-color;

@@ -1,7 +1,5 @@
 @import "colors.scss";
 
-@import "compass/css3/border-radius";
-
 body {
     background: $page-bg-color;
 
@@ -14,9 +12,11 @@ body {
 
 a {
     text-decoration: none;
+
     padding: 0 2px;
     margin: 0 -1px;
-    @include border-radius(3px);
+
+    border-radius: 3px;
 }
 
 dd {
@@ -43,9 +43,6 @@ pre {
     margin: 0 0 20px 0;
 
     white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
     word-wrap: break-word;
 }
 
