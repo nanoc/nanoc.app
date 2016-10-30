@@ -139,6 +139,8 @@ title: "Rules"
 
   #p A compilation rule that ends with a %code{#write} call can be written as a combination of a compilation rule and a routing rule. Typically, using %code{#write} in the compile block leads to a more compact and easier-to-understand Rules file, but separate %code{#route} calls can nonetheless be useful.
 
+  #tip Avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
+
   #p %strong{Example}: The following compile/route rules are equivalent:
 
   #listing[lang=ruby]
