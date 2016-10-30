@@ -122,7 +122,7 @@ title: "Variables"
   #dt %code{@item.compiled_content} → %code{String}
   #dt %code{@item.compiled_content(rep: :foo)} → %code{String}
   #dt %code{@item.compiled_content(snapshot: :bar)} → %code{String}
-  #dd The compiled content. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
+  #dd The compiled content. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default). This method cannot be used in the preprocessor or the rules, as the content has not been (fully) compiled at that point.
 
   #dt %code{@item.fetch(:some_key, fallback)} → %var{object}
   #dd The attribute for the given key, or %code{fallback} if the key is not found.
