@@ -46,6 +46,7 @@ deployer
 deployers
 der
 Dmitry
+dotfiles
 Driessen
 DRYer
 DSL

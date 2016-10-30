@@ -91,18 +91,24 @@ title: "Troubleshooting"
   #p We recommend always specifying the time zone.
 
 #section %h{Hidden files are ignored}
-  #p Nanoc intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as OS X and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance, OS X will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
+  #p Nanoc by default intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as OS X and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance, OS X will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
 
-  #p To create a hidden file or directory in the output directory of a Nanoc site, ensure that the source file or directory in the %filename{content} directory does not have a name that starts with a period, and create a routing rule that prefixes the name with a period.
+  #p The filesystem data source can be told to include specific files that would otherwise be ignored. To do so, specify in the data source’s %code{extra_files} attribute the patterns for the files that you would like to be included. For example, the following will include %ref[url=https://github.com/blog/572-bypassing-jekyll-on-github-pages]{GitHub’s %filename{.nojekyll} file} and all files in %ref[url=https://tools.ietf.org/html/rfc5785]{the %filename{.well-known/} directory}:
 
-  #p For example, to use %ref[url=https://github.com/blog/572-bypassing-jekyll-on-github-pages]{GitHub’s %filename{.nojekyll} file}, which prevents a GitHub site from being processed by Jekyll, create an empty file at %filename{content/nojekyll}, and set up the following rule:
+  #listing[lang=yaml]
+    data_sources:
+      -
+        type: filesystem
+        extra_files:
+          - "/.well-known/**/*"
+          - "/.nojekyll"
+
+  #p Alternatively, route a file whose name does not start with a slash to a path that starts with a slash. For example, the following will copy %filename{content/nojekyll} to %filename{output/.nojekyll}:
 
   #listing[lang=ruby]
     compile '/nojekyll' do
       write '/.nojekyll'
     end
-
-  #p After compilation, the output directory will now contain a %filename{output/.nojekyll} file.
 
 #section %h[nav-title=Helpers methods not found]{My helper methods cause a %code{NoMethodError}!}
   #p When calling a method in a helper results in a %code{NoMethodError}, you might not have activated the helper. To activate a helper, %code{include} it, like this (in a file in the %filename{lib/} directory, such as %filename{lib/helpers.rb}):
