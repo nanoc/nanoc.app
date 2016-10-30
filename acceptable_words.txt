@@ -124,6 +124,7 @@ metadata
 Micha
 Michal
 minifies
+mixins
 mtime
 mtimes
 multibyte
@@ -191,6 +192,7 @@ S3
 scp
 SCP
 Screenshot
+SCSS
 sed
 sexualized
 SFTP

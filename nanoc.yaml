@@ -50,6 +50,7 @@ toc:
       - '/doc/guides/creating-multilingual-sites.*'
       - '/doc/guides/using-external-sources.*'
       - '/doc/guides/creating-pdfs.*'
+      - '/doc/guides/using-common-filters.*'
   - title: 'References'
     compact: true
     children:

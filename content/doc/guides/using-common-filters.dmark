@@ -1,0 +1,45 @@
+---
+title: "Using common filters"
+---
+
+#p This guide gives an overview of typical approaches for using common filters.
+
+#section %h{Using Sass}
+  #p %ref[url=http://sass-lang.com/]{Sass} is a CSS extension language that supports variables, mixins, partials, and more. To use Sass with Nanoc, create a rule that matches %glob{/**/*.sass}, calls the %code{:sass} filter, and writes out a %filename{.css} file:
+
+  #listing[lang=ruby]
+    compile '/**/*.sass' do
+      filter :sass
+      write item.identifier.without_ext + '.css'
+    end
+
+  #p If you prefer using the SCSS syntax for Sass, rather than the default Sass syntax, pass %code{syntax: :scss} to the %code{:sass} filter, and match on %glob{/**/*.scss} rather than %glob{/**/*.sass}:
+
+  #listing[lang=ruby]
+    compile '/**/*.scss' do
+      filter :sass, syntax: :scss
+      write item.identifier.without_ext + '.css'
+    end
+
+  #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
+
+#section %h{Using kramdown}
+  #p %ref[url=http://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
+
+  #listing[lang=ruby]
+    compile '/**/*.md' do
+      filter :kramdown
+      layout '/default.*'
+      write item.identifier.without_ext + '.html'
+    end
+
+  #p The %code{:kramdown} filter can take options. For example, pass %code{auto_ids: false} to disable automatic header ID generation:
+
+  #listing[lang=ruby]
+    compile '/**/*.md' do
+      filter :kramdown, auto_ids: false
+      layout '/default.*'
+      write item.identifier.without_ext + '.html'
+    end
+
+  #p For more information, see the %ref[item=/doc/reference/filters.*,frag=kramdown]{%code{:kramdown} filter reference}.
