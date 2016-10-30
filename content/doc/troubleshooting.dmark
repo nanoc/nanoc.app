@@ -73,7 +73,7 @@ title: "Troubleshooting"
 
     #p To set the encoding explicitly in the site configuration, open %filename{nanoc.yaml} (or %filename{config.yaml} on older Nanoc sites) and navigate to the section where the data sources are defined. Unless you have modified this section, you will find a single entry for the filesystem data source there. In this section, add something similar to %code{encoding: utf-8} (replacing %code{utf-8} with whatever you really want). It could look like this:
 
-    #listing[yaml]
+    #listing[lang=yaml]
       data_sources:
         -
           type: filesystem
