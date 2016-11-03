@@ -64,10 +64,11 @@ title: "Rules"
 
   #p Additional parameters can be given to invocations of %code{#filter}. This is used by some filters, such as the Haml one (%code{:haml}), to alter filter behavior in one way or another.
 
-  #p %strong{Example}: The following rule will filter CSS items using the %code{:relativize_paths} filter, with the filter argument %code{type} set to %code{:css}:
+  #p %strong{Example}: The following rule will filter Sass items using the %code{:sass} filter, followed by the %code{:relativize_paths} filter with the filter argument %code{type} set to %code{:css}:
 
   #listing[lang=ruby]
-    compile '/**/*.css' do
+    compile '/**/*.sass' do
+      filter :sass
       filter :relativize_paths, type: :css
       write @item.identifier.without_ext + '.css'
     end
