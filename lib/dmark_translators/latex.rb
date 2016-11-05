@@ -79,7 +79,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
   def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
     [
       'the ',
-      text_content_of(target_node),
+      header_content_of(target_node),
       ' section'
     ]
   end

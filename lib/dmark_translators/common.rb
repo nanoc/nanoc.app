@@ -16,6 +16,21 @@ class NanocWsCommonTranslator < DMark::Translator
     end
   end
 
+  def header_content_of(node)
+    case node
+    when String
+      node
+    when DMark::ElementNode
+      if %w(h section h2 h3).include?(node.name)
+        node.children.map { |c| header_content_of(c) }.join
+      else
+        ''
+      end
+    else
+      raise "Unknown node type: #{node.class}"
+    end
+  end
+
   def nodes_for_item(item)
     if item.identifier.ext == 'dmark'
       begin

@@ -155,7 +155,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
     href = href_for(target_item, frag)
     [
       'the ',
-      wrap('a', href: href) { text_content_of(target_node) },
+      wrap('a', href: href) { header_content_of(target_node) },
       ' section'
     ]
   end
