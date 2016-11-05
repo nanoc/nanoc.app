@@ -139,6 +139,8 @@ Nokogiri
 online
 Online
 outdatedness
+outdatedness
+Outdatedness
 Pakosz
 Pandoc
 PandocRuby

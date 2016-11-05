@@ -1,0 +1,33 @@
+---
+title: "Internals"
+---
+
+#p This document describes some of the internal workings of Nanoc. The audience of this document is potential contributors to Nanoc. You do %emph{not} need to read or understand this document in order to use Nanoc.
+
+#todo This document is a work in progress. It’s highly incomplete, but will gradually be expanded to include more detail.
+
+#section[id=outdatedness-checking] %h{Outdatedness checking}
+  #p Nanoc is a smart static-site generator in that it avoids recompiling items unless necessary.
+
+  #todo This section is under construction. It will explain outdatedness checking and “soft” dependency tracking.
+
+#section %h{Compilation order}
+  #p The order in which item representations are compiled, depends on the dependencies on compiled content between individual item representations.
+
+  #section %h{Dependencies on compiled content}
+    #p An item representation can depend on the compiled content of another item representation. For example, blog archive pages typically tend to contain (snippets of) the content of individual blog posts. An item representation which contains the compiled content of another item representation cannot be compiled until the compiled content of the dependent item representation is available. If this compiled content is not available and Nanoc tries to compile the item representation, then an %code{UnmetDependency} error will be raised.
+
+    #p An %code{UnmetDependency} error is not a fatal error, but merely indicates Nanoc that the dependent item representation should be compiled first. The dependencies of an item representation are not known until Nanoc has finished compiling the item representation, and so %code{UnmetDependency} error are not only expected, but commonplace.
+
+    #p Even though an %code{UnmetDependency} error is a common condition, it is not a desirable error to have. Such an error means that compilation of this item representation has to be aborted and restarted at a later point in time, which effectively means that the work spent on compiling this item representation has gone to waste. An ongoing challenge for Nanoc is to improve the algorithms and heuristics to reduce the frequency of %code{UnmetDependency} errors.
+
+    #p A dependency from one item representation onto another item representation’s compiled content is called a %firstterm{hard dependency}, as opposed to a soft dependency, which is used in outdatedness checking. An %code{UnmetDependency} error always indicates a hard dependency.
+
+  #section %h{Compilation selection}
+    #p Once Nanoc has selected the items representations that it deems are outdated (see %ref[frag=outdatedness-checking]{}), it will compile these item reps in the best possible order. The class responsible for determining this order is the %code{ItemRepSelector}.
+
+    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to an %code{UnmetDependency} error, Nanoc will schedule a new compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation, but will reuse the cached compiled content instead of doing a proper recompilation.
+
+    #note The term “compile” or “recompile” does not always mean that the item will be recompiled from scratch; Nanoc keeps a cache of compiled content and will reuse cached compiled content if possible.
+
+    #p Further improvement work could include recompiling the dependent item representation right away, rather than scheduling it for compilation, or selecting items to recompile based on the dependency graph constructed in the previous compilation run (although that would require the dependency tracker to be able to distinguish between hard and soft dependencies).

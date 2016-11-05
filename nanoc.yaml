@@ -64,4 +64,5 @@ toc:
       - '/doc/installation.*'
       - '/doc/troubleshooting.*'
       - '/doc/nanoc-4-upgrade-guide.*'
+      - '/doc/internals.*'
       - '/doc/glossary.*'
