@@ -9,7 +9,28 @@ title: "Internals"
 #section[id=outdatedness-checking] %h{Outdatedness checking}
   #p Nanoc is a smart static-site generator in that it avoids recompiling items unless necessary.
 
-  #todo This section is under construction. It will explain outdatedness checking and “soft” dependency tracking.
+  #p Nanoc will recompile an item if it is deemed to be outdated. The class responsible for determining whether or not an item is outdated is the %code{OutdatednessChecker}. An item is considered as outdated if any of the following conditions hold:
+
+  #ul
+    #li The item’s content or attributes have changed
+    #li The site configuration has changed
+    #li The rule for this item has changed
+    #li One or more output files for this item do not exist
+    #li One or more output files for this item are newer than the item
+    #li A dependent item is considered as outdated
+
+  #p The last point is necessary, because an item might use the raw content, the compiled content, or an attribute of another item. If this is the case, Nanoc will record a dependency from the former item onto the latter item (the dependent item). This type of dependency is used purely to infer outdatedness of items, and is called a %firstterm{soft dependency}.
+
+  #p Nanoc will record a dependency from one item onto another if any attribute, raw content or compiled content is accessed. For example:
+
+  #listing[lang=rhtml]
+    <!-- Creates a dependency on the /about.* page -->
+    See the <%%= @items['/about.*'][:title] %%> page.
+
+    <!-- Creates a dependency on every item -->
+    See the <%%= @items.select { |i| i[:title] =~ /About/ %}.first %%> page.
+
+  #p Further improvement work could include fine-grained dependency and change tracking, so that an item is only marked as outdated if the content and/or attributes it uses from a dependent item have changed; currently, %emph{any} change in a dependent item will render its depending items as outdated, even if these dependent items only use content or attributes that have not changed.
 
 #section %h{Compilation order}
   #p The order in which item representations are compiled, depends on the dependencies on compiled content between individual item representations.
@@ -26,7 +47,7 @@ title: "Internals"
   #section %h{Compilation selection}
     #p Once Nanoc has selected the items representations that it deems are outdated (see %ref[frag=outdatedness-checking]{}), it will compile these item reps in the best possible order. The class responsible for determining this order is the %code{ItemRepSelector}.
 
-    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to an %code{UnmetDependency} error, Nanoc will schedule a new compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation, but will reuse the cached compiled content instead of doing a proper recompilation.
+    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to an %code{UnmetDependency} error, Nanoc will schedule a new compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation.
 
     #note The term “compile” or “recompile” does not always mean that the item will be recompiled from scratch; Nanoc keeps a cache of compiled content and will reuse cached compiled content if possible.
 
