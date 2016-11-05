@@ -44,6 +44,10 @@ title: "Internals"
 
     #p A dependency from one item representation onto another item representation’s compiled content is called a %firstterm{hard dependency}, as opposed to a soft dependency, which is used in outdatedness checking. An %code{UnmetDependency} error always indicates a hard dependency.
 
+    #figure[compact]
+      #img /assets/images/compilation_flow.gif
+      #caption A visual representation of the compilation selection process
+
   #section %h{Compilation selection}
     #p Once Nanoc has selected the items representations that it deems are outdated (see %ref[frag=outdatedness-checking]{}), it will compile these item reps in the best possible order. The class responsible for determining this order is the %code{ItemRepSelector}.
 

@@ -2,26 +2,33 @@
 
 figure {
     background: $figure-bg-color;
+    border: 1px solid $figure-caption-bg-color;
+
+    margin: 0 0 20px 0;
 
     img {
         display: block;
 
         width: 100%;
-
-        background: $figure-bg-color;
-
-        border: 1px solid $figure-caption-bg-color;
     }
 
     figcaption {
         padding: 5px 10px;
-        margin: 0 0 20px 0;
 
         background: $figure-caption-bg-color;
 
         display: block;
 
-        font-size: 12px;
+        font-size: 13px;
         font-style: italic;
     }
+}
+
+figure.compact {
+  img {
+    margin: 0 auto;
+
+    width: 300px;
+    height: auto;
+  }
 }
