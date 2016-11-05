@@ -13,6 +13,7 @@ $color-offwhite-orange:       tint($color-orange, 95%);
 $color-offwhite-blue:         tint($color-blue, 95%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-green:                 adjust-hue($color-blue, -120%);
+$color-dark-20:               shade($color-offwhite, 5%);
 $color-dark-40:               shade($color-offwhite, 15%);
 $color-dark-60:               shade($color-offwhite, 40%);
 $color-dark-80:               shade($color-offwhite, 70%);
@@ -90,7 +91,8 @@ $tag-new-fg-color:            $color-white;
 
 // Figures
 $figure-bg-color:             $color-white;
-$figure-caption-bg-color:     $color-dark-40;
+$figure-border-color:         $color-dark-20;
+$figure-caption-bg-color:     $color-dark-20;
 
 // Sidebar
 $sidebar-bg-color:            $color-offwhite;
