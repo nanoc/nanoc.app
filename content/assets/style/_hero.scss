@@ -2,6 +2,15 @@
 
 @import "colors.scss";
 
+// TODO: deduplicate from _layout.scss
+$susy: (
+  columns: 12,
+  column-width: 60px,
+  gutters: 0.33333,
+  gutter-position: split,
+  global-box-sizing: border-box,
+);
+
 .hero {
     background: $hero-bg-color url(/assets/images/symphony.png);
 
@@ -46,7 +55,8 @@
 
 .hero-content {
     @include container;
-    padding-top: 10px;
+
+    padding: 10px 0 0 0;
     height: 480px;
 
     @media (max-width: 819px) {
@@ -76,6 +86,8 @@
     }
 
     .slides {
+        @include span(12);
+
         position: relative;
         top: -10px;
 
@@ -83,6 +95,8 @@
             position: absolute;
             top: 0;
             left: 0;
+
+            padding: 0 30px;
 
             a {
                 display: block;

@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'compass'
 require 'susy'
-
-Compass.add_project_configuration 'compass_config.rb'
 
 preprocess do
   config[:nanoc_version_info] = Nanoc.version_information.strip
@@ -28,8 +25,9 @@ end
 passthrough '/assets/images/**/*'
 
 compile '/assets/style/*' do
-  filter :sass, Compass.sass_engine_options
+  filter :sass, syntax: :scss
   filter :relativize_paths, :type => :css
+  filter :autoprefixer
   filter :rainpress
   write item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
 end
