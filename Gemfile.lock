@@ -6,16 +6,16 @@ GIT
 
 GIT
   remote: git://github.com/ddfreyne/rainpress.git
-  revision: eee54e3a6d652f518c1b08c93c43409596cbbcf4
+  revision: 9927701a288c682d4329fa03a85b8b91ad258044
   specs:
-    rainpress (1.1.1)
+    rainpress (1.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     adsf (1.2.1)
       rack (>= 1.0.0)
-    autoprefixer-rails (6.5.1.1)
+    autoprefixer-rails (6.5.3)
       execjs
     builder (3.2.2)
     coderay (1.1.1)
