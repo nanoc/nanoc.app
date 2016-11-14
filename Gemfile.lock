@@ -4,6 +4,12 @@ GIT
   specs:
     d-mark (1.0.0a3)
 
+GIT
+  remote: git://github.com/ddfreyne/rainpress.git
+  revision: eee54e3a6d652f518c1b08c93c43409596cbbcf4
+  specs:
+    rainpress (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,7 +76,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (2.0.1)
-    rainpress (1.0)
     rake (11.3.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
@@ -112,7 +117,7 @@ DEPENDENCIES
   nanoc (~> 4.2)
   nanoc-git
   nokogiri
-  rainpress
+  rainpress!
   rake
   rubypants
   sass (~> 3.4)
