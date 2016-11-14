@@ -146,6 +146,7 @@ Pandoc
 PandocRuby
 Papis
 passwordless
+PDF
 PDFs
 Peeters
 Pennisi
