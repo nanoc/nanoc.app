@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/ddfreyne/rainpress.git
-  revision: 9927701a288c682d4329fa03a85b8b91ad258044
+  revision: 4962654ba6103fc9a17183d22caa61fda91f9851
   specs:
     rainpress (1.0)
 
@@ -57,7 +57,7 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.3.7)
+    nanoc (4.3.8)
       cri (~> 2.3)
       hamster (~> 3.0)
       parallel (~> 1.9)
