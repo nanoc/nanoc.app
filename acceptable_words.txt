@@ -124,6 +124,7 @@ metadata
 Micha
 Michal
 minifies
+minifying
 mixins
 mtime
 mtimes
