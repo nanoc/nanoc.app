@@ -95,7 +95,7 @@ title: "Sites"
   #listing[lang=yaml]
     base_url: http://nanoc.dev
 
-    envs:
+    environments:
       prod:
         base_url: http://nanoc.ws
 
@@ -104,7 +104,7 @@ title: "Sites"
   #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. The example above is thus equivalent to the following:
 
   #listing[lang=yaml]
-    envs:
+    environments:
       default:
         base_url: http://nanoc.dev
       prod:
