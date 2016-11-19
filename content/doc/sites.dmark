@@ -88,7 +88,7 @@ title: "Sites"
   #p To specify an environment, pass the %code{-e} or %code{--env} option to the %command{compile} command. For example:
 
   #listing
-    %prompt{~%%} %kbd{nanoc compile --env=prod}
+    %prompt{%%} %kbd{nanoc compile --env=prod}
 
   #p The environment can be used to modify the configuration. If the configuration has an %code{env} section, the loaded configuration will also include the configuration options specified in the %code{env} sub-section that matches the environment name. For example:
 
