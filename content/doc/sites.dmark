@@ -46,6 +46,23 @@ title: "Sites"
 #section %h{Code}
   #p Nanoc will load all Ruby source files in the %filename{lib/} directory before it starts compiling. All method definitions, class definitions, … will be available during the compilation process. This directory is useful for putting in custom %ref[item=/doc/helpers.*]{helpers}, custom %ref[item=/doc/filters.*]{filters}, custom %ref[item=/doc/data-sources.*]{data sources}, etc.
 
+#section %h{Configuration}
+  #p The configuration for a Nanoc site lives in the %filename{nanoc.yaml} file (or, on older sites, the %filename{config.yaml} file). The configuration file is a YAML file with several pre-defined configuration keys, but can also contain free-form data. For example:
+
+  #listing[lang=yaml]
+    prune:
+      auto_prune: true
+      exclude: ['.git']
+
+    data_sources:
+      - type: filesystem
+
+    base_url: http://nanoc.ws
+
+  #p The example above contains configuration for the pruner in the %code{prune} section (auto-prune after every compilation, but don’t touch %filename{.git}), data sources in the %code{data_sources} section (read from the filesystem), and a custom configuration option %code{base_url}.
+
+  #p See %ref[item=/doc/reference/config.*]{} for a reference of all built-in configuration options.
+
 #section %h{Compiling a site}
   #p To compile a site, invoke %command{nanoc} on the command line. For example:
 
