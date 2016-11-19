@@ -101,6 +101,15 @@ title: "Sites"
 
   #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} by default. When the environment is set to %code{prod} (using e.g. %code{--env=prod}), the value will be %code{"http://nanoc.ws"} instead.
 
+  #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. The example above is thus equivalent to the following:
+
+  #listing[lang=yaml]
+    envs:
+      default:
+        base_url: http://nanoc.dev
+      prod:
+        base_url: http://nanoc.ws
+
   #p The environment can also be used to affect the rules that are executed. For example:
 
   #listing[lang=ruby]
