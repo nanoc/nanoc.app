@@ -81,3 +81,33 @@ title: "Sites"
   #p Nanoc will not compile items that are not outdated. If you want to force Nanoc to recompile everything, delete the output directory and re-run the compile command.
 
   #p You can use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} to automatically recompile the site when it changes.
+
+#section %h{Environments}
+  #p Nanoc supports defining multiple environments in which sites can be compiled. For example, a %code{devel} (development) and a %code{prod} (production) environment, where %code{prod} performs additional work that is typically not needed for local development, such as minifying HTML and CSS, converting all paths to be relative, and cleaning up typography.
+
+  #p To specify an environment, pass the %code{-e} or %code{--env} option to the %command{compile} command. For example:
+
+  #listing
+    %prompt{~%%} %kbd{nanoc compile --env=prod}
+
+  #p The environment can be used to modify the configuration. If the configuration has an %code{env} section, the loaded configuration will also include the configuration options specified in the %code{env} sub-section that matches the environment name. For example:
+
+  #listing[lang=yaml]
+    base_url: http://nanoc.dev
+
+    envs:
+      prod:
+        base_url: http://nanoc.ws
+
+  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} by default. When the environment is set to %code{prod} (using e.g. %code{--env=prod}), the value will be %code{"http://nanoc.ws"} instead.
+
+  #p The environment can also be used to affect the rules that are executed. For example:
+
+  #listing[lang=ruby]
+    compile '/book/**/*' do
+      filter :kramdown
+      layout '/default.*'
+      filter :rubypants if ENV['NANOC_ENV'] == 'prod'
+    end
+
+  #p In the example above, the %code{:rubypants} filter will only be run if the Nanoc environment is set to %code{prod}.
