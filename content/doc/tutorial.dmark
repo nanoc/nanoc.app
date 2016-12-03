@@ -57,7 +57,7 @@ title: "Tutorial"
     %prompt{%%} %kbd{cd tutorial}
     %prompt{tutorial%%}
 
-  #p Every new Nanoc site comes with one page, %filename{content/index.html}. The content of this page is a HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running %kbd{nanoc}:
+  #p Every new Nanoc site comes with one page, %filename{content/index.html}. The content of this page is an HTML snippet rather than a complete HTML file. To generate the full HTML file, compile the site by running %kbd{nanoc}:
 
   #listing
     %prompt{tutorial%%} %kbd{nanoc}
@@ -166,7 +166,7 @@ title: "Tutorial"
 
   #h2[id=customize-the-layout] Customize the layout
 
-  #p The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, %filename{layouts/default.html}, your text editor. It %emph{almost} looks like a HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the %code{<%%= yield %%>} one:
+  #p The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, %filename{layouts/default.html}, your text editor. It %emph{almost} looks like an HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the %code{<%%= yield %%>} one:
 
   #listing[lang=html]
     …

@@ -297,7 +297,7 @@ title: "Helpers"
   #dl
     #dt %code{link_to(%var{text}, %var{target}, %var{attributes} = {%})} → %code{String}
     #dd
-      #p Creates a HTML link to the given path or item representation, and with the given text. All attributes of the %code{a} element, including the %code{href} attribute, will be HTML-escaped; the contents of the %code{a} element, which can contain markup, will not be HTML-escaped.
+      #p Creates an HTML link to the given path or item representation, and with the given text. All attributes of the %code{a} element, including the %code{href} attribute, will be HTML-escaped; the contents of the %code{a} element, which can contain markup, will not be HTML-escaped.
 
       #p This function takes the following arguments:
 
@@ -313,7 +313,7 @@ title: "Helpers"
 
     #dt %code{link_to_unless_current(%var{text}, %var{target}, %var{attributes} = {%})} → %code{String}
     #dd
-      #p Creates a HTML link using %code{#link_to}, except when the linked item is the current one. In this case, a span element with class %code{active} and with the given text will be created. The HTML-escaping rules for %code{#link_to} apply here as well.
+      #p Creates an HTML link using %code{#link_to}, except when the linked item is the current one. In this case, a span element with class %code{active} and with the given text will be created. The HTML-escaping rules for %code{#link_to} apply here as well.
 
       #p This function takes the following arguments:
 

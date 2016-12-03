@@ -15,7 +15,7 @@ title: "Items and layouts"
     #p Every item has one or more %firstterm{item representations} (or “reps” for short). An item representation is the compiled form of an item. Some examples of item representations:
 
     #ul
-      #li a HTML representation, which will be the default for almost all sites
+      #li an HTML representation, which will be the default for almost all sites
       #li a RSS representation, useful for the home page for a blog
       #li a JSON representation, so that the site can act as a read-only web API
       #li a %ref[url=http://en.wikipedia.org/wiki/Cue_sheet_(computing)]{cue sheet} representation, useful for track list pages

@@ -38,7 +38,7 @@ title: "Filters"
   #dl
     #dt as an attribute
     #dd
-      #p If the %code{code} element has a HTML class attribute that starts with %code{language-}, then the remainder of the class attribute will be used as the code language. For example, the following indicates a code block written in Ruby:
+      #p If the %code{code} element has an HTML class attribute that starts with %code{language-}, then the remainder of the class attribute will be used as the code language. For example, the following indicates a code block written in Ruby:
       #listing[lang=html]
         <pre><code class="language-ruby">puts "Hello world!"</code></pre>
 
@@ -90,7 +90,7 @@ title: "Filters"
       default_colorizer: :rouge,
       colorizers: { xml: :coderay %}
 
-  #p The %code{colorize_syntax} filter by default assumes that the content to is a HTML page %emph{fragmet}, rather than a full HTML page, and will therefore not add the HTML boilerplate at the top and bottom of the output. To rather treat the content as a full page, pass %code{is_fullpage: true} to the filter. Typically, the %code{is_fullpage: true} option is useful when the content is already fully laid out.
+  #p The %code{colorize_syntax} filter by default assumes that the content to is an HTML page %emph{fragmet}, rather than a full HTML page, and will therefore not add the HTML boilerplate at the top and bottom of the output. To rather treat the content as a full page, pass %code{is_fullpage: true} to the filter. Typically, the %code{is_fullpage: true} option is useful when the content is already fully laid out.
 
   #p The syntax of the document to highlight is assumed to be HTML by default. To treat the document as XHTML instead, pass %code{syntax: :xhtml} to the %code{#filter} function.
 

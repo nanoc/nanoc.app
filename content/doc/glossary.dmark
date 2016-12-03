@@ -31,7 +31,7 @@ title: "Glossary"
   #dd A string that is used to uniquely identify an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}. It is used to construct %ref[bare,frag=glossary-path]{paths} of item %ref[bare,frag=glossary-representation]{representations}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
   #dt[id=glossary-item] item
-  #dd The main piece of unprocessed content in a %ref[bare,frag=glossary-site]{site}. This can be a HTML page, a CSS file, a script file, etc. An item can have multiple %ref[bare,frag=glossary-representation]{representations}. It is sometimes referred to as a %ref[bare,frag=glossary-page]{page} or an %ref[bare,frag=glossary-asset]{asset}.
+  #dd The main piece of unprocessed content in a %ref[bare,frag=glossary-site]{site}. This can be an HTML page, a CSS file, a script file, etc. An item can have multiple %ref[bare,frag=glossary-representation]{representations}. It is sometimes referred to as a %ref[bare,frag=glossary-page]{page} or an %ref[bare,frag=glossary-asset]{asset}.
 
   #dt[id=glossary-layout] layout
   #dd An object consisting of content and %ref[bare,frag=glossary-metadata]{metadata} that embeds content from %ref[bare,frag=glossary-item]{items} or layouts. For example, it can be used to add headers, footers, and sidebars to pages.
@@ -61,7 +61,7 @@ title: "Glossary"
   #dd %see{see} %ref[bare,frag=glossary-representation]{representation}
 
   #dt[id=glossary-representation] representation
-  #dd A "version" of an %ref[bare,frag=glossary-item]{item}. For example, an item can have a HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a %ref[bare,frag=glossary-path]{path}).
+  #dd A "version" of an %ref[bare,frag=glossary-item]{item}. For example, an item can have an HTML, an XHTML, a JSON and a YAML representation. A single representation corresponds to one output file (or zero, if the representation does not have a %ref[bare,frag=glossary-path]{path}).
 
   #dt[id=glossary-routing-rule] routing rule
   #dd A %ref[bare,frag=glossary-rule]{rule} that defines what %ref[bare,frag=glossary-path]{path} a %ref[bare,frag=glossary-representation]{representation} should get.
