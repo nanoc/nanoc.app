@@ -85,7 +85,7 @@ short_title: "Deploying"
           kind: git
           branch: gh-pages
 
-    #p For Bitbucket, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pags}.
+    #p For Bitbucket, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pages}.
 
   #section %h{Publish}
     #p To publish a site, compile it and run %command{deploy}:
