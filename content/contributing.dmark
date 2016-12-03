@@ -104,7 +104,7 @@ title: "Contributing"
     #p To announce the new release, follow these steps:
 
     #ol[spacious]
-      #li Update the release notes on site. This only involves recompiling the site with the new version of Nanoc (the release notes on the site are extracted from the %filename{NEWS.md} file in the Nanoc gem) and pushing the site (%kbd{bundle exec nanoc deploy}).
+      #li Update the release notes on the site. This only involves recompiling the site with the new version of Nanoc (the release notes on the site are extracted from the %filename{NEWS.md} file in the Nanoc gem) and pushing the site (%kbd{bundle exec nanoc deploy}).
 
       #li Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
