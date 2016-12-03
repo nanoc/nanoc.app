@@ -229,7 +229,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :kramdown
 
-  #p Parameters that are passed to the filter are passed to %code{Kramdown::Document.new}. For example, the following will also conver the content to HTML, as above, but disables the %code{auto_ids} option:
+  #p Parameters that are passed to the filter are passed to %code{Kramdown::Document.new}. For example, the following will also convert the content to HTML, as above, but disables the %code{auto_ids} option:
 
   #listing[lang=ruby]
     filter :kramdown, auto_ids: false
