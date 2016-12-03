@@ -224,4 +224,4 @@ title: "Creating multilingual sites"
   #listing[lang=php]
     $base_url = '<%%= @site.config[:base_url] %%>';
 
-  #p That’s the end of this guide. Now, you have a web site in multiple languages where every language is given equal attention. For example, a German speaking person can arrive on the site and be redirected to the German version of the site, and even the URLs will be in German.
+  #p That’s the end of this guide. Now, you have a web site in multiple languages where every language is given equal attention. For example, a German-speaking person can arrive on the site and be redirected to the German version of the site, and even the URLs will be in German.
