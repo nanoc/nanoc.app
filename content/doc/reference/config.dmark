@@ -52,7 +52,7 @@ title: "Configuration"
 
 #h2 %code{data_sources}
 
-#p The data sources contains the definition of the data sources of this site. It is a list of hashes with keys described in the sections below; each array element represents a single data source. For example:
+#p The data sources configuration contains the definition of the data sources of this site. It is a list of hashes with keys described in the sections below; each array element represents a single data source. For example:
 
 #listing[lang=yaml]
   data_sources:
