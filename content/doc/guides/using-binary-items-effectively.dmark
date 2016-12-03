@@ -32,7 +32,7 @@ title: "Using binary items effectively"
   #listing[lang=ruby]
     passthrough '/gallery/*'
 
-  #p At this point, the image gallery is functioning, but does not yet include thumbnails
+  #p At this point, the image gallery is functioning, but does not yet include thumbnails.
 
   #section %h{Generating thumbnails}
     #p This gallery page will be enhanced so that it displays a list of thumbnails of these images, rather than the paths to the images.
