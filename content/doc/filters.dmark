@@ -6,7 +6,7 @@ title: "Filters"
 
 #p One commonly used filter is %ref[item=/doc/reference/filters.*,frag=erb]{%code{:erb}}, which interprets the item’s content as text with embedded Ruby. Another commonly used filter is %ref[item=/doc/reference/filters.*,frag=kramdown]{%code{:kramdown}}, which takes Markdown as its input and produces an HTML fragment.
 
-#p Filters can be applied to both textual and binary items. An example of a binary filter is a image thumbnail filter. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
+#p Filters can be applied to both textual and binary items. An example of a binary filter is an image thumbnail filter. Filters can also convert textual content into binary files and vice versa; text-to-speech filters and OCR filters are therefore possible (but perhaps not very useful).
 
 #p Filters are called within compilation rules. Here is an example rule that applies the %code{:kramdown} filter with the %code{:auto_ids} option set to false:
 
