@@ -2,7 +2,7 @@
 title: Style guide
 ---
 
-#p This page is designed to collect all the different elements used on the Nanoc web site.
+#p This page is designed to collect all the different elements used on the Nanoc website.
 
 #section %h{Block-level elements}
   #section %h{Paragraphs}
@@ -125,7 +125,7 @@ title: Style guide
 #section %h{Inline elements}
   #dl
     #dt link to URL
-    #dd The %ref[url=http://nanoc.ws/]{Nanoc web site} is pretty.
+    #dd The %ref[url=http://nanoc.ws/]{Nanoc website} is pretty.
 
     #dt link to item
     #dd For details, see %ref[item=/doc/about.*]{}.

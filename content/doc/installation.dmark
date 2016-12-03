@@ -23,7 +23,7 @@ nav_title: "Install"
   %erb{config[:ruby_version_info]}
   %prompt{%%}
 
-#p To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
+#p To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby website}.
 
 #h2 Installing Nanoc
 

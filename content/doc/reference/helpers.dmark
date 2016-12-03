@@ -69,7 +69,7 @@ title: "Helpers"
         #dd The name of the item’s author.
 
         #dt %code{author_uri}
-        #dd The URI for the item’s author, such as the author’s web site URL.
+        #dd The URI for the item’s author, such as the author’s website URL.
 
       #p The feed item can have the following optional attributes:
 

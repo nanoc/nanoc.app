@@ -21,7 +21,7 @@ short_title: "Deploying"
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
 #section %h{With GitHub Pages or Bitbucket}
-  #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing web sites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
+  #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
   #section %h{GitHub Pages setup}
     #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
@@ -53,9 +53,9 @@ short_title: "Deploying"
   #section %h{Bitbucket setup}
     #p The publishing of a website based on a Git repository to Bitbucket is %ref[url=https://confluence.atlassian.com/display/BITBUCKET/Publishing+a+Website+on+Bitbucket]{described in Bitbucket's help pages}.
 
-    #p Bitbucket supports publishing a website at %uri{username.bitbucket.org}, where %var{username} is your Bitbucket account name. The contents of the web site will be read from a repository named %uri{username.bitbucket.org}.
+    #p Bitbucket supports publishing a website at %uri{username.bitbucket.org}, where %var{username} is your Bitbucket account name. The contents of the website will be read from a repository named %uri{username.bitbucket.org}.
 
-    #p First of all, create a Bitbucket repository corresponding to your Bitbucket web site address, e.g. %uri{ddfreyne.bitbucket.org}.
+    #p First of all, create a Bitbucket repository corresponding to your Bitbucket website address, e.g. %uri{ddfreyne.bitbucket.org}.
 
     #p Create a new Git repository inside the %filename{output/} directory, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@bitbucket.org:ddfreyne/ddfreyne.bitbucket.org.git}):
 

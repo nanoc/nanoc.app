@@ -4,7 +4,7 @@ title: "Data sources"
 
 #p %firstterm{Data sources} provide items and layouts. A Nanoc site has one or more data sources. By default, a site uses the %ref[frag=the-filesystem-data-source]{filesystem data source}.
 
-#p The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc web site:
+#p The site configuration contains the configurations for each used data source. For example, this is the data source configuration for the Nanoc website:
 
 #listing[lang=yaml]
   data_sources:

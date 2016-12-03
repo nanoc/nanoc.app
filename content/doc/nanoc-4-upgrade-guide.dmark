@@ -22,7 +22,7 @@ title: "Nanoc 4 upgrade guide"
     %erb{config[:ruby_version_info]}
     %prompt{%%}
 
-  #p To upgrade Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby web site}.
+  #p To upgrade Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby website}.
 
   #p You can install Nanoc 4 using RubyGems:
 

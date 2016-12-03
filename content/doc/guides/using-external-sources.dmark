@@ -4,7 +4,7 @@ title: "Using external sources"
 
 #p One of Nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
 
-#p As an example, assume you work for a company that has a SQL database containing an employee directory, and you want to extract that information into a nice-looking web site. Nanoc to the rescue!
+#p As an example, assume you work for a company that has a SQL database containing an employee directory, and you want to extract that information into a nice-looking website. Nanoc to the rescue!
 
 #section %h{Setting up the database}
   #p This example will use the following SQLite 3 schema:

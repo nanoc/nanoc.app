@@ -2,7 +2,7 @@
 title: "Creating multilingual sites"
 ---
 
-#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online web site}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online web site} to see the details about how it is done.
+#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online website}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online website} to see the details about how it is done.
 
 #p A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
@@ -42,7 +42,7 @@ title: "Creating multilingual sites"
       (item.identifier.to_s.match(/^\/([a-z]{2%})\//) || [])[1]
      end
 
-  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online web site, I chose the English identifier as the canonical identifier, but the choice you make here is fairly arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
+  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online website, I chose the English identifier as the canonical identifier, but the choice you make here is fairly arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
 
   #p Now, it is possible to find all translations of a given item simply by finding all items with the same canonical identifier. This is fairly simple:
 
@@ -132,7 +132,7 @@ title: "Creating multilingual sites"
     <html lang="<%%= language_code_of(@item) %%>">
 
 #section %h{Redirects}
-  #p At this point, the site is already a lot friendlier for people from different languages. One thing is still missing , though: a landing page that redirects people to the language of their choice. This means that the landing page will require server-side scripting. For the Myst Online site, I used PHP as this is a widely available scripting language for creating web sites, but other languages such as Ruby would have worked as well. A good way of redirecting visitors is to check the contents of the %code{Accept-Language} HTTP header, find the preferred language, and then redirect them to the appropriate page.
+  #p At this point, the site is already a lot friendlier for people from different languages. One thing is still missing , though: a landing page that redirects people to the language of their choice. This means that the landing page will require server-side scripting. For the Myst Online site, I used PHP as this is a widely available scripting language for creating websites, but other languages such as Ruby would have worked as well. A good way of redirecting visitors is to check the contents of the %code{Accept-Language} HTTP header, find the preferred language, and then redirect them to the appropriate page.
 
   #p Here’s the PHP code for parsing the header and returning a list of language codes requested by the user agent, sorted by decreasing preference using %code{qval}:
 
@@ -214,7 +214,7 @@ title: "Creating multilingual sites"
       exit();
     %}
 
-  #p The global %code{$base_url} variable contains the base URL for the web site. For the Myst Online web site, this is %uri{http://mystonline.com}. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
+  #p The global %code{$base_url} variable contains the base URL for the website. For the Myst Online website, this is %uri{http://mystonline.com}. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
 
   #listing[lang=php]
     $base_url = 'http://mystonline.com';
@@ -224,4 +224,4 @@ title: "Creating multilingual sites"
   #listing[lang=php]
     $base_url = '<%%= @site.config[:base_url] %%>';
 
-  #p That’s the end of this guide. Now, you have a web site in multiple languages where every language is given equal attention. For example, a German-speaking person can arrive on the site and be redirected to the German version of the site, and even the URLs will be in German.
+  #p That’s the end of this guide. Now, you have a website in multiple languages where every language is given equal attention. For example, a German-speaking person can arrive on the site and be redirected to the German version of the site, and even the URLs will be in German.

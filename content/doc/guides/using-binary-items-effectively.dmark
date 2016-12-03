@@ -7,7 +7,7 @@ title: "Using binary items effectively"
 #p This page gives an example of how binary items can be used.
 
 #section %h{Building an image gallery}
-  #p If you want to include a gallery on your web site, containing thumbnails that link to full-size images, you can let Nanoc handle the thumbnail generation instead of generating the thumbnails up front.
+  #p If you want to include a gallery on your website, containing thumbnails that link to full-size images, you can let Nanoc handle the thumbnail generation instead of generating the thumbnails up front.
 
   #note If you have a lot of images to convert, and if the conversion process itself is taking a long time, consider performing the conversion up-front once, and then let a Rake task copy the generated thumbnails into the output directory. Nanoc’s dependency resolution is not yet perfect; Nanoc may decide to recompile items even though they do not need to.
 
