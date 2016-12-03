@@ -75,7 +75,7 @@ title: "Identifiers and patterns"
 
 #h3[id=glob-patterns] Glob patterns
 
-#p Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in a identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
+#p Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in an identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
 
 #p Globs are commonplace in Unix-like environments. For example, the Unix command for listing all files with the %filename{md} extension in the current directory is %command{ls *.md}. In this example, the argument to the %command{ls} command is a wildcard.
 
