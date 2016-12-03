@@ -219,7 +219,7 @@ title: "Filters"
       </body>
     </html>
 
-  #p This filter does not have any otions.
+  #p This filter does not have any options.
 
 #section %h{%code{:kramdown}}
   #p The %code{:kramdown} filter invokes %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. The filter converts to HTML.
@@ -244,7 +244,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :less
 
-  #p This filter does not have any otions.
+  #p This filter does not have any options.
 
 #section %h{%code{:markaby}}
   #p The %code{:markaby} filter runs content through %ref[url=http://markaby.github.io/]{Markaby}, a method of writing markup as Ruby.
@@ -254,7 +254,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :markaby
 
-  #p This filter does not have any otions.
+  #p This filter does not have any options.
 
 #section %h{%code{:maruku}}
   #p The %code{:maruku} filter runs content through %ref[url=https://github.com/bhollis/maruku/]{Maruku}, a pure-Ruby Markdown-superset interpreter.
@@ -298,7 +298,7 @@ title: "Filters"
       </body>
     </html>
 
-  #p This filter does not have any otions.
+  #p This filter does not have any options.
 
 #section %h{%code{:pandoc}}
   #p The %code{:pandoc} filter runs content through %ref[url=http://johnmacfarlane.net/pandoc/]{Pandoc} using %ref[url=https://github.com/alphabetum/pandoc-ruby]{PandocRuby}.
