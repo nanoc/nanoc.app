@@ -43,7 +43,7 @@ nav_title: "Install"
 
 #p If you get a “command not found” error when trying to run %command{nanoc}, you might have to adjust your %code{$PATH} to include the path to the directory where RubyGems installs executables.
 
-#p The current version of Nanoc is is %erb{latest_release_info[:version]}, released on %erb{latest_release_info[:date].format_as_date}. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
+#p The current version of Nanoc is %erb{latest_release_info[:version]}, released on %erb{latest_release_info[:date].format_as_date}. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
 
 #p If you’re on Windows and are using the Windows console, it’s probably a good idea to install the %productname{win32console} gem using %kbd{gem install win32console} to allow Nanoc to use pretty colors when writing stuff to the terminal.
 
