@@ -108,7 +108,7 @@ title: "Contributing"
 
       #li Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
 
-      #li Send an announcement e-mail to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc mailing list}. Include the version number, link to the release notes, instructions for how to update (using plain RubyGems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based off the following:
+      #li Send an announcement e-mail to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc mailing list}. Include the version number, link to the release notes, instructions for how to update (using plain RubyGems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based on the following:
 
       #listing[template]
         Hi,
