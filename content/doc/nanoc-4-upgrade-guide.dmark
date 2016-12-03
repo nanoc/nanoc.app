@@ -300,7 +300,7 @@ title: "Nanoc 4 upgrade guide"
 
     #p Theoretically, with identifiers with extensions enabled, it is possible to move the contents of the %filename{static/} directory into %filename{content/}. This can be tricky, however, because some rules that did not match any items in %filename{static/} might now match.
 
-    #p Because of this, the recommend approach for upgrading is to keep the %filename{static/} directory, and set up a new data source that reads from this directory.
+    #p Because of this, the recommended approach for upgrading is to keep the %filename{static/} directory, and set up a new data source that reads from this directory.
 
     #p In the site configuration, re-enable the static data source, change its type to %code{filesystem}, set %code{content_dir} to %code{"static"} and %code{layouts_dir} to %code{null}:
 
