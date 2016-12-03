@@ -13,7 +13,7 @@ title: "Helpers"
 
 #h2 Writing helpers
 
-#p To write a helper, create a file in the %filename{lib/} directory of the site. In that file, declare a module, and put your helpers methods inside that module.
+#p To write a helper, create a file in the %filename{lib/} directory of the site. In that file, declare a module, and put your helper methods inside that module.
 
 #p For example, the file %filename{lib/random_text.rb} could contain this:
 
