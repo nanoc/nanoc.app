@@ -40,7 +40,7 @@ title: "Items and layouts"
     #p Binary items cannot have snapshots.
 
 #section %h{Layouts}
-  #p A %firstterm{layout} is the “frame” for content to go in to. Typically, a layout adds a header, and a footer to a page.
+  #p A %firstterm{layout} is the “frame” for content to go into. Typically, a layout adds a header, and a footer to a page.
 
   #p The following is a minimal layout that includes the content using %code{yield}, and emits some metadata:
 
