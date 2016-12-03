@@ -60,7 +60,7 @@ title: "Configuration"
       type: pentabarf # a custom data source
       items_root: /conference/
 
-#p For details, see %ref[item=/doc/data-sources.*]{} page.
+#p For details, see %ref[item=/doc/data-sources.*]{}.
 
 #h2 %code{string_pattern_type}
 
