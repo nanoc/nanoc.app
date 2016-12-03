@@ -90,7 +90,7 @@ title: "Filters"
       default_colorizer: :rouge,
       colorizers: { xml: :coderay %}
 
-  #p The %code{colorize_syntax} filter by default assumes that the content to is an HTML page %emph{fragment}, rather than a full HTML page, and will therefore not add the HTML boilerplate at the top and bottom of the output. To rather treat the content as a full page, pass %code{is_fullpage: true} to the filter. Typically, the %code{is_fullpage: true} option is useful when the content is already fully laid out.
+  #p The %code{colorize_syntax} filter by default assumes that the content to colorize is an HTML page %emph{fragment}, rather than a full HTML page, and will therefore not add the HTML boilerplate at the top and bottom of the output. To rather treat the content as a full page, pass %code{is_fullpage: true} to the filter. Typically, the %code{is_fullpage: true} option is useful when the content is already fully laid out.
 
   #p The syntax of the document to highlight is assumed to be HTML by default. To treat the document as XHTML instead, pass %code{syntax: :xhtml} to the %code{#filter} function.
 
