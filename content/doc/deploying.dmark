@@ -123,7 +123,7 @@ short_title: "Deploying"
     %prompt{%%} %kbd{nanoc deploy public --dry-run}
 
   #section %h{Deleting stray files}
-    #p Nanoc will, by default, only update files that have changes, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
+    #p Nanoc will, by default, only update files that have changed, and not remove any files from the remote destination. If you want to let %command{nanoc deploy} remove any files on the destination that are not part of the Nanoc site, you can modify the options used for rsync to include %command{--delete-after}, like this:
 
     #listing[lang=yaml]
       options: [ '-aP', '--delete-after' ]
