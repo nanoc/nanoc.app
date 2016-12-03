@@ -11,7 +11,7 @@ title: "Configuration"
 
 #h2 %code{output_dir}
 
-#p The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be path relative to the site directory.
+#p The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be a path relative to the site directory.
 
 #listing[lang=yaml]
   output_dir: %erb{Nanoc::Int::Configuration::DEFAULT_CONFIG[:output_dir]}
