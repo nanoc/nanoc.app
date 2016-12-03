@@ -262,7 +262,7 @@ title: "Tutorial"
       end
     end
 
-  #p Routing rule describe where items are written to. The return value of a routing rule is the path that an item will be written to, and directly corresponds with the path in the URL of the relevant page.
+  #p Routing rules describe where items are written to. The return value of a routing rule is the path that an item will be written to, and directly corresponds with the path in the URL of the relevant page.
 
   #p This rule matches items that have the %filename{html} or %filename{md} extension. For the %identifier{/index.html} item, it assigns the path %filename{/index.html}. For the %identifier{/about.html} item, it assigns the path %filename{/about/index.html}. By putting every output file in its own directory and giving it the filename %filename{index.html}, we ensure that all pages have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
 
