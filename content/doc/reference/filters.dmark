@@ -514,7 +514,7 @@ title: "Filters"
 
   #p At least the %code{:type} option must be specified. The %code{:type} option can be set to either %code{'css'} or %code{'js'}, corresponding with CSS and JavaScript.
 
-  #p This filter takes options and passes them on to %code{YUICompressor.compress}. For details on which optiosn are available, consult the %ref[url=http://www.rubydoc.info/gems/yuicompressor/YUICompressor#compress-class_method]{%code{YUICompressor.compress} documentation}. For example, the following will enable name munging in JavaScript:
+  #p This filter takes options and passes them on to %code{YUICompressor.compress}. For details on which options are available, consult the %ref[url=http://www.rubydoc.info/gems/yuicompressor/YUICompressor#compress-class_method]{%code{YUICompressor.compress} documentation}. For example, the following will enable name munging in JavaScript:
 
   #listing[lang=ruby]
     filter :yui_compressor, type: 'js', munge: true
