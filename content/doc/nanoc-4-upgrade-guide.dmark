@@ -343,7 +343,7 @@ title: "Nanoc 4 upgrade guide"
     #listing[lang=ruby,new]
       item.identifier.to_s[7..-2]
 
-    #li If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=http://nanoc.ws/community/#discussion-groups]{discussion group}.
+    #li If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=https://groups.google.com/d/forum/nanoc]{discussion group}.
 
 #section %h{Removed features}
   #p The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} instead.
