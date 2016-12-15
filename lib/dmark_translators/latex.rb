@@ -223,6 +223,13 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         node.name,
         "}\n",
       ]
+    when 'todo'
+      [
+        # FIXME: Not actually a note…
+        '\\begin{note}\n',
+        handle_children(node, context),
+        '\\end{note}\n',
+      ]
     when 'figure', 'img', 'caption'
       # TODO
     when 'blockquote'
