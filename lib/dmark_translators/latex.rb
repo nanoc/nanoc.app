@@ -226,9 +226,11 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     when 'todo'
       [
         # FIXME: Not actually a note…
-        '\\begin{note}\n',
+        '\\begin{note}',
+        "\n",
         handle_children(node, context),
-        '\\end{note}\n',
+        '\\end{note}',
+        "\n",
       ]
     when 'figure', 'img', 'caption'
       # TODO
