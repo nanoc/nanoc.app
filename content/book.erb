@@ -1,45 +1,8 @@
 ---
-title:      "Documentation"
-toc:
-  - title: 'Getting started'
-    children:
-      - '/doc/about.*'
-      - '/doc/tutorial.*'
-  - title: 'Using Nanoc'
-    children:
-      - '/doc/sites.*'
-      - '/doc/items-and-layouts.*'
-      - '/doc/cli.*'
-      - '/doc/identifiers-and-patterns.*'
-      - '/doc/rules.*'
-      - '/doc/filters.*'
-      - '/doc/helpers.*'
-      - '/doc/deploying.*'
-      - '/doc/testing.*'
-      - '/doc/data-sources.*'
-  - title: 'Tips and tricks'
-    children:
-      - '/doc/guides/using-binary-items-effectively.*'
-      - '/doc/guides/creating-multilingual-sites.*'
-      - '/doc/guides/using-external-sources.*'
-      - '/doc/guides/creating-pdfs.*'
-  - title: 'References'
-    compact: true
-    children:
-      - '/doc/reference/filters.*'
-      - '/doc/reference/helpers.*'
-      - '/doc/reference/commands.*'
-      - '/doc/reference/config.*'
-      - '/doc/reference/variables.*'
-  - title: 'Appendices'
-    children:
-      - '/doc/installation.*'
-      - '/doc/troubleshooting.*'
-      - '/doc/nanoc-4-upgrade-guide.*'
-      - '/doc/glossary.*'
+title: "Documentation"
 ---
 
-<% item[:toc].each do |part| %>
+<% @config[:toc].each do |part| %>
 \part{<%= part[:title] %>}
 
 <% part[:children].each do |child_glob| %>
