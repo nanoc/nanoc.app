@@ -55,7 +55,7 @@ title: "Contributing"
 
   #note You can also invoke Nanoc by calling %command{nanoc} using the full path to the %filename{bin/nanoc} in your cloned repository. However, we recommend using %ref[url=http://bundler.io/]{Bundler} instead.
 
-  #p After making your modifications, make sure that the source code documentation is up-to-date. Nanoc uses %ref[url=http://yardoc.org/]{YARD} for its source code docs. The %ref[url=http://rubydoc.info/gems/yard/file/doc/GettingStarted.md]{YARD getting started guide} is a helpful resource when writing YARD documentation.
+  #p After making your modifications, make sure that the source code documentation is up-to-date. Nanoc uses %ref[url=http://yardoc.org/]{YARD} for its source code docs. The %ref[url=http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md]{YARD getting started guide} is a helpful resource when writing YARD documentation.
 
   #p Finally, create a pull request. Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
