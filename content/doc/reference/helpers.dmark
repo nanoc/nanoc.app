@@ -102,7 +102,7 @@ title: "Helpers"
         #dd A list of articles to include in the feed. By default, the list of items returned by %code{#articles} function will be used.
 
         #dt %code{:preserve_order} (%code{Boolean})
-        #dd Whether or not the ordering of the list of articles should be preserved. If %code{false} or unspecified, the articles will be sorted by %code{created_at}. If %code{true}, the list of articles will be used as-is, and is assumed to end with the most recent article.
+        #dd Whether or not the ordering of the list of articles should be preserved. If %code{false} or unspecified, the articles will be sorted by %code{created_at}. If %code{true}, the list of articles will be used as-is.
 
         #dt %code{:content_proc} (%code{Proc})
         #dd A proc that returns the content of the given article, which is passed as a parameter. This function may not return nil. By default, it will return the compiled content of item at the %code{:pre} snapshot.
