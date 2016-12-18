@@ -144,8 +144,6 @@ title: "Helpers"
 #section %h{%code{Breadcrumbs}}
   #p The %code{Breadcrumbs} helper provides support for breadcrumbs, which allow the user to go up in the page hierarchy.
 
-  #note This helper currently only works with legacy identifiers, and is not compatible with full identifiers.
-
   #dl
     #dt %code{#breadcrumbs_trail()} → Array
     #dd
