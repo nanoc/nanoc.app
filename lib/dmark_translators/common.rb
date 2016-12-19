@@ -21,8 +21,11 @@ class NanocWsCommonTranslator < DMark::Translator
     when String
       node
     when DMark::ElementNode
-      if %w(h section h2 h3).include?(node.name)
-        node.children.map { |c| header_content_of(c) }.join
+      case node.name
+      when 'section'
+        text_content_of(node.children.find { |n| %w(h h2 h3).include?(n.name) })
+      when 'h', 'h2', 'h3'
+        text_content_of(node)
       else
         ''
       end
