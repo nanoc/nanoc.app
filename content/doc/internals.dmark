@@ -59,18 +59,16 @@ title: "Internals"
   #p The order in which item representations are compiled, depends on the dependencies on compiled content between individual item representations.
 
   #section %h{Dependencies on compiled content}
-    #p An item representation can depend on the compiled content of another item representation. For example, blog archive pages typically tend to contain (snippets of) the content of individual blog posts. An item representation which contains the compiled content of another item representation cannot be compiled until the compiled content of the dependent item representation is available. If this compiled content is not available and Nanoc tries to compile the item representation, then an %code{UnmetDependency} error will be raised.
+    #p An item representation can depend on the compiled content of another item representation. For example, blog archive pages typically tend to contain (snippets of) the content of individual blog posts. An item representation which contains the compiled content of another item representation cannot be compiled until the compiled content of the dependent item representation is available. If this compiled content is not available and Nanoc tries to compile the item representation, then the compilation is suspended.
 
-    #p An %code{UnmetDependency} error is not a fatal error, but merely indicates Nanoc that the dependent item representation should be compiled first. The dependencies of an item representation are not known until Nanoc has finished compiling the item representation, and so %code{UnmetDependency} error are not only expected, but commonplace.
+    #p It is normal for the compilation for an item to be suspended. It merely indicates that the dependent item representation should be compiled first. The dependencies of an item representation are not known until Nanoc has finished compiling the item representation, and so Nanoc cannot make an accurate estimation of what a proper order of compilation is. For that reason, compilation suspensions are not only expected, but commonplace.
 
-    #p Even though an %code{UnmetDependency} error is a common condition, it is not a desirable error to have. Such an error means that compilation of this item representation has to be aborted and restarted at a later point in time, which effectively means that the work spent on compiling this item representation has gone to waste. An ongoing challenge for Nanoc is to improve the algorithms and heuristics to reduce the frequency of %code{UnmetDependency} errors.
-
-    #p A dependency from one item representation onto another item representation’s compiled content is called a %firstterm{hard dependency}, as opposed to a soft dependency, which is used in outdatedness checking. An %code{UnmetDependency} error always indicates a hard dependency.
+    #p A dependency from one item representation onto another item representation’s compiled content is called a %firstterm{hard dependency}, as opposed to a soft dependency, which is used in outdatedness checking. A compilation suspension always indicates a hard dependency.
 
   #section %h{Compilation selection}
     #p Once Nanoc has selected the items representations that it deems are outdated (see %ref[frag=outdatedness-checking]{}), it will compile these item reps in the best possible order. The class responsible for determining this order is the %code{ItemRepSelector}.
 
-    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to an %code{UnmetDependency} error, Nanoc will schedule a new compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation.
+    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to a compilation suspension, Nanoc will schedule a continued compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation.
 
     #figure[compact]
       #img /assets/images/compilation_flow.gif
