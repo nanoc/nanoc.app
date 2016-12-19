@@ -7,30 +7,53 @@ title: "Internals"
 #todo This document is a work in progress. It’s highly incomplete, but will gradually be expanded to include more detail.
 
 #section[id=outdatedness-checking] %h{Outdatedness checking}
-  #p Nanoc is a smart static-site generator in that it avoids recompiling items unless necessary.
+  #p Nanoc is a smart static-site generator; it avoids recompiling items unless necessary.
 
   #p Nanoc will recompile an item if it is deemed to be outdated. The class responsible for determining whether or not an item is outdated is the %code{OutdatednessChecker}. An item is considered as outdated if any of the following conditions hold:
 
   #ul
-    #li The item’s content or attributes have changed
+    #li The item’s content has changed
+    #li The item’s attributes have changed
     #li The site configuration has changed
     #li The rule for this item has changed
-    #li One or more output files for this item do not exist
-    #li One or more output files for this item are newer than the item
-    #li A dependent item is considered as outdated
+    #li Some output files for this item do not exist
+    #li A dependent item or layout is considered as outdated
 
-  #p The last point is necessary, because an item might use the raw content, the compiled content, or an attribute of another item. If this is the case, Nanoc will record a dependency from the former item onto the latter item (the dependent item). This type of dependency is used purely to infer outdatedness of items, and is called a %firstterm{soft dependency}.
+  #p The last condition is necessary, because an item might use data of another item or layout.
 
-  #p Nanoc will record a dependency from one item onto another if any attribute, raw content or compiled content is accessed. For example:
+  #section %h{Dependency tracking}
+    #p If an item uses data from another item or layout, Nanoc will record a dependency from the former item onto the latter item or layout. This type of dependency is used purely to infer outdatedness of items, and is called a %firstterm{soft dependency}. Nanoc records a dependency when the raw content, the compiled content, attributes, or a path of another item or layout is accessed.
 
-  #listing[lang=rhtml]
-    <!-- Creates a dependency on the /about.* page -->
-    See the <%%= @items['/about.*'][:title] %%> page.
+    #p For example, the following code snippet will generate dependencies from the item that is currently being compiled, onto other items:
 
-    <!-- Creates a dependency on every item -->
-    See the <%%= @items.select { |i| i[:title] =~ /About/ %}.first %%> page.
+    #listing[lang=rhtml]
+      <!-- Creates a dependency on the /about.* page -->
+      See the <%%= @items['/about.*'][:title] %%> page.
 
-  #p Further improvement work could include fine-grained dependency and change tracking, so that an item is only marked as outdated if the content and/or attributes it uses from a dependent item have changed; currently, %emph{any} change in a dependent item will render its depending items as outdated, even if these dependent items only use content or attributes that have not changed.
+      <!-- Creates a dependency on every item -->
+      See the <%%= @items.select { |i| i[:title] =~ /About/ %}.first %%> page.
+
+    #p For every dependency, Nanoc remembers which of the following properties are affected by the dependency:
+
+    #ul
+      #li the raw content
+      #li the attributes
+      #li the compiled content
+      #li the path
+
+    #p An item will only be considered as outdated due to dependencies when the dependencies’ properties match the outdatedness reason of the targets of the dependency.
+
+    #p For example, an attribute dependency on an item that is marked as outdated due to an attributes change will cause the source of the dependency to be considered as outdated:
+
+    #figure[compact]
+      #img /assets/images/dependencies_and_outdatedness_a.png
+      #caption Outdated: item has an attribute dependency on an item whose attributes have changed
+
+    #p If, on the other hand, the dependency were a dependency on the %emph{raw content} rather than the attributes, the source of the dependency would not be considered as outdated:
+
+    #figure[compact]
+      #img /assets/images/dependencies_and_outdatedness_b.png
+      #caption Not outdated: item has a raw content dependency on an item whose raw content has not changed
 
 #section %h{Compilation order}
   #p The order in which item representations are compiled, depends on the dependencies on compiled content between individual item representations.
