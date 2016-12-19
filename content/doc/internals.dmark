@@ -75,5 +75,3 @@ title: "Internals"
       #caption A visual representation of the compilation selection process
 
     #note The term “compile” or “recompile” does not always mean that the item will be recompiled from scratch; Nanoc keeps a cache of compiled content and will reuse cached compiled content if possible.
-
-    #p Further improvement work could include recompiling the dependent item representation right away, rather than scheduling it for compilation, or selecting items to recompile based on the dependency graph constructed in the previous compilation run (although that would require the dependency tracker to be able to distinguish between hard and soft dependencies).
