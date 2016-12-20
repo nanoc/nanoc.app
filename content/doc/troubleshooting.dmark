@@ -132,7 +132,7 @@ title: "Troubleshooting"
   #listing
     ---
     title: Home
-    ---
+    %mark{---}
 
     Here is some content.
 
@@ -146,8 +146,8 @@ title: "Troubleshooting"
   #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
 
   #listing
-    ---
-    ---
+    %mark{---}
+    %mark{---}
 
     ---
 
