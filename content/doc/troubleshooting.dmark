@@ -117,3 +117,38 @@ title: "Troubleshooting"
     include Nanoc::Helpers::Blogging
 
   #p Make sure to double-check the spelling of the method that is being invoked.
+
+#section %h{Error: %code{InvalidFormat}}
+  #p This error occurs when Nanoc detects the presence of frontmatter, but the frontmatter isn’t terminated properly. For example, the following file will cause an %code{InvalidFormat} error, because the frontmatter is missing a final %code{---}:
+
+  #listing[errors]
+    ---
+    title: Home
+
+    Here is some content.
+
+  #p To fix this error, terminate the frontmatter properly. For example:
+
+  #listing
+    ---
+    title: Home
+    ---
+
+    Here is some content.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{InvalidFormat} error:
+
+  #listing[errors]
+    ---
+
+    This file starts with three dashes!
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    ---
+    ---
+
+    ---
+
+    This file starts with three dashes!
