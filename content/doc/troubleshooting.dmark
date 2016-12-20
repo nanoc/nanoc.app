@@ -152,3 +152,49 @@ title: "Troubleshooting"
     ---
 
     This file starts with three dashes!
+
+#section %h{Error: %code{UnparseableMetadata}}
+  #p This error occurs when the frontmatter is not valid YAML. For example, the following file will cause an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+    [Not valid YAML!
+    ---
+
+    Here is some content.
+
+  #p To fix this error, ensure the YAML in the front matter is valid. For example:
+
+  #listing
+    ---
+    %mark{title: Home}
+    ---
+
+    Here is some content.
+
+  #p For more information about YAML, check out the %ref[url=http://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=http://www.yaml.org/spec/1.2/spec.html]{YAML specification}.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
+
+  #listing
+    ---
+
+    [0, 1[ is the interval that contains all real numbers between zero and one, including zero, but not including one.
+
+    ---
+
+    Another section…
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    %mark{---}
+    %mark{---}
+
+    ---
+
+    [0, 1[ is the interval that contains all real numbers between zero and one, including zero, but not including one.
+
+    ---
+
+    Another section…
