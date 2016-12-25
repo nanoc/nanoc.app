@@ -250,3 +250,23 @@ title: "Troubleshooting"
     File.write('content/broken.md', '¿', encoding: 'ISO-8859-1')
 
   #p See %ref[frag=character-encoding-issues]{} for details on how to fix this issue.
+
+#section %h{Error: %code{UnknownDataSource}}
+  #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause a %code{UnknownDataSource} if the %code{file_system} data source is not defined:
+
+  #listing[lang=yaml,errors]
+    data_sources:
+      -
+        type: file_system
+
+  #p To fix this error, verify that the data source name is spelled correctly. For example, the example above needs %code{filesystem} rather than %code{file_system}:
+
+  #listing[lang=yaml]
+    data_sources:
+      -
+        type: %mark{filesystem}
+
+  #p This errors also occurs if the source files that define the data source have not yet been loaded. For example, if a (hypothetical) %code{nanoc-aether} gem defines a data source named %code{aether}, then that gem must be required before the data source can be used. In a file in the %filename{lib/} directory (e.g. %filename{lib/default.rb}), add a %code{require} for the gem:
+
+  #listing[lang=ruby]
+    require 'nanoc-aether'
