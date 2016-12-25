@@ -206,7 +206,7 @@ title: "Troubleshooting"
     Another section…
 
 #section %h{Error: %code{UnknownDataSource}}
-  #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause a %code{UnknownDataSource} if the %code{file_system} data source is not defined:
+  #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause an %code{UnknownDataSource} if the %code{file_system} data source is not defined:
 
   #listing[lang=yaml,errors]
     data_sources:
