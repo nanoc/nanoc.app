@@ -40,6 +40,14 @@ a.wip:after {
     border-radius: 4px;
 }
 
+pre.errors:before {
+    content: "ERRORS";
+
+    background: $tag-errors-bg-color;
+    color: $tag-errors-fg-color;
+    border-top-right-radius: 4px;
+}
+
 pre.legacy:before {
     content: "LEGACY";
 
@@ -64,6 +72,7 @@ pre.new:before {
     border-top-right-radius: 4px;
 }
 
+pre.errors:before,
 pre.legacy:before,
 pre.legacy-intermediate:before,
 pre.new:before {

@@ -79,6 +79,9 @@ $search-results-selection-bg-color: $color-offwhite-orange;
 $page-bg-color:               $color-white;
 $page-top-border-color:       $color-orange-light;
 
+// Mark
+$mark-bg-color:               #ffffcc;
+
 // Tags
 $tag-legacy-bg-color:         $color-dark-60;
 $tag-legacy-fg-color:         $color-white;
@@ -88,6 +91,8 @@ $tag-wip-bg-color:            $color-dark-60;
 $tag-wip-fg-color:            $color-white;
 $tag-new-bg-color:            $color-blue;
 $tag-new-fg-color:            $color-white;
+$tag-errors-bg-color:         $color-orange;
+$tag-errors-fg-color:         $color-white;
 
 // Figures
 $figure-bg-color:             $color-white;

@@ -39,7 +39,7 @@ title: "Troubleshooting"
 
   #p When you are getting this error unexpectedly, double-check your Rules file and make sure that no binary item is filtered through a textual filter. Remember that Nanoc will use the first matching rule only!
 
-#section %h{Character encoding issues}
+#section[id=character-encoding-issues] %h{Character encoding issues}
   #p Character encoding issues manifest themselves in two ways:
 
   #ul
@@ -117,3 +117,136 @@ title: "Troubleshooting"
     include Nanoc::Helpers::Blogging
 
   #p Make sure to double-check the spelling of the method that is being invoked.
+
+#section %h{Error: %code{InvalidFormat}}
+  #p This error occurs when Nanoc detects the presence of frontmatter, but the frontmatter isn’t terminated properly. For example, the following file will cause an %code{InvalidFormat} error, because the frontmatter is missing a final %code{---}:
+
+  #listing[errors]
+    ---
+    title: Home
+
+    Here is some content.
+
+  #p To fix this error, terminate the frontmatter properly. For example:
+
+  #listing
+    ---
+    title: Home
+    %mark{---}
+
+    Here is some content.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{InvalidFormat} error:
+
+  #listing[errors]
+    ---
+
+    This file starts with three dashes!
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    %mark{---}
+    %mark{---}
+
+    ---
+
+    This file starts with three dashes!
+
+#section %h{Error: %code{UnparseableMetadata}}
+  #p This error occurs when the frontmatter is not valid YAML. For example, the following file will cause an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+    [Not valid YAML!
+    ---
+
+    Here is some content.
+
+  #p To fix this error, ensure the YAML in the front matter is valid. For example:
+
+  #listing
+    ---
+    %mark{title: Home}
+    ---
+
+    Here is some content.
+
+  #p For more information about YAML, check out the %ref[url=http://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=http://www.yaml.org/spec/1.2/spec.html]{YAML specification}.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+
+    [0, 1[ is the interval that contains all real numbers between zero and one, including zero, but not including one.
+
+    ---
+
+    Another section…
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    %mark{---}
+    %mark{---}
+
+    ---
+
+    [0, 1[ is the interval that contains all real numbers between zero and one, including zero, but not including one.
+
+    ---
+
+    Another section…
+
+#section %h{Error: %code{InvalidMetadata}}
+  #p This error occurs when the frontmatter is not a collection of key-value pairs. For example, the following file will cause an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+    My about page
+    ---
+
+    Hello! This page has some details about myself.
+
+  #p To fix this error, ensure the YAML in the front matter is a collection of key-value pairs. For example:
+
+  #listing
+    ---
+    %mark{title:} My about page
+    ---
+
+    Hello! This page has some details about myself.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+
+    Once upon a time, …
+
+    ---
+
+    Another section…
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    %mark{---}
+    %mark{---}
+
+    ---
+
+    Once upon a time, …
+
+    ---
+
+    Another section…
+
+#section %h{Error: %code{InvalidEncoding}}
+  #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
+
+  #listing[lang=ruby]
+    File.write('content/broken.md', '¿', encoding: 'ISO-8859-1')
+
+  #p See %ref[frag=character-encoding-issues]{} for details on how to fix this issue.
