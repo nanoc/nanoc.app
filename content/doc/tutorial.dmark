@@ -6,7 +6,7 @@ title: "Tutorial"
 
 #dl
   #dt a working Nanoc installation
-  #dd Check out %ref[item=/doc/installation.*]{} for details on how to install Ruby, RubyGems, and Nanoc.
+  #dd See %ref[item=/doc/installation.*]{} for details on how to install Ruby, RubyGems, and Nanoc.
 
   #dt a basic understanding of Ruby
   #dd Nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend %ref[url=https://www.ruby-lang.org/en/documentation/quickstart/]{Ruby in Twenty Minutes}.
@@ -137,7 +137,7 @@ title: "Tutorial"
 
   #note The term %firstterm{metadata section} is often used instead of frontmatter in the context of Nanoc. Other static-site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
-  #p The frontmatter is formatted as YAML. If you are unfamiliar with YAML, check out the %ref[url=http://www.yaml.org/YAML_for_ruby.html]{YAML cookbook}. There are no pre-defined attributes in Nanoc, and you are free to invent your own attributes.
+  #p The frontmatter is formatted as YAML. If you are unfamiliar with YAML, see the %ref[url=http://www.yaml.org/YAML_for_ruby.html]{YAML cookbook}. There are no pre-defined attributes in Nanoc, and you are free to invent your own attributes.
 
   #p Change the value of the %attribute{title} attribute to something else:
 

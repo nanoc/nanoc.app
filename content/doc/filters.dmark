@@ -18,7 +18,7 @@ title: "Filters"
 
 #p For details on compilation rules, see %ref[item=/doc/rules.*]{}.
 
-#p Nanoc comes with a handful of filters. Check out %ref[item=/doc/reference/filters.*]{} for a list of filters bundled with Nanoc.
+#p Nanoc comes with a handful of filters. See %ref[item=/doc/reference/filters.*]{} for a list of filters bundled with Nanoc.
 
 #h2 Writing filters
 

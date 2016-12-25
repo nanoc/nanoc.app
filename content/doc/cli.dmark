@@ -79,4 +79,4 @@ title: "Command-line interface"
 
 #p Commands can be nested; for example, the command at %filename{commands/foo/bar.rb} will be a sub-command of the command at %filename{commands/foo.rb}, and can be invoked as %command{nanoc foo bar}.
 
-#p For details on how to create commands, check out the documentation for %ref[url=http://rubydoc.info/gems/cri]{Cri}, the framework used by Nanoc for generating commands.
+#p For details on how to create commands, see the documentation for %ref[url=http://rubydoc.info/gems/cri]{Cri}, the framework used by Nanoc for generating commands.

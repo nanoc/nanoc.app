@@ -172,7 +172,7 @@ title: "Troubleshooting"
 
     Here is some content.
 
-  #p For more information about YAML, check out the %ref[url=http://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=http://www.yaml.org/spec/1.2/spec.html]{YAML specification}.
+  #p For more information about YAML, see the %ref[url=http://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=http://www.yaml.org/spec/1.2/spec.html]{YAML specification}.
 
   #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
 
