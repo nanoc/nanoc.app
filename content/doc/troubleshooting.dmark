@@ -264,7 +264,7 @@ title: "Troubleshooting"
   #listing[lang=ruby]
     compile '/articles/*.md' do
       filter :kramdown
-      %mark{layout '/article.*'}
+      layout %mark{'/article.*'}
       write item.identifier.without_ext + '/index.html'
     end
 
