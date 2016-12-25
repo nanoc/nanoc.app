@@ -225,6 +225,25 @@ title: "Troubleshooting"
   #listing[lang=ruby]
     require 'nanoc-aether'
 
+#section %h{Error: %code{UnknownLayout}}
+  #p This error occurs when the compilation rule for an item specifies a layout that does not exist. For example, the rule below will cause an %code{UnknownLayout} error, assuming that there is no layout with an identifier matching the %code{/atricle.*} pattern:
+
+  #listing[lang=ruby,errors]
+    compile '/articles/*.md' do
+      filter :kramdown
+      %mark{layout '/atricle.*'}
+      write item.identifier.without_ext + '/index.html'
+    end
+
+  #p To fix this error, verify that the layout exists and has the correct identifier, and verify that the correct identifier is used in the rules. In the example above, the identifier of the layout is misspelled as %code{/atricle.*}, and fixing the spelling by changing it to %code{/article.*} makes the error disappear:
+
+  #listing[lang=ruby]
+    compile '/articles/*.md' do
+      filter :kramdown
+      %mark{layout '/article.*'}
+      write item.identifier.without_ext + '/index.html'
+    end
+
 #section %h{Error: %code{UnparseableMetadata}}
   #p This error occurs when the frontmatter is not valid YAML. For example, the following file will cause an %code{UnparseableMetadata} error:
 
