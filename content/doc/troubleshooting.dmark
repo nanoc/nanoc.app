@@ -225,6 +225,30 @@ title: "Troubleshooting"
   #listing[lang=ruby]
     require 'nanoc-aether'
 
+#section %h{Error: %code{UnknownFilter}}
+  #p This error occurs when a compilation rule calls a filter that Nanoc does not know about. For example, the following will cause an %code{UnknownFilter} error, assuming that there is no filter named %code{:kram_down}:
+
+  #listing[lang=ruby,errors]
+    compile '/articles/*.md' do
+      %mark{filter :kram_down}
+      layout '/article.*'
+      write item.identifier.without_ext + '/index.html'
+    end
+
+  #p To fix this error, verify the spelling of the filter name in the rules file. The example above errors because the filter name is misspelled as %code{kram_down}; fixing the spelling to %code{kramdown} makes the error disappear:
+
+  #listing[lang=ruby]
+    compile '/articles/*.md' do
+      filter %mark{:kramdown}
+      layout '/article.*'
+      write item.identifier.without_ext + '/index.html'
+    end
+
+  #p This errors also occurs if the source files that define the filter have not yet been loaded. For example, if a (hypothetical) %code{nanoc-transmogrify} gem defines a filter named %code{transmogrify}, then that gem must be required before the filter can be used. In a file in the %filename{lib/} directory (e.g. %filename{lib/default.rb}), add a %code{require} for the gem:
+
+  #listing[lang=ruby]
+    require 'nanoc-transmogrify'
+
 #section %h{Error: %code{UnknownLayout}}
   #p This error occurs when the compilation rule for an item specifies a layout that does not exist. For example, the rule below will cause an %code{UnknownLayout} error, assuming that there is no layout with an identifier matching the %code{/atricle.*} pattern:
 
