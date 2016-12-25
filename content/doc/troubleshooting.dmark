@@ -224,6 +224,26 @@ title: "Troubleshooting"
 
     Another section…
 
+#section %h{Error: %code{RecursiveCompilation}}
+  #p This error occurs when two or more items depend on each other’s compiled content. For example, imagine these two files:
+
+  #listing[lang=rhtml,errors]
+    <!-- content/foo.html -->
+    <%%= @items['/bar.*'].compiled_content %%>
+
+  #listing[lang=rhtml,errors]
+    <!-- content/bar.html -->
+    <%%= @items['/foo.*'].compiled_content %%>
+
+  #p The compiled content of the %filename{foo.html} item depends on the compiled content of the %filename{bar.html} item, and vice versa. Nanoc cannot resolve this, and throws a %code{RecursiveCompilation} error.
+
+  #p To fix this error, ensure that at least one of these items does not depend on the compiled content of the other.
+
+  #p This error also occurs when a single item depends on the later compiled content of itself. For example, an item with the following content will also cause a %code{RecursiveCompilation} error:
+
+  #listing[lang=rhtml,errors]
+    <%%= @item.compiled_content %%>
+
 #section %h{Error: %code{UnknownDataSource}}
   #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause an %code{UnknownDataSource} if the %code{file_system} data source is not defined:
 
