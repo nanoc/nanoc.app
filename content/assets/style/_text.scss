@@ -6,7 +6,7 @@
     hyphens: auto;
 }
 
-pre, code, kbd, samp, var, .attribute, .command, .output {
+pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
