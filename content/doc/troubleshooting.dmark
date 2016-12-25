@@ -118,6 +118,14 @@ title: "Troubleshooting"
 
   #p Make sure to double-check the spelling of the method that is being invoked.
 
+#section %h{Error: %code{InvalidEncoding}}
+  #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
+
+  #listing[lang=ruby]
+    File.write('content/broken.md', '¿', encoding: 'ISO-8859-1')
+
+  #p See %ref[frag=character-encoding-issues]{} for details on how to fix this issue.
+
 #section %h{Error: %code{InvalidFormat}}
   #p This error occurs when Nanoc detects the presence of frontmatter, but the frontmatter isn’t terminated properly. For example, the following file will cause an %code{InvalidFormat} error, because the frontmatter is missing a final %code{---}:
 
@@ -152,6 +160,70 @@ title: "Troubleshooting"
     ---
 
     This file starts with three dashes!
+
+#section %h{Error: %code{InvalidMetadata}}
+  #p This error occurs when the frontmatter is not a collection of key-value pairs. For example, the following file will cause an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+    My about page
+    ---
+
+    Hello! This page has some details about myself.
+
+  #p To fix this error, ensure the YAML in the front matter is a collection of key-value pairs. For example:
+
+  #listing
+    ---
+    %mark{title:} My about page
+    ---
+
+    Hello! This page has some details about myself.
+
+  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
+
+  #listing[errors]
+    ---
+
+    Once upon a time, …
+
+    ---
+
+    Another section…
+
+  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
+
+  #listing
+    %mark{---}
+    %mark{---}
+
+    ---
+
+    Once upon a time, …
+
+    ---
+
+    Another section…
+
+#section %h{Error: %code{UnknownDataSource}}
+  #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause a %code{UnknownDataSource} if the %code{file_system} data source is not defined:
+
+  #listing[lang=yaml,errors]
+    data_sources:
+      -
+        type: file_system
+
+  #p To fix this error, verify that the data source name is spelled correctly. For example, the example above needs %code{filesystem} rather than %code{file_system}:
+
+  #listing[lang=yaml]
+    data_sources:
+      -
+        type: %mark{filesystem}
+
+  #p This errors also occurs if the source files that define the data source have not yet been loaded. For example, if a (hypothetical) %code{nanoc-aether} gem defines a data source named %code{aether}, then that gem must be required before the data source can be used. In a file in the %filename{lib/} directory (e.g. %filename{lib/default.rb}), add a %code{require} for the gem:
+
+  #listing[lang=ruby]
+    require 'nanoc-aether'
 
 #section %h{Error: %code{UnparseableMetadata}}
   #p This error occurs when the frontmatter is not valid YAML. For example, the following file will cause an %code{UnparseableMetadata} error:
@@ -198,75 +270,3 @@ title: "Troubleshooting"
     ---
 
     Another section…
-
-#section %h{Error: %code{InvalidMetadata}}
-  #p This error occurs when the frontmatter is not a collection of key-value pairs. For example, the following file will cause an %code{UnparseableMetadata} error:
-
-  #listing[errors]
-    ---
-    My about page
-    ---
-
-    Hello! This page has some details about myself.
-
-  #p To fix this error, ensure the YAML in the front matter is a collection of key-value pairs. For example:
-
-  #listing
-    ---
-    %mark{title:} My about page
-    ---
-
-    Hello! This page has some details about myself.
-
-  #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
-
-  #listing[errors]
-    ---
-
-    Once upon a time, …
-
-    ---
-
-    Another section…
-
-  #p To tell Nanoc to treat these three dashes part of the content, rather than signaling the start of the frontmatter, add an artificial empty frontmatter:
-
-  #listing
-    %mark{---}
-    %mark{---}
-
-    ---
-
-    Once upon a time, …
-
-    ---
-
-    Another section…
-
-#section %h{Error: %code{InvalidEncoding}}
-  #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
-
-  #listing[lang=ruby]
-    File.write('content/broken.md', '¿', encoding: 'ISO-8859-1')
-
-  #p See %ref[frag=character-encoding-issues]{} for details on how to fix this issue.
-
-#section %h{Error: %code{UnknownDataSource}}
-  #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause a %code{UnknownDataSource} if the %code{file_system} data source is not defined:
-
-  #listing[lang=yaml,errors]
-    data_sources:
-      -
-        type: file_system
-
-  #p To fix this error, verify that the data source name is spelled correctly. For example, the example above needs %code{filesystem} rather than %code{file_system}:
-
-  #listing[lang=yaml]
-    data_sources:
-      -
-        type: %mark{filesystem}
-
-  #p This errors also occurs if the source files that define the data source have not yet been loaded. For example, if a (hypothetical) %code{nanoc-aether} gem defines a data source named %code{aether}, then that gem must be required before the data source can be used. In a file in the %filename{lib/} directory (e.g. %filename{lib/default.rb}), add a %code{require} for the gem:
-
-  #listing[lang=ruby]
-    require 'nanoc-aether'
