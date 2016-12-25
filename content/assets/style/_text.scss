@@ -7,11 +7,11 @@
 }
 
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    -o-hyphens: none;
-    hyphens: none;
+    -webkit-hyphenate-character: "";
+    -moz-hyphenate-character: "";
+    -ms-hyphenate-character: "";
+    -o-hyphenate-character: "";
+    hyphenate-character: "";
 }
 
 i, em {
