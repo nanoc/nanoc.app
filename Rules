@@ -29,7 +29,10 @@ compile '/assets/style/*' do
   filter :relativize_paths, :type => :css
   filter :autoprefixer
   filter :rainpress
-  write item.identifier.without_ext + '-v' + rep.item[:version].to_s + '.css'
+
+  data = @items.find_all('/assets/style/_*').map { |i| i.raw_content }.join('')
+  digest = Digest::SHA1.hexdigest(data)
+  write item.identifier.without_ext + '-' + digest[0..15] + '.css'
 end
 
 compile '/sitemap.*' do
