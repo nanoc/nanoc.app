@@ -212,21 +212,17 @@ title: "Rules"
 #section %h{Layouting rules}
   #p To specify the filter used for a layout, use the %code{#layout} method.
 
-  #p The first argument should be a string containing the identifier of the layout. It can also be a string that contains the %code{*} wildcard, which matches zero or more characters. Additionally, it can be a regular expression.
-
-  #p The second should be the identifier of the filter to use.
-
-  #p In addition to the first two arguments, extra arguments can be supplied; these will be passed on to the filter.
+  #p The first argument to %code{#layout} is the identifier of a layout, or a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern} that matches the identifier of a layout. The second argument to %code{#layout} is the identifier of the filter to use. Additional arguments can be supplied; these will be passed on to the filter.
 
   #p %strong{Example}: The following rule will make all layouts use the %code{:erb} filter:
 
   #listing[lang=ruby]
     layout '/**/*', :erb
 
-  #p %strong{Example}: The following rule will make the default layout use the %code{haml} filter and pass a filter argument:
+  #p %strong{Example}: The following rule will make all layouts with the %filename{haml} extension use the %code{haml} filter, with an additional %code{format} argument that will be passed to the %code{haml} filter:
 
   #listing[lang=ruby]
-    layout '/default.*', :haml, format: :html5
+    layout '/*.haml', :haml, format: :html5
 
   #p %strong{Example}: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html}, and even %filename{/_foo/_bar.erb} would:
 
