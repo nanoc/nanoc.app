@@ -23,12 +23,12 @@ GEM
   specs:
     adsf (1.2.1)
       rack (>= 1.0.0)
-    autoprefixer-rails (6.6.0)
+    autoprefixer-rails (6.6.1)
       execjs
     builder (3.2.2)
     coderay (1.1.1)
     colored (1.2)
-    concurrent-ruby (1.0.3)
+    concurrent-ruby (1.0.4)
     cri (2.7.1)
       colored (~> 1.2)
     execjs (2.7.0)
@@ -65,20 +65,18 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.4.5)
+    nanoc (4.4.6)
       cri (~> 2.3)
       hamster (~> 3.0)
-      parallel (~> 1.9)
       ref (~> 2.0)
     nanoc-git (1.0.1)
       nanoc (>= 3.7.0, < 5.0.0)
     nenv (0.3.0)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    parallel (1.10.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -136,4 +134,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   1.13.6
+   1.13.7
