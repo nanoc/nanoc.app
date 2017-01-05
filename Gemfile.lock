@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/cowboyd/therubyracer.git
-  revision: 2f1127bed45f03b91f3c92469be26399d3c1bcd8
+  revision: a635aee79b2057c396f8af92417cadf93415c275
   specs:
-    therubyracer (0.12.2)
+    therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
 
@@ -65,14 +65,14 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.4.6)
+    nanoc (4.4.7)
       cri (~> 2.3)
       hamster (~> 3.0)
       ref (~> 2.0)
     nanoc-git (1.0.1)
       nanoc (>= 3.7.0, < 5.0.0)
     nenv (0.3.0)
-    nokogiri (1.7.0)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     notiffany (0.1.1)
       nenv (~> 0.1)

@@ -22,11 +22,13 @@ Bitbucket's
 Blockquote
 BlueCloth
 boolean
+Boutillier
 Buch
 Bühler
 Bundler
 Byford
 Bynens
+Cédric
 checksum
 checksummer
 Chu
