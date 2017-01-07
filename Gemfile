@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
   gem 'therubyracer', github: 'cowboyd/therubyracer'
-  gem 'autoprefixer-rails'
   gem 'guard-nanoc'
   gem 'nanoc-git'
 end

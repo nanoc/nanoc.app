@@ -27,7 +27,6 @@ passthrough '/assets/images/**/*'
 compile '/assets/style/*' do
   filter :sass, syntax: :scss
   filter :relativize_paths, :type => :css
-  filter :autoprefixer
   filter :rainpress
 
   data = @items.find_all('/assets/style/_*').map { |i| i.raw_content }.join('')
