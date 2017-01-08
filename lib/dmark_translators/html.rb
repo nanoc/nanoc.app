@@ -57,7 +57,7 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
       end
     when 'mark'
       wrap(element.name) { handle_children(element, context) }
-    when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'h1', 'h2', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
+    when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
       attributes = {}
 
       attributes[:class] = 'legacy' if element.attributes['legacy']

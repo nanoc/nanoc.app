@@ -1,9 +1,8 @@
-#h2 <%= @item[:name] %>
+#section %h{<%= @item[:name] %>}
+  #listing <%= @item[:usage] %>
 
-#listing <%= @item[:usage] %>
+<%= indent_for_dmark(1, kramdown2dmark(@item[:description] || @item[:summary])) %>
 
-<% filter :kramdown2dmark do %><%= @item[:description] || @item[:summary] %><% end %>
+  <% if @item[:aliases] && @item[:aliases].size > 0 %>#p Also known as <%= @item[:aliases].map { |i| "%command{#{i}}" }.join(', ') %>.<% end %>
 
-<% if @item[:aliases] && @item[:aliases].size > 0 %>#p Also known as <%= @item[:aliases].map { |i| "%command{#{i}}" }.join(', ') %>.<% end %>
-
-<%= dmark_options_for(@item) %>
+<%= indent_for_dmark(1, dmark_options_for(@item)) %>

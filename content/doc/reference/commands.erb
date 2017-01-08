@@ -3,9 +3,9 @@ title: "Command-line interface"
 ---
 
 <% filter(@rep.name == :default ? :dmark2html : :dmark2latex) do %>
-#h2 Global options
+#section %h{Global options}
 
-<%= dmark_options_for(@items['/doc/reference/commands/_nanoc']) %>
+<%= indent_for_dmark(1, dmark_options_for(@items['/doc/reference/commands/_nanoc'])) %>
 
 <% @items.find_all('/doc/reference/commands/*').reject { |i| i[:name] == 'nanoc' }.sort_by { |i| i[:name].to_s }.each do |command| %>
 <%= render "/command.dmark.*", item: command %>
