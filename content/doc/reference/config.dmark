@@ -2,69 +2,61 @@
 title: "Configuration"
 ---
 
-#h2 %code{text_extensions}
+#section %h{%code{text_extensions}}
+  #p A list of file extensions that Nanoc will consider to be textual rather than binary. If an item with an extension not in this list is found, the file will be considered as binary.
 
-#p A list of file extensions that Nanoc will consider to be textual rather than binary. If an item with an extension not in this list is found, the file will be considered as binary.
+  #listing[lang=yaml]
+    text_extensions: %erb{array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:text_extensions])}
 
-#listing[lang=yaml]
-  text_extensions: %erb{array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:text_extensions])}
+#section %h{%code{output_dir}}
+  #p The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be a path relative to the site directory.
 
-#h2 %code{output_dir}
+  #listing[lang=yaml]
+    output_dir: %erb{Nanoc::Int::Configuration::DEFAULT_CONFIG[:output_dir]}
 
-#p The path to the directory where all generated files will be written to. This can be an absolute path starting with a slash, but it can also be a path relative to the site directory.
+#section %h{%code{index_filenames}}
+  #p A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named “index.html”, but depending on the web server, this may be something else, such as “default.htm”. This list is used by Nanoc to generate pretty URLs.
 
-#listing[lang=yaml]
-  output_dir: %erb{Nanoc::Int::Configuration::DEFAULT_CONFIG[:output_dir]}
+  #listing[lang=yaml]
+    index_filenames: %erb{array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:index_filenames])}
 
-#h2 %code{index_filenames}
+#section %h{%code{enable_output_diff}}
+  #p Whether or not to generate a diff of the compiled content when compiling a site. The diff will contain the differences between the compiled content before and after the last site compilation.
 
-#p A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named “index.html”, but depending on the web server, this may be something else, such as “default.htm”. This list is used by Nanoc to generate pretty URLs.
+  #listing[lang=yaml]
+    enable_output_diff: false
 
-#listing[lang=yaml]
-  index_filenames: %erb{array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:index_filenames])}
+#section %h{%code{prune}}
+  #p The %code{prune} section contains options for the %ref[item=/doc/reference/commands.*,frag=prune]{prune} command, which deletes stray files from the output directory.
 
-#h2 %code{enable_output_diff}
+  #listing[lang=yaml]
+    prune:
+      auto_prune: true
+      exclude: [ '.git', '.hg', '.svn', 'CVS' ]
 
-#p Whether or not to generate a diff of the compiled content when compiling a site. The diff will contain the differences between the compiled content before and after the last site compilation.
+  #p When %code{auto_prune} is true, Nanoc will automatically remove files not managed by Nanoc from the output directory.
 
-#listing[lang=yaml]
-  enable_output_diff: false
+  #p The %code{exclude} option determines which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as %filename{.git} or %filename{.hg}.
 
-#h2 %code{prune}
+#section %h{%code{commands_dirs}}
+  #p Directories to read commands from. This is useful when you have a set of commands that you want to share between sites.
 
-#p The %code{prune} section contains options for the %ref[item=/doc/reference/commands.*,frag=prune]{prune} command, which deletes stray files from the output directory.
+  #listing[lang=yaml]
+    commands_dirs: [ '../shared-commands' ]
 
-#listing[lang=yaml]
-  prune:
-    auto_prune: true
-    exclude: [ '.git', '.hg', '.svn', 'CVS' ]
+#section %h{%code{data_sources}}
+  #p The data sources configuration contains the definition of the data sources of this site. It is a list of hashes with keys described in the sections below; each array element represents a single data source. For example:
 
-#p When %code{auto_prune} is true, Nanoc will automatically remove files not managed by Nanoc from the output directory.
+  #listing[lang=yaml]
+    data_sources:
+      -
+        type: pentabarf # a custom data source
+        items_root: /conference/
 
-#p The %code{exclude} option determines which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as %filename{.git} or %filename{.hg}.
+  #p For details, see %ref[item=/doc/data-sources.*]{}.
 
-#h2 %code{commands_dirs}
+#section %h{%code{string_pattern_type}}
+  #p Sets the type of string pattern to use. Can be %code{glob} or %code{legacy}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
-#p Directories to read commands from. This is useful when you have a set of commands that you want to share between sites.
-
-#listing[lang=yaml]
-  commands_dirs: [ '../shared-commands' ]
-
-#h2 %code{data_sources}
-
-#p The data sources configuration contains the definition of the data sources of this site. It is a list of hashes with keys described in the sections below; each array element represents a single data source. For example:
-
-#listing[lang=yaml]
-  data_sources:
-    -
-      type: pentabarf # a custom data source
-      items_root: /conference/
-
-#p For details, see %ref[item=/doc/data-sources.*]{}.
-
-#h2 %code{string_pattern_type}
-
-#p Sets the type of string pattern to use. Can be %code{glob} or %code{legacy}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
-
-#listing[lang=yaml]
-  string_pattern_type: glob
+  #listing[lang=yaml]
+    string_pattern_type: glob

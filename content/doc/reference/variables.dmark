@@ -30,211 +30,206 @@ title: "Variables"
 
 #p There are three contexts in which variables are exposed: in the %code{preprocess}/%code{postprocess} block, within %code{compile} and %code{route} rules, and during filtering/layouting.
 
-#h2 %code{@config}
+#section %h{%code{@config}}
+  #p The %code{@config} variable contains the site configuration, read from %filename{nanoc.yaml} or %filename{config.yaml}.
 
-#p The %code{@config} variable contains the site configuration, read from %filename{nanoc.yaml} or %filename{config.yaml}.
+  #dl
+    #dt %code{@config[:some_key]} → %var{object}
+    #dd The attribute for the given key, or %code{nil} if the key is not found.
 
-#dl
-  #dt %code{@config[:some_key]} → %var{object}
-  #dd The attribute for the given key, or %code{nil} if the key is not found.
+    #dt %code{@config.fetch(:some_key, fallback)} → %var{object}
+    #dd The attribute for the given key, or %code{fallback} if the key is not found.
 
-  #dt %code{@config.fetch(:some_key, fallback)} → %var{object}
-  #dd The attribute for the given key, or %code{fallback} if the key is not found.
+    #dt %code{@config.fetch(:some_key) { |key| … %}} → %var{object}
+    #dd The attribute for the given key, or the value of the block if the key is not found.
 
-  #dt %code{@config.fetch(:some_key) { |key| … %}} → %var{object}
-  #dd The attribute for the given key, or the value of the block if the key is not found.
+    #dt %code{@config.key?(:some_key)} → %code{true} / %code{false}
+    #dd Whether or not an attribute with the given key exists.
 
-  #dt %code{@config.key?(:some_key)} → %code{true} / %code{false}
-  #dd Whether or not an attribute with the given key exists.
+  #p The following methods are available during preprocessing:
 
-#p The following methods are available during preprocessing:
+  #dl
+    #dt %code{@config[:some_key] = some_value} → %var{nothing}
+    #dd Assigns the given value to the attribute with the given key.
 
-#dl
-  #dt %code{@config[:some_key] = some_value} → %var{nothing}
-  #dd Assigns the given value to the attribute with the given key.
+#section %h{%code{@items} and %code{@layouts}}
+  #p The %code{@items} variable contains all items in the site. Similarly, %code{@layouts} contains all layouts.
 
-#h2 %code{@items} and %code{@layouts}
+  #dl
+    #dt %code{@items[arg]} → %var{object}
+    #dt %code{@layouts[arg]} → %var{object}
+    #dd The single item or layout that matches given argument, or nil if nothing is found.
 
-#p The %code{@items} variable contains all items in the site. Similarly, %code{@layouts} contains all layouts.
+    #dt %code{@items.each { |item| … %}} → %var{nothing}
+    #dt %code{@layouts.each { |item| … %}} → %var{nothing}
+    #dd Yields every item or layout.
 
-#dl
-  #dt %code{@items[arg]} → %var{object}
-  #dt %code{@layouts[arg]} → %var{object}
-  #dd The single item or layout that matches given argument, or nil if nothing is found.
+    #dt %code{@items.find_all(arg)} → %var{collection of items}
+    #dt %code{@layouts.find_all(arg)} → %var{collection of layouts}
+    #dd All items or layouts that match given argument.
 
-  #dt %code{@items.each { |item| … %}} → %var{nothing}
-  #dt %code{@layouts.each { |item| … %}} → %var{nothing}
-  #dd Yields every item or layout.
+    #dt %code{@items.size} → %code{Integer}
+    #dt %code{@layouts.size} → %code{Integer}
+    #dd The number of items.
 
-  #dt %code{@items.find_all(arg)} → %var{collection of items}
-  #dt %code{@layouts.find_all(arg)} → %var{collection of layouts}
-  #dd All items or layouts that match given argument.
+  #p Both %code{@items} and %code{@layouts} include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
 
-  #dt %code{@items.size} → %code{Integer}
-  #dt %code{@layouts.size} → %code{Integer}
-  #dd The number of items.
+  #p To find an item or layout by identifier, passing the identifier to the %code{#[]} method:
 
-#p Both %code{@items} and %code{@layouts} include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
+  #listing[lang=ruby]
+    @items["/about.md"]
 
-#p To find an item or layout by identifier, passing the identifier to the %code{#[]} method:
+  #p You can also pass a string pattern (a glob) to %code{#[]} to find an item or layout whose identifier matches the given string:
 
-#listing[lang=ruby]
-  @items["/about.md"]
+  #listing[lang=ruby]
+    @layouts["/default.*"]
 
-#p You can also pass a string pattern (a glob) to %code{#[]} to find an item or layout whose identifier matches the given string:
+  #p Additionally, you can pass a regular expression to the %code{#[]} method, which will find the item or layout whose identifier matches that regex:
 
-#listing[lang=ruby]
-  @layouts["/default.*"]
+  #listing[lang=ruby]
+    @items[%%r{\A/articles/2014/.*%}]
 
-#p Additionally, you can pass a regular expression to the %code{#[]} method, which will find the item or layout whose identifier matches that regex:
+  #p The %code{#find_all} method is similar to %code{#[]}, but returns a collection of items or layouts, rather than a single result.
 
-#listing[lang=ruby]
-  @items[%%r{\A/articles/2014/.*%}]
+  #p The following methods are available during preprocessing:
 
-#p The %code{#find_all} method is similar to %code{#[]}, but returns a collection of items or layouts, rather than a single result.
+  #dl
+    #dt %code{@items.delete_if { |item| … %}} → %var{nothing}
+    #dt %code{@layouts.delete_if { |layout| … %}} → %var{nothing}
+    #dd Removes any item or layout for which the given block returns true.
 
-#p The following methods are available during preprocessing:
+    #dt %code{@items.create(content, attributes, identifier)} → %var{nothing}
+    #dt %code{@items.create(content, attributes, identifier, binary: true)} → %var{nothing}
+    #dt %code{@layouts.create(content, attributes, identifier)} → %var{nothing}
+    #dd Creates an item with the given content, attributes, and identifier. For items, if the %code{:binary} parameter is %code{true}, the content will be considered binary.
 
-#dl
-  #dt %code{@items.delete_if { |item| … %}} → %var{nothing}
-  #dt %code{@layouts.delete_if { |layout| … %}} → %var{nothing}
-  #dd Removes any item or layout for which the given block returns true.
+#section %h{%code{@item}}
+  #p The %code{@item} variable contains the item that is currently being processed. This variable is available within compilation and routing rules, as well as while filtering and laying out an item.
 
-  #dt %code{@items.create(content, attributes, identifier)} → %var{nothing}
-  #dt %code{@items.create(content, attributes, identifier, binary: true)} → %var{nothing}
-  #dt %code{@layouts.create(content, attributes, identifier)} → %var{nothing}
-  #dd Creates an item with the given content, attributes, and identifier. For items, if the %code{:binary} parameter is %code{true}, the content will be considered binary.
+  #dl
+    #dt %code{@item[:someattribute]} → %var{object}
+    #dd The attribute for the given key.
 
-#h2 %code{@item}
+    #dt %code{@item.attributes} → %code{Hash}
+    #dd A hash containing all attributes of this item.
 
-#p The %code{@item} variable contains the item that is currently being processed. This variable is available within compilation and routing rules, as well as while filtering and laying out an item.
+    #dt %code{@item.binary?} → %code{true} / %code{false}
+    #dd Whether or not the source content of this item is binary.
 
-#dl
-  #dt %code{@item[:someattribute]} → %var{object}
-  #dd The attribute for the given key.
+    #dt %code{@item.compiled_content} → %code{String}
+    #dt %code{@item.compiled_content(rep: :foo)} → %code{String}
+    #dt %code{@item.compiled_content(snapshot: :bar)} → %code{String}
+    #dd The compiled content. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default). This method cannot be used in the preprocessor or the rules, as the content has not been (fully) compiled at that point.
 
-  #dt %code{@item.attributes} → %code{Hash}
-  #dd A hash containing all attributes of this item.
+    #dt %code{@item.fetch(:some_key, fallback)} → %var{object}
+    #dd The attribute for the given key, or %code{fallback} if the key is not found.
 
-  #dt %code{@item.binary?} → %code{true} / %code{false}
-  #dd Whether or not the source content of this item is binary.
+    #dt %code{@item.fetch(:some_key) { |key| … %}} → %var{object}
+    #dd The attribute for the given key, or the value of the block if the key is not found.
 
-  #dt %code{@item.compiled_content} → %code{String}
-  #dt %code{@item.compiled_content(rep: :foo)} → %code{String}
-  #dt %code{@item.compiled_content(snapshot: :bar)} → %code{String}
-  #dd The compiled content. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default). This method cannot be used in the preprocessor or the rules, as the content has not been (fully) compiled at that point.
+    #dt %code{@item.identifier} → %var{identifier}
+    #dd The identifier, e.g. %code{/about.md}, or %code{/about/} (with legacy identifier format).
 
-  #dt %code{@item.fetch(:some_key, fallback)} → %var{object}
-  #dd The attribute for the given key, or %code{fallback} if the key is not found.
+    #dt %code{@item.key?(some_key)} → %code{true} / %code{false}
+    #dd Whether or not an attribute with the given key exists.
 
-  #dt %code{@item.fetch(:some_key) { |key| … %}} → %var{object}
-  #dd The attribute for the given key, or the value of the block if the key is not found.
+    #dt %code{@item.path} → %code{String}
+    #dt %code{@item.path(rep: :foo)} → %code{String}
+    #dt %code{@item.path(snapshot: :bar)} → %code{String}
+    #dd The path to the compiled item. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
-  #dt %code{@item.identifier} → %var{identifier}
-  #dd The identifier, e.g. %code{/about.md}, or %code{/about/} (with legacy identifier format).
+    #dt %code{@item.reps} → %var{collection of reps}
+    #dd The collection of representations for this item.
 
-  #dt %code{@item.key?(some_key)} → %code{true} / %code{false}
-  #dd Whether or not an attribute with the given key exists.
+  #p For items that use the legacy identifier format (e.g. %code{/page/} rather than %code{/page.md}), the following methods are available:
 
-  #dt %code{@item.path} → %code{String}
-  #dt %code{@item.path(rep: :foo)} → %code{String}
-  #dt %code{@item.path(snapshot: :bar)} → %code{String}
-  #dd The path to the compiled item. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
+  #dl[legacy]
+    #dt %code{@item.parent} → %var{item} / %code{nil}
+    #dd The parent of this item, i.e. the item that corresponds with this item’s identifier with the last component removed. For example, the parent of the item with identifier %code{/foo/bar/} is the item with identifier %code{/foo/}.
 
-  #dt %code{@item.reps} → %var{collection of reps}
-  #dd The collection of representations for this item.
+    #dt %code{@item.children} → %var{collection of items}
+    #dd The items for which this item is the parent.
 
-#p For items that use the legacy identifier format (e.g. %code{/page/} rather than %code{/page.md}), the following methods are available:
+  #p The following methods are available during preprocessing:
 
-#dl[legacy]
-  #dt %code{@item.parent} → %var{item} / %code{nil}
-  #dd The parent of this item, i.e. the item that corresponds with this item’s identifier with the last component removed. For example, the parent of the item with identifier %code{/foo/bar/} is the item with identifier %code{/foo/}.
+  #dl
+    #dt %code{@item[:some_key] = some_value} → %var{nothing}
+    #dd Assigns the given value to the attribute with the given key.
 
-  #dt %code{@item.children} → %var{collection of items}
-  #dd The items for which this item is the parent.
+    #dt %code{@item.update_attributes(some_hash)} → %var{nothing}
+    #dd Updates the attributes based on the given hash.
 
-#p The following methods are available during preprocessing:
+  #p The item reps collection (%code{@item.reps}) has the following methods:
 
-#dl
-  #dt %code{@item[:some_key] = some_value} → %var{nothing}
-  #dd Assigns the given value to the attribute with the given key.
+  #dl
+    #dt %code{@item.reps[:name]} → %var{item rep} / %code{nil}
+    #dd The item representation with the given name, or %code{nil} if the requested item rep does not exists.
 
-  #dt %code{@item.update_attributes(some_hash)} → %var{nothing}
-  #dd Updates the attributes based on the given hash.
+    #dt %code{@item.reps.each { |rep| … %}} → %var{nothing}
+    #dd Yields every item representation.
 
-#p The item reps collection (%code{@item.reps}) has the following methods:
+    #dt %code{@item.reps.fetch(:name)} → %var{item rep}
+    #dd The item representation with the given name. Raises if the requested item rep does not exist.
 
-#dl
-  #dt %code{@item.reps[:name]} → %var{item rep} / %code{nil}
-  #dd The item representation with the given name, or %code{nil} if the requested item rep does not exists.
+    #dt %code{@item.reps.size} → %code{Integer}
+    #dd The number of item representations.
 
-  #dt %code{@item.reps.each { |rep| … %}} → %var{nothing}
-  #dd Yields every item representation.
+  #p The following methods are available during postprocessing:
 
-  #dt %code{@item.reps.fetch(:name)} → %var{item rep}
-  #dd The item representation with the given name. Raises if the requested item rep does not exist.
+  #dl
+    #dt %code{@item.modified?} → %var{boolean}
+    #dd %code{true} if the item’s compiled content has changed; %code{false} otherwise.
 
-  #dt %code{@item.reps.size} → %code{Integer}
-  #dd The number of item representations.
+  #p Item representation collections include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
 
-#p The following methods are available during postprocessing:
+#section %h{%code{@layout}}
+  #p The %code{@layout} variable contains the layout that is currently being used. This variable is only available while laying out an item.
 
-#dl
-  #dt %code{@item.modified?} → %var{boolean}
-  #dd %code{true} if the item’s compiled content has changed; %code{false} otherwise.
+  #dl
+    #dt %code{@layout[:someattribute]} → %var{object}
+    #dd The attribute for the given key.
 
-#p Item representation collections include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
+    #dt %code{@layout.attributes} → %code{Hash}
+    #dd A hash containing all attributes of this layout.
 
-#h2 %code{@layout}
+    #dt %code{@layout.fetch(:some_key, fallback)} → %var{object}
+    #dd The attribute for the given key, or %code{fallback} if the key is not found.
 
-#p The %code{@layout} variable contains the layout that is currently being used. This variable is only available while laying out an item.
+    #dt %code{@layout.fetch(:some_key) { |key| … %}} → %var{object}
+    #dd The attribute for the given key, or the value of the block if the key is not found.
 
-#dl
-  #dt %code{@layout[:someattribute]} → %var{object}
-  #dd The attribute for the given key.
+    #dt %code{@layout.identifier} → %var{identifier}
+    #dd The identifier, e.g. %code{/about.md}, or %code{/about/} (with legacy identifier format).
 
-  #dt %code{@layout.attributes} → %code{Hash}
-  #dd A hash containing all attributes of this layout.
+    #dt %code{@layout.key?(some_key)} → %code{true} / %code{false}
+    #dd Whether or not an attribute with the given key exists.
 
-  #dt %code{@layout.fetch(:some_key, fallback)} → %var{object}
-  #dd The attribute for the given key, or %code{fallback} if the key is not found.
+  #p The following methods are available during preprocessing:
 
-  #dt %code{@layout.fetch(:some_key) { |key| … %}} → %var{object}
-  #dd The attribute for the given key, or the value of the block if the key is not found.
+  #dl
+    #dt %code{@layout[:some_key] = some_value} → %var{nothing}
+    #dd Assigns the given value to the attribute with the given key.
 
-  #dt %code{@layout.identifier} → %var{identifier}
-  #dd The identifier, e.g. %code{/about.md}, or %code{/about/} (with legacy identifier format).
+    #dt %code{@layout.update_attributes(some_hash)} → %var{nothing}
+    #dd Updates the attributes based on the given hash.
 
-  #dt %code{@layout.key?(some_key)} → %code{true} / %code{false}
-  #dd Whether or not an attribute with the given key exists.
+#section %h{%code{@item_rep} or %code{@rep}}
+  #p The %code{@item_rep} variable contains the item representation that is currently being processed. It is also available as %code{@rep}. This variable is available while filtering and laying out an item.
 
-#p The following methods are available during preprocessing:
+  #dl
+    #dt %code{@item_rep.binary?} → %code{true} / %code{false}
+    #dd Whether or not the content of this item representation is binary.
 
-#dl
-  #dt %code{@layout[:some_key] = some_value} → %var{nothing}
-  #dd Assigns the given value to the attribute with the given key.
+    #dt %code{@item_rep.item} → %var{item}
+    #dd The item for the item rep.
 
-  #dt %code{@layout.update_attributes(some_hash)} → %var{nothing}
-  #dd Updates the attributes based on the given hash.
+    #dt %code{@item_rep.name} → %code{Symbol}
+    #dd The name of the item rep, e.g. %code{:default}.
 
-#h2 %code{@item_rep} or %code{@rep}
+    #dt %code{@item_rep.path} → %code{String}
+    #dt %code{@item_rep.path(snapshot: :foo)} → %code{String}
+    #dd The path to the compiled item representation. The %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
-#p The %code{@item_rep} variable contains the item representation that is currently being processed. It is also available as %code{@rep}. This variable is available while filtering and laying out an item.
-
-#dl
-  #dt %code{@item_rep.binary?} → %code{true} / %code{false}
-  #dd Whether or not the content of this item representation is binary.
-
-  #dt %code{@item_rep.item} → %var{item}
-  #dd The item for the item rep.
-
-  #dt %code{@item_rep.name} → %code{Symbol}
-  #dd The name of the item rep, e.g. %code{:default}.
-
-  #dt %code{@item_rep.path} → %code{String}
-  #dt %code{@item_rep.path(snapshot: :foo)} → %code{String}
-  #dd The path to the compiled item representation. The %code{:snapshot} specifies the snapshot (%code{:last} by default).
-
-  #dt %code{@item_rep.compiled_content} → %code{String}
-  #dt %code{@item_rep.compiled_content(snapshot: :bar)} → %code{String}
-  #dd The compiled content. The %code{:snapshot} specifies the snapshot (%code{:last} by default).
+    #dt %code{@item_rep.compiled_content} → %code{String}
+    #dt %code{@item_rep.compiled_content(snapshot: :bar)} → %code{String}
+    #dd The compiled content. The %code{:snapshot} specifies the snapshot (%code{:last} by default).

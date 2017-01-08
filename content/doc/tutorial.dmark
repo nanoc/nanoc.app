@@ -164,8 +164,7 @@ title: "Tutorial"
 
   #tip If you do not like having a metadata section at the top of every page (perhaps because it breaks syntax highlighting), you can put the metadata in a YAML file with the same name as the page itself. For example, the %filename{content/about.html} page can have its metadata stored in %filename{content/about.yaml} instead.
 
-  #h2[id=customize-the-layout] Customize the layout
-
+#section[id=customize-the-layout] %h{Customize the layout}
   #p The look and feel of a site is defined in layouts. Open the site’s default (and only) layout, %filename{layouts/default.html}, your text editor. It %emph{almost} looks like an HTML page, except for the frontmatter at the top of the file, and eRuby (Embedded Ruby) instructions such as the %code{<%%= yield %%>} one:
 
   #listing[lang=html]
@@ -207,8 +206,7 @@ title: "Tutorial"
 
   #p Recompile the site and open both the home page and the about page. The about page contains a paragraph mentioning John Doe as the author, while the home page does not.
 
-  #h2[id=write-pages-in-markdown] Write pages in Markdown
-
+#section[id=write-pages-in-markdown] %h{Write pages in Markdown}
   #p Nanoc has %firstterm{filters}, which transform content from one format into another.
 
   #p A language that is commonly used instead of HTML is %ref[url=http://daringfireball.net/projects/markdown]{Markdown}. Nanoc comes with several different Markdown filters, including a filter for %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.

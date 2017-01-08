@@ -52,5 +52,5 @@ short_title: "About"
 
   #p Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes, and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
-#section %h2{Similar projects}
+#section %h{Similar projects}
   #p There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, see %ref[url=http://staticsitegenerators.net/]{this list of static-site generators}.

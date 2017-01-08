@@ -12,47 +12,45 @@ nav_title: "Install"
 
 #p For detailed installation instructions, read on.
 
-#h2 Installing Ruby
+#section %h{Installing Ruby}
+  #p Nanoc requires %ref[url=http://ruby-lang.org/]{Ruby} in order to run. Nanoc supports the official Ruby interpreter from version 2.1 up, as well as JRuby from version 9000 up.
 
-#p Nanoc requires %ref[url=http://ruby-lang.org/]{Ruby} in order to run. Nanoc supports the official Ruby interpreter from version 2.1 up, as well as JRuby from version 9000 up.
+  #p Ruby may already be installed on your system. To check, open a terminal window and type %kbd{ruby --version}. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 
-#p Ruby may already be installed on your system. To check, open a terminal window and type %kbd{ruby --version}. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
+  #listing
+    %prompt{%%} %kbd{ruby --version}
+    %erb{config[:ruby_version_info]}
+    %prompt{%%}
 
-#listing
-  %prompt{%%} %kbd{ruby --version}
-  %erb{config[:ruby_version_info]}
-  %prompt{%%}
+  #p To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby website}.
 
-#p To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby website}.
+#section %h{Installing Nanoc}
+  #p All dependencies are now taken care of, and installing Nanoc should now be easy:
 
-#h2 Installing Nanoc
+  #listing
+    %prompt{%%} %kbd{gem install nanoc}
 
-#p All dependencies are now taken care of, and installing Nanoc should now be easy:
+  #note %entity{sudo-gem-install}
 
-#listing
-  %prompt{%%} %kbd{gem install nanoc}
+  #p To make sure that Nanoc was installed correctly, run %kbd{nanoc --version}. It should print the version number along with some other information, like this:
 
-#note %entity{sudo-gem-install}
+  #listing
+    %prompt{%%} %kbd{nanoc --version}
+    %erb{config[:nanoc_version_info]}
+    %prompt{%%}
 
-#p To make sure that Nanoc was installed correctly, run %kbd{nanoc --version}. It should print the version number along with some other information, like this:
+  #p If you get a “command not found” error when trying to run %command{nanoc}, you might have to adjust your %code{$PATH} to include the path to the directory where RubyGems installs executables.
 
-#listing
-  %prompt{%%} %kbd{nanoc --version}
-  %erb{config[:nanoc_version_info]}
-  %prompt{%%}
+  #p The current version of Nanoc is %erb{latest_release_info[:version]}, released on %erb{latest_release_info[:date].format_as_date}. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
 
-#p If you get a “command not found” error when trying to run %command{nanoc}, you might have to adjust your %code{$PATH} to include the path to the directory where RubyGems installs executables.
+  #p If you’re on Windows and are using the Windows console, it’s probably a good idea to install the %productname{win32console} gem using %kbd{gem install win32console} to allow Nanoc to use pretty colors when writing stuff to the terminal.
 
-#p The current version of Nanoc is %erb{latest_release_info[:version]}, released on %erb{latest_release_info[:date].format_as_date}. You can find the release notes for this version as well as release notes for older versions on %ref[item=/release-notes]{}.
+  #h3 Installing from git
 
-#p If you’re on Windows and are using the Windows console, it’s probably a good idea to install the %productname{win32console} gem using %kbd{gem install win32console} to allow Nanoc to use pretty colors when writing stuff to the terminal.
+  #p You can also install Nanoc from the repository if you want to take advantage of the latest features and improvements in Nanoc. Be warned that the versions from the repository may be unstable, so it is recommended to install Nanoc from RubyGems if you want to stay safe. You can install Nanoc from the git repository like this:
 
-#h3 Installing from git
-
-#p You can also install Nanoc from the repository if you want to take advantage of the latest features and improvements in Nanoc. Be warned that the versions from the repository may be unstable, so it is recommended to install Nanoc from RubyGems if you want to stay safe. You can install Nanoc from the git repository like this:
-
-#listing
-  %prompt{~%%} %kbd{git clone git://github.com/nanoc/nanoc.git}
-  %prompt{~%%} %kbd{cd nanoc}
-  %prompt{~/nanoc%%} %kbd{gem build nanoc.gemspec}
-  %prompt{~/nanoc%%} %kbd{gem install nanoc-*.gem}
+  #listing
+    %prompt{~%%} %kbd{git clone git://github.com/nanoc/nanoc.git}
+    %prompt{~%%} %kbd{cd nanoc}
+    %prompt{~/nanoc%%} %kbd{gem build nanoc.gemspec}
+    %prompt{~/nanoc%%} %kbd{gem install nanoc-*.gem}

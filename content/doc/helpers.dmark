@@ -11,52 +11,52 @@ title: "Helpers"
 
 #p Take a look at the %ref[item=/doc/reference/helpers.*]{helpers reference} for a list of helpers that are included with Nanoc.
 
-#h2 Writing helpers
+#section %h{Writing helpers}
 
-#p To write a helper, create a file in the %filename{lib/} directory of the site. In that file, declare a module, and put your helper methods inside that module.
+  #p To write a helper, create a file in the %filename{lib/} directory of the site. In that file, declare a module, and put your helper methods inside that module.
 
-#p For example, the file %filename{lib/random_text.rb} could contain this:
+  #p For example, the file %filename{lib/random_text.rb} could contain this:
 
-#listing[lang=ruby]
-  module RandomTextHelper
-    def random_text
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do" \
-      "eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  #listing[lang=ruby]
+    module RandomTextHelper
+      def random_text
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do" \
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      end
     end
-  end
 
-#p To use this helper, %code{include} it, for instance in %filename{lib/helpers.rb}:
+  #p To use this helper, %code{include} it, for instance in %filename{lib/helpers.rb}:
 
-#listing[lang=ruby]
-  include RandomTextHelper
+  #listing[lang=ruby]
+    include RandomTextHelper
 
-#p The methods provided by this helper can now be used during filtering. For example, the default layout, assuming it is filtered using ERB, can now generate random text like this:
+  #p The methods provided by this helper can now be used during filtering. For example, the default layout, assuming it is filtered using ERB, can now generate random text like this:
 
-#listing[lang=erb]
-  <p><%%= random_text %%></p>
+  #listing[lang=erb]
+    <p><%%= random_text %%></p>
 
-#h3 Pitfall: helper load order
+  #h3 Pitfall: helper load order
 
-#p Files in the %filename{lib/} directory are loaded alphabetically. This can cause Nanoc to try to %code{include} a helper before it is loaded.
+  #p Files in the %filename{lib/} directory are loaded alphabetically. This can cause Nanoc to try to %code{include} a helper before it is loaded.
 
-#p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{#include} calls:
+  #p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{#include} calls:
 
-#listing
-  %prompt{%%} %kbd{tree lib}
-  lib
-  ├── helpers.rb
-  └── helpers
-      ├── link_to_id.rb
-      └── toc.rb
+  #listing
+    %prompt{%%} %kbd{tree lib}
+    lib
+    ├── helpers.rb
+    └── helpers
+        ├── link_to_id.rb
+        └── toc.rb
 
-#p The %filename{lib/helpers.rb} file will be loaded before anything in %filename{lib/helpers/}, and will thus result in an error such as %code{NameError: uninitialized constant LinkToId}.
+  #p The %filename{lib/helpers.rb} file will be loaded before anything in %filename{lib/helpers/}, and will thus result in an error such as %code{NameError: uninitialized constant LinkToId}.
 
-#p To resolve this problem, rename %filename{lib/helpers.rb} to %filename{lib/helpers_.rb}, so that it gets loaded after the helpers have loaded:
+  #p To resolve this problem, rename %filename{lib/helpers.rb} to %filename{lib/helpers_.rb}, so that it gets loaded after the helpers have loaded:
 
-#listing
-  %prompt{%%} %kbd{tree lib}
-  lib
-  ├── helpers
-  │   ├── link_to_id.rb
-  │   └── toc.rb
-  └── helpers_.rb
+  #listing
+    %prompt{%%} %kbd{tree lib}
+    lib
+    ├── helpers
+    │   ├── link_to_id.rb
+    │   └── toc.rb
+    └── helpers_.rb
