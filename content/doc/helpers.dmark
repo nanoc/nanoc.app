@@ -35,28 +35,27 @@ title: "Helpers"
   #listing[lang=erb]
     <p><%%= random_text %%></p>
 
-  #h3 Pitfall: helper load order
+  #section %h{Pitfall: helper load order}
+    #p Files in the %filename{lib/} directory are loaded alphabetically. This can cause Nanoc to try to %code{include} a helper before it is loaded.
 
-  #p Files in the %filename{lib/} directory are loaded alphabetically. This can cause Nanoc to try to %code{include} a helper before it is loaded.
+    #p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{#include} calls:
 
-  #p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{#include} calls:
+    #listing
+      %prompt{%%} %kbd{tree lib}
+      lib
+      ├── helpers.rb
+      └── helpers
+          ├── link_to_id.rb
+          └── toc.rb
 
-  #listing
-    %prompt{%%} %kbd{tree lib}
-    lib
-    ├── helpers.rb
-    └── helpers
-        ├── link_to_id.rb
-        └── toc.rb
+    #p The %filename{lib/helpers.rb} file will be loaded before anything in %filename{lib/helpers/}, and will thus result in an error such as %code{NameError: uninitialized constant LinkToId}.
 
-  #p The %filename{lib/helpers.rb} file will be loaded before anything in %filename{lib/helpers/}, and will thus result in an error such as %code{NameError: uninitialized constant LinkToId}.
+    #p To resolve this problem, rename %filename{lib/helpers.rb} to %filename{lib/helpers_.rb}, so that it gets loaded after the helpers have loaded:
 
-  #p To resolve this problem, rename %filename{lib/helpers.rb} to %filename{lib/helpers_.rb}, so that it gets loaded after the helpers have loaded:
-
-  #listing
-    %prompt{%%} %kbd{tree lib}
-    lib
-    ├── helpers
-    │   ├── link_to_id.rb
-    │   └── toc.rb
-    └── helpers_.rb
+    #listing
+      %prompt{%%} %kbd{tree lib}
+      lib
+      ├── helpers
+      │   ├── link_to_id.rb
+      │   └── toc.rb
+      └── helpers_.rb
