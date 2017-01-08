@@ -154,14 +154,6 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         wrap_inline(name, node, context),
         "\n",
       ]
-    when 'h2'
-      id = to_id(text_content_of(node))
-
-      [
-        wrap_inline('section', node, context),
-        '\label{section:', id, '}',
-        "\n",
-      ]
     when 'ul'
       [
         '\\begin{itemize}',
