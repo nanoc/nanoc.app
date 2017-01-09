@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 group 'nanoc' do # automatically required by Nanoc
   gem 'therubyracer', github: 'cowboyd/therubyracer'
   gem 'guard-nanoc'
-  gem 'nanoc-git'
 end
 
 gem 'nanoc', '~> 4.2'
