@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/cowboyd/therubyracer.git
-  revision: a635aee79b2057c396f8af92417cadf93415c275
+  revision: 466a1f0d4f696acfe971899272359623ec0a7a97
   specs:
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/ddfreyne/d-mark.git
-  revision: 9633d2e0be08c1f59348907eec121893e6f70498
+  revision: f71ffc35f37d26579a8d85059575762f57b64351
   specs:
     d-mark (1.0.0a3)
 
@@ -29,6 +29,7 @@ GEM
     concurrent-ruby (1.0.4)
     cri (2.7.1)
       colored (~> 1.2)
+    ddplugin (1.0.0)
     ffi (1.9.14)
     ffi-aspell (1.1.0)
       ffi
@@ -53,7 +54,7 @@ GEM
       concurrent-ruby (~> 1.0)
     htmlcompressor (0.3.1)
     json (2.0.2)
-    kramdown (1.13.1)
+    kramdown (1.13.2)
     libv8 (3.16.14.17)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -62,8 +63,9 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.4.7)
+    nanoc (4.5.1)
       cri (~> 2.3)
+      ddplugin (~> 1.0)
       hamster (~> 3.0)
       ref (~> 2.0)
     nanoc-git (1.0.1)
