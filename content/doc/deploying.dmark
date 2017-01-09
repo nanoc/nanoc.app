@@ -67,17 +67,7 @@ short_title: "Deploying"
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
   #section %h{Automated deployment}
-    #p To deploy the site using the %command{nanoc deploy} command, add %ref[url=https://github.com/nanoc/nanoc-git]{%productname{nanoc-git}} to the %filename{Gemfile} inside the %code{nanoc} group, and run %command{bundle install}:
-
-    #listing[lang=ruby]
-      group 'nanoc' do
-        gem 'nanoc-git'
-      end
-
-    #listing
-      %prompt{%%} %kbd{bundle install}
-
-    #p In the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites), add a deployment target with the target %code{git}:
+    #p To deploy the site using the %command{nanoc deploy} command, add a deployment target with the target %code{git} to the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites):
 
     #listing[lang=yaml]
       deploy:
