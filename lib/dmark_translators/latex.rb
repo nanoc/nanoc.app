@@ -127,6 +127,9 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         '\index{', text_content_of(node), '}',
         wrap_inline('emph', node, context)
       ]
+    when 'mark'
+      # TODO: handle mark
+      handle_children(node, context)
     when 'emph', 'class', 'productname', 'see', 'var', 'log-create', 'log-check-ok', 'log-check-error', 'log-update'
       wrap_inline('emph', node, context)
     when 'strong'
