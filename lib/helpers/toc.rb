@@ -75,24 +75,6 @@ def subtoc_for(elements, item, limit)
   out << '</ol>'
 end
 
-def detailed_toc_for(item_identifier, params={})
-  limit = params.fetch(:limit, 999)
-  item = @items[item_identifier]
-  content = item.compiled_content(snapshot: :pre)
-
-  header_finder = HeaderFinder.new
-  Nokogiri::HTML::SAX::Parser.new(header_finder).parse(content)
-  headers = header_finder.headers
-
-  toc = toc_structure_from_headers(headers)
-
-  out = ''
-  out << '<li>' << link_to_id(item_identifier)
-  out << subtoc_for(toc, item, limit)
-  out << '</li>'
-  out
-end
-
 def doc_toc
   out = ''
 
