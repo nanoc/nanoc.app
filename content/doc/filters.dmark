@@ -20,7 +20,7 @@ title: "Filters"
 
 #p Nanoc comes with a handful of filters. See %ref[item=/doc/reference/filters.*]{} for a list of filters bundled with Nanoc.
 
-#section[id=writing-filters] %h{Writing filters}
+#section %h[id=writing-filters]{Writing filters}
   #p Filters are classes that inherit from %code{Nanoc::Filter}. Writing custom filters is done by subclassing this class and overriding the %code{#run} method, which is responsible for transforming the content.
 
   #p Here is an example (textual) filter that replaces any occurrences of “Nanoc sucks” by “Nanoc rocks”:

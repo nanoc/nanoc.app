@@ -6,7 +6,7 @@ title: "Internals"
 
 #todo This document is a work in progress. It’s highly incomplete, but will gradually be expanded to include more detail.
 
-#section[id=outdatedness-checking] %h{Outdatedness checking}
+#section %h[id=outdatedness-checking]{Outdatedness checking}
   #p Nanoc is a smart static-site generator; it avoids recompiling items unless necessary.
 
   #p Nanoc will recompile an item if it is deemed to be outdated. The class responsible for determining whether or not an item is outdated is the %code{OutdatednessChecker}. An item is considered as outdated if any of the following conditions hold:

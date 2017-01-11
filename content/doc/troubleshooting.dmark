@@ -39,7 +39,7 @@ title: "Troubleshooting"
 
   #p When you are getting this error unexpectedly, double-check your Rules file and make sure that no binary item is filtered through a textual filter. Remember that Nanoc will use the first matching rule only!
 
-#section[id=character-encoding-issues] %h{Character encoding issues}
+#section %h[id=character-encoding-issues]{Character encoding issues}
   #p Character encoding issues manifest themselves in two ways:
 
   #ul
