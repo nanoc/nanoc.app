@@ -1,0 +1,44 @@
+---
+title: "Release notes"
+---
+
+#p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
+
+#section %h{Nanoc 4.5}
+  #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.
+
+#section %h{Nanoc 4.4}
+  #p Nanoc 4.4 adds support for environments. The %command{compile} command now takes an %command{--env} option, e.g. %command{nanoc compile --env=prod}, which sets the %code{NANOC_ENV} environment variable to the given value, and also changes the way the configuration is read.
+
+  #p The configuration can now contain an %code{environments} section, like this:
+
+  #listing[lang=yaml]
+    base_url: http://nanoc.dev
+
+    environments:
+      prod:
+        base_url: http://nanoc.ws
+      staging:
+        base_url: http://staging.nanoc.ws
+
+  #p When an environment is specified on the command line, the data for the environment with the given name will be merged into the top level of the configuration. For example, with %command{--env=prod}, the configuration effectively becomes as follows:
+
+  #listing[lang=yaml]
+    base_url: http://nanoc.ws
+
+  #p For details about environments, see %ref[item=/doc/sites.*,frag=environments]{}.
+
+#section %h{Nanoc 4.3}
+  #p Nanoc 4.3 adds %code{Nanoc::Filter.define}, which makes defining filters a little less verbose:
+
+  #listing[lang=ruby]
+    Nanoc::Filter.define(:censor) do |content, params|
+      content.gsub('Nanoc sucks', 'Nanoc rocks')
+    end
+
+  #p See %ref[item=/doc/filters.*,frag=writing-filters]{} for details.
+
+  #p Additionally, Nanoc will automatically %code{require} all gems defined in the %code{nanoc} group in the %filename{Gemfile}. This is particularly useful for the %code{guard-nanoc} gem, which, when added to the %code{nanoc} group in the %filename{Gemfile}, will add a new %command{live} command to %command{nanoc}. This %command{nanoc live} command simultaneously recompiles the site on changes, and runs a web server. See the %ref[url=https://github.com/guard/guard-nanoc]{%code{guard-nanoc} repository} for details.
+
+#section %h{Nanoc 4.2 and older}
+  #p Release notes are pending. For the time being, see %ref[item=/release-notes/details.*]{}.

@@ -82,7 +82,7 @@ title: "Sites"
 
   #p You can use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} to automatically recompile the site when it changes.
 
-#section %h{Environments}
+#section[id=environments] %h{Environments}
   #p Nanoc supports defining multiple environments in which sites can be compiled. For example, a %code{devel} (development) and a %code{prod} (production) environment, where %code{prod} performs additional work that is typically not needed for local development, such as minifying HTML and CSS, converting all paths to be relative, and cleaning up typography.
 
   #p To specify an environment, pass the %code{-e} or %code{--env} option to the %command{compile} command. For example:

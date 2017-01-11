@@ -59,7 +59,7 @@ compile '/404.*' do
   write '/404.html'
 end
 
-compile '/release-notes' do
+compile '/release-notes/details.*' do
   filter :fix_contributor_brackets
   filter :kramdown, :auto_ids => false
   filter :add_ids_to_headers
