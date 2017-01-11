@@ -4,7 +4,7 @@ title: "Identifiers and patterns"
 
 #p In Nanoc, every item (page or asset) and every layout has a unique %firstterm{identifier}: a string derived from the file’s path. A %firstterm{pattern} is an expression that is used to select items or layouts based on their identifier.
 
-#section[id=identifiers] %h{Identifiers}
+#section %h[id=identifiers]{Identifiers}
   #p Identifiers come in two types: the %emph{full} type, new in Nanoc 4, and the %emph{legacy} type, used in Nanoc 3.
 
   #dl
@@ -71,7 +71,7 @@ title: "Identifiers and patterns"
     #li regular expression patterns
     #li legacy patterns
 
-  #section[id=glob-patterns] %h{Glob patterns}
+  #section %h[id=glob-patterns]{Glob patterns}
     #p Glob patterns are strings that contain wildcard characters. Wildcard characters are characters that can be substituted for other characters in an identifier. An example of a glob pattern is %glob{/projects/*.md}, which matches all files with a %filename{md} extension in the %filename{/projects} directory.
 
     #p Globs are commonplace in Unix-like environments. For example, the Unix command for listing all files with the %filename{md} extension in the current directory is %command{ls *.md}. In this example, the argument to the %command{ls} command is a wildcard.

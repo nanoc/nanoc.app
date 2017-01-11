@@ -20,7 +20,7 @@ short_title: "Deploying"
 
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
-#section %h{With GitHub Pages or Bitbucket}
+#section %h[id=with-git]{With GitHub Pages or Bitbucket}
   #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
   #section %h{GitHub Pages setup}
