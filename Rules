@@ -19,7 +19,7 @@ ignore '/assets/style/*.tex'
 
 compile '/assets/images/hero/*' do
   digest = Digest::SHA1.hexdigest(File.read(item[:filename]))
-  write item.identifier.without_ext + '-' + digest[0..15] + item.identifier.ext
+  write item.identifier.without_ext + '-' + digest[0..15] + '.' + item.identifier.ext
 end
 
 passthrough '/assets/images/**/*'
