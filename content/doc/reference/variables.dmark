@@ -215,7 +215,7 @@ title: "Variables"
 
   #dl
     #dt %code{@item_rep.binary?} → %code{true} / %code{false}
-    #dd Whether or not the content of this item representation is binary.
+    #dd Whether or not the content of the %code{:last} snapshot of this item representation is binary.
 
     #dt %code{@item_rep.item} → %var{item}
     #dd The item for the item rep.
