@@ -113,9 +113,6 @@ title: "Variables"
     #dt %code{@item.attributes} → %code{Hash}
     #dd A hash containing all attributes of this item.
 
-    #dt %code{@item.binary?} → %code{true} / %code{false}
-    #dd Whether or not the source content of this item is binary.
-
     #dt %code{@item.compiled_content} → %code{String}
     #dt %code{@item.compiled_content(rep: :foo)} → %code{String}
     #dt %code{@item.compiled_content(snapshot: :bar)} → %code{String}
