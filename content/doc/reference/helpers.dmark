@@ -163,7 +163,7 @@ title: "Helpers"
       #   <Item* identifier="/projects/nanoc/history/">,
       # ]
 
-#section %h{%code{Capturing}}
+#section[id=capturing] %h{%code{Capturing}}
   #p The %code{Capturing} helper provides functionality for capturing content in one place and reusing this content elsewhere.
 
   #p For example, suppose you want the sidebar of your site to contain a short summary of the item. You could put the summary in the meta file, but that’s not possible when the summary contains eRuby. You could also put the sidebar inside the actual item, but that’s not very pretty. Instead, you write the summary on the item itself, but capture it, and print it in the sidebar layout.

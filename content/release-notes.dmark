@@ -4,6 +4,31 @@ title: "Release notes"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
 
+#section %h{Nanoc 4.6}
+  #p Nanoc 4.6 adds %code{#snapshot?} to item representations. It returns true if the given representations has a snapshot with the given name, false otherwise. For example:
+
+  #listing[lang=rhtml]
+    <%% if @rep.snapshot?(:latex) %%>
+      <link rel=stylesheet href=latex.css>
+    <%% end %%>
+
+  #p The %code{#content_for} function, part of the capturing helper (see %ref[item=/doc/reference/helpers.*,frag=capturing]{} for details), can now be used to set captured content directly:
+
+  #listing[lang=ruby]
+    content_for(:head, 'stuff')
+
+  #p Previously, setting captured content manually was only possible by appending to %code{_erbout}:
+
+  #listing[lang=ruby]
+    content_for(:head) { _erbout << 'stuff' %}
+
+  #p When passing a string to the %code{#content_for} function, parameters are passed before the string argument:
+
+  #listing[lang=ruby]
+    content_for(:head, existing: :append, 'stuff')
+
+  #p Lastly, items and layouts now have %code{#content_for=} during preprocessing, to allow changing the raw content of items and layouts.
+
 #section %h{Nanoc 4.5}
   #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.
 
