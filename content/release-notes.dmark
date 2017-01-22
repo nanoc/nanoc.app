@@ -27,7 +27,7 @@ title: "Release notes"
   #listing[lang=ruby]
     content_for(:head, existing: :append, 'stuff')
 
-  #p Lastly, items and layouts now have %code{#content_for=} during preprocessing, to allow changing the raw content of items and layouts.
+  #p Lastly, items and layouts now have %code{#raw_content=} during preprocessing, to allow changing the raw content of items and layouts.
 
 #section %h{Nanoc 4.5}
   #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.
