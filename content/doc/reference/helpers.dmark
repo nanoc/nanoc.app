@@ -212,12 +212,17 @@ title: "Helpers"
       #p Evaluates the given block and returns its contents. The contents of the block is not outputted.
 
   #section %h{Examples}
-    #p Capturing the content for %code{summary}:
+    #p Capturing the content for %code{summary} with a block:
 
     #listing[lang=rhtml]
       <%% content_for :summary do %%>
         <p>On this item, Nanoc is introduced, blah blah.</p>
       <%% end %%>
+
+    #p Capturing the content for %code{summary} with a string (assuming that the user-defined %code{#summary_for} function returns a string):
+
+    #listing[lang=rhtml]
+      <%% content_for :summary, summary_for(@item) %%>
 
     #p Showing captured content in a sidebar:
 
