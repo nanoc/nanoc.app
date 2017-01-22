@@ -172,8 +172,9 @@ title: "Helpers"
 
   #dl
     #dt %code{content_for(name, params = {%}, &block)} → %code{nil}
+    #dt %code{content_for(name, params = {%}, string)} → %code{nil}
     #dd
-      #p Captures the content inside the block and stores it so that it can be referenced later on. This same method, is used for getting the captured content as well as setting it. When capturing, the content of the block itself will not be outputted.
+      #p Captures content and stores it so that it can be referenced later on. When given a block, the captured content is the string written to %code{_erbout} by the block. When given a string, the captured content is the given string. Captured content is not outputted.
 
       #p This function takes the following arguments:
 
