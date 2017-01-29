@@ -98,7 +98,8 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
   end
 
   def handle_erb(node, context)
-    [eval(text_content_of(node), context.fetch(:binding))]
+    ctx = Nanoc::Int::Context.new(context)
+    [eval(text_content_of(node), ctx.get_binding)]
   end
 
   def handle_img(node, context)

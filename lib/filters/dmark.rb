@@ -1,7 +1,7 @@
 module GenericDMarkFilter
   def run(content, params = {})
     nodes = DMark::Parser.new(content).parse
-    context = { items: @items, item: @item, nodes: nodes, binding: binding }
+    context = { items: @items, item: @item, config: @config, nodes: nodes }
     translator_class.translate(nodes, context)
   rescue => e
     handle_error(e, content)
