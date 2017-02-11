@@ -19,6 +19,10 @@ $color-dark-60:               mix($color-offwhite, $color-black, 100%-40%);
 $color-dark-80:               mix($color-offwhite, $color-black, 100%-70%);
 $color-dark-95:               mix($color-offwhite, $color-black, 100%-95%);
 
+// Text
+$text-color:                  $color-dark-80;
+$text-color-emph:             $color-black;
+
 // Explanation
 $explanation-bg-color:        $color-white;
 $explanation-fg-color:        $color-orange;

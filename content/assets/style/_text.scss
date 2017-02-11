@@ -6,6 +6,14 @@
     hyphens: auto;
 }
 
+p, li, blockquote, dd, .admonition, pre {
+  color: $text-color;
+}
+
+li.active, strong, dt {
+  color: $text-color-emph;
+}
+
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {
     -webkit-hyphenate-character: "";
     -moz-hyphenate-character: "";
