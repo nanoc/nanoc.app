@@ -18,7 +18,13 @@ passthrough '/assets/fonts/**/*'
 ignore '/assets/style/*.tex'
 
 compile '/assets/images/hero/*' do
-  digest = Digest::SHA1.hexdigest(File.read(item[:filename]))
+  digest =
+    if ENV['NANOC_ENV'] == 'dev'
+      'dev'
+    else
+      Digest::SHA1.hexdigest(File.read(item[:filename]))
+    end
+
   write item.identifier.without_ext + '-' + digest[0..15] + '.' + item.identifier.ext
 end
 
@@ -30,7 +36,14 @@ compile '/assets/style/*' do
   filter :rainpress
 
   data = @items.find_all('/assets/style/_*').map { |i| i.raw_content }.join('')
-  digest = Digest::SHA1.hexdigest(data)
+
+  digest =
+    if ENV['NANOC_ENV'] == 'dev'
+      'dev'
+    else
+      Digest::SHA1.hexdigest(data)
+    end
+
   write item.identifier.without_ext + '-' + digest[0..15] + '.css'
 end
 
