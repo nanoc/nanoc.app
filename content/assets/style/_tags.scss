@@ -1,93 +1,93 @@
 @import "colors.scss";
 
 dl.legacy dt:after {
-    content: "LEGACY";
+  content: "LEGACY";
 
-    margin-left: 10px;
-    padding: 1px 4px;
+  margin-left: 10px;
+  padding: 1px 4px;
 
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
 
-    background: $tag-legacy-bg-color;
-    color: $tag-legacy-fg-color;
-    border-radius: 4px;
+  background: $tag-legacy-bg-color;
+  color: $tag-legacy-fg-color;
+  border-radius: 4px;
 }
 
 a.wip {
-    position: relative;
+  position: relative;
 }
 
 a.wip:after {
-    content: "WIP";
+  content: "WIP";
 
-    position: absolute;
-    left: 100%;
-    top: 3px;
+  position: absolute;
+  left: 100%;
+  top: 3px;
 
-    margin-left: 4px;
-    padding: 1px 4px;
+  margin-left: 4px;
+  padding: 1px 4px;
 
-    line-height: 14px;
-    vertical-align: middle;
-    font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 1px;
+  line-height: 14px;
+  vertical-align: middle;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
 
-    background: $tag-wip-bg-color;
-    color: $tag-wip-fg-color;
-    border-radius: 4px;
+  background: $tag-wip-bg-color;
+  color: $tag-wip-fg-color;
+  border-radius: 4px;
 }
 
 pre.errors:before {
-    content: "ERRORS";
+  content: "ERRORS";
 
-    background: $tag-errors-bg-color;
-    color: $tag-errors-fg-color;
-    border-top-right-radius: 4px;
+  background: $tag-errors-bg-color;
+  color: $tag-errors-fg-color;
+  border-top-right-radius: 4px;
 }
 
 pre.legacy:before {
-    content: "LEGACY";
+  content: "LEGACY";
 
-    background: $tag-legacy-bg-color;
-    color: $tag-legacy-fg-color;
-    border-top-right-radius: 4px;
+  background: $tag-legacy-bg-color;
+  color: $tag-legacy-fg-color;
+  border-top-right-radius: 4px;
 }
 
 pre.legacy-intermediate:before {
-    content: "LEGACY - INTERMEDIATE";
+  content: "LEGACY - INTERMEDIATE";
 
-    background: $tag-legacy-intermediate-bg-color;
-    color: $tag-legacy-intermediate-fg-color;
-    border-top-right-radius: 4px;
+  background: $tag-legacy-intermediate-bg-color;
+  color: $tag-legacy-intermediate-fg-color;
+  border-top-right-radius: 4px;
 }
 
 pre.new:before {
-    content: "NEW";
+  content: "NEW";
 
-    background: $tag-new-bg-color;
-    color: $tag-new-fg-color;
-    border-top-right-radius: 4px;
+  background: $tag-new-bg-color;
+  color: $tag-new-fg-color;
+  border-top-right-radius: 4px;
 }
 
 pre.errors:before,
 pre.legacy:before,
 pre.legacy-intermediate:before,
 pre.new:before {
-    position: relative;
-    top: -10px;
-    right: -10px;
+  position: relative;
+  top: -10px;
+  right: -10px;
 
-    line-height: 15px;
-    vertical-align: middle;
-    font-family: "Source Sans Pro";
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1px;
+  line-height: 15px;
+  vertical-align: middle;
+  font-family: "Source Sans Pro";
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
 
-    float: right;
+  float: right;
 
-    padding: 5px 8px;
+  padding: 5px 8px;
 }

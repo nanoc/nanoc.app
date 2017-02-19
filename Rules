@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'susy'
-
 preprocess do
   config[:nanoc_version_info] = Nanoc.version_information.strip
   config[:gem_version_info]   = Gem::VERSION

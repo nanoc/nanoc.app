@@ -1,27 +1,27 @@
 @import "colors.scss";
 
 figure {
-    background: $figure-bg-color;
-    border: 1px solid $figure-border-color;
+  background: $figure-bg-color;
+  border: 1px solid $figure-border-color;
 
-    margin: 0 0 20px 0;
+  margin: 0 0 20px 0;
 
-    img {
-        display: block;
+  img {
+    display: block;
 
-        width: 100%;
-    }
+    width: 100%;
+  }
 
-    figcaption {
-        padding: 5px 10px;
+  figcaption {
+    padding: 5px 10px;
 
-        background: $figure-caption-bg-color;
+    background: $figure-caption-bg-color;
 
-        display: block;
+    display: block;
 
-        font-size: 13px;
-        font-style: italic;
-    }
+    font-size: 13px;
+    font-style: italic;
+  }
 }
 
 figure.compact {

@@ -80,7 +80,7 @@ def doc_toc
 
   @config[:toc].each do |section|
     out << '<h4>' + section[:title] + '</h4>'
-    out << '<ul>'
+    out << '<ul class="toc">'
     section[:children].each do |child_glob|
       out << '<li>'
       if @item.identifier =~ child_glob

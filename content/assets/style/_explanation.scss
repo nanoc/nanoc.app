@@ -1,0 +1,33 @@
+.explanation {
+  background: $explanation-bg-color;
+  color: $explanation-fg-color;
+}
+
+.explanation-content {
+  box-sizing: border-box;
+
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  font-size: 32px;
+
+  line-height: 40px;
+
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .explanation-content {
+    padding: 40px 96px;
+  }
+}
+
+@media (max-width: 719px) {
+  .explanation-content {
+    padding: 20px;
+
+    font-size: 24px;
+    line-height: 30px;
+  }
+}

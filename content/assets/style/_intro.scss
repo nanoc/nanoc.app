@@ -1,0 +1,28 @@
+.header {
+  background: $intro-bg-color;
+}
+
+.header h1 {
+  font-size: 30px;
+
+  line-height: 40px;
+
+  color: $intro-fg-color;
+}
+
+.header a.back {
+  :link, :visited {
+    background: none;
+    color: $intro-link-fg-color;
+  }
+
+  :hover {
+    background: none;
+    color: $intro-link-fg-color-hover;
+  }
+}
+
+.header .deco {
+  margin: 0 8px;
+  color: $intro-deco-fg-color;
+}
