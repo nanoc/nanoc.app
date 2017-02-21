@@ -188,6 +188,7 @@ Reitinger
 Rémi
 Remko
 renderer
+repo
 resizes
 Rosenbaum
 Rost

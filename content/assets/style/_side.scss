@@ -1,7 +1,9 @@
 @import "colors.scss";
 
-.details {
+.side {
   background: $sidebar-bg-color;
+
+  box-sizing: border-box;
 
   padding: 20px;
   margin: 20px 0 20px 0;
