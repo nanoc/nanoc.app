@@ -20,11 +20,7 @@
 .nws-header__logolink {
   display: block;
 
-  @media (max-width: 919px) {
-    order: 3;
-
-    margin: -10px 0 -10px auto;
-  }
+  order: 3;
 
   flex: 0 0 auto;
 
@@ -35,18 +31,18 @@
   background-size: 40px 40px;
   background-position: center;
 
-  opacity: 75%;
+  margin: -10px -10px -10px 290px;
+  padding: 10px;
 
-  margin: -10px 130px;
-  padding: 10px 0;
+  @media (max-width: 1079px) {
+    margin-left: auto;
+  }
 }
 
 .nws-header__logolink:hover {
   background: url(/assets/images/logo-small.png) left center no-repeat;
   background-size: 45px 45px;
   background-position: center;
-
-  opacity: 100%;
 }
 
 .nws-header__logotext {
@@ -60,36 +56,20 @@
 
   box-sizing: border-box;
 
-  @media (min-width: 720px) {
-    padding: 0 0 0 20px;
-  }
-
-  @media (min-width: 1280px) {
+  @media (min-width: 1080px) {
     margin: 0 auto;
   }
 
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0 0 0 20px;
 }
 
 .nws-header__search {
-  @media (min-width: 920px) {
-    order: 3;
-  }
-
-  @media (max-width: 919px) {
-    flex: 0 0 320px;
-    padding: 0;
-  }
-
   @media (max-width: 719px) {
-    order: 0;
     display: none;
   }
 
-  padding: 0 20px;
-
-  flex: 0 6 320px;
+  flex: 0 0 320px;
 }
 
 .nws-content {
