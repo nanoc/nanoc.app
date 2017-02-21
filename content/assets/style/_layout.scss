@@ -42,7 +42,7 @@
 
   flex: 0 0 auto;
 
-  width: 60px;
+  width: 40px;
   height: 40px;
 
   background: url(/assets/images/logo-small.png) left center no-repeat;
@@ -74,12 +74,16 @@
 
   box-sizing: border-box;
 
+  margin: 0;
+  padding: 0 0 0 20px;
+
   @media (min-width: 1080px) {
     margin: 0 auto;
   }
 
-  margin: 0;
-  padding: 0 0 0 20px;
+  @media (max-width: 719px) {
+    padding: 0 0 0 10px;
+  }
 }
 
 .nws-header__search {
