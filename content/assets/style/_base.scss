@@ -1,30 +1,21 @@
 @import "colors.scss";
 
 body {
-    background: $page-bg-color;
+  background: $page-bg-color;
 
-    font-family: "Source Sans Pro";
-    font-weight: normal;
-    font-size: 15px;
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-size: 15px;
 
-    line-height: 20px;
+  line-height: 20px;
 }
 
-a {
-    text-decoration: none;
-
-    padding: 0 2px;
-    margin: 0 -1px;
-
-    border-radius: 3px;
-}
-
-dd {
-    margin: 0 0 20px 20px;
+abbr {
+  font-weight: bold;
 }
 
 pre, code, kbd, var, samp, .attribute, .command, .output {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 mark {
@@ -32,44 +23,129 @@ mark {
 }
 
 blockquote {
-    font-style: italic;
-    margin-left: 20px;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+p {
+  margin-bottom: 20px;
 }
 
 pre {
-    border-radius: 4px;
+  border-radius: 4px;
 
-    box-shadow: 0 1px 1px $pre-shadow-color;
+  box-shadow: 0 1px 1px $pre-shadow-color;
 
-    background: $pre-bg-color;
+  background: $pre-bg-color;
 
-    padding: 10px;
-    margin: 0 0 20px 0;
+  padding: 10px;
+  margin: 0 0 20px 0;
 
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
+/* LINKS */
+
+a {
+  text-decoration: none;
+
+  padding: 0 2px;
+  margin: 0 -1px;
+
+  border-radius: 3px;
+}
+
+a:link,
+a:visited {
+  color: $link-color;
+}
+
+a:hover {
+  background-color: $link-color;
+  color:            $link-color-hover;
+}
+
+/* HEADERS */
+
 h1, h2, h3, h4, h5, h6 {
-    color: $header-color;
+  color: $header-color;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+* + h2 {
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+
+  margin-top: 40px;
+}
+
+/* LISTS */
+
+ul > li {
+  list-style-type: square;
+}
+
+ol > li {
+  list-style-type: decimal;
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+ol > li > ol,
+ol > li > ul,
+ul > li > ol,
+ul > li > ul {
+  margin-bottom: 0;
+}
+
+ul.spacious li,
+ol.spacious li {
+  margin-bottom: 20px;
+}
+
+ul.spacious li pre,
+ol.spacious li pre {
+  margin-top: 20px;
+}
+
+/* DEFINITION LISTS */
+
+dl {
+  margin-bottom: 20px;
+}
+
+dl.compact dt,
+dl.compact dd {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 dt {
-    color: $dt-color;
+  color: $dt-color;
 }
 
-dt, abbr {
-    font-weight: bold;
+dt {
+  font-weight: bold;
 }
 
-article {
-    a:link,
-    a:visited {
-        color: $link-color;
-    }
-
-    a:hover {
-        background-color: $link-color;
-        color:            $link-color-hover;
-    }
+dd {
+  margin: 0 0 20px 20px;
 }

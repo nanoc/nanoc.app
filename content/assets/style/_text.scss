@@ -1,9 +1,9 @@
 * {
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
 
 p, li, blockquote, dd, .admonition, pre {
@@ -15,27 +15,27 @@ li.active, strong, dt {
 }
 
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {
-    -webkit-hyphenate-character: "";
-    -moz-hyphenate-character: "";
-    -ms-hyphenate-character: "";
-    -o-hyphenate-character: "";
-    hyphenate-character: "";
+  -webkit-hyphenate-character: "";
+  -moz-hyphenate-character: "";
+  -ms-hyphenate-character: "";
+  -o-hyphenate-character: "";
+  hyphenate-character: "";
 }
 
 i, em {
-    font-style: italic;
+  font-style: italic;
 }
 
 b, strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 kbd {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 var {
-    font-style: italic;
+  font-style: italic;
 }
 
 .filename, .glob, .identifier, .uri, .productname, .firstterm {
@@ -43,7 +43,7 @@ var {
 }
 
 h2 code {
-    font-size: inherit;
+  font-size: inherit;
 }
 
 blockquote {
@@ -51,13 +51,13 @@ blockquote {
 }
 
 pre, code, kbd, var, samp, .output, .attribute, .command {
-    font-family: "Roboto Mono", Consolas, Inconsolata, Monaco, monospace;
+  font-family: "Roboto Mono", Consolas, Inconsolata, Monaco, monospace;
 }
 
 pre.template var:before {
-    content: "<";
+  content: "<";
 }
 
 pre.template var:after {
-    content: ">";
+  content: ">";
 }

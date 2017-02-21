@@ -1,113 +1,101 @@
-@import "susy";
-
 @import "colors.scss";
 
-// TODO: deduplicate from _layout.scss
-$susy: (
-  columns: 12,
-  column-width: 60px,
-  gutters: 0.33333,
-  gutter-position: split,
-  global-box-sizing: border-box,
-);
-
 .hero {
-    background: $hero-bg-color url(/assets/images/symphony.png);
+  background: $hero-bg-color url(/assets/images/symphony.png);
 
-    margin-bottom: -60px;
-
-    ul {
-        text-align: center;
-
-        padding: 40px 0 10px 0;
-
-        li {
-            display: inline;
-
-            margin: 0 20px;
-        }
-
-        @media (max-width: 619px) {
-            padding: 40px 0 0 0;
-
-            li {
-                display: block;
-                margin: 0 0 40px 0;
-            }
-        }
-
-        a {
-            padding: 8px 20px;
-            font-size: 24px;
-            font-style: normal;
-        }
-
-        a:link, a:visited {
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        a:hover {
-            background-color: $link-color-hover;
-            color:            $link-color;
-        }
-    }
+  margin-bottom: -60px;
 }
 
-.hero-content {
-    @include container;
+.hero__links {
+  text-align: center;
 
-    padding: 10px 0 0 0;
-    height: 480px;
+  padding: 20px 0 5px 0;
+  margin: 0;
 
-    @media (max-width: 819px) {
-        padding-top: 10px;
-        height: 430px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 719px) {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+}
+
+.hero__link {
+  margin: 0 20px;
+
+  @media (max-width: 719px) {
+    margin: 5px auto;
+  }
+}
+
+.hero__link {
+  padding: 12px 20px;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.hero__link:link,
+.hero__link:visited {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero__link:hover {
+  background-color: $link-color-hover;
+  color:            $link-color;
+}
+
+.hero__slides {
+  position: relative;
+
+  height: 480px;
+
+  @media (max-width: 819px) {
+    padding-top: 10px;
+    height: 430px;
+  }
+
+  @media (max-width: 719px) {
+    padding-top: 10px;
+    height: 380px;
+  }
+
+  @media (max-width: 619px) {
+    height: 330px;
+
+    img {
+      margin-top: -20px;
     }
+  }
 
-    @media (max-width: 719px) {
-        padding-top: 10px;
-        height: 380px;
-    }
+  @media (max-width: 519px) {
+    height: 280px;
+  }
 
-    @media (max-width: 619px) {
-        height: 330px;
+  @media (max-width: 419px) {
+    height: 230px;
+  }
 
-        img {
-            margin-top: -20px;
-        }
-    }
+  top: -10px;
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-    @media (max-width: 519px) {
-        height: 280px;
-    }
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    @media (max-width: 419px) {
-        height: 230px;
-    }
+  padding: 0 30px;
 
-    .slides {
-        @include span(12);
+  a {
+    display: block;
+    background: none;
+  }
 
-        position: relative;
-        top: -10px;
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            padding: 0 30px;
-
-            a {
-                display: block;
-                background: none;
-            }
-
-            img {
-                border: 0;
-                display: block;
-                width: 100%;
-            }
-        }
-    }
+  img {
+    border: 0;
+    display: block;
+    width: 100%;
+  }
 }

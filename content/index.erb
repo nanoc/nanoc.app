@@ -5,61 +5,58 @@ short_title:      "Home"
 raw_layout:       true
 ---
 
-<article>
-    <div class="explanation">
-        <div class="explanation-content">
-            <p>Nanoc is a <em>static-site generator</em>, fit for building anything from a small personal blog to a large corporate website.</p>
+<div class="explanation">
+    <div class="explanation-content">
+        Nanoc is a <em>static-site generator</em>, fit for building anything from a small personal blog to a large corporate website.
+    </div>
+</div>
+
+<div class="hero">
+    <ul class="hero__links">
+        <a class="hero__link" href="/doc/installation/">Installation</a>
+        <a class="hero__link" href="/doc/tutorial/">Tutorial</a>
+        <a class="hero__link" href="/about/">Documentation</a>
+    </ul>
+    <div class="hero__slides">
+        <div class="hero__slide">
+            <a href="http://prometheus.io/">
+                <img src="<%= @items['/assets/images/hero/prometheus.*'].path %>" alt="Prometheus site screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://developer.github.com/">
+                <img src="<%= @items['/assets/images/hero/github-api.*'].path %>" alt="GitHub developer site screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://www.rubyworld-conf.org/">
+                <img src="<%= @items['/assets/images/hero/rubyworld-conference.*'].path %>" alt="RubyWorld website screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://mystonline.com/">
+                <img src="<%= @items['/assets/images/hero/myst-online.*'].path %>" alt="Myst Online website screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://atom.io/">
+                <img src="<%= @items['/assets/images/hero/atom-flight-manual.*'].path %>" alt="Atom flight manual site screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://www.dadt.com/uglybetty/">
+                <img src="<%= @items['/assets/images/hero/ugly-betty.*'].path %>" alt="Ugly Betty website screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://api.spreecommerce.com/">
+                <img src="<%= @items['/assets/images/hero/spree-api.*'].path %>" alt="Spree Commerce API site screenshot">
+            </a>
+        </div>
+        <div class="hero__slide" style="display: none">
+            <a href="http://fosdem.org/">
+                <img src="<%= @items['/assets/images/hero/fosdem.*'].path %>" alt="FOSDEM website screenshot">
+            </a>
         </div>
     </div>
-    <div class="hero">
-        <ul>
-            <li><a href="/doc/installation/">Installation</a></li>
-            <li><a href="/doc/tutorial/">Tutorial</a></li>
-            <li><a href="/about/">Documentation</a></li>
-        </ul>
-        <div class="hero-content">
-            <div class="slides">
-                <div class="slide">
-                    <a href="http://prometheus.io/">
-                        <img src="<%= @items['/assets/images/hero/prometheus.*'].path %>" alt="Prometheus site screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://developer.github.com/">
-                        <img src="<%= @items['/assets/images/hero/github-api.*'].path %>" alt="GitHub developer site screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://www.rubyworld-conf.org/">
-                        <img src="<%= @items['/assets/images/hero/rubyworld-conference.*'].path %>" alt="RubyWorld website screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://mystonline.com/">
-                        <img src="<%= @items['/assets/images/hero/myst-online.*'].path %>" alt="Myst Online website screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://atom.io/">
-                        <img src="<%= @items['/assets/images/hero/atom-flight-manual.*'].path %>" alt="Atom flight manual site screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://www.dadt.com/uglybetty/">
-                        <img src="<%= @items['/assets/images/hero/ugly-betty.*'].path %>" alt="Ugly Betty website screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://api.spreecommerce.com/">
-                        <img src="<%= @items['/assets/images/hero/spree-api.*'].path %>" alt="Spree Commerce API site screenshot">
-                    </a>
-                </div>
-                <div class="slide" style="display: none">
-                    <a href="http://fosdem.org/">
-                        <img src="<%= @items['/assets/images/hero/fosdem.*'].path %>" alt="FOSDEM website screenshot">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</article>
+</div>

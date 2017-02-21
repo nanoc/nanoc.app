@@ -1,0 +1,57 @@
+@import "colors.scss";
+
+.details {
+  background: $sidebar-bg-color;
+
+  padding: 20px;
+  margin: 20px 0 20px 0;
+
+  h3 {
+    display: none;
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  h4 + ul,
+  h3 + h4,
+  h3 + ul,
+  h3 + ol {
+    margin-top: 0;
+  }
+
+  h4, dt, ol, ul, p {
+    margin-top: 20px;
+
+    @media (max-width: 719px) {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 719px) {
+    p + ol.toc,
+    h4 + ol.toc,
+    ul + h4 {
+      margin-top: 20px;
+    }
+  }
+}
+
+.toc {
+  margin-left: 0;
+}
+
+.toc .toc {
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+.toc li {
+  list-style-type: none;
+}
+
+.toc .active {
+  font-weight: bold;
+  color: $text-color-emph;
+}

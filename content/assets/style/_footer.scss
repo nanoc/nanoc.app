@@ -1,0 +1,93 @@
+@import "colors.scss";
+
+footer {
+  background: $footer-bg-color;
+
+  p {
+    color: $footer-fg-color;
+  }
+
+  a {
+    padding: 0 2px;
+    margin: 0;
+
+    :link, :visited {
+      color: $footer-link-color;
+    }
+
+    :hover {
+      background-color: $footer-link-hover-fg-color;
+      color:            $footer-link-hover-bg-color;
+    }
+  }
+
+  padding: 0 0 40px 0;
+  margin: 60px 0 -40px 0;
+}
+
+.footer-content {
+  max-width: 960px;
+
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.footer-releasenotes {
+  padding: 40px 0 20px 0;
+  color: $footer-fg-color;
+}
+
+.footer-links-explanation {
+  color: $footer-fg-color;
+}
+
+.footer-links {
+  padding: 0 0 40px 0;
+  margin: 0;
+
+  li {
+    padding: 0 2px;
+    margin: 0 -2px;
+    display: inline-block;
+  }
+
+  li:first-child {
+    margin-left: -4px;
+  }
+
+  li:after {
+    color: $footer-fg-color;
+
+    padding: 0 5px;
+    content: "\00B7";
+  }
+
+  li:last-child:after {
+    padding: 0;
+    content: "";
+  }
+}
+
+.footer-copyright {
+  padding: 20px 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: $footer-border-color;
+  color: $footer-fg-color;
+
+  div {
+    font-size: 13px;
+    max-width: 650px;
+
+    padding: 20px 0 20px 55px;
+
+    background: url(/assets/images/logo-footer.png) left center no-repeat;
+    background-size: 40px 40px;
+  }
+
+  @media (min-width: 819px) {
+    /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
+    background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
+    background-size: 117px 100px;
+  }
+}

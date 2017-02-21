@@ -1,410 +1,74 @@
-@import "susy";
-
 @import "colors.scss";
 
-$susy: (
-  columns: 12,
-  column-width: 60px,
-  gutters: 0.33333,
-  gutter-position: split,
-  global-box-sizing: border-box,
-);
-
 body {
-    border-top: 6px solid $page-top-border-color;
+  border-top: 6px solid $page-top-border-color;
 }
 
-body.page {
-    .intro {
-        background: $intro-bg-color;
+.header-content {
+  box-sizing: border-box;
 
-        .intro-content {
-            @media (max-width: 719px) {
-                padding: 20px;
-            }
+  max-width: 960px;
 
-            @include container;
+  display: flex;
 
-            padding: 20px 0;
-
-            h1 {
-                @include span(8);
-
-                font-size: 30px;
-
-                line-height: 40px;
-
-                color: $intro-fg-color;
-
-                a.back {
-                    :link, :visited {
-                        color: $intro-link-fg-color;
-                    }
-
-                    :hover {
-                        color: $intro-link-fg-color-hover;
-                    }
-                }
-
-                span.deco {
-                  margin: 0 8px;
-                  color: $intro-deco-fg-color;
-                }
-            }
-
-            .search {
-                @include span(last 4);
-
-                @media (max-width: 619px) {
-                    display: none;
-                }
-
-                padding-top: 5px;
-
-                input {
-                  width: 300px;
-                  height: 30px;
-
-                  color: #555;
-
-                  font-family: "Source Sans Pro";
-                  font-size: 16px;
-
-                  background: #fff;
-                  border: none;
-                  border-radius: 15px;
-
-                  padding: 5px 18px;
-                  border: 2px solid $search-placeholder-border-color;
-                }
-
-                input:focus {
-                    outline: none;
-                    border: 2px solid $search-border-color;
-                }
-
-                input::-webkit-input-placeholder { color: #bbb; }
-                input:-moz-placeholder           { color: #bbb; opacity: 1; }
-                input::-moz-placeholder          { color: #bbb; opacity: 1; }
-                input:-ms-input-placeholder      { color: #bbb; }
-            }
-        }
-    }
-
-    .details {
-        background: $sidebar-bg-color;
-    }
+  margin: 0 auto;
+  padding: 20px 10px;
 }
 
-body.page .content {
-    article {
-        @include container;
+.header h1 {
+  width: 66%;
 
-        @media (max-width: 719px) {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        padding-top: 0;
-        padding-bottom: 40px;
-
-        .article-content {
-            padding-top: 40px;
-
-            @media (min-width: 720px) {
-                @include span(8);
-            }
-
-            ul, ol, pre, p, dl, h2, h3 {
-                margin-bottom: 20px;
-            }
-
-            ul, ol {
-                margin-left: 20px;
-            }
-
-            ul li {
-                list-style-type: square;
-            }
-
-            ol li {
-                list-style-type: decimal;
-            }
-
-            ol > li > ol,
-            ol > li > ul,
-            ul > li > ol,
-            ul > li > ul {
-                margin-bottom: 0;
-            }
-
-            ul.spacious li, ol.spacious li {
-              margin-bottom: 20px;
-            }
-
-            ul.spacious li pre, ol.spacious li pre {
-              margin-top: 20px;
-            }
-
-            dl.compact dt, dl.compact dd {
-              margin-top: 0;
-              margin-bottom: 0;
-            }
-
-            ol.toc {
-                margin-left: 0;
-            }
-
-            ol.toc ol {
-                margin-left: 18px;
-            }
-
-            ol.toc, ol.toc ol {
-                counter-reset: section;
-            }
-
-            ol.toc li {
-                list-style-type: none;
-                counter-increment: section;
-            }
-
-            ol.toc.big {
-                font-weight: bold;
-            }
-
-            ol.toc.big ol {
-                font-weight: normal;
-            }
-
-            ol.toc li:before {
-                content: counters(section, ".");
-                margin-right: 5px
-            }
-
-            .section {
-                margin-bottom: 40px;
-            }
-
-            h2 {
-                font-size: 24px;
-                font-weight: normal;
-            }
-
-            * + h2 {
-                margin-top: 40px;
-            }
-
-            h3 {
-                font-size: 18px;
-                font-weight: normal;
-
-                margin-top: 40px;
-            }
-
-            .donate {
-                text-align: center;
-                padding: 20px 0;
-
-                a, a:hover {
-                    background: none;
-                }
-            }
-        }
-
-        .side {
-            @media (min-width: 720px) {
-                @include span(last 4);
-            }
-
-            @media (max-width: 719px) {
-                margin: 40px 0 0 0;
-            }
-
-            .details {
-                padding: 20px;
-                margin: 20px 0 20px 0;
-
-                h3 {
-                    display: none;
-                }
-
-                h4 + ul {
-                    margin-top: 0;
-                }
-
-                h3 + h4,
-                h3 + ul,
-                h3 + ol {
-                    margin-top: 0;
-                }
-
-                h4, dt, ol, ul, p {
-                    margin-top: 20px;
-
-                    @media (max-width: 719px) {
-                        margin-top: 0;
-                    }
-                }
-
-                @media (max-width: 719px) {
-                    p + ol.toc,
-                    h4 + ol.toc,
-                    ul + h4 {
-                        margin-top: 20px;
-                    }
-                }
-
-                ul {
-                    margin-left: 0;
-                }
-
-                li {
-                    list-style-type: none;
-                }
-
-                ul li span.active {
-                  font-weight: bold;
-                  color: $text-color-emph;
-                }
-
-                ul > li > ol.toc {
-                  margin-top: 0;
-                  margin-left: 20px;
-                }
-            }
-        }
-
-        .side.no-details {
-            @media (min-width: 720px) {
-                top: 20px;
-            }
-        }
-    }
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-body.home {
-    .explanation {
-        background: $explanation-bg-color;
-        color: $explanation-fg-color;
-    }
+.search {
+  width: 33%;
+
+  order: 2;
+
+  @media (max-width: 619px) {
+    display: none;
+  }
 }
 
-body.home .explanation {
-    .explanation-content {
-        @include container;
+.nws-content {
+  box-sizing: border-box;
 
-        p {
-            @media (min-width: 720px) {
-                @include span(isolate 80% at 10%);
+  max-width: 960px;
 
-                padding-top: 40px;
-                padding-bottom: 40px;
-            }
+  @media (min-width: 720px) {
+    display: flex;
+  }
 
-            @media (max-width: 719px) {
-                padding: 20px;
-
-                font-size: 24px;
-                line-height: 30px;
-            }
-
-            font-size: 32px;
-            line-height: 40px;
-            text-align: center;
-        }
-    }
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
-footer {
-    background: $footer-bg-color;
+article {
+  box-sizing: border-box;
 
-    p {
-        color: $footer-fg-color;
-    }
+  padding: 40px 20px 40px 0;
 
-    a {
-        padding: 0 2px;
-        margin: 0;
+  @media (min-width: 720px) {
+    width: 66%;
+  }
+}
 
-        :link, :visited {
-            color: $footer-link-color;
-        }
+.side {
+  order: 2;
 
-        :hover {
-            background-color: $footer-link-hover-fg-color;
-            color:            $footer-link-hover-bg-color;
-        }
-    }
+  @media (min-width: 720px) {
+    width: 33%;
+  }
 
-    padding: 0 0 40px 0;
-    margin: 60px 0 -40px 0;
+  @media (max-width: 719px) {
+    margin: 40px 0 0 0;
+  }
+}
 
-    .footer-content {
-        @include container;
-
-        padding-left: 20px;
-        padding-right: 20px;
-
-        p {
-            @include span(12);
-
-            padding: 40px 0 20px 0;
-        }
-
-        .links {
-            @include span(12);
-
-            div, li:after {
-                color: $footer-fg-color;
-            }
-
-            padding: 0 0 40px 0;
-
-            ul {
-                margin-left: -2px;
-
-                li {
-                    padding: 0 2px;
-                    margin: 0 -2px;
-                    display: inline-block;
-                }
-
-                li:after {
-                    padding: 0 5px;
-                    content: "\00B7";
-                }
-
-                li:last-child:after {
-                    padding: 0;
-                    content: "";
-                }
-            }
-        }
-
-        .copyright {
-            @include span(12);
-
-            padding: 20px 0;
-            border-top-width: 1px;
-            border-top-style: solid;
-            border-color: $footer-border-color;
-            color: $footer-fg-color;
-
-            div {
-                font-size: 13px;
-                max-width: 650px;
-
-                padding: 20px 0 20px 55px;
-
-                background: url(/assets/images/logo-footer.png) left center no-repeat;
-                background-size: 40px 40px;
-            }
-
-            @media (min-width: 819px) {
-                /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
-                background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
-                background-size: 117px 100px;
-            }
-        }
-    }
+.side.no-details {
+  @media (min-width: 720px) {
+    top: 20px;
+  }
 }

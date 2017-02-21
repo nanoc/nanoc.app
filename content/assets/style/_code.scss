@@ -1,61 +1,61 @@
 @import "colors.scss";
 
 .prompt {
-    color: $code-prompt-color;
+  color: $code-prompt-color;
 }
 
 pre {
-    .log-create {
-        font-weight: bold;
-        color: #44aa00;
-    }
+  .log-create {
+    font-weight: bold;
+    color: #44aa00;
+  }
 
-    .log-update {
-        font-weight: bold;
-        color: #ccbb00;
-    }
+  .log-update {
+    font-weight: bold;
+    color: #ccbb00;
+  }
 
-    .log-check-ok {
-        color: #88cc55;
-    }
+  .log-check-ok {
+    color: #88cc55;
+  }
 
-    .log-check-error {
-        color: #cc6600;
-    }
+  .log-check-error {
+    color: #cc6600;
+  }
 
-    .comment {
-        color: #666666;
-    }
+  .comment {
+    color: #666666;
+  }
 
-    .key {
-        color: #66aa00;
-    }
+  .key {
+    color: #66aa00;
+  }
 
-    .string, .value {
-        color: #d90;
-    }
+  .string, .value {
+    color: #d90;
+  }
 
-    .constant, .class, .symbol {
-        color: #cc6600;
-    }
+  .constant, .class, .symbol {
+    color: #cc6600;
+  }
 
-    .function {
-        color: #ee2211;
-    }
+  .function {
+    color: #ee2211;
+  }
 
-    .instance-variable, .local_variable {
-        color: #66aa00;
-    }
+  .instance-variable, .local_variable {
+    color: #66aa00;
+  }
 
-    .reserved, .predefined, .predefined-constant {
-        color: #0099cc;
-    }
+  .reserved, .predefined, .predefined-constant {
+    color: #0099cc;
+  }
 
-    .tag, .keyword {
-        color: #88cc55;
-    }
+  .tag, .keyword {
+    color: #88cc55;
+  }
 
-    .integer, .attribute_name {
-        color: #aa5500;
-    }
+  .integer, .attribute_name {
+    color: #aa5500;
+  }
 }
