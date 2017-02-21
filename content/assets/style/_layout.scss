@@ -3,10 +3,28 @@
 .nws-header {
   border-top: 6px solid $page-top-border-color;
 
-  position: fixed;
+  @media (min-width: 720px) {
+    position: fixed;
+  }
+
   width: 100%;
 
   z-index: 100;
+}
+
+:target:before {
+  content: "";
+  display: block;
+
+  @media (min-width: 720px) {
+    height: 106px;
+    margin: -106px 0 0;
+  }
+
+  @media (max-width: 719px) {
+    height: 10px;
+    margin: -10px 0 0;
+  }
 }
 
 .nws-header__content {
@@ -77,7 +95,15 @@
 
   position: relative;
 
-  padding: 80px 10px 0 10px;
+  padding: 0 10px 0 10px;
+
+  @media (min-width: 720px) {
+    padding-top: 80px;
+  }
+
+  @media (max-width: 719px) {
+    margin-top: -6px;
+  }
 }
 
 article {
