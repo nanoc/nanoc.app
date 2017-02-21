@@ -45,6 +45,13 @@ pre {
   word-wrap: break-word;
 }
 
+:target:before {
+  content: "";
+  display: block;
+  height: 106px;
+  margin: -106px 0 0;
+}
+
 /* LINKS */
 
 a {

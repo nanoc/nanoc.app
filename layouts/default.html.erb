@@ -16,24 +16,21 @@
 <% if @item[:has_basic_layout] %>
 	  <%= yield %>
 <% else %>
-	  <header class="header">
-	    <div class="header-content">
-	      <div class="search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
-	      <h1><%= @item.identifier =~ '/index.*' ? '' : '<a class=back href="/">Nanoc</a><span class=deco>»</span>' %><%= @item[:title] %></h1>
+	  <header class="nws-header">
+	    <div class="nws-header__content">
+        <a class="nws-header__logolink" href="/"><span class="nws-header__logotext">Nanoc</span></a>
+	      <div class="nws-header__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
+	      <h1 class="nws-header__title"><%= @item[:title] %></h1>
 	    </div>
 	  </header>
 	  <div class="nws-content">
-	    <aside class="side<%= @item[:skip_details] ? ' no-details' : '' %>">
+	    <aside class="side">
 	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
-	        <div class="details">
-	          <h3>Table of contents</h3>
-	          <%= doc_toc %>
-	        </div>
+          <h3>Table of contents</h3>
+          <%= doc_toc %>
 	      <% elsif !@item[:skip_details] %>
-	        <div class="details">
-	          <h3>Table of contents</h3>
-	          {{TOC}}
-	        </div>
+          <h3>Table of contents</h3>
+          {{TOC}}
 	      <% end %>
 	    </aside>
 	    <article>
@@ -49,7 +46,7 @@
         <div class="footer-links-explanation">Don’t stick around forever. For a change of scenery, go over here:</div>
         <ul class="footer-links">
           <li><%= link_to_id '/contributing.*' %></li>
-          <li><a href="https://github.com/nanoc/nanoc">GitHub repository</a></li>
+          <li><a href="https://github.com/nanoc/nanoc">GitHub repo</a></li>
           <li><a href="http://github.com/nanoc/nanoc/issues">Issue tracker</a></li>
           <li><a href="http://groups.google.com/group/nanoc">Discussion group</a></li>
           <li><a href="https://gitter.im/nanoc/nanoc">Gitter channel</a></li>

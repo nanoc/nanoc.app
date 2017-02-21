@@ -1,8 +1,13 @@
 @import "colors.scss";
 
-footer {
+.home footer {
   background: $footer-bg-color;
+}
 
+.page footer {
+}
+
+footer {
   p {
     color: $footer-fg-color;
   }
@@ -21,15 +26,37 @@ footer {
     }
   }
 
-  padding: 0 0 40px 0;
-  margin: 60px 0 -40px 0;
+  padding: 0 0 20px 0;
+  margin: 60px 10px -40px 10px;
 }
 
-.footer-content {
+.home .footer-content {
   max-width: 960px;
 
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.page .footer-content {
+  box-sizing: border-box;
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: $footer-light-border-color;
+
+  max-width: 640px;
+
+  @media (min-width: 720px) {
+    margin: 0 20px 0 340px;
+  }
+
+  @media (min-width: 1340px) {
+    margin: 0 auto;
+  }
+}
+
+.page .footer-copyright {
+  display: none;
 }
 
 .footer-releasenotes {
@@ -81,7 +108,7 @@ footer {
 
     padding: 20px 0 20px 55px;
 
-    background: url(/assets/images/logo-footer.png) left center no-repeat;
+    background: url(/assets/images/logo-small.png) left center no-repeat;
     background-size: 40px 40px;
   }
 

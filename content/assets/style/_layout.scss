@@ -1,74 +1,136 @@
 @import "colors.scss";
 
-body {
+.nws-header {
   border-top: 6px solid $page-top-border-color;
+
+  position: fixed;
+  width: 100%;
+
+  z-index: 100;
 }
 
-.header-content {
+.nws-header__content {
   box-sizing: border-box;
-
-  max-width: 960px;
 
   display: flex;
 
-  margin: 0 auto;
   padding: 20px 10px;
 }
 
-.header h1 {
-  width: 66%;
+.nws-header__logolink {
+  display: block;
+
+  @media (max-width: 919px) {
+    order: 3;
+
+    margin: -10px 0 -10px auto;
+  }
+
+  flex: 0 0 auto;
+
+  width: 60px;
+  height: 40px;
+
+  background: url(/assets/images/logo-small.png) left center no-repeat;
+  background-size: 40px 40px;
+  background-position: center;
+
+  opacity: 75%;
+
+  margin: -10px 130px;
+  padding: 10px 0;
+}
+
+.nws-header__logolink:hover {
+  background: url(/assets/images/logo-small.png) left center no-repeat;
+  background-size: 45px 45px;
+  background-position: center;
+
+  opacity: 100%;
+}
+
+.nws-header__logotext {
+  display: none;
+}
+
+.nws-header__title {
+  max-width: 640px;
+
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+
+  @media (min-width: 720px) {
+    padding: 0 0 0 20px;
+  }
+
+  @media (min-width: 1280px) {
+    margin: 0 auto;
+  }
 
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.search {
-  width: 33%;
+.nws-header__search {
+  @media (min-width: 920px) {
+    order: 3;
+  }
 
-  order: 2;
+  @media (max-width: 919px) {
+    flex: 0 0 320px;
+    padding: 0;
+  }
 
-  @media (max-width: 619px) {
+  @media (max-width: 719px) {
+    order: 0;
     display: none;
   }
+
+  padding: 0 20px;
+
+  flex: 0 6 320px;
 }
 
 .nws-content {
   box-sizing: border-box;
 
-  max-width: 960px;
+  position: relative;
 
-  @media (min-width: 720px) {
-    display: flex;
-  }
-
-  margin: 0 auto;
-  padding: 0 10px;
+  padding: 80px 10px 0 10px;
 }
 
 article {
   box-sizing: border-box;
 
-  padding: 40px 20px 40px 0;
+  max-width: 620px;
 
   @media (min-width: 720px) {
-    width: 66%;
+    max-width: 640px;
+
+    margin: 0 0 0 340px;
+    padding: 40px 0;
+  }
+
+  @media (min-width: 1340px) {
+    padding: 40px 0;
+    margin: 0 auto;
   }
 }
 
 .side {
-  order: 2;
-
   @media (min-width: 720px) {
-    width: 33%;
+    position: fixed;
+
+    top: 80px;
+    bottom: 0;
+
+    overflow-y: auto;
+
+    width: 320px;
   }
 
   @media (max-width: 719px) {
     margin: 40px 0 0 0;
-  }
-}
-
-.side.no-details {
-  @media (min-width: 720px) {
-    top: 20px;
   }
 }

@@ -1,4 +1,28 @@
-.search {
+.nws-header {
+  background: $intro-bg-color;
+}
+
+.nws-header__title {
+  font-size: 30px;
+
+  line-height: 40px;
+
+  color: $intro-fg-color;
+}
+
+.nws-header a.back {
+  :link, :visited {
+    background: none;
+    color: $intro-link-fg-color;
+  }
+
+  :hover {
+    background: none;
+    color: $intro-link-fg-color-hover;
+  }
+}
+
+.nws-header__search {
   padding-top: 5px;
 
   > span {
