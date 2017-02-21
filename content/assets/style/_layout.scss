@@ -49,12 +49,14 @@
   background-size: 40px 40px;
   background-position: center;
 
-  margin: -10px -10px -10px 290px;
+  margin: -10px 0 -10px 290px;
   padding: 10px;
 
-  @media (max-width: 1079px) {
-    margin-left: auto;
+  @media (max-width: 719px) {
+    margin: -10px auto;
   }
+
+  margin-left: auto;
 }
 
 .nws-header__logolink:hover {
@@ -65,25 +67,6 @@
 
 .nws-header__logotext {
   display: none;
-}
-
-.nws-header__title {
-  max-width: 640px;
-
-  flex: 1 0 auto;
-
-  box-sizing: border-box;
-
-  margin: 0;
-  padding: 0 0 0 20px;
-
-  @media (min-width: 1080px) {
-    margin: 0 auto;
-  }
-
-  @media (max-width: 719px) {
-    padding: 0 0 0 10px;
-  }
 }
 
 .nws-header__search {
@@ -115,15 +98,15 @@ article {
 
   max-width: 620px;
 
+  padding: 20px 0 40px 0;
+
   @media (min-width: 720px) {
     max-width: 640px;
 
     margin: 0 0 0 340px;
-    padding: 40px 0;
   }
 
   @media (min-width: 1340px) {
-    padding: 40px 0;
     margin: 0 auto;
   }
 }

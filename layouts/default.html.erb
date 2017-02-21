@@ -20,7 +20,6 @@
 	    <div class="nws-header__content">
         <a class="nws-header__logolink" href="/"><span class="nws-header__logotext">Nanoc</span></a>
 	      <div class="nws-header__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
-	      <h1 class="nws-header__title"><%= @item[:title] %></h1>
 	    </div>
 	  </header>
 	  <div class="nws-content">
@@ -35,6 +34,7 @@
 	    </aside>
 	    <article>
 	      <div class="article-content">
+  	      <h1 class="nws-article__title"><%= @item[:title] %></h1>
 	        <%= yield %>
 	      </div>
 	    </article>

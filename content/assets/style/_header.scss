@@ -2,18 +2,6 @@
   background: $intro-bg-color;
 }
 
-.nws-header__title {
-  font-size: 30px;
-
-  @media (max-width: 719px) {
-    font-size: 24px;
-  }
-
-  line-height: 40px;
-
-  color: $intro-fg-color;
-}
-
 .nws-header a.back {
   :link, :visited {
     background: none;
