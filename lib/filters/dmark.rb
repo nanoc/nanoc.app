@@ -1,6 +1,17 @@
+class CachingDMarkParser
+  class << self
+    extend Nanoc::Int::Memoization
+
+    def parse(content)
+      DMark::Parser.new(content).parse
+    end
+    memoize :parse
+  end
+end
+
 module GenericDMarkFilter
   def run(content, params = {})
-    nodes = DMark::Parser.new(content).parse
+    nodes = CachingDMarkParser.parse(content)
     context = { items: @items, item: @item, config: @config, nodes: nodes }
     translator_class.translate(nodes, context)
   rescue => e
