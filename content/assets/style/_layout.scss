@@ -17,8 +17,8 @@
   display: block;
 
   @media (min-width: 720px) {
-    height: 106px;
-    margin: -106px 0 0;
+    height: 116px;
+    margin: -116px 0 0;
   }
 
   @media (max-width: 719px) {
@@ -32,7 +32,13 @@
 
   display: flex;
 
-  padding: 20px 10px;
+  @media (min-width: 720px) {
+    padding: 20px 10px 20px 40px;
+  }
+
+  @media (max-width: 719px) {
+    padding: 20px 10px;
+  }
 }
 
 .nws-header__logolink {
@@ -49,7 +55,7 @@
   background-size: 40px 40px;
   background-position: center;
 
-  margin: -10px 0 -10px 290px;
+  margin: -10px 10px -10px 290px;
   padding: 10px;
 
   @media (max-width: 719px) {
@@ -74,7 +80,7 @@
     display: none;
   }
 
-  flex: 0 0 320px;
+  flex: 0 0 260px;
 }
 
 .nws-content {
@@ -82,13 +88,13 @@
 
   position: relative;
 
-  padding: 0 10px 0 10px;
-
   @media (min-width: 720px) {
+    padding: 0 40px;
     padding-top: 80px;
   }
 
   @media (max-width: 719px) {
+    padding: 0 10px;
     margin-top: -6px;
   }
 }
@@ -96,17 +102,15 @@
 article {
   box-sizing: border-box;
 
-  max-width: 620px;
-
-  padding: 20px 0 40px 0;
+  padding: 30px 0 40px 0;
 
   @media (min-width: 720px) {
     max-width: 640px;
 
-    margin: 0 0 0 340px;
+    margin: 0 0 0 300px;
   }
 
-  @media (min-width: 1340px) {
+  @media (min-width: 1300px) {
     margin: 0 auto;
   }
 }
@@ -115,12 +119,12 @@ article {
   @media (min-width: 720px) {
     position: fixed;
 
-    top: 80px;
+    top: 90px;
     bottom: 0;
 
     overflow-y: auto;
 
-    width: 320px;
+    width: 260px;
   }
 
   @media (max-width: 719px) {
