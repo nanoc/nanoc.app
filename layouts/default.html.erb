@@ -24,13 +24,15 @@
 	  </header>
 	  <div class="nws-content">
 	    <aside class="side">
-	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
-          <h3>Table of contents</h3>
-          <%= doc_toc %>
-	      <% elsif !@item[:skip_details] %>
-          <h3>Table of contents</h3>
-          {{TOC}}
-	      <% end %>
+        <div class="nws-side__content">
+  	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
+            <h3>Table of contents</h3>
+            <%= doc_toc %>
+  	      <% elsif !@item[:skip_details] %>
+            <h3>Table of contents</h3>
+            {{TOC}}
+  	      <% end %>
+        </div>
 	    </aside>
 	    <article>
 	      <div class="article-content">
