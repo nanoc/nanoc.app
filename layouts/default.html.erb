@@ -14,16 +14,16 @@
   </head>
   <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>" id="nanoc">
 <% if @item[:has_basic_layout] %>
-	  <%= yield %>
+    <%= yield %>
 <% else %>
-	  <header class="nws-header">
-	    <div class="nws-header__content">
+    <header class="nws-header">
+      <div class="nws-header__content">
         <a class="nws-header__logolink" href="/"><span class="nws-header__logotext">Nanoc</span></a>
-	      <div class="nws-header__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
-	    </div>
-	  </header>
-	  <div class="nws-content">
-	    <aside class="side">
+        <div class="nws-header__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
+      </div>
+    </header>
+    <div class="nws-content">
+      <aside class="side">
         <div class="nws-side__content">
   	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
             <h3>Table of contents</h3>
@@ -33,16 +33,16 @@
             {{TOC}}
   	      <% end %>
         </div>
-	    </aside>
-	    <article>
-	      <div class="article-content">
+      </aside>
+      <article>
+        <div class="article-content">
   	      <h1 class="nws-article__title"><%= @item[:title] %></h1>
-	        <%= yield %>
-	      </div>
-	    </article>
-	  </div>
+          <%= yield %>
+        </div>
+      </article>
+    </div>
 <% end %>
-	  <footer>
+    <footer>
       <div class="footer-content">
         <div class="footer-releasenotes">The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. See the <a href="/release-notes/">release notes</a> for details.</div>
         <div class="footer-links-explanation">Don’t stick around forever. For a change of scenery, go over here:</div>
@@ -58,11 +58,11 @@
           <div>Nanoc © 2007–2017 Denis Defreyne. The content of the Nanoc website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>, with exception of code examples, which are released into the public domain. Nanoc is licensed under the MIT license. <a href="http://entypo.com/">Entypo</a> pictograms by Daniel Bruce. <a href="http://subtlepatterns.com/">Subtle Patterns</a> by Atle Mo.</div>
         </div>
       </div>
-	  </footer>
-	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-		<script type="text/javascript">docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  <script type="text/javascript">docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
     <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
     <script type="text/javascript">var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
   </body>
