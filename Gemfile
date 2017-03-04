@@ -13,7 +13,7 @@ gem 'haml'        # for layouts with clean sources
 gem 'kramdown'    # for advanced markdown
 gem 'nokogiri'    # for parsing HTML
 gem 'rake'
-gem 'rainpress', github: 'ddfreyne/rainpress'
+gem 'rainpress'
 gem 'rubypants'   # for pretty typography
 gem 'sass', '~> 3.4'
 gem 'systemu'     # for invoking rsync etc

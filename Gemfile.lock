@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/cowboyd/therubyracer.git
+  remote: https://github.com/cowboyd/therubyracer.git
   revision: 466a1f0d4f696acfe971899272359623ec0a7a97
   specs:
     therubyracer (0.12.3)
@@ -7,16 +7,10 @@ GIT
       ref
 
 GIT
-  remote: git://github.com/ddfreyne/d-mark.git
+  remote: https://github.com/ddfreyne/d-mark.git
   revision: 9b209c60960fcb2e263b7392e795c4541b26a37a
   specs:
     d-mark (1.0.0a3)
-
-GIT
-  remote: git://github.com/ddfreyne/rainpress.git
-  revision: 4962654ba6103fc9a17183d22caa61fda91f9851
-  specs:
-    rainpress (1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -26,11 +20,11 @@ GEM
     builder (3.2.3)
     coderay (1.1.1)
     colored (1.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     cri (2.7.1)
       colored (~> 1.2)
-    ddplugin (1.0.0)
-    ffi (1.9.17)
+    ddplugin (1.0.1)
+    ffi (1.9.18)
     ffi-aspell (1.1.0)
       ffi
     formatador (0.2.5)
@@ -79,6 +73,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (2.0.1)
+    rainpress (1.0.1)
     rake (12.0.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
@@ -114,7 +109,7 @@ DEPENDENCIES
   kramdown
   nanoc (~> 4.2)
   nokogiri
-  rainpress!
+  rainpress
   rake
   rubypants
   sass (~> 3.4)
@@ -126,4 +121,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   1.14.4
+   1.14.5
