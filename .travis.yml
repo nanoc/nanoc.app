@@ -11,6 +11,7 @@ git:
   depth: 10
 before_install:
   - gem install bundler
+  - bundle config github.https true
 addons:
   apt:
     packages:
