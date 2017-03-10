@@ -49,7 +49,7 @@ GEM
     htmlcompressor (0.3.1)
     json (2.0.3)
     kramdown (1.13.2)
-    libv8 (3.16.14.17)
+    libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -57,7 +57,7 @@ GEM
     lumberjack (1.0.11)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.6.3)
+    nanoc (4.6.4)
       cri (~> 2.3)
       ddplugin (~> 1.0)
       hamster (~> 3.0)
@@ -121,4 +121,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
