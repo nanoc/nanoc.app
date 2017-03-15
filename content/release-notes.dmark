@@ -4,6 +4,19 @@ title: "Release notes"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
 
+#section %h{Nanoc 4.7}
+  #p Nanoc 4.7 adds a shortcut for writing an item with a specific extension, while retaining the base name:
+
+  #listing[lang=ruby]
+    compile '/**/*.md' do
+      filter :kramdown
+      write ext: 'html'
+    end
+
+  #p Previously, you’d have to use the rather verbose %code{write item.identifier.without_exts + '.html'}.
+
+  #p Nanoc 4.7 also adds the %code{:erubi} filter, which calls %ref[url=https://github.com/jeremyevans/erubi]{Erubi}, an ERB template engine for Ruby.
+
 #section %h{Nanoc 4.6}
   #p Nanoc 4.6 adds %code{#snapshot?} to item representations. It returns true if the given representations has a snapshot with the given name, false otherwise. For example:
 

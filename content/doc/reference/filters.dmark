@@ -159,6 +159,14 @@ title: "Filters"
         #listing[lang=ruby]
           filter :erb, trim_mode: '%%'
 
+#section %h{%code{:erubi}}
+  #p The %code{:erubi} filter runs the content through %ref[url=https://en.wikipedia.org/wiki/ERuby]{eRuby}, using %ref[url=https://github.com/jeremyevans/erubi]{Erubi}. Options passed to this filter will be passed on to %code{Erubi::Engine.new}.
+
+  #p For example, the following will process eRuby source code using Erubi:
+
+  #listing[lang=ruby]
+    filter :erubi
+
 #section %h{%code{:erubis}}
   #p The %code{:erubis} filter runs the content through %ref[url=https://en.wikipedia.org/wiki/ERuby]{eRuby}, using %ref[url=http://www.kuwata-lab.com/erubis/]{Erubis}. This filter takes no options.
 

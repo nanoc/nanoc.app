@@ -52,6 +52,22 @@ title: "Rules"
       write item.identifier.to_s
     end
 
+  #p %strong{Example}: This compilation rule will copy all %code{.jpg} and %code{.jpeg} files, and give them the extension %code{.jpg}:
+
+  #listing[lang=ruby]
+    compile '/**/*.{jpg,jpeg%}' do
+      write item.identifier.without_exts + '.jpg'
+    end
+
+  #p To keep the basename of an item and only change the extension when writing, you can pass the %code{ext} param, specifying an extension.
+
+  #p %strong{Example}: This compilation rule is the same as the above one, but more concise:
+
+  #listing[lang=ruby]
+    compile '/**/*.{jpg,jpeg%}' do
+      write ext: 'jpg'
+    end
+
   #p To filter an item representation, call %code{#filter} pass the name of the filter as the first argument.
 
   #p %strong{Example}: The following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
