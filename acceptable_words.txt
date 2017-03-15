@@ -15,6 +15,7 @@ AWS
 Backported
 Barraquand
 Bas
+basename
 Benilov
 Bil
 Bilunov
@@ -58,6 +59,7 @@ Dufour
 Entypo
 Eppstein
 ERB
+Erubi
 Erubis
 eRuby
 ETags
@@ -150,6 +152,7 @@ Pakosz
 Pandoc
 PandocRuby
 Papis
+param
 passwordless
 PDF
 PDFs
