@@ -498,7 +498,7 @@ title: "Helpers"
         #dd The URL to which the tag will be appended to construct the link URL. This URL must have a trailing slash.
 
 #section %h{%code{Text}}
-  #p The %code{Text} helper contains several useful text-related helper functions.
+  #p The %code{Text} helper contains useful text-related helper functions.
 
   #dl
     #dt %code{excerptize(%var{string}, %var{length}: 25, %var{omission}: '...')} → %code{String}

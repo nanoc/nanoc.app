@@ -2,7 +2,7 @@
 title: "Tutorial"
 ---
 
-#p This tutorial takes approximately twenty minutes to complete. You need three things in order to follow the tutorial:
+#p This tutorial takes approximately twenty minutes to complete. You need three things to follow the tutorial:
 
 #dl
   #dt a working Nanoc installation
@@ -128,7 +128,7 @@ title: "Tutorial"
 
   #p Make sure that the preview server (%kbd{nanoc view}) is still running, and reload %uri{http://localhost:3000/} in your browser. You’ll see the page and the newly added paragraph.
 
-  #p Items, such as this home page, can contain metadata. This metadata is defined in the %firstterm{frontmatter} of a file. The home page’s frontmatter is quite simple:
+  #p Items, such as this home page, can contain metadata. This metadata is defined in the %firstterm{frontmatter} of a file. The home page’s frontmatter by default contains only a title:
 
   #listing[lang=yaml]
     ---
@@ -209,7 +209,7 @@ title: "Tutorial"
 #section %h[id=write-pages-in-markdown]{Write pages in Markdown}
   #p Nanoc has %firstterm{filters}, which transform content from one format into another.
 
-  #p A language that is commonly used instead of HTML is %ref[url=http://daringfireball.net/projects/markdown]{Markdown}. Nanoc comes with several different Markdown filters, including a filter for %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.
+  #p A language that is commonly used instead of HTML is %ref[url=http://daringfireball.net/projects/markdown]{Markdown}. Nanoc comes with various Markdown filters, including a filter for %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.
 
   #p Get rid of the content in %filename{content/index.html} (but leave the frontmatter intact), and replace it with Markdown:
 
@@ -235,7 +235,7 @@ title: "Tutorial"
 
   #note %entity{sudo-gem-install}
 
-  #p The %filename{Rules} file is used to describe the processing rules for items and layouts. This is the file that needs to be modified in order to tell Nanoc to use the kramdown filter.
+  #p The %filename{Rules} file is used to describe the processing rules for items and layouts. This is the file that needs to be modified to tell Nanoc to use the kramdown filter.
 
   #p This %filename{Rules} file comes with a commented-out %firstterm{compilation rule} specifically for kramdown:
 

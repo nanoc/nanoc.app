@@ -4,7 +4,7 @@ title: "Nanoc 4 upgrade guide"
 
 #p Nanoc 4 takes a clean break from the past, removing anything that was holding back future development.
 
-#p The good news is that Nanoc 4.0 is quite similar to 3.8. Upgrading a Nanoc 3.x site to Nanoc 4.0 only takes minutes.
+#p The good news is that Nanoc 4.0 is similar to 3.8. Upgrading a Nanoc 3.x site to Nanoc 4.0 only takes minutes.
 
 #section %h{Why upgrade?}
   #ul[spacious]

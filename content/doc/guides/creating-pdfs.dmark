@@ -50,7 +50,7 @@ title: "Creating PDFs"
       ::Kramdown::Document.new(content, params).to_latex
     end
 
-  #p In order to generate a proper LaTeX file, however, the output from kramdown needs to be wrapped to make it a proper document. A Nanoc layout fits this use case perfectly. Create %filename{layouts/article.tex.erb} with the following content:
+  #p To generate a proper LaTeX file, however, the output from kramdown needs to be wrapped to make it a proper document. A Nanoc layout fits this use case perfectly. Create %filename{layouts/article.tex.erb} with the following content:
 
   #listing[lang=erb]
     \documentclass{article%}

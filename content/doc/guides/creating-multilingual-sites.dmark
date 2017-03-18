@@ -2,7 +2,7 @@
 title: "Creating multilingual sites"
 ---
 
-#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is fairly opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online website}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online website} to see the details about how it is done.
+#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online website}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online website} to see the details about how it is done.
 
 #p A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
@@ -19,7 +19,7 @@ title: "Creating multilingual sites"
     /informations
     /jouez
 
-#p The way these pages are maintained is fairly standard: each page is an individual item in the content/ directory that is compiled to the output/ directory. You’d create these items just like you would in an  ordinary, monolingual site. Here’s what the content/ directory looks like:
+#p The way these pages are maintained is standard: each page is an individual item in the content/ directory that is compiled to the output/ directory. You’d create these items like you would in an ordinary, monolingual site. Here’s what the content/ directory looks like:
 
 #listing
   content/
@@ -42,9 +42,9 @@ title: "Creating multilingual sites"
       (item.identifier.to_s.match(/^\/([a-z]{2%})\//) || [])[1]
      end
 
-  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online website, I chose the English identifier as the canonical identifier, but the choice you make here is fairly arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
+  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online website, I chose the English identifier as the canonical identifier, but the choice you make here is arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
 
-  #p Now, it is possible to find all translations of a given item simply by finding all items with the same canonical identifier. This is fairly simple:
+  #p Now, it is possible to find all translations of a given item by finding all items with the same canonical identifier:
 
   #listing[lang=ruby]
     def translations_of(item)
