@@ -20,8 +20,9 @@
 
   position: relative;
 
+  padding: 0 20px;
+
   @media (min-width: 720px) {
-    padding: 0 40px;
     padding-top: 80px;
 
     max-width: 1020px;
@@ -29,7 +30,6 @@
   }
 
   @media (max-width: 719px) {
-    padding: 0 10px;
     margin-top: -6px;
   }
 }

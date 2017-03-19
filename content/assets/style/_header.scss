@@ -17,14 +17,11 @@
 
   display: flex;
 
+  padding: 20px;
+
   @media (min-width: 720px) {
     max-width: 1020px;
-    padding: 20px 40px;
     margin: 0 auto;
-  }
-
-  @media (max-width: 719px) {
-    padding: 20px 10px;
   }
 }
 
