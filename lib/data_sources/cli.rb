@@ -10,7 +10,8 @@ Class.new(Nanoc::DataSource) do
     root_cmd = Nanoc::CLI.root_command
     items << cmd_to_item(root_cmd)
 
-    root_cmd.subcommands.select { |c| !c.hidden? }.each do |subcmd|
+    subcommands = root_cmd.subcommands.reject(&:hidden).reject { |c| c.name == 'live' }
+    subcommands.each do |subcmd|
       items << cmd_to_item(subcmd)
     end
 
