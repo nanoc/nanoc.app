@@ -60,3 +60,39 @@ title: "Configuration"
 
   #listing[lang=yaml]
     string_pattern_type: glob
+
+#section %h{%code{checks}}
+  #p The %code{checks} section contains the configuration for individual checks.
+
+  #section %h{%code{internal_links}}
+    #p Defines the configuration for the %code{internal_links} check.
+
+    #dl
+      #dt %code{exclude} (default: empty array)
+      #dd A list of patterns, specified as regular expressions, to exclude from the check. If an internal link matches this pattern, the validity check will be skipped.
+
+    #p For example, the following will exclude all links starting with %code{/server_status} from being marked as broken:
+
+    #listing[lang=yaml]
+      checks:
+        internal_links:
+          exclude: ['^/server_status']
+
+  #section %h{%code{exclude_files}}
+    #p Defines the configuration for the %code{exclude_files} check.
+
+    #dl
+      #dt %code{exclude} (default: empty array)
+      #dd A list of patterns, specified as regular expressions, to exclude from the check. If an external link matches this pattern, the validity check will be skipped.
+
+    #dl
+      #dt %code{exclude_files} (default: empty array)
+      #dd A list of file patterns, specified as regular expressions, to exclude from the check. If a file matches this pattern, the links from this file will not be checked.
+
+    #p For example, the following will exclude all links to %code{example.com}, as well as all links on %code{blog/page}, from being marked as broken:
+
+    #listing[lang=yaml]
+      checks:
+        external_links:
+          exclude: ['^/server_status']
+          exclude_files: ['blog/page']
