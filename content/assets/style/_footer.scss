@@ -37,6 +37,22 @@ footer {
   padding: 0 10px;
 }
 
+.page .footer {
+  box-sizing: border-box;
+
+  max-width: 1020px;
+
+  @media (min-width: 720px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 719px) {
+    padding: 0 10px;
+  }
+
+  margin: 0 auto;
+}
+
 .page .footer-content {
   box-sizing: border-box;
 
@@ -44,14 +60,8 @@ footer {
   border-top-style: solid;
   border-color: $footer-light-border-color;
 
-  max-width: 640px;
-
   @media (min-width: 720px) {
-    margin: 0 40px 0 330px;
-  }
-
-  @media (min-width: 1340px) {
-    margin: 0 auto;
+    margin: 0 0 30px 300px;
   }
 }
 
@@ -69,7 +79,7 @@ footer {
 }
 
 .footer-links {
-  padding: 0 0 40px 0;
+  padding: 0 0 10px 0;
   margin: 0;
 
   li {

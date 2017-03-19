@@ -33,7 +33,9 @@
   display: flex;
 
   @media (min-width: 720px) {
-    padding: 20px 10px 20px 40px;
+    max-width: 1020px;
+    padding: 20px 40px;
+    margin: 0 auto;
   }
 
   @media (max-width: 719px) {
@@ -91,6 +93,9 @@
   @media (min-width: 720px) {
     padding: 0 40px;
     padding-top: 80px;
+
+    max-width: 1020px;
+    margin: 0 auto;
   }
 
   @media (max-width: 719px) {
@@ -105,13 +110,7 @@ article {
   padding: 30px 0 40px 0;
 
   @media (min-width: 720px) {
-    max-width: 640px;
-
     margin: 0 0 0 300px;
-  }
-
-  @media (min-width: 1300px) {
-    margin: 0 auto;
   }
 }
 
