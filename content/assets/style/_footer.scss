@@ -27,7 +27,10 @@ footer {
 }
 
 .home .footer-content {
+  box-sizing: border-box;
   max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .page .footer-content-wrapper {
@@ -112,7 +115,7 @@ footer {
     background-size: 40px 40px;
   }
 
-  @media (min-width: 819px) {
+  @media (min-width: 859px) {
     /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
     background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
     background-size: 117px 100px;
