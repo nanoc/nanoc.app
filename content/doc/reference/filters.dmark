@@ -46,7 +46,7 @@ title: "Filters"
     #dd
       #p If the code block starts with a line that begins with %code{#!}, then the remainder of the line will be used as the code language. For example, the following indicates a code block written in JSON:
       #listing[lang=html]
-        <pre><code>#!html
+        <pre><code>#!json
         {"greeting":"Hello, world!"%}
         </code></pre>
 
