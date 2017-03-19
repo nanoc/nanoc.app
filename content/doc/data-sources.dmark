@@ -63,7 +63,7 @@ title: "Data sources"
 
     Main content goes here…
 
-  #p Attributes can also be stored in a separate file with the same base name but with the %code{.yaml} extension.. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
+  #p Attributes can also be stored in a separate file (the “meta file”) with the same base name but with the %code{.yaml} extension.. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
 
   #listing
     %prompt{%%} %kbd{tree content/assets/images}
@@ -72,6 +72,22 @@ title: "Data sources"
     └── dataflow.yaml
 
   #p The identifier of items and layouts are obtained by taking the filename and stripping off everything up until the content or layouts directory, respectively. For example, the %filename{/Users/denis/stoneship/content/about.md} file will have the identifier %filename{/about.md}.
+
+  #p The filesystem data source adds the following attributes to all items:
+
+  #dl
+    #dt %code{:filename}
+    #dt %code{:content_filename}
+    #dd The content filename. For example, given the files %filename{content/about.md} and %filename{content/about.yaml}, then the content filename will be the absolute path to %filename{content/about.md}. Can be %code{nil}.
+
+    #dt %code{:meta_filename}
+    #dd The filename of the meta file, containing the item’s attributes. For example, given the files %filename{content/about.md} and %filename{content/about.yaml}, then the content filename will be the absolute path to %filename{content/about.yaml}. Can be %code{nil}.
+
+    #dt %code{:extension}
+    #dd The extension of the content filename, if any. Can be %code{nil}.
+
+    #dt %code{:mtime}
+    #dd The modification time of the content filename or the meta filename, whichever is the most recent.
 
   #section %h{Configuration}
     #listing[lang=yaml]
