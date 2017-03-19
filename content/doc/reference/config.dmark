@@ -78,8 +78,8 @@ title: "Configuration"
         internal_links:
           exclude: ['^/server_status']
 
-  #section %h{%code{exclude_files}}
-    #p Defines the configuration for the %code{exclude_files} check.
+  #section %h{%code{external_links}}
+    #p Defines the configuration for the %code{external_links} check.
 
     #dl
       #dt %code{exclude} (default: empty array)
