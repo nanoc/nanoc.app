@@ -57,7 +57,7 @@ GEM
     lumberjack (1.0.11)
     method_source (0.8.2)
     mini_portile2 (2.1.0)
-    nanoc (4.7.0)
+    nanoc (4.7.1)
       cri (~> 2.3)
       ddplugin (~> 1.0)
       hamster (~> 3.0)
