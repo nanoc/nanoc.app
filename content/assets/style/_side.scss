@@ -4,16 +4,14 @@
   @media (min-width: 720px) {
     position: fixed;
 
-    top: 90px;
+    top: 40px;
     bottom: 0;
-
-    overflow-y: auto;
 
     width: 260px;
   }
 
   @media (max-width: 719px) {
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
   }
 
   margin: 20px 0 20px 0;
@@ -55,7 +53,17 @@
 
   box-sizing: border-box;
 
+  width: 100%;
+
   padding: 20px;
+
+  @media (min-width: 720px) {
+    position: absolute;
+    top: 90px;
+    bottom: 0;
+
+    overflow: auto;
+  }
 }
 
 .toc {

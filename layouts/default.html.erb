@@ -16,14 +16,17 @@
 <% if @item[:has_basic_layout] %>
     <%= yield %>
 <% else %>
-    <header class="nws-header">
-      <div class="nws-header__content">
-        <a class="nws-header__logolink" href="/"><span class="nws-header__logotext">Nanoc</span></a>
-        <div class="nws-header__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
-      </div>
-    </header>
+    <nav class="nws-nav">
+      <ul class="nws-nav-content">
+        <li class="nws-nav-item"><%= link_to_unless_current('Home', @items['/index.*'], class: 'nws-nav-link') %></li>
+        <li class="nws-nav-item"><%= link_to_unless_current('Documentation', @items['/doc/about.*'], class: 'nws-nav-link') %></li>
+        <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
+        <li class="nws-nav-item"><%= link_to_unless_current('Release notes', @items['/release-notes.*'], class: 'nws-nav-link') %></li>
+      </ul>
+    </nav>
     <div class="nws-content">
       <aside class="side">
+        <div class="nws-side__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
         <div class="nws-side__content">
   	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
             <h3>Table of contents</h3>
