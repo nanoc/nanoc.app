@@ -1,6 +1,154 @@
-class NanocWsHTMLTranslator < NanocWsCommonTranslator
+class GenericHTMLTranslator < NanocWsCommonTranslator
+  # TODO: replace
   include Nanoc::Helpers::HTMLEscape
 
+  def handle_string(string, context)
+    [h(string)]
+  end
+
+  def handle_element(element, context)
+    case element.name
+    when 'abbr'
+      handle_element_abbr(element, context)
+    when 'dd'
+      handle_element_dd(element, context)
+    when 'emph'
+      handle_element_emph(element, context)
+    when 'dl'
+      handle_element_dl(element, context)
+    when 'dt'
+      handle_element_dt(element, context)
+    when 'h'
+      handle_element_h(element, context)
+    when 'img'
+      handle_element_img(element, context)
+    when 'li'
+      handle_element_li(element, context)
+    when 'mark'
+      handle_element_mark(element, context)
+    when 'ol'
+      handle_element_ol(element, context)
+    when 'p'
+      handle_element_p(element, context)
+    when 'section'
+      handle_element_section(element, context)
+    when 'ul'
+      handle_element_ul(element, context)
+    else
+      unsupported_element(element, context)
+    end
+  end
+
+  ###
+
+  def handle_element_abbr(element, context)
+    attributes = element.attributes['title'] ? { title: element.attributes['title'] } : {}
+
+    wrap('abbr', attributes.merge(extra_attributes_for_element(element, context))) do
+      handle_children(element, context)
+    end
+  end
+
+  def handle_element_dd(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_dl(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_dt(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_emph(element, context)
+    wrap('em', extra_attributes_for_element(element, context)) do
+      handle_children(element, context)
+    end
+  end
+
+  def handle_element_h(element, context)
+    depth = context.fetch(:depth, 1)
+    id = to_id(text_content_of(element))
+
+    attributes = { id: id }.merge(extra_attributes_for_element(element, context))
+    wrap("h#{depth}", attributes) { handle_children(element, context) }
+  end
+
+  def handle_element_img(element, context)
+    attributes = { src: text_content_of(element) }
+    wrap_empty('img', attributes.merge(extra_attributes_for_element(element, context)))
+  end
+
+  def handle_element_li(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_mark(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_ol(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_p(element, context)
+    handle_generic_element(element, context)
+  end
+
+  def handle_element_section(element, context)
+    depth = context.fetch(:depth, 1) + 1
+    handle_children(element, context.merge(depth: depth))
+  end
+
+  def handle_element_ul(element, context)
+    handle_generic_element(element, context)
+  end
+
+  ###
+
+  def handle_generic_element(element, context)
+    wrap(element.name, extra_attributes_for_element(element, context)) do
+      handle_children(element, context)
+    end
+  end
+
+  def extra_attributes_for_element(element, context)
+    {}
+  end
+
+  ###
+
+  def wrap(name, params = {})
+    [
+      start_tag(name, params),
+      yield,
+      end_tag(name),
+    ]
+  end
+
+  def wrap_empty(name, params = {})
+    [start_tag(name, params)]
+  end
+
+  def start_tag(name, params)
+    '<' + name + params.map { |k, v| ' ' + k.to_s + '="' + html_escape(v) + '"' }.join('') + '>'
+  end
+
+  def end_tag(name)
+    '</' + name + '>'
+  end
+
+  def unsupported_element(element, _context)
+    raise "Cannot translate #{element.name}"
+  end
+end
+
+###############################################################################
+###############################################################################
+###############################################################################
+
+class NanocWsHTMLTranslator < GenericHTMLTranslator
   SUDO_GEM_CONTENT_DMARK =
     'If the %command{<cmd>} command fails with a permission error, you likely have to prefix ' \
     'the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command ' \
@@ -12,16 +160,35 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
   SUDO_GEM_UPDATE_SYSTEM_CONTENT_DMARK =
     SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem update --system')
 
-  # Abstract methods
+  # Overridden methods
 
-  def handle_string(string, context)
-    [h(string)]
+  def extra_attributes_for_element(element, context)
+    attributes = {}
+
+    # dt, section, h
+    attributes[:id] = element.attributes['id'] if element.attributes['id']
+
+    attributes[:class] = 'legacy' if element.attributes['legacy']
+    attributes[:class] = 'errors' if element.attributes['errors']
+    attributes[:class] = 'legacy-intermediate' if element.attributes['legacy-intermediate']
+    attributes[:class] = 'new' if element.attributes['new']
+
+    case element.name
+    when 'h'
+      attributes['data-nav-title'] = element.attributes['nav-title'] if element.attributes['nav-title']
+    when 'dl', 'figure'
+      attributes[:class] = 'compact' if element.attributes['compact']
+    when 'ol', 'ul'
+      attributes[:class] = 'spacious' if element.attributes['spacious']
+    end
+
+    attributes
   end
+
+  # Abstract methods
 
   def handle_element(element, context)
     case element.name
-    when 'img'
-      handle_img(element, context)
     when 'ref'
       handle_ref(element, context)
     when 'entity'
@@ -30,21 +197,6 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
       handle_erb(element, context)
     when 'listing'
       handle_listing(element, context)
-    when 'section'
-      depth = context.fetch(:depth, 1) + 1
-      handle_children(element, context.merge(depth: depth))
-    when 'h'
-      depth = context.fetch(:depth, 1)
-      id = element.attributes['id'] || to_id(text_content_of(element))
-
-      attributes = { id: id }
-      attributes = attributes.merge('data-nav-title' => element.attributes['nav-title']) if element.attributes['nav-title']
-      wrap("h#{depth}", attributes) { handle_children(element, context) }
-    when 'emph'
-      wrap('em') { handle_children(element, context) }
-    when 'abbr'
-      attributes = element.attributes['title'] ? { title: element.attributes['title'] } : {}
-      wrap('abbr', attributes) { handle_children(element, context) }
     when 'caption'
       wrap('figcaption') { handle_children(element, context) }
     when 'firstterm', 'identifier', 'glob', 'filename', 'class', 'command', 'prompt', 'productname', 'see', 'log-create', 'log-check-ok', 'log-check-error', 'log-update', 'uri', 'attribute', 'output'
@@ -55,28 +207,14 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
           handle_children(element, context)
         end
       end
-    when 'mark'
-      wrap(element.name) { handle_children(element, context) }
-    when 'p', 'dl', 'dt', 'dd', 'code', 'kbd', 'ul', 'ol', 'li', 'figure', 'blockquote', 'var', 'strong', 'section'
+    when 'code', 'kbd', 'figure', 'blockquote', 'var', 'strong'
       attributes = {}
 
-      attributes[:class] = 'legacy' if element.attributes['legacy']
-      attributes[:class] = 'errors' if element.attributes['errors']
-      attributes[:class] = 'legacy-intermediate' if element.attributes['legacy-intermediate']
-      attributes[:class] = 'new' if element.attributes['new']
-      attributes[:class] = 'spacious' if element.attributes['spacious']
-      attributes[:class] = 'compact' if element.attributes['compact']
-      attributes[:'data-nav-title'] = element.attributes['nav-title'] if element.attributes['nav-title']
-
-      if element.attributes['id']
-        attributes[:id] = element.attributes['id']
-      elsif element.name =~ /\Ah\d/
-        attributes[:id] = to_id(text_content_of(element))
-      end
+      attributes[:class] = 'compact' if element.attributes['compact'] # figure
 
       wrap(element.name, attributes) { handle_children(element, context) }
     else
-      raise "Cannot translate #{element.name}"
+      super
     end
   end
 
@@ -100,10 +238,6 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
   def handle_erb(node, context)
     ctx = Nanoc::Int::Context.new(context)
     [eval(text_content_of(node), ctx.get_binding)]
-  end
-
-  def handle_img(node, context)
-    wrap_empty('img', src: text_content_of(node))
   end
 
   def handle_listing(element, context)
@@ -189,27 +323,5 @@ class NanocWsHTMLTranslator < NanocWsCommonTranslator
     else
       target_item.path
     end
-  end
-
-  # Helper methods
-
-  def wrap(name, params = {})
-    [
-      start_tag(name, params),
-      yield,
-      end_tag(name),
-    ]
-  end
-
-  def wrap_empty(name, params = {})
-    [start_tag(name, params)]
-  end
-
-  def start_tag(name, params)
-    '<' + name + params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('') + '>'
-  end
-
-  def end_tag(name)
-    '</' + name + '>'
   end
 end
