@@ -1,17 +1,5 @@
 @import "colors.scss";
 
-.nws-header {
-  border-top: 6px solid $page-top-border-color;
-
-  @media (min-width: 720px) {
-    position: fixed;
-  }
-
-  width: 100%;
-
-  z-index: 100;
-}
-
 :target:before {
   content: "";
   display: block;
@@ -25,64 +13,6 @@
     height: 10px;
     margin: -10px 0 0;
   }
-}
-
-.nws-header__content {
-  box-sizing: border-box;
-
-  display: flex;
-
-  @media (min-width: 720px) {
-    max-width: 1020px;
-    padding: 20px 40px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 719px) {
-    padding: 20px 10px;
-  }
-}
-
-.nws-header__logolink {
-  display: block;
-
-  order: 3;
-
-  flex: 0 0 auto;
-
-  width: 40px;
-  height: 40px;
-
-  background: url(/assets/images/logo-small.png) left center no-repeat;
-  background-size: 40px 40px;
-  background-position: center;
-
-  margin: -10px 10px -10px 290px;
-  padding: 10px;
-
-  @media (max-width: 719px) {
-    margin: -10px auto;
-  }
-
-  margin-left: auto;
-}
-
-.nws-header__logolink:hover {
-  background: url(/assets/images/logo-small.png) left center no-repeat;
-  background-size: 45px 45px;
-  background-position: center;
-}
-
-.nws-header__logotext {
-  display: none;
-}
-
-.nws-header__search {
-  @media (max-width: 719px) {
-    display: none;
-  }
-
-  flex: 0 0 260px;
 }
 
 .nws-content {
@@ -101,32 +31,5 @@
   @media (max-width: 719px) {
     padding: 0 10px;
     margin-top: -6px;
-  }
-}
-
-article {
-  box-sizing: border-box;
-
-  padding: 30px 0 40px 0;
-
-  @media (min-width: 720px) {
-    margin: 0 0 0 300px;
-  }
-}
-
-.side {
-  @media (min-width: 720px) {
-    position: fixed;
-
-    top: 90px;
-    bottom: 0;
-
-    overflow-y: auto;
-
-    width: 260px;
-  }
-
-  @media (max-width: 719px) {
-    margin: 40px 0 0 0;
   }
 }

@@ -5,3 +5,13 @@
 
   color: $intro-fg-color;
 }
+
+article {
+  box-sizing: border-box;
+
+  padding: 30px 0 40px 0;
+
+  @media (min-width: 720px) {
+    margin: 0 0 0 300px;
+  }
+}
