@@ -224,7 +224,7 @@ title: "Troubleshooting"
 
     Another section…
 
-#section %h{Error: %code{RecursiveCompilation}}
+#section %h{Error: %code{DependencyCycle}}
   #p This error occurs when two or more items depend on each other’s compiled content. For example, imagine these two files:
 
   #listing[lang=rhtml,errors]
@@ -235,11 +235,11 @@ title: "Troubleshooting"
     <!-- content/bar.html -->
     <%%= @items['/foo.*'].compiled_content %%>
 
-  #p The compiled content of the %filename{foo.html} item depends on the compiled content of the %filename{bar.html} item, and vice versa. Nanoc cannot resolve this, and throws a %code{RecursiveCompilation} error.
+  #p The compiled content of the %filename{foo.html} item depends on the compiled content of the %filename{bar.html} item, and vice versa. Nanoc cannot resolve this, and throws a %code{DependencyCycle} error.
 
   #p To fix this error, ensure that at least one of these items does not depend on the compiled content of the other.
 
-  #p This error also occurs when a single item depends on the later compiled content of itself. For example, an item with the following content will also cause a %code{RecursiveCompilation} error:
+  #p This error also occurs when a single item depends on the later compiled content of itself. For example, an item with the following content will also cause a %code{DependencyCycle} error:
 
   #listing[lang=rhtml,errors]
     <%%= @item.compiled_content %%>
