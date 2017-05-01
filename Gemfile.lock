@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/ddfreyne/d-mark.git
-  revision: 9b209c60960fcb2e263b7392e795c4541b26a37a
+  revision: 56957e9b74ddabdf1e8ef85f45516b9906ee61b7
   specs:
     d-mark (1.0.0a3)
 
