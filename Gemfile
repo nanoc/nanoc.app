@@ -1,26 +1,22 @@
 source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
-  gem 'therubyracer', github: 'cowboyd/therubyracer'
   gem 'guard-nanoc'
+  gem 'therubyracer', github: 'cowboyd/therubyracer'
 end
 
-gem 'nanoc', '~> 4.2'
-gem 'adsf'        # for viewing
-gem 'builder'     # for feeds
-gem 'coderay'     # for syntax highlighting
-gem 'haml'        # for layouts with clean sources
-gem 'kramdown'    # for advanced markdown
-gem 'nokogiri'    # for parsing HTML
-gem 'rake'
-gem 'rainpress'
-gem 'rubypants'   # for pretty typography
-gem 'sass', '~> 3.4'
-gem 'systemu'     # for invoking rsync etc
-gem 'htmlcompressor'
-gem 'w3c_validators'
-gem 'ffi-aspell'
+gem 'adsf'
+gem 'builder'
+gem 'coderay'
 gem 'd-mark', github: 'ddfreyne/d-mark'
+gem 'ffi-aspell'
+gem 'htmlcompressor'
+gem 'kramdown'
+gem 'nanoc', '~> 4.2'
+gem 'nokogiri'
+gem 'rainpress'
+gem 'rake'
+gem 'sass', '~> 3.4'
 gem 'terminal-notifier-guard'
-gem 'stackprof'
+gem 'w3c_validators'
 gem 'warning'
