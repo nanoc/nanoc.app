@@ -20,13 +20,6 @@ title: "Contributing"
 #section %h{Submitting feature requests}
   #p If you have an idea for a new feature, start a discussion on the %ref[url=https://groups.google.com/forum/?fromgroups#!forum/nanoc]{Nanoc Google group}.
 
-#section %h{Reviewing pull requests}
-  #p We use pull requests extensively for Nanoc development. No pull request gets merged without at least one +1.
-
-  #p This approach ensures quality, but can be a bit slow. You can help out by checking %ref[url=https://github.com/pulls?q=is%%3Aopen+user%%3Ananoc+label%%3A%%22to+review%%22]{open pull requests marked as “to review”}.
-
-  #p If you think the pull request is good, leave a %code{:+1:}. If you have concerns, leave a comment.
-
 #section %h{Contributing code}
   #p To contribute code, you need a basic knowledge of git. The %ref[url=http://try.github.io/]{Try Git} interactive tutorial is quite good for getting up to speed.
 
