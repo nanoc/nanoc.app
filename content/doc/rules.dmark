@@ -316,7 +316,7 @@ title: "Rules"
 
   #listing[lang=ruby]
     postprocess do
-      items.flat_map(&:modified_reps).each do |rep|
+      @items.flat_map(&:modified_reps).each do |rep|
         update_search_index(rep.path, rep.compiled_content(snapshot: :last))
       end
     end
