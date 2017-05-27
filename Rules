@@ -15,6 +15,10 @@ passthrough '/favicon.ico'
 passthrough '/assets/fonts/**/*'
 ignore '/assets/style/*.tex'
 
+compile '/well-known/**/*' do
+  write '/.' + item.identifier.to_s[1..-1]
+end
+
 compile '/assets/images/hero/*' do
   write item.identifier.without_ext + '-' + fingerprint('/assets/images/hero/*') + '.' + item.identifier.ext
 end
