@@ -5,7 +5,7 @@ title: "Contributing"
 #p Nanoc is the effort of %ref[frag=contributors]{dozens of people}. Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to Nanoc.
 
 #section %h{Making a donation}
-  #p Nanoc is, and always will be, provided free of charge. Development is voluntary and happens entirely in free time. If you use Nanoc and like it, please consider showing your token of support by %ref[url=http://www.pledgie.com/campaigns/9282]{making a donation}.
+  #p Nanoc is, and always will be, provided free of charge. Development is voluntary and happens entirely in free time. If you use Nanoc and like it, please consider showing your token of support by %ref[url=https://donorbox.org/nanoc]{making a donation}.
 
 #section %h{Reporting bugs}
   #p If you find a bug in Nanoc, you should %ref[url=https://github.com/nanoc/nanoc/issues/new]{report it}! But before you do, make sure you have the latest version of Nanoc (and dependencies) installed, and see if you can still reproduce the bug there. If you can, report it!

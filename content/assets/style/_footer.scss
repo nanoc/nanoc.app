@@ -75,6 +75,11 @@ footer {
   padding: 0 0 10px 0;
   margin: 0;
 
+  strong {
+    color: $footer-heart-color;
+    font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
+  }
+
   li {
     padding: 0 2px;
     margin: 0 -2px;
