@@ -387,7 +387,7 @@ title: "Helpers"
       relative_path_to('/foo/qux/')
       # => '../qux/'
 
-#section %h{%code{Rendering}}
+#section[id=rendering] %h{%code{Rendering}}
   #p The %code{Rendering} helper provides functionality for rendering layouts as partials.
 
   #dl

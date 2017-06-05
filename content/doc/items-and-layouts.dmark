@@ -59,7 +59,7 @@ title: "Items and layouts"
   #p Just like items, layouts have attributes and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
 
   #section %h{Partials}
-    #p A layout can be used as a %firstterm{partial}. A partial is a layout that is not used for laying out an item, but is rather intended to be included into another item or layout. Because of this, partials typically do call %code{yield}.
+    #p A layout can be used as a %firstterm{partial}. A partial is a layout that is not used for laying out an item, but is rather intended to be included into another item or layout. Because of this, partials typically call %code{yield}.
 
     #p To enable partials, first %code{include} the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
 
@@ -71,7 +71,4 @@ title: "Items and layouts"
     #listing[lang=eruby]
       <%%= render '/head.*' %%>
 
-    #p It is also possible to pass custom variables to rendered partials by putting them into a hash passed to %code{#render}. The following example will make a %code{@title} variable (set to %code{"Foo"} in this example) available in the %code{head} layout:
-
-    #listing[lang=eruby]
-      <%%= render '/head.*', :title => 'Foo' %%>
+    #p For details, see the %ref[item=/doc/reference/helpers.*,frag=rendering]{documentation for the %code{Rendering} helper}.
