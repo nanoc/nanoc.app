@@ -251,8 +251,6 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
   end
 
   def handle_listing(element, context)
-    code_attributes = {}
-
     pre_classes = []
     pre_classes << 'template' if element.attributes['template']
     pre_classes << 'errors' if element.attributes['errors']
