@@ -397,7 +397,7 @@ title: "Helpers"
 
       #p When this method is invoked without a block, the return value will be the rendered layout (a string) and %code{_erbout} will not be modified.
 
-      #p When this method is invoked with a block, an empty string will be returned and the rendered content will be appended to %code{_erbout}. In this case, the content of the block will be captured (using the %ref[frag=capturing]{Capturing}) and this content will be made available with %code{yield}. In other words, a %code{yield} inside the partial will output the content of the block passed to the method.
+      #p When this method is invoked with a block, an empty string will be returned and the rendered content will be appended to %code{_erbout}. In this case, the content of the block will be captured (using the %ref[frag=capturing]{Capturing} helper) and this content will be made available with %code{yield}. In other words, a %code{yield} inside the partial will output the content of the block passed to the method.
 
       #note The reason why %code{#render} with a block has this behaviour of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
 
