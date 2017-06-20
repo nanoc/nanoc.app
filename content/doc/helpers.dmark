@@ -4,10 +4,10 @@ title: "Helpers"
 
 #p A helper is a module with functions that can be used during filtering.
 
-#p Helpers need to be activated before they can be used. To activate a helper, %code{include} it, like this (in a file in the %filename{lib/} directory, such as %filename{lib/helpers.rb}):
+#p Helpers need to be activated before they can be used. To activate a helper, call either %code{use_helper} or %code{include} with the name of the helper as the argument, like this (in a file in the %filename{lib/} directory, such as %filename{lib/helpers.rb}):
 
 #listing[lang=ruby]
-  include Nanoc::Helpers::Blogging
+  use_helper Nanoc::Helpers::Blogging
 
 #p Take a look at the %ref[item=/doc/reference/helpers.*]{helpers reference} for a list of helpers that are included with Nanoc.
 
@@ -25,10 +25,10 @@ title: "Helpers"
       end
     end
 
-  #p To use this helper, %code{include} it, for instance in %filename{lib/helpers.rb}:
+  #p To activate this helper, call %code{use_helper}, for instance in %filename{lib/helpers.rb}:
 
   #listing[lang=ruby]
-    include RandomTextHelper
+    use_helper RandomTextHelper
 
   #p The methods provided by this helper can now be used during filtering. For example, the default layout, assuming it is filtered using ERB, can now generate random text like this:
 

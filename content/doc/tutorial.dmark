@@ -312,7 +312,7 @@ title: "Tutorial"
   #p Nanoc is bundled with a handful of helpers, including a tagging helper (see the %ref[item=/doc/reference/helpers.*,frag=tagging]{tagging helper documentation} for details). To use this tagging helper, replace the contents of %filename{lib/tags.rb} with this:
 
   #listing[lang=ruby]
-    include Nanoc::Helpers::Tagging
+    use_helper Nanoc::Helpers::Tagging
 
   #p This will make all functions defined in the %code{Nanoc::Helpers::Tagging} module available for use.
 

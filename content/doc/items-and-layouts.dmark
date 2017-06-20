@@ -64,7 +64,7 @@ title: "Items and layouts"
     #p To enable partials, first %code{include} the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
 
     #listing[lang=ruby]
-      include Nanoc::Helpers::Rendering
+      use_helper Nanoc::Helpers::Rendering
 
     #p To render a partial, call %code{#render} with the identifier or a glob as an argument:
 
