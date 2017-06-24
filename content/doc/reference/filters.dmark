@@ -15,7 +15,7 @@ title: "Filters"
   #tip A faster and more flexible alternative to this filter is %ref[url=https://github.com/nanoc/nanoc-asciidoctor]{nanoc-asciidoctor}, which uses %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of Asciidoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
 
 #section %h{%code{:bluecloth}}
-  #p The %code{:bluecloth} filter invokes %ref[url=http://www.methods.co.nz/bluecloth/]{BlueCloth}, a pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. This filter takes no options.
+  #p The %code{:bluecloth} filter invokes %ref[url=https://deveiate.org/projects/BlueCloth]{BlueCloth}, a pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. This filter takes no options.
 
   #p For example, the following will convert a Markdown page to HTML:
 
@@ -334,14 +334,14 @@ title: "Filters"
     #p This approach is less flexible, however, as it is not capable of passing options without values, such as the %code{--no-wrap} and %code{--table-of-contents} options in the example above.
 
 #section %h{%code{:rainpress}}
-  #p The %code{:rainpress} filter runs CSS through %ref[url=https://github.com/sprsquish/rainpress]{Rainpress}, a CSS compressor.
+  #p The %code{:rainpress} filter runs CSS through %ref[url=https://github.com/ddfreyne/rainpress]{Rainpress}, a CSS compressor.
 
   #p For example, the following will compress CSS with Rainpress:
 
   #listing[lang=ruby]
     filter :rainpress
 
-  #p Options passed to this filter will be passed to Rainpress. See the %ref[url=https://github.com/sprsquish/rainpress/blob/master/lib/rainpress.rb]{%filename{rainpress.rb}} file for a description of the options. For example, the following will retain newlines:
+  #p Options passed to this filter will be passed to Rainpress. See the %ref[url=https://github.com/ddfreyne/rainpress/blob/master/lib/rainpress.rb]{%filename{rainpress.rb}} file for a description of the options. For example, the following will retain newlines:
 
   #listing[lang=ruby]
     filter :rainpress, newlines: false
