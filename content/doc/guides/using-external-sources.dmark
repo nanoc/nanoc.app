@@ -42,6 +42,7 @@ title: "Using external sources"
         photo_url  TEXT NOT NULL
     )
     EOS
+    DB.run(sql)
 
     DB[:employees].insert(
       id: 1,
