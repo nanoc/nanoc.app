@@ -154,6 +154,14 @@ title: "Using external sources"
       </tbody>
     </table>
 
+  #p Ensure the rules for this new employees page filters it with %code{:erb} and writes it out with a %filename{html} extension:
+
+  #listing[lang=ruby]
+    compile '/employees.*' do
+      filter :erb
+      write ext: 'html'
+    end
+
   #p Finally you have to stop Nanoc from writing out pages for every employee item provided by the data source. For this, the %code{#ignore} rule comes in handy. Add this at the top of your %filename{Rules} file:
 
   #listing[lang=ruby]
