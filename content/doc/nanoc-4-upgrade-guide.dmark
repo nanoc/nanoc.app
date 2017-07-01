@@ -124,7 +124,7 @@ title: "Nanoc 4 upgrade guide"
 
     #li If you use the static data source, disable it for now and follow the extended upgrade instructions below.
 
-#section %h{Extended upgrade guide}
+#section[id=extended-upgrade-guide] %h{Extended upgrade guide}
   #p This section describes how to upgrade a site to identifiers with extensions and glob patterns. For details, see %ref[item=/doc/identifiers-and-patterns.*]{}.
 
   #p This section assumes you have already upgraded the site following the instructions in %ref[frag=quick-upgrade-guide]{} above.

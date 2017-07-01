@@ -6,6 +6,8 @@ title: "Using external sources"
 
 #p As an example, assume you work for a company that has a SQL database containing an employee directory, and you want to extract that information into a nice-looking website. Nanoc to the rescue!
 
+#note This guide assumes non-legacy identifier types and string pattern types. Consult %ref[item=/doc/nanoc-4-upgrade-guide.*,frag=extended-upgrade-guide]{} for information on migrating.
+
 #section %h{Setting up the database}
   #p This example will use the following SQLite 3 schema:
 
