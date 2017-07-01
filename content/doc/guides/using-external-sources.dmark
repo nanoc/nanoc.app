@@ -99,7 +99,7 @@ title: "Using external sources"
           new_item(
             '',
             employee,
-            "/employees/#{employee[:id]%}/"
+            "/employees/#{employee[:id]%}"
           )
         end
       end
