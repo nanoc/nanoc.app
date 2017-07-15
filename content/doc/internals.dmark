@@ -90,10 +90,6 @@ title: "Internals"
   #section %h{Compilation selection}
     #p Once Nanoc has selected the items representations that it deems are outdated (see %ref[frag=outdatedness-checking]{}), it will compile these item reps in the best possible order. The class responsible for determining this order is the %code{ItemRepSelector}.
 
-    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to a compilation suspension, Nanoc will schedule a continued compilation attempt for this item representation after the dependent item representation has been compiled. If the dependent item representation was not selected for recompilation (which happens when the item representation is not deemed to be outdated), Nanoc will schedule the dependent item representation for recompilation.
-
-    #figure[compact]
-      #img /assets/images/compilation_flow.gif
-      #caption A visual representation of the compilation selection process
+    #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to a compilation suspension, Nanoc will attempt to compile the item rep that is depended on. If the item rep that is depended on is also suspended, Nanoc will raise an error, informing the user of a dependency cycle.
 
     #note The term “compile” or “recompile” does not always mean that the item will be recompiled from scratch; Nanoc keeps a cache of compiled content and will reuse cached compiled content if possible.
