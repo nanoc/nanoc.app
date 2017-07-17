@@ -56,7 +56,6 @@ check :spelling do
   acceptable_files = [
     # These are auto-generated from Nanoc’s API documentation. Fixing these is a task for later.
     'output/doc/reference/commands/index.html',
-    'output/doc/reference/config/index.html',
 
     # The release notes contain lots of old, write-once, unmaintained content. Fixing these is a task for later.
     'output/release-notes/details/index.html',

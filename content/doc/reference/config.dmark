@@ -15,7 +15,7 @@ title: "Configuration"
     output_dir: %erb{Nanoc::Int::Configuration::DEFAULT_CONFIG[:output_dir]}
 
 #section %h{%code{index_filenames}}
-  #p A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named “index.html”, but depending on the web server, this may be something else, such as “default.htm”. This list is used by Nanoc to generate pretty URLs.
+  #p A list of index filenames, i.e. names of files that will be served by a web server when a directory is requested. Usually, index files are named %filename{index.html}, but depending on the web server, this may be something else, such as %filename{default.html}. This list is used by Nanoc to generate pretty URLs.
 
   #listing[lang=yaml]
     index_filenames: %erb{array_to_yaml(Nanoc::Int::Configuration::DEFAULT_CONFIG[:index_filenames])}
