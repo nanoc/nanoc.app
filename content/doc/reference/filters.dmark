@@ -7,15 +7,15 @@ title: "Filters"
 #section %h{%code{:asciidoc}}
   #p The %code{:asciidoc} filter invokes the command-line tool of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}. This filter takes no options.
 
-  #p For example, the following will convert an Asciidoc page to HTML:
+  #p For example, the following will convert an AsciiDoc page to HTML:
 
   #listing[lang=ruby]
     filter :asciidoc
 
 #section %h{%code{:asciidoctor}}
-  #p The %code{:asciidoctor} filter invokes %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of Asciidoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
+  #p The %code{:asciidoctor} filter invokes %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of AsciiDoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
 
-  #p For example, the following will convert an Asciidoc page to HTML:
+  #p For example, the following will convert an AsciiDoc page to HTML:
 
   #listing[lang=ruby]
     filter :asciidoctor
