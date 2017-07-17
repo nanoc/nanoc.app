@@ -195,7 +195,7 @@ title: "Filters"
     filter :haml, format: :html5
 
 #section %h{%code{:handlebars}}
-  #p The %code{:handlebars} filter processes %ref[url=http://handlebarsjs.com/]{Handlebars} code using %ref[url=https://github.com/cowboyd/handlebars.rb]{handlebars.rb}.
+  #p The %code{:handlebars} filter processes %ref[url=http://handlebarsjs.com/]{Handlebars} code using %ref[url=https://github.com/cowboyd/handlebars.rb]{%productname{handlebars.rb}}.
 
   #p For example, the following will convert Handlebars content into HTML:
 
