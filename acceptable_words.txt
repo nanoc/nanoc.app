@@ -8,6 +8,7 @@ Armston
 Arnau
 Aronoff
 AsciiDoc
+Asciidoctor
 Atle
 Autocompiler
 autocompiler
