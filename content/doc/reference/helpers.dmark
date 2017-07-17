@@ -38,7 +38,7 @@ title: "Helpers"
         #dt %code{kind}
         #dd (described above) — optional if you are passing an explicit list of articles using the %code{:articles} parameter
 
-      #p The following attributes can optionally be set on blog articles to change the behaviour of the Atom feed:
+      #p The following attributes can optionally be set on blog articles to change the behavior of the Atom feed:
 
       #dl[compact]
         #dt %code{excerpt}
@@ -48,7 +48,7 @@ title: "Helpers"
         #dd The path that will be used instead of the normal path in the feed. This can be useful when including non-outputted items in a feed; such items could have their custom feed path set to the blog path instead, for example.
 
         #dt %code{custom_url_in_feed}
-        #dd The url that will be used instead of the normal url in the feed (generated from the site’s base url + the item rep’s path). This can be useful when building a link-blog where the URL of article is a remote location.
+        #dd The URL that will be used instead of the normal URL in the feed (generated from the site’s base URL + the item rep’s path). This can be useful when building a link-blog where the URL of article is a remote location.
 
         #dt %code{updated_at}
         #dd The time when the article was last modified. If this attribute is not present, the %code{created_at} attribute will be used as the time when the article was last modified.
@@ -139,7 +139,7 @@ title: "Helpers"
 
     #dt %code{attribute_to_time(%var{arg})} → %code{Time}
     #dd
-      #p Converts the given attribute (which can be a string, a Time, a Date or a DateTime) into a Time. When given a Date instance or a string, the argument is assumed to be in the local timezone.
+      #p Converts the given attribute (which can be a string, a %code{Time}, a %code{Date} or a %code{DateTime}) into a %code{Time}. When given a %code{Date} instance or a string, the argument is assumed to be in the local timezone.
 
 #section %h{%code{Breadcrumbs}}
   #p The %code{Breadcrumbs} helper provides support for breadcrumbs, which allow the user to go up in the page hierarchy.
@@ -399,7 +399,7 @@ title: "Helpers"
 
       #p When this method is invoked with a block, an empty string will be returned and the rendered content will be appended to %code{_erbout}. In this case, the content of the block will be captured (using the %ref[frag=capturing]{Capturing} helper) and this content will be made available with %code{yield}. In other words, a %code{yield} inside the partial will output the content of the block passed to the method.
 
-      #note The reason why %code{#render} with a block has this behaviour of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
+      #note The reason why %code{#render} with a block has this behavior of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
 
       #p The assigns (%code{@item}, %code{@config}, …) will be available in the partial. It is also possible to pass custom assigns to the method; these assigns will be made available as instance variables inside the partial.
 
@@ -535,7 +535,7 @@ title: "Helpers"
     #dd
       #p Builds an XML sitemap and returns it.
 
-      #p The following attributes can optionally be set on items to change the behaviour of the sitemap:
+      #p The following attributes can optionally be set on items to change the behavior of the sitemap:
 
       #dl[compact]
         #dt %code{changefreq}

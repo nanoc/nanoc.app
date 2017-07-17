@@ -227,6 +227,8 @@ sigil
 Šime
 sitemap
 sitemaps
+parseable
+Sitemaps
 snapshotting
 Solarized
 Soryu
@@ -263,6 +265,7 @@ Uncomment
 uncompiled
 Unescaped
 Unported
+URI
 URIs
 USR1
 UTC
@@ -270,11 +273,14 @@ UTF
 Vallentin
 VCS
 Verborgh
+FeedBurner
 versa
 versionable
 Versioning
 Vlatko
 Vokes
+proc
+microformat
 von
 Vuotto
 Werthen
