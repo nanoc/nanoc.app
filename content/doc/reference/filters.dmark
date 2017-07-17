@@ -12,7 +12,13 @@ title: "Filters"
   #listing[lang=ruby]
     filter :asciidoc
 
-  #tip A faster and more flexible alternative to this filter is %ref[url=https://github.com/nanoc/nanoc-asciidoctor]{nanoc-asciidoctor}, which uses %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of Asciidoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
+#section %h{%code{:asciidoctor}}
+  #p The %code{:asciidoctor} filter invokes %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of Asciidoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
+
+  #p For example, the following will convert an Asciidoc page to HTML:
+
+  #listing[lang=ruby]
+    filter :asciidoctor
 
 #section %h{%code{:bluecloth}}
   #p The %code{:bluecloth} filter invokes %ref[url=https://deveiate.org/projects/BlueCloth]{BlueCloth}, a pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. This filter takes no options.
