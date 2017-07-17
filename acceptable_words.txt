@@ -10,8 +10,8 @@ Aronoff
 AsciiDoc
 Asciidoctor
 Atle
-Autocompiler
 autocompiler
+Autocompiler
 AWS
 Backported
 Barraquand
@@ -40,6 +40,8 @@ Cichra
 CLI
 Clift
 CMS
+CodeRay
+CoffeeScript
 colorizer
 colorizers
 Cri
@@ -139,6 +141,8 @@ mtime
 mtimes
 multibyte
 Muñoz
+namespace
+namespaces
 Nanoc
 Nanoc's
 Nederlands
@@ -147,11 +151,11 @@ Nicky
 Nikhil
 Nishinaga
 Nokogiri
-Online
 online
+Online
 other's
-outdatedness
 Outdatedness
+outdatedness
 outdatedness
 Pakosz
 Pandoc
@@ -172,11 +176,11 @@ postprocessing
 pre
 Preformatted
 preprocess
-preprocessing
 Preprocessing
+preprocessing
 preprocessor
-Preprocessors
 preprocessors
+Preprocessors
 prev
 previewable
 Programmability
@@ -189,10 +193,13 @@ RDoc
 Recognised
 recompiles
 recurses
+Redcarpet
 RedCloth
 regex
 RegexpError
 Reitinger
+relativize
+relativized
 Rémi
 Remko
 renderer
@@ -223,8 +230,8 @@ sitemaps
 snapshotting
 Solarized
 Soryu
-Speel
 speel
+Speel
 SQL
 SQLite
 SQLite3
@@ -234,6 +241,7 @@ stylesheet
 subclassing
 subdirectory
 subdomain
+superset
 Sutch
 symlink
 symlinks
@@ -246,6 +254,7 @@ Toon
 Torikian
 Tronçon
 Tuomas
+Typogrify
 Typogruby
 Uchibe
 Uglifier
@@ -254,6 +263,7 @@ Uncomment
 uncompiled
 Unescaped
 Unported
+URIs
 USR1
 UTC
 UTF
@@ -270,8 +280,8 @@ Vuotto
 Werthen
 whitequark
 Whitt
-Wiki
 wiki
+Wiki
 Wikipedia
 wildcard
 Wildcard
@@ -283,6 +293,9 @@ workflow
 XHTML
 XMLSitemap
 XPath
+XSL
+XSLT
 YAML
 Yannick
+YUICompressor
 Zaiste

@@ -56,7 +56,7 @@ title: "Filters"
         {"greeting":"Hello, world!"%}
         </code></pre>
 
-  #p By default, %ref[url=http://coderay.rubychan.de/]{CodeRay} will be used to highlight source code. For example, the following will colorise the syntax of all code blocks using CodeRay:
+  #p By default, %ref[url=http://coderay.rubychan.de/]{CodeRay} will be used to highlight source code. For example, the following will colorize the syntax of all code blocks using CodeRay:
 
   #listing[lang=ruby]
     filter :colorize_syntax
@@ -70,13 +70,13 @@ title: "Filters"
 
   #dl
     #dt %code{:coderay}
-    #dd %ref[url=http://coderay.rubychan.de]{Coderay}, a Ruby syntax highlighter
+    #dd %ref[url=http://coderay.rubychan.de]{CodeRay}, a Ruby syntax highlighter
 
     #dt %code{:pygmentize}
-    #dd %ref[url=http://pygments.org/docs/cmdline]{%command{pygmentize}}, the command-line frontend for %ref[url=http://pygments.org]{Pygments}, a syntax highlighter written in Python
+    #dd %ref[url=http://pygments.org/docs/cmdline]{%command{pygmentize}}, the command-line front end for %ref[url=http://pygments.org]{Pygments}, a syntax highlighter written in Python
 
     #dt %code{:pygmentsrb}
-    #dd %ref[url=https://github.com/tmm1/pygments.rb]{pygments.rb}, a fast Ruby interface for %ref[url=http://pygments.org]{Pygments}
+    #dd %ref[url=https://github.com/tmm1/pygments.rb]{%productname{pygments.rb}}, a fast Ruby interface for %ref[url=http://pygments.org]{Pygments}
 
     #dt %code{:simon_highlight}
     #dd %ref[url=http://www.andre-simon.de/doku/highlight/en/highlight.html]{Highlight}, by Andre Simon
@@ -519,7 +519,7 @@ title: "Filters"
     layout '/xsl-report.*', :xsl, vat: '21.5'
 
 #section %h{%code{:yui_compressor}}
-  #p The %code{:yui_compressor} filter compresses Javascript or CSS using %ref[url=http://rubydoc.info/gems/yuicompressor]{YUICompressor}.
+  #p The %code{:yui_compressor} filter compresses JavaScript or CSS using the %ref[url=http://rubydoc.info/gems/yuicompressor]{YUICompressor} gem.
 
   #p For example, the following compresses CSS content:
 
