@@ -50,32 +50,34 @@ class NanocSpellChecker
       doc.accept(visitor)
 
       words = visitor.string.gsub(/‘|’/, '\'').scan(/(([[:word:]]|')+)/).map(&:first)
-      words.each_with_index do |word, index|
+
+      # build alternatives
+      word_sets = words.map do |word|
+        [word, word.sub(/'$/, ''), word.sub(/'s$/, '')].uniq
+      end
+
+      word_sets.each do |words|
         # Skip non-words
-        next if word !~ /\w/
+        next unless words.first.match?(/\w/)
 
         # Skip numbers
-        next if word =~ /\A(0x)?\d*\z/
+        next if words.first.match?(/\A(0x)?\d*\z/)
 
         # Skip version numbers
-        next if word =~ /\A\d+(a|b|rc)\d+\z/
+        next if words.first.match?(/\A\d+(a|b|rc)\d+\z/)
 
         # Skip words that we know are fine
-        next if @acceptable_words.include?(word)
+        next if words.any? { |w| @acceptable_words.include?(w) }
 
         # Skip cardinal numbers
-        next if word =~ /\A\d*(1st|2nd,3rd)|\d+th\z/
+        next if words.first.match(/\A\d*(1st|2nd,3rd)|\d+th\z/)
 
         # Skip correct words
-        next if speller.correct?(word)
-
-        # Try variations
-        variations = [word.sub(/'$/, '')]
-        next if variations.any? { |v| speller.correct?(v) }
+        next if words.any? { |w| speller.correct?(w) }
 
         # Record
-        misspelled_words[filename] ||= []
-        misspelled_words[filename] << word
+        misspelled_words[filename] ||= Set.new
+        misspelled_words[filename] << words.first
       end
     end
 
