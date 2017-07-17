@@ -4,6 +4,18 @@ title: "Release notes"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
 
+#section %h{Nanoc 4.8}
+  #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=http://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
+
+  #listing[lang=ruby]
+    compile '/**/*.adoc' do
+      filter :asciidoctor
+      layout '/page.*'
+      write ext: 'html'
+    end
+
+  #p Previously, the %code{asciidoctor} was available through the %code{nanoc-asciidoctor} gem, which is now obsolete.
+
 #section %h{Nanoc 4.7}
   #p Nanoc 4.7 adds a shortcut for writing an item with a specific extension, while retaining the base name:
 
