@@ -61,7 +61,7 @@ title: "Items and layouts"
   #section %h{Partials}
     #p A layout can be used as a %firstterm{partial}. A partial is a layout that is not used for laying out an item, but is rather intended to be included into another item or layout. Because of this, partials typically call %code{yield}.
 
-    #p To enable partials, first %code{include} the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
+    #p To enable partials, first activate the rendering helper somewhere inside the %filename{lib/} directory, such as %filename{lib/helpers.rb}:
 
     #listing[lang=ruby]
       use_helper Nanoc::Helpers::Rendering

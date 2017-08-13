@@ -273,7 +273,7 @@ title: "Nanoc 4 upgrade guide"
             item.identifier.without_ext + '.html'
           end
 
-      #li If the site has calls to %code{#children}, ensure the %filename{lib/helpers.rb} file contains %code{include Nanoc::Helpers::ChildParent}, and replace method calls to %code{#children} with a function call to %code{#children_of}, passing in the item as an argument. For example:
+      #li If the site has calls to %code{#children}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{#children} with a function call to %code{#children_of}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @items['/articles/'].children
@@ -283,7 +283,7 @@ title: "Nanoc 4 upgrade guide"
           children_of(@items['/articles/'])
           children_of(@item)
 
-      #li If the site has calls to %code{#parent}, ensure the %filename{lib/helpers.rb} file contains %code{include Nanoc::Helpers::ChildParent}, and replace method calls to %code{#parent} with a function call to %code{#parent_of}, passing in the item as an argument. For example:
+      #li If the site has calls to %code{#parent}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{#parent} with a function call to %code{#parent_of}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @item.parent

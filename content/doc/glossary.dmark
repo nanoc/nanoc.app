@@ -25,7 +25,7 @@ title: "Glossary"
   #dd An object that transforms content from one format into another format. There are filters that evaluate embedded Ruby code (%code{erb}, %code{haml}), filters that transform from text to HTML (%code{bluecloth}, %code{redcloth}), filters that “clean” HTML (%code{rubypants}), and more.
 
   #dt[id=glossary-helper] helper
-  #dd A module that, when included, offers additional functionality such as easy linking to pages, building XML site maps or Atom web feeds.
+  #dd A module that offers additional functionality such as easy linking to pages, building XML site maps or Atom web feeds.
 
   #dt[id=glossary-identifier] identifier
   #dd A string that is used to uniquely identify an %ref[bare,frag=glossary-item]{item} or a %ref[bare,frag=glossary-layout]{layout}. It is used to construct %ref[bare,frag=glossary-path]{paths} of item %ref[bare,frag=glossary-representation]{representations}. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
