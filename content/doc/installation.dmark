@@ -13,7 +13,7 @@ nav_title: "Install"
 #p For detailed installation instructions, read on.
 
 #section %h{Installing Ruby}
-  #p Nanoc requires %ref[url=http://ruby-lang.org/]{Ruby} to run. Nanoc supports the official Ruby interpreter from version 2.1 up, as well as JRuby from version 9000 up.
+  #p Nanoc requires %ref[url=http://ruby-lang.org/]{Ruby} to run. Nanoc supports the official Ruby interpreter from version 2.3 up.
 
   #p Ruby may already be installed on your system. To check, open a terminal window and type %kbd{ruby --version}. If you get “command not found”, Ruby is not yet installed. Otherwise, you will see which version of Ruby you have:
 
