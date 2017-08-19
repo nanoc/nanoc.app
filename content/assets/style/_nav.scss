@@ -52,20 +52,23 @@
 }
 
 .nws-nav-item .active {
-  background: rgba(255, 255, 255, 0.5);
-  color: #000;
-  font-weight: bold;
+  color: $color-white;
+
+  padding-top: 7px;
+  border-top: 3px solid $color-white;
 }
 
 .nws-nav-link:link,
 .nws-nav-link:visited {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nws-nav-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+  color: $color-white;
+
+  background: transparent;
 }
 
 .nws-nav-link:active {
-  background: rgba(255, 255, 255, 0.5);
+  background: transparent;
 }
