@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
   gem 'guard-nanoc'
-  gem 'therubyracer', github: 'cowboyd/therubyracer'
+  gem 'therubyracer'
 end
 
 gem 'adsf'
 gem 'builder'
 gem 'coderay'
-gem 'd-mark', github: 'ddfreyne/d-mark'
+gem 'd-mark', '~> 1.0.0a4'
 gem 'ffi-aspell'
 gem 'htmlcompressor'
 gem 'kramdown'
