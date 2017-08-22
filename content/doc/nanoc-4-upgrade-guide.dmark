@@ -101,9 +101,21 @@ title: "Nanoc 4 upgrade guide"
           [Nanoc::Item.new('Hello', {%}, '/hello/')]
         end
 
-      #listing[lang=ruby,new]
+      #listing[lang=ruby,legacy-intermediate]
         def items
           [new_item('Hello', {%}, '/hello/')]
+        end
+
+    #li In data sources, replace the %code{identifier} argument in calls to %code{#new_item} and %code{#new_layout} with an explicit %code{Nanoc::Identifier} instance, constructed with %code{type: legacy}:
+
+      #listing[lang=ruby,legacy-intermediate]
+        def items
+          [new_item('Hello', {%}, '/hello/')]
+        end
+
+      #listing[lang=ruby,new]
+        def items
+          [new_item('Hello', {%}, Nanoc::Identifier.new('/hello/', type: legacy))]
         end
 
     #li Replace %code{.reps[0]} by %code{.reps[:default]}. For example:
