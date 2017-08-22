@@ -49,7 +49,7 @@ pre.errors:before {
 }
 
 pre.legacy:before {
-  content: "LEGACY";
+  content: "NANOC 3.X";
 
   background: $tag-legacy-bg-color;
   color: $tag-legacy-fg-color;
@@ -57,7 +57,7 @@ pre.legacy:before {
 }
 
 pre.legacy-intermediate:before {
-  content: "LEGACY - INTERMEDIATE";
+  content: "INTERMEDIATE STEP";
 
   background: $tag-legacy-intermediate-bg-color;
   color: $tag-legacy-intermediate-fg-color;
@@ -65,7 +65,7 @@ pre.legacy-intermediate:before {
 }
 
 pre.new:before {
-  content: "NEW";
+  content: "NANOC 4.x";
 
   background: $tag-new-bg-color;
   color: $tag-new-fg-color;
