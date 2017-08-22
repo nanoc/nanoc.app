@@ -138,7 +138,7 @@ title: "Data sources"
     #dd A hash with attributes of this item or layout.
 
     #dt %code{identifier}
-    #dd A %code{Nanoc::Identifier} instance, or a string that will be converted to an identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
+    #dd A %code{Nanoc::Identifier} instance, or a string that will be converted to a full identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
   #p You can pass the following options to %code{#new_item} and %code{#new_layout}:
 

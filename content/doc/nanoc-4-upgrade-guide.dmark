@@ -57,6 +57,8 @@ title: "Nanoc 4 upgrade guide"
             type: filesystem
             identifier_type: legacy
 
+      #note If you wrote your own data sources, you'll have to adapt them yourself to use legacy identifiers as necessary.
+
     #li Add %code{string_pattern_type: legacy} to the configuration file. For example:
 
       #listing[lang=yaml,legacy]
@@ -106,6 +108,8 @@ title: "Nanoc 4 upgrade guide"
           [new_item('Hello', {%}, '/hello/')]
         end
 
+      #note Please note that strings as %code{/hello/} will be converted to full identifiers, so you'll have to use a %code{Nanoc::Identifier} instance of  %code{legacy} type to create legacy identifiers.
+ 
     #li Replace %code{.reps[0]} by %code{.reps[:default]}. For example:
 
       #listing[lang=ruby,legacy]
