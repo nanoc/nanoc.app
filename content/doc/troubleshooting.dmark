@@ -352,3 +352,30 @@ title: "Troubleshooting"
     ---
 
     Another section…
+
+#section %h{Error: %code{InvalidIdentifierError}}
+  #p This error occurs when trying to construct an identifier for an item or layout without a leading slash. For instance:
+
+  #listing[errors,lang=ruby]
+    Nanoc::Identifier.new('hello')
+
+  #p To fix this problem, ensure that all identifiers start with a slash:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello')
+
+#section %h{Error: %code{InvalidFullIdentifierError}}
+  #p This error occurs when trying to construct a full identifier for an item or layout with a trailing slash. For instance:
+
+  #listing[errors,lang=ruby]
+    Nanoc::Identifier.new('/hello/')
+
+  #p This issue will not occur with legacy identifier types:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello/', type: :legacy)
+
+  #p To fix this problem, ensure that full identifiers don’t end with a slash:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello')
