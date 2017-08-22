@@ -115,7 +115,7 @@ title: "Nanoc 4 upgrade guide"
 
       #listing[lang=ruby,new]
         def items
-          [new_item('Hello', {%}, Nanoc::Identifier.new('/hello/', type: legacy))]
+          [new_item('Hello', {%}, Nanoc::Identifier.new('/hello/', type: :legacy))]
         end
 
     #li Replace %code{.reps[0]} by %code{.reps[:default]}. For example:
