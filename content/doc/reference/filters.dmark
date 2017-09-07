@@ -478,7 +478,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :slim
 
-  #p This filter takes no options.
+  #p Options passed to this filter will be passed to %code{Slim::Template#initialize}.
 
 #section %h{%code{:typogruby}}
   #p The %code{:typogruby} filter runs the content through %ref[url=http://avdgaag.github.com/typogruby/]{Typogruby}, a Ruby variant of %ref[url=https://code.google.com/archive/p/typogrify/]{Typogrify} for typographically enhancing text. For example:
