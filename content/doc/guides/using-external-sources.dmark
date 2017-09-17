@@ -2,7 +2,7 @@
 title: "Using external sources"
 ---
 
-#p One of Nanoc’s strengths is the ability to pull in data from external systems. In this guide, we’ll show how to do this, and what you can achieve with it.
+#p One of Nanoc’s strengths is the ability to pull in data from external systems. This guide gives two examples: one which pulls data from a %ref[url=https://www.sqlite.org/]{SQLite} database, and one which pulls data from %ref[url=https://www.contentful.com/]{Contentful}.
 
 #section %h{Using SQLite}
   #p As an example, assume you work for a company that has a SQL database containing an employee directory, and you want to extract that information into a nice-looking website. Nanoc to the rescue!
@@ -171,3 +171,113 @@ title: "Using external sources"
       ignore '/external/**/*'
 
     #p Now compile, and you will see the employee directory!
+
+#section %h{Using Contentful}
+  #p %ref[url=https://www.contentful.com/]{Contentful} is an advanced CMS with an easy-to-use API. In this example, we’ll convert an existing Nanoc blog to read its content from Contentful instead.
+
+  #note This section assumes familiarity with Contentful, in particular with defining a content model and creating entries. Consider perusing Contentful’s %ref[url=https://www.contentful.com/developers/docs/tutorials/general/get-started/]{Getting Started guide}.
+
+  #section %h{Original setup}
+    #p Imagine that you have a Nanoc web site with blog posts stored in the %filename{content/posts/} directory. An individual blog post file, for example %filename{content/posts/what-is-up-with-twin-peaks.md}, might look like this:
+
+    #listing
+      ---
+      title: What is up with Twin Peaks?
+      ---
+
+      Twin Peaks: The Return, the third season of Twin Peaks, raises more questions than it answers. While the season has been well-received, many fans were left more confused than before.
+
+    #p The %filename{Rules} file is fairly straightforward:
+
+    #listing[lang=ruby]
+      compile '/**/*.md' do
+        filter :kramdown
+        layout '/default.*'
+        write item.identifier.without_ext + '/index.html'
+      end
+
+      layout '/**/*', :erb
+
+    #note In a real-world situation, the Rules file would also accommodate for style sheets, images, script files, and more. These files have been left out for the sake of simplicity.
+
+  #section %h{Setting up the content model}
+    #p To move this blog to Contentful, we’ll need to define a content type for our blog posts. This content type will contain a title, a slug (which will be used in the URL), and a post body. In Contentful, this looks as follows:
+
+    #figure
+      #img /assets/images/manual/contentful_post_content_model.png
+
+    #p In Contentful, a blog post will look as follows:
+
+    #figure
+      #img /assets/images/manual/contentful_post_content.png
+
+  #section %h{Setting up the API}
+    #p In Contentful, create an API key, if none exists yet. Take note of the Space ID and Content Delivery API access token:
+
+    #figure
+      #img /assets/images/manual/contentful_api.png
+
+    #p Create a file called %filename{access_token} and paste the access token in it.
+
+    #caution The access token is secret and should not be stored in clear text. Consider using a tool such as %ref[url=https://www.vaultproject.io/]{Vault}.
+
+  #section %h{Write the data source}
+    #p Create a file %filename{lib/contentful.rb} and paste the following in there:
+
+    #listing[lang=ruby]
+      require 'contentful'
+
+      class ContentfulDataSource < ::Nanoc::DataSource
+        identifier :contentful
+
+        def up
+          @client = Contentful::Client.new(
+            access_token: File.read('access_token').strip,
+            space: config[:space_id],
+          )
+        end
+      end
+
+    #p This defines a data source with the identifier %code{:contentful}, so that it can be referenced later. The %code{#up} method uses Contentful’s Ruby API to create a connection to the Contentful space identified by %code{space_id}, which will be defined in the configuration.
+
+    #p This data source should return items based on entries in Contentful. To do so, define a method %code{#items}, and the end of the class:
+
+    #listing[lang=ruby]
+      class ContentfulDataSource < ::Nanoc::DataSource
+        # …
+
+        def items
+          @client.entries(content_type: '2wKn6yEnZewu2SCCkus4as').map do |entry|
+            new_item(
+              entry.fields[:body],
+              { title: entry.fields[:title] %},
+              '/posts/' + entry.fields[:slug] + '.md',
+            )
+          end
+        end
+      end
+
+    #todo configure post content type ID
+
+    #p This will create an item for every entry that has the post content type in Contentful. The body of the item is taken from the entry’s %code{body} field, the title is taken from the entry’s %code{title} field, and the item’s identifier is constructed from the entry’s %code{slug} field.
+
+  #section %h{Use the data source}
+    #p To use the data source, add a data source with %code{type: contentful} to the list of data sources in %filename{nanoc.yaml}:
+
+    #listing[lang=yaml]
+      data_sources:
+        # … other data sources here …
+
+        -
+          type: "contentful"
+          space_id: "abc123xyz678"
+
+    #p Be sure to set %code{space_id} to the Space ID from which you’re fetching content.
+
+    #p Compile the site. Your content will now be pulled in from Contentful:
+
+    #listing
+      %% nanoc
+      Loading site… done
+      Compiling site…
+            create  [0.07s]  output/posts/what-is-up-with-twin-peaks/index.html

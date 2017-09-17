@@ -44,6 +44,8 @@ CodeRay
 CoffeeScript
 colorizer
 colorizers
+Contentful
+Contentful’s
 Cri
 CRLF
 Croath
