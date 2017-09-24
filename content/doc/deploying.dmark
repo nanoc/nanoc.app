@@ -20,8 +20,8 @@ short_title: "Deploying"
 
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
-#section %h[id=with-git]{With GitHub Pages or Bitbucket}
-  #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are two repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
+#section %h[id=with-git]{With GitHub Pages, GitLab Pages or Bitbucket}
+  #p %ref[url=https://github.com/]{GitHub}, %ref[url=https://gitlab.com/]{GitLab} and %ref[url=https://bitbucket.org/]{Bitbucket} are repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
   #section %h{GitHub Pages setup}
     #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
@@ -87,6 +87,54 @@ short_title: "Deploying"
     #p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
 
     #p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
+
+  #section %h{GitLab Pages setup}
+    #p The publishing of a website based on a Git repository to GitLab Pages is %ref[url=https://docs.gitlab.com/ee/user/project/pages/index.html]{described in GitLab's documentation pages}. This guide assumes you are deploying to %uri{gitlab.com}, please follow this %ref[url=https://docs.gitlab.com/ee/administration/pages/index.html]{documentation} if you are running your own GitLab instance.
+
+    #p GitLab supports publishing a website at %uri{namespace.gitlab.io}, where %var{namespace} is your GitLab account or group name. The contents of the website will be read from a repository named %uri{namespace.bitbucket.io}.
+
+    #p First of all, create a GitLab project corresponding to your GitLab website address, e.g. %uri{ddfreyne.gitlab.io}.
+
+    #p GitLab Pages only serves content from the %filename{public} directory, make sure to rename %filename{output} to %filename{public} and change the value of %var{output_dir} to %var{public}.
+
+    #p Create a %filename{.gitlab-ci.yml} file with the following content:
+
+    #listing[lang=yaml]
+      image: ruby:2.4
+      pages:
+        script:
+        - bundle install -j4
+        - nanoc
+        artifacts:
+          paths:
+          - public
+        only:
+        - master
+
+    #p Add the %filename{public/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{public/}.
+
+    #p Create a new Git repository inside the %filename{/} directory of your Nanoc website, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@gitlab.com:ddfreyne/ddfreyne.gitlab.io.git}) :
+
+    #listing
+      %prompt{%%} %kbd{git init}
+      %prompt{%%} %kbd{git remote add origin} %var{repo-url}
+      %prompt{%%} %kbd{git add .}
+      %prompt{%%} %kbd{git commit -m "Added GitLab CI config"}
+
+
+    #p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
+
+    #listing[lang=yaml]
+      prune:
+        auto_prune: true
+        exclude: [ '.git' ]
+
+    #p Push to %var{origin master} to trigger the build:
+
+    #listing
+      %prompt{%%} %kbd{git push -u origin master}
+
+    #p GitLab CI will build and deploy the website, it will be accessible at %uri{namespace.gitlab.io}.
 
 #section %h{With Netlify}
   #p %ref[url=https://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
