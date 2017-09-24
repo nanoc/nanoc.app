@@ -134,7 +134,7 @@ short_title: "Deploying"
     #listing
       %prompt{%%} %kbd{git push -u origin master}
 
-    #p GitLab CI will build and deploy the website, it will be accessible at %uri{namespace.gitlab.io}
+    #p GitLab CI will build and deploy the website, it will be accessible at %uri{namespace.gitlab.io}.
 
 #section %h{With Netlify}
   #p %ref[url=https://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
