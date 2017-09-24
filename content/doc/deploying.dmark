@@ -97,7 +97,7 @@ short_title: "Deploying"
 
     #p GitLab Pages only serves content from the %filename{public} directory, make sure to rename %filename{output} to %filename{public} and change the value of %var{output_dir} to %var{public}.
 
-    #p Create a %filename{.gitlab-ci.yml} file with the followin content:
+    #p Create a %filename{.gitlab-ci.yml} file with the following content:
 
     #listing[lang=yaml]
       image: ruby:2.4
