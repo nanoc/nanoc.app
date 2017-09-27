@@ -73,7 +73,7 @@ short_title: "Deploying"
 
     #p First of all, create a GitLab project corresponding to your GitLab website address, e.g. %uri{ddfreyne.gitlab.io}.
 
-    #p GitLab Pages only serves content from the %filename{public} directory, make sure to rename %filename{output} to %filename{public} and change the value of %var{output_dir} to %var{public}.
+    #p GitLab Pages only serves content from the %filename{public/} directory, so rename the %filename{output/} directory to %filename{public/} and change the value of %code{output_dir} in %filename{nanoc.yaml} to %var{public}.
 
     #p Create a %filename{.gitlab-ci.yml} file with the following content:
 
