@@ -115,7 +115,7 @@ short_title: "Deploying"
         only:
           - master
 
-    #p Push to %var{origin master} to trigger the build:
+    #p Push to trigger the build:
 
     #listing
       %prompt{%%} %kbd{git push -u origin master}
