@@ -95,7 +95,7 @@ short_title: "Deploying"
     #listing
       %prompt{%%} %kbd{git push -u origin master}
 
-    #p GitLab CI will build and deploy the website, it will be accessible at %uri{namespace.gitlab.io}.
+    #p GitLab CI will build and deploy the website. Once it has finished, the site will be accessible at %uri{namespace.gitlab.io}.
 
   #section %h{Automated deployment}
     #p To deploy the site using the %command{nanoc deploy} command, add a deployment target with the target %code{git} to the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites):
