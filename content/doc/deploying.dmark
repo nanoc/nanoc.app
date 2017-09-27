@@ -67,8 +67,8 @@ short_title: "Deploying"
 
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
-  #section %h{GitLab Pages setup}
-    #p The publishing of a website based on a Git repository to GitLab Pages is %ref[url=https://docs.gitlab.com/ee/user/project/pages/index.html]{described in GitLab's documentation pages}. This guide assumes you are deploying to %uri{gitlab.com}, please follow this %ref[url=https://docs.gitlab.com/ee/administration/pages/index.html]{documentation} if you are running your own GitLab instance.
+  #section %h{GitLab CI setup}
+    #p The publishing of a website based on a Git repository to GitLab Pages is %ref[url=https://docs.gitlab.com/ee/user/project/pages/index.html]{described in GitLab's documentation pages}. This guide assumes you are deploying to %uri{gitlab.com}; please follow this %ref[url=https://docs.gitlab.com/ee/administration/pages/index.html]{documentation} if you are running your own GitLab instance.
 
     #p GitLab supports publishing a website at %uri{namespace.gitlab.io}, where %var{namespace} is your GitLab account or group name. The contents of the website will be read from a repository named %uri{namespace.gitlab.io}.
 
