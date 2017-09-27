@@ -90,6 +90,8 @@ short_title: "Deploying"
     #p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
 
 #section %h{With CI pipeline tools}
+  #p It is possible to let CI pipeline tools, such as GitLab CI, perform the compilation and deployment. With this approach, %command{git push} is used rather than a %command{nanoc deploy}.
+
   #section %h{GitLab CI setup}
     #p The publishing of a website based on a Git repository to GitLab Pages is %ref[url=https://docs.gitlab.com/ee/user/project/pages/index.html]{described in GitLab's documentation pages}. This guide assumes you are deploying to %uri{gitlab.com}; please follow this %ref[url=https://docs.gitlab.com/ee/administration/pages/index.html]{documentation} if you are running your own GitLab instance.
 
