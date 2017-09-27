@@ -23,6 +23,14 @@ short_title: "Deploying"
 #section %h[id=with-git]{With GitHub Pages, GitLab Pages or Bitbucket}
   #p %ref[url=https://github.com/]{GitHub}, %ref[url=https://gitlab.com/]{GitLab} and %ref[url=https://bitbucket.org/]{Bitbucket} are repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
+  #section %h{Disable %filename{.git} pruning}
+    #p Because GitHub Pages, GitLab Pages or Bitbucket all use Git to publish, it’s important to prevent the %filename{.git} directory from being pruned away. In %filename{nanoc.yaml}, look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
+
+    #listing[lang=yaml]
+      prune:
+        auto_prune: true
+        exclude: [ '.git' ]
+
   #section %h{GitHub Pages setup}
     #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
 
@@ -42,13 +50,6 @@ short_title: "Deploying"
       %prompt{output@gh-pages%%} %kbd{git remote add origin} %var{repo-url}
 
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain the %filename{output/} directory.
-
-    #p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
-
-    #listing[lang=yaml]
-      prune:
-        auto_prune: true
-        exclude: [ '.git' ]
 
   #section %h{Bitbucket setup}
     #p The publishing of a website based on a Git repository to Bitbucket is %ref[url=https://confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html]{described in Bitbucket's help pages}.
@@ -99,13 +100,6 @@ short_title: "Deploying"
       %prompt{public%%} %kbd{git remote add origin} %var{repo-url}
       %prompt{public%%} %kbd{git add .}
       %prompt{public%%} %kbd{git commit -m "Added GitLab CI config"}
-
-    #p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
-
-    #listing[lang=yaml]
-      prune:
-        auto_prune: true
-        exclude: [ '.git' ]
 
     #p Push to %var{origin master} to trigger the build:
 
