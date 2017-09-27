@@ -91,7 +91,7 @@ short_title: "Deploying"
 
     #p Add the %filename{public/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{public/}.
 
-    #p Create a new Git repository inside the %filename{/} directory of your Nanoc website, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@gitlab.com:ddfreyne/ddfreyne.gitlab.io.git}) :
+    #p Create a new Git repository inside the %filename{/} directory of your Nanoc website, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@gitlab.com:ddfreyne/ddfreyne.gitlab.io.git}):
 
     #listing
       %prompt{%%} %kbd{git init}
