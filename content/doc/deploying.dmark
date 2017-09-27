@@ -82,13 +82,13 @@ short_title: "Deploying"
       image: ruby:2.4
       pages:
         script:
-        - bundle install -j4
-        - nanoc
+          - bundle install -j4
+          - nanoc
         artifacts:
           paths:
-          - public
+            - public
         only:
-        - master
+          - master
 
     #p Add the %filename{public/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{public/}.
 
