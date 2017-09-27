@@ -67,6 +67,29 @@ short_title: "Deploying"
 
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
+  #section %h{Automated deployment}
+    #p To deploy the site using the %command{nanoc deploy} command, add a deployment target with the target %code{git} to the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites):
+
+    #listing[lang=yaml]
+      deploy:
+        default:
+          kind: git
+          branch: gh-pages
+
+    #p For Bitbucket and GitLab, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pages}.
+
+  #section %h{Publish}
+    #p To publish a site, compile it and run %command{deploy}:
+
+    #listing
+      %prompt{%%} %kbd{bundle exec nanoc}
+      %prompt{%%} %kbd{bundle exec nanoc deploy}
+
+    #p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
+
+    #p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
+
+#section %h{With CI pipeline tools}
   #section %h{GitLab CI setup}
     #p The publishing of a website based on a Git repository to GitLab Pages is %ref[url=https://docs.gitlab.com/ee/user/project/pages/index.html]{described in GitLab's documentation pages}. This guide assumes you are deploying to %uri{gitlab.com}; please follow this %ref[url=https://docs.gitlab.com/ee/administration/pages/index.html]{documentation} if you are running your own GitLab instance.
 
@@ -96,28 +119,6 @@ short_title: "Deploying"
       %prompt{%%} %kbd{git push -u origin master}
 
     #p GitLab CI will build and deploy the website. Once it has finished, the site will be accessible at %uri{namespace.gitlab.io}.
-
-  #section %h{Automated deployment}
-    #p To deploy the site using the %command{nanoc deploy} command, add a deployment target with the target %code{git} to the Nanoc configuration file (%filename{nanoc.yaml}, or %filename{config.yaml} on older sites):
-
-    #listing[lang=yaml]
-      deploy:
-        default:
-          kind: git
-          branch: gh-pages
-
-    #p For Bitbucket and GitLab, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pages}.
-
-  #section %h{Publish}
-    #p To publish a site, compile it and run %command{deploy}:
-
-    #listing
-      %prompt{%%} %kbd{bundle exec nanoc}
-      %prompt{%%} %kbd{bundle exec nanoc deploy}
-
-    #p After a few seconds, the updated site will appear at %uri{http://username.github.io/repo-name} for GitHub, or %uri{http://username.bitbucket.org} for Bitbucket.
-
-    #p For GitHub, we recommend removing the %code{gh-pages} branch from the base repository, since it is likely to be out of sync with the %code{gh-pages} branch in the repository in the %filename{output/} directory.
 
 #section %h{With Netlify}
   #p %ref[url=https://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
