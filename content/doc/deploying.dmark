@@ -83,7 +83,7 @@ short_title: "Deploying"
       pages:
         script:
           - bundle install -j4
-          - nanoc
+          - bundle exec nanoc
         artifacts:
           paths:
             - public
