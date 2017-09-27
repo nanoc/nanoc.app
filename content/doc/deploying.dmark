@@ -90,17 +90,6 @@ short_title: "Deploying"
         only:
           - master
 
-    #p Add the %filename{public/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{public/}.
-
-    #p Create a new Git repository inside the %filename{public/} directory of your Nanoc website, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@gitlab.com:ddfreyne/ddfreyne.gitlab.io.git}):
-
-    #listing
-      %prompt{%%} %kbd{cd public}
-      %prompt{public%%} %kbd{git init}
-      %prompt{public%%} %kbd{git remote add origin} %var{repo-url}
-      %prompt{public%%} %kbd{git add .}
-      %prompt{public%%} %kbd{git commit -m "Added GitLab CI config"}
-
     #p Push to %var{origin master} to trigger the build:
 
     #listing
