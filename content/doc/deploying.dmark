@@ -121,7 +121,6 @@ short_title: "Deploying"
       %prompt{%%} %kbd{git add .}
       %prompt{%%} %kbd{git commit -m "Added GitLab CI config"}
 
-
     #p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
 
     #listing[lang=yaml]
