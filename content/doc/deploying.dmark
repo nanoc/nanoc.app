@@ -20,11 +20,11 @@ short_title: "Deploying"
 
 #p The %code{deploy} section describes %firstterm{deployment targets}, which describe where to deploy to and how to do the deployment. In the example above, the targets are %code{default} and %code{staging}. The %code{kind} attribute describes the deployer to use. In the example above, %code{git} and %code{rsync} are used for the %code{default} and %code{staging} targets, respectively.
 
-#section %h[id=with-git]{With GitHub Pages, GitLab Pages or Bitbucket}
-  #p %ref[url=https://github.com/]{GitHub}, %ref[url=https://gitlab.com/]{GitLab} and %ref[url=https://bitbucket.org/]{Bitbucket} are repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
+#section %h[id=with-git]{With GitHub Pages or Bitbucket}
+  #p %ref[url=https://github.com/]{GitHub} and %ref[url=https://bitbucket.org/]{Bitbucket} are repository hosting services that support publishing websites. This section explains how to use their functionality for publishing a website in combination with Nanoc.
 
   #section %h{Disable %filename{.git} pruning}
-    #p Because GitHub Pages, GitLab Pages or Bitbucket all use Git to publish, it’s important to prevent the %filename{.git} directory from being pruned away. In %filename{nanoc.yaml}, look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
+    #p Because GitHub Pages and Bitbucket both use Git to publish, it’s important to prevent the %filename{.git} directory from being pruned away. In %filename{nanoc.yaml}, look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
 
     #listing[lang=yaml]
       prune:
@@ -76,7 +76,7 @@ short_title: "Deploying"
           kind: git
           branch: gh-pages
 
-    #p For Bitbucket and GitLab, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pages}.
+    #p For Bitbucket, set %code{branch} to %code{master}, and for GitHub, set it to %code{gh-pages}.
 
   #section %h{Publish}
     #p To publish a site, compile it and run %command{deploy}:
