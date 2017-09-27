@@ -94,10 +94,11 @@ short_title: "Deploying"
     #p Create a new Git repository inside the %filename{public/} directory of your Nanoc website, replacing %var{repo-url} with the URL to the repository (e.g. %code{git@gitlab.com:ddfreyne/ddfreyne.gitlab.io.git}):
 
     #listing
-      %prompt{%%} %kbd{git init}
-      %prompt{%%} %kbd{git remote add origin} %var{repo-url}
-      %prompt{%%} %kbd{git add .}
-      %prompt{%%} %kbd{git commit -m "Added GitLab CI config"}
+      %prompt{%%} %kbd{cd public}
+      %prompt{public%%} %kbd{git init}
+      %prompt{public%%} %kbd{git remote add origin} %var{repo-url}
+      %prompt{public%%} %kbd{git add .}
+      %prompt{public%%} %kbd{git commit -m "Added GitLab CI config"}
 
     #p Ensure that the %filename{.git} directory is excluded from pruning. This is the default, but some sites might override this option. In %filename{nanoc.yaml} (or %filename{config.yaml} on older sites), look for a %code{prune} section, and if it exists, ensure that it has an %code{exclude} configuration option, and that it includes %code{.git}. The following is a correct set-up:
 
