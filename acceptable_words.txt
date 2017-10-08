@@ -158,12 +158,12 @@ Nicky
 Nikhil
 Nishinaga
 Nokogiri
-Online
 online
+Online
 other's
 outdatedness
-Outdatedness
 outdatedness
+Outdatedness
 Pakosz
 Pandoc
 PandocRuby
@@ -187,8 +187,8 @@ preprocess
 Preprocessing
 preprocessing
 preprocessor
-Preprocessors
 preprocessors
+Preprocessors
 prev
 previewable
 proc
@@ -241,8 +241,8 @@ Sitemaps
 snapshotting
 Solarized
 Soryu
-Speel
 speel
+Speel
 SQL
 SQLite
 SQLite3
@@ -292,8 +292,8 @@ Vuotto
 Werthen
 whitequark
 Whitt
-wiki
 Wiki
+wiki
 Wikipedia
 wildcard
 Wildcard
