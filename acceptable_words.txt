@@ -2,6 +2,8 @@
 23rd
 2nd
 3rd
+Abubakar
+Ango
 API
 APIs
 Armston
@@ -226,6 +228,7 @@ scp
 Screenshot
 SCSS
 sed
+Seiichi
 sexualized
 SFTP
 ShareAlike
@@ -306,5 +309,6 @@ XSL
 XSLT
 YAML
 Yannick
+Yonezawa
 YUICompressor
 Zaiste
