@@ -136,7 +136,7 @@ title: "Variables"
     #dt %code{@item.path} → %code{String}
     #dt %code{@item.path(rep: :foo)} → %code{String}
     #dt %code{@item.path(snapshot: :bar)} → %code{String}
-    #dd The path to the compiled item. The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
+    #dd The path to the compiled item, without the index filename (e.g. if the item rep is routed to %filename{/foo/index.html}, the path will be %filename{/foo/}). The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
     #dt %code{@item.reps} → %var{collection of reps}
     #dd The collection of representations for this item.
@@ -228,7 +228,11 @@ title: "Variables"
 
     #dt %code{@item_rep.path} → %code{String}
     #dt %code{@item_rep.path(snapshot: :foo)} → %code{String}
-    #dd The path to the compiled item representation. The %code{:snapshot} specifies the snapshot (%code{:last} by default).
+    #dd The path to the compiled item representation, without the index filename (e.g. if it is routed to %filename{/foo/index.html}, the path will be %filename{/foo/}). The %code{:snapshot} specifies the snapshot (%code{:last} by default).
+
+    #dt %code{@item_rep.raw_path} → %code{String}
+    #dt %code{@item_rep.raw_path(snapshot: :foo)} → %code{String}
+    #dd The full path to the compiled item representation, including the path to the output directory and the index filename (e.g. if it is routed to %filename{/foo/index.html}, the raw path will be %filename{output/foo/index.html}). The %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
     #dt %code{@item_rep.compiled_content} → %code{String}
     #dt %code{@item_rep.compiled_content(snapshot: :bar)} → %code{String}
