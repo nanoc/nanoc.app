@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Setup",
+            "type": "shell",
+            "command": "bundle",
+            "problemMatcher": []
+        },
+        {
+            "taskName": "Build",
+            "type": "shell",
+            "command": "bundle exec nanoc",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "Check",
+            "type": "shell",
+            "command": "bundle exec nanoc check --deploy",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "Deploy",
+            "type": "shell",
+            "command": "bundle exec nanoc deploy",
+            "problemMatcher": []
+        }
+    ]
+}
