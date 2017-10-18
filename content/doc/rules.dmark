@@ -312,7 +312,9 @@ title: "Rules"
     #li A preprocessor could create new (in-memory) items for a given set of items. This can be useful for creating pages that contain paginated items.
 
 #section %h{Post-processing}
-  #p The %filename{Rules} file can contain a %code{#postprocess} block. This post-process block is executed after the site is compiled. Post-processing is useful to model tasks that are tricky to model in Nanoc’s workflow, such as updating a search index. For example:
+  #p The %filename{Rules} file can contain a %code{#postprocess} block. This post-process block is executed after the site is compiled. At this point, all output files have been updated.
+
+  #p Post-processing is useful to model tasks that are tricky to model in Nanoc’s workflow, such as incrementally updating a search index. For example:
 
   #listing[lang=ruby]
     postprocess do
