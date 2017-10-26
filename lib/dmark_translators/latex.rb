@@ -150,6 +150,8 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
           'section'
         when 3
           'subsection'
+        when 4
+          'subsubsection'
         else
           raise "Unsupported header depth: #{depth}"
         end
