@@ -94,5 +94,5 @@ title: "Configuration"
     #listing[lang=yaml]
       checks:
         external_links:
-          exclude: ['^/server_status']
+          exclude: ['^https?://example.com/']
           exclude_files: ['blog/page']
