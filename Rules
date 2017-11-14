@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 preprocess do
   config[:nanoc_version_info] = Nanoc.version_information.strip
@@ -27,7 +28,7 @@ passthrough '/assets/images/**/*'
 
 compile '/assets/style/*' do
   filter :sass, syntax: :scss
-  filter :relativize_paths, :type => :css
+  filter :relativize_paths, type: :css
   filter :rainpress
   write item.identifier.without_ext + '-' + fingerprint('/assets/style/_*') + '.css'
 end
@@ -59,7 +60,7 @@ end
 
 compile '/release-notes/details.*' do
   filter :fix_contributor_brackets
-  filter :kramdown, :auto_ids => false
+  filter :kramdown, auto_ids: false
   filter :add_ids_to_headers
   filter :link_github_issues
   layout '/default.*'
@@ -107,7 +108,7 @@ compile '/**/*' do
   layout '/default.*'
 
   filter :add_toc
-  filter :relativize_paths, :type => :html
+  filter :relativize_paths, type: :html
   filter :htmlcompressor
 
   if item.binary?
