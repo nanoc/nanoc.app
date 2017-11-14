@@ -33,7 +33,7 @@ compile '/assets/style/*' do
   write item.identifier.without_ext + '-' + fingerprint('/assets/style/_*') + '.css'
 end
 
-compile '/sitemap.*' do
+compile '/sitemap.xml.*' do
   filter :erb
   write '/sitemap.xml'
 end
