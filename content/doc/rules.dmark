@@ -37,7 +37,7 @@ title: "Rules"
 
   #p The code block does not need to execute anything. An empty %code{#compile} block will not execute anything.
 
-  #p %strong{Example}: The following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
+  #p For example, the following rule will not perform any actions, i.e. the item will not be filtered nor laid out:
 
   #listing[lang=ruby]
     compile '/images/**/*' do
@@ -45,14 +45,14 @@ title: "Rules"
 
   #p A compilation rule can end with a %code{#write} call, which takes the path to the file to write compiled content to.
 
-  #p %strong{Example}: This compilation rule will copy %filename{/images/denis.jpg} without further processing:
+  #p For example, this compilation rule will copy %filename{/images/denis.jpg} without further processing:
 
   #listing[lang=ruby]
     compile '/images/**/*' do
       write item.identifier.to_s
     end
 
-  #p %strong{Example}: This compilation rule will copy all %code{.jpg} and %code{.jpeg} files, and give them the extension %code{.jpg}:
+  #p For example, this compilation rule will copy all %code{.jpg} and %code{.jpeg} files, and give them the extension %code{.jpg}:
 
   #listing[lang=ruby]
     compile '/**/*.{jpg,jpeg%}' do
@@ -61,7 +61,7 @@ title: "Rules"
 
   #p To keep the basename of an item and only change the extension when writing, you can pass the %code{ext} param, specifying an extension.
 
-  #p %strong{Example}: This compilation rule is the same as the above one, but more concise:
+  #p For example, this compilation rule is the same as the above one, but more concise:
 
   #listing[lang=ruby]
     compile '/**/*.{jpg,jpeg%}' do
@@ -70,7 +70,7 @@ title: "Rules"
 
   #p To filter an item representation, call %code{#filter} pass the name of the filter as the first argument.
 
-  #p %strong{Example}: The following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
+  #p For example, the following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
 
   #listing[lang=ruby]
     compile '/**/*.md' do
@@ -80,7 +80,7 @@ title: "Rules"
 
   #p Additional parameters can be given to invocations of %code{#filter}. This is used by some filters, such as the Haml one (%code{:haml}), to alter filter behavior in one way or another.
 
-  #p %strong{Example}: The following rule will filter Sass items using the %code{:sass} filter, followed by the %code{:relativize_paths} filter with the filter argument %code{type} set to %code{:css}:
+  #p For example, the following rule will filter Sass items using the %code{:sass} filter, followed by the %code{:relativize_paths} filter with the filter argument %code{type} set to %code{:css}:
 
   #listing[lang=ruby]
     compile '/**/*.sass' do
@@ -91,7 +91,7 @@ title: "Rules"
 
   #p To lay out an item representation, call %code{#layout} and pass the layout identifier as argument.
 
-  #p %strong{Example}: The following rule will filter the rep using the %code{erb} filter, lay out the rep using the layout that matches the %code{/shiny.*} pattern, and finally run the laid out rep through the %code{:rubypants} filter:
+  #p For example, the following rule will filter the rep using the %code{erb} filter, lay out the rep using the layout that matches the %code{/shiny.*} pattern, and finally run the laid out rep through the %code{:rubypants} filter:
 
   #listing[lang=ruby]
     compile '/about.*' do
@@ -103,7 +103,7 @@ title: "Rules"
 
   #p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
 
-  #p %strong{Example}: The following rule will only invoke the %code{:erb} filter if the item’s %code{:is_dynamic} attribute is set:
+  #p For example, the following rule will only invoke the %code{:erb} filter if the item’s %code{:is_dynamic} attribute is set:
 
   #listing[lang=ruby]
     compile '/about.*' do
@@ -113,7 +113,7 @@ title: "Rules"
 
   #p To take a snapshot of an item representation, call %code{#snapshot} and pass the snapshot name as argument.
 
-  #p %strong{Example}: The following rule will create a snapshot named %code{:without_toc} so that the content at that snapshot can then later be reused elsewhere:
+  #p For example, the following rule will create a snapshot named %code{:without_toc} so that the content at that snapshot can then later be reused elsewhere:
 
   #listing[lang=ruby]
     compile '/foo/*' do
@@ -125,7 +125,7 @@ title: "Rules"
 
   #p A %code{:rep} argument can be passed to the %code{#compile} call. This indicates the name of the representation this rule should apply to. This is %code{:default} by default, which means compilation rules apply to the default representation unless specified otherwise.
 
-  #p %strong{Example}: The following rule will apply to all items below %filename{/people}, and only to textual representations (with name equal to %code{:text}):
+  #p For example, the following rule will apply to all items below %filename{/people}, and only to textual representations (with name equal to %code{:text}):
 
   #listing[lang=ruby]
     compile '/people/**/*', rep: :text do
@@ -134,7 +134,7 @@ title: "Rules"
 
   #p When using a regular expression to match items, the block arguments will contain all matched groups. This is more useful for routing rules than it is for compilation rules.
 
-  #p %strong{Example}: The following rule will be matched using a regular expression instead of with a wildcard string:
+  #p For example, the following rule will be matched using a regular expression instead of with a wildcard string:
 
   #listing[lang=ruby]
     compile %%r<\A/blog/\d{4%}/.*> do
@@ -158,7 +158,7 @@ title: "Rules"
 
   #tip Avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
 
-  #p %strong{Example}: The following compile/route rules are equivalent:
+  #p For example, the following compile/route rules are equivalent:
 
   #listing[lang=ruby]
     compile "/*.md" do
@@ -175,14 +175,14 @@ title: "Rules"
       write item.identifier.without_ext + '/index.html'
     end
 
-  #p %strong{Example}: The following rule will give the item with identifier %filename{/404.erb} the path %filename{/errors/404.php}:
+  #p For example, the following rule will give the item with identifier %filename{/404.erb} the path %filename{/errors/404.php}:
 
   #listing[lang=ruby]
     route "/404.erb" do
       "/errors/404.php"
     end
 
-  #p %strong{Example}: The following rule will prevent all items below %filename{/links} from being written:
+  #p For example, the following rule will prevent all items below %filename{/links} from being written:
 
   #listing[lang=ruby]
     route "/links/**/*" do
@@ -191,7 +191,7 @@ title: "Rules"
 
   #p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
 
-  #p %strong{Example}: The following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item %filename{/foo/bar.html} would get the path %filename{/foo/bar/index.html}):
+  #p For example, the following rule will give all identifiers for which no prior matching rule exists a path based directly on its identifier (for example, the item %filename{/foo/bar.html} would get the path %filename{/foo/bar/index.html}):
 
   #listing[lang=ruby]
     route "/**/*" do
@@ -200,7 +200,7 @@ title: "Rules"
 
   #p When using a regular expression to match items, the block arguments will contain all matched groups.
 
-  #p %strong{Example}: The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier %filename{/blog/2015-05-19-something.md} will be routed to %filename{/blog/2015/05/something/index.html}):
+  #p For example, the following rule will capture regex matches and provide them as block arguments (for example, the item with identifier %filename{/blog/2015-05-19-something.md} will be routed to %filename{/blog/2015/05/something/index.html}):
 
   #listing[lang=ruby]
     route %%r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
@@ -209,7 +209,7 @@ title: "Rules"
 
   #p Just like with %code{#compile} calls, a %code{:rep} argument can be passed to the %code{#route} call. This indicates the name of the representation this rule should apply to. This is %code{:default} by default, which means routing rules apply to the default representation unless specified otherwise.
 
-  #p %strong{Example}: The following rule will apply to all textual representations of all items below %filename{/people} (for example, the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
+  #p For example, the following rule will apply to all textual representations of all items below %filename{/people} (for example, the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
 
   #listing[lang=ruby]
     route "/people/**/*", rep: :text do
@@ -218,7 +218,7 @@ title: "Rules"
 
   #p When a %code{:snapshot} argument is passed to a routing rule definition, then that routing rule applies to the given snapshot only. The default value for the %code{:snapshot} argument is %code{:last}, meaning that compiled items will only be written once they have been fully compiled.
 
-  #p %strong{Example}: The following rules will apply to the %code{raw} snapshot of all items below %filename{/people} (for example, the raw snapshot of the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
+  #p For example, the following rules will apply to the %code{raw} snapshot of all items below %filename{/people} (for example, the raw snapshot of the item %filename{/people/denis.md} would get the path %filename{/people/denis.txt}):
 
   #listing[lang=ruby]
     route "/people/**/*", snapshot: :raw do
@@ -230,17 +230,17 @@ title: "Rules"
 
   #p The first argument to %code{#layout} is the identifier of a layout, or a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern} that matches the identifier of a layout. The second argument to %code{#layout} is the identifier of the filter to use. Additional arguments can be supplied; these will be passed on to the filter.
 
-  #p %strong{Example}: The following rule will make all layouts use the %code{:erb} filter:
+  #p For example, the following rule will make all layouts use the %code{:erb} filter:
 
   #listing[lang=ruby]
     layout '/**/*', :erb
 
-  #p %strong{Example}: The following rule will make all layouts with the %filename{haml} extension use the %code{haml} filter, with an additional %code{format} argument that will be passed to the %code{haml} filter:
+  #p For example, the following rule will make all layouts with the %filename{haml} extension use the %code{haml} filter, with an additional %code{format} argument that will be passed to the %code{haml} filter:
 
   #listing[lang=ruby]
     layout '/*.haml', :haml, format: :html5
 
-  #p %strong{Example}: The following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html}, and even %filename{/_foo/_bar.erb} would:
+  #p For example, the following rule will be applied to all layouts with identifiers starting with a slash followed by an underscore. For example, %filename{/foo.erb} and %filename{/foo/_bar.haml} would not match, but %filename{/_foo.erb}, %filename{/_foo/bar.html}, and even %filename{/_foo/_bar.erb} would:
 
   #listing[lang=ruby]
     layout %%r{\A/_%}, :erb
