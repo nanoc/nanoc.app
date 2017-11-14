@@ -229,7 +229,7 @@ title: "Filters"
       </head>
       <body>
         <h1>{{ item.title %}%}</h1>
-        {{ yield %}%}
+        {{{ yield %}%}%}
       </body>
     </html>
 
@@ -308,7 +308,7 @@ title: "Filters"
       </head>
       <body>
         <h1>{{ title %}%}</h1>
-        {{ yield %}%}
+        {{{ yield %}%}%}
       </body>
     </html>
 
