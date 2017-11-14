@@ -103,7 +103,7 @@ title: "Rules"
         write @item.identifier.without_ext + '/index.html'
       end
 
-  #section %h{Snapshotting}
+  #section %h{Creating snapshots}
     #p To take a snapshot of an item representation, call %code{#snapshot} and pass the snapshot name as argument. For example, the following rule will create a snapshot named %code{:without_toc} so that the content at that snapshot can then later be reused elsewhere:
 
     #listing[lang=ruby]
