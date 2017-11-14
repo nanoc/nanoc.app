@@ -147,8 +147,6 @@ title: "Rules"
 
   #p A compilation rule that ends with a %code{#write} call can be written as a combination of a compilation rule and a routing rule. Typically, using %code{#write} in the compile block leads to a more compact and easier-to-understand Rules file, but separate %code{#route} calls can nonetheless be useful.
 
-  #tip Avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
-
   #p The following compile/route rules are equivalent:
 
   #listing[lang=ruby]
@@ -215,6 +213,75 @@ title: "Rules"
     route "/people/**/*", snapshot: :raw do
       item.identifier.without_ext + '.txt'
     end
+
+#section %h{Writing/routing pitfalls}
+  #p A %filename{Rules} file that combines %code{#write} calls with routing can be confusing. For this reason, we recommend either using compilation rules that use %code{#write}, %emph{or} routing rules, but not both. This section intends to give more clarity on how %code{#write} calls and routing rules interact.
+
+  #p %strong{The main point}: If a compilation rule does not end with a %code{#write} call, or ends with a %code{#write} call for a snapshot that is not %code{:last}, Nanoc will find the routing rule that matches this item representation, and use it to write.
+
+  #p For example, here the routing rule is used for the %identifier{/about.md} item:
+
+  #listing[lang=ruby]
+    compile '/about.md' do
+      filter :kramdown
+    end
+
+    route '/about.md' do
+      '/about.html'
+    end
+
+    # output files created:
+    #   /about.html
+
+  #p In the following example, on the other hand, the routing rule is %emph{not} used, because the compilation rule ends with a %code{#write} call:
+
+  #listing[lang=ruby]
+    compile '/about.md' do
+      filter :kramdown
+      write '/about.html'
+    end
+
+    route '/about.md' do
+      '/about-irrelevant.html'
+    end
+
+    # output files created:
+    #   /about.html
+
+  #p In the next example, the routing rule %emph{is} used, because even though there is a %code{#write} call, the compilation rule does not end with one:
+
+  #listing[lang=ruby]
+    compile '/about.md' do
+      filter :kramdown
+      write '/about-inbetween.html'
+      layout '/default.*'
+    end
+
+    route '/about.md' do
+      '/about.html'
+    end
+
+    # output files created:
+    #   /about-inbetween.html
+    #   /about.html
+
+  #p Lastly, in the example below, the routing rule %emph{is} used, because the %code{#write} call applies to a snapshot that is not %code{:last}:
+
+  #listing[lang=ruby]
+    compile '/about.md' do
+      filter :kramdown
+      write '/about-abc.html', snapshot: :abc
+    end
+
+    route '/about.md' do
+      '/about.html'
+    end
+
+    # output files created:
+    #   /about-abc.html
+    #   /about.html
+
+  #p To reduce potential confusion, avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
 
 #section %h{Layouting rules}
   #p To specify the filter used for a layout, use the %code{#layout} method.
