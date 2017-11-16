@@ -1,9 +1,7 @@
 module NanocSite
   module Commands
     def dmark_options_for(cmd)
-      unless cmd[:option_definitions] && cmd[:option_definitions].any?
-        return ''
-      end
+      return '' unless cmd[:option_definitions] && cmd[:option_definitions].any?
 
       ''.tap do |buf|
         buf << '#dl' << "\n"

@@ -4,9 +4,7 @@ Class.new(Nanoc::DataSource) do
   def items
     items = []
 
-    if Nanoc::CLI.root_command.nil?
-      Nanoc::CLI.setup
-    end
+    Nanoc::CLI.setup if Nanoc::CLI.root_command.nil?
     root_cmd = Nanoc::CLI.root_command
     items << cmd_to_item(root_cmd)
 
@@ -23,20 +21,21 @@ Class.new(Nanoc::DataSource) do
   def cmd_to_item(cmd)
     slug = cmd.name.downcase.gsub(/[^a-z0-9]+/, '-')
     opt_defs = cmd.option_definitions.map do |od|
-      od.reject { |k,v| k == :block }
+      od.reject { |k, _v| k == :block }
     end
 
     new_item(
       '-',
       {
-        :type               => 'command',
-        :name               => cmd.name,
-        :summary            => cmd.summary,
-        :description        => cmd.description,
-        :aliases            => cmd.aliases,
-        :option_definitions => opt_defs,
-        :usage              => cmd.usage
+        type: 'command',
+        name: cmd.name,
+        summary: cmd.summary,
+        description: cmd.description,
+        aliases: cmd.aliases,
+        option_definitions: opt_defs,
+        usage: cmd.usage
       },
-      Nanoc::Identifier.new("/_#{slug}"))
+      Nanoc::Identifier.new("/_#{slug}")
+    )
   end
 end

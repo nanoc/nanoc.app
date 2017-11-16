@@ -10,7 +10,7 @@ class CachingDMarkParser
 end
 
 module GenericDMarkFilter
-  def run(content, params = {})
+  def run(content, _params = {})
     nodes = CachingDMarkParser.parse(content)
     context = { items: @items, item: @item, config: @config, nodes: nodes }
     translator_class.translate(nodes, context)

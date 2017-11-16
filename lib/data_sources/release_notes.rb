@@ -1,7 +1,7 @@
 Class.new(Nanoc::DataSource) do
   identifier :release_notes
 
-  CONTENT_PREFIX = "See the [release notes](/release-notes/) page for a summary of new features.\n\n"
+  CONTENT_PREFIX = "See the [release notes](/release-notes/) page for a summary of new features.\n\n".freeze
 
   def items
     return [] unless defined?(Bundler)
@@ -23,6 +23,6 @@ Class.new(Nanoc::DataSource) do
 
     item = new_item(content, attributes, identifier)
 
-    [ item ]
+    [item]
   end
 end

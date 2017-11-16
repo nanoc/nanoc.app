@@ -2,12 +2,12 @@ Class.new(Nanoc::Filter) do
   identifier :latex2pdf
   type :text => :binary
 
-  TMP_BASENAME = 'nanoc-latex'
-  TMP_EXTENSION = '.tex'
+  TMP_BASENAME = 'nanoc-latex'.freeze
+  TMP_EXTENSION = '.tex'.freeze
 
-  def run(content, params = {})
+  def run(content, _params = {})
     unless system('which', 'xelatex', out: '/dev/null')
-      $stderr.puts "Warning: `xelatex` not found; PDF generation disabled."
+      warn 'Warning: `xelatex` not found; PDF generation disabled.'
       File.write(output_filename, '')
       return
     end

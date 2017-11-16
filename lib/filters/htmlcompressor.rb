@@ -3,7 +3,7 @@ require 'htmlcompressor'
 Class.new(Nanoc::Filter) do
   identifier :htmlcompressor
 
-  def run(content, params = {})
+  def run(content, _params = {})
     compressor = HtmlCompressor::Compressor.new(
       enabled: true,
       remove_multi_spaces: true,

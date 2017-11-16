@@ -1,5 +1,5 @@
 require 'warning'
-Warning.ignore([:fixnum, :bignum])
+Warning.ignore(%i[fixnum bignum])
 
 def indent_for_dmark(num, s)
   indent = '  ' * num
@@ -10,7 +10,7 @@ def kramdown2dmark(s)
   document = ::Kramdown::Document.new(s, {})
 
   document.warnings.each do |warning|
-    $stderr.puts "kramdown warning: #{warning}"
+    warn "kramdown warning: #{warning}"
   end
 
   document.to_nanoc_ws_dmark

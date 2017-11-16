@@ -1,7 +1,6 @@
 require 'pp'
 
 class HeaderFinder < ::Nokogiri::XML::SAX::Document
-
   attr_reader :headers
 
   def initialize
@@ -14,15 +13,13 @@ class HeaderFinder < ::Nokogiri::XML::SAX::Document
       @current_header = {
         depth: name[1].to_i,
         text: '',
-        id: attributes.find { |e| e[0] == "id" }[1]
+        id: attributes.find { |e| e[0] == 'id' }[1]
       }
     end
   end
 
   def characters(string)
-    if @current_header
-      @current_header[:text] << string
-    end
+    @current_header[:text] << string if @current_header
   end
 
   def end_element(name)
@@ -31,13 +28,10 @@ class HeaderFinder < ::Nokogiri::XML::SAX::Document
       @current_header = nil
     end
   end
-
 end
 
 def toc_structure_from_headers(headers)
-  if headers.empty?
-    return []
-  end
+  return [] if headers.empty?
 
   entries = []
   this_level = headers[0][:depth]
@@ -60,16 +54,14 @@ def toc_structure_from_headers(headers)
 end
 
 def subtoc_for(elements, item, limit)
-  if limit < 1
-    return ''
-  end
+  return '' if limit < 1
 
   out = ''
   out << '<ol class="toc">'
   elements.each do |e|
     out << '<li>'
     out << link_to(e[:text], item.path + '#' + e[:id]).strip
-    out << subtoc_for(e[:children], item, limit-1)
+    out << subtoc_for(e[:children], item, limit - 1)
     out << '</li>'
   end
   out << '</ol>'

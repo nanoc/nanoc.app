@@ -4,7 +4,7 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
   # TODO: replace
   include Nanoc::Helpers::HTMLEscape
 
-  def handle_string(string, context)
+  def handle_string(string, _context)
     [h(string)]
   end
 
@@ -115,7 +115,7 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
     end
   end
 
-  def extra_attributes_for_element(element, context)
+  def extra_attributes_for_element(_element, _context)
     {}
   end
 
@@ -125,7 +125,7 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
     [
       start_tag(name, params),
       yield,
-      end_tag(name),
+      end_tag(name)
     ]
   end
 
@@ -154,7 +154,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
   SUDO_GEM_CONTENT_DMARK =
     'If the %command{<cmd>} command fails with a permission error, you likely have to prefix ' \
     'the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command ' \
-    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'
+    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'.freeze
 
   SUDO_GEM_INSTALL_CONTENT_DMARK =
     SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem install')
@@ -172,7 +172,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     end
   end
 
-  def extra_attributes_for_element(element, context)
+  def extra_attributes_for_element(element, _context)
     attributes = {}
 
     # dt, section, h
@@ -213,7 +213,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
       wrap('span', class: element.name) { handle_children(element, context) }
     when 'note', 'tip', 'caution', 'todo'
       wrap('div', class: "admonition-wrapper #{element.name}") do
-        wrap('div', class: "admonition") do
+        wrap('div', class: 'admonition') do
           handle_children(element, context)
         end
       end
@@ -292,7 +292,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     wrap('a', href: href) { handle_children(node, context) }
   end
 
-  def handle_ref_bare(node, context, target_item, frag, target_node)
+  def handle_ref_bare(_node, _context, target_item, frag, target_node)
     href = href_for(target_item, frag)
     wrap('a', href: href) do
       if frag
@@ -303,7 +303,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     end
   end
 
-  def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_section_ref(_node, _context, target_item, frag, target_node)
     href = href_for(target_item, frag)
     [
       'the ',
@@ -312,13 +312,13 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     ]
   end
 
-  def handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_inside_ref(_node, _context, _target_item, _frag, _target_node)
     [
       ' on '
     ]
   end
 
-  def handle_ref_insert_chapter_ref(node, context, target_item, frag)
+  def handle_ref_insert_chapter_ref(_node, _context, target_item, _frag)
     [
       'the ',
       wrap('a', href: target_item.path) { target_item[:title] },
@@ -326,7 +326,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     ]
   end
 
-  def handle_ref_insert_end(node, context, target_item, frag, target_node)
+  def handle_ref_insert_end(_node, _context, _target_item, _frag, _target_node)
     []
   end
 

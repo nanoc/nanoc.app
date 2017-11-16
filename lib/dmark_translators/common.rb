@@ -41,8 +41,6 @@ class NanocWsCommonTranslator < DMark::Translator
       rescue => e
         handle_error(e, item.raw_content)
       end
-    else
-      nil
     end
   end
 
@@ -51,7 +49,7 @@ class NanocWsCommonTranslator < DMark::Translator
       false
     elsif node.children.any? { |n| !n.is_a?(String) }
       true
-    elsif node.children.all? { |s| s.empty? }
+    elsif node.children.all?(&:empty?)
       false
     else
       true
@@ -83,7 +81,7 @@ class NanocWsCommonTranslator < DMark::Translator
     end
 
     if node.attributes['item'].nil? && node.attributes['frag'].nil?
-      raise "Cannot create ref: no `url`, `item` or `frag` given"
+      raise 'Cannot create ref: no `url`, `item` or `frag` given'
     end
 
     item_ref = node.attributes['item']
@@ -93,7 +91,7 @@ class NanocWsCommonTranslator < DMark::Translator
     raise "%ref error: canot find item for #{item_ref.inspect}" if target_item.nil?
 
     target_nodes = context[:item] == target_item ? context[:nodes] : nodes_for_item(target_item)
-    target_node = (target_nodes && frag) ? node_with_id(frag, nodes: target_nodes) : nil
+    target_node = target_nodes && frag ? node_with_id(frag, nodes: target_nodes) : nil
 
     if has_content?(node)
       handle_ref_with_content(node, context, target_item, frag)
@@ -122,31 +120,31 @@ class NanocWsCommonTranslator < DMark::Translator
     end
   end
 
-  def handle_ref_with_url(node, context, url)
+  def handle_ref_with_url(_node, _context, _url)
     raise NotImplementedError
   end
 
-  def handle_ref_with_content(node, context, target_item, frag)
+  def handle_ref_with_content(_node, _context, _target_item, _frag)
     raise NotImplementedError
   end
 
-  def handle_ref_bare(node, context, target_item, frag, target_node)
+  def handle_ref_bare(_node, _context, _target_item, _frag, _target_node)
     raise NotImplementedError
   end
 
-  def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_section_ref(_node, _context, _target_item, _frag, _target_node)
     raise NotImplementedError
   end
 
-  def handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_inside_ref(_node, _context, _target_item, _frag, _target_node)
     raise NotImplementedError
   end
 
-  def handle_ref_insert_chapter_ref(node, context, target_item, frag)
+  def handle_ref_insert_chapter_ref(_node, _context, _target_item, _frag)
     raise NotImplementedError
   end
 
-  def handle_ref_insert_end(node, context, target_item, frag, target_node)
+  def handle_ref_insert_end(_node, _context, _target_item, _frag, _target_node)
     raise NotImplementedError
   end
 end

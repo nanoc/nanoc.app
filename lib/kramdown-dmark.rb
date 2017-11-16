@@ -7,9 +7,9 @@ module Kramdown
         send("convert_#{el.type}", el, opts)
       end
 
-      def inner(el, opts)
+      def inner(el, _opts)
         ''.tap do |buf|
-          el.children.each_with_index do |inner_el, index|
+          el.children.each_with_index do |inner_el, _index|
             buf << send("convert_#{inner_el.type}", inner_el, options)
           end
         end
@@ -23,15 +23,15 @@ module Kramdown
         "#p\n" + inner(el, opts).lines.map { |l| '  ' + l.strip }.join("\n") + "\n"
       end
 
-      def convert_blank(el, opts)
+      def convert_blank(_el, _opts)
         "\n"
       end
 
-      def convert_text(el, opts)
+      def convert_text(el, _opts)
         escape(el.value)
       end
 
-      def convert_typographic_sym(el, opts)
+      def convert_typographic_sym(el, _opts)
         case el.value
         when :hellip
           '…'
@@ -40,7 +40,7 @@ module Kramdown
         end
       end
 
-      def convert_codespan(el, opts)
+      def convert_codespan(el, _opts)
         "%code{#{escape(el.value)}}"
       end
 

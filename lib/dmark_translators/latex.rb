@@ -2,7 +2,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
   SUDO_GEM_CONTENT_DMARK =
     'If the %command{<cmd>} command fails with a permission error, you likely have to prefix ' \
     'the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command ' \
-    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'
+    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'.freeze
 
   SUDO_GEM_INSTALL_CONTENT_DMARK =
     SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem install')
@@ -61,23 +61,23 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     end
   end
 
-  def handle_ref_with_url(node, context, url)
+  def handle_ref_with_url(node, context, _url)
     [
       handle_children(node, context),
       '\footnote{', escape_string(node.attributes['url'], context), '}'
     ]
   end
 
-  def handle_ref_with_content(node, context, target_item, frag)
+  def handle_ref_with_content(node, context, _target_item, _frag)
     # FIXME: ???
     handle_children(node, context)
   end
 
-  def handle_ref_bare(node, context, target_item, frag, target_node)
+  def handle_ref_bare(node, context, _target_item, _frag, _target_node)
     handle_children(node, context)
   end
 
-  def handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_section_ref(_node, _context, _target_item, _frag, target_node)
     [
       'the ',
       header_content_of(target_node),
@@ -85,13 +85,13 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     ]
   end
 
-  def handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+  def handle_ref_insert_inside_ref(_node, _context, _target_item, _frag, _target_node)
     [
       ' in '
     ]
   end
 
-  def handle_ref_insert_chapter_ref(node, context, target_item, frag)
+  def handle_ref_insert_chapter_ref(_node, _context, target_item, _frag)
     [
       'the ',
       target_item[:title],
@@ -99,7 +99,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     ]
   end
 
-  def handle_ref_insert_end(node, context, target_item, frag, target_node)
+  def handle_ref_insert_end(_node, _context, target_item, frag, _target_node)
     ref =
       if target_item
         'chap:' + target_item.identifier.to_s
@@ -109,7 +109,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
 
     [
       ' on ',
-      '\\cpageref{', ref, '}',
+      '\\cpageref{', ref, '}'
     ]
   end
 
@@ -121,7 +121,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         "\n",
         handle_children(node, context.merge(directly_in_lstlisting: true)),
         '\\end{lstlisting}',
-        "\n",
+        "\n"
       ]
     when 'firstterm'
       [
@@ -138,10 +138,10 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     when 'code', 'attribute', 'output'
       wrap_inline('texttt', node, context)
     when 'command', 'kbd'
-      names = context[:directly_in_lstlisting] ? %w( textbf ) : %w( texttt textbf )
+      names = context[:directly_in_lstlisting] ? %w[textbf] : %w[texttt textbf]
       wrap_inline(names, node, context)
     when 'identifier', 'glob', 'filename', 'uri'
-      wrap_inline(%w( emph url ), node, context)
+      wrap_inline(%w[emph url], node, context)
     when 'h'
       depth = context.fetch(:depth, 1)
       name =
@@ -158,7 +158,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
 
       [
         wrap_inline(name, node, context),
-        "\n",
+        "\n"
       ]
     when 'ul'
       [
@@ -166,7 +166,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         "\n",
         handle_children(node, context),
         '\\end{itemize}',
-        "\n",
+        "\n"
       ]
     when 'ol'
       # FIXME: needs to be numbered
@@ -175,12 +175,12 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         "\n",
         handle_children(node, context),
         '\\end{itemize}',
-        "\n",
+        "\n"
       ]
     when 'li'
       [
         '\\item ',
-        handle_children(node, context),
+        handle_children(node, context)
       ]
     when 'dl'
       [
@@ -188,18 +188,18 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         "\n",
         handle_children(node, context),
         '\\end{description}',
-        "\n",
+        "\n"
       ]
     when 'dt'
       [
         '\\item[',
         handle_children(node, context),
-        '] ',
+        '] '
       ]
     when 'p', 'dd'
       [
         handle_children(node, context),
-        "\n\n",
+        "\n\n"
       ]
     when 'log-create', 'log-update', 'prompt'
       handle_children(node, context)
@@ -211,7 +211,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         handle_children(node, context),
         '\\end{',
         node.name,
-        "}\n",
+        "}\n"
       ]
     when 'todo'
       [
@@ -220,7 +220,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         "\n",
         handle_children(node, context),
         '\\end{note}',
-        "\n",
+        "\n"
       ]
     when 'figure', 'img', 'caption'
       # TODO
@@ -235,14 +235,14 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
   end
 
   ESCAPE_MAP = {
-    "^"  => "\\^{}",
-    "\\" => "\\textbackslash{}",
-    "~"  => "\\ensuremath{\\sim}",
-    "|"  => "\\textbar{}",
-    "<"  => "\\textless{}",
-    ">"  => "\\textgreater{}",
-    "-"  => "\\textendash{}",
-  }.merge(Hash[*("{}$%&_#".scan(/./).map { |c| [c, "\\#{c}"] }.flatten)])
+    '^'  => '\\^{}',
+    '\\' => '\\textbackslash{}',
+    '~'  => '\\ensuremath{\\sim}',
+    '|'  => '\\textbar{}',
+    '<'  => '\\textless{}',
+    '>'  => '\\textgreater{}',
+    '-'  => '\\textendash{}'
+  }.merge(Hash[*'{}$%&_#'.scan(/./).map { |c| [c, "\\#{c}"] }.flatten])
 
   ESCAPE_REGEX = Regexp.union(*ESCAPE_MAP.map { |k, _v| k })
 
@@ -256,8 +256,8 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     end
   end
 
-  LSTLISTING_ESCAPE_BEGIN = '(*@'
-  LSTLISTING_ESCAPE_END = '@*)'
+  LSTLISTING_ESCAPE_BEGIN = '(*@'.freeze
+  LSTLISTING_ESCAPE_END = '@*)'.freeze
 
   def escape_lstlisting(s)
     LSTLISTING_ESCAPE_BEGIN + s + LSTLISTING_ESCAPE_END
@@ -276,17 +276,13 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         raise ArgumentError
       end
 
-    if context[:directly_in_lstlisting]
-      out << LSTLISTING_ESCAPE_BEGIN
-    end
+    out << LSTLISTING_ESCAPE_BEGIN if context[:directly_in_lstlisting]
 
     names.each { |name| out << '\\' << name << '{' }
     out << handle_children(node, context.merge(directly_in_lstlisting: false))
     names.each { |_name| out << '}' }
 
-    if context[:directly_in_lstlisting]
-      out << LSTLISTING_ESCAPE_END
-    end
+    out << LSTLISTING_ESCAPE_END if context[:directly_in_lstlisting]
 
     out
   end
