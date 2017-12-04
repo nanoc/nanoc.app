@@ -43,7 +43,7 @@ def handle_error(e, content)
       e.message,
       '',
       line,
-      "\e[31m" + ' ' * (e.col_nr - 1) + '↑' + "\e[0m"
+      "\e[31m" + ' ' * [e.col_nr - 1, 0].max + '↑' + "\e[0m"
     ]
 
     fancy_msg = lines.map { |l| "\e[34m[D*Mark]\e[0m #{l.rstrip}\n" }.join('')
