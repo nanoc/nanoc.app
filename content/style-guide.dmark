@@ -4,6 +4,24 @@ title: Style guide
 
 #p This page is designed to collect all the different elements used on the Nanoc website.
 
+#section %h{Headers}
+  #p Headers all the way down…
+
+  #section %h{Headers}
+    #p Headers all the way down…
+
+    #section %h{Headers}
+      #p Headers all the way down…
+
+#section %h{Headers %code{withCode}}
+  #p Headers all the way down…
+
+  #section %h{Headers %code{withCode}}
+    #p Headers all the way down…
+
+    #section %h{Headers %code{withCode}}
+      #p Headers all the way down…
+
 #section %h{Block-level elements}
   #section %h{Paragraphs}
     #p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
