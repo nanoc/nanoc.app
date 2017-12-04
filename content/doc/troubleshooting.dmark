@@ -135,7 +135,7 @@ title: "Troubleshooting"
       write '/index.html'
     end
 
-    %mark{layout '/*.erb', :erb}
+    layout '/*.erb', :erb
 
 #section %h{Error: %code{InvalidEncoding}}
   #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
