@@ -78,6 +78,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     shellany (0.0.1)
     slow_enumerator_tools (1.1.0)
+    terminal-notifier (2.0.0)
     terminal-notifier-guard (1.7.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -105,6 +106,7 @@ DEPENDENCIES
   rainpress
   rake
   sass (~> 3.4)
+  terminal-notifier
   terminal-notifier-guard
   therubyracer
   w3c_validators
