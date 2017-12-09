@@ -2,14 +2,11 @@ Class.new(Nanoc::DataSource) do
   identifier :contributors
 
   def items
-    return [] unless defined?(Bundler)
-
-    path = Bundler.rubygems.find_name('nanoc').first.full_gem_path
-    raw_content = File.read(File.join(path, 'README.md'))
-    content = raw_content.lines.to_a.last
+    readme = Net::HTTP.get(URI.parse('https://raw.githubusercontent.com/nanoc/nanoc/master/README.md'))
+    content = readme.lines.to_a.last.force_encoding('UTF-8')
 
     item = new_item(
-      content,
+      content.encode('UTF-8'),
       {},
       Nanoc::Identifier.new('/contributing/_contributors')
     )
