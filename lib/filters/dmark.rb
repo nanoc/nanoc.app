@@ -1,6 +1,6 @@
 class CachingDMarkParser
   class << self
-    extend Nanoc::Int::Memoization
+    DDMemoize.activate(self)
 
     def parse(content)
       DMark::Parser.new(content).parse
