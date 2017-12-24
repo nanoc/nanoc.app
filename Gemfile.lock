@@ -5,6 +5,12 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     adsf (1.4.0)
       rack (>= 1.0.0, < 3.0.0)
+    adsf-live (1.4.0)
+      adsf (~> 1.3)
+      em-websocket (~> 0.5)
+      eventmachine (~> 1.2)
+      listen (~> 3.0)
+      rack-livereload (~> 0.3)
     builder (3.2.3)
     coderay (1.1.2)
     colored (1.2)
@@ -17,27 +23,17 @@ GEM
       ref (~> 2.0)
     ddplugin (1.0.1)
     ddtelemetry (1.0.0a1)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
+    eventmachine (1.2.5)
     ffi (1.9.18)
     ffi-aspell (1.1.0)
       ffi
-    formatador (0.2.5)
-    guard (2.14.1)
-      formatador (>= 0.2.4)
-      listen (>= 2.7, < 4.0)
-      lumberjack (~> 1.0)
-      nenv (~> 0.1)
-      notiffany (~> 0.0)
-      pry (>= 0.9.12)
-      shellany (~> 0.0)
-      thor (>= 0.18.1)
-    guard-compat (1.2.1)
-    guard-nanoc (2.1.2)
-      guard (~> 2.8)
-      guard-compat (~> 1.0)
-      nanoc (>= 4.3.8, < 5.0)
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     htmlcompressor (0.3.1)
+    http_parser.rb (0.6.0)
     json (2.1.0)
     kramdown (1.16.2)
     libv8 (3.16.14.19)
@@ -45,8 +41,6 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    lumberjack (1.0.12)
-    method_source (0.9.0)
     mini_portile2 (2.3.0)
     nanoc (4.8.17)
       addressable (~> 2.5)
@@ -57,17 +51,16 @@ GEM
       hamster (~> 3.0)
       ref (~> 2.0)
       slow_enumerator_tools (~> 1.0)
-    nenv (0.3.0)
+    nanoc-live (1.0.0a2)
+      adsf-live (~> 1.4)
+      listen (~> 3.0)
+      nanoc (~> 4.8, >= 4.8.16)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
-    notiffany (0.1.1)
-      nenv (~> 0.1)
-      shellany (~> 0.0)
-    pry (0.11.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
     public_suffix (3.0.1)
     rack (2.0.3)
+    rack-livereload (0.3.16)
+      rack
     rainpress (1.0.1)
     rake (12.3.0)
     rb-fsevent (0.10.2)
@@ -80,14 +73,12 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    shellany (0.0.1)
     slow_enumerator_tools (1.1.0)
     terminal-notifier (2.0.0)
     terminal-notifier-guard (1.7.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
-    thor (0.20.0)
     w3c_validators (1.3.3)
       json (>= 1.8)
       nokogiri (~> 1.6)
@@ -102,10 +93,10 @@ DEPENDENCIES
   coderay
   d-mark (~> 1.0.0a4)
   ffi-aspell
-  guard-nanoc
   htmlcompressor
   kramdown
   nanoc (~> 4.2)
+  nanoc-live (~> 1.0.0a)
   nokogiri
   rainpress
   rake
@@ -117,4 +108,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
