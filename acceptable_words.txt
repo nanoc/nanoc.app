@@ -12,8 +12,8 @@ Aronoff
 AsciiDoc
 Asciidoctor
 Atle
-Autocompiler
 autocompiler
+Autocompiler
 AWS
 Backported
 Barraquand
@@ -130,6 +130,7 @@ Liu
 Lorin
 Lynagh
 Maeda
+Maertens
 Mankuta
 Marathe
 Markaby
@@ -161,9 +162,9 @@ Nokogiri
 online
 Online
 other's
-outdatedness
-outdatedness
 Outdatedness
+outdatedness
+outdatedness
 Pakosz
 Pandoc
 PandocRuby
@@ -184,8 +185,8 @@ postprocessing
 pre
 Preformatted
 preprocess
-Preprocessing
 preprocessing
+Preprocessing
 preprocessor
 preprocessors
 Preprocessors
@@ -214,6 +215,7 @@ Remko
 renderer
 repo
 resizes
+Rien
 Rosenbaum
 Rost
 RSS
@@ -223,8 +225,8 @@ RubyForge
 RubyGems
 RubyPants
 S3
-SCP
 scp
+SCP
 Screenshot
 SCSS
 sed
@@ -259,8 +261,8 @@ symlinks
 Takashi
 templating
 timestamp
-Timestamps
 timestamps
+Timestamps
 Toon
 Torikian
 Tronçon
