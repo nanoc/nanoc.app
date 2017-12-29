@@ -49,7 +49,7 @@ title: "Filters"
 
   #p Filters have access to %code{@item}, %code{@item_rep}, %code{@items}, %code{@layouts}, and %code{@config}. For details, see %ref[item=/doc/reference/variables.*]{}.
 
-  #section %h{Binary filters}
+  #section %h[id=binary-filters]{Binary filters}
     #p A filter is marked as a binary filter using the %code{#type} method. For example:
 
     #listing[lang=ruby]

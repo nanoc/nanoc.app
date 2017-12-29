@@ -2,17 +2,6 @@
 title: "Troubleshooting"
 ---
 
-#section %h[nav-title=“Found 3 content files…”]{Error: “Found 3 content files for X; expected 0 or 1”}
-  #p This error occurs for legacy identifiers when there are multiple files with the same base name, but different extensions. When using legacy identifiers, Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
-
-  #listing
-    content/assets/fonts/foo.eot
-    content/assets/fonts/foo.otf
-
-  #p Nanoc converts these filenames to identifiers which do not contain the file extension. In the example given above, both filenames correspond to the identifier %identifier{/assets/fonts/foo/}. Identifiers are required to be unique, and thus Nanoc raises an error.
-
-  #p New in Nanoc 4 are full identifiers, which contain the file extension. We recommend upgrading to Nanoc 4 and enabling full identifiers as well as glob patterns. For details, see %ref[item=/doc/nanoc-4-upgrade-guide.*]{} and %ref[item=/doc/identifiers-and-patterns.*]{}.
-
 #section %h[nav-title=“Can’t modify frozen…”]{Error: “can’t modify frozen…”}
   #p Once the compilation process has started, content, and attributes of layouts and items are %emph{frozen}, which means they cannot be modified anymore. For example, the following rule is invalid and will cause a “can’t modify frozen Array” error:
 
@@ -31,13 +20,6 @@ title: "Troubleshooting"
         i[:tags] << 'article'
       end
     end
-
-#section %h[nav-title=“Textual filters cannot be used…”]{Error: “Textual filters cannot be used on binary items”}
-  #p There are two item types in Nanoc: textual and binary. Most filters that come with Nanoc, such as %code{:erb} and %code{:haml}, are textual, meaning they take text as input and produce new text. It is also possible to define binary filters, such as an image thumbnail filter.
-
-  #p It is not possible to run a textual filter on binary items; for example, running %code{:erb} on an item with filename %filename{content/assets/images/puppy.jpg} will cause the “Textual filters cannot be used on binary items” error.
-
-  #p When you are getting this error unexpectedly, double-check your Rules file and make sure that no binary item is filtered through a textual filter. Remember that Nanoc will use the first matching rule only!
 
 #section %h[id=character-encoding-issues]{Character encoding issues}
   #p Character encoding issues manifest themselves in two ways:
@@ -136,6 +118,29 @@ title: "Troubleshooting"
     end
 
     layout '/*.erb', :erb
+
+#section %h{Error: %code{CannotLayoutBinaryItem}}
+  #p Nanoc only supports laying out textual items, and will raise the %code{CannotLayoutBinaryItem} error when attempting to lay out binary items.
+
+  #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{} for details.
+
+#section %h[id=error-cannot-use-textual-filter]{Error: %code{CannotUseTextualFilter}}
+  #p Nanoc deliberately prevents textual filters from being applied to binary items, and will raise the %code{CannotUseTextualFilter} error in that case.
+
+  #p To fix this error:
+
+  #ul
+    #li
+      #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{} for details.
+
+    #li
+      #p If the error occurs for a filter that you expect to handle binary items, verify that its type is %code{binary}. Filters are text-to-text by default. Refer to %ref[item=/doc/filters.*,frag=binary-filters]{} for details.
+
+    #li
+      #p If the error occurs in a filter that you did not expect to be called, check the Rules file and verify that the correct rule is being applied to the item. Nanoc will use the first matching rule only. The %command{show-rules} command is helpful in showing which rules are being applied.
+
+#section %h{Error: %code{CannotUseBinaryFilter}}
+  #p Refer to %ref[frag=error-cannot-use-textual-filter]{}.
 
 #section %h{Error: %code{InvalidEncoding}}
   #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
@@ -243,6 +248,17 @@ title: "Troubleshooting"
 
   #listing[lang=rhtml,errors]
     <%%= @item.compiled_content %%>
+
+#section %h{Error: MultipleContentFiles}
+  #p This error occurs for %emph{legacy} identifiers when there are multiple files with the same base name, but different extensions. When using legacy identifiers, Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
+
+  #listing
+    content/assets/fonts/foo.eot
+    content/assets/fonts/foo.otf
+
+  #p Nanoc converts these filenames to identifiers which do not contain the file extension. In the example given above, both filenames correspond to the identifier %identifier{/assets/fonts/foo/}. Identifiers are required to be unique, and thus Nanoc raises an error.
+
+  #p Nanoc 4 supports %emph{full} identifiers, which, unlike legacy identifiers, contain the file extension (e.g. %filename{/about.md} instead of %filename{/about/}). We recommend enabling full identifiers, as well as glob patterns. For details, see %ref[item=/doc/nanoc-4-upgrade-guide.*]{} and %ref[item=/doc/identifiers-and-patterns.*]{}.
 
 #section %h{Error: %code{UnknownDataSource}}
   #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause an %code{UnknownDataSource} if the %code{file_system} data source is not defined:
