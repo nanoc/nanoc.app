@@ -124,6 +124,9 @@ title: "Troubleshooting"
 
   #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{the %code{text_extensions} configuration reference} for details.
 
+#section %h{Error: %code{CannotUseBinaryFilter}}
+  #p Refer to %ref[frag=error-cannot-use-textual-filter]{the %code{CannotUseBinaryFilter} section}.
+
 #section %h[id=error-cannot-use-textual-filter]{Error: %code{CannotUseTextualFilter}}
   #p Nanoc deliberately prevents textual filters from being applied to binary items, and will raise the %code{CannotUseTextualFilter} error in that case.
 
@@ -139,8 +142,25 @@ title: "Troubleshooting"
     #li
       #p If the error occurs in a filter that you did not expect to be called, check the Rules file and verify that the correct rule is being applied to the item. Nanoc will use the first matching rule only. The %command{show-rules} command is helpful in showing which rules are being applied.
 
-#section %h{Error: %code{CannotUseBinaryFilter}}
-  #p Refer to %ref[frag=error-cannot-use-textual-filter]{the %code{CannotUseBinaryFilter} section}.
+#section %h{Error: %code{DependencyCycle}}
+  #p This error occurs when two or more items depend on each other’s compiled content. For example, imagine these two files:
+
+  #listing[lang=rhtml,errors]
+    <!-- content/foo.html -->
+    <%%= @items['/bar.*'].compiled_content %%>
+
+  #listing[lang=rhtml,errors]
+    <!-- content/bar.html -->
+    <%%= @items['/foo.*'].compiled_content %%>
+
+  #p The compiled content of the %filename{foo.html} item depends on the compiled content of the %filename{bar.html} item, and vice versa. Nanoc cannot resolve this, and throws a %code{DependencyCycle} error.
+
+  #p To fix this error, ensure that at least one of these items does not depend on the compiled content of the other.
+
+  #p This error also occurs when a single item depends on the later compiled content of itself. For example, an item with the following content will also cause a %code{DependencyCycle} error:
+
+  #listing[lang=rhtml,errors]
+    <%%= @item.compiled_content %%>
 
 #section %h{Error: %code{InvalidEncoding}}
   #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
@@ -185,6 +205,33 @@ title: "Troubleshooting"
 
     This file starts with three dashes!
 
+#section %h{Error: %code{InvalidFullIdentifierError}}
+  #p This error occurs when trying to construct a full identifier for an item or layout with a trailing slash. For instance:
+
+  #listing[errors,lang=ruby]
+    Nanoc::Identifier.new('/hello/')
+
+  #p This issue will not occur with legacy identifier types:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello/', type: :legacy)
+
+  #p To fix this problem, ensure that full identifiers don’t end with a slash:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello')
+
+#section %h{Error: %code{InvalidIdentifierError}}
+  #p This error occurs when trying to construct an identifier for an item or layout without a leading slash. For instance:
+
+  #listing[errors,lang=ruby]
+    Nanoc::Identifier.new('hello')
+
+  #p To fix this problem, ensure that all identifiers start with a slash:
+
+  #listing[lang=ruby]
+    Nanoc::Identifier.new('/hello')
+
 #section %h{Error: %code{InvalidMetadata}}
   #p This error occurs when the frontmatter is not a collection of key-value pairs. For example, the following file will cause an %code{UnparseableMetadata} error:
 
@@ -228,26 +275,6 @@ title: "Troubleshooting"
     ---
 
     Another section…
-
-#section %h{Error: %code{DependencyCycle}}
-  #p This error occurs when two or more items depend on each other’s compiled content. For example, imagine these two files:
-
-  #listing[lang=rhtml,errors]
-    <!-- content/foo.html -->
-    <%%= @items['/bar.*'].compiled_content %%>
-
-  #listing[lang=rhtml,errors]
-    <!-- content/bar.html -->
-    <%%= @items['/foo.*'].compiled_content %%>
-
-  #p The compiled content of the %filename{foo.html} item depends on the compiled content of the %filename{bar.html} item, and vice versa. Nanoc cannot resolve this, and throws a %code{DependencyCycle} error.
-
-  #p To fix this error, ensure that at least one of these items does not depend on the compiled content of the other.
-
-  #p This error also occurs when a single item depends on the later compiled content of itself. For example, an item with the following content will also cause a %code{DependencyCycle} error:
-
-  #listing[lang=rhtml,errors]
-    <%%= @item.compiled_content %%>
 
 #section %h{Error: %code{MultipleContentFiles}}
   #p This error occurs for %emph{legacy} identifiers when there are multiple files with the same base name, but different extensions. When using legacy identifiers, Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
@@ -369,29 +396,3 @@ title: "Troubleshooting"
 
     Another section…
 
-#section %h{Error: %code{InvalidIdentifierError}}
-  #p This error occurs when trying to construct an identifier for an item or layout without a leading slash. For instance:
-
-  #listing[errors,lang=ruby]
-    Nanoc::Identifier.new('hello')
-
-  #p To fix this problem, ensure that all identifiers start with a slash:
-
-  #listing[lang=ruby]
-    Nanoc::Identifier.new('/hello')
-
-#section %h{Error: %code{InvalidFullIdentifierError}}
-  #p This error occurs when trying to construct a full identifier for an item or layout with a trailing slash. For instance:
-
-  #listing[errors,lang=ruby]
-    Nanoc::Identifier.new('/hello/')
-
-  #p This issue will not occur with legacy identifier types:
-
-  #listing[lang=ruby]
-    Nanoc::Identifier.new('/hello/', type: :legacy)
-
-  #p To fix this problem, ensure that full identifiers don’t end with a slash:
-
-  #listing[lang=ruby]
-    Nanoc::Identifier.new('/hello')
