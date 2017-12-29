@@ -32,7 +32,7 @@ GEM
       ffi
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    htmlcompressor (0.3.1)
+    htmlcompressor (0.4.0)
     http_parser.rb (0.6.0)
     json (2.1.0)
     kramdown (1.16.2)
