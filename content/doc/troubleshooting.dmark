@@ -122,7 +122,7 @@ title: "Troubleshooting"
 #section %h{Error: %code{CannotLayoutBinaryItem}}
   #p Nanoc only supports laying out textual items, and will raise the %code{CannotLayoutBinaryItem} error when attempting to lay out binary items.
 
-  #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{} for details.
+  #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{the %code{text_extensions} configuration reference} for details.
 
 #section %h[id=error-cannot-use-textual-filter]{Error: %code{CannotUseTextualFilter}}
   #p Nanoc deliberately prevents textual filters from being applied to binary items, and will raise the %code{CannotUseTextualFilter} error in that case.
@@ -131,7 +131,7 @@ title: "Troubleshooting"
 
   #ul
     #li
-      #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{} for details.
+      #p If the error occurs for an item that you expected to be textual (rather than binary), verify that its extension is included in the %code{text_extensions} array in the site configuration. Refer to %ref[item=/doc/reference/config.*,frag=text-extensions]{the %code{text_extensions} configuration reference} for details.
 
     #li
       #p If the error occurs for a filter that you expect to handle binary items, verify that its type is %code{binary}. Filters are text-to-text by default. Refer to %ref[item=/doc/filters.*,frag=binary-filters]{} for details.
@@ -140,7 +140,7 @@ title: "Troubleshooting"
       #p If the error occurs in a filter that you did not expect to be called, check the Rules file and verify that the correct rule is being applied to the item. Nanoc will use the first matching rule only. The %command{show-rules} command is helpful in showing which rules are being applied.
 
 #section %h{Error: %code{CannotUseBinaryFilter}}
-  #p Refer to %ref[frag=error-cannot-use-textual-filter]{}.
+  #p Refer to %ref[frag=error-cannot-use-textual-filter]{the %code{CannotUseBinaryFilter} section}.
 
 #section %h{Error: %code{InvalidEncoding}}
   #p This error occurs when the file content cannot be interpreted in the encoding that Nanoc has inferred. For example, the following piece of code will generate a file that will cause an %code{InvalidEncoding} error if Nanoc assumes the file to be encoded as UTF-8:
@@ -249,7 +249,7 @@ title: "Troubleshooting"
   #listing[lang=rhtml,errors]
     <%%= @item.compiled_content %%>
 
-#section %h{Error: MultipleContentFiles}
+#section %h{Error: %code{MultipleContentFiles}}
   #p This error occurs for %emph{legacy} identifiers when there are multiple files with the same base name, but different extensions. When using legacy identifiers, Nanoc requires each base name to be unique. For example, the following situation will give raise to this error:
 
   #listing
