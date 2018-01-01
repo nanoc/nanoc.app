@@ -93,3 +93,36 @@ title: "Internals"
     #p Nanoc will attempt to compile every outdated item representation sequentially. If an item representation cannot be compiled due to a compilation suspension, Nanoc will attempt to compile the item rep that is depended on. If the item rep that is depended on is also suspended, Nanoc will raise an error, informing the user of a dependency cycle.
 
     #note The term “compile” or “recompile” does not always mean that the item will be recompiled from scratch; Nanoc keeps a cache of compiled content and will reuse cached compiled content if possible.
+
+#section %h{Action providers}
+  #p An action provider is a plugin that describes the actions that need to be taken in order to process each item. The rules DSL is the default (and at the moment of writing, only) action provider; it reads actions from the %filename{Rules} file.
+
+  #note The name “action provider” is internal and does not accurate reflect its purpose. The name “action provider” will likely go away.
+
+  #p An action provider needs to support the following methods:
+
+  #dl
+    #dt %code{rep_names_for(item)}
+    #dd
+      #p Given an item, returns the representation names for that item (e.g. %code{[:default]}).
+
+    #dt %code{action_sequence_for(rep)}
+    #dd
+      #p Returns the sequence of actions to be taken in order to process the item representation %code{rep}.
+
+  #p An action sequence is an instance of %code{Nanoc::Int::ActionSequence}, and it contains zero or more of the following actions, in order (all in the %code{Nanoc::Int::ProcessingActions} namespace):
+
+  #dl
+    #dt %code{Filter.new(filter_name, params)}
+    #dd
+      #p Apply the filter with the given %code{filter_name} (a %code{Symbol}), with optional parameters.
+
+    #dt %code{Layout.new(layout_identifier, params)}
+    #dd
+      #p Apply the layout with the given identifier (a %code{String}), with optional parameters.
+
+    #dt %code{Snapshot.new(snapshot_names, paths)}
+    #dd
+      #p Create a snapshot with one or more names (%code{Symbol}s), and zero or more paths (%code{String}s).
+
+  #todo Describe %code{preprocess(site)}, %code{postprocess(site, reps)}, and %code{need_preprocessing?}.
