@@ -63,6 +63,18 @@ title: "Rules"
         write ext: 'jpg'
       end
 
+    #p To prevent Nanoc from applying a matching routing rule, call %code{write nil} at the end of a compilation rule. In the following example, no items in %filename{snippets/} will be written out, because the routing rule is skipped:
+
+    #listing[lang=ruby]
+      compile '/snippets/*.md' do
+        filter :kramdown
+        write nil
+      end
+
+      route '/**/*.md' do
+        item.identifier.without_ext + '/index.html'
+      end
+
   #section %h{Filtering}
     #p To filter an item representation, call %code{#filter} pass the name of the filter as the first argument. For example, the following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
 
