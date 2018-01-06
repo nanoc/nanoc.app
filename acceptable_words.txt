@@ -12,8 +12,8 @@ Aronoff
 AsciiDoc
 Asciidoctor
 Atle
-autocompiler
 Autocompiler
+autocompiler
 AWS
 Backported
 Barraquand
@@ -73,6 +73,7 @@ Everitt
 executables
 Exensions
 Faber
+falsy
 featureful
 FeedBurner
 filename
@@ -159,11 +160,11 @@ Nicky
 Nikhil
 Nishinaga
 Nokogiri
-online
 Online
+online
 other's
-Outdatedness
 outdatedness
+Outdatedness
 outdatedness
 Pakosz
 Pandoc
@@ -188,8 +189,8 @@ preprocess
 preprocessing
 Preprocessing
 preprocessor
-preprocessors
 Preprocessors
+preprocessors
 prev
 previewable
 proc
@@ -243,8 +244,8 @@ Sitemaps
 snapshotting
 Solarized
 Soryu
-speel
 Speel
+speel
 SQL
 SQLite
 SQLite3
@@ -261,11 +262,12 @@ symlinks
 Takashi
 templating
 timestamp
-timestamps
 Timestamps
+timestamps
 Toon
 Torikian
 Tronçon
+truthy
 Tuomas
 Typogrify
 Typogruby
