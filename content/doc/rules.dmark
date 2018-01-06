@@ -63,7 +63,7 @@ title: "Rules"
         write ext: 'jpg'
       end
 
-    #p To prevent Nanoc from applying a matching routing rule, call %code{write nil} at the end of a compilation rule. In the following example, no items in %filename{snippets/} will be written out, because the routing rule is skipped:
+    #p[id=prevent-applying-routing-rule] To prevent Nanoc from applying a matching routing rule, call %code{write nil} at the end of a compilation rule. In the following example, no items in %filename{snippets/} will be written out, because the routing rule is skipped:
 
     #listing[lang=ruby]
       compile '/snippets/*.md' do
@@ -276,6 +276,8 @@ title: "Rules"
     # output files created:
     #   /about-inbetween.html
     #   /about.html
+
+  #p To prevent Nanoc from applying a matching routing rule, call %code{write nil} at the end of a compilation rule. Refer to %ref[frag=prevent-applying-routing-rule]{the paragraph describing %code{write nil}} for details.
 
   #p To reduce potential confusion, avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
 
