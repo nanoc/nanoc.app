@@ -32,6 +32,9 @@ title: "Identifiers and patterns"
     #dt %code{identifier + string} → %class{String}
     #dd identifier with the given string appended
 
+    #dt %code{identifier =~ pat}
+    #dd truthy if the identifier matches the pattern (either a %class{String} or a %class{Regexp}), falsy otherwise
+
   #p Here are some examples:
 
   #listing[lang=ruby]
