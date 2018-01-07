@@ -126,3 +126,61 @@ title: "Internals"
       #p Create a snapshot with one or more names (%code{Symbol}s), and zero or more paths (%code{String}s).
 
   #todo Describe %code{preprocess(site)}, %code{postprocess(site, reps)}, and %code{need_preprocessing?}.
+
+#section %h{Compilation stages and phases}
+  #p The compilation process is divided into a sequence of stages. Each of these is run only once, in sequence:
+
+  #ol
+    #dt %code{Preprocess}
+    #dd Run the preprocessor, defined in the %filename{Rules} file, if any.
+
+    #dt %code{BuildReps}
+    #dd For each item, determine which representations it has, along with the processing instructions (“action sequences”) that go with it.
+
+    #dt %code{LoadStores}
+    #dd Read state information from the previous compilation (if any) in memory. This includes previous checksums, previous outdatedness information, etc.
+
+    #dt %code{CalculateChecksums}
+    #dd Calculate checksums for every item, layout, …
+
+    #dt %code{DetermineOutdatedness}
+    #dd For every item representation, determine whether or not it is outdated and therefore needs to be recompiled.
+
+    #dt %code{ForgetOutdatedDependencies}
+    #dd For every outdated item representation, remove dependencies that originate from it. The dependency information is not useful, as it is outdated.
+
+    #dt %code{StorePreCompilationState}
+    #dd Write out the current checksums along with the action sequences for each item representation.
+
+    #dt %code{Prune}
+    #dd Remove all files in the output directory that do not correspond to item representations.
+
+    #dt %code{CompileReps}
+    #dd Loop through all item representations and compile them. (See below for details.)
+
+    #dt %code{StorePostCompilationState}
+    #dd Write out all dependency information.
+
+    #dt %code{Postprocess}
+    #dd Run the postprocessor, defined in the %filename{Rules} file, if any.
+
+    #dt %code{Cleanup}
+    #dd Remove all intermediate files that are no longer used after compilation is finished.
+
+  #p The %code{CompileReps} will loop through all item representations and compile them. Each item representation will go through each of the following phases, in sequence:
+
+  #ol
+    #dt %code{MarkDone}
+    #dd Yields to the next phase, and then marks the item representation as compiled.
+
+    #dt %code{Write}
+    #dd Yields to the next phase, and then writes out all files for this item representation.
+
+    #dt %code{Resume}
+    #dd Suspends compilation of the item representation when dependency errors occur, and resumes compilation when the dependency errors are resolves.
+
+    #dt %code{Cache}
+    #dd If possible, loads the already-compiled content for this item representation from the cache.
+
+    #dt %code{Recalculate}
+    #dd Executes all actions needed to calculate the compiled content for this item representation.

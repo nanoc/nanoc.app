@@ -36,6 +36,7 @@ Byford
 Bynens
 Cédric
 checksum
+checksums
 checksummer
 Chu
 Cichra
@@ -160,8 +161,8 @@ Nicky
 Nikhil
 Nishinaga
 Nokogiri
-Online
 online
+Online
 other's
 outdatedness
 Outdatedness
@@ -183,14 +184,15 @@ pictograms
 Plessl
 Pollet
 postprocessing
+postprocessor
 pre
 Preformatted
 preprocess
-preprocessing
 Preprocessing
+preprocessing
 preprocessor
-Preprocessors
 preprocessors
+Preprocessors
 prev
 previewable
 proc
@@ -239,8 +241,8 @@ Siches
 sigil
 Šime
 sitemap
-sitemaps
 Sitemaps
+sitemaps
 snapshotting
 Solarized
 Soryu
@@ -262,8 +264,8 @@ symlinks
 Takashi
 templating
 timestamp
-Timestamps
 timestamps
+Timestamps
 Toon
 Torikian
 Tronçon
@@ -299,8 +301,8 @@ Whitt
 Wiki
 wiki
 Wikipedia
-wildcard
 Wildcard
+wildcard
 wildcards
 Willems
 Windows’
