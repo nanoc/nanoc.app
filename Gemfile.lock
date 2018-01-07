@@ -51,7 +51,7 @@ GEM
       hamster (~> 3.0)
       ref (~> 2.0)
       slow_enumerator_tools (~> 1.0)
-    nanoc-live (1.0.0a2)
+    nanoc-live (1.0.0b1)
       adsf-live (~> 1.4)
       listen (~> 3.0)
       nanoc (~> 4.8, >= 4.8.16)
@@ -96,7 +96,7 @@ DEPENDENCIES
   htmlcompressor
   kramdown
   nanoc (~> 4.8, >= 4.8.19)
-  nanoc-live (~> 1.0.0a)
+  nanoc-live (~> 1.0.0b)
   nokogiri
   rainpress
   rake
