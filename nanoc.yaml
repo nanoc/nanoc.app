@@ -21,11 +21,6 @@ deploy:
     remote: git@174.138.107.85:/srv/http/nanoc.ws.git
     branch: prod
     forced: true
-  staging:
-    kind: git
-    remote: git@174.138.107.85:/srv/http/staging.nanoc.ws.git
-    branch: prod
-    forced: true
 
 toc:
   - title: 'Getting started'
