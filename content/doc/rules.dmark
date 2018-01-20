@@ -42,7 +42,19 @@ title: "Rules"
     end
 
   #section %h{Writing}
-    #p A compilation rule can end with a %code{#write} call, which takes the path to the file to write compiled content to. For example, this compilation rule will copy %filename{/images/denis.jpg} without further processing:
+    #p A compilation rule can contain a %code{#write} call, which will write out the item representation in its current state. It can be called in three ways:
+
+    #dl
+      #dt with a string
+      #dd writes the item rep to the given path, relative from the output directory
+
+      #dt with %code{nil}
+      #dd prevents Nanoc from applying a matching routing rule (see below for details)
+
+      #dt with %code{:ext}
+      #dd writes the item rep to a path that is the same as the identifier, but with a different extension
+
+    #p For example, this compilation rule will copy %filename{/images/denis.jpg} without further processing:
 
     #listing[lang=ruby]
       compile '/images/**/*' do
@@ -76,7 +88,13 @@ title: "Rules"
       end
 
   #section %h{Filtering}
-    #p To filter an item representation, call %code{#filter} pass the name of the filter as the first argument. For example, the following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
+    #p To filter an item representation, use the %code{#filter} method. It takes the following arguments:
+
+    #ol
+      #li (required) the name of the filter (a %code{Symbol})
+      #li (optional) additional arguments which will be passed on to the filter
+
+    #p For example, the following rule will filter items with identifiers ending in %code{.md} using the %code{:kramdown} filter, but not perform any layouting, and then write it with a %code{.html} extension, so that %filename{/about.md} is written to %filename{/about.html}:
 
     #listing[lang=ruby]
       compile '/**/*.md' do
@@ -84,17 +102,23 @@ title: "Rules"
         write @item.identifier.without_ext + '.html'
       end
 
-    #p Additional parameters can be given to invocations of %code{#filter}. This is used by some filters, such as the Haml one (%code{:haml}), to alter filter behavior in one way or another. For example, the following rule will filter Sass items using the %code{:sass} filter, followed by the %code{:relativize_paths} filter with the filter argument %code{type} set to %code{:css}:
+    #p For example, the following rule calls both the %code{:sass} filter as well as the %code{:relativize_paths} filter with the extra arguments:
 
     #listing[lang=ruby]
       compile '/**/*.sass' do
-        filter :sass
+        filter :sass, style: :compact
         filter :relativize_paths, type: :css
-        write @item.identifier.without_ext + '.css'
+        write ext: '.css'
       end
 
   #section %h{Laying out}
-    #p To lay out an item representation, call %code{#layout} and pass the layout identifier as argument. For example, he following rule will filter the rep using the %code{erb} filter, lay out the rep using the layout that matches the %code{/shiny.*} pattern, and finally run the laid out rep through the %code{:rubypants} filter:
+    #p To lay out an item representation, use the %code{#layout} method. It takes the following arguments:
+
+    #ol
+      #li (required) the identifier of a layout, or a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern} that matches the identifier of a layout
+      #li (optional) additional arguments which will be passed on to the filter
+
+    #p For example, the following rule will (among other things) lay out the item representation using the layout that matches the %code{/shiny.*} pattern:
 
     #listing[lang=ruby]
       compile '/about.*' do
@@ -103,6 +127,20 @@ title: "Rules"
         filter :rubypants
         write @item.identifier.without_ext + '/index.html'
       end
+
+      layout '/*.erb', :erb
+
+    #p The following example is similar, but passes extra arguments (%code{:locals}) to the filter associated with the layout:
+
+    #listing[lang=ruby]
+      compile '/about.*' do
+        filter :erb
+        layout '/shiny.*', locals: { daleks: 'exterminate' %}
+        filter :rubypants
+        write @item.identifier.without_ext + '/index.html'
+      end
+
+      layout '/*.erb', :erb
 
   #section %h{Dynamic rules}
     #p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
@@ -281,10 +319,15 @@ title: "Rules"
 
   #p To reduce potential confusion, avoid mixing routing rules and %code{#write} calls. Both can be used to specify the path for an item representation, but mixing them will reduce the clarity of the %filename{Rules} file.
 
-#section %h{Layouting rules}
-  #p To specify the filter used for a layout, use the %code{#layout} method.
+#section[id=layouting-rules] %h{Layouting rules}
+  #p To specify the filter used for a layout, use the %code{#layout} method. It takes the following arguments:
 
-  #p The first argument to %code{#layout} is the identifier of a layout, or a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern} that matches the identifier of a layout. The second argument to %code{#layout} is the identifier of the filter to use. Additional arguments can be supplied; these will be passed on to the filter.
+  #ol
+    #li (required) the identifier of a layout, or a %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{pattern} that matches the identifier of a layout
+    #li (required) the identifier of the filter to use (a %code{Symbol})
+    #li (optional) additional arguments which will be passed on to the filter
+
+  #p If addition arguments are given to both a layouting rule, as well as a %code{#layout} call for the same layout inside a compilation block, the arguments will be merged.
 
   #p The following rule will make all layouts use the %code{:erb} filter:
 
@@ -300,6 +343,17 @@ title: "Rules"
 
   #listing[lang=ruby]
     layout %%r{\A/_%}, :erb
+
+  #p In the following example, the layout is filtered using the %code{haml} filter, with arguments %code{ugly: true} and %code{format: :html5}:
+
+  #listing[lang=ruby]
+    compile '/*.md' do
+      filter :kramdown
+      layout '/shiny.*', ugly: true
+      write ext: 'html'
+    end
+
+    layout '/*.haml', :haml, format: :html5
 
 #section %h{Convenience methods}
   #p The %code{#passthrough} method does no filtering or laying out, and copies the matched item as-is. For example:
