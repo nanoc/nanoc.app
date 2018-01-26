@@ -14,7 +14,7 @@ module NanocSite
       doc = Nokogiri::HTML(content)
 
       # Find and parse usable h2
-      h2 = doc.css('h2').find { |h2| h2.inner_html.strip =~ TITLE_REGEX }
+      h2 = doc.css('h2').find { |elem| elem.inner_html.strip =~ TITLE_REGEX }
       h2 =~ TITLE_REGEX
 
       # Done

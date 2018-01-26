@@ -1,22 +1,8 @@
-Lint/DuplicateCaseCondition:
-  Exclude:
-    - 'lib/dmark_translators/latex.rb'
-
 Lint/EmptyWhen:
   Exclude:
     - 'Rules'
     - 'lib/dmark_translators/common.rb'
     - 'lib/dmark_translators/latex.rb'
-
-Lint/ShadowingOuterLocalVariable:
-  Exclude:
-    - 'lib/helpers/release_notes.rb'
-    - 'spell.rb'
-
-Naming/FileName:
-  Exclude:
-    - 'lib/kramdown-dmark.rb'
-    - 'lib/sites-nanoc.rb'
 
 Naming/PredicateName:
   Exclude:

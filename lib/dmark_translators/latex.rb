@@ -133,7 +133,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
     when 'mark'
       # TODO: handle mark
       handle_children(node, context)
-    when 'emph', 'class', 'productname', 'see', 'var', 'log-create', 'log-check-ok', 'log-check-error', 'log-update'
+    when 'emph', 'class', 'productname', 'see', 'var', 'log-check-ok', 'log-check-error'
       wrap_inline('emph', node, context)
     when 'strong'
       wrap_inline('textbf', node, context)
