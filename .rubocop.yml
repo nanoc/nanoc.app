@@ -1,0 +1,189 @@
+# ----- BROKEN -----
+
+# These cops report false positive, and should be re-enabled in a future version
+# of Rubocop.
+
+# See #5274, #5231
+Layout/EmptyLinesAroundArguments:
+  Enabled: false
+
+
+
+# ----- CONFIGURED -----
+
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+
+# We use filenames such as “create-site.rb” that translate to method names.
+Naming/FileName:
+  Exclude:
+    - 'nanoc/lib/nanoc/cli/commands/*.rb'
+    - 'nanoc-external/lib/nanoc-external.rb'
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+
+
+# ----- CONFIGURED (exceptions for tests) -----
+
+# This breaks RSpec on occasion, e.g. `expect { subject }.not_to change { foo }`,
+# and generally does not provide useful warnings
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - '*/spec/**/*.rb'
+
+# `rescue nil` is useful in specs where the exception is not important, but
+# the size effects are.
+Style/RescueModifier:
+  Exclude:
+    - '*/spec/**/*.rb'
+
+# A common pattern in tests is to define anonymous classes in which methods are defined, which trips
+# up Rubocop’s nested method definition cop.
+Lint/NestedMethodDefinition:
+  Exclude:
+    - '*/test/**/*.rb'
+    - '*/spec/**/*.rb'
+
+# This is used in tests, to verify the effect of state-changing functions.
+Style/GlobalVars:
+  Exclude:
+    - '*/test/**/*.rb'
+    - '*/spec/**/*.rb'
+
+
+
+# ----- TO ENABLE LATER -----
+
+# Valid cops, but fixing the offenses they report is non-trivial.
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EmptyElse:
+  Enabled: false
+
+Style/Next:
+  Enabled: false
+
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
+Style/EvalWithLocation:
+  Enabled: false
+
+
+
+# ----- DISABLED (security) -----
+
+# Nanoc runs offline in a trusted environment, and these security checks are false positives.
+
+Security/YAMLLoad:
+  Enabled: false
+
+Security/MarshalLoad:
+  Enabled: false
+
+Security/Eval:
+  Exclude:
+    - '*/test/**/*.rb'
+    - '*/spec/**/*.rb'
+    - 'nanoc/lib/nanoc/base/entities/code_snippet.rb'
+    - 'nanoc/lib/nanoc/filters/erubi.rb'
+
+
+
+# ----- DISABLED (metrics) -----
+
+# Cops for metrics are disabled because they should not cause tests to fail.
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+
+
+# ----- DISABLED (opinionated) -----
+
+# We should embrace UTF-8, not avoid it. Since the Encoding cop is enabled,
+# there’s no point in enforcing ASCII comments.
+Style/AsciiComments:
+  Enabled: false
+
+# It does not make sense to enforce everything to have documentation.
+Style/Documentation:
+  Enabled: false
+
+# Nanoc suppresses exceptions for valid reasons in a few cases.
+Lint/HandleExceptions:
+  Enabled: false
+
+# if/unless at the end of the line makes it too easy to oversee.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Personal preference is to have decent constructors for exceptions rather than
+# just a class and a message.
+Style/RaiseArgs:
+  Enabled: false
+
+# Some methods that appear to be accessors (return a single value or set a
+# single value) should still not be considered to be accessors. This is a purely
+# semantic difference.
+Style/TrivialAccessors:
+  Enabled: false
+
+# This does not always semantically make sense.
+Style/GuardClause:
+  Enabled: false
+
+# Used for “undo work, whatever error happens”
+Style/RescueStandardError:
+  Enabled: false
+
+# For the sake of consistency, it makes the most sense to retain $stderr.puts
+# when used in situations where $stderr.flush, $stderr.print, … are also used.
+Style/StderrPuts:
+  Enabled: false
+
+# This catches too many false positives. A string that contains a % followed by
+# a letter is not always a format string.
+Style/FormatStringToken:
+  Enabled: false

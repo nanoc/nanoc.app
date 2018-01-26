@@ -1,3 +1,21 @@
+PATH
+  remote: ../nanoc
+  specs:
+    nanoc (4.8.19)
+      addressable (~> 2.5)
+      cri (~> 2.8)
+      ddmemoize (~> 1.0)
+      ddmetrics (~> 1.0)
+      ddplugin (~> 1.0)
+      hamster (~> 3.0)
+      parallel (~> 1.12)
+      ref (~> 2.0)
+      slow_enumerator_tools (~> 1.0)
+    nanoc-live (1.0.0b1)
+      adsf-live (~> 1.4)
+      listen (~> 3.0)
+      nanoc (~> 4.8, >= 4.8.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -18,11 +36,11 @@ GEM
     cri (2.10.1)
       colored (~> 1.2)
     d-mark (1.0.0a4)
-    ddmemoize (1.0.0a3)
-      ddtelemetry (= 1.0.0a2)
+    ddmemoize (1.0.0)
+      ddmetrics (~> 1.0)
       ref (~> 2.0)
+    ddmetrics (1.0.0)
     ddplugin (1.0.1)
-    ddtelemetry (1.0.0a2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -42,21 +60,9 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mini_portile2 (2.3.0)
-    nanoc (4.8.19)
-      addressable (~> 2.5)
-      cri (~> 2.8)
-      ddmemoize (= 1.0.0a3)
-      ddplugin (~> 1.0)
-      ddtelemetry (= 1.0.0a2)
-      hamster (~> 3.0)
-      ref (~> 2.0)
-      slow_enumerator_tools (~> 1.0)
-    nanoc-live (1.0.0b1)
-      adsf-live (~> 1.4)
-      listen (~> 3.0)
-      nanoc (~> 4.8, >= 4.8.16)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    parallel (1.12.1)
     public_suffix (3.0.1)
     rack (2.0.3)
     rack-livereload (0.3.16)
@@ -95,7 +101,7 @@ DEPENDENCIES
   ffi-aspell
   htmlcompressor
   kramdown
-  nanoc (~> 4.8, >= 4.8.19)
+  nanoc!
   nanoc-live (~> 1.0.0b)
   nokogiri
   rainpress
