@@ -135,7 +135,7 @@ check :no_smartness_in_kbd do
     end
   end
 end
-bg
+
 check :spelling do
   acceptable_words = Set.new(File.readlines('misc/acceptable_words.txt').map(&:strip))
 
