@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'coderay'
 
 class GenericHTMLTranslator < NanocWsCommonTranslator
@@ -125,7 +127,7 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
     [
       start_tag(name, params),
       yield,
-      end_tag(name)
+      end_tag(name),
     ]
   end
 
@@ -154,7 +156,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
   SUDO_GEM_CONTENT_DMARK =
     'If the %command{<cmd>} command fails with a permission error, you likely have to prefix ' \
     'the command with %kbd{sudo}. Do not use %command{sudo} until you have tried the command ' \
-    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'.freeze
+    'without it; using %command{sudo} when not appropriate will damage your RubyGems installation.'
 
   SUDO_GEM_INSTALL_CONTENT_DMARK =
     SUDO_GEM_CONTENT_DMARK.gsub('<cmd>', 'gem install')
@@ -308,13 +310,13 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     [
       'the ',
       wrap('a', href: href) { header_content_of(target_node) },
-      ' section'
+      ' section',
     ]
   end
 
   def handle_ref_insert_inside_ref(_node, _context, _target_item, _frag, _target_node)
     [
-      ' on '
+      ' on ',
     ]
   end
 
@@ -322,7 +324,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     [
       'the ',
       wrap('a', href: target_item.path) { target_item[:title] },
-      ' page'
+      ' page',
     ]
   end
 

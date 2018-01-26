@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NanocSite
   module LinkToId
     def link_to_id(id)

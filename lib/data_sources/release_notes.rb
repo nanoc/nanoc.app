@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::DataSource) do
   identifier :release_notes
 
-  CONTENT_PREFIX = "See the [release notes](/release-notes/) page for a summary of new features.\n\n".freeze
+  CONTENT_PREFIX = "See the [release notes](/release-notes/) page for a summary of new features.\n\n"
 
   def items
     return [] unless defined?(Bundler)
@@ -15,7 +17,7 @@ Class.new(Nanoc::DataSource) do
     attributes = {
       title: 'Detailed release notes',
       markdown: 'basic',
-      extension: 'md'
+      extension: 'md',
     }
 
     # identifier

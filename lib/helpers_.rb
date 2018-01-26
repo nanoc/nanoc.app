@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Default
 use_helper Nanoc::Helpers::LinkTo
 use_helper Nanoc::Helpers::Filtering

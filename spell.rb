@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ffi/aspell'
 require 'nokogiri'
 require 'set'
@@ -7,22 +9,23 @@ class NanocSpellChecker
     attr_reader :string
 
     def initialize
-      @string = ''
+      @string = +''
     end
 
     def visit(node)
-      if node.text?
-        @string << node.content
-      else
-        @string << ' '
-      end
+      @string <<
+        if node.text?
+          node.content
+        else
+          ' '
+        end
 
-      if %w( pre code kbd samp var ).include?(node.name)
+      if %w[pre code kbd samp var].include?(node.name)
         return
       end
 
       if node.name == 'span'
-        if %w( filename identifier glob uri command prompt productname ).include?(node['class'])
+        if %w[filename identifier glob uri command prompt productname].include?(node['class'])
           return
         end
       end
@@ -70,7 +73,7 @@ class NanocSpellChecker
         next if words.any? { |w| @acceptable_words.include?(w) }
 
         # Skip cardinal numbers
-        next if words.first.match(/\A\d*(1st|2nd,3rd)|\d+th\z/)
+        next if words.first =~ /\A\d*(1st|2nd,3rd)|\d+th\z/
 
         # Skip correct words
         next if words.any? { |w| speller.correct?(w) }

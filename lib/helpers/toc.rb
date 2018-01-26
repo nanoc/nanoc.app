@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pp'
 
 class HeaderFinder < ::Nokogiri::XML::SAX::Document
@@ -13,7 +15,7 @@ class HeaderFinder < ::Nokogiri::XML::SAX::Document
       @current_header = {
         depth: name[1].to_i,
         text: '',
-        id: attributes.find { |e| e[0] == 'id' }[1]
+        id: attributes.find { |e| e[0] == 'id' }[1],
       }
     end
   end
@@ -56,7 +58,7 @@ end
 def subtoc_for(elements, item, limit)
   return '' if limit < 1
 
-  out = ''
+  out = +''
   out << '<ol class="toc">'
   elements.each do |e|
     out << '<li>'
@@ -68,7 +70,7 @@ def subtoc_for(elements, item, limit)
 end
 
 def doc_toc
-  out = ''
+  out = +''
 
   @config[:toc].each do |section|
     out << '<h4>' + section[:title] + '</h4>'

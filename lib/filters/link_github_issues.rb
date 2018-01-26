@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::Filter) do
   identifier :link_github_issues
 

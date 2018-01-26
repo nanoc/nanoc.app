@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'd-mark'
 
 class NanocWsCommonTranslator < DMark::Translator

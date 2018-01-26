@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::DataSource) do
   identifier :contributors
 
@@ -8,7 +10,7 @@ Class.new(Nanoc::DataSource) do
     item = new_item(
       content.encode('UTF-8'),
       {},
-      Nanoc::Identifier.new('/contributing/_contributors')
+      Nanoc::Identifier.new('/contributing/_contributors'),
     )
 
     [item]

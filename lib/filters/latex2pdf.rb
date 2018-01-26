@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::Filter) do
   identifier :latex2pdf
-  type :text => :binary
+  type text: :binary
 
-  TMP_BASENAME = 'nanoc-latex'.freeze
-  TMP_EXTENSION = '.tex'.freeze
+  TMP_BASENAME = 'nanoc-latex'
+  TMP_EXTENSION = '.tex'
 
   def run(content, _params = {})
     unless system('which', 'xelatex', out: '/dev/null')

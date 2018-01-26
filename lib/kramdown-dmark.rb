@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'kramdown/converter'
 
 module Kramdown
@@ -8,7 +10,7 @@ module Kramdown
       end
 
       def inner(el, _opts)
-        ''.tap do |buf|
+        (+'').tap do |buf|
           el.children.each_with_index do |inner_el, _index|
             buf << send("convert_#{inner_el.type}", inner_el, options)
           end

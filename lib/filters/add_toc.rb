@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::Filter) do
   identifier :add_toc
 
@@ -13,7 +15,7 @@ Class.new(Nanoc::Filter) do
       next '' if headers.empty?
 
       # Build table of contents
-      res = '<ol class="toc">'
+      res = +'<ol class="toc">'
       headers.each do |header|
         res << %(<li><a href="##{header[:id]}">#{header[:title]}</a></li>)
       end

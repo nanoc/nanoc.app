@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CachingDMarkParser
   class << self
     DDMemoize.activate(self)

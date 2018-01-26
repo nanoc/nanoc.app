@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def fingerprint(pattern)
   if ENV['NANOC_ENV'] == 'dev'
     'dev'

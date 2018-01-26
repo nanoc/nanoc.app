@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module NanocSite
   module Commands
     def dmark_options_for(cmd)
-      return '' unless cmd[:option_definitions] && cmd[:option_definitions].any?
+      return '' unless cmd[:option_definitions]&.any?
 
-      ''.tap do |buf|
+      (+'').tap do |buf|
         buf << '#dl' << "\n"
         cmd[:option_definitions].each do |opt_def|
           dmark_desc = ::Kramdown::Document.new(opt_def[:desc]).to_nanoc_ws_dmark

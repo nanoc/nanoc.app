@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'htmlcompressor'
 
 Class.new(Nanoc::Filter) do
@@ -23,7 +25,7 @@ Class.new(Nanoc::Filter) do
       remove_https_protocol: false,
       preserve_line_breaks: false,
       simple_boolean_attributes: false,
-      compress_js_templates: false
+      compress_js_templates: false,
     )
     compressor.compress(content)
   end

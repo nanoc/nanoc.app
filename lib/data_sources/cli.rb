@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Class.new(Nanoc::DataSource) do
   identifier :cli
 
@@ -33,9 +35,9 @@ Class.new(Nanoc::DataSource) do
         description: cmd.description,
         aliases: cmd.aliases,
         option_definitions: opt_defs,
-        usage: cmd.usage
+        usage: cmd.usage,
       },
-      Nanoc::Identifier.new("/_#{slug}")
+      Nanoc::Identifier.new("/_#{slug}"),
     )
   end
 end
