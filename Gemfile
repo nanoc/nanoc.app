@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
@@ -16,6 +18,7 @@ gem 'nanoc', '~> 4.8', '>= 4.8.19'
 gem 'nokogiri'
 gem 'rainpress'
 gem 'rake'
+gem 'rubocop'
 gem 'sass', '~> 3.4'
 gem 'terminal-notifier'
 gem 'terminal-notifier-guard'

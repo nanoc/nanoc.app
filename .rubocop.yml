@@ -1,0 +1,106 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+
+
+
+# ----- CONFIGURED -----
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+# TODO: Add Nanoc::Pattern#match?
+Performance/RegexpMatch:
+  Enabled: false
+
+
+
+# ----- DISABLED (metrics) -----
+
+# Cops for metrics are disabled because they should not cause tests to fail.
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+
+
+# ----- DISABLED (opinionated) -----
+
+# We should embrace UTF-8, not avoid it. Since the Encoding cop is enabled,
+# there’s no point in enforcing ASCII comments.
+Style/AsciiComments:
+  Enabled: false
+
+# It does not make sense to enforce everything to have documentation.
+Style/Documentation:
+  Enabled: false
+
+# Nanoc suppresses exceptions for valid reasons in a few cases.
+Lint/HandleExceptions:
+  Enabled: false
+
+# if/unless at the end of the line makes it too easy to oversee.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Personal preference is to have decent constructors for exceptions rather than
+# just a class and a message.
+Style/RaiseArgs:
+  Enabled: false
+
+# Some methods that appear to be accessors (return a single value or set a
+# single value) should still not be considered to be accessors. This is a purely
+# semantic difference.
+Style/TrivialAccessors:
+  Enabled: false
+
+# This does not always semantically make sense.
+Style/GuardClause:
+  Enabled: false
+
+# Used for “undo work, whatever error happens”
+Style/RescueStandardError:
+  Enabled: false
+
+# For the sake of consistency, it makes the most sense to retain $stderr.puts
+# when used in situations where $stderr.flush, $stderr.print, … are also used.
+Style/StderrPuts:
+  Enabled: false
+
+# This catches too many false positives. A string that contains a % followed by
+# a letter is not always a format string.
+Style/FormatStringToken:
+  Enabled: false
