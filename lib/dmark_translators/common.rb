@@ -46,7 +46,7 @@ class NanocWsCommonTranslator < DMark::Translator
     end
   end
 
-  def has_content?(node)
+  def contain_content?(node)
     if node.nil? || node.children.empty?
       false
     elsif node.children.any? { |n| !n.is_a?(String) }
@@ -65,9 +65,7 @@ class NanocWsCommonTranslator < DMark::Translator
     return candidate if candidate
 
     nodes.each do |node|
-      case node
-      when String
-      when DMark::ElementNode
+      if node.is_a?(DMark::ElementNode)
         candidate = node_with_id(id, nodes: node.children)
         return candidate if candidate
       end
@@ -95,30 +93,28 @@ class NanocWsCommonTranslator < DMark::Translator
     target_nodes = context[:item] == target_item ? context[:nodes] : nodes_for_item(target_item)
     target_node = target_nodes && frag ? node_with_id(frag, nodes: target_nodes) : nil
 
-    if has_content?(node)
+    if contain_content?(node)
       handle_ref_with_content(node, context, target_item, frag)
+    elsif node.attributes['bare']
+      handle_ref_bare(node, context, target_item, frag, target_node)
     else
-      if node.attributes['bare']
-        handle_ref_bare(node, context, target_item, frag, target_node)
-      else
-        out = []
+      out = []
 
-        if frag
-          out << handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
-        end
-
-        if frag && target_item != context[:item]
-          out << handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
-        end
-
-        if target_item != context[:item]
-          out << handle_ref_insert_chapter_ref(node, context, target_item, frag)
-        end
-
-        out << handle_ref_insert_end(node, context, target_item, frag, target_node)
-
-        out
+      if frag
+        out << handle_ref_insert_section_ref(node, context, target_item, frag, target_node)
       end
+
+      if frag && target_item != context[:item]
+        out << handle_ref_insert_inside_ref(node, context, target_item, frag, target_node)
+      end
+
+      if target_item != context[:item]
+        out << handle_ref_insert_chapter_ref(node, context, target_item, frag)
+      end
+
+      out << handle_ref_insert_end(node, context, target_item, frag, target_node)
+
+      out
     end
   end
 

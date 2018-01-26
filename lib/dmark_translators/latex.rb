@@ -49,7 +49,7 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
 
   def handle_erb(node, context)
     ctx = Nanoc::Int::Context.new(context)
-    [eval(text_content_of(node), ctx.get_binding)]
+    [eval(text_content_of(node), ctx.get_binding)] # rubocop:disable Security/Eval
   end
 
   def text_content_of(node)
@@ -224,9 +224,9 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         '\\end{note}',
         "\n",
       ]
-    when 'figure', 'img', 'caption'
+    when 'figure', 'img', 'caption' # rubocop:disable Lint/EmptyWhen
       # TODO
-    when 'blockquote'
+    when 'blockquote' # rubocop:disable Lint/EmptyWhen
       # TODO
     when 'abbr'
       # TODO

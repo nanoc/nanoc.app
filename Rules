@@ -77,7 +77,7 @@ compile '/**/*', rep: :latex do
       filter :erb
     when 'dmark'
       filter :dmark2latex
-    when nil
+    when nil # rubocop:disable Lint/EmptyWhen
     else
       raise
     end
