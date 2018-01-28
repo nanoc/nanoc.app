@@ -11,7 +11,6 @@ data_sources:
   - type: cli
     items_root: /doc/reference/commands/
   - type: release_notes
-  - type: contributors
 
 base_url: http://nanoc.ws
 

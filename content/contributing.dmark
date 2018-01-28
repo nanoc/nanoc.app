@@ -2,7 +2,7 @@
 title: "Contributing"
 ---
 
-#p Nanoc is the effort of %ref[frag=contributors]{dozens of people}. Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to Nanoc.
+#p Nanoc is the effort of %ref[url=https://github.com/nanoc/nanoc/graphs/contributors]{dozens of people}. Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to Nanoc.
 
 #section %h{Making a donation}
   #p Nanoc is, and always will be, provided free of charge. Development is voluntary and happens entirely in free time. If you use Nanoc and like it, please consider showing your token of support by %ref[url=https://donorbox.org/nanoc]{making a donation}.
@@ -154,8 +154,3 @@ title: "Contributing"
 
   #section %h{Attribution}
     #p This Code of Conduct is adapted from the %ref[url=http://contributor-covenant.org]{Contributor Covenant}, version 1.4, available at %ref[url=http://contributor-covenant.org/version/1/4]{%uri{http://contributor-covenant.org/version/1/4}}.
-
-#section %h{Contributors}
-  #p These people have contributed to Nanoc already:
-
-  #p %emph{%erb{@items['/contributing/_contributors'].raw_content}}
