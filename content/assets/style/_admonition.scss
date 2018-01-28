@@ -1,12 +1,8 @@
 @import "colors.scss";
 
 div.admonition-wrapper {
-  border-radius: 4px;
-
   display: table;
 
-  width: 100%;
-  padding: 0;
   margin: 0 0 20px 0;
 }
 
@@ -23,52 +19,33 @@ div.admonition-wrapper:before {
 
   width: 28px;
 
-  padding: 10px;
-
-  border-radius: 4px 0 0 4px;
-
   text-align: center;
   vertical-align: middle;
 }
 
 div.admonition-wrapper .admonition {
   display: table-cell;
-  padding: 10px;
-}
-
-div.admonition-wrapper.tip {
-  background: $admon-bg-color-tip;
+  padding-left: 10px;
+  vertical-align: middle;
 }
 
 div.admonition-wrapper.tip:before {
-  background-color: $admon-side-bg-color-tip;
+  color: $admon-side-bg-color-tip;
   content: "\1F393";
 }
 
-div.admonition-wrapper.note {
-  background: $admon-bg-color-note;
-}
-
 div.admonition-wrapper.note:before {
-  background-color: $admon-side-bg-color-note;
+  color: $admon-side-bg-color-note;
   content: "\270E";
 }
 
-div.admonition-wrapper.caution {
-  background: $admon-bg-color-caution;
-}
-
 div.admonition-wrapper.caution:before {
-  background-color: $admon-side-bg-color-caution;
+  color: $admon-side-bg-color-caution;
   content: "\26A0";
 }
 
-div.admonition-wrapper.todo {
-  background: $admon-bg-color-todo;
-}
-
 div.admonition-wrapper.todo:before {
-  background-color: $admon-side-bg-color-todo;
+  color: $admon-side-bg-color-todo;
   content: "\26A0";
 }
 
