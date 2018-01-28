@@ -73,7 +73,7 @@ def doc_toc
   out = +''
 
   @config[:toc].each do |section|
-    out << '<h4>' + section[:title] + '</h4>'
+    out << '<div class=section-title>' + section[:title] + '</div>'
     out << '<ul class="toc">'
     section[:children].each do |child_glob|
       out << '<li>'

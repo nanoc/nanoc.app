@@ -20,12 +20,13 @@
     display: none;
   }
 
-  h4 {
+  .section-title {
     margin-bottom: 0;
+    color: $color-orange;
   }
 
-  h4 + ul,
-  h3 + h4,
+  .section-title + ul,
+  h3 + .section-title,
   h3 + ul,
   h3 + ol {
     margin-top: 0;
@@ -36,7 +37,7 @@
     font-size: inherit;
   }
 
-  h4, dt, ol, ul, p {
+  .section-title, dt, ol, ul, p {
     margin-top: 20px;
 
     @media (max-width: 719px) {
@@ -46,8 +47,8 @@
 
   @media (max-width: 719px) {
     p + ol.toc,
-    h4 + ol.toc,
-    ul + h4 {
+    .section-title + ol.toc,
+    ul + .section-title {
       margin-top: 20px;
     }
   }
