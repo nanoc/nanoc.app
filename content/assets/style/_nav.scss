@@ -11,16 +11,12 @@
     right: 0;
   }
 
-  box-sizing: border-box;
-
   z-index: 100;
 }
 
 .nws-nav-content {
   display: flex;
   flex-wrap: wrap;
-
-  box-sizing: border-box;
 
   @media (max-width: 719px) {
     padding: 0;

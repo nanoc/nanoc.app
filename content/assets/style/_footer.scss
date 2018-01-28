@@ -27,15 +27,12 @@ footer {
 }
 
 .home .footer-content {
-  box-sizing: border-box;
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .page .footer-content-wrapper {
-  box-sizing: border-box;
-
   max-width: 1020px;
 
   margin: 0 auto;
@@ -51,8 +48,6 @@ footer {
 }
 
 .page .footer-content {
-  box-sizing: border-box;
-
   border-top-width: 1px;
   border-top-style: solid;
   border-color: $footer-light-border-color;
