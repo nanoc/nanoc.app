@@ -160,6 +160,7 @@ Nicky
 Nikhil
 Nishinaga
 Nokogiri
+OFL
 online
 Online
 other's
@@ -238,6 +239,7 @@ SFTP
 ShareAlike
 Siches
 sigil
+SIL
 Šime
 sitemap
 Sitemaps
