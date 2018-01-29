@@ -35,15 +35,15 @@ $intro-link-fg-color-hover:   $color-dark-95;
 $intro-deco-fg-color:         $color-dark-40;
 
 // Admonitions
-$admon-side-fg-color:         $color-white;
-$admon-side-bg-color-tip:     $color-blue;
-$admon-side-bg-color-note:    $color-blue;
-$admon-side-bg-color-caution: $color-orange;
-$admon-side-bg-color-todo:    $color-dark-60;
-$admon-bg-color-tip:          mix($admon-side-bg-color-tip, $color-offwhite-light, 7%);
-$admon-bg-color-note:         mix($admon-side-bg-color-note, $color-offwhite-light, 7%);
-$admon-bg-color-caution:      mix($admon-side-bg-color-caution, $color-offwhite-light, 7%);
-$admon-bg-color-todo:         mix($admon-side-bg-color-todo, $color-offwhite-light, 7%);
+$admon-bg-color:              $color-offwhite;
+$admon-fg-color-tip:          $color-blue;
+$admon-fg-color-note:         $color-blue;
+$admon-fg-color-caution:      $color-orange;
+$admon-fg-color-todo:         $color-dark-60;
+$admon-bg-color-tip:          mix($admon-fg-color-tip, $color-offwhite-light, 7%);
+$admon-bg-color-note:         mix($admon-fg-color-note, $color-offwhite-light, 7%);
+$admon-bg-color-caution:      mix($admon-fg-color-caution, $color-offwhite-light, 7%);
+$admon-bg-color-todo:         mix($admon-fg-color-todo, $color-offwhite-light, 7%);
 
 // Footer
 $footer-bg-color:             $color-offwhite;

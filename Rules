@@ -13,7 +13,6 @@ layout '/**/*', :erb
 ignore '/**/_*'
 
 passthrough '/favicon.ico'
-passthrough '/assets/fonts/**/*'
 ignore '/assets/style/*.tex'
 
 compile '/well-known/**/*' do

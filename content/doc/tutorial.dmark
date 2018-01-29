@@ -62,7 +62,7 @@ title: "Tutorial"
   #listing
     %prompt{tutorial%%} %kbd{nanoc}
 
-  #note You can also use the %command{nanoc compile} command, for which %command{nanoc} is a shorthand.
+  #tip You can also use the %command{nanoc compile} command, for which %command{nanoc} is a shorthand.
 
   #p Nanoc will tell what is happening during the compilation process:
 

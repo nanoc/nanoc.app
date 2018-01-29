@@ -1,101 +1,79 @@
 @import "colors.scss";
 
 div.admonition-wrapper {
-  border-radius: 4px;
-
   display: table;
 
   width: 100%;
-  padding: 0;
+
   margin: 0 0 20px 0;
 }
 
 div.admonition-wrapper:before {
   display: table-cell;
 
-  color: $admon-side-fg-color;
-
-  font-family: Entypo;
+  font-family: "Font Awesome 5 Free";
   font-weight: normal;
-  font-size: 48px;
+  font-size: 30px;
 
   line-height: 20px;
 
   width: 28px;
 
-  padding: 10px;
-
-  border-radius: 4px 0 0 4px;
+  padding: 0 20px 0 10px;
 
   text-align: center;
   vertical-align: middle;
 }
 
 div.admonition-wrapper .admonition {
+  background: $admon-bg-color;
+  border-radius: 4px;
   display: table-cell;
   padding: 10px;
 }
 
-div.admonition-wrapper.tip {
-  background: $admon-bg-color-tip;
+div.admonition-wrapper.tip  .admonition {
+  background-color: $admon-bg-color-tip;
 }
 
 div.admonition-wrapper.tip:before {
-  background-color: $admon-side-bg-color-tip;
-  content: "\1F393";
+  color: $admon-fg-color-tip;
+  font-weight: 900;
+  content: "\f0eb";
 }
 
-div.admonition-wrapper.note {
-  background: $admon-bg-color-note;
+div.admonition-wrapper.note  .admonition {
+  background-color: $admon-bg-color-note;
 }
 
 div.admonition-wrapper.note:before {
-  background-color: $admon-side-bg-color-note;
-  content: "\270E";
+  color: $admon-fg-color-note;
+  font-weight: 900;
+  content: "\f05a";
 }
 
-div.admonition-wrapper.caution {
-  background: $admon-bg-color-caution;
+div.admonition-wrapper.caution  .admonition {
+  background-color: $admon-bg-color-caution;
 }
 
 div.admonition-wrapper.caution:before {
-  background-color: $admon-side-bg-color-caution;
-  content: "\26A0";
+  color: $admon-fg-color-caution;
+  font-weight: 900;
+  content: "\f071";
 }
 
-div.admonition-wrapper.todo {
-  background: $admon-bg-color-todo;
+div.admonition-wrapper.todo  .admonition {
+  background-color: $admon-bg-color-todo;
 }
 
 div.admonition-wrapper.todo:before {
-  background-color: $admon-side-bg-color-todo;
-  content: "\26A0";
-}
-
-div.admonition-wrapper .admonition:before {
-  font-weight: bold;
-  font-size: 90%;
-  padding-right: 5px;
-}
-
-div.admonition-wrapper.tip .admonition:before {
-  content: "TIP: ";
-}
-
-div.admonition-wrapper.note .admonition:before {
-  content: "NOTE: ";
-}
-
-div.admonition-wrapper.caution .admonition:before {
-  content: "CAUTION: ";
-}
-
-div.admonition-wrapper.todo .admonition:before {
-  content: "WORK IN PROGRESS: ";
+  color: $admon-fg-color-todo;
+  font-weight: 900;
+  content: "\f0c3";
 }
 
 body.page div.admonition-wrapper p:first-child {
-margin-top: 10px;
+  margin-top: 10px;
 }
 
 body.page div.admonition-wrapper p:last-child {
