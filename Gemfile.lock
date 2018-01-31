@@ -56,7 +56,7 @@ GEM
       adsf-live (~> 1.4)
       listen (~> 3.0)
       nanoc (~> 4.8, >= 4.8.16)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
     parser (2.4.0.2)
