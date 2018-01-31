@@ -257,8 +257,10 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
     pre_classes << 'template' if element.attributes['template']
     pre_classes << 'errors' if element.attributes['errors']
     pre_classes << 'legacy' if element.attributes['legacy']
+    pre_classes << 'legacy-49' if element.attributes['legacy-49']
     pre_classes << 'legacy-intermediate' if element.attributes['legacy-intermediate']
     pre_classes << 'new' if element.attributes['new']
+    pre_classes << 'new-49' if element.attributes['new-49']
     pre_attrs =
       if pre_classes.any?
         { class: pre_classes.join(' ') }

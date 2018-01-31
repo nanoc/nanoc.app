@@ -4,6 +4,49 @@ title: "Release notes"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
 
+#section %h{Nanoc 4.9}
+  #p The list of enabled checks can now be specified in the configuration file, rather than the %filename{Checks} file. For example:
+
+  #listing[lang=ruby,legacy-49,x]
+    # in the Checks file
+    deploy_check :internal_links
+    deploy_check :stale
+
+  #listing[lang=yaml,new-49]
+    # in nanoc.yaml
+    checking:
+      enabled_checks:
+        - internal_links
+        - stale
+
+  #p Additionally, custom check can now be defined using %code{Nanoc::Check.define}, somewhere in the %filename{lib/} directory:
+
+  #listing[lang=ruby,legacy-49]
+    # in the Checks file
+    check :no_unprocessed_erb do
+      @output_filenames.each do |filename|
+        if filename =~ /html$/ && File.read(filename).match(/<%%/)
+          add_issue("unprocessed erb detected", subject: filename)
+        end
+      end
+    end
+
+  #listing[lang=ruby,new-49]
+    # somewhere in lib/
+    Nanoc::Check.define(:no_unprocessed_erb) do
+      @output_filenames.each do |filename|
+        if filename =~ /html$/ && File.read(filename).match(/<%%/)
+          add_issue("unprocessed erb detected", subject: filename)
+        end
+      end
+    end
+
+  #p Lastly, invoking the %command{check} command with no options will now run all enabled checks (either enabled using %code{deploy_check} in the %filename{Checks} file, or listed under %code{enabled_checks} in the configuration file).
+
+  #p Use of the %filename{Checks} file is discouraged from now on, though the functionality will not be removed before Nanoc 5.0 (and there are no plans to start working on Nanoc 5.0 at this point in time).
+
+  #p Identifiers now also have a %code{#match?} method, which true or false, depending on whether or not the identifier matches the given pattern.
+
 #section %h{Nanoc 4.8}
   #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=http://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
 

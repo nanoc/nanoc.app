@@ -39,8 +39,24 @@ pre.legacy-intermediate:before {
   border-top-right-radius: 4px;
 }
 
+pre.legacy-49:before {
+  content: "NANOC 4.8";
+
+  background: $tag-legacy-bg-color;
+  color: $tag-legacy-fg-color;
+  border-top-right-radius: 4px;
+}
+
 pre.new:before {
   content: "NANOC 4.x";
+
+  background: $tag-new-bg-color;
+  color: $tag-new-fg-color;
+  border-top-right-radius: 4px;
+}
+
+pre.new-49:before {
+  content: "NANOC 4.9";
 
   background: $tag-new-bg-color;
   color: $tag-new-fg-color;
@@ -50,7 +66,9 @@ pre.new:before {
 pre.errors:before,
 pre.legacy:before,
 pre.legacy-intermediate:before,
-pre.new:before {
+pre.legacy-49:before,
+pre.new:before,
+pre.new-49:before {
   position: relative;
   top: -10px;
   right: -10px;

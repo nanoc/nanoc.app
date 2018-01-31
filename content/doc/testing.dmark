@@ -18,13 +18,24 @@ short_title: "Checking"
       Running internal_links check…   %log-check-ok{ok}
 
 #section %h{Running checks before deploying}
-  #p A file named %filename{Checks} at the root of a Nanoc site defines which checks should be run before a %kbd{nanoc deploy}.
+  #p Specify the list of checks to run before deploying in the %code{enabled_checks} array within the %code{checking} section of the configuration file (%filename{nanoc.yaml}):
 
-  #p Here is an example %filename{Checks} file that ensures that a Nanoc site does not get deployed if there are broken internal links or stale files in the output directory:
+  #listing[lang=yaml]
+    checking:
+      enabled_checks:
+        - internal_links
+        - stale
 
-  #listing[lang=ruby]
-    deploy_check :internal_links
-    deploy_check :stale
+  #p The example above prevents the Nanoc site from being deployed if there are broken internal links or stale files in the output directory.
+
+  #note
+    #p Deploy-time checks can also be configured in a file named %filename{Checks} in the site directory. To configure a check to be run before deploying, call %code{#deploy_check} with name of the check:
+
+    #listing[lang=ruby]
+      deploy_check :internal_links
+      deploy_check :stale
+
+    #p Use of the %filename{Checks} file is discouraged, however.
 
   #p Here’s what a %kbd{nanoc deploy} looks like when all checks pass:
 
@@ -51,16 +62,16 @@ short_title: "Checking"
     Issues found, deploy aborted.
     %prompt{%%}
 
-  #p To run the checks marked for deployment without deploying, use %kbd{nanoc check --deploy}.
+  #p You can also run %kbd{nanoc check} to run all enabled checks.
 
 #section %h{Defining custom checks}
-  #p The %filename{Checks} file is also used to define custom checks. Here is an example check that verifies that no compiled files contain %code{<%%} and therefore likely include unprocessed ERB instructions:
+  #p To define a custom check, use %code{Nanoc::Check.define}, somewhere in the %filename{lib/} directory:
 
   #listing[lang=ruby]
-    check :no_unprocessed_erb do
-      @output_filenames.each do |fn|
-        if fn =~ /html$/ && File.read(fn).match(/<%%/)
-          add_issue("erb detected", :subject => fn)
+    Nanoc::Check.define(:no_unprocessed_erb) do
+      @output_filenames.each do |filename|
+        if filename =~ /html$/ && File.read(filename).match(/<%%/)
+          add_issue("unprocessed erb detected", subject: filename)
         end
       end
     end
@@ -68,6 +79,20 @@ short_title: "Checking"
   #p In a custom check, you can use %code{#add_issue}. The first argument is the description of the problem, and the %code{:subject} option defines the location of the problem (usually a filename).
 
   #p In a custom check, the variables %code{@config}, %code{@items}, and %code{@layouts} are available, in addition to %code{@output_filenames}, which is the collection of filenames in the output directory that correspond to an item in the site. For details, see %ref[item=/doc/reference/variables.*]{}.
+
+  #note
+    #p Custom checks can also be defined in a file named %filename{Checks} in the site directory. To define a check in this way, call the %code{#check} method with the name of the check, and a block:
+
+    #listing[lang=ruby]
+      check :no_unprocessed_erb do
+        @output_filenames.each do |filename|
+          if filename =~ /html$/ && File.read(filename).match(/<%%/)
+            add_issue("unprocessed erb detected", subject: filename)
+          end
+        end
+      end
+
+    #p Use of the %filename{Checks} file is discouraged, however.
 
 #section %h{Available checks}
   #p Nanoc comes with the following checks:
