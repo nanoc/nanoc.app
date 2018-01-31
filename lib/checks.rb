@@ -23,9 +23,7 @@ class NanocSpellChecker
           ' '
         end
 
-      if %w[pre code kbd samp var].include?(node.name)
-        return
-      end
+      return if %w[pre code kbd samp var].include?(node.name)
 
       if node.name == 'span'
         if %w[filename identifier glob uri command prompt productname].include?(node['class'])
@@ -76,7 +74,7 @@ class NanocSpellChecker
         next if tuple.any? { |w| @acceptable_words.include?(w) }
 
         # Skip cardinal numbers
-        next if tuple.first =~ /\A\d*(1st|2nd,3rd)|\d+th\z/
+        next if tuple.first.match?(/\A\d*(1st|2nd,3rd)|\d+th\z/)
 
         # Skip correct words
         next if tuple.any? { |w| speller.correct?(w) }
@@ -91,17 +89,17 @@ class NanocSpellChecker
   end
 end
 
-check :html5 do
+Nanoc::Check.define(:html5) do
   cmd = 'java -jar vendor/vnu.jar --format json --skip-non-html output/'
   res = Open3.popen3(cmd) { |_stdin, _stdout, stderr| stderr.read }
 
   JSON.parse(res).fetch('messages', []).each do |err|
-    subject = err['url'].sub(%r{^file:#{Regexp.escape File.dirname(__FILE__)}/}, '')
+    subject = err['url'].sub(/^file:#{Regexp.escape File.dirname(__FILE__)}\//, '')
     add_issue("#{err['message']} (line #{err['lastLine']}, column #{err['firstColumn']})", subject: subject)
   end
 end
 
-check :no_unprocessed_erb do
+Nanoc::Check.define(:no_unprocessed_erb) do
   output_filenames.each do |fn|
     if fn =~ /html$/ && File.read(fn).match(/<%/)
       add_issue('erb detected', subject: fn)
@@ -109,7 +107,7 @@ check :no_unprocessed_erb do
   end
 end
 
-check :no_markdown_links_in_output do
+Nanoc::Check.define(:no_markdown_links_in_output) do
   output_filenames.each do |fn|
     if fn =~ /html$/ && File.read(fn).match(/]\(/)
       add_issue('unprocessed Markdown detected', subject: fn)
@@ -117,9 +115,7 @@ check :no_markdown_links_in_output do
   end
 end
 
-check :valid_sitemap do
-  require 'nokogiri'
-
+Nanoc::Check.define(:valid_sitemap) do
   xsd = Nokogiri::XML::Schema(File.read('misc/sitemap.xsd'))
   doc = Nokogiri::XML(File.read('output/sitemap.xml'))
 
@@ -128,16 +124,16 @@ check :valid_sitemap do
   end
 end
 
-check :no_smartness_in_kbd do
+Nanoc::Check.define(:no_smartness_in_kbd) do
   output_filenames.each do |fn|
-    if fn =~ /html$/ && File.read(fn).match(%r{<kbd>[^<]*[–—][^<]*</kbd>})
+    if fn =~ /html$/ && File.read(fn).match(/<kbd>[^<]*[–—][^<]*<\/kbd>/)
       add_issue('smartness in kbd elem detected', subject: fn)
     end
   end
 end
 
-check :spelling do
-  acceptable_words = Set.new(File.readlines('misc/acceptable_words.txt').map(&:strip))
+Nanoc::Check.define(:spelling) do
+  acceptable_words = Set.new(File.readlines(__dir__ + '/../misc/acceptable_words.txt').map(&:strip))
 
   acceptable_files = [
     # These are auto-generated from Nanoc’s API documentation. Fixing these is a task for later.
@@ -162,12 +158,3 @@ check :spelling do
     end
   end
 end
-
-deploy_check :ilinks
-deploy_check :stale
-deploy_check :no_unprocessed_erb
-deploy_check :no_markdown_links_in_output
-deploy_check :valid_sitemap
-deploy_check :no_smartness_in_kbd
-deploy_check :spelling
-deploy_check :mixed_content
