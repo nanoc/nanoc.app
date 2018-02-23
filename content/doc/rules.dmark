@@ -142,6 +142,17 @@ title: "Rules"
 
       layout '/*.erb', :erb
 
+    #p If %code{layout} is called multiple times, the content is wrapped in each of the specified layouts.  In the example below, markdown articles are filtered through the %code{kramdown} filter, then wrapped in the %code{article.erb} layout, and finally wrapped in the %code{default.erb} layout.
+
+    #listing[lang=ruby]
+      compile '/articles/*.md' do
+        filter :kramdown
+        layout '/article.*'
+        layout '/default.*'
+      end
+
+      layout '/*.erb', :erb
+
   #section %h{Dynamic rules}
     #p In the code block, Nanoc exposes %code{@item} and %code{@rep}, among others. See the %ref[item=/doc/reference/variables.*]{Variables} page for details.
 
