@@ -39,7 +39,16 @@ title: "Contributing"
 
   #p Nanoc uses %ref[url=http://bundler.io/]{Bundler} to manage its development dependencies. Run %kbd{bundle install} to install all dependencies necessary for development and testing.
 
-  #p Now you can make modifications to the source code. You can find the source code in %filename{lib} and the tests in %filename{test}. Make sure that your changes have test cases that cover the bug fix or the new/changed functionality. To run the tests, run %kbd{bundle exec rake}.
+  #p Now you can make modifications to the source code. You can find the source code in %filename{lib} and the tests in %filename{test}. Make sure that your changes have test cases that cover the bug fix or the new/changed functionality. To run the tests, do one of the following:
+
+  #ul
+    #li To run all tests, run %kbd{bundle exec rake}.
+
+    #li To run style checks, run %kbd{bundle exec rake rubocop}.
+
+    #li To run a specific test file, run %kbd{bundle exec m } %var{path_to_test_file} from a subdirectory.
+
+    #li To run a specific spec file, run %kbd{bundle exec rspec } %var{path_to_spec_file} from a subdirectory.
 
   #p To test your locally modified version of Nanoc on a local Nanoc site, edit your site’s %filename{Gemfile} and let the Nanoc gem point to the locally modified version:
 
