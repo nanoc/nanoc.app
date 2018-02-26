@@ -10,7 +10,7 @@ end
 gem 'adsf'
 gem 'builder'
 gem 'coderay'
-gem 'd-mark', '~> 1.0.0a4'
+gem 'd-mark', '~> 1.0.0b'
 gem 'ffi-aspell'
 gem 'htmlcompressor'
 gem 'kramdown'
