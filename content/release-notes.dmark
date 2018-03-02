@@ -45,7 +45,7 @@ title: "Release notes"
 
   #p Use of the %filename{Checks} file is discouraged from now on, though the functionality will not be removed before Nanoc 5.0 (and there are no plans to start working on Nanoc 5.0 at this point in time).
 
-  #p Identifiers now also have a %code{#match?} method, which true or false, depending on whether or not the identifier matches the given pattern.
+  #p Identifiers now also have a %code{#match?} method, which returns %code{true} if the identifier matches the given pattern, %code{false} otherwise.
 
 #section %h{Nanoc 4.8}
   #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=http://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
