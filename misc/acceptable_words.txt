@@ -5,6 +5,7 @@
 Abubakar
 Ango
 API
+APIdock
 APIs
 Armston
 Arnau
@@ -36,8 +37,8 @@ Byford
 Bynens
 Cédric
 checksum
-checksums
 checksummer
+checksums
 Chu
 Cichra
 CLI
@@ -56,6 +57,7 @@ Defreyne
 deployer
 deployers
 der
+DevDocs
 Dmitry
 dotfiles
 Driessen
@@ -125,8 +127,8 @@ Keveney
 Kosturjak
 kramdown
 LaTeX
-Layouting
 layouting
+Layouting
 Liu
 Lorin
 Lynagh
@@ -164,8 +166,8 @@ OFL
 online
 Online
 other's
-outdatedness
 Outdatedness
+outdatedness
 outdatedness
 Pakosz
 Pandoc
@@ -188,8 +190,8 @@ postprocessor
 pre
 Preformatted
 preprocess
-Preprocessing
 preprocessing
+Preprocessing
 preprocessor
 preprocessors
 Preprocessors
@@ -247,8 +249,8 @@ sitemaps
 snapshotting
 Solarized
 Soryu
-Speel
 speel
+Speel
 SQL
 SQLite
 SQLite3
@@ -265,8 +267,8 @@ symlinks
 Takashi
 templating
 timestamp
-timestamps
 Timestamps
+timestamps
 Toon
 Torikian
 Tronçon
@@ -302,8 +304,8 @@ Whitt
 Wiki
 wiki
 Wikipedia
-Wildcard
 wildcard
+Wildcard
 wildcards
 Willems
 Windows’

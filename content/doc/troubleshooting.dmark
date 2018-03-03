@@ -92,14 +92,6 @@ title: "Troubleshooting"
       write '/.nojekyll'
     end
 
-#section %h[nav-title=Helper methods not found]{My helper methods cause a %code{NoMethodError}!}
-  #p When calling a method in a helper results in a %code{NoMethodError}, you might not have activated the helper. To activate a helper, call %code{use_helper}, like this (in a file in the %filename{lib/} directory, such as %filename{lib/helpers.rb}):
-
-  #listing[lang=ruby]
-    use_helper Nanoc::Helpers::Blogging
-
-  #p Make sure to double-check the spelling of the method that is being invoked.
-
 #section %h{Error: %code{CannotDetermineFilter}}
   #p This error occurs when the compilation rule for an item refers to a layout for which no rule exists. For example, a rules file that contains nothing but the following will raise this error:
 
@@ -286,6 +278,51 @@ title: "Troubleshooting"
   #p Nanoc converts these filenames to identifiers which do not contain the file extension. In the example given above, both filenames correspond to the identifier %identifier{/assets/fonts/foo/}. Identifiers are required to be unique, and thus Nanoc raises an error.
 
   #p Nanoc 4 supports %emph{full} identifiers, which, unlike legacy identifiers, contain the file extension (e.g. %filename{/about.md} instead of %filename{/about/}). We recommend enabling full identifiers, as well as glob patterns. For details, see %ref[item=/doc/nanoc-4-upgrade-guide.*]{} and %ref[item=/doc/identifiers-and-patterns.*]{}.
+
+#section %h{Error: %code{NoMethodError}}
+  #p A %code{NoMethodError} occurs when attempting to call a method that does not exist — at least not on the object that you’re calling the method on. This can have several causes:
+
+  #ul
+    #li A method is misspelled
+
+    #li A helper is not activated
+
+  #p The following sections describe these problems in detail.
+
+  #section %h{A method is misspelled}
+    #p The method might not be spelled correctly. For example:
+
+    #listing[lang=ruby,errors]
+      "hello".uppercase
+
+    #listing
+      NoMethodError (undefined method `uppercase' for "hello":String)
+
+    #p To resolve this error, verify that the method is correctly spelled. In the example above, %code{uppercase} should have been %code{upcase} instead:
+
+    #listing[lang=ruby]
+      "hello".upcase
+
+    #listing
+      HELLO
+
+    #p To browse and search Ruby’s API, refer to the %ref[url=https://apidock.com/ruby/browse]{Ruby documentation on APIdock} or the %ref[url=http://devdocs.io/ruby]{Ruby documentation on DevDocs}.
+
+  #section %h{A helper is not activated}
+    #p When a helper method raises a %code{NoMethodError}, the helper might not yet be activated. For example, the following will raise a %code{NoMethodError} if the helper is not activated yet:
+
+    #listing[lang=rhtml,errors]
+      <%%= link_to 'About', @items['/about.*'] %%>
+
+    #p To fix this problem, activate the helper by calling %code{#use_helper}, with the helper as the argument, somewhere in %filename{lib/}. For example, to activate the %code{LinkTo} helper:
+
+    #listing[lang=ruby]
+      # in lib/helpers.rb
+      use_helper Nanoc::Helpers::LinkTo
+
+    #listing[lang=rhtml]
+      <%%# the following works now! %%>
+      <%%= link_to 'About', @items['/about.*'] %%>
 
 #section %h{Error: %code{UnknownDataSource}}
   #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause an %code{UnknownDataSource} if the %code{file_system} data source is not defined:
