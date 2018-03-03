@@ -302,6 +302,7 @@ Werthen
 whitequark
 Whitt
 Wiki
+WikiWikiWeb
 wiki
 Wikipedia
 wildcard
