@@ -125,6 +125,12 @@ title: "Helpers"
         #dt %code{:logo} (%code{String})
         #dd The URI of the feed's logo.
 
+        #dt %code{:alt_link} (%code{String})
+        #dd The contents of the %code{href} of the %code{link} element with %code{rel} set to %code{alternate}. By default, this is the base URL of the site, as specified in the site configuration’s %code{base_url} attribute.
+
+        #dt %code{:id} (%code{String})
+        #dd The contents of the %code{id} element. By default, this is the base URL of the site, as specified in the site configuration’s %code{base_url} attribute.
+
     #dt %code{url_for(%var{item})} → %code{String}
     #dd
       #p Returns the URL for the given item. It will return the URL containing the custom path in the feed if possible, otherwise the normal path.
