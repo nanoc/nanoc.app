@@ -309,9 +309,12 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
   def handle_ref_insert_section_ref(_node, _context, target_item, frag, target_node)
     href = href_for(target_item, frag)
+    header_content =
+      header_content_of(target_node).sub(/^The /, '').sub(/^./, &:upcase)
+
     [
       'the ',
-      wrap('a', href: href) { header_content_of(target_node) },
+      wrap('a', href: href) { header_content },
       ' section',
     ]
   end

@@ -11,6 +11,8 @@ title: "Items and layouts"
 
   #p Each item has attributes (metadata) associated with it. This metadata consists of key-value pairs. All attributes are free-form; there are no predefined attributes.
 
+  #note Some data sources set attributes on items by default. The %code{filesystem} data source, for example, sets %code{content_filename} and %code{meta_filename}, among others. Refer to %ref[item=/doc/data-sources.*,frag=the-filesystem-data-source]{} for details.
+
   #section %h{Item representations}
     #p Every item has one or more %firstterm{item representations} (or “reps” for short). An item representation is the compiled form of an item. Some examples of item representations:
 

@@ -30,7 +30,7 @@ title: "Data sources"
 
 #p Note that individual data sources can have more configuration options.
 
-#section %h{The filesystem data source}
+#section[id=the-filesystem-data-source] %h{The filesystem data source}
   #p Nanoc comes with a %productname{filesystem} data source implementation, which, as the name suggests, loads items and layouts from the filesystem. More specifically, it loads items from the %filename{content/} directory, and layouts from the %filename{layouts/} directory.
 
   #listing
