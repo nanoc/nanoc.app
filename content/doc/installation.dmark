@@ -12,6 +12,18 @@ nav_title: "Install"
 
 #p For detailed installation instructions, read on.
 
+#section %h{Compatibility guarantees}
+  #p Nanoc guarantees backwards compatibility within the same major version, starting from Nanoc 3.0 (released in 2009). This means that it is possible to upgrade from any 4.x to any newer 4.x version without extra work.
+
+  #p We recommend specifying the version of Nanoc using the %code{~>} operator in the %filename{Gemfile}, and specifying only the major and minor version. For example:
+
+  #listing[lang=ruby]
+    gem 'nanoc', '~> %erb{config[:nanoc_version_info_major_minor]}'
+
+  #p This version constraint tells Bundler to use at least Nanoc version %erb{config[:nanoc_version_info_major_minor]}, but never upgrade beyond version %erb{config[:nanoc_version_info_major]}. This way, running %kbd{bundle update nanoc} will upgrade Nanoc to the last compatible version.
+
+  #p We recommend updating Nanoc regularly. New versions not only come with new features, but also with bug fixes and performance improvements that continuously make Nanoc more enjoyable to use.
+
 #section %h{Installing Ruby}
   #p Nanoc requires %ref[url=http://ruby-lang.org/]{Ruby} to run. Nanoc supports the official Ruby interpreter from version 2.3 up.
 
