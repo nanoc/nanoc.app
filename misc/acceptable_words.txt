@@ -51,6 +51,7 @@ colorizers
 Cri
 CRLF
 Croath
+CRuby
 CSS
 de
 Defreyne
@@ -128,11 +129,12 @@ Keveney
 Kosturjak
 kramdown
 LaTeX
-layouting
 Layouting
+layouting
 Liu
 Lorin
 Lynagh
+macOS
 Maeda
 Maertens
 Mankuta
@@ -167,9 +169,9 @@ OFL
 online
 Online
 other's
+outdatedness
+outdatedness
 Outdatedness
-outdatedness
-outdatedness
 Pakosz
 Pandoc
 PandocRuby
@@ -250,8 +252,8 @@ sitemaps
 snapshotting
 Solarized
 Soryu
-speel
 Speel
+speel
 SQL
 SQLite
 SQLite3
@@ -268,8 +270,8 @@ symlinks
 Takashi
 templating
 timestamp
-Timestamps
 timestamps
+Timestamps
 Toon
 Torikian
 Tronçon
@@ -303,9 +305,9 @@ Werthen
 whitequark
 Whitt
 Wiki
-WikiWikiWeb
 wiki
 Wikipedia
+WikiWikiWeb
 wildcard
 Wildcard
 wildcards
