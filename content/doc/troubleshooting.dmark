@@ -356,6 +356,31 @@ title: "Troubleshooting"
         write ext: 'html'
       end
 
+#section %h{Error: %code{OutputNotWrittenError}}
+  #p This error occurs when a binary filter does not create a file at the path defined by %code{output_filename}. For example, the following filter will cause such an error:
+
+  #listing[lang=ruby,errors]
+    Class.new(Nanoc::Filter)
+      identifier :sample
+      type :binary
+
+      def run(content, params = {%})
+        # … do nothing!
+      end
+    end
+
+  #p To fix this error, fix the filter’s code to always create a file at %code{output_filename}:
+
+  #listing[lang=ruby]
+    Class.new(Nanoc::Filter)
+      identifier :sample
+      type :binary
+
+      def run(content, params = {%})
+        File.write(output_filename, 'contents go here')
+      end
+    end
+
 #section %h{Error: %code{UnknownDataSource}}
   #p This error occurs when the %filename{nanoc.yaml} configuration file lists a data source that is not known to Nanoc. For example, the following will cause an %code{UnknownDataSource} if the %code{file_system} data source is not defined:
 
