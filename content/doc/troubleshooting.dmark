@@ -162,6 +162,16 @@ title: "Troubleshooting"
 
   #p See %ref[frag=character-encoding-issues]{} for details on how to fix this issue.
 
+#section %h{Error: %code{FilterReturnedNil}}
+  #p This error occurs when a textual filter returns %code{nil} instead of a string. For example, the following filter will cause such an error:
+
+  #listing[lang=ruby,errors]
+    Nanoc::Filter.define(:nillify) do |content, params|
+      nil
+    end
+
+  #p To fix this error, fix the filter’s code to always return a string.
+
 #section %h{Error: %code{InvalidFormat}}
   #p This error occurs when Nanoc detects the presence of frontmatter, but the frontmatter isn’t terminated properly. For example, the following file will cause an %code{InvalidFormat} error, because the frontmatter is missing a final %code{---}:
 
