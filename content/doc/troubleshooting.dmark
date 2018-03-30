@@ -366,7 +366,7 @@ title: "Troubleshooting"
         write ext: 'html'
       end
 
-#section %h{Error: %code{OutputNotWrittenError}}
+#section %h{Error: %code{OutputNotWritten}}
   #p This error occurs when a binary filter does not create a file at the path defined by %code{output_filename}. For example, the following filter will cause such an error:
 
   #listing[lang=ruby,errors]
