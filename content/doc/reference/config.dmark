@@ -44,6 +44,12 @@ title: "Configuration"
   #listing[lang=yaml]
     commands_dirs: [ '../shared-commands' ]
 
+#section %h{%code{lib_dirs}}
+  #p Directories to read code snippets from. This is useful when you have a set of code snippets that you want to share between sites.
+
+  #listing[lang=yaml]
+    lib_dirs: [ 'lib', '../shared-lib' ]
+
 #section %h{%code{data_sources}}
   #p The data sources configuration contains the definition of the data sources of this site. It is a list of hashes with keys described in the sections below; each array element represents a single data source. For example:
 
