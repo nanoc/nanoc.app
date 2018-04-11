@@ -23,7 +23,7 @@ GEM
       ddmetrics (~> 1.0)
       ref (~> 2.0)
     ddmetrics (1.0.0)
-    ddplugin (1.0.1)
+    ddplugin (1.0.2)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -66,7 +66,7 @@ GEM
     powerpack (0.1.1)
     public_suffix (3.0.2)
     rack (2.0.4)
-    rack-livereload (0.3.16)
+    rack-livereload (0.3.17)
       rack
     rainbow (3.0.0)
     rainpress (1.0.1)
