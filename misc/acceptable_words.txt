@@ -44,6 +44,7 @@ Cichra
 CLI
 Clift
 CMS
+codebase
 CodeRay
 CoffeeScript
 colorizer
@@ -263,6 +264,7 @@ stylesheet
 subclassing
 subdirectory
 subdomain
+superclass
 superset
 Sutch
 symlink
