@@ -1,8 +1,8 @@
 ---
-title: "Release notes"
+title: "What’s new?"
 ---
 
-#p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes/details.*]{}.
+#p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
 #section %h{Nanoc 4.9}
   #p The list of enabled checks can now be specified in the configuration file, rather than the %filename{Checks} file. For example:
@@ -134,4 +134,4 @@ title: "Release notes"
   #p Additionally, Nanoc will automatically %code{require} all gems defined in the %code{nanoc} group in the %filename{Gemfile}. This is particularly useful for the %code{guard-nanoc} gem, which, when added to the %code{nanoc} group in the %filename{Gemfile}, will add a new %command{live} command to %command{nanoc}. This %command{nanoc live} command simultaneously recompiles the site on changes, and runs a web server. See the %ref[url=https://github.com/guard/guard-nanoc]{%code{guard-nanoc} repository} for details.
 
 #section %h{Nanoc 4.2 and older}
-  #p Release notes are pending. For the time being, see %ref[item=/release-notes/details.*]{}.
+  #p Release notes are pending. For the time being, see %ref[item=/release-notes.*]{}.

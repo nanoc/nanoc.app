@@ -145,7 +145,7 @@ Nanoc::Check.define(:spelling) do
     'output/doc/reference/commands/index.html',
 
     # The release notes contain lots of old, write-once, unmaintained content. Fixing these is a task for later.
-    'output/release-notes/details/index.html',
+    'output/release-notes/index.html',
 
     # The style guide uses nonsensical text.
     'output/style-guide/index.html',
