@@ -451,6 +451,23 @@ title: "Filters"
 
   #p If custom namespaces in XHTML are passed to the %code{:select} option, they also have to be explicitly defined in the %code{:namespaces} option. The %code{:namespaces} option is a hash where the keys are the prefixes, and the values are the namespace URIs.
 
+  #p To exclude paths from being relativized, use the %code{:exclude} option. The value of the %code{:exclude} option can be any of the following:
+
+  #dl
+    #dt %code{Regexp} (regular expression)
+    #dd The path will not be relativized if the regular expression matches.
+
+    #dt %code{String}
+    #dd The path will not be relativized when the path starts with one or more components that matches the given string.
+
+    #dt Array of %code{Regexp} or %code{String}
+    #dd The path will not be relativized if any of the elements of the array match, using the aforementioned rules for %code{Regexp} and %code{String}.
+
+  #p For example, the following will prevent all paths to %filename{/cgi-bin} from being relativized:
+
+  #listing[lang=ruby]
+    filter :relativize_paths, type: :html, exclude: '/cgi-bin'
+
 #section %h{%code{:rubypants}}
   #p The %code{:rubypants} filter transforms content using %ref[url=http://rubydoc.info/gems/rubypants/]{RubyPants}, which translates plain ASCII punctuation characters into “smart” typographic punctuation HTML entities.
 
