@@ -197,7 +197,7 @@ title: "Tutorial"
     author: "John Doe"
     ---
 
-  #p Modify the layout to show the value of the %attribute{author} attribute. Add the following snippet to the layout:
+  #p Modify the layout, %filename{layouts/default.html}, to show the value of the %attribute{author} attribute. Add the following snippet to the layout:
 
   #listing[lang=rhtml]
     <%% if @item[:author] %%>
@@ -301,7 +301,7 @@ title: "Tutorial"
       end
     end
 
-  #p Modify the layout and add a paragraph that outputs the tags:
+  #p Modify the layout, %filename{layouts/default.html}, and add a paragraph that outputs the tags:
 
   #listing[lang=rhtml]
     <p>Tags: <%%= tags %%></p>
@@ -316,7 +316,7 @@ title: "Tutorial"
 
   #p This will make all functions defined in the %code{Nanoc::Helpers::Tagging} module available for use.
 
-  #p Modify the layout and replace the paragraph that displays the tags with a call to %code{#tags_for}, which is defined in the tagging helper:
+  #p Modify the layout, %filename{layouts/default.html}, and replace the paragraph that displays the tags with a call to %code{#tags_for}, which is defined in the tagging helper:
 
   #listing[lang=rhtml]
     <p>Tags: <%%= tags_for(@item) %%></p>
