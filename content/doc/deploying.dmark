@@ -65,7 +65,7 @@ short_title: "Deploying"
       %prompt{%%} %kbd{git init output/}
       %prompt{%%} %kbd{cd output/}
       %prompt{output%%} %kbd{git remote add origin} %var{repo-url}
-      %prompt{output@gh-pages%%} %kbd{git commit --m 'Init repo' --allow-empty}
+      %prompt{output%%} %kbd{git commit --m 'Init repo' --allow-empty}
 
     #p Add the %filename{output/} directory to your %filename{.gitignore}. Make sure that the base repository doesn’t contain %filename{output/}.
 
