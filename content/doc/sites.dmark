@@ -90,25 +90,31 @@ title: "Sites"
   #listing
     %prompt{%%} %kbd{nanoc compile --env=prod}
 
-  #p The environment can be used to modify the configuration. If the configuration has an %code{env} section, the loaded configuration will also include the configuration options specified in the %code{env} sub-section that matches the environment name. For example:
+  #p The environment can be used to modify the configuration. If the configuration has an %code{environments} section, the loaded configuration will also include the configuration options specified in the %code{environments} sub-section that matches the environment name. For example:
 
   #listing[lang=yaml]
     base_url: http://nanoc.dev
+    site_name: Nanoc
 
     environments:
       prod:
         base_url: http://nanoc.ws
 
-  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} by default. When the environment is set to %code{prod} (using e.g. %code{--env=prod}), the value will be %code{"http://nanoc.ws"} instead.
+  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} in all environments, but %code{"http://nanoc.ws"} in the %code{prod} environment. The %code{site_name} configuration option will be %code{"Nanoc"} in all environments.
 
-  #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. The example above is thus equivalent to the following:
+  #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. However, non-%code{default} environments will not inherit from the %code{default} environment. For example:
 
   #listing[lang=yaml]
+    site_name: Nanoc
+
     environments:
       default:
         base_url: http://nanoc.dev
+        site_name: Nanoc (local)
       prod:
         base_url: http://nanoc.ws
+
+  #p In this example, %code{site_name} will be %code{"Nanoc"} in all environments, except %code{default}, where it is %code{"Nanoc (local)"} instead.
 
   #p The environment can also be used to affect the rules that are executed. For example:
 
