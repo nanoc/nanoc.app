@@ -232,7 +232,7 @@ title: "Variables"
 
     #dt %code{@item_rep.raw_path} → %code{String}
     #dt %code{@item_rep.raw_path(snapshot: :foo)} → %code{String}
-    #dd The full path to the compiled item representation, including the path to the output directory and the index filename (e.g. if it is routed to %filename{/foo/index.html}, the raw path will be %filename{output/foo/index.html}). The %code{:snapshot} specifies the snapshot (%code{:last} by default).
+    #dd The full path to the compiled item representation, including the path to the output directory and the index filename (e.g. if it is routed to %filename{/foo/index.html}, the raw path might be %filename{/home/denis/mysite/output/foo/index.html}). The %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
     #dt %code{@item_rep.compiled_content} → %code{String}
     #dt %code{@item_rep.compiled_content(snapshot: :bar)} → %code{String}
