@@ -138,6 +138,9 @@ title: "Variables"
     #dt %code{@item.path(snapshot: :bar)} → %code{String}
     #dd The path to the compiled item, without the index filename (e.g. if the item rep is routed to %filename{/foo/index.html}, the path will be %filename{/foo/}). The %code{:rep} option specifies the item representation (%code{:rep} by default), while %code{:snapshot} specifies the snapshot (%code{:last} by default).
 
+    #dt %code{@item.raw_filename} → %code{String} / %code{nil}
+    #dd The path to the file containing the uncompiled content of this item.
+
     #dt %code{@item.reps} → %var{collection of reps}
     #dd The collection of representations for this item.
 
