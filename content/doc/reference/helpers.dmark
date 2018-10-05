@@ -110,6 +110,9 @@ title: "Helpers"
         #dt %code{:excerpt_proc} (%code{proc})
         #dd A proc that returns the excerpt of the given article, passed as a parameter. This function should return nil if there is no excerpt. By default, it will return the content of the %code{excerpt} attribute of the item.
 
+        #dt %code{:title_proc} (%code{proc})
+        #dd A proc that returns the title of the given article, passed as a parameter. This function should not return nil. By default, it will return the content of the %code{title} attribute of the item.
+
         #dt %code{:title} (%code{String})
         #dd The feed's title, if it is not given in the item attributes.
 
