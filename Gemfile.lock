@@ -37,6 +37,7 @@ GEM
     http_parser.rb (0.6.0)
     jaro_winkler (1.5.1)
     json (2.1.0)
+    json_schema (0.19.1)
     kramdown (1.17.0)
     libv8 (3.16.14.19)
     listen (3.1.5)
@@ -44,13 +45,14 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mini_portile2 (2.3.0)
-    nanoc (4.9.6)
+    nanoc (4.9.7)
       addressable (~> 2.5)
       cri (~> 2.15)
       ddmemoize (~> 1.0)
       ddmetrics (~> 1.0)
       ddplugin (~> 1.0)
       hamster (~> 3.0)
+      json_schema (~> 0.19)
       parallel (~> 1.12)
       ref (~> 2.0)
       slow_enumerator_tools (~> 1.0)
@@ -60,7 +62,7 @@ GEM
       cri (~> 2.13)
       listen (~> 3.0)
       nanoc (~> 4.8, >= 4.8.16)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.1)
     parser (2.5.1.2)
@@ -77,7 +79,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     ref (2.0.0)
-    rubocop (0.59.1)
+    rubocop (0.59.2)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
@@ -87,7 +89,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
-    sass (3.5.7)
+    sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -130,4 +132,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   1.16.5
+   1.16.6
