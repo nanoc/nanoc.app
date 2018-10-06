@@ -72,6 +72,41 @@ title: "Troubleshooting"
 
   #p We recommend always specifying the time zone.
 
+#section %h{Pages are not being recompiled}
+  #p Nanoc tracks data and detects changes, and knows which items to recompile and which ones not to recompile. However, it can only track data that it knows about, and it cannot track changes to global state.
+
+  #p The following kinds of data are not tracked by Nanoc:
+
+  #ul
+    #li Global variables (e.g. %code{<%%= $foo %%>})
+    #li Constants (e.g. %code{<%%= RUBY_VERSION %%>})
+    #li The environment (e.g. %code{<%%= ENV["PROD"] %%>})
+    #li The filesystem (e.g. %code{<%%= File.read('oink.txt') %%>})
+    #li Time-related data (e.g. %code{<%%= Time.now %%>})
+    #li Random data (e.g. %code{<%%= rand(1..10) %%>})
+    #li Dynamically evaluated data (e.g. %code{<%%= `ruby --version`.strip %%>})
+    #li … and possibly more
+
+  #p It is not feasible for Nanoc (or any Ruby program) to track global state.
+
+  #p Global state creates other problems with Nanoc, too. For example, it is possible to get %code{NoMethodError} errors when using global variables; see %ref[frag=objects-stored-in-global-variables]{} for an idea.
+
+  #p To work around this problem, use the preprocessor to populate the configuration, e.g.
+
+  #listing[lang=ruby]
+    preprocess do
+      config[:is_staging] = ENV['STAGING'] == 'true'
+    end
+
+  #p Then, only refer to the configuration rather than global state, e.g.
+
+  #listing[lang=rhtml]
+    <%% if @config[:is_staging] %%>
+      <span class="label">STAGING</span>
+    <%% end %%>
+
+  #p Changes to global state (%code{ENV} in the example above) will now be detected, and the appropriate pages will be recompiled properly.
+
 #section %h{Hidden files are ignored}
   #p Nanoc by default intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as OS X and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance, OS X will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
 
@@ -334,7 +369,7 @@ title: "Troubleshooting"
       <%%# the following works now! %%>
       <%%= link_to 'About', @items['/about.*'] %%>
 
-  #section %h{Nanoc objects are stored in global variables}
+  #section %h[id=objects-stored-in-global-variables]{Nanoc objects are stored in global variables}
     #p If Nanoc objects are passed around through global variables, Nanoc will behave in odd ways, such as raising %code{NoMethodError} exceptions in unusual situations.
 
     #p For example, the following will raise an error:
