@@ -358,7 +358,7 @@ title: "Nanoc 4 upgrade guide"
     #li If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=https://groups.google.com/d/forum/nanoc]{discussion group}.
 
 #section %h{Removed features}
-  #p The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} instead.
+  #p The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/nanoc/nanoc/tree/master/guard-nanoc]{%productname{guard-nanoc}} instead.
 
   #p Because Nanoc’s focus is now more clearly on compiling content rather than managing it, the following features have been removed:
 
