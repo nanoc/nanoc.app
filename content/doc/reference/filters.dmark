@@ -484,10 +484,24 @@ title: "Filters"
   #listing[lang=ruby]
     filter :sass
 
-  #p The options that are given to this filter will be passed on to %code{Sass::Engine#initialize}. For example, this filter call set %code{:style} to %code{:compact}:
+  #p The options that are given to this filter will be passed on to %code{Sass::Engine#initialize}, to the exception of the %code{sourcemap_path} option. For example, this filter call set %code{:style} to %code{:compact}:
 
   #listing[lang=ruby]
     filter :sass, style: :compact
+
+  #tip You can evaluate Ruby code from within your Sass code thanks to the %code{nanoc()} Sass function.
+    #listing[lang=sass]
+      %#nanoc($expression, $unquote: false) → Sass::Script::Value::String
+
+    #p The %code{nanoc()} function expects %code{$expression} to be a %code{Sass::Script::Value::String} and uses Ruby's %code{#instance_eval()} to evaluate the expression within the Nanoc compilation context.
+
+#section %h{%code{:sass_sourcemap}}
+  #p The %code{:sass_sourcemap} filter produces a source map for a rendered %ref[url=http://sass-lang.com/]{Sass} stylesheet. For example:
+
+  #listing[lang=ruby]
+    filter :sass_sourcemap, sourcemap_path: @item.identifier.without_ext + '.css.map'
+
+  #caution You should give both %code{:sass} and %code{:sass_sourcemap} filters the same options and more importantly the same %code{sourcemap_path} value.
 
 #section %h{%code{:slim}}
   #p The %code{:slim} filter runs the content through %ref[url=http://slim-lang.com/]{Slim}, a lightweight templating engine. For example:

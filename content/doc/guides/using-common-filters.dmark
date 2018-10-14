@@ -23,6 +23,54 @@ title: "Using common filters"
 
   #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
 
+#section %h{Using advanced Sass features}
+  #p Beside the basic rendering of %ref[url=http://sass-lang.com/]{Sass} stylesheet to CSS, Nanoc can also help you with partials and source maps.
+
+  #listing[lang=ruby]
+    [:default, :sourcemap].each do |rep|      # define 2 reps for stylesheets
+      compile '/css/**/_*', :rep => rep do    # ignore partials
+      end
+    end
+
+    [:default, :sourcemap].each do |rep|
+      compile '/css/**/*.{sass,scss%}', :rep => rep do
+        next if @item.raw_content.empty?      # ignore empty files
+        syntax = @item[:extension].to_sym
+        path = @item.identifier.without_ext + '.css'
+        options = { syntax: syntax, style: compact, sourcemap_path: path + '.map' %}
+        case rep
+        when :default
+          filter :sass, options
+          write path
+        when :sourcemap
+          filter :sass_sourcemap, options
+          write path + '.map'
+        end
+      end
+    end
+
+  #p With the rules defined above, you will be able to import Sass partials by identifiers.
+
+  #listing[lang=sass]
+    @import "/css/**/_bootstrap*.*";
+
+  #p Finally, Nanoc defines a %code{nanoc()} Sass function that lets you evaluate Ruby code from Sass within the compilation context.
+
+  #listing[lang=sass]
+    .title {
+      content: nanoc('@config[:title][:text]')
+      color: nanoc('@config[:title][:color]', $unquote: true)
+    %}
+
+  #p Which assumes your %filename{nanoc.yaml} configuration contains:
+
+  #listing[lang=yaml]
+    title:
+      text: Hello World!
+      color: pink
+
+  #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
+
 #section %h{Using kramdown}
   #p %ref[url=http://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
 
