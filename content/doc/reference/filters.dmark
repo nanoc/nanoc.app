@@ -531,7 +531,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :sass_sourcemap, sourcemap_path: @item.identifier.without_ext + '.css.map'
 
-  #caution You should give both %code{:sass} and %code{:sass_sourcemap} filters the same options and more importantly the same %code{sourcemap_path} value.
+  #caution Both %code{:sass} and %code{:sass_sourcemap} filters must be passed the same options.
 
 #section %h{%code{:slim}}
   #p The %code{:slim} filter runs the content through %ref[url=http://slim-lang.com/]{Slim}, a lightweight templating engine. For example:
