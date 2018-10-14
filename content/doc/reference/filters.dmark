@@ -489,11 +489,41 @@ title: "Filters"
   #listing[lang=ruby]
     filter :sass, style: :compact
 
-  #tip You can evaluate Ruby code from within your Sass code thanks to the %code{nanoc()} Sass function.
-    #listing[lang=sass]
-      %#nanoc($expression, $unquote: false) → Sass::Script::Value::String
+  #p You can evaluate Ruby code from within your Sass code using the %code{nanoc()} Sass function. It takes a string containing Ruby code (a %code{Sass::Script::Value::String}):
 
-    #p The %code{nanoc()} function expects %code{$expression} to be a %code{Sass::Script::Value::String} and uses Ruby's %code{#instance_eval()} to evaluate the expression within the Nanoc compilation context.
+  #listing[lang=sass]
+    /* This is the input Sass code */
+    .title {
+      content: nanoc('@config[:title]');
+    %}
+
+  #listing[lang=yaml]
+    # nanoc.yaml
+    title: "My wonderful web site"
+
+  #listing[lang=css]
+    /* This is the resulting CSS */
+    .title {
+      content: "My wonderful web site";
+    %}
+
+  #p The %code{nanoc()} Sass function can also take an %code{$unquote} parameter, which removes quotation marks:
+
+  #listing[lang=sass]
+    /* This is the input Sass code */
+    .tip {
+      color: nanoc('@config[:tip_color]', $unquote: true);
+    %}
+
+  #listing[lang=yaml]
+    # nanoc.yaml
+    tip_color: '#990099'
+
+  #listing[lang=css]
+    /* This is the resulting CSS */
+    .tip {
+      content: #990099;
+    %}
 
 #section %h{%code{:sass_sourcemap}}
   #p The %code{:sass_sourcemap} filter produces a source map for a rendered %ref[url=http://sass-lang.com/]{Sass} stylesheet. For example:
