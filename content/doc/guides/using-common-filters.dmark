@@ -10,7 +10,7 @@ title: "Using common filters"
   #listing[lang=ruby]
     compile '/**/*.sass' do
       filter :sass
-      write item.identifier.without_ext + '.css'
+      write @item.identifier.without_ext + '.css'
     end
 
   #p If you prefer using the SCSS syntax for Sass, rather than the default Sass syntax, pass %code{syntax: :scss} to the %code{:sass} filter, and match on %glob{/**/*.scss} rather than %glob{/**/*.sass}:
@@ -18,7 +18,7 @@ title: "Using common filters"
   #listing[lang=ruby]
     compile '/**/*.scss' do
       filter :sass, syntax: :scss
-      write item.identifier.without_ext + '.css'
+      write @item.identifier.without_ext + '.css'
     end
 
   #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
@@ -74,7 +74,7 @@ title: "Using common filters"
   #section %h{Using %code{nanoc()} in Sass}
     #p Nanoc’s Sass filter defines a %code{nanoc()} Sass function, which allows you to evaluate Ruby code from Sass within the compilation context. It takes a string containing Ruby code.
 
-    #p For example, assume a configuration file with the following contents:
+    #p For example, assume a configuration file (%filename{nanoc.yaml}) with the following contents:
 
     #listing[lang=yaml]
       title: Hello world!
