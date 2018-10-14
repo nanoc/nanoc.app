@@ -20,7 +20,6 @@ before_install:
   - bundle config github.https true
 
 script:
-  - bundle
   - bundle exec nanoc
   - bundle exec nanoc check
   - bundle exec rubocop
