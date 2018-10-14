@@ -127,6 +127,50 @@ title: "Troubleshooting"
       write '/.nojekyll'
     end
 
+#section %h{Error: %code{AmbiguousMetadataAssociation}}
+  #p This error occurs when there are multiple content files with the same basename, along with a file containing metadata, and Nanoc cannot unambiguously figure out to which content file the metadata file belongs.
+
+  #p For example, assume the following files:
+
+  #ul
+    #li %filename{content/about.md}
+    #li %filename{content/about.txt}
+    #li %filename{content/about.yaml}
+
+  #listing[lang=markdown]
+    <!-- This file: content/about.md -->
+    Stuff about me goes here…
+
+  #listing[lang=markdown]
+    <!-- This file: content/about.txt -->
+    Stuff about my dog goes here…
+
+  #listing[lang=yaml]
+    # This file: content/about.yaml
+    title: About me
+
+  #p The %filename{content/about.yaml} contains metadata, and could be associated with either content file (%filename{content/about.md} or %filename{content/about.txt}). Nanoc has no way of knowing which file to associate the metadata with, and errors.
+
+  #p There is one exception in which case Nanoc will %emph{not} error: if %emph{exactly one} of the content files has no inline metadata (also known as frontmatter), Nanoc will associate the metadata file to this particular content file. For example, in the following case the metadata will be associated with %filename{about.txt}, because it is the only file without inline metadata:
+
+  #listing[lang=markdown]
+    <!-- This file: content/about.md -->
+    Stuff about me goes here…
+
+  #listing[lang=markdown]
+    <!-- This file: content/about.txt -->
+    ---
+    title: About my dog
+    ---
+
+    Stuff about my dog goes here…
+
+  #listing[lang=yaml]
+    # This file: content/about.yaml
+    title: About me
+
+  #p To fix the %code{AmbiguousMetadataAssociation} error, the recommended approach is to give each content file a distinct name (e.g. %filename{content/about_myself.md} and %filename{content/about_my_dog.md}).
+
 #section %h{Error: %code{CannotDetermineFilter}}
   #p This error occurs when the compilation rule for an item refers to a layout for which no rule exists. For example, a rules file that contains nothing but the following will raise this error:
 
