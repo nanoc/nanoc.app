@@ -522,7 +522,7 @@ title: "Filters"
   #listing[lang=css]
     /* This is the resulting CSS */
     .tip {
-      content: #990099;
+      color: #990099;
     %}
 
 #section %h{%code{:sass_sourcemap}}
@@ -531,7 +531,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :sass_sourcemap, sourcemap_path: @item.identifier.without_ext + '.css.map'
 
-  #caution Both %code{:sass} and %code{:sass_sourcemap} filters must be passed the same options.
+  #p Both %code{:sass} and %code{:sass_sourcemap} filters must be passed the same options.
 
 #section %h{%code{:slim}}
   #p The %code{:slim} filter runs the content through %ref[url=http://slim-lang.com/]{Slim}, a lightweight templating engine. For example:
