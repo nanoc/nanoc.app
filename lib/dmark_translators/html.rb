@@ -73,9 +73,8 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
 
   def handle_element_h(element, context)
     depth = context.fetch(:depth, 1)
-    id = to_id(text_content_of(element))
 
-    attributes = { id: id }.merge(extra_attributes_for_element(element, context))
+    attributes = extra_attributes_for_element(element, context)
     wrap("h#{depth}", attributes) { handle_children(element, context) }
   end
 
