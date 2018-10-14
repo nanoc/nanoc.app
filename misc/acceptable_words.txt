@@ -261,6 +261,7 @@ SQLite3
 SSG
 startup
 stylesheet
+stylesheets
 subclassing
 subdirectory
 subdomain
@@ -269,6 +270,7 @@ superset
 Sutch
 symlink
 symlinks
+syntaxes
 Takashi
 templating
 timestamp

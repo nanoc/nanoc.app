@@ -50,7 +50,7 @@ title: "Using common filters"
       @import "/css/**/_layout.*"
 
   #section[id=using-sass-source-maps] %h{Using Sass source maps}
-    #p Nanoc’s Sass filter supports [source maps](http://thesassway.com/intermediate/using-source-maps-with-sass), which makes debugging Sass easier. To generate a source map for Sass, use the %code{:sass_sourcemap} filter:
+    #p Nanoc’s Sass filter supports %ref[url=http://thesassway.com/intermediate/using-source-maps-with-sass]{source maps}, which makes debugging Sass easier. To generate a source map for Sass, use the %code{:sass_sourcemap} filter:
 
     #listing[lang=ruby]
       [:default, :sourcemap].each do |rep_name|
@@ -72,7 +72,7 @@ title: "Using common filters"
     #p When using the %code{:sass_sourcemap} filter, be sure to invoke it with the same options as the %code{:sass} filter.
 
   #section %h{Using %code{nanoc()} in Sass}
-    #p Nanoc’s Sass filter defines a %code{nanoc()} Sass function, which allows you to evaluate Ruby code from Sass within the compilation context. It takes a strig containg Ruby code.
+    #p Nanoc’s Sass filter defines a %code{nanoc()} Sass function, which allows you to evaluate Ruby code from Sass within the compilation context. It takes a string containing Ruby code.
 
     #p For example, assume a configuration file with the following contents:
 
