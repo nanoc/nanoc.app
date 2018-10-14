@@ -23,53 +23,75 @@ title: "Using common filters"
 
   #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
 
-#section %h{Using advanced Sass features}
-  #p Beside the basic rendering of %ref[url=http://sass-lang.com/]{Sass} stylesheet to CSS, Nanoc can also help you with partials and source maps.
+  #section %h{Support Sass and SCSS}
+    #p Sass has two syntaxes: Sass and SCSS. To support both, you can use curly braces in a compilation rule’s pattern to match both extensions:
 
-  #listing[lang=ruby]
-    [:default, :sourcemap].each do |rep|      # define 2 reps for stylesheets
-      compile '/css/**/_*', :rep => rep do    # ignore partials
+    #listing[lang=ruby]
+      compile '/css/*.{sass,scss%}' do
+        syntax = @item.identifier.ext.to_sym
+        filter :sass, syntax: syntax, style: :compact
       end
-    end
 
-    [:default, :sourcemap].each do |rep|
-      compile '/css/**/*.{sass,scss%}', :rep => rep do
-        next if @item.raw_content.empty?      # ignore empty files
-        syntax = @item[:extension].to_sym
-        path = @item.identifier.without_ext + '.css'
-        options = { syntax: syntax, style: compact, sourcemap_path: path + '.map' %}
-        case rep
-        when :default
-          filter :sass, options
-          write path
-        when :sourcemap
-          filter :sass_sourcemap, options
-          write path + '.map'
+    #p The %code{:sass} filter is passed the %code{:syntax} option, which in the example above is derived from the item’s identifier.
+
+  #section %h{Using partials}
+    #p Partials are Sass files that don’t have an output file, but only serve to be included in another Sass file. By convention, filenames of partials start with an underscore (e.g. %filename{css/_layout.scss}), which makes it possible for them to be handled specially within Nanoc:
+
+    #listing[lang=ruby]
+      ignore '/css/_*.sass'
+
+      compile '/css/*.sass' do
+        filter :sass, syntax: :sass, style: :compact
+      end
+
+    #p With the rules defined above, you will be able to import Sass partials:
+
+    #listing[lang=sass]
+      @import "/css/**/_layout.*"
+
+  #section %h{Using source maps}
+    #p Nanoc’s Sass filter supports [source maps](http://thesassway.com/intermediate/using-source-maps-with-sass), which makes debugging Sass easier. To generate a source map for Sass, use the %code{:sass_sourcemap} filter:
+
+    #listing[lang=ruby]
+      [:default, :sourcemap].each do |rep_name|
+        compile '/css/**/*.sass', rep: rep_name do
+          path = @item.identifier.without_ext + '.css'
+          options = { syntax: :sass, style: :compact, sourcemap_path: path + '.map' %}
+
+          case rep_name
+          when :default
+            filter :sass, options
+            write path
+          when :sourcemap
+            filter :sass_sourcemap, options
+            write path + '.map'
+          end
         end
       end
-    end
 
-  #p With the rules defined above, you will be able to import Sass partials by identifiers.
+    #p When using the %code{:sass_sourcemap} filter, be sure to invoke it with the same options as the %code{:sass} filter.
 
-  #listing[lang=sass]
-    @import "/css/**/_bootstrap*.*";
+  #section %h{Using %code{nanoc()} in Sass}
+    #p Nanoc’s Sass filter defines a %code{nanoc()} Sass function, which allows you to evaluate Ruby code from Sass within the compilation context. It takes a strig containg Ruby code.
 
-  #p Finally, Nanoc defines a %code{nanoc()} Sass function that lets you evaluate Ruby code from Sass within the compilation context.
+    #p For example, assume a configuration file with the following contents:
 
-  #listing[lang=sass]
-    .title {
-      content: nanoc('@config[:title][:text]')
-      color: nanoc('@config[:title][:color]', $unquote: true)
-    %}
+    #listing[lang=yaml]
+      title: Hello world!
 
-  #p Which assumes your %filename{nanoc.yaml} configuration contains:
+    #p The Sass file can now reference the title defined in the configuration:
 
-  #listing[lang=yaml]
-    title:
-      text: Hello World!
-      color: pink
+    #listing[lang=sass]
+      .title {
+        content: nanoc('@config[:title]');
+      %}
 
-  #p For more information, see the %ref[item=/doc/reference/filters.*,frag=sass]{%code{:sass} filter reference}.
+    #p The resulting CSS will look like this:
+
+    #listing[lang=css]
+      .title {
+        content: "Hello world!";
+      %}
 
 #section %h{Using kramdown}
   #p %ref[url=http://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
