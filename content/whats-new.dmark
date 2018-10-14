@@ -4,6 +4,16 @@ title: "What’s new?"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
+#section %h{Nanoc 4.10}
+  #p Nanoc 4.10 comes with an upgraded Sass filter. It comes with a new %code{nanoc()} Sass function, which allows pulling in Nanoc site data into stylesheets:
+
+  #listing[lang=sass]
+    .title {
+      content: nanoc('@config[:title]');
+    %}
+
+  #p The Sass filter also comes with a matching %code{:sass_sourcemap} filter, which generates Sass source maps. See %ref[item=/doc/guides/using-common-filters.*,frag=using-sass-source-maps]{} for details.
+
 #section %h{Nanoc 4.9}
   #p The list of enabled checks can now be specified in the configuration file, rather than the %filename{Checks} file. For example:
 

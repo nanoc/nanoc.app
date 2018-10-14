@@ -49,7 +49,7 @@ title: "Using common filters"
     #listing[lang=sass]
       @import "/css/**/_layout.*"
 
-  #section %h{Using source maps}
+  #section[id=using-sass-source-maps] %h{Using Sass source maps}
     #p Nanoc’s Sass filter supports [source maps](http://thesassway.com/intermediate/using-source-maps-with-sass), which makes debugging Sass easier. To generate a source map for Sass, use the %code{:sass_sourcemap} filter:
 
     #listing[lang=ruby]
