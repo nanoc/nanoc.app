@@ -108,20 +108,20 @@ title: "Contributing"
 
       #li Send an announcement e-mail to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc mailing list}. Include the version number, link to the release notes, instructions for how to update (using plain RubyGems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based on the following:
 
-      #listing[template]
-        Hi,
+        #listing[template]
+          Hi,
 
-        Nanoc %var{version} is out. This %var{major/minor/patch} release %var{fixes a bug related to X/adds enhancements X and Y/adds feature X}. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
+          Nanoc %var{version} is out. This %var{major/minor/patch} release %var{fixes a bug related to X/adds enhancements X and Y/adds feature X}. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
 
-        You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of Nanoc.
+          You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of Nanoc.
 
-        Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
+          Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
 
-        Cheers,
+          Cheers,
 
-        Denis
+          Denis
 
-        %var{RELEASE NOTES}
+          %var{RELEASE NOTES}
 
       #li Update the version mentioned on the %ref[url=https://en.wikipedia.org/wiki/Nanoc]{Nanoc Wikipedia page}.
 

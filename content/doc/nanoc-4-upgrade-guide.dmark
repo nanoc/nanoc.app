@@ -345,17 +345,20 @@ title: "Nanoc 4 upgrade guide"
 
 #section %h{Troubleshooting}
   #ol[spacious]
-    #li If you use Nanoc with a Gemfile, ensure you call Nanoc as %kbd{bundle exec nanoc}. Nanoc no longer attempts to load the Gemfile.
+    #li
+      #p If you use Nanoc with a Gemfile, ensure you call Nanoc as %kbd{bundle exec nanoc}. Nanoc no longer attempts to load the Gemfile.
 
-    #li If you get a %code{NoMethodError} error on %code{Nanoc::Identifier}, call %code{.to_s} on the identifier before doing anything with it. In Nanoc 4.x, identifiers have their own class and are no longer strings.
+    #li
+      #p If you get a %code{NoMethodError} error on %code{Nanoc::Identifier}, call %code{.to_s} on the identifier before doing anything with it. In Nanoc 4.x, identifiers have their own class and are no longer strings.
 
-    #listing[lang=ruby,legacy]
-      item.identifier[7..-2]
+      #listing[lang=ruby,legacy]
+        item.identifier[7..-2]
 
-    #listing[lang=ruby,new]
-      item.identifier.to_s[7..-2]
+      #listing[lang=ruby,new]
+        item.identifier.to_s[7..-2]
 
-    #li If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=https://groups.google.com/d/forum/nanoc]{discussion group}.
+    #li
+      #p If you get a %code{NoMethodError} that you did not expect, you might be using a private API that is no longer present in Nanoc 4.0. In case of doubt, ask for help on the %ref[url=https://groups.google.com/d/forum/nanoc]{discussion group}.
 
 #section %h{Removed features}
   #p The %code{watch} and %code{autocompile} commands have been removed. Both were deprecated in Nanoc 3.6. Use %ref[url=https://github.com/nanoc/nanoc/tree/master/guard-nanoc]{%productname{guard-nanoc}} instead.

@@ -141,7 +141,7 @@ title: "Internals"
 #section %h{Compilation stages and phases}
   #p The compilation process is divided into a sequence of stages. Each of these is run only once, in sequence:
 
-  #ol
+  #dl
     #dt %code{Preprocess}
     #dd Run the preprocessor, defined in the %filename{Rules} file, if any.
 

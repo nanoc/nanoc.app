@@ -5,7 +5,7 @@
     <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
     <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Roboto+Mono:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic%7CRoboto+Mono:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
@@ -63,10 +63,10 @@
       </div>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-  <script type="text/javascript">docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
+  <script>docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
     <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
-    <script type="text/javascript">var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+    <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
   </body>
 </html>
