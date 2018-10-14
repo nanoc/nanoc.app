@@ -4,12 +4,20 @@ AllCops:
 
 
 
+# ----- TODO -----
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
 # ----- CONFIGURED -----
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Layout/IndentArray:

@@ -99,7 +99,7 @@ Nanoc::Check.define(:html5) do
   res = Open3.popen3(cmd) { |_stdin, _stdout, stderr| stderr.read }
 
   JSON.parse(res).fetch('messages', []).each do |err|
-    subject = err['url'].sub(/^file:#{Regexp.escape File.dirname(__FILE__)}\//, '')
+    subject = err['url'].sub(%r{^file:#{Regexp.escape File.dirname(__FILE__)}/}, '')
     add_issue("#{err['message']} (line #{err['lastLine']}, column #{err['firstColumn']})", subject: subject)
   end
 end
@@ -131,7 +131,7 @@ end
 
 Nanoc::Check.define(:no_smartness_in_kbd) do
   output_filenames.each do |fn|
-    if fn =~ /html$/ && File.read(fn).match(/<kbd>[^<]*[–—][^<]*<\/kbd>/)
+    if fn =~ /html$/ && File.read(fn).match(%r{<kbd>[^<]*[–—][^<]*</kbd>})
       add_issue('smartness in kbd elem detected', subject: fn)
     end
   end
