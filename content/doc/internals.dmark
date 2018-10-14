@@ -180,7 +180,7 @@ title: "Internals"
 
   #p The %code{CompileReps} will loop through all item representations and compile them. Each item representation will go through each of the following phases, in sequence:
 
-  #ol
+  #dl
     #dt %code{MarkDone}
     #dd Yields to the next phase, and then marks the item representation as compiled.
 
