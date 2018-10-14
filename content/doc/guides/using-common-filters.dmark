@@ -77,21 +77,20 @@ title: "Using common filters"
     #p For example, assume a configuration file (%filename{nanoc.yaml}) with the following contents:
 
     #listing[lang=yaml]
-      title: Hello world!
+      auto_number_headings: true
 
     #p The Sass file can now reference the title defined in the configuration:
 
     #listing[lang=sass]
-      .title {
-        content: nanoc('@config[:title]');
+      @if nanoc('@config[:auto_number_headings]') {
+        body { counter-reset: h2; %}
+        h2 { counter-reset: h3; %}
+
+        h2:before { counter-increment: h2; content: counter(h2) ". "; %}
+        h3:before { counter-increment: h3; content: counter(h2) "." counter(h3) ". "; %}
       %}
 
-    #p The resulting CSS will look like this:
-
-    #listing[lang=css]
-      .title {
-        content: "Hello world!";
-      %}
+    #p The resulting CSS will set up auto-numbering of headings (%code{h2} and %code{h3}) if the configuration has %code{auto_number_headings} set to true.
 
 #section %h{Using kramdown}
   #p %ref[url=http://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
