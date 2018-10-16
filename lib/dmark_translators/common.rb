@@ -3,6 +3,10 @@
 require 'd-mark'
 
 class NanocWsCommonTranslator < DMark::Translator
+  def to_id(string)
+    string.downcase.gsub(/\W+/, '-').gsub(/^-|-$/, '')
+  end
+
   def text_content_of(node)
     case node
     when String

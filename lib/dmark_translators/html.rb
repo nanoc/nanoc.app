@@ -71,10 +71,23 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
     end
   end
 
+  def id_for(element)
+    @_id_for_cache ||= {}
+    @_id_for_ids ||= Set.new
+
+    @_id_for_cache.fetch(element) do
+      id = to_id(text_content_of(element))
+      id << '-' while @_id_for_ids.include?(id)
+      @_id_for_ids << id
+      @_id_for_cache[element] = id
+    end
+  end
+
   def handle_element_h(element, context)
     depth = context.fetch(:depth, 1)
+    id = id_for(element)
 
-    attributes = extra_attributes_for_element(element, context)
+    attributes = { id: id }.merge(extra_attributes_for_element(element, context))
     wrap("h#{depth}", attributes) { handle_children(element, context) }
   end
 
