@@ -1,8 +1,8 @@
 // Core colors
-$color-orange:                #ed3400;
+$color-orange:                hsl(13, 100, 46);
 $color-foreground:            #fff;
 $color-background:            #000;
-$color-blue:                  #0e65c2;
+$color-blue:                  hsl(211, 87, 41);
 
 // Derived colors
 $color-orange-light:          mix($color-orange, $color-foreground, 70%);
