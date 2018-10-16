@@ -13,7 +13,6 @@ $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%)
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-gray-quiet:            mix($color-gray, $color-bg, 10%);
-$color-green:                 adjust-hue($color-blue, -120%);
 $color-dark-20:               mix($color-bg-muted-orange, $color-fg, 100%-5%);
 $color-dark-40:               mix($color-bg-muted-orange, $color-fg, 100%-15%);
 $color-dark-60:               mix($color-bg-muted-orange, $color-fg, 100%-40%);
