@@ -24,8 +24,9 @@ $text-color:                  $color-dark-80;
 $text-color-emph:             $color-background;
 
 // Navigation
-$color-nav-foreground:        $color-foreground;
-$color-nav-border:            $color-foreground;
+$nav-border-color:            $color-foreground;
+$nav-item-active-color:       $color-foreground;
+$nav-item-hover-color:        $color-foreground;
 
 // Explanation
 $explanation-bg-color:        $color-foreground;
@@ -109,6 +110,7 @@ $figure-caption-bg-color:     $color-dark-20;
 
 // Sidebar
 $sidebar-bg-color:            $color-offwhite;
+$sidebar-section-title-color: $color-orange;
 
 // Typography
 $header-color:                $color-orange;
