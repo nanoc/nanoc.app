@@ -1,30 +1,34 @@
 // Core colors
 $color-orange:                #ed3400;
-$color-white:                 #fff;
-$color-black:                 #000;
+$color-foreground:            #fff;
+$color-background:            #000;
 $color-blue:                  #0e65c2;
 
 // Derived colors
-$color-orange-light:          mix($color-orange, $color-white, 70%);
-$color-offwhite:              desaturate(mix($color-orange-light, $color-white, 10%), 70%);
-$color-offwhite-light:        mix($color-offwhite, $color-white, 40%);
-$color-offwhite-dark:         desaturate(mix($color-blue, $color-white, 20%), 10%);
-$color-offwhite-orange:       mix($color-orange, $color-white, 5%);
-$color-offwhite-blue:         mix($color-blue, $color-white, 5%);
+$color-orange-light:          mix($color-orange, $color-foreground, 70%);
+$color-offwhite:              desaturate(mix($color-orange-light, $color-foreground, 10%), 70%);
+$color-offwhite-light:        mix($color-offwhite, $color-foreground, 40%);
+$color-offwhite-dark:         desaturate(mix($color-blue, $color-foreground, 20%), 10%);
+$color-offwhite-orange:       mix($color-orange, $color-foreground, 5%);
+$color-offwhite-blue:         mix($color-blue, $color-foreground, 5%);
 $color-gray:                  desaturate($color-blue, 60%);
 $color-green:                 adjust-hue($color-blue, -120%);
-$color-dark-20:               mix($color-offwhite, $color-black, 100%-5%);
-$color-dark-40:               mix($color-offwhite, $color-black, 100%-15%);
-$color-dark-60:               mix($color-offwhite, $color-black, 100%-40%);
-$color-dark-80:               mix($color-offwhite, $color-black, 100%-70%);
-$color-dark-95:               mix($color-offwhite, $color-black, 100%-95%);
+$color-dark-20:               mix($color-offwhite, $color-background, 100%-5%);
+$color-dark-40:               mix($color-offwhite, $color-background, 100%-15%);
+$color-dark-60:               mix($color-offwhite, $color-background, 100%-40%);
+$color-dark-80:               mix($color-offwhite, $color-background, 100%-70%);
+$color-dark-95:               mix($color-offwhite, $color-background, 100%-95%);
 
 // Text
 $text-color:                  $color-dark-80;
-$text-color-emph:             $color-black;
+$text-color-emph:             $color-background;
+
+// Navigation
+$color-nav-foreground:        $color-foreground;
+$color-nav-border:            $color-foreground;
 
 // Explanation
-$explanation-bg-color:        $color-white;
+$explanation-bg-color:        $color-foreground;
 $explanation-fg-color:        $color-orange;
 
 // Intro
@@ -57,7 +61,7 @@ $footer-heart-color:          $color-orange;
 
 // Links
 $link-color:                  $color-blue;
-$link-color-hover:            $color-white;
+$link-color-hover:            $color-foreground;
 $link-disabled:               $color-dark-60;
 
 // Code
@@ -69,20 +73,20 @@ $code-prompt-color:           rgba(0, 0, 0, 0.5);
 $hero-bg-color:               $color-offwhite-dark;
 
 // Search
-$search-bg-color:                   $color-white;
+$search-bg-color:                   $color-foreground;
 $search-fg-color:                   $color-dark-60;
 $search-border-color:               $color-offwhite-dark;
-$search-placeholder-bg-color:       $color-white;
+$search-placeholder-bg-color:       $color-foreground;
 $search-placeholder-fg-color:       $color-gray;
-$search-placeholder-border-color:   $color-white;
+$search-placeholder-border-color:   $color-foreground;
 $search-results-l0-fg-color:        $color-orange;
-$search-results-l1-fg-color:        $color-black;
+$search-results-l1-fg-color:        $color-background;
 $search-results-higlight-fg-color:  $color-orange;
 $search-results-higlight-bg-color:  $color-offwhite-orange;
 $search-results-selection-bg-color: $color-offwhite-orange;
 
 // Body
-$page-bg-color:               $color-white;
+$page-bg-color:               $color-foreground;
 $page-top-border-color:       $color-orange-light;
 
 // Mark
@@ -90,16 +94,16 @@ $mark-bg-color:               #ffffcc;
 
 // Tags
 $tag-legacy-bg-color:         $color-dark-60;
-$tag-legacy-fg-color:         $color-white;
+$tag-legacy-fg-color:         $color-foreground;
 $tag-legacy-intermediate-bg-color: mix($color-dark-60, $color-blue, 70%);
-$tag-legacy-intermediate-fg-color: $color-white;
+$tag-legacy-intermediate-fg-color: $color-foreground;
 $tag-new-bg-color:            $color-blue;
-$tag-new-fg-color:            $color-white;
+$tag-new-fg-color:            $color-foreground;
 $tag-errors-bg-color:         $color-orange;
-$tag-errors-fg-color:         $color-white;
+$tag-errors-fg-color:         $color-foreground;
 
 // Figures
-$figure-bg-color:             $color-white;
+$figure-bg-color:             $color-foreground;
 $figure-border-color:         $color-dark-20;
 $figure-caption-bg-color:     $color-dark-20;
 
@@ -108,4 +112,4 @@ $sidebar-bg-color:            $color-offwhite;
 
 // Typography
 $header-color:                $color-orange;
-$dt-color:                    $color-black;
+$dt-color:                    $color-background;

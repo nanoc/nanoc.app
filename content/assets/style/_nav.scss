@@ -48,10 +48,10 @@
 }
 
 .nws-nav-item .active {
-  color: $color-white;
+  color: $color-nav-foreground;
 
   padding-top: 7px;
-  border-top: 3px solid $color-white;
+  border-top: 3px solid $color-nav-border;
 }
 
 .nws-nav-link:link,
@@ -60,7 +60,7 @@
 }
 
 .nws-nav-link:hover {
-  color: $color-white;
+  color: $color-nav-foreground;
 
   background: transparent;
 }
