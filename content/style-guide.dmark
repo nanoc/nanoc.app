@@ -144,6 +144,10 @@ title: Style guide
 
     #caution The %command{rm} command can cause data loss.
 
+    #p Here is to-do item:
+
+    #todo Finish the darn thing!
+
   #section %h[id=figures]{Figures}
     #figure
       #img /assets/images/tutorial/default-site.png

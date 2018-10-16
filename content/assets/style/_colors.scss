@@ -7,11 +7,12 @@ $color-mark:                  hsl(60, 100, 90);
 
 // Derived colors
 $color-orange-muted:          mix($color-orange, $color-bg, 70%);
-$color-orange-quiet:          mix($color-orange, $color-bg, 5%);
-$color-blue-quiet:            mix($color-blue, $color-bg, 5%);
+$color-orange-quiet:          mix($color-orange, $color-bg, 10%);
+$color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-gray:                  desaturate($color-blue, 60%);
+$color-gray-quiet:            mix($color-gray, $color-bg, 10%);
 $color-green:                 adjust-hue($color-blue, -120%);
 $color-dark-20:               mix($color-bg-muted-orange, $color-fg, 100%-5%);
 $color-dark-40:               mix($color-bg-muted-orange, $color-fg, 100%-15%);
@@ -46,10 +47,10 @@ $admon-fg-color-tip:          $color-blue;
 $admon-fg-color-note:         $color-blue;
 $admon-fg-color-caution:      $color-orange;
 $admon-fg-color-todo:         $color-dark-60;
-$admon-bg-color-tip:          mix($admon-fg-color-tip, $color-blue-quiet, 7%);
-$admon-bg-color-note:         mix($admon-fg-color-note, $color-blue-quiet, 7%);
-$admon-bg-color-caution:      mix($admon-fg-color-caution, $color-blue-quiet, 7%);
-$admon-bg-color-todo:         mix($admon-fg-color-todo, $color-blue-quiet, 7%);
+$admon-bg-color-tip:          $color-blue-quiet;
+$admon-bg-color-note:         $color-blue-quiet;
+$admon-bg-color-caution:      $color-orange-quiet;
+$admon-bg-color-todo:         $color-gray-quiet;
 
 // Footer
 $footer-bg-color:             $color-bg-muted-orange;
@@ -66,7 +67,8 @@ $link-color-hover:            $color-bg;
 $link-disabled:               $color-dark-60;
 
 // Code
-$pre-bg-color:                $color-bg-muted-orange;$pre-shadow-color:            transparentize($color-fg, 0.7);
+$pre-bg-color:                $color-bg-muted-orange;
+$pre-shadow-color:            transparentize($color-fg, 0.7);
 $code-prompt-color:           transparentize($color-fg, 0.5);
 
 // Hero
@@ -94,14 +96,14 @@ $page-top-border-color:       $color-orange-muted;
 $mark-bg-color:               $color-mark;
 
 // Tags
-$tag-legacy-bg-color:         $color-dark-60;
-$tag-legacy-fg-color:         $color-bg;
+$tag-legacy-bg-color:              $color-dark-60;
+$tag-legacy-fg-color:              $color-bg;
 $tag-legacy-intermediate-bg-color: mix($color-dark-60, $color-blue, 70%);
 $tag-legacy-intermediate-fg-color: $color-bg;
-$tag-new-bg-color:            $color-blue;
-$tag-new-fg-color:            $color-bg;
-$tag-errors-bg-color:         $color-orange;
-$tag-errors-fg-color:         $color-bg;
+$tag-new-bg-color:                 $color-blue;
+$tag-new-fg-color:                 $color-bg;
+$tag-errors-bg-color:              $color-orange;
+$tag-errors-fg-color:              $color-bg;
 
 // Figures
 $figure-bg-color:             $color-bg;
