@@ -3,6 +3,7 @@ $color-orange:                hsl(13, 100, 46);
 $color-foreground:            #fff;
 $color-background:            #000;
 $color-blue:                  hsl(211, 87, 41);
+$color-mark:                  hsl(60, 100, 90);
 
 // Derived colors
 $color-orange-light:          mix($color-orange, $color-foreground, 70%);
@@ -91,7 +92,7 @@ $page-bg-color:               $color-foreground;
 $page-top-border-color:       $color-orange-light;
 
 // Mark
-$mark-bg-color:               #ffffcc;
+$mark-bg-color:               $color-mark;
 
 // Tags
 $tag-legacy-bg-color:         $color-dark-60;
