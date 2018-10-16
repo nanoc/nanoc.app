@@ -9,6 +9,7 @@ $color-mark:                  hsl(60, 100, 90);
 $color-orange-muted:          mix($color-orange, $color-bg, 70%);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
+$color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
 $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-bg-muted:              desaturate(mix($color-blue, $color-bg, 10%), 60%);
@@ -95,7 +96,7 @@ $mark-bg-color:               $color-mark;
 // Tags
 $tag-legacy-bg-color:              $color-fg-60;
 $tag-legacy-fg-color:              $color-bg;
-$tag-legacy-intermediate-bg-color: mix($color-fg-60, $color-blue, 70%);
+$tag-legacy-intermediate-bg-color: $color-blue-desat;
 $tag-legacy-intermediate-fg-color: $color-bg;
 $tag-new-bg-color:                 $color-blue;
 $tag-new-fg-color:                 $color-bg;
