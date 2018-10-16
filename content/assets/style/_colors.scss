@@ -12,14 +12,14 @@ $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-bg-muted:              desaturate(mix($color-blue, $color-bg, 10%), 60%);
-$color-dark-20:               mix($color-fg, $color-bg-muted-orange, 5%);
-$color-dark-40:               mix($color-fg, $color-bg-muted-orange, 15%);
-$color-dark-60:               mix($color-fg, $color-bg-muted-orange, 40%);
-$color-dark-80:               mix($color-fg, $color-bg-muted-orange, 70%);
-$color-dark-95:               mix($color-fg, $color-bg-muted-orange, 95%);
+$color-fg-20:                 mix($color-fg, $color-bg-muted-orange, 5%);
+$color-fg-40:                 mix($color-fg, $color-bg-muted-orange, 15%);
+$color-fg-60:                 mix($color-fg, $color-bg-muted-orange, 40%);
+$color-fg-80:                 mix($color-fg, $color-bg-muted-orange, 70%);
+$color-fg-95:                 mix($color-fg, $color-bg-muted-orange, 95%);
 
 // Text
-$text-color:                  $color-dark-80;
+$text-color:                  $color-fg-80;
 $text-color-emph:             $color-fg;
 
 // Navigation
@@ -35,16 +35,16 @@ $explanation-fg-color:        $color-orange;
 // Intro
 $intro-bg-color:              $color-bg-muted-orange;
 $intro-fg-color:              $color-orange;
-$intro-link-fg-color:         $color-dark-40;
-$intro-link-fg-color-hover:   $color-dark-95;
-$intro-deco-fg-color:         $color-dark-40;
+$intro-link-fg-color:         $color-fg-40;
+$intro-link-fg-color-hover:   $color-fg-95;
+$intro-deco-fg-color:         $color-fg-40;
 
 // Admonitions
 $admon-bg-color:              $color-bg-muted-orange;
 $admon-fg-color-tip:          $color-blue;
 $admon-fg-color-note:         $color-blue;
 $admon-fg-color-caution:      $color-orange;
-$admon-fg-color-todo:         $color-dark-60;
+$admon-fg-color-todo:         $color-fg-60;
 $admon-bg-color-tip:          $color-blue-quiet;
 $admon-bg-color-note:         $color-blue-quiet;
 $admon-bg-color-caution:      $color-orange-quiet;
@@ -52,17 +52,17 @@ $admon-bg-color-todo:         $color-bg-muted;
 
   // Footer
 $footer-bg-color:             $color-bg-muted-orange;
-$footer-fg-color:             $color-dark-60;
-$footer-border-color:         $color-dark-40;
-$footer-link-color:           $color-dark-95;
-$footer-link-hover-fg-color:  $color-dark-95;
+$footer-fg-color:             $color-fg-60;
+$footer-border-color:         $color-fg-40;
+$footer-link-color:           $color-fg-95;
+$footer-link-hover-fg-color:  $color-fg-95;
 $footer-link-hover-bg-color:  $color-bg-muted-orange;
 $footer-heart-color:          $color-orange;
 
 // Links
 $link-color:                  $color-blue;
 $link-color-hover:            $color-bg;
-$link-disabled:               $color-dark-60;
+$link-disabled:               $color-fg-60;
 
 // Code
 $pre-bg-color:                $color-bg-muted-orange;
@@ -75,7 +75,7 @@ $hero-link-bg-color:          transparentize($color-bg, 0.6);
 
 // Search
 $search-bg-color:                   $color-bg;
-$search-fg-color:                   $color-dark-60;
+$search-fg-color:                   $color-fg-60;
 $search-border-color:               $color-bg-muted-blue;
 $search-placeholder-bg-color:       $color-bg;
 $search-placeholder-border-color:   $color-bg;
@@ -93,9 +93,9 @@ $page-top-border-color:       $color-orange-muted;
 $mark-bg-color:               $color-mark;
 
 // Tags
-$tag-legacy-bg-color:              $color-dark-60;
+$tag-legacy-bg-color:              $color-fg-60;
 $tag-legacy-fg-color:              $color-bg;
-$tag-legacy-intermediate-bg-color: mix($color-dark-60, $color-blue, 70%);
+$tag-legacy-intermediate-bg-color: mix($color-fg-60, $color-blue, 70%);
 $tag-legacy-intermediate-fg-color: $color-bg;
 $tag-new-bg-color:                 $color-blue;
 $tag-new-fg-color:                 $color-bg;
@@ -104,8 +104,8 @@ $tag-errors-fg-color:              $color-bg;
 
 // Figures
 $figure-bg-color:             $color-bg;
-$figure-border-color:         $color-dark-20;
-$figure-caption-bg-color:     $color-dark-20;
+$figure-border-color:         $color-fg-20;
+$figure-caption-bg-color:     $color-fg-20;
 
 // Sidebar
 $sidebar-bg-color:            $color-bg-muted-orange;
