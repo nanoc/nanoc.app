@@ -37,7 +37,7 @@
 
 .hero__link:link,
 .hero__link:visited {
-  background: rgba(255, 255, 255, 0.4);
+  background: $hero-link-bg-color;
 }
 
 .hero__link:hover {

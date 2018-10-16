@@ -28,6 +28,7 @@ $text-color-emph:             $color-background;
 $nav-border-color:            $color-foreground;
 $nav-item-active-color:       $color-foreground;
 $nav-item-hover-color:        $color-foreground;
+$nav-link-color:              transparentize($color-foreground, 0.3);
 
 // Explanation
 $explanation-bg-color:        $color-foreground;
@@ -68,11 +69,12 @@ $link-disabled:               $color-dark-60;
 
 // Code
 $pre-bg-color:                $color-offwhite;
-$pre-shadow-color:            rgba(0, 0, 0, 0.3);
-$code-prompt-color:           rgba(0, 0, 0, 0.5);
+$pre-shadow-color:            transparentize($color-background, 0.7);
+$code-prompt-color:           transparentize($color-background, 0.5);
 
 // Hero
 $hero-bg-color:               $color-offwhite-dark;
+$hero-link-bg-color:          transparentize($color-foreground, 0.6);
 
 // Search
 $search-bg-color:                   $color-foreground;
