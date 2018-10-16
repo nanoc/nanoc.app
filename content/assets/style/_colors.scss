@@ -11,8 +11,7 @@ $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
-$color-gray:                  desaturate($color-blue, 60%);
-$color-gray-quiet:            mix($color-gray, $color-bg, 10%);
+$color-bg-muted:              desaturate(mix($color-blue, $color-bg, 10%), 60%);
 $color-dark-20:               mix($color-bg-muted-orange, $color-fg, 100%-5%);
 $color-dark-40:               mix($color-bg-muted-orange, $color-fg, 100%-15%);
 $color-dark-60:               mix($color-bg-muted-orange, $color-fg, 100%-40%);
@@ -49,9 +48,9 @@ $admon-fg-color-todo:         $color-dark-60;
 $admon-bg-color-tip:          $color-blue-quiet;
 $admon-bg-color-note:         $color-blue-quiet;
 $admon-bg-color-caution:      $color-orange-quiet;
-$admon-bg-color-todo:         $color-gray-quiet;
+$admon-bg-color-todo:         $color-bg-muted;
 
-// Footer
+  // Footer
 $footer-bg-color:             $color-bg-muted-orange;
 $footer-fg-color:             $color-dark-60;
 $footer-border-color:         $color-dark-40;
@@ -79,7 +78,6 @@ $search-bg-color:                   $color-bg;
 $search-fg-color:                   $color-dark-60;
 $search-border-color:               $color-bg-muted-blue;
 $search-placeholder-bg-color:       $color-bg;
-$search-placeholder-fg-color:       $color-gray;
 $search-placeholder-border-color:   $color-bg;
 $search-results-l0-fg-color:        $color-orange;
 $search-results-l1-fg-color:        $color-fg;
