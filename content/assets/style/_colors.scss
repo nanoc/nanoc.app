@@ -12,11 +12,11 @@ $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-bg-muted:              desaturate(mix($color-blue, $color-bg, 10%), 60%);
-$color-dark-20:               mix($color-bg-muted-orange, $color-fg, 100%-5%);
-$color-dark-40:               mix($color-bg-muted-orange, $color-fg, 100%-15%);
-$color-dark-60:               mix($color-bg-muted-orange, $color-fg, 100%-40%);
-$color-dark-80:               mix($color-bg-muted-orange, $color-fg, 100%-70%);
-$color-dark-95:               mix($color-bg-muted-orange, $color-fg, 100%-95%);
+$color-dark-20:               mix($color-fg, $color-bg-muted-orange, 5%);
+$color-dark-40:               mix($color-fg, $color-bg-muted-orange, 15%);
+$color-dark-60:               mix($color-fg, $color-bg-muted-orange, 40%);
+$color-dark-80:               mix($color-fg, $color-bg-muted-orange, 70%);
+$color-dark-95:               mix($color-fg, $color-bg-muted-orange, 95%);
 
 // Text
 $text-color:                  $color-dark-80;
