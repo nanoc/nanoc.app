@@ -22,7 +22,7 @@
 
   .section-title {
     margin-bottom: 0;
-    color: $sidebar-section-title-color;
+    @include sidebar-section-title-color;
   }
 
   .section-title + ul,
@@ -55,7 +55,7 @@
 }
 
 .nws-side__content {
-  background: $sidebar-bg-color;
+  @include sidebar-bg-color;
 
   width: 100%;
 
@@ -85,5 +85,5 @@
 
 .toc .active {
   font-weight: bold;
-  color: $text-emph-color;
+  @include text-emph-color;
 }

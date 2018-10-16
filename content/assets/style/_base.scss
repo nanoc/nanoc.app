@@ -5,7 +5,7 @@
 }
 
 body {
-  background: $page-bg-color;
+  @include page-bg-color;
 
   font-family: "Source Sans Pro";
   font-weight: normal;
@@ -23,7 +23,8 @@ pre, code, kbd, var, samp, .attribute, .command, .output {
 }
 
 mark {
-  background: $mark-bg-color;
+  @include mark-fg-color;
+  @include mark-bg-color;
 }
 
 blockquote {
@@ -39,9 +40,9 @@ p {
 pre {
   border-radius: 4px;
 
-  box-shadow: 0 1px 1px $pre-shadow-color;
+  @include pre-box-shadow;
 
-  background: $pre-bg-color;
+  @include pre-bg-color;
 
   padding: 10px;
   margin: 0 0 20px 0;
@@ -63,18 +64,18 @@ a {
 
 a:link,
 a:visited {
-  color: $link-color;
+  @include link-color;
 }
 
 a:hover {
-  background-color: $link-color;
-  color:            $link-hover-color;
+  @include link-hover-fg-color;
+  @include link-hover-bg-color;
 }
 
 /* HEADERS */
 
 h1, h2, h3, h4, h5, h6 {
-  color: $header-color;
+  @include header-color;
 
   margin-top: 2em;
   margin-bottom: 1rem;
@@ -141,7 +142,7 @@ dl.compact dd {
 }
 
 dt {
-  color: $dt-color;
+  @include dt-color;
   font-weight: bold;
 }
 

@@ -26,48 +26,48 @@ div.admonition-wrapper:before {
 }
 
 div.admonition-wrapper .admonition {
-  background: $admon-bg-color;
+  @include admon-bg-color;
   border-radius: 4px;
   display: table-cell;
   padding: 10px 15px;
 }
 
 div.admonition-wrapper.tip  .admonition {
-  background-color: $admon-bg-tip-color;
+  @include admon-bg-tip-color;
 }
 
 div.admonition-wrapper.tip:before {
-  color: $admon-fg-tip-color;
+  @include admon-fg-tip-color;
   font-weight: 900;
   content: "\f0eb";
 }
 
 div.admonition-wrapper.note  .admonition {
-  background-color: $admon-bg-note-color;
+  @include admon-bg-note-color;
 }
 
 div.admonition-wrapper.note:before {
-  color: $admon-fg-note-color;
+  @include admon-fg-note-color;
   font-weight: 900;
   content: "\f05a";
 }
 
 div.admonition-wrapper.caution  .admonition {
-  background-color: $admon-bg-caution-color;
+  @include admon-bg-caution-color;
 }
 
 div.admonition-wrapper.caution:before {
-  color: $admon-fg-caution-color;
+  @include admon-fg-caution-color;
   font-weight: 900;
   content: "\f071";
 }
 
 div.admonition-wrapper.todo  .admonition {
-  background-color: $admon-bg-todo-color;
+  @include admon-bg-todo-color;
 }
 
 div.admonition-wrapper.todo:before {
-  color: $admon-fg-todo-color;
+  @include admon-fg-todo-color;
   font-weight: 900;
   content: "\f0c3";
 }

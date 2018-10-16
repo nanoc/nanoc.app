@@ -1,7 +1,8 @@
 @import "colors.scss";
 
 .hero {
-  background: $hero-bg-color url(/assets/images/symphony.png);
+  @include hero-bg-color;
+  background-image: url(/assets/images/symphony.png);
 
   margin-bottom: -60px;
 }
@@ -37,12 +38,12 @@
 
 .hero__link:link,
 .hero__link:visited {
-  background: $hero-link-bg-color;
+  @include hero-link-bg-color;
 }
 
 .hero__link:hover {
-  background-color: $link-hover-color;
-  color:            $link-color;
+  @include hero-link-hover-fg-color;
+  @include hero-link-hover-bg-color;
 }
 
 .hero__slides {
@@ -90,6 +91,11 @@
 
   a {
     display: block;
+  }
+
+  a:link,
+  a:visited,
+  a:hover {
     background: none;
   }
 

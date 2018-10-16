@@ -1,8 +1,9 @@
 .explanation {
-  border-top: 10px solid $page-top-border-color;
+  border-top: 10px solid;
+  @include page-top-border-color;
 
-  background: $explanation-bg-color;
-  color: $explanation-fg-color;
+  @include explanation-bg-color;
+  @include explanation-fg-color;
 }
 
 .explanation-content {

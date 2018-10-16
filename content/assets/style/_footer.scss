@@ -1,12 +1,12 @@
 @import "colors.scss";
 
 .home footer {
-  background: $footer-bg-color;
+  @include footer-bg-color;
 }
 
 footer {
   p {
-    color: $footer-fg-color;
+    @include footer-fg-color;
   }
 
   a {
@@ -14,12 +14,12 @@ footer {
     margin: 0;
 
     :link, :visited {
-      color: $footer-link-color;
+      @include footer-link-color;
     }
 
     :hover {
-      background-color: $footer-link-hover-fg-color;
-      color:            $footer-link-hover-bg-color;
+      @include footer-link-hover-bg-color;
+      @include footer-link-hover-fg-color;
     }
   }
 
@@ -50,7 +50,7 @@ footer {
 .page .footer-content {
   border-top-width: 1px;
   border-top-style: solid;
-  border-color: $footer-border-color;
+  @include footer-border-color;
 }
 
 .page .footer-copyright {
@@ -59,11 +59,11 @@ footer {
 
 .footer-releasenotes {
   padding: 40px 0 20px 0;
-  color: $footer-fg-color;
+  @include footer-fg-color;
 }
 
 .footer-links-explanation {
-  color: $footer-fg-color;
+  @include footer-fg-color;
 }
 
 .footer-links {
@@ -71,7 +71,7 @@ footer {
   margin: 0;
 
   strong {
-    color: $footer-heart-color;
+    @include footer-heart-color;
     font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
   }
 
@@ -86,7 +86,7 @@ footer {
   }
 
   li:after {
-    color: $footer-fg-color;
+    @include footer-fg-color;
 
     padding: 0 5px;
     content: "\00B7";
@@ -102,8 +102,8 @@ footer {
   padding: 20px 0;
   border-top-width: 1px;
   border-top-style: solid;
-  border-color: $footer-border-color;
-  color: $footer-fg-color;
+  @include footer-border-color;
+  @include footer-fg-color;
 
   div {
     font-size: 13px;
