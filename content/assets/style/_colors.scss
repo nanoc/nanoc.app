@@ -2,6 +2,7 @@
 $color-orange:                hsl(13, 100, 46);
 $color-bg:                    #fff;
 $color-fg:                    #000;
+$color-shadow:                #000;
 $color-blue:                  hsl(211, 87, 41);
 $color-mark:                  hsl(60, 100, 90);
 
@@ -67,7 +68,7 @@ $link-disabled:               $color-fg-60;
 
 // Code
 $pre-bg-color:                $color-bg-muted-orange;
-$pre-shadow-color:            transparentize($color-fg, 0.7);
+$pre-shadow-color:            transparentize($color-shadow, 0.7);
 $code-prompt-color:           transparentize($color-fg, 0.5);
 
 // Hero
