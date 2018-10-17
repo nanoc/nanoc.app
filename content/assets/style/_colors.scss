@@ -20,6 +20,26 @@ $color-fg-60:                 mix($color-fg, $color-bg-muted-orange, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-muted-orange, 70%);
 $color-fg-95:                 mix($color-fg, $color-bg-muted-orange, 95%);
 
+// Swatches
+.swatch-orange          { background: $color-orange; }
+.swatch-bg              { background: $color-bg; }
+.swatch-fg              { background: $color-fg; }
+.swatch-shadow          { background: $color-shadow; }
+.swatch-blue            { background: $color-blue; }
+.swatch-mark            { background: $color-mark; }
+.swatch-orange-muted    { background: $color-orange-muted; }
+.swatch-orange-quiet    { background: $color-orange-quiet; }
+.swatch-blue-quiet      { background: $color-blue-quiet; }
+.swatch-blue-desat      { background: $color-blue-desat; }
+.swatch-bg-muted-orange { background: $color-bg-muted-orange; }
+.swatch-bg-muted-blue   { background: $color-bg-muted-blue; }
+.swatch-bg-muted        { background: $color-bg-muted; }
+.swatch-fg-20           { background: $color-fg-20; }
+.swatch-fg-40           { background: $color-fg-40; }
+.swatch-fg-60           { background: $color-fg-60; }
+.swatch-fg-80           { background: $color-fg-80; }
+.swatch-fg-95           { background: $color-fg-95; }
+
 // Text
 $text-color:                  $color-fg-80;
 $text-color-emph:             $color-fg;

@@ -4,6 +4,29 @@ title: Style guide
 
 #p This page is designed to collect all the different elements used on the Nanoc website.
 
+#section %h{Colors}
+  #section %h{Primary}
+    #swatch[color=orange] orange
+    #swatch[color=bg] bg
+    #swatch[color=fg] fg
+    #swatch[color=shadow] shadow
+    #swatch[color=blue] blue
+    #swatch[color=mark] mark
+
+  #section %h{Secondary}
+    #swatch[color=orange-muted] orange-muted
+    #swatch[color=orange-quiet] orange-quiet
+    #swatch[color=blue-quiet] blue-quiet
+    #swatch[color=blue-desat] blue-desat
+    #swatch[color=bg-muted-orange] bg-muted-orange
+    #swatch[color=bg-muted-blue] bg-muted-blue
+    #swatch[color=bg-muted] bg-muted
+    #swatch[color=fg-20] fg-20
+    #swatch[color=fg-40] fg-40
+    #swatch[color=fg-60] fg-60
+    #swatch[color=fg-80] fg-80
+    #swatch[color=fg-95] fg-95
+
 #section %h{Headers}
   #p Headers all the way down…
 

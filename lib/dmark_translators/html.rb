@@ -38,6 +38,8 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
       handle_element_section(element, context)
     when 'ul'
       handle_element_ul(element, context)
+    when 'swatch'
+      handle_element_swatch(element, context)
     else
       unsupported_element(element, context)
     end
@@ -237,6 +239,13 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
       attributes[:class] = 'compact' if element.attributes['compact'] # figure
 
       wrap(element.name, attributes) { handle_children(element, context) }
+    when 'swatch'
+      attributes = { class: "swatch swatch-#{element.attributes.fetch('color')}" }
+      wrap(element.name, attributes) do
+        wrap('span', class: 'inside') do
+          handle_children(element, context)
+        end
+      end
     else
       super
     end
