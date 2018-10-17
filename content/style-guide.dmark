@@ -13,7 +13,6 @@ title: Style guide
     #swatch[color=mark] mark
 
   #section %h{Secondary}
-    #swatch[color=orange-muted] orange-muted
     #swatch[color=orange-quiet] orange-quiet
     #swatch[color=blue-quiet] blue-quiet
     #swatch[color=blue-desat] blue-desat
