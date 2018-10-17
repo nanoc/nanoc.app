@@ -18,7 +18,7 @@ short_title: "About"
 
 #p Because Nanoc is a programmable tool, a basic understanding of Ruby is quite helpful.
 
-#section %h{Advantages of static-site generators}
+#section %h{Why static-site generators?}
   #p Static-site generators have several advantages over classical content management systems:
 
   #dl
@@ -36,7 +36,7 @@ short_title: "About"
 
   #note Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plain text, etc.
 
-#section %h{Why use Nanoc?}
+#section %h{Why Nanoc?}
   #p Nanoc is suitable for a wide variety of sites, including personal blogs, portfolios, and product websites. Some unique features of Nanoc include:
 
   #ul
