@@ -6,10 +6,9 @@ title: Style guide
 
 #section %h{Colors}
   #section %h{Primary}
-    #swatch[color=orange] orange
     #swatch[color=bg] bg
     #swatch[color=fg] fg
-    #swatch[color=shadow] shadow
+    #swatch[color=orange] orange
     #swatch[color=blue] blue
     #swatch[color=mark] mark
 
@@ -20,7 +19,6 @@ title: Style guide
     #swatch[color=blue-desat] blue-desat
     #swatch[color=bg-muted-blue] bg-muted-blue
     #swatch[color=bg-muted] bg-muted
-    #swatch[color=fg-20] fg-20
     #swatch[color=fg-40] fg-40
     #swatch[color=fg-60] fg-60
     #swatch[color=fg-80] fg-80

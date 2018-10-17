@@ -13,7 +13,6 @@ $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 70%);
-$color-fg-20:                 mix($color-fg, $color-bg-muted, 5%);
 $color-fg-40:                 mix($color-fg, $color-bg-muted, 15%);
 $color-fg-60:                 mix($color-fg, $color-bg-muted, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-muted, 70%);
@@ -32,7 +31,6 @@ $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 .swatch-blue-desat      { background: $color-blue-desat; }
 .swatch-bg-muted-blue   { background: $color-bg-muted-blue; }
 .swatch-bg-muted        { background: $color-bg-muted; }
-.swatch-fg-20           { background: $color-fg-20; }
 .swatch-fg-40           { background: $color-fg-40; }
 .swatch-fg-60           { background: $color-fg-60; }
 .swatch-fg-80           { background: $color-fg-80; }
@@ -124,8 +122,8 @@ $tag-errors-fg-color:              $color-bg;
 
 // Figures
 $figure-bg-color:             $color-bg;
-$figure-border-color:         $color-fg-20;
-$figure-caption-bg-color:     $color-fg-20;
+$figure-border-color:         $color-bg-muted;
+$figure-caption-bg-color:     $color-bg-muted;
 
 // Sidebar
 $sidebar-bg-color:            $color-bg-muted;
