@@ -9,9 +9,8 @@ $color-mark:                  hsl(60, 100, 90);
 // Derived colors
 $color-orange-muted:          mix($color-orange, $color-bg, 70%);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
-$color-blue-quiet:            mix($color-blue, $color-bg, 10%);
+$color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
-$color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
 $color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-fg-40:                 mix($color-fg, $color-bg-muted, 15%);
 $color-fg-60:                 mix($color-fg, $color-bg-muted, 40%);
@@ -29,7 +28,6 @@ $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 .swatch-orange-quiet    { background: $color-orange-quiet; }
 .swatch-blue-quiet      { background: $color-blue-quiet; }
 .swatch-blue-desat      { background: $color-blue-desat; }
-.swatch-bg-muted-blue   { background: $color-bg-muted-blue; }
 .swatch-bg-muted        { background: $color-bg-muted; }
 .swatch-fg-40           { background: $color-fg-40; }
 .swatch-fg-60           { background: $color-fg-60; }
@@ -88,13 +86,13 @@ $pre-shadow-color:            transparentize($color-shadow, 0.7);
 $code-prompt-color:           transparentize($color-fg, 0.5);
 
 // Hero
-$hero-bg-color:               $color-bg-muted-blue;
+$hero-bg-color:               $color-blue-quiet;
 $hero-link-bg-color:          transparentize($color-bg, 0.6);
 
 // Search
 $search-bg-color:                   $color-bg;
 $search-fg-color:                   $color-fg-60;
-$search-border-color:               $color-bg-muted-blue;
+$search-border-color:               $color-blue-quiet;
 $search-placeholder-bg-color:       $color-bg;
 $search-placeholder-border-color:   $color-bg;
 $search-results-l0-fg-color:        $color-orange;
