@@ -10,7 +10,7 @@ $color-mark:                  hsl(60, 100, 90);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
-$color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 70%);
+$color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 60%);
 $color-fg-40:                 mix($color-fg, $color-bg-muted, 15%);
 $color-fg-60:                 mix($color-fg, $color-bg-muted, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-muted, 70%);
