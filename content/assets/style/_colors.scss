@@ -11,14 +11,13 @@ $color-orange-muted:          mix($color-orange, $color-bg, 70%);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-blue-quiet:            mix($color-blue, $color-bg, 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
-$color-bg-muted-orange:       desaturate(mix($color-orange, $color-bg, 8%), 70%);
 $color-bg-muted-blue:         desaturate(mix($color-blue, $color-bg, 20%), 10%);
-$color-bg-muted:              desaturate(mix($color-blue, $color-bg, 10%), 60%);
-$color-fg-20:                 mix($color-fg, $color-bg-muted-orange, 5%);
-$color-fg-40:                 mix($color-fg, $color-bg-muted-orange, 15%);
-$color-fg-60:                 mix($color-fg, $color-bg-muted-orange, 40%);
-$color-fg-80:                 mix($color-fg, $color-bg-muted-orange, 70%);
-$color-fg-95:                 mix($color-fg, $color-bg-muted-orange, 95%);
+$color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 70%);
+$color-fg-20:                 mix($color-fg, $color-bg-muted, 5%);
+$color-fg-40:                 mix($color-fg, $color-bg-muted, 15%);
+$color-fg-60:                 mix($color-fg, $color-bg-muted, 40%);
+$color-fg-80:                 mix($color-fg, $color-bg-muted, 70%);
+$color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 
 // Swatches
 .swatch-orange          { background: $color-orange; }
@@ -31,7 +30,6 @@ $color-fg-95:                 mix($color-fg, $color-bg-muted-orange, 95%);
 .swatch-orange-quiet    { background: $color-orange-quiet; }
 .swatch-blue-quiet      { background: $color-blue-quiet; }
 .swatch-blue-desat      { background: $color-blue-desat; }
-.swatch-bg-muted-orange { background: $color-bg-muted-orange; }
 .swatch-bg-muted-blue   { background: $color-bg-muted-blue; }
 .swatch-bg-muted        { background: $color-bg-muted; }
 .swatch-fg-20           { background: $color-fg-20; }
@@ -55,14 +53,14 @@ $explanation-bg-color:        $color-bg;
 $explanation-fg-color:        $color-orange;
 
 // Intro
-$intro-bg-color:              $color-bg-muted-orange;
+$intro-bg-color:              $color-bg-muted;
 $intro-fg-color:              $color-orange;
 $intro-link-fg-color:         $color-fg-40;
 $intro-link-fg-color-hover:   $color-fg-95;
 $intro-deco-fg-color:         $color-fg-40;
 
 // Admonitions
-$admon-bg-color:              $color-bg-muted-orange;
+$admon-bg-color:              $color-bg-muted;
 $admon-fg-color-tip:          $color-blue;
 $admon-fg-color-note:         $color-blue;
 $admon-fg-color-caution:      $color-orange;
@@ -73,12 +71,12 @@ $admon-bg-color-caution:      $color-orange-quiet;
 $admon-bg-color-todo:         $color-bg-muted;
 
   // Footer
-$footer-bg-color:             $color-bg-muted-orange;
+$footer-bg-color:             $color-bg-muted;
 $footer-fg-color:             $color-fg-60;
 $footer-border-color:         $color-fg-40;
 $footer-link-color:           $color-fg-95;
 $footer-link-hover-fg-color:  $color-fg-95;
-$footer-link-hover-bg-color:  $color-bg-muted-orange;
+$footer-link-hover-bg-color:  $color-bg-muted;
 $footer-heart-color:          $color-orange;
 
 // Links
@@ -87,7 +85,7 @@ $link-color-hover:            $color-bg;
 $link-disabled:               $color-fg-60;
 
 // Code
-$pre-bg-color:                $color-bg-muted-orange;
+$pre-bg-color:                $color-bg-muted;
 $pre-shadow-color:            transparentize($color-shadow, 0.7);
 $code-prompt-color:           transparentize($color-fg, 0.5);
 
@@ -130,7 +128,7 @@ $figure-border-color:         $color-fg-20;
 $figure-caption-bg-color:     $color-fg-20;
 
 // Sidebar
-$sidebar-bg-color:            $color-bg-muted-orange;
+$sidebar-bg-color:            $color-bg-muted;
 $sidebar-section-title-color: $color-orange;
 
 // Typography
