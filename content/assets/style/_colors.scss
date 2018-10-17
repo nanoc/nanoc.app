@@ -39,10 +39,12 @@ $text-color:                  $color-fg-80;
 $text-color-emph:             $color-fg;
 
 // Navigation
-$nav-border-color:            $color-bg;
-$nav-item-active-color:       $color-bg;
-$nav-item-hover-color:        $color-bg;
-$nav-link-color:              transparentize($color-bg, 0.3);
+$nav-bg-color:                $color-orange-quiet;
+$nav-border-color:            $color-orange;
+$nav-border-hover-color:      $color-fg-80;
+$nav-item-active-color:       $color-fg;
+$nav-item-hover-color:        $color-fg;
+$nav-link-color:              $color-fg-60;
 
 // Explanation
 $explanation-bg-color:        $color-bg;

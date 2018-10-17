@@ -1,5 +1,5 @@
 .nws-nav {
-  background: $page-top-border-color;
+  background: $nav-bg-color;
 
   margin: 0;
   padding: 0;
@@ -61,6 +61,9 @@
 
 .nws-nav-link:hover {
   color: $nav-item-hover-color;
+
+  padding-top: 7px;
+  border-top: 3px solid $nav-border-hover-color;
 
   background: transparent;
 }
