@@ -2,7 +2,6 @@
 
 .hero {
   @include hero-bg-color;
-  background-image: url(/assets/images/symphony.png);
 
   margin-bottom: -60px;
 }

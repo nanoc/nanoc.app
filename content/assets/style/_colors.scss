@@ -416,9 +416,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 // Hero
 
 @mixin hero-bg-color {
-  background: $color-blue-quiet;
+  background: $color-blue-quiet url(/assets/images/symphony.png);
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-quiet;
+    background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
   }
 }
 
