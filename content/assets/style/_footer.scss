@@ -47,12 +47,6 @@ footer {
   }
 }
 
-.page .footer-content {
-  border-top-width: 1px;
-  border-top-style: solid;
-  @include footer-border-color;
-}
-
 .page .footer-copyright {
   display: none;
 }
@@ -100,9 +94,6 @@ footer {
 
 .footer-copyright {
   padding: 20px 0;
-  border-top-width: 1px;
-  border-top-style: solid;
-  @include footer-border-color;
   @include footer-fg-color;
 
   div {

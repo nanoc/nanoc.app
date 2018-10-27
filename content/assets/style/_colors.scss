@@ -332,13 +332,6 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
   }
 }
 
-@mixin footer-border-color {
-  border-color: $color-fg-40;
-  @media (prefers-color-scheme: dark) {
-    border-color: $color-darkmode-fg-40;
-  }
-}
-
 @mixin footer-link-color {
   color: $color-fg-95;
   @media (prefers-color-scheme: dark) {
