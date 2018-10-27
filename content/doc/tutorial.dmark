@@ -211,7 +211,7 @@ title: "Tutorial"
 
   #p A language that is commonly used instead of HTML is %ref[url=http://daringfireball.net/projects/markdown]{Markdown}. Nanoc comes with various Markdown filters, including a filter for %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.
 
-  #p Get rid of the content in %filename{content/index.html} (but leave the frontmatter intact), and replace it with Markdown:
+  #p Get rid of the content in %filename{content/about.html} (but leave the frontmatter intact), and replace it with Markdown:
 
   #listing
     ---
@@ -226,7 +226,7 @@ title: "Tutorial"
     2. Butter
     3. Refined uranium
 
-  #p Rename the %filename{content/index.html} file to %filename{content/index.md}. %filename{md} is a file extension that is commonly used with Markdown.
+  #p Rename the %filename{content/about.html} file to %filename{content/about.md}. %filename{md} is a file extension that is commonly used with Markdown.
 
   #p Before we can use the %productname{kramdown} gem, it needs to be installed:
 
@@ -240,33 +240,37 @@ title: "Tutorial"
   #p This %filename{Rules} file comes with a commented-out %firstterm{compilation rule} specifically for kramdown:
 
   #listing[lang=ruby]
+    %# This is an example rule that matches Markdown (.md) files, and filters them
+    %# using the :kramdown filter. It is commented out by default, because kramdown
+    %# is not bundled with Nanoc or Ruby.
+    %#
     %#compile '/**/*.md' do
     %#  filter :kramdown
     %#  layout '/default.*'
+    %#  write item.identifier.without_ext + '/index.html'
     %#end
 
-  #p Uncomment this block of code by removing the %code{#}s.
-
-  #p Compilation rules describe how items are processed. This particular rule matches items that have the %filename{md} extension, and tells Nanoc to apply the %code{:kramdown} filter to matching items, and then lay them out using the default layout.
-
-  #p Right below this compilation rule is a %firstterm{routing rule}:
+  #p Uncomment the %code{compile…end} block of code by removing the %code{#}s:
 
   #listing[lang=ruby]
-    route '/**/*.{html,md%}' do
-      if item.identifier =~ '/index.*'
-        '/index.html'
-      else
-        item.identifier.without_ext + '/index.html'
-      end
+    compile '/**/*.md' do
+      filter :kramdown
+      layout '/default.*'
+      write item.identifier.without_ext + '/index.html'
     end
 
-  #p Routing rules describe where items are written to. The return value of a routing rule is the path that an item will be written to, and directly corresponds with the path in the URL of the relevant page.
+  #p Compilation rules describe how items are processed. This particular rule matches items that have the %filename{md} extension, and tells Nanoc to do the following to all items that match the %code{/**/*.md} pattern:
 
-  #p This rule matches items that have the %filename{html} or %filename{md} extension. For the %identifier{/index.html} item, it assigns the path %filename{/index.html}. For the %identifier{/about.html} item, it assigns the path %filename{/about/index.html}. By putting every output file in its own directory and giving it the filename %filename{index.html}, we ensure that all pages have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
+  #ol
+    #li apply the %code{:kramdown} filter
+    #li lay them out using the default layout
+    #li write the resulting HTML file as an %filename{index.html} file in a directory named after the item
+
+  #p To give an example of the %code{write} call: the %identifier{/about.md} item is written to the path %filename{/about/index.html}. By putting every output file in its own directory and giving it the filename %filename{index.html}, we ensure that all pages have clean URLs that do not have the extension in them; you’ll be able to access the about page by going to %uri{/about/} rather than %uri{/about.html}.
 
   #note For more information on rules, see %ref[item=/doc/rules.*]{}. For more information on identifiers and patterns, see %ref[item=/doc/identifiers-and-patterns.*]{}.
 
-  #p Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In %filename{output/index.html}, you will find the converted HTML:
+  #p Recompile the site and load the home page in your web browser. You’ll see a paragraph, a header and a list. In %filename{output/about/index.html}, you will find the converted HTML:
 
   #listing[lang=html]
     <p>Now is the time for all good men to come to the aid of their country. This is just a regular paragraph.</p>
