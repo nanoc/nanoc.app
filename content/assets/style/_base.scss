@@ -11,7 +11,7 @@ body {
   font-weight: normal;
   font-size: 15px;
 
-  line-height: 20px;
+  line-height: 22px;
 }
 
 abbr {
@@ -77,7 +77,7 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   @include header-color;
 
-  margin-top: 2em;
+  margin-top: 2.5em;
   margin-bottom: 1rem;
 
   font-weight: normal;
