@@ -9,8 +9,8 @@ $color-shadow:                #000;
 $color-blue:                  hsl(211, 87, 41);
 $color-mark:                  hsl(60, 100, 90);
 
-$color-darkmode-orange:       hsl(8, 85, 55);
-$color-darkmode-bg:           hsl(210, 6, 14);
+$color-darkmode-orange:       hsl(8, 90, 60);
+$color-darkmode-bg:           hsl(210, 15, 18);
 $color-darkmode-fg:           #fff;
 $color-darkmode-shadow:       #000;
 $color-darkmode-blue:         hsl(211, 87, 65);
@@ -28,6 +28,7 @@ $color-darkmode-mark:         hsl(0, 0, 0);
 // Derived colors
 
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
+$color-bg-push:               mix($color-fg, $color-bg, 5%);
 $color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
 $color-bg-muted:              desaturate(mix($color-orange, $color-bg, 8%), 60%);
@@ -37,6 +38,7 @@ $color-fg-80:                 mix($color-fg, $color-bg-muted, 70%);
 $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 
 $color-darkmode-orange-quiet: mix($color-darkmode-orange, $color-darkmode-bg, 10%);
+$color-darkmode-bg-push:      mix($color-darkmode-fg, $color-darkmode-bg, 5%);
 $color-darkmode-blue-quiet:   desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 15%), 10%);
 $color-darkmode-blue-desat:   mix(desaturate($color-darkmode-blue, 60%), $color-darkmode-bg, 85%);
 $color-darkmode-bg-muted:     desaturate(mix($color-darkmode-orange, $color-darkmode-bg, 8%), 60%);
@@ -47,6 +49,7 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 
 
 @if $force_darkmode {
   $color-orange-quiet: $color-darkmode-orange-quiet;
+  $color-bg-push:      $color-darkmode-bg-push;
   $color-blue-quiet:   $color-darkmode-blue-quiet;
   $color-blue-desat:   $color-darkmode-blue-desat;
   $color-bg-muted:     $color-darkmode-bg-muted;
@@ -97,6 +100,13 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 
   background: $color-mark;
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-mark;
+  }
+}
+
+.swatch-bg-push {
+  background: $color-bg-push;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-push;
   }
 }
 
@@ -612,9 +622,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 
 // Sidebar
 
 @mixin sidebar-bg-color {
-  background: $color-bg-muted;
+  background: $color-bg-push;
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-muted;
+    background: $color-darkmode-bg-push;
   }
 }
 
