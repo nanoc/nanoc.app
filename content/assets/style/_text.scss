@@ -7,11 +7,11 @@
 }
 
 p, li, blockquote, dd, .admonition, pre, figcaption {
-  color: $text-color;
+  @include text-color;
 }
 
 li.active, strong, dt {
-  color: $text-emph-color;
+  @include text-emph-color;
 }
 
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {

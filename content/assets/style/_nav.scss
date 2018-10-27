@@ -1,5 +1,5 @@
 .nws-nav {
-  background: $nav-bg-color;
+  @include nav-bg-color;
 
   margin: 0;
   padding: 0;
@@ -48,22 +48,24 @@
 }
 
 .nws-nav-item .active {
-  color: $nav-item-active-color;
+  @include nav-item-active-color;
 
   padding-top: 7px;
-  border-top: 3px solid $nav-border-color;
+  border-top: 3px solid;
+  @include nav-border-color;
 }
 
 .nws-nav-link:link,
 .nws-nav-link:visited {
-  color: $nav-link-color;
+  @include nav-link-color;
 }
 
 .nws-nav-link:hover {
-  color: $nav-item-hover-color;
+  @include nav-item-hover-color;
 
   padding-top: 7px;
-  border-top: 3px solid $nav-border-hover-color;
+  border-top: 3px solid;
+  @include nav-border-hover-color;
 
   background: transparent;
 }

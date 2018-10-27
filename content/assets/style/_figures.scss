@@ -1,8 +1,9 @@
 @import "colors.scss";
 
 figure {
-  background: $figure-bg-color;
-  border: 1px solid $figure-border-color;
+  @include figure-bg-color;
+  border: 1px solid;
+  @include figure-border-color;
 
   margin: 0 0 20px 0;
 
@@ -15,7 +16,7 @@ figure {
   figcaption {
     padding: 5px 10px;
 
-    background: $figure-caption-bg-color;
+    @include figure-caption-bg-color;
 
     display: block;
 

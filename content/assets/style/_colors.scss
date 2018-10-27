@@ -1,4 +1,7 @@
+$force_darkmode: false;
+
 // Core colors
+
 $color-orange:                hsl(20, 100, 46);
 $color-bg:                    #fff;
 $color-fg:                    #000;
@@ -6,7 +9,24 @@ $color-shadow:                #000;
 $color-blue:                  hsl(211, 87, 41);
 $color-mark:                  hsl(60, 100, 90);
 
+$color-darkmode-orange:       hsl(8, 85, 55);
+$color-darkmode-bg:           hsl(210, 6, 14);
+$color-darkmode-fg:           #fff;
+$color-darkmode-shadow:       #000;
+$color-darkmode-blue:         hsl(211, 87, 65);
+$color-darkmode-mark:         hsl(0, 0, 0);
+
+@if $force_darkmode {
+  $color-orange: $color-darkmode-orange;
+  $color-bg:     $color-darkmode-bg;
+  $color-fg:     $color-darkmode-fg;
+  $color-shadow: $color-darkmode-shadow;
+  $color-blue:   $color-darkmode-blue;
+  $color-mark:   $color-darkmode-mark;
+}
+
 // Derived colors
+
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
@@ -16,115 +36,607 @@ $color-fg-60:                 mix($color-fg, $color-bg-muted, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-muted, 70%);
 $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 
+$color-darkmode-orange-quiet: mix($color-darkmode-orange, $color-darkmode-bg, 10%);
+$color-darkmode-blue-quiet:   desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 15%), 10%);
+$color-darkmode-blue-desat:   mix(desaturate($color-darkmode-blue, 60%), $color-darkmode-bg, 85%);
+$color-darkmode-bg-muted:     desaturate(mix($color-darkmode-orange, $color-darkmode-bg, 8%), 60%);
+$color-darkmode-fg-40:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 15%);
+$color-darkmode-fg-60:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 40%);
+$color-darkmode-fg-80:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 70%);
+$color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-muted, 95%);
+
+@if $force_darkmode {
+  $color-orange-quiet: $color-darkmode-orange-quiet;
+  $color-blue-quiet:   $color-darkmode-blue-quiet;
+  $color-blue-desat:   $color-darkmode-blue-desat;
+  $color-bg-muted:     $color-darkmode-bg-muted;
+  $color-fg-40:        $color-darkmode-fg-40;
+  $color-fg-60:        $color-darkmode-fg-60;
+  $color-fg-80:        $color-darkmode-fg-80;
+  $color-fg-95:        $color-darkmode-fg-95;
+}
+
 // Swatches
-.swatch-orange          { background: $color-orange; }
-.swatch-bg              { background: $color-bg; }
-.swatch-fg              { background: $color-fg; }
-.swatch-shadow          { background: $color-shadow; }
-.swatch-blue            { background: $color-blue; }
-.swatch-mark            { background: $color-mark; }
-.swatch-orange-quiet    { background: $color-orange-quiet; }
-.swatch-blue-quiet      { background: $color-blue-quiet; }
-.swatch-blue-desat      { background: $color-blue-desat; }
-.swatch-bg-muted        { background: $color-bg-muted; }
-.swatch-fg-40           { background: $color-fg-40; }
-.swatch-fg-60           { background: $color-fg-60; }
-.swatch-fg-80           { background: $color-fg-80; }
-.swatch-fg-95           { background: $color-fg-95; }
+
+.swatch-orange {
+  background: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange;
+  }
+}
+
+.swatch-bg {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+.swatch-fg {
+  background: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg;
+  }
+}
+
+.swatch-shadow {
+  background: $color-shadow;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-shadow;
+  }
+}
+
+.swatch-blue {
+  background: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue;
+  }
+}
+
+.swatch-mark {
+  background: $color-mark;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-mark;
+  }
+}
+
+.swatch-orange-quiet {
+  background: $color-orange-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange-quiet;
+  }
+}
+
+.swatch-blue-quiet {
+  background: $color-blue-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-quiet;
+  }
+}
+
+.swatch-blue-desat {
+  background: $color-blue-desat;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-desat;
+  }
+}
+
+.swatch-bg-muted {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
+
+.swatch-fg-40 {
+  background: $color-fg-40;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-40;
+  }
+}
+
+.swatch-fg-60 {
+  background: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-60;
+  }
+}
+
+.swatch-fg-80 {
+  background: $color-fg-80;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-80;
+  }
+}
+
+.swatch-fg-95 {
+  background: $color-fg-95;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-95;
+  }
+}
 
 // Body
-$page-bg-color:               $color-bg;
-$page-top-border-color:       $color-orange;
+
+@mixin page-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+@mixin page-top-border-color {
+  background: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange;
+  }
+}
 
 // Text
-$text-color:                  $color-fg-80;
-$text-emph-color:             $color-fg;
+
+@mixin text-color {
+  color: $color-fg-80;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-80;
+  }
+}
+
+@mixin text-emph-color {
+  color: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg;
+  }
+}
 
 // Navigation
-$nav-bg-color:                $color-orange-quiet;
-$nav-border-color:            $color-orange;
-$nav-border-hover-color:      $color-fg-80;
-$nav-item-active-color:       $color-fg;
-$nav-item-hover-color:        $color-fg;
-$nav-link-color:              $color-fg-60;
+
+@mixin nav-bg-color {
+  background: $color-orange-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange-quiet;
+  }
+}
+
+@mixin nav-item-active-color {
+  color: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg;
+  }
+}
+
+@mixin nav-item-hover-color {
+  color: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg;
+  }
+}
+
+@mixin nav-link-color {
+  color: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-60;
+  }
+}
+
+@mixin nav-border-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
+
+@mixin nav-border-hover-color {
+  color: $color-fg-80;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-80;
+  }
+}
 
 // Explanation
-$explanation-bg-color:        $color-bg;
-$explanation-fg-color:        $color-orange;
 
-// Intro
-$intro-bg-color:              $color-bg-muted;
-$intro-fg-color:              $color-orange;
-$intro-link-fg-color:         $color-fg-40;
-$intro-deco-fg-color:         $color-fg-40;
+@mixin explanation-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+@mixin explanation-fg-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
 
 // Admonitions
-$admon-bg-color:              $color-bg-muted;
-$admon-fg-tip-color:          $color-blue;
-$admon-fg-note-color:         $color-blue;
-$admon-fg-caution-color:      $color-orange;
-$admon-fg-todo-color:         $color-fg-60;
-$admon-bg-tip-color:          $color-blue-quiet;
-$admon-bg-note-color:         $color-blue-quiet;
-$admon-bg-caution-color:      $color-orange-quiet;
-$admon-bg-todo-color:         $color-bg-muted;
+
+@mixin admon-bg-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin admon-fg-tip-color {
+  color: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-blue;
+  }
+}
+
+@mixin admon-fg-note-color {
+  color: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-blue;
+  }
+}
+
+@mixin admon-fg-caution-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
+
+@mixin admon-fg-todo-color {
+  color: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-60;
+  }
+}
+
+@mixin admon-bg-tip-color {
+  background: $color-blue-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-quiet;
+  }
+}
+
+@mixin admon-bg-note-color {
+  background: $color-blue-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-quiet;
+  }
+}
+
+@mixin admon-bg-caution-color {
+  background: $color-orange-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange-quiet;
+  }
+}
+
+@mixin admon-bg-todo-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
 
 // Footer
-$footer-bg-color:             $color-bg-muted;
-$footer-fg-color:             $color-fg-60;
-$footer-border-color:         $color-fg-40;
-$footer-link-color:           $color-fg-95;
-$footer-link-hover-fg-color:  $color-fg-95;
-$footer-link-hover-bg-color:  $color-bg-muted;
-$footer-heart-color:          $color-orange;
+
+@mixin footer-bg-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin footer-fg-color {
+  color: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-60;
+  }
+}
+
+@mixin footer-border-color {
+  border-color: $color-fg-40;
+  @media (prefers-color-scheme: dark) {
+    border-color: $color-darkmode-fg-40;
+  }
+}
+
+@mixin footer-link-color {
+  color: $color-fg-95;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-95;
+  }
+}
+
+@mixin footer-link-hover-bg-color {
+  background: $color-fg-95;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-95;
+  }
+}
+
+@mixin footer-link-hover-fg-color {
+  color: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin footer-heart-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
 
 // Links
-$link-color:                  $color-blue;
-$link-hover-color:            $color-bg;
+
+@mixin link-color {
+  color: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-blue;
+  }
+}
+
+@mixin link-hover-fg-color {
+  color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg;
+  }
+}
+
+@mixin link-hover-bg-color {
+  background: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue;
+  }
+}
 
 // Code
-$pre-bg-color:                $color-bg-muted;
-$pre-shadow-color:            transparentize($color-shadow, 0.7);
-$code-prompt-color:           transparentize($color-fg, 0.5);
+
+@mixin pre-bg-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin code-prompt-color {
+  color: transparentize($color-fg, 0.5);
+  @media (prefers-color-scheme: dark) {
+    color: transparentize($color-darkmode-fg, 0.5);
+  }
+}
+
+@mixin pre-box-shadow {
+  box-shadow: 0 1px 1px transparentize($color-shadow, 0.7);
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0 1px 1px transparentize($color-darkmode-shadow, 0.7);
+  }
+}
 
 // Hero
-$hero-bg-color:               $color-blue-quiet;
-$hero-link-bg-color:          transparentize($color-bg, 0.6);
+
+@mixin hero-bg-color {
+  background: $color-blue-quiet;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-quiet;
+  }
+}
+
+@mixin hero-link-bg-color {
+  background: transparentize($color-bg, 0.6);
+  @media (prefers-color-scheme: dark) {
+    background: transparentize($color-darkmode-bg, 0.6);
+  }
+}
+
+@mixin hero-link-hover-fg-color {
+  color: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-blue;
+  }
+}
+
+@mixin hero-link-hover-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
 
 // Search
-$search-bg-color:                   $color-bg;
-$search-fg-color:                   $color-fg-60;
-$search-border-color:               $color-blue-quiet;
-$search-placeholder-bg-color:       $color-bg;
-$search-placeholder-border-color:   $color-bg;
-$search-results-l0-fg-color:        $color-orange;
-$search-results-l1-fg-color:        $color-fg;
-$search-results-higlight-fg-color:  $color-orange;
-$search-results-higlight-bg-color:  $color-orange-quiet;
-$search-results-selection-bg-color: $color-orange-quiet;
+
+@mixin search-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+@mixin search-fg-color {
+  color: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg-60;
+  }
+}
+
+@mixin search-border-color {
+  border-color: $color-blue-quiet;
+  @media (prefers-color-scheme: dark) {
+    border-color: $color-darkmode-blue-quiet;
+  }
+}
+
+@mixin search-placeholder-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+@mixin search-placeholder-border-color {
+  border-color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    border-color:  $color-darkmode-bg;
+  }
+}
+
+@mixin search-results-l0-fg-color {
+  color: $color-orange;
+  // @media (prefers-color-scheme: dark) {
+  //   color: $color-darkmode-orange;
+  // }
+}
+
+@mixin search-results-l1-fg-color {
+  color: $color-fg;
+  // @media (prefers-color-scheme: dark) {
+  //   color: $color-darkmode-fg;
+  // }
+}
+
+@mixin search-results-higlight-fg-color {
+  color: $color-orange;
+  // @media (prefers-color-scheme: dark) {
+  //   color: $color-darkmode-orange;
+  // }
+}
+
+@mixin search-results-higlight-bg-color {
+  background: $color-orange-quiet;
+  // @media (prefers-color-scheme: dark) {
+  //   background: $color-darkmode-orange-quiet;
+  // }
+}
+
+@mixin search-results-selection-bg-color {
+  background: $color-orange-quiet;
+  // @media (prefers-color-scheme: dark) {
+  //   background: $color-darkmode-orange-quiet;
+  // }
+}
 
 // Mark
-$mark-bg-color:               $color-mark;
+
+@mixin mark-fg-color {
+  color: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg;
+  }
+}
+
+@mixin mark-bg-color {
+  background: $color-mark;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-mark;
+  }
+}
 
 // Tags
-$tag-legacy-bg-color:              $color-fg-60;
-$tag-legacy-fg-color:              $color-bg;
-$tag-legacy-intermediate-bg-color: $color-blue-desat;
-$tag-legacy-intermediate-fg-color: $color-bg;
-$tag-new-bg-color:                 $color-blue;
-$tag-new-fg-color:                 $color-bg;
-$tag-errors-bg-color:              $color-orange;
-$tag-errors-fg-color:              $color-bg;
+
+@mixin tag-legacy-bg-color {
+  background: $color-fg-60;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-fg-60;
+  }
+}
+
+@mixin tag-legacy-fg-color {
+  color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg;
+  }
+}
+
+@mixin tag-legacy-intermediate-bg-color {
+  background: $color-blue-desat;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-desat;
+  }
+}
+
+@mixin tag-legacy-intermediate-fg-color {
+  color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg;
+  }
+}
+
+@mixin tag-new-bg-color {
+  background: $color-blue;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue;
+  }
+}
+
+@mixin tag-new-fg-color {
+  color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg;
+  }
+}
+
+@mixin tag-errors-bg-color {
+  background: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-orange;
+  }
+}
+
+@mixin tag-errors-fg-color {
+  color: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-bg;
+  }
+}
 
 // Figures
-$figure-bg-color:             $color-bg;
-$figure-border-color:         $color-bg-muted;
-$figure-caption-bg-color:     $color-bg-muted;
+
+@mixin figure-bg-color {
+  background: $color-bg;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
+  }
+}
+
+@mixin figure-border-color {
+  border-color: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    border-color: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin figure-caption-bg-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
 
 // Sidebar
-$sidebar-bg-color:            $color-bg-muted;
-$sidebar-section-title-color: $color-orange;
+
+@mixin sidebar-bg-color {
+  background: $color-bg-muted;
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg-muted;
+  }
+}
+
+@mixin sidebar-section-title-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
 
 // Typography
-$header-color:                $color-orange;
-$dt-color:                    $color-fg;
+
+@mixin header-color {
+  color: $color-orange;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-orange;
+  }
+}
+
+@mixin dt-color {
+  color: $color-fg;
+  @media (prefers-color-scheme: dark) {
+    color: $color-darkmode-fg;
+  }
+}
