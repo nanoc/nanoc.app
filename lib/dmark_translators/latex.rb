@@ -237,13 +237,13 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
   end
 
   ESCAPE_MAP = {
-    '^'  => '\\^{}',
+    '^' => '\\^{}',
     '\\' => '\\textbackslash{}',
-    '~'  => '\\ensuremath{\\sim}',
-    '|'  => '\\textbar{}',
-    '<'  => '\\textless{}',
-    '>'  => '\\textgreater{}',
-    '-'  => '\\textendash{}',
+    '~' => '\\ensuremath{\\sim}',
+    '|' => '\\textbar{}',
+    '<' => '\\textless{}',
+    '>' => '\\textgreater{}',
+    '-' => '\\textendash{}',
   }.merge(Hash[*'{}$%&_#'.scan(/./).map { |c| [c, "\\#{c}"] }.flatten])
 
   ESCAPE_REGEX = Regexp.union(*ESCAPE_MAP.map { |k, _v| k })

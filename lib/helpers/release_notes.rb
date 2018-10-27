@@ -2,7 +2,7 @@
 
 module NanocSite
   module ReleaseNotes
-    TITLE_REGEX = /^(\d+\.\d+(\.\d+){0,2}) \((\d{4}-\d{2}-\d{2})\)$/
+    TITLE_REGEX = /^(\d+\.\d+(\.\d+){0,2}) \((\d{4}-\d{2}-\d{2})\)$/.freeze
 
     # Returns a hash with `:version`, containing the latest released version,
     # and `:date`, containing the latest released version’s release date.
