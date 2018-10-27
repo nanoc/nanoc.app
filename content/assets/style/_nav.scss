@@ -63,10 +63,6 @@
 .nws-nav-link:hover {
   @include nav-item-hover-color;
 
-  padding-top: 7px;
-  border-top: 3px solid;
-  @include nav-border-hover-color;
-
   background: transparent;
 }
 
