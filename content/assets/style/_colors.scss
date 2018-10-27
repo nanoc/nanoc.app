@@ -32,6 +32,10 @@ $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 .swatch-fg-80           { background: $color-fg-80; }
 .swatch-fg-95           { background: $color-fg-95; }
 
+// Body
+$page-bg-color:               $color-bg;
+$page-top-border-color:       $color-orange;
+
 // Text
 $text-color:                  $color-fg-80;
 $text-emph-color:             $color-fg;
@@ -65,7 +69,7 @@ $admon-bg-note-color:         $color-blue-quiet;
 $admon-bg-caution-color:      $color-orange-quiet;
 $admon-bg-todo-color:         $color-bg-muted;
 
-  // Footer
+// Footer
 $footer-bg-color:             $color-bg-muted;
 $footer-fg-color:             $color-fg-60;
 $footer-border-color:         $color-fg-40;
@@ -98,10 +102,6 @@ $search-results-l1-fg-color:        $color-fg;
 $search-results-higlight-fg-color:  $color-orange;
 $search-results-higlight-bg-color:  $color-orange-quiet;
 $search-results-selection-bg-color: $color-orange-quiet;
-
-// Body
-$page-bg-color:               $color-bg;
-$page-top-border-color:       $color-orange;
 
 // Mark
 $mark-bg-color:               $color-mark;
