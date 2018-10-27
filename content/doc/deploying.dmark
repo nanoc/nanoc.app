@@ -124,21 +124,20 @@ short_title: "Deploying"
 
     #p GitLab CI will build and deploy the website. Once it has finished, the site will be accessible at %uri{namespace.gitlab.io}.
 
-    #section %h{Setting up checks}
-      #p To run deployment checks, add %code{bundle exec nanoc check --deploy} to the %filename{.gitlab-ci.yml} file, after %code{bundle exec nanoc}:
+    #p To run deployment checks, add %code{bundle exec nanoc check --deploy} to the %filename{.gitlab-ci.yml} file, after %code{bundle exec nanoc}:
 
-      #listing[lang=yaml]
-        image: ruby:2.4
-        pages:
-          script:
-            - bundle install -j4
-            - bundle exec nanoc
-            - bundle exec nanoc check --deploy
-          artifacts:
-            paths:
-              - public
-          only:
-            - master
+    #listing[lang=yaml]
+      image: ruby:2.4
+      pages:
+        script:
+          - bundle install -j4
+          - bundle exec nanoc
+          - bundle exec nanoc check --deploy
+        artifacts:
+          paths:
+            - public
+        only:
+          - master
 
     #p A deploy will now only succeed if checks pass.
 
