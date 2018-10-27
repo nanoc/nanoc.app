@@ -33,41 +33,41 @@ div.admonition-wrapper .admonition {
 }
 
 div.admonition-wrapper.tip  .admonition {
-  background-color: $admon-bg-color-tip;
+  background-color: $admon-bg-tip-color;
 }
 
 div.admonition-wrapper.tip:before {
-  color: $admon-fg-color-tip;
+  color: $admon-fg-tip-color;
   font-weight: 900;
   content: "\f0eb";
 }
 
 div.admonition-wrapper.note  .admonition {
-  background-color: $admon-bg-color-note;
+  background-color: $admon-bg-note-color;
 }
 
 div.admonition-wrapper.note:before {
-  color: $admon-fg-color-note;
+  color: $admon-fg-note-color;
   font-weight: 900;
   content: "\f05a";
 }
 
 div.admonition-wrapper.caution  .admonition {
-  background-color: $admon-bg-color-caution;
+  background-color: $admon-bg-caution-color;
 }
 
 div.admonition-wrapper.caution:before {
-  color: $admon-fg-color-caution;
+  color: $admon-fg-caution-color;
   font-weight: 900;
   content: "\f071";
 }
 
 div.admonition-wrapper.todo  .admonition {
-  background-color: $admon-bg-color-todo;
+  background-color: $admon-bg-todo-color;
 }
 
 div.admonition-wrapper.todo:before {
-  color: $admon-fg-color-todo;
+  color: $admon-fg-todo-color;
   font-weight: 900;
   content: "\f0c3";
 }

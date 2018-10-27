@@ -11,7 +11,7 @@ p, li, blockquote, dd, .admonition, pre, figcaption {
 }
 
 li.active, strong, dt {
-  color: $text-color-emph;
+  color: $text-emph-color;
 }
 
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {

@@ -34,7 +34,7 @@ $color-fg-95:                 mix($color-fg, $color-bg-muted, 95%);
 
 // Text
 $text-color:                  $color-fg-80;
-$text-color-emph:             $color-fg;
+$text-emph-color:             $color-fg;
 
 // Navigation
 $nav-bg-color:                $color-orange-quiet;
@@ -52,19 +52,18 @@ $explanation-fg-color:        $color-orange;
 $intro-bg-color:              $color-bg-muted;
 $intro-fg-color:              $color-orange;
 $intro-link-fg-color:         $color-fg-40;
-$intro-link-fg-color-hover:   $color-fg-95;
 $intro-deco-fg-color:         $color-fg-40;
 
 // Admonitions
 $admon-bg-color:              $color-bg-muted;
-$admon-fg-color-tip:          $color-blue;
-$admon-fg-color-note:         $color-blue;
-$admon-fg-color-caution:      $color-orange;
-$admon-fg-color-todo:         $color-fg-60;
-$admon-bg-color-tip:          $color-blue-quiet;
-$admon-bg-color-note:         $color-blue-quiet;
-$admon-bg-color-caution:      $color-orange-quiet;
-$admon-bg-color-todo:         $color-bg-muted;
+$admon-fg-tip-color:          $color-blue;
+$admon-fg-note-color:         $color-blue;
+$admon-fg-caution-color:      $color-orange;
+$admon-fg-todo-color:         $color-fg-60;
+$admon-bg-tip-color:          $color-blue-quiet;
+$admon-bg-note-color:         $color-blue-quiet;
+$admon-bg-caution-color:      $color-orange-quiet;
+$admon-bg-todo-color:         $color-bg-muted;
 
   // Footer
 $footer-bg-color:             $color-bg-muted;
@@ -77,8 +76,7 @@ $footer-heart-color:          $color-orange;
 
 // Links
 $link-color:                  $color-blue;
-$link-color-hover:            $color-bg;
-$link-disabled:               $color-fg-60;
+$link-hover-color:            $color-bg;
 
 // Code
 $pre-bg-color:                $color-bg-muted;
