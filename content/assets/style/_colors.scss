@@ -63,6 +63,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-orange {
   background: $color-orange;
+  @at-root .dark & {
+    background: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange;
   }
@@ -70,6 +73,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-bg {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -77,6 +83,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-fg {
   background: $color-fg;
+  @at-root .dark & {
+    background: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg;
   }
@@ -84,6 +93,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-shadow {
   background: $color-shadow;
+  @at-root .dark & {
+    background: $color-darkmode-shadow;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-shadow;
   }
@@ -91,6 +103,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-blue {
   background: $color-blue;
+  @at-root .dark & {
+    background: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -98,6 +113,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-mark {
   background: $color-mark;
+  @at-root .dark & {
+    background: $color-darkmode-mark;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-mark;
   }
@@ -105,6 +123,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-bg-push {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -112,6 +133,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-bg-pull {
   background: $color-bg-pull;
+  @at-root .dark & {
+    background: $color-darkmode-bg-pull;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-pull;
   }
@@ -119,6 +143,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-orange-quiet {
   background: $color-orange-quiet;
+  @at-root .dark & {
+    background: $color-darkmode-orange-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange-quiet;
   }
@@ -126,6 +153,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-blue-quiet {
   background: $color-blue-quiet;
+  @at-root .dark & {
+    background: $color-darkmode-blue-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -133,6 +163,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-blue-desat {
   background: $color-blue-desat;
+  @at-root .dark & {
+    background: $color-darkmode-blue-desat;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-desat;
   }
@@ -140,6 +173,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-fg-40 {
   background: $color-fg-40;
+  @at-root .dark & {
+    background: $color-darkmode-fg-40;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-40;
   }
@@ -147,6 +183,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-fg-60 {
   background: $color-fg-60;
+  @at-root .dark & {
+    background: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-60;
   }
@@ -154,6 +193,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-fg-80 {
   background: $color-fg-80;
+  @at-root .dark & {
+    background: $color-darkmode-fg-80;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-80;
   }
@@ -161,6 +203,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 .swatch-fg-95 {
   background: $color-fg-95;
+  @at-root .dark & {
+    background: $color-darkmode-fg-95;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-95;
   }
@@ -170,6 +215,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin page-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -177,6 +225,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin page-top-border-color {
   background: $color-orange;
+  @at-root .dark & {
+    background: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange;
   }
@@ -186,6 +237,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin text-color {
   color: $color-fg-80;
+  @at-root .dark & {
+    color: $color-darkmode-fg-80;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-80;
   }
@@ -193,6 +247,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin text-emph-color {
   color: $color-fg;
+  @at-root .dark & {
+    color: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -202,6 +259,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin nav-bg-color {
   background: $color-bg-pull;
+  @at-root .dark & {
+    background: $color-darkmode-bg-pull;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-pull;
   }
@@ -209,6 +269,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin nav-item-active-color {
   color: $color-fg;
+  @at-root .dark & {
+    color: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -216,6 +279,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin nav-item-hover-color {
   color: $color-fg;
+  @at-root .dark & {
+    color: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -223,6 +289,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin nav-link-color {
   color: $color-fg-60;
+  @at-root .dark & {
+    color: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-60;
   }
@@ -230,6 +299,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin nav-border-color {
   border-color: $color-orange;
+  @at-root .dark & {
+    border-color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-orange;
   }
@@ -239,6 +311,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin explanation-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -246,6 +321,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin explanation-fg-color {
   color: $color-orange;
+  @at-root .dark & {
+    color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -255,6 +333,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-bg-color {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -262,6 +343,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-fg-tip-color {
   color: $color-blue;
+  @at-root .dark & {
+    color: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -269,6 +353,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-fg-note-color {
   color: $color-blue;
+  @at-root .dark & {
+    color: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -276,6 +363,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-fg-caution-color {
   color: $color-orange;
+  @at-root .dark & {
+    color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -283,6 +373,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-fg-todo-color {
   color: $color-fg-60;
+  @at-root .dark & {
+    color: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-60;
   }
@@ -290,6 +383,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-bg-tip-color {
   background: $color-blue-quiet;
+  @at-root .dark & {
+    background: $color-darkmode-blue-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -297,6 +393,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-bg-note-color {
   background: $color-blue-quiet;
+  @at-root .dark & {
+    background: $color-darkmode-blue-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -304,6 +403,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-bg-caution-color {
   background: $color-orange-quiet;
+  @at-root .dark & {
+    background: $color-darkmode-orange-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange-quiet;
   }
@@ -311,6 +413,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin admon-bg-todo-color {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -320,6 +425,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -327,6 +435,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-fg-color {
   color: $color-fg-60;
+  @at-root .dark & {
+    color: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-60;
   }
@@ -334,6 +445,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-link-color {
   color: $color-fg-95;
+  @at-root .dark & {
+    color: $color-darkmode-fg-95;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-95;
   }
@@ -341,6 +455,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-link-hover-bg-color {
   background: $color-fg-95;
+  @at-root .dark & {
+    background: $color-darkmode-fg-95;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-95;
   }
@@ -348,6 +465,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-link-hover-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -355,6 +475,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin footer-heart-color {
   color: $color-orange;
+  @at-root .dark & {
+    color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -364,6 +487,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin link-color {
   color: $color-blue;
+  @at-root .dark & {
+    color: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -371,6 +497,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin link-hover-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -378,6 +507,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin link-hover-bg-color {
   background: $color-blue;
+  @at-root .dark & {
+    background: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -387,6 +519,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin pre-bg-color {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -394,6 +529,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin code-prompt-color {
   color: transparentize($color-fg, 0.5);
+  @at-root .dark & {
+    color: transparentize($color-darkmode-fg, 0.5);
+  }
   @media (prefers-color-scheme: dark) {
     color: transparentize($color-darkmode-fg, 0.5);
   }
@@ -401,6 +539,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin pre-box-shadow {
   box-shadow: 0 1px 1px transparentize($color-shadow, 0.7);
+  @at-root .dark & {
+    box-shadow: 0 1px 1px transparentize($color-darkmode-shadow, 0.7);
+  }
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 1px 1px transparentize($color-darkmode-shadow, 0.7);
   }
@@ -410,6 +551,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin hero-bg-color {
   background: $color-blue-quiet url(/assets/images/symphony.png);
+  @at-root .dark & {
+    background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
   }
@@ -417,6 +561,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin hero-link-bg-color {
   background: transparentize($color-bg, 0.6);
+  @at-root .dark & {
+    background: transparentize($color-darkmode-bg, 0.6);
+  }
   @media (prefers-color-scheme: dark) {
     background: transparentize($color-darkmode-bg, 0.6);
   }
@@ -424,6 +571,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin hero-link-hover-fg-color {
   color: $color-blue;
+  @at-root .dark & {
+    color: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -431,6 +581,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin hero-link-hover-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -440,6 +593,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -447,6 +603,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-fg-color {
   color: $color-fg-60;
+  @at-root .dark & {
+    color: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg-60;
   }
@@ -454,6 +613,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-border-color {
   border-color: $color-blue-quiet;
+  @at-root .dark & {
+    border-color: $color-darkmode-blue-quiet;
+  }
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-blue-quiet;
   }
@@ -461,6 +623,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-placeholder-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -468,6 +633,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-placeholder-border-color {
   border-color: $color-bg;
+  @at-root .dark & {
+    border-color:  $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     border-color:  $color-darkmode-bg;
   }
@@ -475,43 +643,31 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin search-results-l0-fg-color {
   color: $color-orange;
-  // @media (prefers-color-scheme: dark) {
-  //   color: $color-darkmode-orange;
-  // }
 }
 
 @mixin search-results-l1-fg-color {
   color: $color-fg;
-  // @media (prefers-color-scheme: dark) {
-  //   color: $color-darkmode-fg;
-  // }
 }
 
 @mixin search-results-higlight-fg-color {
   color: $color-orange;
-  // @media (prefers-color-scheme: dark) {
-  //   color: $color-darkmode-orange;
-  // }
 }
 
 @mixin search-results-higlight-bg-color {
   background: $color-orange-quiet;
-  // @media (prefers-color-scheme: dark) {
-  //   background: $color-darkmode-orange-quiet;
-  // }
 }
 
 @mixin search-results-selection-bg-color {
   background: $color-orange-quiet;
-  // @media (prefers-color-scheme: dark) {
-  //   background: $color-darkmode-orange-quiet;
-  // }
 }
 
 // Mark
 
 @mixin mark-fg-color {
   color: $color-fg;
+  @at-root .dark & {
+    color: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -519,6 +675,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin mark-bg-color {
   background: $color-mark;
+  @at-root .dark & {
+    background: $color-darkmode-mark;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-mark;
   }
@@ -528,6 +687,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-legacy-bg-color {
   background: $color-fg-60;
+  @at-root .dark & {
+    background: $color-darkmode-fg-60;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg-60;
   }
@@ -535,6 +697,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-legacy-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -542,6 +707,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-legacy-intermediate-bg-color {
   background: $color-blue-desat;
+  @at-root .dark & {
+    background: $color-darkmode-blue-desat;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-desat;
   }
@@ -549,6 +717,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-legacy-intermediate-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -556,6 +727,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-new-bg-color {
   background: $color-blue;
+  @at-root .dark & {
+    background: $color-darkmode-blue;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -563,6 +737,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-new-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -570,6 +747,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-errors-bg-color {
   background: $color-orange;
+  @at-root .dark & {
+    background: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange;
   }
@@ -577,6 +757,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin tag-errors-fg-color {
   color: $color-bg;
+  @at-root .dark & {
+    color: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -586,6 +769,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin figure-bg-color {
   background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -593,6 +779,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin figure-border-color {
   border-color: $color-bg-push;
+  @at-root .dark & {
+    border-color: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-bg-push;
   }
@@ -600,6 +789,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin figure-caption-bg-color {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -609,6 +801,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin sidebar-bg-color {
   background: $color-bg-push;
+  @at-root .dark & {
+    background: $color-darkmode-bg-push;
+  }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg-push;
   }
@@ -616,6 +811,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin sidebar-section-title-color {
   color: $color-orange;
+  @at-root .dark & {
+    color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -625,6 +823,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin header-color {
   color: $color-orange;
+  @at-root .dark & {
+    color: $color-darkmode-orange;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -632,6 +833,9 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin dt-color {
   color: $color-fg;
+  @at-root .dark & {
+    color: $color-darkmode-fg;
+  }
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }

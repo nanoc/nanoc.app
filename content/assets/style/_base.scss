@@ -5,13 +5,15 @@
 }
 
 body {
-  @include page-bg-color;
-
   font-family: "Source Sans Pro";
   font-weight: normal;
   font-size: 15px;
 
   line-height: 22px;
+}
+
+.wrapper {
+  @include page-bg-color;
 }
 
 abbr {

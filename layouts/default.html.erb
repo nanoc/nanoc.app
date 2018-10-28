@@ -10,63 +10,65 @@
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
   </head>
-  <body class="<%= @item[:has_basic_layout] ? 'home' : 'page' %>" id="nanoc">
+  <body id="nanoc">
+    <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>" >
 <% if @item[:has_basic_layout] %>
-    <%= yield %>
+      <%= yield %>
 <% else %>
-    <nav class="nws-nav">
-      <ul class="nws-nav-content">
-        <li class="nws-nav-item"><%= link_to_unless_current('Home', @items['/index.*'], class: 'nws-nav-link') %></li>
-        <li class="nws-nav-item"><%= link_to_unless_current('Documentation', @items['/doc/about.*'], class: 'nws-nav-link') %></li>
-        <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
-        <li class="nws-nav-item"><%= link_to_unless_current('What’s new?', @items['/whats-new.*'], class: 'nws-nav-link') %></li>
-      </ul>
-    </nav>
-    <div class="nws-content">
-      <aside class="side">
-        <div class="nws-side__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
-        <div class="nws-side__content">
-  	      <% if @item.identifier =~ %r{^/doc(/|\.)} %>
-            <h3>Table of contents</h3>
-            <%= doc_toc %>
-  	      <% elsif !@item[:skip_details] %>
-            <h3>Table of contents</h3>
-            {{TOC}}
-  	      <% end %>
-        </div>
-      </aside>
-      <article>
-        <div class="article-content">
-  	      <h1 class="nws-article__title"><%= @item[:title] %></h1>
-          <%= yield %>
-        </div>
-      </article>
-    </div>
-<% end %>
-    <footer class="footer">
-      <div class="footer-content-wrapper">
-        <div class="footer-content">
-          <div class="footer-releasenotes">The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. See the <a href="/release-notes/">release notes</a> for details.</div>
-          <div class="footer-links-explanation">Don’t stick around forever. For a change of scenery, go over here:</div>
-          <ul class="footer-links">
-            <li><%= link_to_id '/contributing.*' %></li>
-            <li><a href="https://github.com/nanoc/nanoc">GitHub repo</a></li>
-            <li><a href="http://github.com/nanoc/nanoc/issues">Issue tracker</a></li>
-            <li><a href="http://groups.google.com/group/nanoc">Discussion group</a></li>
-            <li><a href="https://gitter.im/nanoc/nanoc">Gitter channel</a></li>
-            <li><a href="https://donorbox.org/nanoc">Donate <strong>&#10084;</strong></a></li>
-          </ul>
-          <div class="footer-copyright">
-            <div>Nanoc © 2007–2018 Denis Defreyne. The content of the Nanoc website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>, with exception of code examples, which are released into the public domain. Nanoc is licensed under the MIT license. <a href="http://fontawesome.com">Font Awesome</a> licensed under SIL OFL 1.1. <a href="http://subtlepatterns.com/">Subtle Patterns</a> by Atle Mo. Deployed on <a href="https://www.netlify.com/">Netlify</a>, the hosting platform with native support for Nanoc.</div>
+      <nav class="nws-nav">
+        <ul class="nws-nav-content">
+          <li class="nws-nav-item"><%= link_to_unless_current('Home', @items['/index.*'], class: 'nws-nav-link') %></li>
+          <li class="nws-nav-item"><%= link_to_unless_current('Documentation', @items['/doc/about.*'], class: 'nws-nav-link') %></li>
+          <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
+          <li class="nws-nav-item"><%= link_to_unless_current('What’s new?', @items['/whats-new.*'], class: 'nws-nav-link') %></li>
+        </ul>
+      </nav>
+      <div class="nws-content">
+        <aside class="side">
+          <div class="nws-side__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
+          <div class="nws-side__content">
+            <% if @item.identifier =~ %r{^/doc(/|\.)} %>
+              <h3>Table of contents</h3>
+              <%= doc_toc %>
+            <% elsif !@item[:skip_details] %>
+              <h3>Table of contents</h3>
+              {{TOC}}
+            <% end %>
+          </div>
+        </aside>
+        <article>
+          <div class="article-content">
+            <h1 class="nws-article__title"><%= @item[:title] %></h1>
+            <%= yield %>
+          </div>
+        </article>
+      </div>
+  <% end %>
+      <footer class="footer">
+        <div class="footer-content-wrapper">
+          <div class="footer-content">
+            <div class="footer-releasenotes">The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. See the <a href="/release-notes/">release notes</a> for details.</div>
+            <div class="footer-links-explanation">Don’t stick around forever. For a change of scenery, go over here:</div>
+            <ul class="footer-links">
+              <li><%= link_to_id '/contributing.*' %></li>
+              <li><a href="https://github.com/nanoc/nanoc">GitHub repo</a></li>
+              <li><a href="http://github.com/nanoc/nanoc/issues">Issue tracker</a></li>
+              <li><a href="http://groups.google.com/group/nanoc">Discussion group</a></li>
+              <li><a href="https://gitter.im/nanoc/nanoc">Gitter channel</a></li>
+              <li><a href="https://donorbox.org/nanoc">Donate <strong>&#10084;</strong></a></li>
+            </ul>
+            <div class="footer-copyright">
+              <div>Nanoc © 2007–2018 Denis Defreyne. The content of the Nanoc website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>, with exception of code examples, which are released into the public domain. Nanoc is licensed under the MIT license. <a href="http://fontawesome.com">Font Awesome</a> licensed under SIL OFL 1.1. <a href="http://subtlepatterns.com/">Subtle Patterns</a> by Atle Mo. Deployed on <a href="https://www.netlify.com/">Netlify</a>, the hosting platform with native support for Nanoc.</div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-  <script>docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
-    <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
-    <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+      </footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+      <script>docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
+      <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
+      <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+    </div>
   </body>
 </html>
