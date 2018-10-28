@@ -11,17 +11,56 @@
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
   </head>
   <body id="nanoc">
+    <script>
+      var nativeDarkModeSupported = matchMedia('(prefers-color-scheme: dark)').matches || matchMedia('(prefers-color-scheme: light)').matches;
+      if (!nativeDarkModeSupported) {
+        var root = document.getElementById('nanoc');
+        var originalRootClassName = root.className;
+
+        function setDarkMode() {
+          root.className = originalRootClassName + ' dark';
+          localStorage.setItem('mode', 'dark');
+        }
+
+        function unsetDarkMode() {
+          root.className = originalRootClassName;
+          localStorage.removeItem('mode');
+        }
+
+        if (localStorage.getItem("mode") == "dark") {
+          setDarkMode();
+        } else {
+          unsetDarkMode();
+        }
+
+        window.onload = function () {
+          var toggle = document.getElementById('toggle-dark');
+          if (toggle) {
+            toggle.onclick = function() {
+              if (localStorage.getItem("mode") == "dark") {
+                unsetDarkMode();
+              } else {
+                setDarkMode();
+              }
+            };
+          };
+        };
+      }
+    </script>
     <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>" >
 <% if @item[:has_basic_layout] %>
       <%= yield %>
 <% else %>
       <nav class="nws-nav">
-        <ul class="nws-nav-content">
-          <li class="nws-nav-item"><%= link_to_unless_current('Home', @items['/index.*'], class: 'nws-nav-link') %></li>
-          <li class="nws-nav-item"><%= link_to_unless_current('Documentation', @items['/doc/about.*'], class: 'nws-nav-link') %></li>
-          <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
-          <li class="nws-nav-item"><%= link_to_unless_current('What’s new?', @items['/whats-new.*'], class: 'nws-nav-link') %></li>
-        </ul>
+        <div class="nws-nav-content">
+          <span id="toggle-dark" title="Toggle night mode">🌗</span>
+          <ul>
+            <li class="nws-nav-item"><%= link_to_unless_current('Home', @items['/index.*'], class: 'nws-nav-link') %></li>
+            <li class="nws-nav-item"><%= link_to_unless_current('Documentation', @items['/doc/about.*'], class: 'nws-nav-link') %></li>
+            <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
+            <li class="nws-nav-item"><%= link_to_unless_current('What’s new?', @items['/whats-new.*'], class: 'nws-nav-link') %></li>
+          </ul>
+        </div>
       </nav>
       <div class="nws-content">
         <aside class="side">

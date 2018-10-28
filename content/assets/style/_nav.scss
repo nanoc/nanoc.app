@@ -15,9 +15,6 @@
 }
 
 .nws-nav-content {
-  display: flex;
-  flex-wrap: wrap;
-
   @media (max-width: 719px) {
     padding: 0;
   }
@@ -25,6 +22,26 @@
   margin: 0 auto;
   padding: 0 20px;
   max-width: 1020px;
+}
+
+.nws-nav-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+#toggle-dark {
+  display: block;
+  float: right;
+  font-size: 22px;
+  padding: 10px 0;
+  text-shadow: 0 0 5px #fff;
+  cursor: pointer;
+
+  @media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
+    display: none;
+  }
 }
 
 .nws-nav-item {
@@ -55,17 +72,17 @@
   @include nav-border-color;
 }
 
-.nws-nav-link:link,
-.nws-nav-link:visited {
+.nws-nav-item .nws-nav-link:link,
+.nws-nav-item .nws-nav-link:visited {
   @include nav-link-color;
 }
 
-.nws-nav-link:hover {
+.nws-nav-item .nws-nav-link:hover {
   @include nav-item-hover-color;
 
   background: transparent;
 }
 
-.nws-nav-link:active {
+.nws-nav-item .nws-nav-link:active {
   background: transparent;
 }
