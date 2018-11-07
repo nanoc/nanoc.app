@@ -529,7 +529,8 @@ title: "Filters"
   #p The %code{:sass_sourcemap} filter produces a source map for a rendered %ref[url=http://sass-lang.com/]{Sass} stylesheet. For example:
 
   #listing[lang=ruby]
-    filter :sass_sourcemap, sourcemap_path: @item.identifier.without_ext + '.css.map'
+    path = @item.identifier.without_ext + '.css'
+    filter :sass_sourcemap, css_path: path, sourcemap_path: path + '.map'
 
   #p Both %code{:sass} and %code{:sass_sourcemap} filters must be passed the same options.
 

@@ -56,7 +56,7 @@ title: "Using common filters"
       [:default, :sourcemap].each do |rep_name|
         compile '/css/**/*.sass', rep: rep_name do
           path = @item.identifier.without_ext + '.css'
-          options = { syntax: :sass, style: :compact, sourcemap_path: path + '.map' %}
+          options = { syntax: :sass, style: :compact, css_path: path, sourcemap_path: path + '.map' %}
 
           case rep_name
           when :default
