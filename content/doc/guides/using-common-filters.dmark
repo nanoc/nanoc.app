@@ -71,6 +71,16 @@ title: "Using common filters"
 
     #p When using the %code{:sass_sourcemap} filter, be sure to invoke it with the same options as the %code{:sass} filter.
 
+    #p The %code{:sass} filter also supports generating inline source maps:
+
+    #listing[lang=ruby]
+      compile '/css/**/*.scss'
+        path = @item.identifier.without_ext + '.css'
+        options = { syntax: :sass, style: :compact, css_path: path, sourcemap_path: :inline %}
+
+        filter :sass, options
+      end
+
   #section %h{Using %code{nanoc()} in Sass}
     #p Nanoc’s Sass filter defines a %code{nanoc()} Sass function, which allows you to evaluate Ruby code from Sass within the compilation context. It takes a string containing Ruby code.
 
