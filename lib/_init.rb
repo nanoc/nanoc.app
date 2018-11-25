@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'warning'
-Warning.ignore(%i[fixnum bignum])
-
 def indent_for_dmark(num, s)
   indent = '  ' * num
   s.lines.map { |l| indent + l }.join("\n")
