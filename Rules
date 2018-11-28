@@ -13,6 +13,7 @@ end
 
 layout '/**/*', :erb
 
+passthrough '/_redirects'
 ignore '/**/_*'
 
 passthrough '/favicon.ico'
