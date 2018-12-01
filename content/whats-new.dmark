@@ -4,6 +4,17 @@ title: "What’s new?"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
+#section %h{Nanoc 4.11}
+  #p In Nanoc 4.11, the Sass filter supports generating inline source maps. To do so, pass %code{sourcemap_path: :inline}:
+
+  #listing[lang=ruby]
+    compile '/assets/*.scss'
+      filter :sass, syntax: :sass, sourcemap_path: :inline
+      write ext: 'css'
+    end
+
+  #p Secondly, the Breadcrumbs helper’s %code{#breadcrumbs_trail} function can now deal with ambiguity. There are cases where one item has more than one potential parent item, and the new %code{:tiebreaker} option can now be used to deal with that. See %ref[frag=breadcrumbs-dealing-with-ambiguity,item=/doc/reference/helpers.*]{} for details.
+
 #section %h{Nanoc 4.10}
   #p Nanoc 4.10 comes with an upgraded Sass filter. It comes with a new %code{nanoc()} Sass function, which allows pulling in Nanoc site data into stylesheets:
 

@@ -167,7 +167,7 @@ title: "Helpers"
         #dd
           #p Defines how to deal with ambiguous parent items. See below for details.
 
-  #section %h{Dealing with ambiguity}
+  #section %h[id=breadcrumbs-dealing-with-ambiguity]{Dealing with ambiguity}
     #p To find the parent of an item, the breadcrumbs trail helper will take the item identifier, strip off the last component, append %code{.*} to it, and find any item that matches the resulting pattern. For example, to find the parent of an item with identifier %identifier{/software/nanoc.md}, Nanoc will use the pattern %code{/software.*}.
 
     #p There can be multiple items that match the resulting pattern, however. Continuing the example above, if there are items with identifiers %identifier{/software.md} and %identifier{/software.erb}, the breadcrumbs trail helper will need to make a decision which parent item to use. By default, Nanoc will print a warning, and use the alphabetically first item (in this example, %identifier{/software.erb} would be used).
