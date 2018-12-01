@@ -160,6 +160,33 @@ title: "Helpers"
 
       #p This function returns an array containing the breadcrumbs, starting with the root item and ending with the item itself.
 
+      #p The %code{#breadcrumbs_trail} function takes the following options:
+
+      #dl
+        #dt %code{:tiebreaker} (%code{Proc} or %code{:error})
+        #dd
+          #p Defines how to deal with ambiguous parent items. See below for details.
+
+  #section %h[id=breadcrumbs-dealing-with-ambiguity]{Dealing with ambiguity}
+    #p To find the parent of an item, the breadcrumbs trail helper will take the item identifier, strip off the last component, append %code{.*} to it, and find any item that matches the resulting pattern. For example, to find the parent of an item with identifier %identifier{/software/nanoc.md}, Nanoc will use the pattern %code{/software.*}.
+
+    #p There can be multiple items that match the resulting pattern, however. Continuing the example above, if there are items with identifiers %identifier{/software.md} and %identifier{/software.erb}, the breadcrumbs trail helper will need to make a decision which parent item to use. By default, Nanoc will print a warning, and use the alphabetically first item (in this example, %identifier{/software.erb} would be used).
+
+    #p The default behavior that deals ambiguity (log a warning and pick the alphabetically first) can be overridden using the %code{:tiebreaker} option. The value for this option can be any of the following:
+
+      #dl
+        #dt the symbol %code{:error}
+        #dd
+          #p Nanoc will raise an error. This option is ideal if you do not expect ambiguity, and want to avoid it for the future. (This will be the default in the next major version of Nanoc.)
+
+        #dt a %code{Proc} with one argument
+        #dd
+          #p Nanoc will call the %code{Proc}, passing in the list of potential parent items.
+
+        #dt a %code{Proc} with two arguments
+        #dd
+          #p Nanoc will call the %code{Proc}, passing in the list of potential parent items, as well as the pattern that was used to find the parent items.
+
   #section %h{Examples}
     #p Getting the breadcrumbs for the %identifier{/projects/nanoc/history/} item, assuming that there is no %identifier{/projects/} item:
 
