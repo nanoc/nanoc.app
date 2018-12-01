@@ -215,7 +215,8 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 
 @mixin page-bg-color {
   background: $color-bg;
-  @at-root .dark & {
+  @at-root.dark {
+    // Special: this applies to the element itself
     background: $color-darkmode-bg;
   }
   @media (prefers-color-scheme: dark) {

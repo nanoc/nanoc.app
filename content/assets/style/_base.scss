@@ -4,15 +4,19 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Source Sans Pro";
   font-weight: normal;
   font-size: 15px;
 
   line-height: 22px;
-}
 
-.wrapper {
+  min-height: 100%;
+
   @include page-bg-color;
 }
 
