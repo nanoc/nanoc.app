@@ -48,7 +48,7 @@ short_title: "About"
     #li integration with various deployment mechanisms
     #li ability to run pre-deployment checks
 
-  #p Some of the sites built with Nanoc include the %ref[url=https://developer.github.com/]{GitHub Developer site}, the %ref[url=http://www.dadt.com/uglybetty/]{Ugly Betty site} and the %ref[url=http://guides.spreecommerce.com/api/]{Spree Commerce API site}.
+  #p Some of the sites built with Nanoc include the %ref[url=https://developer.github.com/]{GitHub Developer site}, the %ref[url=https://prometheus.io/]{Prometheus site} and the %ref[url=https://guides.spreecommerce.org]{Spree documentation site}.
 
   #p Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes, and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
