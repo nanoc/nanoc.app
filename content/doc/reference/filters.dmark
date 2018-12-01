@@ -404,7 +404,7 @@ title: "Filters"
     filter :redcarpet, options: { fenced_code_blocks: true %}
 
 #section %h{%code{:redcloth}}
-  #p The %code{:redcloth} filter runs content through %ref[url=http://redcloth.org]{RedCloth}, a Ruby implementation of %ref[url=http://txstyle.org/]{Textile}.
+  #p The %code{:redcloth} filter runs content through %ref[url=http://redcloth.org]{RedCloth}, a Ruby implementation of %ref[url=https://www.textile-lang.com]{Textile}.
 
   #p For example, the following will convert Textile content into HTML via RedCloth:
 
