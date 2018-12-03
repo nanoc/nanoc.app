@@ -108,7 +108,7 @@ title: "Troubleshooting"
   #p Changes to global state (%code{ENV} in the example above) will now be detected, and the appropriate pages will be recompiled properly.
 
 #section %h{Hidden files are ignored}
-  #p Nanoc by default intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as OS X and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance, OS X will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
+  #p Nanoc by default intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as macOS and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance,macOS will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
 
   #p The filesystem data source can be told to include specific files that would otherwise be ignored. To do so, specify in the data source’s %code{extra_files} attribute the patterns for the files that you would like to be included. For example, the following will include %ref[url=https://github.com/blog/572-bypassing-jekyll-on-github-pages]{GitHub’s %filename{.nojekyll} file} and all files in %ref[url=https://tools.ietf.org/html/rfc5785]{the %filename{.well-known/} directory}:
 

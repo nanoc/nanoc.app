@@ -37,7 +37,7 @@ title: "Using binary items effectively"
   #section %h{Generating thumbnails}
     #p This gallery page will be enhanced so that it displays a list of thumbnails of these images, rather than the paths to the images.
 
-    #p To generate the image thumbnails, a custom filter will be necessary. Depending on what OS you are on, and what software you have installed, you may need to use different filters. On Mac OS X, you can use %command{sips}, so place this in %filename{lib/filters/thumbnailize.rb}:
+    #p To generate the image thumbnails, a custom filter will be necessary. Depending on what OS you are on, and what software you have installed, you may need to use different filters. On macOS, you can use %command{sips}, so place this in %filename{lib/filters/thumbnailize.rb}:
 
     #listing[lang=ruby]
       class Thumbnailize < Nanoc::Filter
