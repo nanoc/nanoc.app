@@ -7,7 +7,7 @@
     top: 60px;
     bottom: 0;
 
-    width: 260px;
+    width: 220px;
   }
 
   @media (max-width: 719px) {
@@ -55,15 +55,11 @@
 }
 
 .nws-side__content {
-  @include sidebar-bg-color;
-
   width: 100%;
-
-  padding: 20px;
 
   @media (min-width: 720px) {
     position: absolute;
-    top: 90px;
+    top: 70px;
     bottom: 0;
 
     overflow: auto;

@@ -27,6 +27,7 @@ $color-darkmode-mark:         hsl(0, 0, 0);
 
 // Derived colors
 
+$color-blue-hint:             mix($color-blue, $color-bg, 8%);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
 $color-bg-push:               mix($color-fg, $color-bg, 5%);
 $color-bg-pull:               mix($color-orange, $color-bg, 10%); // exception
@@ -37,6 +38,7 @@ $color-fg-60:                 mix($color-fg, $color-bg-push, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-push, 70%);
 $color-fg-95:                 mix($color-fg, $color-bg-push, 95%);
 
+$color-darkmode-blue-hint:    desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 8%), 5%);
 $color-darkmode-orange-quiet: mix($color-darkmode-orange, $color-darkmode-bg, 10%);
 $color-darkmode-bg-push:      saturate(mix($color-darkmode-fg, $color-darkmode-bg, 5%), 5%);
 $color-darkmode-bg-pull:      mix($color-darkmode-bg, $color-darkmode-shadow, 50%); // exception
@@ -214,23 +216,33 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 // Body
 
 @mixin page-bg-color {
-  background: $color-bg;
+  background: $color-blue-hint;
   @at-root.dark {
     // Special: this applies to the element itself
-    background: $color-darkmode-bg;
+    background: $color-darkmode-blue-hint;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
+    background: $color-darkmode-blue-hint;
   }
 }
 
 @mixin page-top-border-color {
-  background: $color-orange;
+  border-color: $color-orange;
   @at-root .dark & {
-    background: $color-darkmode-orange;
+    border-color: $color-darkmode-orange;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-orange;
+    border-color: $color-darkmode-orange;
+  }
+}
+
+.article-content {
+  background: $color-bg;
+  @at-root .dark & {
+    background: $color-darkmode-bg;
+  }
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-bg;
   }
 }
 
@@ -259,12 +271,12 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
 // Navigation
 
 @mixin nav-bg-color {
-  background: $color-bg-pull;
+  background: $color-bg;
   @at-root .dark & {
-    background: $color-darkmode-bg-pull;
+    background: $color-darkmode-bg;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-pull;
+    background: $color-darkmode-bg;
   }
 }
 
