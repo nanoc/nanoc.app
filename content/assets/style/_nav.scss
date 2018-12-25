@@ -37,9 +37,10 @@
 #toggle-dark {
   display: block;
   float: right;
-  font-size: 22px;
+  font-size: 18px;
   padding: 10px 0;
-  text-shadow: 0 0 5px #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 
   @media (prefers-color-scheme: dark), (prefers-color-scheme: light) {
