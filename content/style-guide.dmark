@@ -18,10 +18,12 @@ title: Style guide
     #swatch[color=orange-quiet] orange-quiet
     #swatch[color=blue-quiet] blue-quiet
     #swatch[color=blue-desat] blue-desat
-    #swatch[color=fg-40] fg-40
-    #swatch[color=fg-60] fg-60
-    #swatch[color=fg-80] fg-80
-    #swatch[color=fg-95] fg-95
+
+  #section %h{Secondary: grays}
+    #swatch[color=gray-300] gray-300
+    #swatch[color=gray-500] gray-500
+    #swatch[color=gray-700] gray-700
+    #swatch[color=gray-900] gray-900
 
 #section %h{Headers}
   #p Headers all the way down…
