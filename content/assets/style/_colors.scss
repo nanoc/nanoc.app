@@ -1,5 +1,3 @@
-$force_darkmode: false;
-
 // Core colors
 
 $color-orange:                hsl(20, 100, 46);
@@ -15,15 +13,6 @@ $color-darkmode-fg:           #fff;
 $color-darkmode-shadow:       #000;
 $color-darkmode-blue:         hsl(211, 87, 65);
 $color-darkmode-mark:         hsl(0, 0, 0);
-
-@if $force_darkmode {
-  $color-orange: $color-darkmode-orange;
-  $color-bg:     $color-darkmode-bg;
-  $color-fg:     $color-darkmode-fg;
-  $color-shadow: $color-darkmode-shadow;
-  $color-blue:   $color-darkmode-blue;
-  $color-mark:   $color-darkmode-mark;
-}
 
 // Derived colors
 
@@ -50,19 +39,6 @@ $color-darkmode-fg-60:        mix($color-darkmode-fg, $color-darkmode-bg-push, 4
 $color-darkmode-fg-80:        mix($color-darkmode-fg, $color-darkmode-bg-push, 70%);
 $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 95%);
 $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
-
-@if $force_darkmode {
-  $color-orange-quiet: $color-darkmode-orange-quiet;
-  $color-bg-push:      $color-darkmode-bg-push;
-  $color-bg-pull:      $color-darkmode-bg-pull;
-  $color-blue-quiet:   $color-darkmode-blue-quiet;
-  $color-blue-desat:   $color-darkmode-blue-desat;
-  $color-fg-40:        $color-darkmode-fg-40;
-  $color-fg-60:        $color-darkmode-fg-60;
-  $color-fg-80:        $color-darkmode-fg-80;
-  $color-fg-95:        $color-darkmode-fg-95;
-  $color-nav-shadow:   $color-darkmode-nav-shadow;
-}
 
 // Swatches
 
