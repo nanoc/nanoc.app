@@ -102,6 +102,16 @@ $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
   }
 }
 
+.swatch-blue-hint {
+  background: $color-blue-hint;
+  @at-root .dark & {
+    background: $color-darkmode-blue-hint;
+  }
+  @media (prefers-color-scheme: dark) {
+    background: $color-darkmode-blue-hint;
+  }
+}
+
 .swatch-bg-push {
   background: $color-bg-push;
   @at-root .dark & {
