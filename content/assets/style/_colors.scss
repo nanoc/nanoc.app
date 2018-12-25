@@ -18,29 +18,29 @@ $color-darkmode-mark:         hsl(0, 0, 0);
 
 $color-blue-hint:             mix($color-blue, $color-bg, 8%);
 $color-orange-quiet:          mix($color-orange, $color-bg, 10%);
-$color-bg-push:               mix($color-fg, $color-bg, 5%);
 $color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
 $color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
 $color-nav-shadow:            rgba(0, 0, 0, 0.2);
 
 $color-darkmode-blue-hint:    desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 8%), 5%);
 $color-darkmode-orange-quiet: mix($color-darkmode-orange, $color-darkmode-bg, 10%);
-$color-darkmode-bg-push:      saturate(mix($color-darkmode-fg, $color-darkmode-bg, 5%), 5%);
 $color-darkmode-blue-quiet:   desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 15%), 10%);
 $color-darkmode-blue-desat:   mix(desaturate($color-darkmode-blue, 60%), $color-darkmode-bg, 85%);
 $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
 
 // Derived colors -- grays
 
-$color-gray-300:                 mix($color-fg, $color-bg-push, 15%);
-$color-gray-500:                 mix($color-fg, $color-bg-push, 40%);
-$color-gray-700:                 mix($color-fg, $color-bg-push, 70%);
-$color-gray-900:                 mix($color-fg, $color-bg-push, 95%);
+$color-gray-100:                 mix($color-fg, $color-bg, 5%);
+$color-gray-300:                 mix($color-fg, $color-gray-100, 15%);
+$color-gray-500:                 mix($color-fg, $color-gray-100, 40%);
+$color-gray-700:                 mix($color-fg, $color-gray-100, 70%);
+$color-gray-900:                 mix($color-fg, $color-gray-100, 95%);
 
-$color-darkmode-gray-300:        mix($color-darkmode-fg, $color-darkmode-bg-push, 15%);
-$color-darkmode-gray-500:        mix($color-darkmode-fg, $color-darkmode-bg-push, 40%);
-$color-darkmode-gray-700:        mix($color-darkmode-fg, $color-darkmode-bg-push, 70%);
-$color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push, 95%);
+$color-darkmode-gray-100:        saturate(mix($color-darkmode-fg, $color-darkmode-bg, 5%), 2%);
+$color-darkmode-gray-300:        mix($color-darkmode-fg, $color-darkmode-gray-100, 15%);
+$color-darkmode-gray-500:        mix($color-darkmode-fg, $color-darkmode-gray-100, 40%);
+$color-darkmode-gray-700:        mix($color-darkmode-fg, $color-darkmode-gray-100, 70%);
+$color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-gray-100, 95%);
 
 // Swatches
 
@@ -114,13 +114,13 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push
   }
 }
 
-.swatch-bg-push {
-  background: $color-bg-push;
+.swatch-gray-100 {
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
@@ -336,12 +336,12 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push
 // Admonitions
 
 @mixin admon-bg-color {
-  background: $color-bg-push;
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
@@ -416,12 +416,12 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push
 }
 
 @mixin admon-bg-todo-color {
-  background: $color-bg-push;
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
@@ -522,12 +522,12 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push
 // Code
 
 @mixin pre-bg-color {
-  background: $color-bg-push;
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
@@ -782,34 +782,34 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-bg-push
 }
 
 @mixin figure-border-color {
-  border-color: $color-bg-push;
+  border-color: $color-gray-100;
   @at-root .dark & {
-    border-color: $color-darkmode-bg-push;
+    border-color: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    border-color: $color-darkmode-bg-push;
+    border-color: $color-darkmode-gray-100;
   }
 }
 
 @mixin figure-caption-bg-color {
-  background: $color-bg-push;
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
 // Sidebar
 
 @mixin sidebar-bg-color {
-  background: $color-bg-push;
+  background: $color-gray-100;
   @at-root .dark & {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg-push;
+    background: $color-darkmode-gray-100;
   }
 }
 
