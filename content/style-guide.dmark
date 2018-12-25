@@ -15,7 +15,6 @@ title: Style guide
   #section %h{Secondary}
     #swatch[color=blue-hint] blue-hint
     #swatch[color=bg-push] bg-push
-    #swatch[color=bg-pull] bg-pull
     #swatch[color=orange-quiet] orange-quiet
     #swatch[color=blue-quiet] blue-quiet
     #swatch[color=blue-desat] blue-desat
