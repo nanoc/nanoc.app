@@ -1,8 +1,7 @@
 .nws-nav {
   @include nav-bg-color;
 
-  border-bottom: 2px solid;
-  @include page-top-border-color;
+  @include nav-shadow-color;
 
   margin: 0;
   padding: 0;

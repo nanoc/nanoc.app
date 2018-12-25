@@ -37,6 +37,7 @@ $color-fg-40:                 mix($color-fg, $color-bg-push, 15%);
 $color-fg-60:                 mix($color-fg, $color-bg-push, 40%);
 $color-fg-80:                 mix($color-fg, $color-bg-push, 70%);
 $color-fg-95:                 mix($color-fg, $color-bg-push, 95%);
+$color-nav-shadow:            rgba(0, 0, 0, 0.2);
 
 $color-darkmode-blue-hint:    desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 8%), 5%);
 $color-darkmode-orange-quiet: mix($color-darkmode-orange, $color-darkmode-bg, 10%);
@@ -48,6 +49,7 @@ $color-darkmode-fg-40:        mix($color-darkmode-fg, $color-darkmode-bg-push, 1
 $color-darkmode-fg-60:        mix($color-darkmode-fg, $color-darkmode-bg-push, 40%);
 $color-darkmode-fg-80:        mix($color-darkmode-fg, $color-darkmode-bg-push, 70%);
 $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 95%);
+$color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
 
 @if $force_darkmode {
   $color-orange-quiet: $color-darkmode-orange-quiet;
@@ -59,6 +61,7 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
   $color-fg-60:        $color-darkmode-fg-60;
   $color-fg-80:        $color-darkmode-fg-80;
   $color-fg-95:        $color-darkmode-fg-95;
+  $color-nav-shadow:   $color-darkmode-nav-shadow;
 }
 
 // Swatches
@@ -277,6 +280,16 @@ $color-darkmode-fg-95:        mix($color-darkmode-fg, $color-darkmode-bg-push, 9
   }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
+  }
+}
+
+@mixin nav-shadow-color {
+  box-shadow: 0 3px 5px $color-nav-shadow;
+  @at-root .dark & {
+    box-shadow: 0 3px 5px $color-darkmode-nav-shadow;
+  }
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0 3px 5px $color-darkmode-nav-shadow;
   }
 }
 
