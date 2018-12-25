@@ -14,6 +14,7 @@
 
     -webkit-appearance: none;
 
+    @include search-bg-color;
     @include search-fg-color;
 
     font-family: "Source Sans Pro";
