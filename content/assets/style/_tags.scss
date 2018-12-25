@@ -34,8 +34,8 @@ pre.legacy:before {
 pre.legacy-intermediate:before {
   content: "INTERMEDIATE STEP";
 
-  @include tag-legacy-intermediate-bg-color;
-  @include tag-legacy-intermediate-fg-color;
+  @include tag-legacy-bg-color;
+  @include tag-legacy-fg-color;
   border-top-right-radius: 4px;
 }
 

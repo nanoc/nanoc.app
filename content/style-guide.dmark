@@ -18,7 +18,6 @@ title: Style guide
   #section %h{Secondary: blues}
     #swatch[color=blue-hint] blue-hint
     #swatch[color=blue-quiet] blue-quiet
-    #swatch[color=blue-desat] blue-desat
 
   #section %h{Secondary: grays}
     #swatch[color=gray-100] gray-100

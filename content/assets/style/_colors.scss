@@ -26,11 +26,9 @@ $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
 
 $color-blue-hint:             mix($color-blue, $color-bg, 8%);
 $color-blue-quiet:            desaturate(mix($color-blue, $color-bg, 15%), 10%);
-$color-blue-desat:            mix(desaturate($color-blue, 60%), $color-bg, 85%);
 
 $color-darkmode-blue-hint:    desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 8%), 5%);
 $color-darkmode-blue-quiet:   desaturate(mix($color-darkmode-blue, $color-darkmode-bg, 15%), 10%);
-$color-darkmode-blue-desat:   mix(desaturate($color-darkmode-blue, 60%), $color-darkmode-bg, 85%);
 
 // Derived colors -- grays
 
@@ -145,16 +143,6 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-gray-10
   }
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
-  }
-}
-
-.swatch-blue-desat {
-  background: $color-blue-desat;
-  @at-root .dark & {
-    background: $color-darkmode-blue-desat;
-  }
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-desat;
   }
 }
 
@@ -704,26 +692,6 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-gray-10
 }
 
 @mixin tag-legacy-fg-color {
-  color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-bg;
-  }
-}
-
-@mixin tag-legacy-intermediate-bg-color {
-  background: $color-blue-desat;
-  @at-root .dark & {
-    background: $color-darkmode-blue-desat;
-  }
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-desat;
-  }
-}
-
-@mixin tag-legacy-intermediate-fg-color {
   color: $color-bg;
   @at-root .dark & {
     color: $color-darkmode-bg;
