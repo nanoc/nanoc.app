@@ -775,16 +775,6 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-gray-10
 
 // Sidebar
 
-@mixin sidebar-bg-color {
-  background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-100;
-  }
-}
-
 @mixin sidebar-section-title-color {
   color: $color-orange;
   @at-root .dark & {
