@@ -41,6 +41,10 @@
 }
 
 #search-box {
+  a:link, a:visited {
+    background: none;
+  }
+
   .algolia-docsearch-suggestion--category-header {
     @include search-results-l0-fg-color;
   }
