@@ -118,7 +118,7 @@ title: "Data sources"
 
         item = new_item(
           content,
-          title: 'Release notes',
+          { title: 'Release notes' %},
           Nanoc::Identifier.new('/release-notes.md'),
         )
 
