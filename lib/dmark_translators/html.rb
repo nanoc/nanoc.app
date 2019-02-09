@@ -269,7 +269,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
   end
 
   def handle_erb(node, context)
-    ctx = Nanoc::Int::Context.new(context)
+    ctx = Nanoc::Core::Context.new(context)
     [eval(text_content_of(node), ctx.get_binding)] # rubocop:disable Security/Eval
   end
 
