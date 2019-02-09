@@ -89,9 +89,9 @@ title: "Contributing"
     #p To announce the new release, follow these steps:
 
     #ol[spacious]
-      #li In the nanoc.ws repository, upgrade Nanoc. The web site will be built and published automatically.
+      #li In the %productname{nanoc.ws} repository, upgrade Nanoc. The web site will be built and published automatically.
 
-      #li Send a tweet from the @nanoc_ssg Twitter account.
+      #li Send a tweet from the %productname{@nanoc_ssg} Twitter account.
 
       #li Update the version mentioned on the %ref[url=https://en.wikipedia.org/wiki/Nanoc]{Nanoc Wikipedia page}.
 
