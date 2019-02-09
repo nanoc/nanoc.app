@@ -58,9 +58,7 @@ title: "Contributing"
   #p Finally, create a pull request. Once submitted, your work here is done. We’ll review the code, have a discussion and merge it once we’re satisfied.
 
 #section %h{Releasing Nanoc}
-  #p If you’re a release manager, you can follow these steps to release a new version of Nanoc. Before you start, make sure that you’ve got the approval of at least one other release manager (and preferably also the approval of Denis).
-
-  #caution Being a release manager grants you considerable power, but remember that with great power comes great responsibility.
+  #p If you’re a release manager, you can follow these steps to release a new version of Nanoc.
 
   #section %h{Requirements}
     #p Before you start, ensure that you have access to the following:
@@ -68,7 +66,7 @@ title: "Contributing"
     #ul
       #li GitHub push access
       #li RubyGems push access
-      #li Web site push access
+      #li Twitter access
 
     #p If you are missing any of these, let me (Denis) know and I’ll set you up.
 
@@ -85,43 +83,15 @@ title: "Contributing"
       #li As a final check, compile the Nanoc site with the Nanoc gem in the %filename{Gemfile} pointing to your local Nanoc working copy, and verify locally that the release notes page is as expected.
 
   #section %h{Releasing the new version}
-    #p Once the preparation is complete, the new version can be released. To release a new version of Nanoc, follow these steps:
-
-    #ol[spacious]
-      #li Build the gem (%kbd{gem build nanoc.gemspec}).
-
-      #li Tag the release using %kbd{git tag --sign --annotate %var{1.2.3} --message 'Version %var{1.2.3}'}, replacing %var{1.2.3} with the new version number. Signing Git tags is optional, but highly recommended.
-
-      #li Push the gem using %kbd{gem push nanoc-*.gem}.
-
-      #li Push the changes to GitHub (%kbd{git push}). Don’t forget to also push the tags (%kbd{git push --tags}).
-
-      #li Close the %ref[url=https://github.com/nanoc/nanoc/milestones]{GitHub milestone} for this version, and ensure milestones for the next patch and minor versions exist. For example, when releasing 4.2.3, close the milestone for 4.2.3, and ensure milestones for both 4.2.4 and 4.3 exist.
+    #p Run %kbd{scripts/release}. It should just work!
 
   #section %h{Spread the word}
     #p To announce the new release, follow these steps:
 
     #ol[spacious]
-      #li Update the release notes on the site. This only involves recompiling the site with the new version of Nanoc (the release notes on the site are extracted from the %filename{NEWS.md} file in the Nanoc gem) and pushing the site (%kbd{bundle exec nanoc deploy}).
+      #li In the nanoc.ws repository, upgrade Nanoc. The web site will be built and published automatically.
 
-      #li Update the release notes on GitHub. Create a new release for the tag, set the release title to the new version number, and copy-paste the release notes into the description field.
-
-      #li Send an announcement e-mail to the %ref[url=http://groups.google.com/group/nanoc]{Nanoc mailing list}. Include the version number, link to the release notes, instructions for how to update (using plain RubyGems and using Bundler), and instructions on how to report issues. The e-mail template that I often use is based on the following:
-
-        #listing[template]
-          Hi,
-
-          Nanoc %var{version} is out. This %var{major/minor/patch} release %var{fixes a bug related to X/adds enhancements X and Y/adds feature X}. You can find the full release notes at the bottom of this e-mail or at http://nanoc.ws/release-notes/.
-
-          You can update your gems using `gem update`. If you use Bundler (which I recommend), run `bundle update` to get the latest version of Nanoc.
-
-          Do report any bugs you find on the GitHub issue tracker at https://github.com/nanoc/nanoc/issues/new.
-
-          Cheers,
-
-          Denis
-
-          %var{RELEASE NOTES}
+      #li Send a tweet from the @nanoc_ssg Twitter account.
 
       #li Update the version mentioned on the %ref[url=https://en.wikipedia.org/wiki/Nanoc]{Nanoc Wikipedia page}.
 
