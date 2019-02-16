@@ -6,7 +6,7 @@ branches:
     - "/^release-/"
 
 rvm:
-  - 2.4.0
+  - 2.5.3
 
 cache: bundler
 
