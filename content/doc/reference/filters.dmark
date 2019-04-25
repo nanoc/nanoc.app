@@ -435,19 +435,19 @@ title: "Filters"
 
   #p For example, the GitHub Pages site for %ref[url=http://ddfreyne.github.io/d-mark/]{D★Mark} is hosted at %uri{http://ddfreyne.github.io/d-mark/}. The D★Mark page has a reference to its stylesheet at %filename{/assets/style.css}, which the %code{:relativize_paths} filter turns into %filename{assets/style.css}, so that the stylesheet can be found even if the site is not deployed at the root of the domain.
 
-  #p The %code{:type} option specifies the type of content, and can be %code{:html}, %code{:xhtml} or %code{:css}. This option must be specified, as the filter cannot reliably determine the type of content by itself.
+  #p The %code{:type} option specifies the type of content, and can be %code{:html5}, %code{:html}, %code{:xhtml}, %code{:xml}, or %code{:css}. This option must be specified, as the filter cannot reliably determine the type of content by itself.
 
   #p For example, the following will convert all absolute paths in HTML content to relative ones:
 
   #listing[lang=ruby]
-    filter :relativize_paths, type: :html
+    filter :relativize_paths, type: :html5
 
   #p In HTML, all %code{href} and %code{src} attributes will be relativized. In CSS, all %code{url()} references will be relativized.
 
   #p To customize which attributes to normalize in (X)HTML, pass a list of XPath selectors to the %code{:select} option. For example, the following will only relativize paths if they occur within %code{href} attributes:
 
   #listing[lang=ruby]
-    filter :relativize_paths, type: :html, select: ['*/@href']
+    filter :relativize_paths, type: :html5, select: ['*/@href']
 
   #p If custom namespaces in XHTML are passed to the %code{:select} option, they also have to be explicitly defined in the %code{:namespaces} option. The %code{:namespaces} option is a hash where the keys are the prefixes, and the values are the namespace URIs.
 
@@ -466,7 +466,7 @@ title: "Filters"
   #p For example, the following will prevent all paths to %filename{/cgi-bin} from being relativized:
 
   #listing[lang=ruby]
-    filter :relativize_paths, type: :html, exclude: '/cgi-bin'
+    filter :relativize_paths, type: :html5, exclude: '/cgi-bin'
 
 #section %h{%code{:rubypants}}
   #p The %code{:rubypants} filter transforms content using %ref[url=http://rubydoc.info/gems/rubypants/]{RubyPants}, which translates plain ASCII punctuation characters into “smart” typographic punctuation HTML entities.
