@@ -13,7 +13,7 @@ title: "Filters"
     filter :asciidoc
 
 #section %h{%code{:asciidoctor}}
-  #p The %code{:asciidoctor} filter invokes %ref[url=http://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of AsciiDoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
+  #p The %code{:asciidoctor} filter invokes %ref[url=https://asciidoctor.org/]{Asciidoctor}, a Ruby implementation of AsciiDoc. Unlike the %code{:asciidoc} filter, the %code{:asciidoctor} filter can be customized.
 
   #p For example, the following will convert an AsciiDoc page to HTML:
 
@@ -21,7 +21,7 @@ title: "Filters"
     filter :asciidoctor
 
 #section %h{%code{:bluecloth}}
-  #p The %code{:bluecloth} filter invokes %ref[url=https://deveiate.org/projects/BlueCloth]{BlueCloth}, a pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. This filter takes no options.
+  #p The %code{:bluecloth} filter invokes %ref[url=https://github.com/ged/bluecloth]{BlueCloth}, a pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. This filter takes no options.
 
   #p For example, the following will convert a Markdown page to HTML:
 
@@ -29,7 +29,7 @@ title: "Filters"
     filter :bluecloth
 
 #section %h{%code{:coffeescript}}
-  #p The %code{:coffeescript} filter runs the content through %ref[url=http://coffeescript.org/]{CoffeeScript}. This filter takes no options.
+  #p The %code{:coffeescript} filter runs the content through %ref[url=https://coffeescript.org/]{CoffeeScript}. This filter takes no options.
 
   #p For example, the following will convert CoffeeScript source code into JavaScript:
 
@@ -61,7 +61,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :colorize_syntax
 
-  #p To change the colorizer, pass a symbol containing the name of a colorizer to %code{:default_colorizer}. For example, the following highlights all code blocks using %ref[url=https://github.com/jayferd/rouge]{Rouge}:
+  #p To change the colorizer, pass a symbol containing the name of a colorizer to %code{:default_colorizer}. For example, the following highlights all code blocks using %ref[url=https://github.com/jneen/rouge]{Rouge}:
 
   #listing[lang=ruby]
     filter :colorize_syntax, default_colorizer: :rouge
@@ -79,10 +79,10 @@ title: "Filters"
     #dd %ref[url=https://github.com/tmm1/pygments.rb]{%productname{pygments.rb}}, a fast Ruby interface for %ref[url=http://pygments.org]{Pygments}
 
     #dt %code{:simon_highlight}
-    #dd %ref[url=http://www.andre-simon.de/doku/highlight/en/highlight.html]{Highlight}, by Andre Simon
+    #dd %ref[url=http://www.andre-simon.de/doku/highlight/en/highlight.php]{Highlight}, by Andre Simon
 
     #dt %code{:rouge}
-    #dd %ref[url=https://github.com/jayferd/rouge]{Rouge}, a pure-Ruby syntax highlighter with Pygments-compatible output
+    #dd %ref[url=https://github.com/jneen/rouge]{Rouge}, a pure-Ruby syntax highlighter with Pygments-compatible output
 
   #p To configure individual highlighters, pass the options to the key for the highlighter. For example, the following will set the %code{line_numbers} option to %code{:list} for CodeRay:
 
@@ -236,7 +236,7 @@ title: "Filters"
   #p This filter does not have any options.
 
 #section %h{%code{:kramdown}}
-  #p The %code{:kramdown} filter invokes %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. The filter converts to HTML.
+  #p The %code{:kramdown} filter invokes %ref[url=https://kramdown.gettalong.org/]{kramdown}, a fast and featureful pure-Ruby implementation of %ref[url=https://en.wikipedia.org/wiki/Markdown]{Markdown}. The filter converts to HTML.
 
   #p For example, the following will convert a Markdown page to HTML:
 
@@ -248,7 +248,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :kramdown, auto_ids: false
 
-  #p For a list of all options for kramdown, see %ref[url=http://kramdown.gettalong.org/options.html]{kramdown’s options reference page}.
+  #p For a list of all options for kramdown, see %ref[url=https://kramdown.gettalong.org/options.html]{kramdown’s options reference page}.
 
 #section %h{%code{:less}}
   #p The %code{:less} filter runs content through %ref[url=http://lesscss.org/]{Less}, a CSS preprocessor.
@@ -281,7 +281,7 @@ title: "Filters"
   #p The options that are passed to this filter will be passed on to Maruku’s %code{Maruku.new} method.
 
 #section %h{%code{:mustache}}
-  #p The %code{:mustache} filter runs content through %ref[url=http://github.com/mustache/mustache]{Mustache}.
+  #p The %code{:mustache} filter runs content through %ref[url=https://github.com/mustache/mustache]{Mustache}.
 
   #p For example, the following will convert Mustache content into HTML:
 
@@ -404,7 +404,7 @@ title: "Filters"
     filter :redcarpet, options: { fenced_code_blocks: true %}
 
 #section %h{%code{:redcloth}}
-  #p The %code{:redcloth} filter runs content through %ref[url=http://redcloth.org]{RedCloth}, a Ruby implementation of %ref[url=https://www.textile-lang.com]{Textile}.
+  #p The %code{:redcloth} filter runs content through %ref[url=http://redcloth.org]{RedCloth}, a Ruby implementation of %ref[url=https://textile-lang.com]{Textile}.
 
   #p For example, the following will convert Textile content into HTML via RedCloth:
 
@@ -423,7 +423,7 @@ title: "Filters"
     #li %code{:no_span_caps}
     #li %code{:sanitize_html}
 
-  #p Set the value for the option key to %code{true} or %code{false} to enable or disable the option. For details, see %ref[url=http://www.rubydoc.info/github/jgarber/redcloth/RedCloth/TextileDoc]{the documentation for %code{RedCloth::TextileDoc}}.
+  #p Set the value for the option key to %code{true} or %code{false} to enable or disable the option. For details, see %ref[url=https://www.rubydoc.info/github/jgarber/redcloth/RedCloth/TextileDoc]{the documentation for %code{RedCloth::TextileDoc}}.
 
   #p For example, the following disable wrapping caps in a span:
 
@@ -433,7 +433,7 @@ title: "Filters"
 #section %h{%code{:relativize_paths}}
   #p The %code{:relativize_paths} filter finds all absolute paths in (X)HTML or CSS content, and converts them into relative paths. This is particularly useful for sites that are not deployed at the root of a domain.
 
-  #p For example, the GitHub Pages site for %ref[url=http://ddfreyne.github.io/d-mark/]{D★Mark} is hosted at %uri{http://ddfreyne.github.io/d-mark/}. The D★Mark page has a reference to its stylesheet at %filename{/assets/style.css}, which the %code{:relativize_paths} filter turns into %filename{assets/style.css}, so that the stylesheet can be found even if the site is not deployed at the root of the domain.
+  #p For example, the GitHub Pages site for %ref[url=https://ddfreyne.github.io/d-mark/]{D★Mark} is hosted at %uri{https://ddfreyne.github.io/d-mark/}. The D★Mark page has a reference to its stylesheet at %filename{/assets/style.css}, which the %code{:relativize_paths} filter turns into %filename{assets/style.css}, so that the stylesheet can be found even if the site is not deployed at the root of the domain.
 
   #p The %code{:type} option specifies the type of content, and can be %code{:html5}, %code{:html}, %code{:xhtml}, %code{:xml}, or %code{:css}. This option must be specified, as the filter cannot reliably determine the type of content by itself.
 
@@ -469,7 +469,7 @@ title: "Filters"
     filter :relativize_paths, type: :html5, exclude: '/cgi-bin'
 
 #section %h{%code{:rubypants}}
-  #p The %code{:rubypants} filter transforms content using %ref[url=http://rubydoc.info/gems/rubypants/]{RubyPants}, which translates plain ASCII punctuation characters into “smart” typographic punctuation HTML entities.
+  #p The %code{:rubypants} filter transforms content using %ref[url=https://www.rubydoc.info/gems/rubypants/]{RubyPants}, which translates plain ASCII punctuation characters into “smart” typographic punctuation HTML entities.
 
   #p The following will run RubyPants:
 
@@ -479,7 +479,7 @@ title: "Filters"
   #p This filter takes no options.
 
 #section %h{%code{:sass}}
-  #p The %code{:sass} filter converts a %ref[url=http://sass-lang.com/]{Sass} stylesheet to CSS. For example:
+  #p The %code{:sass} filter converts a %ref[url=https://sass-lang.com/]{Sass} stylesheet to CSS. For example:
 
   #listing[lang=ruby]
     filter :sass
@@ -526,7 +526,7 @@ title: "Filters"
     %}
 
 #section %h{%code{:sass_sourcemap}}
-  #p The %code{:sass_sourcemap} filter produces a source map for a rendered %ref[url=http://sass-lang.com/]{Sass} stylesheet. For example:
+  #p The %code{:sass_sourcemap} filter produces a source map for a rendered %ref[url=https://sass-lang.com/]{Sass} stylesheet. For example:
 
   #listing[lang=ruby]
     path = @item.identifier.without_ext + '.css'
@@ -543,7 +543,7 @@ title: "Filters"
   #p Options passed to this filter will be passed to %code{Slim::Template#initialize}.
 
 #section %h{%code{:typogruby}}
-  #p The %code{:typogruby} filter runs the content through %ref[url=http://avdgaag.github.com/typogruby/]{Typogruby}, a Ruby variant of %ref[url=https://code.google.com/archive/p/typogrify/]{Typogrify} for typographically enhancing text. For example:
+  #p The %code{:typogruby} filter runs the content through %ref[url=https://avdgaag.github.io/typogruby/]{Typogruby}, a Ruby variant of %ref[url=https://code.google.com/archive/p/typogrify/]{Typogrify} for typographically enhancing text. For example:
 
   #listing[lang=ruby]
     filter :typogruby
@@ -562,7 +562,7 @@ title: "Filters"
     filter :uglify_js, mangle: false
 
 #section %h{%code{:xsl}}
-  #p The %code{:xsl} filter runs the item content through an %ref[url=http://www.w3.org/TR/xslt]{XSLT} stylesheet using %ref[url=http://nokogiri.org/]{Nokogiri}.
+  #p The %code{:xsl} filter runs the item content through an %ref[url=https://www.w3.org/TR/xslt/all/]{XSLT} stylesheet using %ref[url=https://nokogiri.org/]{Nokogiri}.
 
   #p This filter can only be run for layouts, because it will need both the XML to convert (the item content) as well as the XSLT stylesheet (the layout content).
 
@@ -581,7 +581,7 @@ title: "Filters"
     layout '/xsl-report.*', :xsl, vat: '21.5'
 
 #section %h{%code{:yui_compressor}}
-  #p The %code{:yui_compressor} filter compresses JavaScript or CSS using the %ref[url=http://rubydoc.info/gems/yuicompressor]{YUICompressor} gem.
+  #p The %code{:yui_compressor} filter compresses JavaScript or CSS using the %ref[url=https://www.rubydoc.info/gems/yuicompressor]{YUICompressor} gem.
 
   #p For example, the following compresses CSS content:
 
@@ -590,7 +590,7 @@ title: "Filters"
 
   #p At least the %code{:type} option must be specified. The %code{:type} option can be set to either %code{'css'} or %code{'js'}, corresponding with CSS and JavaScript.
 
-  #p This filter takes options and passes them on to %code{YUICompressor.compress}. For details on which options are available, consult the %ref[url=http://www.rubydoc.info/gems/yuicompressor/YUICompressor#compress-class_method]{%code{YUICompressor.compress} documentation}. For example, the following will enable name munging in JavaScript:
+  #p This filter takes options and passes them on to %code{YUICompressor.compress}. For details on which options are available, consult the %ref[url=https://www.rubydoc.info/gems/yuicompressor/YUICompressor#compress-class_method]{%code{YUICompressor.compress} documentation}. For example, the following will enable name munging in JavaScript:
 
   #listing[lang=ruby]
     filter :yui_compressor, type: 'js', munge: true

@@ -32,7 +32,7 @@ short_title: "Deploying"
         exclude: [ '.git' ]
 
   #section %h{GitHub Pages setup}
-    #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/articles/creating-project-pages-manually]{described in GitHub's help pages}.
+    #p The publishing of a website based on a Git repository to GitHub Pages is %ref[url=https://help.github.com/en/articles/creating-project-pages-using-the-command-line]{described in GitHub's help pages}.
 
     #p Clone the current repository into the %filename{output/} directory, create an orphaned branch dedicated to GitHub Pages named %code{gh-pages}, check out the new branch and remove everything in it:
 
@@ -142,7 +142,7 @@ short_title: "Deploying"
     #p A deploy will now only succeed if checks pass.
 
 #section %h{With Netlify}
-  #p %ref[url=https://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
+  #p %ref[url=httpss://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
 
 #section %h{With rsync}
   #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
@@ -177,7 +177,7 @@ short_title: "Deploying"
     #caution This will remove all files and directories that do not correspond to Nanoc items from the deployment destination.
 
 #section %h{With fog}
-  #p %ref[url=http://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
+  #p %ref[url=https://fog.io]{fog} is a Ruby gem for interfacing with various cloud services, such as AWS or Google Cloud.
 
   #p To use fog for deployment, install the %productname{fog} gem (or add it to the %filename{Gemfile} and run %kbd{bundle install}). Change the deployment configuration in %filename{nanoc.yaml} to reflect the fog configuration. Here is an example for Amazon S3:
 

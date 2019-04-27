@@ -564,7 +564,7 @@ title: "Helpers"
         #dd The string from which to strip all HTML
 
 #section %h{%code{XMLSitemap}}
-  #p The %code{XMLSitemap} helper contains functionality for building XML sitemaps that will be crawled by search engines. See the %ref[url=http://www.sitemaps.org]{Sitemaps protocol site} for details.
+  #p The %code{XMLSitemap} helper contains functionality for building XML sitemaps that will be crawled by search engines. See the %ref[url=https://www.sitemaps.org/index.html]{Sitemaps protocol site} for details.
 
   #dl
     #dt %code{xml_sitemap(%var{params} = {%})} → %code{String}

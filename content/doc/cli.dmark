@@ -36,7 +36,7 @@ title: "Command-line interface"
   #p A reference of all commands is available in %ref[item=/doc/reference/commands.*]{}, as well as the command line itself.
 
 #section %h{Bundler integration}
-  #p When invoking the Nanoc CLI through %ref[url=http://bundler.io]{%productname{Bundler}} (e.g. using %command{bundle exec nanoc}), Nanoc will attempt to require all gems in the %code{nanoc} group inside the %filename{Gemfile}. Gems that are defined in this group thus do not have to be required explicitly. This is particularly useful for gems that define filters, or add commands to the CLI.
+  #p When invoking the Nanoc CLI through %ref[url=https://bundler.io]{%productname{Bundler}} (e.g. using %command{bundle exec nanoc}), Nanoc will attempt to require all gems in the %code{nanoc} group inside the %filename{Gemfile}. Gems that are defined in this group thus do not have to be required explicitly. This is particularly useful for gems that define filters, or add commands to the CLI.
 
   #p For example, with the following %filename{Gemfile}, Nanoc will load the %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} gem automatically:
 
@@ -76,4 +76,4 @@ title: "Command-line interface"
 
   #p Commands can be nested; for example, the command at %filename{commands/foo/bar.rb} will be a sub-command of the command at %filename{commands/foo.rb}, and can be invoked as %command{nanoc foo bar}.
 
-  #p For details on how to create commands, see the documentation for %ref[url=http://rubydoc.info/gems/cri]{Cri}, the framework used by Nanoc for generating commands.
+  #p For details on how to create commands, see the documentation for %ref[url=https://www.rubydoc.info/gems/cri]{Cri}, the framework used by Nanoc for generating commands.

@@ -69,7 +69,7 @@ title: "What’s new?"
   #p Identifiers now also have a %code{#match?} method, which returns %code{true} if the identifier matches the given pattern, %code{false} otherwise.
 
 #section %h{Nanoc 4.8}
-  #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=http://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
+  #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=https://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
 
   #listing[lang=ruby]
     compile '/**/*.adoc' do
@@ -119,7 +119,7 @@ title: "What’s new?"
   #p Lastly, items and layouts now have %code{#raw_content=} during preprocessing, to allow changing the raw content of items and layouts.
 
 #section %h{Nanoc 4.5}
-  #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.
+  #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc-archive/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.
 
 #section %h{Nanoc 4.4}
   #p Nanoc 4.4 adds support for environments. The %command{compile} command now takes an %command{--env} option, e.g. %command{nanoc compile --env=prod}, which sets the %code{NANOC_ENV} environment variable to the given value, and also changes the way the configuration is read.

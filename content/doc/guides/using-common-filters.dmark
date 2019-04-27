@@ -5,7 +5,7 @@ title: "Using common filters"
 #p This guide gives an overview of typical approaches for using common filters.
 
 #section %h{Using Sass}
-  #p %ref[url=http://sass-lang.com/]{Sass} is a CSS extension language that supports variables, mixins, partials, and more. To use Sass with Nanoc, create a rule that matches %glob{/**/*.sass}, calls the %code{:sass} filter, and writes out a %filename{.css} file:
+  #p %ref[url=https://sass-lang.com/]{Sass} is a CSS extension language that supports variables, mixins, partials, and more. To use Sass with Nanoc, create a rule that matches %glob{/**/*.sass}, calls the %code{:sass} filter, and writes out a %filename{.css} file:
 
   #listing[lang=ruby]
     compile '/**/*.sass' do
@@ -103,7 +103,7 @@ title: "Using common filters"
     #p The resulting CSS will set up auto-numbering of headings (%code{h2} and %code{h3}) if the configuration has %code{auto_number_headings} set to true.
 
 #section %h{Using kramdown}
-  #p %ref[url=http://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
+  #p %ref[url=https://kramdown.gettalong.org/]{kramdown} is a fast and featureful Markdown processor. To use it with Nanoc, create a rule that matches %glob{/**/*.md} and calls the %code{:kramdown} filter:
 
   #listing[lang=ruby]
     compile '/**/*.md' do

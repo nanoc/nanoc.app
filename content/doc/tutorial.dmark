@@ -12,7 +12,7 @@ title: "Tutorial"
   #dd Nanoc uses the Ruby programming language extensively. You can get by with only basic Ruby knowledge, but for beginners, we recommend %ref[url=https://www.ruby-lang.org/en/documentation/quickstart/]{Ruby in Twenty Minutes}.
 
   #dt a basic understanding of the command line
-  #dd Nanoc is executed on the command line. If you need to brush up on your command-line skills, we recommend %ref[url=http://cli.learncodethehardway.org/]{The Command Line Crash Course}.
+  #dd Nanoc is executed on the command line. If you need to brush up on your command-line skills, we recommend %ref[url=https://learncodethehardway.org/unix/]{The Command Line Crash Course}.
 
 #section %h{Create a site}
   #p Create a new site by typing %kbd{create-site}, followed by the name of the new directory in which you want Nanoc to create the site:
@@ -137,7 +137,7 @@ title: "Tutorial"
 
   #note The term %firstterm{metadata section} is often used instead of frontmatter in the context of Nanoc. Other static-site generators, such as Jekyll, use the term frontmatter almost exclusively.
 
-  #p The frontmatter is formatted as YAML. If you are unfamiliar with YAML, see the %ref[url=http://www.yaml.org/YAML_for_ruby.html]{YAML cookbook}. There are no pre-defined attributes in Nanoc, and you are free to invent your own attributes.
+  #p The frontmatter is formatted as YAML. If you are unfamiliar with YAML, see the %ref[url=https://yaml.org/YAML_for_ruby.html]{YAML cookbook}. There are no pre-defined attributes in Nanoc, and you are free to invent your own attributes.
 
   #p Change the value of the %attribute{title} attribute to something else:
 
@@ -209,7 +209,7 @@ title: "Tutorial"
 #section %h[id=write-pages-in-markdown]{Write pages in Markdown}
   #p Nanoc has %firstterm{filters}, which transform content from one format into another.
 
-  #p A language that is commonly used instead of HTML is %ref[url=http://daringfireball.net/projects/markdown]{Markdown}. Nanoc comes with various Markdown filters, including a filter for %ref[url=http://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.
+  #p A language that is commonly used instead of HTML is %ref[url=https://daringfireball.net/projects/markdown/]{Markdown}. Nanoc comes with various Markdown filters, including a filter for %ref[url=https://kramdown.gettalong.org/]{kramdown}, a fast and featureful Markdown processor.
 
   #p Get rid of the content in %filename{content/about.html} (but leave the frontmatter intact), and replace it with Markdown:
 
@@ -328,6 +328,6 @@ title: "Tutorial"
   #p Recompile the site. The tags in the compiled HTML files in the %filename{output/} directory are now generated using the helper.
 
 #section %h{Next steps}
-  #p You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the documentation. If you’re stuck with a Nanoc problem, get help on the %ref[url=https://groups.google.com/forum/#!forum/nanoc]{Nanoc discussion group}.
+  #p You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the documentation. If you’re stuck with a Nanoc problem, get help on the %ref[url=https://groups.google.com/d/forum/nanoc]{Nanoc discussion group}.
 
   #p We’d love to hear your feedback about the Nanoc documentation. Is something wrong? Is something unclear? Tell us by %ref[url=https://github.com/nanoc/nanoc.ws/issues/new]{opening an issue on GitHub}. Thanks!

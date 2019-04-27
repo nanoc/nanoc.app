@@ -6,7 +6,7 @@ Class.new(Nanoc::Filter) do
   def run(content, _params = {})
     content.gsub(/#(\d+)/) do |m|
       num = m[1..-1]
-      %(<a href="http://github.com/nanoc/nanoc/issues/#{num}">##{num}</a>)
+      %(<a href="https://github.com/nanoc/nanoc/issues/#{num}">##{num}</a>)
     end
   end
 end

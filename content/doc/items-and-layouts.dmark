@@ -20,7 +20,7 @@ title: "Items and layouts"
       #li an HTML representation, which will be the default for almost all sites
       #li an RSS representation, useful for the home page for a blog
       #li a JSON representation, so that the site can act as a read-only web API
-      #li a %ref[url=http://en.wikipedia.org/wiki/Cue_sheet_(computing)]{cue sheet} representation, useful for track list pages
+      #li a %ref[url=https://en.wikipedia.org/wiki/Cue_sheet_(computing)]{cue sheet} representation, useful for track list pages
 
     #p An item rep has a name, which usually refers to the format the content is in (%code{html}, %code{json}, %code{rss}, …). Unless otherwise specified, there will be a default representation, aptly named %code{default}.
 

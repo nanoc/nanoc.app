@@ -2,7 +2,7 @@
 title: "Creating multilingual sites"
 ---
 
-#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=http://mystonline.com/]{Myst Online website}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online website} to see the details about how it is done.
+#p Creating a site in multiple languages can be tedious, but Nanoc can nonetheless be useful in making the management of multilingual sites a bit easier. The approach that I will be describing in this guide is opinionated. It is not necessarily the best way, but it is an approach that worked quite well for me. This guide is inspired by the techniques I used for the %ref[url=https://mystonline.com/en/]{Myst Online website}. Feel free to check out the %ref[url=https://github.com/ddfreyne/myst-online-site]{source for the Myst Online website} to see the details about how it is done.
 
 #p A multilingual site is a site where each page is available in multiple languages. Each language forms some sort of sub-site. For example, the English translation could have pages “About” and “Play,” while the Dutch translation could have matching “Over” and “Speel” pages.
 
@@ -214,10 +214,10 @@ title: "Creating multilingual sites"
       exit();
     %}
 
-  #p The global %code{$base_url} variable contains the base URL for the website. For the Myst Online website, this is %uri{http://mystonline.com}. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
+  #p The global %code{$base_url} variable contains the base URL for the website. For the Myst Online website, this is %uri{https://mystonline.com}. It is used to build the full redirection URL. You can either hardcode this in PHP, like this:
 
   #listing[lang=php]
-    $base_url = 'http://mystonline.com';
+    $base_url = 'https://mystonline.com';
 
   #p … or you can set the %code{base_url} configuration attribute in %filename{nanoc.yaml} (or %filename{config.yaml} for older sites) and generate the PHP code for setting it (a bit icky, but DRYer):
 

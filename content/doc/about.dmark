@@ -32,7 +32,7 @@ short_title: "About"
     #dd Because static sites are developed locally, you can play around with the site to your heart’s content without affecting the live site.
 
     #dt versionable
-    #dd Static-site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as %ref[url=http://git-scm.com/]{Git}. Because of this, many sites built with static-site generators are open-source.
+    #dd Static-site generators commonly store their content in flat text files. This makes them ideal to be used with version control system, such as %ref[url=https://git-scm.com/]{Git}. Because of this, many sites built with static-site generators are open-source.
 
   #note Just because static sites are safer than dynamic sites does not mean you don’t need to take security into account. Use strong passwords, don’t communicate credentials over plain text, etc.
 
@@ -53,4 +53,4 @@ short_title: "About"
   #p Programmability combined with free-form metadata is what makes Nanoc flexible. It is agnostic to what content you provide; with metadata you can turn pages into articles, chapters, review, recipes, and more, and have them processed in specialized ways. Nothing in Nanoc is predefined, so it gives the power to build sites that meet their goals perfectly.
 
 #section %h{Similar projects}
-  #p There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, see %ref[url=http://staticsitegenerators.net/]{this list of static-site generators}.
+  #p There are several static-site generators floating around. Some of them are like Nanoc, and some of them aren’t similar at all. If Nanoc doesn’t fulfill your needs, see %ref[url=https://staticsitegenerators.net/]{this list of static-site generators}.

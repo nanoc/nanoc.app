@@ -66,7 +66,7 @@ title: "Troubleshooting"
 #section %h[nav-title=YAML timestamp issues]{Timestamps in YAML files parsed incorrectly}
   #p If you work with date/time attributes (such as %code{created_at}, %code{published_at}, and %code{updated_at}) and find that the time is one or more hours off, then this section applies to you.
 
-  #p If you use timestamps in the YAML file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the %ref[url=http://yaml.org/type/timestamp.html]{YAML timestamp specification}:
+  #p If you use timestamps in the YAML file, be sure to include the timezone. If no timezone is specified, then UTC is assumed—not the local time zone! Quoting the %ref[url=https://yaml.org/type/timestamp.html]{YAML timestamp specification}:
 
   #blockquote If the time zone is omitted, the timestamp is assumed to be specified in UTC. The time part may be omitted altogether, resulting in a date format. In such a case, the time part is assumed to be %code{00:00:00Z} (start of day, UTC).
 
@@ -110,7 +110,7 @@ title: "Troubleshooting"
 #section %h{Hidden files are ignored}
   #p Nanoc by default intentionally ignores files and directories that have a name that starts with a period. Such files and directories are hidden on Unix-like systems, such as macOS and Linux. Nanoc does so because these hidden files and directories are often generated unintentionally; for instance,macOS will generate %filename{.DS_Store} files, and vim generates backup files with a name like %filename{.about.md.un~}.
 
-  #p The filesystem data source can be told to include specific files that would otherwise be ignored. To do so, specify in the data source’s %code{extra_files} attribute the patterns for the files that you would like to be included. For example, the following will include %ref[url=https://github.com/blog/572-bypassing-jekyll-on-github-pages]{GitHub’s %filename{.nojekyll} file} and all files in %ref[url=https://tools.ietf.org/html/rfc5785]{the %filename{.well-known/} directory}:
+  #p The filesystem data source can be told to include specific files that would otherwise be ignored. To do so, specify in the data source’s %code{extra_files} attribute the patterns for the files that you would like to be included. For example, the following will include %ref[url=https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/]{GitHub’s %filename{.nojekyll} file} and all files in %ref[url=https://tools.ietf.org/html/rfc5785]{the %filename{.well-known/} directory}:
 
   #listing[lang=yaml]
     data_sources:
@@ -395,7 +395,7 @@ title: "Troubleshooting"
     #listing
       HELLO
 
-    #p To browse and search Ruby’s API, refer to the %ref[url=https://apidock.com/ruby/browse]{Ruby documentation on APIdock} or the %ref[url=http://devdocs.io/ruby]{Ruby documentation on DevDocs}.
+    #p To browse and search Ruby’s API, refer to the %ref[url=https://apidock.com/ruby/browse]{Ruby documentation on APIdock} or the %ref[url=https://devdocs.io/ruby]{Ruby documentation on DevDocs}.
 
   #section %h{A helper is not activated}
     #p When a helper method raises a %code{NoMethodError}, the helper might not yet be activated. For example, the following will raise a %code{NoMethodError} if the helper is not activated yet:
@@ -552,7 +552,7 @@ title: "Troubleshooting"
 
     Here is some content.
 
-  #p For more information about YAML, see the %ref[url=http://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=http://www.yaml.org/spec/1.2/spec.html]{YAML specification}.
+  #p For more information about YAML, see the %ref[url=https://yaml.org/YAML_for_ruby.html]{YAML for Ruby} guide, as well as the %ref[url=https://yaml.org/spec/1.2/spec.html]{YAML specification}.
 
   #p This error can also occur when the file is not supposed to have frontmatter, and the initial %code{---} is meant to be part of the file content. For example, the following will also raise an %code{UnparseableMetadata} error:
 

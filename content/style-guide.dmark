@@ -178,7 +178,7 @@ title: Style guide
 #section %h{Inline elements}
   #dl
     #dt link to URL
-    #dd The %ref[url=http://nanoc.ws/]{Nanoc website} is pretty.
+    #dd The %ref[url=https://nanoc.ws/]{Nanoc website} is pretty.
 
     #dt link to item
     #dd For details, see %ref[item=/doc/about.*]{}.
