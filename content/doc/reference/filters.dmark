@@ -559,7 +559,7 @@ title: "Filters"
   #p This filter takes options and passes them on to %code{Uglifier#initialize}. For example, the following will disable name mangling and enable support for Harmony mode (ES6/ES2015+):
 
   #listing[lang=ruby]
-    filter :uglify_js, mangle: false, harmony => true
+    filter :uglify_js, mangle: false, harmony: true
 
 #section %h{%code{:xsl}}
   #p The %code{:xsl} filter runs the item content through an %ref[url=http://www.w3.org/TR/xslt]{XSLT} stylesheet using %ref[url=http://nokogiri.org/]{Nokogiri}.
