@@ -72,6 +72,8 @@ ERB
 Erubi
 Erubis
 eRuby
+ES2015
+ES6
 ETags
 Everitt
 executables
