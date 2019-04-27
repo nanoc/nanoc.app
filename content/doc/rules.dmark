@@ -400,12 +400,12 @@ title: "Rules"
 #section %h{Preprocessing}
   #p The %filename{Rules} file can contain a %code{#preprocess} block. This preprocess block is executed before the site is compiled, and has access to all site data (%code{@config}, %code{@items}, and %code{@layouts}). Preprocessors can modify data coming from data sources before it is compiled. It can change item attributes, content, and the path, but also add and remove items.
 
-  #p Here is an example preprocess block that sets the %code{author} attribute to %code{denis} for every article:
+  #p Here is an example preprocess block that sets the %code{author} attribute to %code{denis} on every HTML document:
 
   #listing[lang=ruby]
     preprocess do
       @items.each do |item|
-        item[:author] = 'denis'
+        item[:author] = 'denis' if item.identifier.ext == 'html'
       end
     end
 
