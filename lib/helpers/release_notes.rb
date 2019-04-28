@@ -10,10 +10,9 @@ module NanocSite
       include Singleton
       DDMemoize.activate(self)
 
-      memoized def latest_release_info(item)
+      memoized def latest_release_info(compiled_content)
         # Get release notes page
-        content = item.compiled_content
-        doc = Nokogiri::HTML(content)
+        doc = Nokogiri::HTML(compiled_content)
 
         # Find and parse usable h2
         h2 = doc.css('h2').find { |elem| elem.inner_html.strip =~ TITLE_REGEX }
@@ -27,8 +26,8 @@ module NanocSite
     # Returns a hash with `:version`, containing the latest released version,
     # and `:date`, containing the latest released version’s release date.
     def latest_release_info
-      item = items['/release-notes.*']
-      Cached.instance.latest_release_info(item)
+      compiled_content = items['/release-notes.*'].compiled_content
+      Cached.instance.latest_release_info(compiled_content)
     end
   end
 end
