@@ -35,15 +35,15 @@ footer {
 .page .footer-content-wrapper {
   max-width: 1020px;
 
-  margin: 0 auto;
+  margin: -60px auto 0;
   padding: 0;
 
   @media (min-width: 720px) {
-    padding: 0 20px 30px 275px;
+    padding: 0 20px 40px 275px;
   }
 
   @media (max-width: 719px) {
-    padding: 0 20px;
+    padding: 0 20px 40px 20px;
   }
 }
 
