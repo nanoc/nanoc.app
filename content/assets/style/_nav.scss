@@ -1,10 +1,6 @@
 .nws-nav {
-  @include nav-bg-color;
-
-  @include nav-shadow-color;
-
   margin: 0;
-  padding: 0;
+  padding: 10px 0;
 
   @media (min-width: 720px) {
     position: fixed;
@@ -14,6 +10,8 @@
   }
 
   z-index: 100;
+
+  @include nav-bg-color;
 }
 
 .nws-nav-content {
@@ -24,11 +22,14 @@
   margin: 0 auto;
   padding: 0 20px;
   max-width: 1020px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nws-nav-content ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: right;
   margin: 0;
   padding: 0;
 }
@@ -37,7 +38,7 @@
   display: block;
   float: right;
   font-size: 18px;
-  padding: 10px 0;
+  padding: 10px 0 10px 20px;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -57,12 +58,29 @@
   list-style-type: none;
 }
 
+.nws-nav-home .nws-nav-link {
+  background-image: url(/assets/images/logo-light-a.png);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 30px 30px;
+
+  padding: 10px 0 10px 40px;
+  margin: 0;
+}
+
+.nws-nav-home .nws-nav-link:hover {
+  background-image: url(/assets/images/logo-light-b.png);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 30px 30px;
+}
+
 .nws-nav-link,
 .nws-nav-item .active {
   display: block;
 
-  margin: 0;
-  padding: 10px;
+  margin: 10px;
+  padding: 0;
 
   border-radius: 0;
 }
@@ -70,22 +88,21 @@
 .nws-nav-item .active {
   @include nav-item-active-color;
 
-  padding-top: 7px;
-  border-top: 3px solid;
+  border-bottom: 3px solid;
   @include nav-border-color;
 }
 
-.nws-nav-item .nws-nav-link:link,
-.nws-nav-item .nws-nav-link:visited {
+.nws-nav-link:link,
+.nws-nav-link:visited {
   @include nav-link-color;
 }
 
-.nws-nav-item .nws-nav-link:hover {
+.nws-nav-link:hover {
   @include nav-item-hover-color;
 
   background: transparent;
 }
 
-.nws-nav-item .nws-nav-link:active {
+.nws-nav-link:active {
   background: transparent;
 }

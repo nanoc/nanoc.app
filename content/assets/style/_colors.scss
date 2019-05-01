@@ -244,12 +244,12 @@ $color-darkmode-gray-900:        mix($color-darkmode-fg, $color-darkmode-gray-10
 // Navigation
 
 @mixin nav-bg-color {
-  background: $color-bg;
+  background: $color-blue-hint;
   @at-root .dark & {
-    background: $color-darkmode-bg;
+    background: $color-darkmode-blue-hint;
   }
   @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
+    background: $color-darkmode-blue-hint;
   }
 }
 
