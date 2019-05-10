@@ -53,8 +53,8 @@ title: "Internals"
       <!-- Creates a dependency on every item -->
       See the <%%= link_to @items.select { |i| i[:title] =~ /About/ %}.first %%> page.
 
-      <!-- Creates a dependency on any item whose identifier matches /gallery/* -->
-      <%% @items['/gallery/*'].each do |i| %%>
+      <!-- Creates a dependency on any item whose identifier matches /gallery/*  -->
+      <%% @items.find_all('/gallery/*').each do |i| %%>
         <li><%%= link_to i %%></li>
       <%% end %%>
 
