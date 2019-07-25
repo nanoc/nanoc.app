@@ -16,7 +16,7 @@ base_url: https://nanoc.ws
 
 checking:
   enabled_checks:
-    - ilinks
+    # TODO: re-enable ilinks once #1442 is fixed
     - stale
     - no_unprocessed_erb
     - no_markdown_links_in_output
