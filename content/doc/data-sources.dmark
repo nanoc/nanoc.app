@@ -63,7 +63,7 @@ title: "Data sources"
 
     Main content goes here…
 
-  #p Attributes can also be stored in a separate file (the “meta file”) with the same base name but with the %code{.yaml} extension.. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
+  #p Attributes can also be stored in a separate file (the “meta file”) with the same base name but with the %code{.yaml} extension. This is necessary for binary items. For example, the following two files correspond to a single item; the metadata is stored in the YAML file:
 
   #listing
     %prompt{%%} %kbd{tree content/assets/images}
