@@ -70,6 +70,22 @@ title: "Configuration"
 #section %h{%code{checks}}
   #p The %code{checks} section contains the configuration for individual checks.
 
+  #section %h{%code{all}}
+    #p Defines common configuration for all checks.
+
+    #dl
+      #dt %code{exclude_files} (default: empty array)
+      #dd A list of file patterns, specified as regular expressions, to exclude from the check. If a file matches this pattern, the links from this file will not be checked.
+
+    #p For example, the following will cause no checks to be run on %filename{external/bad.html} nor on %filename{external/worse.html}:
+
+    #listing[lang=yaml]
+      checks:
+        all:
+          exclude_files:
+            - external/bad.html
+            - external/worse.html
+
   #section %h{%code{internal_links}}
     #p Defines the configuration for the %code{internal_links} check.
 
