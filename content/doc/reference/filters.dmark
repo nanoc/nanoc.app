@@ -61,7 +61,7 @@ title: "Filters"
   #listing[lang=ruby]
     filter :colorize_syntax
 
-  #p To change the colorizer, pass a symbol containing the name of a colorizer to %code{:default_colorizer}. For example, the following highlights all code blocks using %ref[url=https://github.com/jneen/rouge]{Rouge}:
+  #p To change the colorizer, pass a symbol containing the name of a colorizer to %code{:default_colorizer}. For example, the following highlights all code blocks using %ref[url=https://github.com/rouge-ruby/rouge]{Rouge}:
 
   #listing[lang=ruby]
     filter :colorize_syntax, default_colorizer: :rouge
@@ -82,7 +82,7 @@ title: "Filters"
     #dd %ref[url=http://www.andre-simon.de/doku/highlight/en/highlight.php]{Highlight}, by Andre Simon
 
     #dt %code{:rouge}
-    #dd %ref[url=https://github.com/jneen/rouge]{Rouge}, a pure-Ruby syntax highlighter with Pygments-compatible output
+    #dd %ref[url=https://github.com/rouge-ruby/rouge]{Rouge}, a pure-Ruby syntax highlighter with Pygments-compatible output
 
   #p To configure individual highlighters, pass the options to the key for the highlighter. For example, the following will set the %code{line_numbers} option to %code{:list} for CodeRay:
 
@@ -315,7 +315,7 @@ title: "Filters"
   #p This filter does not have any options.
 
 #section %h{%code{:pandoc}}
-  #p The %code{:pandoc} filter runs content through %ref[url=http://johnmacfarlane.net/pandoc/]{Pandoc} using %ref[url=https://github.com/alphabetum/pandoc-ruby]{PandocRuby}.
+  #p The %code{:pandoc} filter runs content through %ref[url=https://pandoc.org]{Pandoc} using %ref[url=https://github.com/alphabetum/pandoc-ruby]{PandocRuby}.
 
   #p For example, the following will convert Pandoc content into HTML:
 

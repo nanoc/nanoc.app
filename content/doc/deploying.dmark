@@ -142,7 +142,7 @@ short_title: "Deploying"
     #p A deploy will now only succeed if checks pass.
 
 #section %h{With Netlify}
-  #p %ref[url=https://netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
+  #p %ref[url=https://www.netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
 
 #section %h{With rsync}
   #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
