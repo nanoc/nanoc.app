@@ -2,9 +2,9 @@
 # frozen_string_literal: true
 
 preprocess do
-  config[:nanoc_version_info] = Nanoc.version_information.strip
-  config[:nanoc_version_info_major_minor] = Nanoc.version_information.strip.scan(/\d+/).take(2).join('.')
-  config[:nanoc_version_info_major] = Nanoc.version_information.strip.scan(/\d+/).first
+  config[:nanoc_version_info] = Nanoc::Core.version_information.strip
+  config[:nanoc_version_info_major_minor] = Nanoc::Core.version_information.strip.scan(/\d+/).take(2).join('.')
+  config[:nanoc_version_info_major] = Nanoc::Core.version_information.strip.scan(/\d+/).first
 
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
