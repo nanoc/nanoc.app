@@ -29,7 +29,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     equatable (0.6.1)
     eventmachine (1.2.7)
-    ffi (1.11.1)
+    ffi (1.11.2)
     ffi-aspell (1.1.0)
       ffi
     hamster (3.0.0)
@@ -75,7 +75,7 @@ GEM
       nanoc (~> 4.11, >= 4.11.5)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    parallel (1.18.0)
+    parallel (1.19.0)
     parser (2.6.5.0)
       ast (~> 2.4.0)
     pastel (0.7.3)
@@ -87,7 +87,7 @@ GEM
       rack
     rainbow (3.0.0)
     rainpress (1.0.1)
-    rake (13.0.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
