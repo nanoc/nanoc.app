@@ -15,7 +15,7 @@ title: "Nanoc 4 upgrade guide"
     #li Nanoc 3 is in maintenance mode, which means it will only get critical bug fixes.
 
 #section %h{Installing Nanoc 4}
-  #p Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.3 and up:
+  #p Before installing, ensure you have a supported version of Ruby. Nanoc supports Ruby 2.4 and up:
 
   #listing
     %prompt{%%} %kbd{ruby --version}
