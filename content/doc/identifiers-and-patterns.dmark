@@ -88,6 +88,9 @@ title: "Identifiers and patterns"
       #dt %code{**/}
       #dd Matches zero or more levels of nested directories. For example, %glob{/projects/**/*.md} matches both %identifier{/projects/nanoc.md} and %identifier{/projects/nanoc/history.md}.
 
+      #dt %code{*.!(html|css)}
+      #dd Matches all items with a %glob{.} in the name *except* those immediately followed by %glob{html} or %glob{css}.
+
       #dt %code{?}
       #dd Matches a single character.
 
