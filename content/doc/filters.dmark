@@ -94,7 +94,7 @@ title: "Filters"
       end
 
   #section %h{Text-to-binary and binary-to-text filters}
-    #p Filters that convert textual content to binary content or vice versa have the type declaration %code{type :text => :binary} or %code{type :text => :binary}, respectively. For example:
+    #p Filters that convert textual content to binary content or vice versa have the type declaration %code{type :text => :binary} or %code{type :binary => :text}, respectively. For example:
 
     #listing[lang=ruby]
       class SampleTextualToBinaryFilter < Nanoc::Filter
