@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 
 group 'nanoc' do # automatically required by Nanoc
   gem 'nanoc-live', '~> 1.0.0b'
-  gem 'therubyracer'
 end
 
 gem 'adsf'
