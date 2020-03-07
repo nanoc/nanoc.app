@@ -23,6 +23,9 @@ Style/TrailingCommaInHashLiteral:
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
+Layout/LineLength:
+  Enabled: false
+
 
 
 # ----- DISABLED (metrics) -----
@@ -42,9 +45,6 @@ Metrics/ClassLength:
   Enabled: false
 
 Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Metrics/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
