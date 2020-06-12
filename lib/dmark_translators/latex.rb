@@ -224,9 +224,9 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
         '\\end{note}',
         "\n",
       ]
-    when 'figure', 'img', 'caption' # rubocop:disable Lint/EmptyWhen
+    when 'figure', 'img', 'caption'
       # TODO
-    when 'blockquote' # rubocop:disable Lint/EmptyWhen
+    when 'blockquote'
       # TODO
     when 'abbr'
       # TODO
