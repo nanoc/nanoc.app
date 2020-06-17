@@ -1,2 +1,4 @@
 http://nanoc.stoneship.org/*  https://nanoc.ws/:splat 301!
 https://nanoc.stoneship.org/* https://nanoc.ws/:splat 301!
+/doc /about/
+/doc/ /about/
