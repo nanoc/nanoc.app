@@ -381,33 +381,31 @@ title: "Helpers"
     #p Linking to a path:
 
     #listing[lang=ruby]
-      link_to('Blog', '/blog.*')
+      link_to('Blog', '/blog/')
       # => '<a href="/blog/">Blog</a>'
 
     #p Linking to an item:
 
     #listing[lang=ruby]
-      about = @items.find { |i| i.identifier =~ '/about.*' %}
-      link_to('About Me', about)
-      # => '<a href="/about.html">About Me</a>'
+      link_to('About Me', @items['/about.*'])
+      # => '<a href="/about/">About Me</a>'
 
     #p Linking to an item representation:
 
     #listing[lang=ruby]
-      about = @items.find { |i| i.identifier =~ '/about.*' %}
-      link_to('My vCard', about.rep(:vcard))
+      link_to('My vCard', @items['/about.*'].rep(:vcard))
       # => '<a href="/about.vcf">My vCard</a>'
 
     #p Linking with custom attributes:
 
     #listing[lang=ruby]
-      link_to('Blog', '/blog.*', title: 'My super cool blog')
+      link_to('Blog', @items['/blog.*'], title: 'My super cool blog')
       # => '<a title="My super cool blog" href="/blog/">Blog</a>'
 
     #p Linking to a different page, unless current:
 
     #listing[lang=ruby]
-      link_to_unless_current('Blog', '/blog.*')
+      link_to_unless_current('Blog', @items['/blog.*'])
       # => '<a href="/blog/">Blog</a>'
 
     #p Linking to the same page, unless current:
