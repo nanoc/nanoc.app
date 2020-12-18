@@ -33,7 +33,7 @@ compile '/assets/style/*' do
   filter :sass, syntax: :scss
   filter :relativize_paths, type: :css
   filter :rainpress
-  write item.identifier.without_ext + '-' + fingerprint('/assets/style/_*') + '.css'
+  write item.identifier.without_ext + '-' + fingerprint('/assets/style/*') + '.css'
 end
 
 compile '/sitemap.xml.*' do
