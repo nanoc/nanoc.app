@@ -106,7 +106,7 @@ short_title: "Deploying"
     #p Create a %filename{.gitlab-ci.yml} file with the following content:
 
     #listing[lang=yaml]
-      image: ruby:2.4
+      image: ruby:2.7
       pages:
         script:
           - bundle install -j4
@@ -127,7 +127,7 @@ short_title: "Deploying"
     #p To run deployment checks, add %code{bundle exec nanoc check --deploy} to the %filename{.gitlab-ci.yml} file, after %code{bundle exec nanoc}:
 
     #listing[lang=yaml]
-      image: ruby:2.4
+      image: ruby:2.7
       pages:
         script:
           - bundle install -j4
