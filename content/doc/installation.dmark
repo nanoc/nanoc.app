@@ -12,6 +12,16 @@ nav_title: "Install"
 
 #p For detailed installation instructions, read on.
 
+#section %h{Ruby 3.x}
+  #p On Ruby 3.0 and later, you might get this error error when running %command{nanoc view}:
+
+  #listing
+    LoadError: Couldn't find handler for: puma, thin, falcon, webrick.
+
+  #p This happens because Ruby 3.0 and later does not come with WEBrick by default, while older Ruby versions (2.x) do.
+
+  #p To resolve this, add WEBrick to your Gemfile: %kbd{bundle add webrick}.
+
 #section %h{Compatibility guarantees}
   #p Nanoc guarantees backwards compatibility within the same major version, starting from Nanoc 3.0 (released in 2009). This means that it is possible to upgrade from any 4.x to any newer 4.x version without extra work.
 
