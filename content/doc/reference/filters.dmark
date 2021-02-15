@@ -5,7 +5,7 @@ title: "Filters"
 #p The following is a list of all filters that come bundled with Nanoc.
 
 #section %h{%code{:asciidoc}}
-  #p The %code{:asciidoc} filter invokes the command-line tool of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}. This filter takes no options.
+  #p The %code{:asciidoc} filter invokes the command-line tool of %ref[url=https://asciidoc.org/]{AsciiDoc}. This filter takes no options.
 
   #p For example, the following will convert an AsciiDoc page to HTML:
 
