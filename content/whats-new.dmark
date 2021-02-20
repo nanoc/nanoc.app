@@ -4,6 +4,63 @@ title: "What’s new?"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
+#section %h{Nanoc 4.12}
+  #p Nanoc 4.12 comes with some minor changes that will make your Nanoc workflow faster: improved live recompilation, and caching of compiled binary content.
+
+  #section %h{Better live recompilation}
+    #p The %command{compile} command now has a %command{--watch} (%command{-W}) flag, which will automatically recompile when changes are made.
+
+    #p For this to work, you’ll need the newly-released %productname{nanoc-live} gem. To install it, add the %code{nanoc-live} gem inside the %code{nanoc} group in your %filename{Gemfile}:
+
+    #listing[lang=ruby]
+      group 'nanoc' do
+        gem 'nanoc-live'
+      end
+
+    #p It’s a good idea to add the %code{adsf} and %code{adsf-live} gems to your %filename{Gemfile}, too:
+
+    #listing[lang=ruby]
+      gem 'adsf'
+      gem 'adsf-live'
+
+    #p Now you can use the new %command{nanoc live} command, which automatically recompiles %emph{and} runs a web server that reloads your browser when changes are made:
+
+    #listing
+      %prompt{%%} %kbd{nanoc live}
+      View the site at http://127.0.0.1:3000/
+      [2021-02-20 09:38:52] INFO  WEBrick 1.7.0
+      [2021-02-20 09:38:52] INFO  ruby 3.0.0 (2020-12-25) [x86_64-darwin20]
+      [2021-02-20 09:38:52] INFO  WEBrick::HTTPServer#start: pid=78056 port=3000
+      Compiling site…
+      Site compiled in 0.69s.
+
+      Listening for site changes…
+
+    #p Visit the URL that %command{nanoc live} prints (in this case, %code{http://127.0.0.1:3000/}), make some changes to your site content, and you’ll see your changes reflected in the browser just after you save.
+
+    #note
+      #p On Ruby 3.0 and later, you might get the following error:
+
+      #listing
+        LoadError: Couldn't find handler for: puma, thin, falcon, webrick.
+
+      #p To fix this, add the %code{webrick} gem to your %filename{Gemfile}:
+
+      #listing[lang=ruby]
+        gem 'webrick'
+
+    #p While %productname{nanoc-live} is similar to %ref[url=https://github.com/nanoc/nanoc/tree/main/guard-nanoc]{%productname{guard-nanoc}}, it will give a nicer out-of-the-box experience with less configuration.
+
+  #section %h{Binary content caching}
+    #p While previous versions of Nanoc already kept a cache of compiled textual content (such as compiled Markdown files), this wasn’t yet the case for binary content (such as images). Nanoc 4.12 now caches compiled binary content as well, which will provide a speedup for asset-heavy web sites.
+
+    #p To minimize disk space usage for this cache of compiled binary content, add %ref[url=https://codeberg.org/da/ruby-clonefile]{%productname{clonefile}} to your %filename{Gemfile}:
+
+    #listing[lang=ruby]
+      gem 'clonefile'
+
+    #p This will enable copy-on-write (COW) support on modern filesystems such as APFS (but not HFS+).
+
 #section %h{Nanoc 4.11}
   #p In Nanoc 4.11, the Sass filter supports generating inline source maps. To do so, pass %code{sourcemap_path: :inline}:
 

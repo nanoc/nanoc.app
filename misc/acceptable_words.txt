@@ -4,6 +4,7 @@
 3rd
 Abubakar
 Ango
+APFS
 API
 APIdock
 APIs
@@ -86,6 +87,7 @@ filename
 filenames
 Filesystem
 filesystem
+filesystems
 Forcier
 freenode
 frontmatter
@@ -111,6 +113,7 @@ Haml
 Handebars
 Hanley
 hardcode
+HFS
 Hileman
 Hofstetter
 Hollensbe

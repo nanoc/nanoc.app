@@ -38,11 +38,11 @@ title: "Command-line interface"
 #section %h{Bundler integration}
   #p When invoking the Nanoc CLI through %ref[url=https://bundler.io]{%productname{Bundler}} (e.g. using %command{bundle exec nanoc}), Nanoc will attempt to require all gems in the %code{nanoc} group inside the %filename{Gemfile}. Gems that are defined in this group thus do not have to be required explicitly. This is particularly useful for gems that define filters, or add commands to the CLI.
 
-  #p For example, with the following %filename{Gemfile}, Nanoc will load the %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} gem automatically:
+  #p For example, with the following %filename{Gemfile}, Nanoc will load the %ref[url=https://github.com/nanoc/nanoc/tree/main/nanoc-live]{%productname{nanoc-live}} gem automatically:
 
   #listing[lang=ruby]
     group 'nanoc' do
-      gem 'guard-nanoc'
+      gem 'nanoc-live'
     end
 
 #section %h{Writing commands}
