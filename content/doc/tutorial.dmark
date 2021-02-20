@@ -90,6 +90,17 @@ title: "Tutorial"
   #listing
     %prompt{tutorial%%} %kbd{nanoc view}
 
+  #note
+    #p On Ruby 3.0 and later, you might get the following error:
+
+    #listing
+      LoadError: Couldn't find handler for: puma, thin, falcon, webrick.
+
+    #p To fix this, install the %code{webrick} gem to your %filename{Gemfile}:
+
+    #listing
+      %prompt{tutorial%%} %kbd{gem install webrick}
+
   #p Open a web browser and navigate to %uri{http://localhost:3000/}. You’ll see something like this:
 
   #figure
