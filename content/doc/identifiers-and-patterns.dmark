@@ -44,6 +44,17 @@ title: "Identifiers and patterns"
         Nanoc::Identifier.new('/software/nanoc.md').components
         # => ["software", "nanoc.md"]
 
+    #dt %code{identifier.match?(pattern)} → %code{true}, %code{false}
+    #dd
+      #p True if the identifier matches the pattern (either a %class{String} or a %class{Regexp}), false otherwise. For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/software/nanoc.md').match?('/software/*')
+        # => true
+
+        Nanoc::Identifier.new('/software/nanoc.md').match?('/soft*')
+        # => false
+
     #dt %code{identifier.without_ext} → %class{String}
     #dd
       #p Identifier with the last extension removed. For example:
