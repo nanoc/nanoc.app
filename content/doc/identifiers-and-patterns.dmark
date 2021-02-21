@@ -36,6 +36,14 @@ title: "Identifiers and patterns"
         Nanoc::Identifier.new('/about.html.erb').exts
         # => ["html", "erb"]
 
+    #dt %code{identifier.components} → %class{Array} of %class{String}s
+    #dd
+      #p Identifier split by slash. For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/software/nanoc.md').components
+        # => ["software", "nanoc.md"]
+
     #dt %code{identifier.without_ext} → %class{String}
     #dd
       #p Identifier with the last extension removed. For example:
