@@ -17,17 +17,17 @@ title: "Identifiers and patterns"
   #p The following methods are useful for full identifiers:
 
   #dl
-    #dt %code{identifier.without_ext} → %class{String}
-    #dd identifier with the last extension removed
-
-    #dt %code{identifier.without_exts} → %class{String}
-    #dd identifier with all extensions removed
-
     #dt %code{identifier.ext} → %class{String}
     #dd the last extension of this identifier
 
     #dt %code{identifier.exts} → %class{String}
     #dd all extensions of this identifier
+
+    #dt %code{identifier.without_ext} → %class{String}
+    #dd identifier with the last extension removed
+
+    #dt %code{identifier.without_exts} → %class{String}
+    #dd identifier with all extensions removed
 
     #dt %code{identifier + string} → %class{String}
     #dd identifier with the given string appended
