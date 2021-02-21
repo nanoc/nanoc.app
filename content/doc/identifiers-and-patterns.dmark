@@ -18,53 +18,80 @@ title: "Identifiers and patterns"
 
   #dl
     #dt %code{identifier.ext} → %class{String}
-    #dd the last extension of this identifier
+    #dd
+      #p The last extension of this identifier. For example:
 
-    #dt %code{identifier.exts} → %class{String}
-    #dd all extensions of this identifier
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/about.md').ext
+        # => "md"
+
+        Nanoc::Identifier.new('/about.html.erb').ext
+        # => "erb"
+
+    #dt %code{identifier.exts} → %class{Array} of %class{String}s
+    #dd
+      #p All extensions of this identifier. For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/about.html.erb').exts
+        # => ["html", "erb"]
 
     #dt %code{identifier.without_ext} → %class{String}
-    #dd identifier with the last extension removed
+    #dd
+      #p Identifier with the last extension removed. For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/software/nanoc.md').without_ext
+        # => "/software/nanoc"
+
+        Nanoc::Identifier.new('/about.html.erb').without_ext
+        # => "/about.html"
 
     #dt %code{identifier.without_exts} → %class{String}
-    #dd identifier with all extensions removed
+    #dd
+      #p Identifier with all extensions removed For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/about.html.erb').without_exts
+        # => "/about"
 
     #dt %code{identifier + string} → %class{String}
-    #dd identifier with the given string appended
+    #dd
+      #p Identifier with the given string appended. For example:
+
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/software') + '/nanoc'
+        # => "/software/nanoc"
 
     #dt %code{identifier =~ pat}
-    #dd truthy if the identifier matches the pattern (either a %class{String} or a %class{Regexp}), falsy otherwise
+    #dd
+      #p Truthy if the identifier matches the pattern (either a %class{String} or a %class{Regexp}), falsy otherwise. For example:
 
-  #p Here are some examples:
-
-  #listing[lang=ruby]
-    identifier = Nanoc::Identifier.new('/about.md')
-
-    identifier.without_ext
-    # => "/about"
-
-    identifier.ext
-    # => "md"
+      #listing[lang=ruby]
+        Nanoc::Identifier.new('/software/nanoc.md') =~ '/software/*'
+        # => 0
 
   #p The following method is useful for legacy identifiers:
 
   #dl[legacy]
     #dt %code{identifier.chop} → %class{String}
-    #dd identifier with the last character removed
+    #dd
+      #p Identifier with the last character removed. For example:
 
-  #p Here are some examples:
+      #listing[lang=ruby]
+        identifier = Nanoc::Identifier.new('/about/', type: :legacy)
 
-  #listing[lang=ruby]
-    identifier = Nanoc::Identifier.new('/about/', type: :legacy)
+        identifier.to_s
+        # => "/about/"
 
-    identifier.chop
-    # => "/about"
+        identifier.chop
+        # => "/about"
 
-    identifier.chop + '.html'
-    # => "/about.html"
+        identifier.chop + '.html'
+        # => "/about.html"
 
-    identifier + 'index.html'
-    # => "/about/index.html"
+        identifier + 'index.html'
+        # => "/about/index.html"
 
 #section %h{Patterns}
   #p Patterns are used to find items and layouts based on their identifier. They come in three varieties:
