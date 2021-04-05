@@ -67,7 +67,7 @@ compile '/release-notes.*' do
   filter :fix_contributor_brackets
   filter :kramdown, auto_ids: false
   filter :add_ids_to_headers
-  filter :link_github_issues
+  filter :autolink_github_gitlab
   layout '/default.*'
   filter :add_toc
   filter :relativize_paths, type: :html
