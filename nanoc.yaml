@@ -12,7 +12,7 @@ data_sources:
     items_root: /doc/reference/commands/
   - type: release_notes
 
-base_url: https://nanoc.ws
+base_url: https://nanoc.app
 
 checking:
   enabled_checks:

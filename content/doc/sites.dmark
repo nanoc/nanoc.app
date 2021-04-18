@@ -57,7 +57,7 @@ title: "Sites"
     data_sources:
       - type: filesystem
 
-    base_url: https://nanoc.ws
+    base_url: https://nanoc.app
 
   #p The example above contains configuration for the pruner in the %code{prune} section (auto-prune after every compilation, but don’t touch %filename{.git}), data sources in the %code{data_sources} section (read from the filesystem), and a custom configuration option %code{base_url}.
 
@@ -98,9 +98,9 @@ title: "Sites"
 
     environments:
       prod:
-        base_url: https://nanoc.ws
+        base_url: https://nanoc.app
 
-  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} in all environments, but %code{"https://nanoc.ws"} in the %code{prod} environment. The %code{site_name} configuration option will be %code{"Nanoc"} in all environments.
+  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} in all environments, but %code{"https://nanoc.app"} in the %code{prod} environment. The %code{site_name} configuration option will be %code{"Nanoc"} in all environments.
 
   #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. However, non-%code{default} environments will not inherit from the %code{default} environment. For example:
 
@@ -112,7 +112,7 @@ title: "Sites"
         base_url: http://nanoc.dev
         site_name: Nanoc (local)
       prod:
-        base_url: https://nanoc.ws
+        base_url: https://nanoc.app
 
   #p In this example, %code{site_name} will be %code{"Nanoc"} in all environments, except %code{default}, where it is %code{"Nanoc (local)"} instead.
 

@@ -183,14 +183,14 @@ title: "What’s new?"
 
     environments:
       prod:
-        base_url: http://nanoc.ws
+        base_url: https://nanoc.app
       staging:
         base_url: http://staging.nanoc.ws
 
   #p When an environment is specified on the command line, the data for the environment with the given name will be merged into the top level of the configuration. For example, with %command{--env=prod}, the configuration effectively becomes as follows:
 
   #listing[lang=yaml]
-    base_url: http://nanoc.ws
+    base_url: https://nanoc.app
 
   #p For details about environments, see %ref[item=/doc/sites.*,frag=environments]{}.
 
