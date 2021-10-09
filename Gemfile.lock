@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     adsf (1.4.6)
       rack (>= 1.0.0, < 3.0.0)
@@ -15,7 +15,7 @@ GEM
     builder (3.2.4)
     coderay (1.1.3)
     colored (1.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     cri (2.15.11)
     d-mark (1.0.0b2)
     ddmemoize (1.0.0)
@@ -43,12 +43,12 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mini_portile2 (2.5.1)
-    nanoc (4.12.2)
+    nanoc (4.12.3)
       addressable (~> 2.5)
       colored (~> 1.2)
       nanoc-checking (~> 1.0)
-      nanoc-cli (= 4.12.2)
-      nanoc-core (= 4.12.2)
+      nanoc-cli (= 4.12.3)
+      nanoc-core (= 4.12.3)
       nanoc-deploying (~> 1.0)
       parallel (~> 1.12)
       tty-command (~> 0.8)
@@ -56,12 +56,12 @@ GEM
     nanoc-checking (1.0.1)
       nanoc-cli (~> 4.11, >= 4.11.15)
       nanoc-core (~> 4.11, >= 4.11.15)
-    nanoc-cli (4.12.2)
+    nanoc-cli (4.12.3)
       cri (~> 2.15)
       diff-lcs (~> 1.3)
-      nanoc-core (= 4.12.2)
+      nanoc-core (= 4.12.3)
       zeitwerk (~> 2.1)
-    nanoc-core (4.12.2)
+    nanoc-core (4.12.3)
       concurrent-ruby (~> 1.1)
       ddmemoize (~> 1.0)
       ddmetrics (~> 1.0)
@@ -83,7 +83,7 @@ GEM
     nokogiri (1.11.6)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    parallel (1.20.1)
+    parallel (1.21.0)
     parser (3.0.1.1)
       ast (~> 2.4.1)
     pastel (0.8.0)
@@ -126,7 +126,7 @@ GEM
     tty-command (0.10.1)
       pastel (~> 0.8)
     tty-platform (0.3.0)
-    tty-which (0.4.2)
+    tty-which (0.5.0)
     unicode-display_width (2.0.0)
     w3c_validators (1.3.6)
       json (>= 1.8)
@@ -159,4 +159,4 @@ DEPENDENCIES
   webrick
 
 BUNDLED WITH
-   2.2.18
+   2.2.28
