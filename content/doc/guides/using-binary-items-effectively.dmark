@@ -103,7 +103,7 @@ title: "Using binary items effectively"
     #listing[lang=yaml]
       alt: "A picture of a kitten that looks cute but is actually quite evil"
 
-    #p Writing the ALT text on the gallery page is now as simple as printing the %code{img[:alt]} text, like this:
+    #p Writing the ALT text on the gallery page can now be done using the %code{img[:alt]} text, like this:
 
     #listing[lang=rhtml]
       <ul>

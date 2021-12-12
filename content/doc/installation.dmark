@@ -54,7 +54,7 @@ nav_title: "Install"
   #p To install Ruby, follow the %ref[url=https://www.ruby-lang.org/en/documentation/installation/]{installation instructions on the Ruby website}.
 
 #section %h{Installing Nanoc}
-  #p All dependencies are now taken care of, and installing Nanoc should now be easy:
+  #p All dependencies are now taken care of, and you can now install Nanoc itself:
 
   #listing
     %prompt{%%} %kbd{gem install nanoc}

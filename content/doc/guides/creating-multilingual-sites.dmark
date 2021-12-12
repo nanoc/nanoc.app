@@ -42,7 +42,7 @@ title: "Creating multilingual sites"
       (item.identifier.to_s.match(/^\/([a-z]{2%})\//) || [])[1]
      end
 
-  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is easy to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online website, I chose the English identifier as the canonical identifier, but the choice you make here is arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
+  #p Once you have the basic content, you can improve the site to make it easier for switch languages. For this to work, each item needs a “canonical identifier” so that it is possible to find translations of a given page. The same items in different languages will all have the same canonical identifier. For the Myst Online website, I chose the English identifier as the canonical identifier, but the choice you make here is arbitrary. For example, the %uri{/en/about} page has %code{/about} as its canonical identifier, and %uri{/nl/speel} has %code{/play} as its canonical identifier. The canonical identifier is probably best stored in a %code{canonical_identifier} attribute.
 
   #p Now, it is possible to find all translations of a given item by finding all items with the same canonical identifier:
 
