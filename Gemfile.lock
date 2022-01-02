@@ -23,7 +23,7 @@ GEM
       ref (~> 2.0)
     ddmetrics (1.0.1)
     ddplugin (1.0.3)
-    diff-lcs (1.4.4)
+    diff-lcs (1.5.0)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -102,16 +102,16 @@ GEM
     ref (2.0.0)
     regexp_parser (2.2.0)
     rexml (3.2.5)
-    rubocop (1.23.0)
+    rubocop (1.24.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.12.0, < 2.0)
+      rubocop-ast (>= 1.15.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.14.0)
+    rubocop-ast (1.15.1)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     sass (3.7.4)
@@ -133,7 +133,7 @@ GEM
       nokogiri (~> 1.6)
       rexml (~> 3.2)
     webrick (1.7.0)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   ruby
