@@ -2,12 +2,10 @@
 
 class CachingDMarkParser
   class << self
-    DDMemoize.activate(self)
-
     def parse(content)
-      DMark::Parser.new(content).parse
+      @cache ||= {}
+      @cache[content] ||= DMark::Parser.new(content).parse
     end
-    memoize :parse
   end
 end
 

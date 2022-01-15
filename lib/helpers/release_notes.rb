@@ -8,9 +8,13 @@ module NanocSite
 
     class Cached
       include Singleton
-      DDMemoize.activate(self)
 
-      memoized def latest_release_info(compiled_content)
+      def latest_release_info(compiled_content)
+        @latest_release_info ||= {}
+        @latest_release_info[compiled_content] ||= uncached_latest_release_info(compiled_content)
+      end
+
+      def uncached_latest_release_info(compiled_content)
         # Get release notes page
         doc = Nokogiri::HTML(compiled_content)
 
