@@ -22,6 +22,8 @@ nav_title: "Install"
 
   #p To resolve this, add WEBrick to your Gemfile: %kbd{bundle add webrick}.
 
+  #p If you have no Gemfile (or if you use Nanoc on various sites): %kbd{gem install webrick}.
+
 #section %h{Compatibility guarantees}
   #p Nanoc guarantees backwards compatibility within the same major version, starting from Nanoc 3.0 (released in 2009). This means that it is possible to upgrade from any 4.x to any newer 4.x version without extra work.
 
