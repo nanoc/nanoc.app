@@ -20,7 +20,7 @@ nav_title: "Install"
 
   #p This happens because Ruby 3.0 and later does not come with WEBrick by default, while older Ruby versions (2.x) do.
 
-  #p To resolve this, add WEBrick to your Gemfile: %kbd{bundle add webrick}.
+  #p To resolve this, add WEBrick to your %filename{Gemfile}: %kbd{bundle add webrick}. If you happen to not use Bundler and thus have no %filename{Gemfile}, you can install WEBrick using %kbd{gem install webrick}.
 
 #section %h{Compatibility guarantees}
   #p Nanoc guarantees backwards compatibility within the same major version, starting from Nanoc 3.0 (released in 2009). This means that it is possible to upgrade from any 4.x to any newer 4.x version without extra work.
