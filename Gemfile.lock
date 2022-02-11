@@ -39,7 +39,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    memo_wise (1.5.0)
+    memo_wise (1.6.0)
     mini_portile2 (2.7.1)
     nanoc (4.12.5)
       addressable (~> 2.5)
@@ -96,12 +96,12 @@ GEM
     rainbow (3.1.1)
     rainpress (1.0.1)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
     rexml (3.2.5)
-    rubocop (1.25.0)
+    rubocop (1.25.1)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -133,7 +133,7 @@ GEM
       nokogiri (~> 1.6)
       rexml (~> 3.2)
     webrick (1.7.0)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   ruby
@@ -160,4 +160,4 @@ DEPENDENCIES
   webrick
 
 BUNDLED WITH
-   2.3.5
+   2.3.7
