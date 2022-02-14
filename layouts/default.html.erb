@@ -5,8 +5,10 @@
     <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
     <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
+    <link rel="preconnect" href="https://RNL791U9AF-dsn.algolia.net" crossorigin>
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic%7CRoboto+Mono:400,400italic,700' rel='stylesheet' type='text/css'>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
   </head>
@@ -65,7 +67,7 @@
       </nav>
       <div class="nws-content">
         <aside class="side">
-          <div class="nws-side__search" id="search-box"><input type="search" id="search-field" placeholder="Search…"></div>
+          <div class="nws-side__search" id="search-box"></div>
           <div class="nws-side__content">
             <% if @item.identifier =~ %r{^/doc(/|\.)} %>
               <h3>Table of contents</h3>
@@ -104,9 +106,8 @@
         </div>
       </footer>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-      <script>docsearch({apiKey:'49d200216d2b1014fe3f2e5482289aed',indexName:'nanoc',inputSelector:'#search-field',debug:true});</script>
+      <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+      <script>docsearch({apiKey:'3b10f9cf40d282e212f40bd445173aed',appId:'RNL791U9AF',indexName:'nanoc',container:'#search-box',debug:true});</script>
       <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
       <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
     </div>
