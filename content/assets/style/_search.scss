@@ -1,65 +1,111 @@
-.nws-side__search {
-  padding: 15px 0;
+@import 'colors.scss';
 
-  z-index: 100;
+#nanoc {
+  --docsearch-spacing: 12px;
+  --docsearch-icon-stroke-width: 1.4;
+  --docsearch-footer-height: 44px;
+  --docsearch-modal-width: 560px;
+  --docsearch-modal-height: 600px;
+  --docsearch-searchbox-height: 56px;
+  --docsearch-hit-height: 56px;
 
-  > span {
-    width: 100%;
-  }
+  // Colors
 
-  input {
-    width: 100%;
-    height: 30px;
+  --docsearch-primary-color: #{$color-blue};
 
-    -webkit-appearance: none;
+  --docsearch-text-color: #{$color-fg};
 
-    @include search-bg-color;
-    @include search-fg-color;
+  --docsearch-muted-color: #{$color-gray-500};
 
-    font-family: "Source Sans Pro";
-    font-size: 16px;
+  --docsearch-container-background: rgba(0, 0, 0, 0.5);
 
-    border: none;
-    border-radius: 15px;
+  --docsearch-logo-color: #{$color-blue};
 
-    padding: 5px 18px;
-    border: 2px solid;
-    @include search-placeholder-border-color;
-  }
+  --docsearch-modal-background: #{$color-blue-hint};
 
-  input:focus {
-    outline: none;
-    border: 2px solid;
-    @include search-border-color;
-  }
+  --docsearch-modal-shadow: inset 1px 1px 0 0 hsla(0, 0%, 100%, 0.5),
+    0 5px 12px 0 rgba(0, 0, 0, 0.3);
 
-  input::-webkit-input-placeholder { color: #bbb; }
-  input:-moz-placeholder           { color: #bbb; opacity: 1; }
-  input::-moz-placeholder          { color: #bbb; opacity: 1; }
-  input:-ms-input-placeholder      { color: #bbb; }
+  --docsearch-searchbox-background: #{$color-bg};
+
+  --docsearch-searchbox-focus-background: #fff;
+
+  --docsearch-hit-color: #{$color-gray-900};
+
+  --docsearch-hit-active-color: #fff;
+
+  --docsearch-hit-background: #fff;
+
+  --docsearch-hit-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+
+  --docsearch-key-gradient: linear-gradient(
+    -225deg,
+    #{$color-gray-300},
+    #{$color-gray-100}
+  );
+
+  --docsearch-key-shadow: inset 0 -2px 0 0 #{$color-gray-300},
+    inset 0 0 1px 1px #{$color-gray-100}, 0 1px 2px 1px rgba(0, 0, 0, 0.3);
+
+  --docsearch-footer-background: #{$color-bg};
+
+  --docsearch-footer-shadow: 0 -1px 0 0 #e0e3e8,
+    0 -3px 6px 0 rgba(69, 98, 155, 0.12);
+
+  // Derived
+
+  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+  --docsearch-highlight-color: var(--docsearch-primary-color);
 }
 
-#search-box {
-  a:link, a:visited {
-    background: none;
-  }
+@media (prefers-color-scheme: dark) {
+  #nanoc {
+    --docsearch-primary-color: #{$color-darkmode-blue};
 
-  .algolia-docsearch-suggestion--category-header {
-    @include search-results-l0-fg-color;
-  }
+    --docsearch-text-color: #{$color-darkmode-fg};
 
-  .algolia-docsearch-suggestion--title {
-    @include search-results-l1-fg-color;
-  }
+    --docsearch-container-background: rgba(0, 0, 0, 0.6);
 
-  .algolia-docsearch-suggestion--title .algolia-docsearch-suggestion--highlight,
-  .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-    @include search-results-higlight-fg-color;
-    @include search-results-higlight-bg-color;
-    box-shadow: none;
-  }
+    --docsearch-modal-background: #{$color-darkmode-bg};
 
-  .ds-cursor .algolia-docsearch-suggestion--content {
-    @include search-results-selection-bg-color;
+    --docsearch-modal-shadow: inset 1px 1px 0 0 #{$color-darkmode-gray-100},
+      0 5px 12px 0 #000000;
+
+    --docsearch-searchbox-background: #{$color-darkmode-bg};
+
+    --docsearch-searchbox-focus-background: rgba(0, 0, 0, 0.3);
+
+    --docsearch-hit-color: #{$color-darkmode-gray-900};
+
+    --docsearch-hit-shadow: none;
+
+    --docsearch-hit-background: #{$color-darkmode-gray-100};
+
+    --docsearch-key-gradient: linear-gradient(
+      -26.5deg,
+      #{$color-darkmode-gray-300},
+      #{$color-darkmode-gray-100}
+    );
+
+    --docsearch-key-shadow: inset 0 -2px 0 0 #{$color-darkmode-gray-100},
+      inset 0 0 1px 1px #{$color-darkmode-gray-300},
+      0 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+    --docsearch-footer-background: #{$color-darkmode-bg};
+
+    --docsearch-footer-shadow: inset 0 1px 0 0 #{$color-darkmode-bg},
+      0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    --docsearch-logo-color: #{$color-darkmode-fg};
+
+    --docsearch-muted-color: #{$color-darkmode-gray-500};
   }
+}
+
+#nanoc .DocSearch-Button {
+  margin: 0;
+}
+
+.nws-side__search {
+  padding: 15px 0;
 }
