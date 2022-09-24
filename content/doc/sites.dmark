@@ -80,7 +80,43 @@ title: "Sites"
 
   #p Nanoc will not compile items that are not outdated. If you want to force Nanoc to recompile everything, delete the output directory and re-run the compile command.
 
-  #p You can use %ref[url=https://github.com/guard/guard-nanoc]{%productname{guard-nanoc}} to automatically recompile the site when it changes.
+  #section %h[id=live-recompilation]{Live recompilation}
+    #p Nanoc supports live recompilation, which will recompile the site whenever any changes are made. To set up live recompilation, add the %productname{nanoc-live} gem inside the %code{nanoc} group in your %filename{Gemfile}:
+
+    #listing[lang=ruby]
+      group 'nanoc' do
+        gem 'nanoc-live'
+      end
+
+    #p If your %filename{Gemfile} contains the line %code{gem 'guard-nanoc'}, remove it. The %ref[url=https://github.com/nanoc/nanoc/tree/main/guard-nanoc]{%productname{guard-nanoc}} gem provides similar (but older) functionality to %productname{nanoc-live}.
+
+    #p Now you can use the %command{nanoc live} command, which automatically recompiles %emph{and} runs a web server that reloads your browser when changes are made.
+
+    #listing
+      %prompt{%%} %kbd{nanoc live}
+      View the site at http://127.0.0.1:3000/
+      [2021-02-20 09:38:52] INFO  WEBrick 1.7.0
+      [2021-02-20 09:38:52] INFO  ruby 3.0.0 (2020-12-25) [x86_64-darwin20]
+      [2021-02-20 09:38:52] INFO  WEBrick::HTTPServer#start: pid=78056 port=3000
+      Compiling site…
+      Site compiled in 0.69s.
+
+      Listening for site changes…
+
+    #p Visit the URL that %command{nanoc live} prints (in this case, %code{http://127.0.0.1:3000/}), make some changes to your site content, and you’ll see your changes reflected in the browser just after you save.
+
+    #p You can also use the %command{compile --watch} command, which will recompile without running a web server.
+
+    #note
+      #p On Ruby 3.0 and later, you might get the following error:
+
+      #listing
+        LoadError: Couldn't find handler for: puma, thin, falcon, webrick.
+
+      #p To fix this, add the %code{webrick} gem to your %filename{Gemfile}:
+
+      #listing[lang=ruby]
+        gem 'webrick'
 
 #section %h[id=environments]{Environments}
   #p Nanoc supports defining multiple environments in which sites can be compiled. For example, a %code{devel} (development) and a %code{prod} (production) environment, where %code{prod} performs additional work that is typically not needed for local development, such as minifying HTML and CSS, converting all paths to be relative, and cleaning up typography.
