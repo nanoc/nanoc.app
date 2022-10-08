@@ -23,6 +23,14 @@ Class.new(Nanoc::DataSource) do
   def cmd_to_item(cmd)
     slug = cmd.name.downcase.gsub(/[^a-z0-9]+/, '-')
 
+    option_definitions = cmd.option_definitions.map do |opt_def|
+      {
+        short: opt_def.short,
+        long: opt_def.long,
+        desc: opt_def.desc,
+      }
+    end
+
     new_item(
       '-',
       {
@@ -31,7 +39,7 @@ Class.new(Nanoc::DataSource) do
         summary: cmd.summary,
         description: cmd.description,
         aliases: cmd.aliases,
-        option_definitions: cmd.option_definitions,
+        option_definitions: option_definitions,
         usage: cmd.usage,
       },
       Nanoc::Identifier.new("/_#{slug}"),
