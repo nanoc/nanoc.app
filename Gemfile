@@ -2,8 +2,23 @@
 
 source 'https://rubygems.org'
 
-group 'nanoc' do # automatically required by Nanoc
-  gem 'nanoc-live', '~> 1.0'
+use_local_nanoc = false
+local_nanoc_path = Pathname.new('~/Documents/Projects/Nanoc/Repos/nanoc')
+
+if use_local_nanoc
+  gem 'nanoc', path: local_nanoc_path.join('nanoc')
+  gem 'nanoc-cli', path: local_nanoc_path.join('nanoc-cli')
+  gem 'nanoc-core', path: local_nanoc_path.join('nanoc-core')
+
+  group 'nanoc' do # automatically required by Nanoc
+    gem 'nanoc-live', path: local_nanoc_path.join('nanoc-live')
+  end
+else
+  gem 'nanoc', '~> 4.9', '>= 4.9.6'
+
+  group 'nanoc' do # automatically required by Nanoc
+    gem 'nanoc-live', '~> 1.0'
+  end
 end
 
 gem 'adsf'
@@ -13,7 +28,6 @@ gem 'd-mark', '~> 1.0.0b'
 gem 'ffi-aspell'
 gem 'htmlcompressor'
 gem 'kramdown'
-gem 'nanoc', '~> 4.9', '>= 4.9.6'
 gem 'nokogiri'
 gem 'psych', '~> 4.0'
 gem 'rainpress'
