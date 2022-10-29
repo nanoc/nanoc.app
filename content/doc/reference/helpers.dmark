@@ -296,7 +296,7 @@ title: "Helpers"
     #dd
       #p Filters the content in the given block with the %var{filter_name} filter, and outputs it. The %var{arguments} argument is passed as-is to the filter. This function does not return anything; instead, the filtered contents is directly appended to the output buffer (%code{_erbout}).
 
-      #note This function has been tested with ERB and Haml, as both filters use the %code{_erbout} variable. Other filters may not work correctly.
+      #note This function has been tested with ERB only. Other filters may not work correctly.
 
   #section %h{Examples}
     #p Running the %code{:rubypants} filter on a specific paragraph:
