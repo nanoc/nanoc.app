@@ -22,7 +22,7 @@ module Kramdown
       end
 
       def convert_p(el, opts)
-        "#p\n" + inner(el, opts).lines.map { |l| '  ' + l.strip }.join("\n") + "\n"
+        "#p\n" + inner(el, opts).lines.map { |l| "  #{l.strip}" }.join("\n") + "\n"
       end
 
       def convert_blank(_el, _opts)

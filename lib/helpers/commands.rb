@@ -17,7 +17,7 @@ module NanocSite
           buf << '}' << "\n"
 
           buf << '  #dd' << "\n"
-          buf << dmark_desc.lines.map { |l| '    ' + l }.join("\n") << "\n"
+          buf << dmark_desc.lines.map { |l| "    #{l}" }.join("\n") << "\n"
         end
       end
     end

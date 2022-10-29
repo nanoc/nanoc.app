@@ -104,9 +104,9 @@ class NanocWsLaTeXTranslator < NanocWsCommonTranslator
   def handle_ref_insert_end(_node, _context, target_item, frag, _target_node)
     ref =
       if target_item
-        'chap:' + target_item.identifier.to_s
+        "chap:#{target_item.identifier}"
       else
-        'section:' + frag
+        "section:#{frag}"
       end
 
     [

@@ -30,10 +30,8 @@ class NanocSpellChecker
 
       return if %w[pre code kbd samp var].include?(node.name)
 
-      if node.name == 'span'
-        if %w[filename identifier glob uri command prompt productname].include?(node['class'])
-          return
-        end
+      if node.name == 'span' && %w[filename identifier glob uri command prompt productname].include?(node['class'])
+        return
       end
 
       node.children.each do |child|
@@ -138,7 +136,7 @@ Nanoc::Check.define(:no_smartness_in_kbd) do
 end
 
 Nanoc::Check.define(:spelling) do
-  acceptable_words = Set.new(File.readlines(__dir__ + '/../misc/acceptable_words.txt').map(&:strip))
+  acceptable_words = Set.new(File.readlines("#{__dir__}/../misc/acceptable_words.txt").map(&:strip))
 
   acceptable_files = [
     # These are auto-generated from Nanoc’s API documentation. Fixing these is a task for later.

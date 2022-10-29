@@ -150,11 +150,11 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
   end
 
   def start_tag(name, params)
-    '<' + name + params.map { |k, v| ' ' + k.to_s + '="' + html_escape(v) + '"' }.join('') + '>'
+    '<' + name + params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('') + '>'
   end
 
   def end_tag(name)
-    '</' + name + '>'
+    "</#{name}>"
   end
 
   def unsupported_element(element, _context)
@@ -291,7 +291,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
     code_attrs =
       if element.attributes['lang']
-        { class: 'language-' + element.attributes['lang'] }
+        { class: "language-#{element.attributes['lang']}" }
       else
         {}
       end
@@ -360,7 +360,7 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
   def href_for(target_item, frag)
     if frag
-      target_item.path + '#' + frag
+      "#{target_item.path}##{frag}"
     else
       target_item.path
     end
