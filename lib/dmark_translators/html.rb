@@ -150,7 +150,7 @@ class GenericHTMLTranslator < NanocWsCommonTranslator
   end
 
   def start_tag(name, params)
-    '<' + name + params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join('') + '>'
+    '<' + name + params.map { |k, v| " #{k}=\"#{html_escape(v)}\"" }.join + '>'
   end
 
   def end_tag(name)

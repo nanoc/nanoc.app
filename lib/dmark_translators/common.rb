@@ -51,10 +51,8 @@ class NanocWsCommonTranslator < DMark::Translator
       false
     elsif node.children.any? { |n| !n.is_a?(String) }
       true
-    elsif node.children.all?(&:empty?)
-      false
     else
-      true
+      !node.children.all?(&:empty?)
     end
   end
 
