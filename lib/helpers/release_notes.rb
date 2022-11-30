@@ -20,7 +20,7 @@ module NanocSite
 
         # Find and parse usable h2
         h2 = doc.css('h2').find { |elem| elem.inner_html.strip =~ TITLE_REGEX }
-        h2 =~ TITLE_REGEX
+        h2.inner_html.strip =~ TITLE_REGEX
 
         # Done
         { version: Regexp.last_match(1), date: Date.parse(Regexp.last_match(3)) }
