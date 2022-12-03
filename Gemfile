@@ -14,7 +14,7 @@ if use_local_nanoc
     gem 'nanoc-live', path: local_nanoc_path.join('nanoc-live')
   end
 else
-  gem 'nanoc', '~> 4.12', '>= 4.12.12'
+  gem 'nanoc', '~> 4.12', '>= 4.12.14'
 
   group 'nanoc' do # automatically required by Nanoc
     gem 'nanoc-live', '~> 1.0'
