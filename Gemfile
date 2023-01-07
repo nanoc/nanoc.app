@@ -21,6 +21,10 @@ else
   end
 end
 
+group :nanoc do
+  gem 'nanoc-dart-sass', '~> 1.0'
+end
+
 gem 'adsf'
 gem 'builder'
 gem 'coderay'
@@ -33,7 +37,6 @@ gem 'psych', '~> 4.0'
 gem 'rainpress'
 gem 'rake'
 gem 'rubocop'
-gem 'sass', '~> 3.4'
 gem 'terminal-notifier'
 gem 'terminal-notifier-guard'
 gem 'w3c_validators'
