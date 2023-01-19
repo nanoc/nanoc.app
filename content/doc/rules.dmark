@@ -253,7 +253,7 @@ title: "Rules"
   #p The following rule will capture regex matches and provide them as block arguments (for example, the item with identifier %filename{/blog/2015-05-19-something.md} will be routed to %filename{/blog/2015/05/something/index.html}):
 
   #listing[lang=ruby]
-    route %%r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |y, m, d, slug|
+    route %%r[/blog/([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)\..*] do |_, y, m, d, slug|
       "/blog/#{y%}/#{m%}/#{slug%}/index.html"
     end
 
