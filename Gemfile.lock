@@ -29,6 +29,7 @@ GEM
     ffi-aspell (1.1.0)
       ffi
     google-protobuf (3.21.12)
+    google-protobuf (3.21.12-x86_64-linux)
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     htmlcompressor (0.4.0)
@@ -84,6 +85,8 @@ GEM
       nanoc-core (~> 4.11, >= 4.11.14)
     nokogiri (1.14.1-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.1-x86_64-linux)
+      racc (~> 1.4)
     parallel (1.22.1)
     parser (3.2.0.0)
       ast (~> 2.4.1)
@@ -93,7 +96,7 @@ GEM
       stringio
     public_suffix (5.0.1)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.4)
     rack-livereload (0.3.17)
       rack
     rainbow (3.1.1)
@@ -119,6 +122,8 @@ GEM
     ruby-progressbar (1.11.0)
     sass-embedded (1.58.0-arm64-darwin)
       google-protobuf (~> 3.21)
+    sass-embedded (1.58.0-x86_64-linux-gnu)
+      google-protobuf (~> 3.21)
     slow_enumerator_tools (1.1.0)
     stringio (3.0.5)
     terminal-notifier (2.0.0)
@@ -138,6 +143,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   adsf
