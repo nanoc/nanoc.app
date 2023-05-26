@@ -47,10 +47,6 @@ footer {
   }
 }
 
-.page .footer-copyright {
-  display: none;
-}
-
 .footer-releasenotes {
   padding: 40px 0 20px 0;
   @include footer-fg-color;
@@ -94,21 +90,44 @@ footer {
 
 .footer-copyright {
   padding: 20px 0;
+
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
   @include footer-fg-color;
 
-  div {
-    font-size: 13px;
-    max-width: 650px;
-
-    padding: 20px 0 20px 55px;
-
-    background: url(/assets/images/logo-small.png) left center no-repeat;
-    background-size: 40px 40px;
+  .logo {
+    order: 1;
+    flex: 0 1;
   }
 
-  @media (min-width: 859px) {
-    /* http://nadrosia.tumblr.com/post/16402346907/made-in-berlin-badge */
-    background: url(/assets/images/made-in-berlin-badge.png) right center no-repeat;
-    background-size: 117px 100px;
+  .text {
+    order: 2;
+    flex: 1 0;
+  }
+
+  .made-in-berlin {
+    order: 3;
+    flex: 0 1;
+  }
+
+  .logo img {
+    width: 40px;
+  }
+
+  .made-in-berlin img {
+    width: 117px;
+    height: 100px;
+  }
+
+  flex-direction: column;
+}
+
+@media (min-width: 720px) {
+  .footer-copyright {
+    flex-direction: row;
   }
 }
