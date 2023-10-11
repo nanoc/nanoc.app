@@ -413,7 +413,7 @@ title: "Rules"
 
   #listing[lang=ruby]
     preprocess do
-      tags = @items.map { |i| i[:tags] %}.uniq
+      tags = @items.map { |i| i[:tags] %}.compact.uniq
       tags.each do |tag|
         content = ''
         attributes = { tag: tag %}
