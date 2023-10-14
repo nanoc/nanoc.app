@@ -413,12 +413,11 @@ title: "Rules"
 
   #listing[lang=ruby]
     preprocess do
-      tags = @items.map { |i| i[:tags] %}.uniq
+      tags = @items.flat_map { |i| i[:tags] || [] %}.uniq
       tags.each do |tag|
         content = ''
         attributes = { tag: tag %}
-        identifier = "/tags/#{tag%}"
-
+        identifier = "/tags/#{tag%}.erb"
         @items.create(content, attributes, identifier)
       end
     end
