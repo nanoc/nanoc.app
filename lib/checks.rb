@@ -21,12 +21,20 @@ class NanocSpellChecker
     end
 
     def visit(node)
-      @string <<
+      candidate =
         if node.text?
           node.content
         else
           ' '
         end
+
+      # Remove URLs and email addresses (crude but it works)
+      candidate =
+        candidate
+          .gsub(/https?:\/\/[\w\d\/\._-]+[\w\d\/]/, '')
+          .gsub(/[\w\d]+@[\w\d]+\.[\w\d]+/, '')
+
+      @string << candidate
 
       return if %w[pre code kbd samp var].include?(node.name)
 
