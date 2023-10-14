@@ -84,10 +84,10 @@ title: "Filters"
     #dt %code{:rouge}
     #dd %ref[url=https://github.com/rouge-ruby/rouge]{Rouge}, a pure-Ruby syntax highlighter with Pygments-compatible output
 
-  #p To configure individual highlighters, pass the options to the key for the highlighter. For example, the following will set the %code{line_numbers} option to %code{:list} for CodeRay:
+  #p To configure individual highlighters, pass the options to the key for the highlighter. For example, the following will set the %code{line_numbers} option to %code{:table} for CodeRay:
 
   #listing[lang=ruby]
-    filter :colorize_syntax, coderay: { line_numbers: :list %}
+    filter :colorize_syntax, coderay: { line_numbers: :table %}
 
   #p Syntax colorizers can be configured on a per-language basis. To do so, use a %code{:colorizers} option, passing in a hash where the keys are symbols corresponding to language names, and where the values are symbols corresponding to colorizer names. For example, in the following code snippet, Rouge would be used by default, except for XML, where it uses CodeRay:
 
