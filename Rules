@@ -50,7 +50,6 @@ compile '/index.*' do
   filter :erb
   layout '/default.*'
   filter :relativize_paths, type: :html
-  filter :htmlcompressor
   filter :cleanup_meta_charset
   write '/index.html'
 end
@@ -58,7 +57,6 @@ end
 compile '/404.*' do
   filter :dmark2html
   layout '/default.*'
-  filter :htmlcompressor
   filter :cleanup_meta_charset
   write '/404.html'
 end
@@ -71,7 +69,6 @@ compile '/release-notes.*' do
   layout '/default.*'
   filter :add_toc
   filter :relativize_paths, type: :html
-  filter :htmlcompressor
   filter :cleanup_meta_charset
   write item.identifier.without_ext + '/index.html'
 end
@@ -115,7 +112,6 @@ compile '/**/*' do
 
   filter :add_toc
   filter :relativize_paths, type: :html
-  filter :htmlcompressor
   filter :cleanup_meta_charset
 
   if item.binary?
