@@ -5,7 +5,7 @@ title: "Contributing"
 #p Nanoc is the effort of %ref[url=https://github.com/nanoc/nanoc/graphs/contributors]{dozens of people}. Contributions are welcomed, no matter how small. This page shows the different ways you can make a difference to Nanoc.
 
 #section %h{Making a donation}
-  #p Donations for Nanoc are no longer accepted at this time. If you like Nanoc and want to show your support, consider donating to a worthy cause — how about one %ref[url=https://www.rescue.org]{to help people whose lives and livelihoods are shattered by conflict and disaster}?
+  #p If you like Nanoc and would like to financially support its development, please %ref[url=https://ko-fi.com/denisdefreyne]{leave a tip on Denis’ Ko-fi page}. Thank you so much!
 
 #section %h{Reporting bugs}
   #p If you find a bug in Nanoc, you should %ref[url=https://github.com/nanoc/nanoc/issues/new]{report it}! But before you do, make sure you have the latest version of Nanoc (and dependencies) installed, and see if you can still reproduce the bug there. If you can, report it!
