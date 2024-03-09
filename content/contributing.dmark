@@ -23,7 +23,7 @@ title: "Contributing"
 #section %h{Contributing code}
   #p To contribute code, you need a basic knowledge of git. The %ref[url=https://try.github.io/]{Try Git} interactive tutorial is quite good for getting up to speed.
 
-  #p Before you start coding, make sure that the idea you have fits with Nanoc’s philosophy. Start a thread on the %ref[url=https://groups.google.com/d/forum/nanoc]{discussion group} or find us on the %ref[url=https://gitter.im/nanoc/nanoc]{Gitter channel}. Generally speaking, all bug fixes are accepted, while feature changes need more discussion.
+  #p Before you start coding, make sure that the idea you have fits with Nanoc’s philosophy. Start a thread on %ref[url=https://github.com/nanoc/nanoc/discussions]{GitHub discussions} or on the %ref[url=https://groups.google.com/d/forum/nanoc]{Google group}. Generally speaking, all bug fixes are accepted, while feature changes need more discussion.
 
   #note For all changes, backwards compatibility %emph{must} be retained. This means that you can add a feature, but you cannot modify a feature to work in a different way.
 

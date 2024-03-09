@@ -2,13 +2,6 @@
 title: "Support"
 ---
 
-#p If you need help with Nanoc, beyond what the %ref[item=/doc/about.*]{documentation} offers, you have several choices:
+#p If you need help with Nanoc, beyond what the %ref[item=/doc/about.*]{documentation} offers, you have several choices, use %ref[url=https://github.com/nanoc/nanoc/discussions]{GitHub discussions} or join the %ref[url=https://groups.google.com/d/forum/nanoc]{Google group}. Both are a low-activity places that are ideal for asking for assistance.
 
-#section %h{Discussion group}
-  #p The %ref[url=https://groups.google.com/d/forum/nanoc]{Nanoc discussion group} is a low-activity mailing list which is ideal for asking for assistance. I (Denis) am active on there, but other members of the community also help out.
-
-#section %h{Real-time chat}
-  #p The %ref[url=https://gitter.im/nanoc/nanoc]{Gitter channel} is a place to get assistance and chat with people. The channel is not very active, so you might not get a response right away.
-
-#section %h{Paid support}
-  #p Lastly, I (Denis) offer paid support for Nanoc. If you are interested, fill out the %ref[url=https://forms.gle/f6NEPSXs4wKG6U366]{paid support request form}. Filling out the form carries no commitment; it is just a conversation starter.
+#p Additionally, I (Denis) offer paid support for Nanoc. If you are interested, fill out the %ref[url=https://forms.gle/f6NEPSXs4wKG6U366]{paid support request form}. Filling out the form carries no commitment; it is just a conversation starter.

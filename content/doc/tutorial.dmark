@@ -339,6 +339,6 @@ title: "Tutorial"
   #p Recompile the site. The tags in the compiled HTML files in the %filename{output/} directory are now generated using the helper.
 
 #section %h{Next steps}
-  #p You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the documentation. If you’re stuck with a Nanoc problem, get help on the %ref[url=https://groups.google.com/d/forum/nanoc]{Nanoc discussion group}.
+  #p You’ve reached the end of the tutorial. If you want to read more, take a look at the other chapters in the documentation. If you’re stuck with a Nanoc problem, get help on %ref[url=https://github.com/nanoc/nanoc/discussions]{GitHub discussions} or the %ref[url=https://groups.google.com/d/forum/nanoc]{Google group}.
 
   #p We’d love to hear your feedback about the Nanoc documentation. Is something wrong? Is something unclear? Tell us by %ref[url=https://github.com/nanoc/nanoc.ws/issues/new]{opening an issue on GitHub}. Thanks!

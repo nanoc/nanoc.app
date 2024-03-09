@@ -100,7 +100,6 @@ GitHub
 GitHub's
 GitLab
 GitLab's
-Gitter
 Goodside
 Google
 GraphicsMagick
