@@ -196,6 +196,30 @@ title: "Filters"
   #listing[lang=ruby]
     filter :erubis
 
+#section %h{%code{:external}}
+  #p The %code{:external} filter runs the content through an external program.
+
+  #p For example, the following will run content through a %code{htmlcompressor} executable:
+
+  #listing[lang=ruby]
+    filter :external, exec: '/opt/local/bin/htmlcompressor'
+
+  #p The external command must receive input from standard input (“stdin”) and must send its output to standard out (“stdout”).
+
+  #p Opions passed to this filter will be passed on to the external command. For example:
+
+  #listing[lang=ruby]
+    filter :external,
+      exec: 'multimarkdown',
+      options: ['--accept', '--mask', '--labels', '--smart']
+
+  #p The %code{:external} filter is not bundled with Nanoc. To install it, add the %code{nanoc-external} gem to the %code{nanoc} group of your %filename{Gemfile}:
+
+  #listing[lang=ruby]
+    group :nanoc do
+      gem 'nanoc-external'
+    end
+
 #section %h{%code{:haml}}
   #p The %code{:haml} filter runs the content through %ref[url=http://haml.info/]{Haml}.
 
