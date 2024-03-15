@@ -353,6 +353,21 @@ title: "Filters"
 
   #p This filter does not have any options.
 
+#section %h{%code{:org_mode}}
+  #p The %code{:org_mode} filter runs the content through %ref[url=https://orgmode.org/]{Org Mode}. For example:
+
+  #listing[lang=ruby]
+    filter :org_mode
+
+  #p This filter takes no options.
+
+  #p The %code{:org_mode} filter is not bundled with Nanoc. To install it, add the %code{nanoc-org-mode} gem to the %code{nanoc} group of your %filename{Gemfile}:
+
+  #listing[lang=ruby]
+    group :nanoc do
+      gem 'nanoc-org-mode'
+    end
+
 #section %h{%code{:pandoc}}
   #p The %code{:pandoc} filter runs content through %ref[url=https://pandoc.org]{Pandoc} using %ref[url=https://github.com/alphabetum/pandoc-ruby]{PandocRuby}.
 
