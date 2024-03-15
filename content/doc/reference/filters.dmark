@@ -206,7 +206,7 @@ title: "Filters"
 
   #p The external command must receive input from standard input (“stdin”) and must send its output to standard out (“stdout”).
 
-  #p Opions passed to this filter will be passed on to the external command. For example:
+  #p Options passed to this filter will be passed on to the external command. For example:
 
   #listing[lang=ruby]
     filter :external,
