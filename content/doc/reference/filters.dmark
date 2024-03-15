@@ -2,7 +2,7 @@
 title: "Filters"
 ---
 
-#p The following is a list of all filters that come bundled with Nanoc.
+#p The following is a list of Nanoc filters. Most of these are bundled with Nanoc; for those that are not, installation instructions are provided.
 
 #section %h{%code{:asciidoc}}
   #p The %code{:asciidoc} filter invokes the command-line tool of %ref[url=https://asciidoc.org/]{AsciiDoc}. This filter takes no options.
@@ -101,6 +101,21 @@ title: "Filters"
   #p The syntax of the document to highlight is assumed to be HTML by default. To parse the document as HTML5 instead, pass %code{syntax: :html5} to the %code{#filter} function. XHTML and XML are also available.
 
   #p If you want to highlight %code{code} elements even when they are not contained inside a %code{pre} element, pass %code{outside_pre: true}.
+
+#section %h{%code{:dart_sass}}
+  #p The %code{:dart_sass} filter runs the content through %ref[url=https://sass-lang.com/dart-sass/]{Sass}. Options passed to this filter will be passed on to Dart Sass.
+
+  #p For example, the following will convert Sass with SCSS syntax into CSS:
+
+  #listing[lang=ruby]
+    filter :dart_sass, syntax: 'scss'
+
+  #p The %code{:dart_sass} filter is not bundled with Nanoc. To install it, add the %code{nanoc-dart-sass} gem to the %code{nanoc} group of your %filename{Gemfile}:
+
+  #listing[lang=ruby]
+    group :nanoc do
+      gem 'nanoc-dart-sass'
+    end
 
 #section %h{%code{:erb}}
   #p The %code{:erb} filter runs the content through %ref[url=https://en.wikipedia.org/wiki/ERuby]{eRuby}, using the %ref[url=http://ruby-doc.org/stdlib-2.3.0/libdoc/erb/rdoc/ERB.html]{%code{ERB}} class.
@@ -483,6 +498,8 @@ title: "Filters"
 
   #listing[lang=ruby]
     filter :sass
+
+  #note This filter uses the %ref[url=https://sass-lang.com/ruby-sass/]{Ruby Sass} implementation, which has reached end of life. Consider using the more modern %code{:dart_sass} filter instead.
 
   #p The options that are given to this filter will be passed on to %code{Sass::Engine#initialize}, to the exception of the %code{sourcemap_path} option. For example, this filter call set %code{:style} to %code{:compact}:
 
