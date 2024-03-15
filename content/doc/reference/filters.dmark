@@ -598,6 +598,24 @@ title: "Filters"
 
   #p Options passed to this filter will be passed to %code{Slim::Template#initialize}.
 
+#section %h{%code{:tilt}}
+  #p The %code{:tilt} filter runs the content through %ref[url=https://github.com/rtomayko/tilt]{Tilt}. For example:
+
+  #listing[lang=ruby]
+    filter :tilt
+
+  #p Options passed to this filter will be passed on to the filter. For example:
+
+  #listing[lang=ruby]
+    filter :tilt, args: { escape: true %}
+
+  #p The %code{:tilt} filter is not bundled with Nanoc. To install it, add the %code{nanoc-tilt} gem to the %code{nanoc} group of your %filename{Gemfile}:
+
+  #listing[lang=ruby]
+    group :nanoc do
+      gem 'nanoc-tilt'
+    end
+
 #section %h{%code{:typogruby}}
   #p The %code{:typogruby} filter runs the content through %ref[url=https://avdgaag.github.io/typogruby/]{Typogruby}, a Ruby variant of %ref[url=https://code.google.com/archive/p/typogrify/]{Typogrify} for typographically enhancing text. For example:
 
