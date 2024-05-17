@@ -1,0 +1,7 @@
+# This is the configuration for ddenv
+# (https://github.com/denisdefreyne/ddenv), a tool for getting local developer
+# environments automatically set up.
+
+up:
+  - ruby
+  - bundle
