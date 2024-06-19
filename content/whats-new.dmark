@@ -4,6 +4,39 @@ title: "What’s new?"
 
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
+#section %h{Nanoc 4.13}
+  #p Nanoc 4.13 adds a %command{--focus} option to the %command{compile} and %command{live} commands, which tells Nanoc to only recompile items matching the given identifier. This is helpful for very large sites, where doing a full recompile can be time-consuming. With %command{--focus}, you can tighten the feedback loop.
+
+  #p For example, here I tell Nanoc to only recompile my stylesheets, which are located in the %filename{content/assets/style} directory:
+
+  #listing
+    %prompt{%%} %kbd{nanoc live --focus="/assets/style/**/*""}
+    [snip]
+    Reloading site… done
+    Compiling site…
+          delete  output/assets/style/2021q4_twknk-phxkn-wr7xw.css
+          create  [0.70s]  output/assets/style/2021q4_rwvlp-ktclz-cw9xc.css
+    Site compiled in 2.75s.
+    CAUTION: A --focus option is specified. Not the entire site has been compiled.
+    Re-run without --focus to compile the entire site.
+
+  #p The %command{--focus} option can be specified more than once, too:
+
+  #listing
+    %prompt{%%} %kbd{nanoc live --focus="/assets/style/**/*" --focus="/index.*"}
+    [snip]
+    Reloading site… done
+    Compiling site…
+          delete  output/assets/style/2021q4_twknk-phxkn-wr7xw.css
+          create  [0.70s]  output/assets/style/2021q4_rwvlp-ktclz-cw9xc.css
+          update  [0.00s]  output/index.html
+    Site compiled in 2.75s.
+    CAUTION: A --focus option is specified. Not the entire site has been compiled.
+    Re-run without --focus to compile the entire site.
+
+  #caution
+    #p Before deploying, be sure to run the %command{compile} command %emph{without} the %command{--focus} option. Otherwise, it is likely that the compiled site is not fully consistent, or even broken entirely.
+
 #section %h{Nanoc 4.12}
   #p Nanoc 4.12 comes with some minor changes that will make your Nanoc workflow faster: improved live recompilation, and caching of compiled binary content.
 
