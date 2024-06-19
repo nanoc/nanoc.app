@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 use_local_nanoc = false
-local_nanoc_path = Pathname.new('~/Documents/Projects/Nanoc/Repos/nanoc')
+local_nanoc_path = Pathname.new('~/Documents/2 Software development/21 Mine/2 Active/Nanoc/Repos/nanoc')
 
 if use_local_nanoc
   gem 'nanoc', path: local_nanoc_path.join('nanoc')
