@@ -43,6 +43,10 @@ p {
   margin-bottom: 20px;
 }
 
+p:last-child {
+  margin-bottom: 0;
+}
+
 pre {
   border-radius: 4px;
 
