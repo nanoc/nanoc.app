@@ -118,6 +118,26 @@ title: "Sites"
       #listing[lang=ruby]
         gem 'webrick'
 
+  #section %h[id=focused-compilation]{Focused compilation}
+    #p The %command{compile} and %command{live} commands have a %command{--focus} option, which tells Nanoc to only recompile items matching the given identifier. This is helpful for very large sites, where doing a full recompile can be time-consuming.
+
+    #p For example, here I tell Nanoc to only recompile my stylesheets and the homepage:
+
+    #listing
+      %prompt{%%} %kbd{nanoc live --focus="/style/**/*" --focus="/index.*"}
+      [snip]
+      Reloading site… done
+      Compiling site…
+            delete  output/style/2021q4_twknk-phxkn-wr7xw.css
+            create  [0.70s]  output/style/2021q4_rwvlp-ktclz-cw9xc.css
+            update  [0.00s]  output/index.html
+      Site compiled in 2.75s.
+      CAUTION: A --focus option is specified. Not the entire site has been compiled.
+      Re-run without --focus to compile the entire site.
+
+    #caution
+      #p Before deploying, be sure to run the %command{compile} command %emph{without} the %command{--focus} option. Otherwise, it is likely that the compiled site is not fully consistent, or even broken entirely.
+
 #section %h[id=environments]{Environments}
   #p Nanoc supports defining multiple environments in which sites can be compiled. For example, a %code{devel} (development) and a %code{prod} (production) environment, where %code{prod} performs additional work that is typically not needed for local development, such as minifying HTML and CSS, converting all paths to be relative, and cleaning up typography.
 
