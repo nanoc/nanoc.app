@@ -126,7 +126,7 @@ GEM
       ffi (~> 1.0)
     rbtree (0.4.6)
     regexp_parser (2.9.2)
-    rexml (3.3.3)
+    rexml (3.3.6)
       strscan
     rubocop (1.64.1)
       json (~> 2.3)
