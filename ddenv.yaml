@@ -3,5 +3,6 @@
 # environments automatically set up.
 
 up:
+  - homebrew: aspell
   - ruby
   - bundle
