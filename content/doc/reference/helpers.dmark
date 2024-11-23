@@ -450,7 +450,7 @@ title: "Helpers"
     #p Rendering a head and a foot partial around some text:
 
     #listing[lang=rhtml]
-      <%%= render 'head' %%> - MIDDLE - <%%= render 'foot' %%>
+      <%%= render '/head.*' %%> - MIDDLE - <%%= render '/foot.*' %%>
 
     #p This example returns %code{"HEAD - MIDDLE - FOOT"}.
 
@@ -461,7 +461,7 @@ title: "Helpers"
       <h1><%%= @title %%></h1>
 
       <!-- The item/layout where the partial is rendered -->
-      <%%= render 'head', :title => 'Foo' %%>
+      <%%= render '/head.*', :title => 'Foo' %%>
 
     #p This example returns %code{"<h1>Foo</h1>"}.
 
@@ -474,7 +474,7 @@ title: "Helpers"
       </div>
 
       <!-- The item/layout where the partial is rendered -->
-      <%% render 'box' do %%>
+      <%% render '/box.*' do %%>
         I'm boxy! Luvz!
       <%% end %%>
 
