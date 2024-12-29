@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-begin
-  require 'ffi/aspell'
-rescue LoadError
-  warn 'WARNING: aspell is not available. Checks will not pass.'
-end
+require 'ffi/aspell'
 
 require 'json'
 require 'nokogiri'
