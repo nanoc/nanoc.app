@@ -2,7 +2,7 @@
 title: "Command-line interface"
 ---
 
-<% filter(@rep.name == :default ? :dmark2html : :dmark2latex) do %>
+<% filter :dmark2html do %>
 #section %h{Global options}
 
 <%= indent_for_dmark(1, dmark_options_for(@items['/doc/reference/commands/_nanoc'])) %>

@@ -8,7 +8,6 @@ preprocess do
 
   config[:gem_version_info]   = Gem::VERSION
   config[:ruby_version_info]  = `ruby --version`.strip
-  config[:generate_pdf] = !ENV['PDF'].nil?
 end
 
 layout '/**/*', :erb
@@ -71,30 +70,6 @@ compile '/release-notes.*' do
   filter :relativize_paths, type: :html
   filter :cleanup_meta_charset
   write item.identifier.without_ext + '/index.html'
-end
-
-compile '/**/*', rep: :latex do
-  if config[:generate_pdf] && item.identifier =~ '/doc/**/*'
-    case item.identifier.ext
-    when 'erb'
-      filter :erb
-    when 'dmark'
-      filter :dmark2latex
-    when nil # rubocop:disable Lint/EmptyWhen
-    else
-      raise
-    end
-    layout '/latex-chapter.erb'
-  end
-end
-
-compile '/book.*' do
-  if config[:generate_pdf]
-    filter :erb
-    layout '/latex-book.erb'
-    filter :latex2pdf
-    write item.identifier.without_ext + '.pdf'
-  end
 end
 
 compile '/**/*' do

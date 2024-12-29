@@ -32,13 +32,3 @@ Class.new(Nanoc::Filter) do
     NanocWsHTMLTranslator
   end
 end
-
-Class.new(Nanoc::Filter) do
-  identifier :dmark2latex
-
-  include GenericDMarkFilter
-
-  def translator_class
-    NanocWsLaTeXTranslator
-  end
-end
