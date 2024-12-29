@@ -27,14 +27,10 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
-    ffi (1.17.0-arm64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0)
     ffi-aspell (1.1.0)
       ffi
-    google-protobuf (4.29.2-arm64-darwin)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.29.2-x86_64-linux)
+    google-protobuf (4.29.2)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
