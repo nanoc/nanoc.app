@@ -35,7 +35,7 @@ nav_title: "Install"
   #p We recommend updating Nanoc regularly. New versions not only come with new features, but also with bug fixes and performance improvements that continuously make Nanoc more enjoyable to use.
 
 #section %h{Supported platforms}
-  #p Language version: %strong{Ruby 2.5 or higher}. Nanoc might run fine on older versions, but there are no guarantees that it will.
+  #p Language version: %strong{Ruby 3.1 or higher}. Nanoc might run fine on older versions, but there are no guarantees that it will.
 
   #p Implementation: %strong{CRuby}. Alternative Ruby interpreters, such as JRuby and Rubinius, might be able to run Nanoc, but there are no guarantees that they will be able to do so properly.
 
