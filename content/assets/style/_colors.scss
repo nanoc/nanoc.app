@@ -49,9 +49,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-orange {
   background: $color-orange;
-  @at-root .dark & {
-    background: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange;
   }
@@ -59,9 +57,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-bg {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -69,9 +65,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-fg {
   background: $color-fg;
-  @at-root .dark & {
-    background: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-fg;
   }
@@ -79,9 +73,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-shadow {
   background: $color-shadow;
-  @at-root .dark & {
-    background: $color-darkmode-shadow;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-shadow;
   }
@@ -89,9 +81,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-blue {
   background: $color-blue;
-  @at-root .dark & {
-    background: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -99,9 +89,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-mark {
   background: $color-mark;
-  @at-root .dark & {
-    background: $color-darkmode-mark;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-mark;
   }
@@ -109,9 +97,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-blue-hint {
   background: $color-blue-hint;
-  @at-root .dark & {
-    background: $color-darkmode-blue-hint;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-hint;
   }
@@ -119,9 +105,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-gray-100 {
   background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
   }
@@ -129,9 +113,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-orange-quiet {
   background: $color-orange-quiet;
-  @at-root .dark & {
-    background: $color-darkmode-orange-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange-quiet;
   }
@@ -139,9 +121,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-blue-quiet {
   background: $color-blue-quiet;
-  @at-root .dark & {
-    background: $color-darkmode-blue-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -149,9 +129,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-gray-300 {
   background: $color-gray-300;
-  @at-root .dark & {
-    background: $color-darkmode-gray-300;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-300;
   }
@@ -159,9 +137,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-gray-500 {
   background: $color-gray-500;
-  @at-root .dark & {
-    background: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-500;
   }
@@ -169,9 +145,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-gray-700 {
   background: $color-gray-700;
-  @at-root .dark & {
-    background: $color-darkmode-gray-700;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-700;
   }
@@ -179,9 +153,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .swatch-gray-900 {
   background: $color-gray-900;
-  @at-root .dark & {
-    background: $color-darkmode-gray-900;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-900;
   }
@@ -191,10 +163,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin page-bg-color {
   background: $color-blue-hint;
-  @at-root.dark {
-    // Special: this applies to the element itself
-    background: $color-darkmode-blue-hint;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-hint;
   }
@@ -202,9 +171,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin page-top-border-color {
   border-color: $color-orange;
-  @at-root .dark & {
-    border-color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-orange;
   }
@@ -212,9 +179,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 .article-content {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -224,9 +189,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin text-color {
   color: $color-gray-700;
-  @at-root .dark & {
-    color: $color-darkmode-gray-700;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-700;
   }
@@ -234,9 +197,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin text-emph-color {
   color: $color-fg;
-  @at-root .dark & {
-    color: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -246,9 +207,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-bg-color {
   background: $color-blue-hint;
-  @at-root .dark & {
-    background: $color-darkmode-blue-hint;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-hint;
   }
@@ -256,9 +215,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-shadow-color {
   box-shadow: 0 3px 5px $color-nav-shadow;
-  @at-root .dark & {
-    box-shadow: 0 3px 5px $color-darkmode-nav-shadow;
-  }
+
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 3px 5px $color-darkmode-nav-shadow;
   }
@@ -266,9 +223,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-item-active-color {
   color: $color-fg;
-  @at-root .dark & {
-    color: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -276,9 +231,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-item-hover-color {
   color: $color-fg;
-  @at-root .dark & {
-    color: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -286,9 +239,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-link-color {
   color: $color-gray-500;
-  @at-root .dark & {
-    color: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-500;
   }
@@ -296,9 +247,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin nav-border-color {
   border-color: $color-orange;
-  @at-root .dark & {
-    border-color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-orange;
   }
@@ -308,9 +257,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin explanation-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -318,9 +265,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin explanation-fg-color {
   color: $color-orange;
-  @at-root .dark & {
-    color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -330,9 +275,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-bg-color {
   background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
   }
@@ -340,9 +283,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-fg-tip-color {
   color: $color-blue;
-  @at-root .dark & {
-    color: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -350,9 +291,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-fg-note-color {
   color: $color-blue;
-  @at-root .dark & {
-    color: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -360,9 +299,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-fg-caution-color {
   color: $color-orange;
-  @at-root .dark & {
-    color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -370,9 +307,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-fg-todo-color {
   color: $color-gray-500;
-  @at-root .dark & {
-    color: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-500;
   }
@@ -380,9 +315,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-bg-tip-color {
   background: $color-blue-quiet;
-  @at-root .dark & {
-    background: $color-darkmode-blue-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -390,9 +323,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-bg-note-color {
   background: $color-blue-quiet;
-  @at-root .dark & {
-    background: $color-darkmode-blue-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet;
   }
@@ -400,9 +331,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-bg-caution-color {
   background: $color-orange-quiet;
-  @at-root .dark & {
-    background: $color-darkmode-orange-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange-quiet;
   }
@@ -410,9 +339,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin admon-bg-todo-color {
   background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
   }
@@ -422,9 +349,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -432,9 +357,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-fg-color {
   color: $color-gray-500;
-  @at-root .dark & {
-    color: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-500;
   }
@@ -442,9 +365,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-link-color {
   color: $color-gray-900;
-  @at-root .dark & {
-    color: $color-darkmode-gray-900;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-900;
   }
@@ -452,9 +373,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-link-hover-bg-color {
   background: $color-gray-900;
-  @at-root .dark & {
-    background: $color-darkmode-gray-900;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-900;
   }
@@ -462,9 +381,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-link-hover-fg-color {
   color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -472,9 +389,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin footer-heart-color {
   color: $color-orange;
-  @at-root .dark & {
-    color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -484,9 +399,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin link-color {
   color: $color-blue;
-  @at-root .dark & {
-    color: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -494,9 +407,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin link-hover-fg-color {
   color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -504,9 +415,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin link-hover-bg-color {
   background: $color-blue;
-  @at-root .dark & {
-    background: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -516,9 +425,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin pre-bg-color {
   background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
   }
@@ -526,9 +433,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin code-prompt-color {
   color: color.adjust($color-fg, $alpha: -0.5);
-  @at-root .dark & {
-    color: color.adjust($color-darkmode-fg, $alpha: -0.5);
-  }
+
   @media (prefers-color-scheme: dark) {
     color: color.adjust($color-darkmode-fg, $alpha: -0.5);
   }
@@ -536,9 +441,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin pre-box-shadow {
   box-shadow: 0 1px 1px color.adjust($color-shadow, $alpha: -0.7);
-  @at-root .dark & {
-    box-shadow: 0 1px 1px color.adjust($color-darkmode-shadow, $alpha: -0.7);
-  }
+
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 1px 1px color.adjust($color-darkmode-shadow, $alpha: -0.7);
   }
@@ -548,9 +451,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin hero-bg-color {
   background: $color-blue-quiet url(/assets/images/symphony.png);
-  @at-root .dark & {
-    background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
   }
@@ -558,9 +459,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin hero-link-bg-color {
   background: color.adjust($color-bg, $alpha: -0.6);
-  @at-root .dark & {
-    background: color.adjust($color-darkmode-bg, $alpha: -0.6);
-  }
+
   @media (prefers-color-scheme: dark) {
     background: color.adjust($color-darkmode-bg, $alpha: -0.6);
   }
@@ -568,9 +467,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin hero-link-hover-fg-color {
   color: $color-blue;
-  @at-root .dark & {
-    color: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-blue;
   }
@@ -578,9 +475,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin hero-link-hover-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -590,9 +485,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin search-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -600,9 +493,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin search-fg-color {
   color: $color-gray-500;
-  @at-root .dark & {
-    color: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-500;
   }
@@ -610,9 +501,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin search-border-color {
   border-color: $color-blue-quiet;
-  @at-root .dark & {
-    border-color: $color-darkmode-blue-quiet;
-  }
+
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-blue-quiet;
   }
@@ -620,9 +509,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin search-placeholder-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -630,9 +517,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin search-placeholder-border-color {
   border-color: $color-bg;
-  @at-root .dark & {
-    border-color:  $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     border-color:  $color-darkmode-bg;
   }
@@ -662,9 +547,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin mark-fg-color {
   color: $color-fg;
-  @at-root .dark & {
-    color: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }
@@ -672,9 +555,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin mark-bg-color {
   background: $color-mark;
-  @at-root .dark & {
-    background: $color-darkmode-mark;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-mark;
   }
@@ -684,9 +565,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-legacy-bg-color {
   background: $color-gray-500;
-  @at-root .dark & {
-    background: $color-darkmode-gray-500;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-500;
   }
@@ -694,9 +573,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-legacy-fg-color {
   color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -704,9 +581,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-new-bg-color {
   background: $color-blue;
-  @at-root .dark & {
-    background: $color-darkmode-blue;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-blue;
   }
@@ -714,9 +589,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-new-fg-color {
   color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -724,9 +597,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-errors-bg-color {
   background: $color-orange;
-  @at-root .dark & {
-    background: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-orange;
   }
@@ -734,9 +605,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin tag-errors-fg-color {
   color: $color-bg;
-  @at-root .dark & {
-    color: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-bg;
   }
@@ -746,9 +615,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin figure-bg-color {
   background: $color-bg;
-  @at-root .dark & {
-    background: $color-darkmode-bg;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
@@ -756,9 +623,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin figure-border-color {
   border-color: $color-gray-100;
-  @at-root .dark & {
-    border-color: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     border-color: $color-darkmode-gray-100;
   }
@@ -766,9 +631,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin figure-caption-bg-color {
   background: $color-gray-100;
-  @at-root .dark & {
-    background: $color-darkmode-gray-100;
-  }
+
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
   }
@@ -778,9 +641,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin sidebar-section-title-color {
   color: $color-orange;
-  @at-root .dark & {
-    color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -790,9 +651,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin header-color {
   color: $color-orange;
-  @at-root .dark & {
-    color: $color-darkmode-orange;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
   }
@@ -800,9 +659,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 @mixin dt-color {
   color: $color-fg;
-  @at-root .dark & {
-    color: $color-darkmode-fg;
-  }
+
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-fg;
   }

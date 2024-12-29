@@ -14,42 +14,6 @@
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">
   </head>
   <body id="nanoc">
-    <script>
-      var nativeDarkModeSupported = matchMedia('(prefers-color-scheme: dark)').matches || matchMedia('(prefers-color-scheme: light)').matches;
-      if (!nativeDarkModeSupported) {
-        var root = document.getElementById('nanoc');
-        var originalRootClassName = root.className;
-
-        function setDarkMode() {
-          root.className = originalRootClassName + ' dark';
-          localStorage.setItem('mode', 'dark');
-        }
-
-        function unsetDarkMode() {
-          root.className = originalRootClassName;
-          localStorage.removeItem('mode');
-        }
-
-        if (localStorage.getItem("mode") == "dark") {
-          setDarkMode();
-        } else {
-          unsetDarkMode();
-        }
-
-        window.onload = function () {
-          var toggle = document.getElementById('toggle-dark');
-          if (toggle) {
-            toggle.onclick = function() {
-              if (localStorage.getItem("mode") == "dark") {
-                unsetDarkMode();
-              } else {
-                setDarkMode();
-              }
-            };
-          };
-        };
-      }
-    </script>
     <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>" >
 <% if @item[:has_basic_layout] %>
       <%= yield %>
@@ -62,7 +26,6 @@
             <li class="nws-nav-item"><%= link_to_unless_current('Contributing', @items['/contributing.*'], class: 'nws-nav-link') %></li>
             <li class="nws-nav-item"><%= link_to_unless_current('Support', @items['/support.*'], class: 'nws-nav-link') %></li>
             <li class="nws-nav-item"><%= link_to_unless_current('What’s new?', @items['/whats-new.*'], class: 'nws-nav-link') %></li>
-            <li class="nws-nav-item"><span id="toggle-dark" title="Toggle night mode"><i class="fas fa-lightbulb"></i></span></li>
           </ul>
         </div>
       </nav>
