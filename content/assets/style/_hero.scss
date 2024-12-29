@@ -1,7 +1,7 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 .hero {
-  @include hero-bg-color;
+  @include colors.hero-bg-color;
 
   margin-bottom: -60px;
 }
@@ -37,12 +37,12 @@
 
 .hero__link:link,
 .hero__link:visited {
-  @include hero-link-bg-color;
+  @include colors.hero-link-bg-color;
 }
 
 .hero__link:hover {
-  @include hero-link-hover-fg-color;
-  @include hero-link-hover-bg-color;
+  @include colors.hero-link-hover-fg-color;
+  @include colors.hero-link-hover-bg-color;
 }
 
 .hero__slides {

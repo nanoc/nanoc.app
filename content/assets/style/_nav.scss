@@ -1,3 +1,5 @@
+@use "colors";
+
 .nws-nav {
   margin: 0;
   padding: 10px 0;
@@ -15,7 +17,7 @@
 
   z-index: 100;
 
-  @include nav-bg-color;
+  @include colors.nav-bg-color;
 }
 
 .nws-nav-content {
@@ -90,19 +92,19 @@
 }
 
 .nws-nav-item .active {
-  @include nav-item-active-color;
+  @include colors.nav-item-active-color;
 
   border-bottom: 3px solid;
-  @include nav-border-color;
+  @include colors.nav-border-color;
 }
 
 .nws-nav-link:link,
 .nws-nav-link:visited {
-  @include nav-link-color;
+  @include colors.nav-link-color;
 }
 
 .nws-nav-link:hover {
-  @include nav-item-hover-color;
+  @include colors.nav-item-hover-color;
 
   background: transparent;
 }

@@ -1,7 +1,7 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 .prompt {
-  @include code-prompt-color;
+  @include colors.code-prompt-color;
 }
 
 pre {

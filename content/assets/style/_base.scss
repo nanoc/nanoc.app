@@ -1,4 +1,4 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 * {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ body {
 
   min-height: 100%;
 
-  @include page-bg-color;
+  @include colors.page-bg-color;
 }
 
 abbr {
@@ -29,8 +29,8 @@ pre, code, kbd, var, samp, .attribute, .command, .output {
 }
 
 mark {
-  @include mark-fg-color;
-  @include mark-bg-color;
+  @include colors.mark-fg-color;
+  @include colors.mark-bg-color;
 }
 
 blockquote {
@@ -50,9 +50,9 @@ p:last-child {
 pre {
   border-radius: 4px;
 
-  @include pre-box-shadow;
+  @include colors.pre-box-shadow;
 
-  @include pre-bg-color;
+  @include colors.pre-bg-color;
 
   padding: 10px;
   margin: 0 0 20px 0;
@@ -74,18 +74,18 @@ a {
 
 a:link,
 a:visited {
-  @include link-color;
+  @include colors.link-color;
 }
 
 a:hover {
-  @include link-hover-fg-color;
-  @include link-hover-bg-color;
+  @include colors.link-hover-fg-color;
+  @include colors.link-hover-bg-color;
 }
 
 /* HEADERS */
 
 h1, h2, h3, h4, h5, h6 {
-  @include header-color;
+  @include colors.header-color;
 
   margin-top: 2.5em;
   margin-bottom: 1rem;
@@ -152,7 +152,7 @@ dl.compact dd {
 }
 
 dt {
-  @include dt-color;
+  @include colors.dt-color;
   font-weight: bold;
 }
 

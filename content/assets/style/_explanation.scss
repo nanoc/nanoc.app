@@ -1,9 +1,11 @@
+@use "colors";
+
 .explanation {
   border-top: 10px solid;
-  @include page-top-border-color;
+  @include colors.page-top-border-color;
 
-  @include explanation-bg-color;
-  @include explanation-fg-color;
+  @include colors.explanation-bg-color;
+  @include colors.explanation-fg-color;
 }
 
 .explanation-content {

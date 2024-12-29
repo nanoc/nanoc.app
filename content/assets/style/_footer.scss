@@ -1,12 +1,12 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 .home footer {
-  @include footer-bg-color;
+  @include colors.footer-bg-color;
 }
 
 footer {
   p {
-    @include footer-fg-color;
+    @include colors.footer-fg-color;
   }
 
   a {
@@ -14,12 +14,12 @@ footer {
     margin: 0;
 
     :link, :visited {
-      @include footer-link-color;
+      @include colors.footer-link-color;
     }
 
     :hover {
-      @include footer-link-hover-bg-color;
-      @include footer-link-hover-fg-color;
+      @include colors.footer-link-hover-bg-color;
+      @include colors.footer-link-hover-fg-color;
     }
   }
 
@@ -49,11 +49,11 @@ footer {
 
 .footer-releasenotes {
   padding: 40px 0 20px 0;
-  @include footer-fg-color;
+  @include colors.footer-fg-color;
 }
 
 .footer-links-explanation {
-  @include footer-fg-color;
+  @include colors.footer-fg-color;
 }
 
 .footer-links {
@@ -61,7 +61,7 @@ footer {
   margin: 0;
 
   strong {
-    @include footer-heart-color;
+    @include colors.footer-heart-color;
     font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
   }
 
@@ -76,7 +76,7 @@ footer {
   }
 
   li:after {
-    @include footer-fg-color;
+    @include colors.footer-fg-color;
 
     padding: 0 5px;
     content: "\00B7";
@@ -97,7 +97,7 @@ footer {
   justify-content: center;
   flex-wrap: wrap;
 
-  @include footer-fg-color;
+  @include colors.footer-fg-color;
 
   .logo {
     order: 1;

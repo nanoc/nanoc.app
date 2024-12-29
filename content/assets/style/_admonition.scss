@@ -1,4 +1,4 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 div.admonition-wrapper {
   display: table;
@@ -26,48 +26,48 @@ div.admonition-wrapper:before {
 }
 
 div.admonition-wrapper .admonition {
-  @include admon-bg-color;
+  @include colors.admon-bg-color;
   border-radius: 4px;
   display: table-cell;
   padding: 10px 15px;
 }
 
 div.admonition-wrapper.tip  .admonition {
-  @include admon-bg-tip-color;
+  @include colors.admon-bg-tip-color;
 }
 
 div.admonition-wrapper.tip:before {
-  @include admon-fg-tip-color;
+  @include colors.admon-fg-tip-color;
   font-weight: 900;
   content: "\f0eb";
 }
 
 div.admonition-wrapper.note  .admonition {
-  @include admon-bg-note-color;
+  @include colors.admon-bg-note-color;
 }
 
 div.admonition-wrapper.note:before {
-  @include admon-fg-note-color;
+  @include colors.admon-fg-note-color;
   font-weight: 900;
   content: "\f05a";
 }
 
 div.admonition-wrapper.caution  .admonition {
-  @include admon-bg-caution-color;
+  @include colors.admon-bg-caution-color;
 }
 
 div.admonition-wrapper.caution:before {
-  @include admon-fg-caution-color;
+  @include colors.admon-fg-caution-color;
   font-weight: 900;
   content: "\f071";
 }
 
 div.admonition-wrapper.todo  .admonition {
-  @include admon-bg-todo-color;
+  @include colors.admon-bg-todo-color;
 }
 
 div.admonition-wrapper.todo:before {
-  @include admon-fg-todo-color;
+  @include colors.admon-fg-todo-color;
   font-weight: 900;
   content: "\f0c3";
 }

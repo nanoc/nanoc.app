@@ -1,3 +1,5 @@
+@use "colors";
+
 * {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -7,11 +9,11 @@
 }
 
 p, li, blockquote, dd, .admonition, pre, figcaption {
-  @include text-color;
+  @include colors.text-color;
 }
 
 li.active, strong, dt {
-  @include text-emph-color;
+  @include colors.text-emph-color;
 }
 
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {

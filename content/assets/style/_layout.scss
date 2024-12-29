@@ -1,4 +1,4 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 :target:before {
   content: "";

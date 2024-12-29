@@ -1,4 +1,4 @@
-@import "/assets/style/_colors.scss";
+@use "/assets/style/_colors.scss";
 
 .side {
   @media (min-width: 720px) {
@@ -22,7 +22,7 @@
 
   .section-title {
     margin-bottom: 0;
-    @include sidebar-section-title-color;
+    @include colors.sidebar-section-title-color;
   }
 
   .section-title + ul,
@@ -81,5 +81,5 @@
 
 .toc .active {
   font-weight: bold;
-  @include text-emph-color;
+  @include colors.text-emph-color;
 }
