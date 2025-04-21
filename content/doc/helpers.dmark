@@ -38,7 +38,7 @@ title: "Helpers"
   #section %h{Pitfall: helper load order}
     #p Files in the %filename{lib/} directory are loaded alphabetically. This can cause Nanoc to try to activate a helper before it is loaded.
 
-    #p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{#use_helper} calls:
+    #p For example, this situation will arise if helpers live in a %filename{lib/helpers/} directory, with the %filename{lib/helpers.rb} file containing the %code{use_helper()} calls:
 
     #listing
       %prompt{%%} %kbd{tree lib}

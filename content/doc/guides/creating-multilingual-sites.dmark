@@ -34,7 +34,7 @@ title: "Creating multilingual sites"
       jouez.html
 
 #section %h{Implementation}
-  #p One useful function that will be necessary later on is %code{#language_code_of}, which returns the language code (e.g. %code{en} or %code{nl}) for a given item. This function is implemented like this:
+  #p One useful function that will be necessary later on is %code{language_code_of()}, which returns the language code (e.g. %code{en} or %code{nl}) for a given item. This function is implemented like this:
 
   #listing[lang=ruby]
     def language_code_of(item)

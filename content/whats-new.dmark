@@ -98,7 +98,7 @@ title: "What’s new?"
       write ext: 'css'
     end
 
-  #p Secondly, the Breadcrumbs helper’s %code{#breadcrumbs_trail} function can now deal with ambiguity. There are cases where one item has more than one potential parent item, and the new %code{:tiebreaker} option can now be used to deal with that. See %ref[frag=breadcrumbs-dealing-with-ambiguity,item=/doc/reference/helpers.*]{} for details.
+  #p Secondly, the Breadcrumbs helper’s %code{breadcrumbs_trail()} function can now deal with ambiguity. There are cases where one item has more than one potential parent item, and the new %code{:tiebreaker} option can now be used to deal with that. See %ref[frag=breadcrumbs-dealing-with-ambiguity,item=/doc/reference/helpers.*]{} for details.
 
 #section %h{Nanoc 4.10}
   #p Nanoc 4.10 comes with an upgraded Sass filter. It comes with a new %code{nanoc()} Sass function, which allows pulling in Nanoc site data into stylesheets:
@@ -151,7 +151,7 @@ title: "What’s new?"
 
   #p Use of the %filename{Checks} file is discouraged from now on, though the functionality will not be removed before Nanoc 5.0 (and there are no plans to start working on Nanoc 5.0 at this point in time).
 
-  #p Identifiers now also have a %code{#match?} method, which returns %code{true} if the identifier matches the given pattern, %code{false} otherwise.
+  #p Identifiers now also have a %code{match?()} method, which returns %code{true} if the identifier matches the given pattern, %code{false} otherwise.
 
 #section %h{Nanoc 4.8}
   #p Nanoc 4.8 adds an %code{asciidoctor} filter, for invoking %ref[url=https://asciidoctor.org]{Asciidoctor}, a Ruby implementation of %ref[url=http://www.methods.co.nz/asciidoc/]{AsciiDoc}:
@@ -179,14 +179,14 @@ title: "What’s new?"
   #p Nanoc 4.7 also adds the %code{:erubi} filter, which calls %ref[url=https://github.com/jeremyevans/erubi]{Erubi}, an ERB template engine for Ruby.
 
 #section %h{Nanoc 4.6}
-  #p Nanoc 4.6 adds %code{#snapshot?} to item representations. It returns true if the given representations has a snapshot with the given name, false otherwise. For example:
+  #p Nanoc 4.6 adds %code{snapshot?()} to item representations. It returns true if the given representations has a snapshot with the given name, false otherwise. For example:
 
   #listing[lang=rhtml]
     <%% if @rep.snapshot?(:latex) %%>
       <link rel=stylesheet href=latex.css>
     <%% end %%>
 
-  #p The %code{#content_for} function, part of the capturing helper (see %ref[item=/doc/reference/helpers.*,frag=capturing]{} for details), can now be used to set captured content directly:
+  #p The %code{content_for()} function, part of the capturing helper (see %ref[item=/doc/reference/helpers.*,frag=capturing]{} for details), can now be used to set captured content directly:
 
   #listing[lang=ruby]
     content_for(:head, 'stuff')
@@ -196,12 +196,12 @@ title: "What’s new?"
   #listing[lang=ruby]
     content_for(:head) { _erbout << 'stuff' %}
 
-  #p When passing a string to the %code{#content_for} function, parameters are passed before the string argument:
+  #p When passing a string to the %code{content_for()} function, parameters are passed before the string argument:
 
   #listing[lang=ruby]
     content_for(:head, existing: :append, 'stuff')
 
-  #p Lastly, items and layouts now have %code{#raw_content=} during preprocessing, to allow changing the raw content of items and layouts.
+  #p Lastly, items and layouts now have %code{raw_content=()} during preprocessing, to allow changing the raw content of items and layouts.
 
 #section %h{Nanoc 4.5}
   #p Nanoc 4.5 bundles the Git deployer, which used to be in the %ref[url=https://github.com/nanoc-archive/nanoc-git]{%code{nanoc-git} repository}. The %code{nanoc-git} gem can be removed from the %filename{Gemfile}. For details, see %ref[item=/doc/deploying.*,frag=with-git]{}.

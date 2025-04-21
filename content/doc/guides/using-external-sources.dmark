@@ -71,7 +71,7 @@ title: "Using external sources"
       identifier :hr
     end
 
-  #p Data sources have an %code{#up} method, which can be overridden to perform actions to establish a connection with the remote data source. In this example, implement it so that it connects to the database:
+  #p Data sources have an %code{up()} method, which can be overridden to perform actions to establish a connection with the remote data source. In this example, implement it so that it connects to the database:
 
   #listing[lang=ruby]
     class HRDataSource < ::Nanoc::DataSource
@@ -107,7 +107,7 @@ title: "Using external sources"
       end
     end
 
-  #p The first argument to the %code{#new_item} is the content (empty in this case), the second is the attributes hash (which will have the keys %code{first_name}, %code{last_name}, and %code{photo_url}) and the third argument is the identifier.
+  #p The first argument to the %code{new_item()} is the content (empty in this case), the second is the attributes hash (which will have the keys %code{first_name}, %code{last_name}, and %code{photo_url}) and the third argument is the identifier.
 
   #p The data source implementation is now ready to be used.
 
@@ -164,7 +164,7 @@ title: "Using external sources"
       write ext: 'html'
     end
 
-  #p Finally you have to stop Nanoc from writing out pages for every employee item provided by the data source. For this, the %code{#ignore} rule comes in handy. Add this at the top of your %filename{Rules} file:
+  #p Finally you have to stop Nanoc from writing out pages for every employee item provided by the data source. For this, the %code{ignore()} rule comes in handy. Add this at the top of your %filename{Rules} file:
 
   #listing[lang=ruby]
     ignore '/external/**/*'

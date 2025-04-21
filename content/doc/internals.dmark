@@ -11,11 +11,11 @@ title: "Internals"
 
   #p Entities include %code{Item}, %code{Layout}, their common superclass %code{Document}, %code{ItemRep}, …. They reside in %filename{lib/nanoc/base/entities}. Views include %code{MutableItemView}, %code{CompilationItemView}, %code{PostCompileItemRepView}, …. They reside in %filename{lib/nanoc/base/views}.
 
-  #p Views are, unlike entities, context-specific. The %code{Item} entity, for example, has %code{MutableItemView}, %code{CompilationItemView} and %code{PostCompileItemView}. %code{MutableItemView} is used during preprocessing and allows mutating properties of the item, while the other view classes do not. %code{PostCompileItemView} is used during preprocessing and provides %code{#modified_reps}, which is not available in the other item views.
+  #p Views are, unlike entities, context-specific. The %code{Item} entity, for example, has %code{MutableItemView}, %code{CompilationItemView} and %code{PostCompileItemView}. %code{MutableItemView} is used during preprocessing and allows mutating properties of the item, while the other view classes do not. %code{PostCompileItemView} is used during preprocessing and provides %code{modified_reps()}, which is not available in the other item views.
 
-  #p Operations performed on an entity will typically yield another entity or a primitive, such as a string or a number. Similarly, operations performed on a view will typically yield another view. Converting from a view to an entity happens by calling %code{#_unwrap}, and wrapping an entity in a view happens by creating an instance of a view class that references the entity.
+  #p Operations performed on an entity will typically yield another entity or a primitive, such as a string or a number. Similarly, operations performed on a view will typically yield another view. Converting from a view to an entity happens by calling %code{_unwrap()}, and wrapping an entity in a view happens by creating an instance of a view class that references the entity.
 
-  #note The %code{#_unwrap} method is a private method, and is not meant to be used outside of the Nanoc codebase. There is no guarantee that this method will keep working.
+  #note The %code{_unwrap()} method is a private method, and is not meant to be used outside of the Nanoc codebase. There is no guarantee that this method will keep working.
 
 #section %h[id=outdatedness-checking]{Outdatedness checking}
   #p Nanoc is a smart static-site generator; it avoids recompiling items unless necessary.

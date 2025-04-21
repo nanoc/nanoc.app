@@ -9,20 +9,20 @@ title: "Helpers"
 #section %h{%code{Blogging}}
   #p Provides functionality for building blogs, such as finding articles and constructing feeds.
 
-  #p This helper requires all blog articles to have the %code{kind} attribute set to  %code{"article"}, and %code{created_at} set to the article’s publication timestamp. Some functions in this blogging helper, such as the %code{#atom_feed} function, require additional attributes to be set; these attributes are described in the documentation for these functions.
+  #p This helper requires all blog articles to have the %code{kind} attribute set to  %code{"article"}, and %code{created_at} set to the article’s publication timestamp. Some functions in this blogging helper, such as the %code{atom_feed()} function, require additional attributes to be set; these attributes are described in the documentation for these functions.
 
   #p All time objects in item attributes, site configuration attributes or method parameters can either be a %code{Time} instance, or a string in any format parseable by %code{Time.parse}.
 
   #dl
-    #dt %code{#articles()} → %code{Array}
+    #dt %code{articles()} → %code{Array}
     #dd
       #p Returns an unsorted list of articles, i.e. items where the %code{kind} attribute is set to %code{"article"}.
 
-    #dt %code{#sorted_articles()} → %code{Array}
+    #dt %code{sorted_articles()} → %code{Array}
     #dd
       #p Returns a sorted list of articles, i.e. items where the %code{kind} attribute is set to %code{"article"}. Articles are sorted by descending creation date, so newer articles appear before older articles.
 
-    #dt %code{#atom_feed()} → %code{String}
+    #dt %code{atom_feed()} → %code{String}
     #dd
       #p Returns a string representing the atom feed containing recent articles, sorted by descending creation date.
 
@@ -92,14 +92,14 @@ title: "Helpers"
       #listing[lang=rhtml]
         <%%= atom_feed limit: 10 %%>
 
-      #p The %code{#atom_feed} function takes the following options:
+      #p The %code{atom_feed()} function takes the following options:
 
       #dl
         #dt %code{:limit} (%code{Number})
         #dd The maximum number of articles to show. By default, 5 items will be included.
 
         #dt %code{:articles} (%code{Array})
-        #dd A list of articles to include in the feed. By default, the list of items returned by %code{#articles} function will be used.
+        #dd A list of articles to include in the feed. By default, the list of items returned by %code{articles()} function will be used.
 
         #dt %code{:preserve_order} (%code{Boolean})
         #dd Whether or not the ordering of the list of articles should be preserved. If %code{false} or unspecified, the articles will be sorted by %code{created_at}. If %code{true}, the list of articles will be used as-is.
@@ -157,13 +157,13 @@ title: "Helpers"
   #p The %code{Breadcrumbs} helper provides support for breadcrumbs, which allow the user to go up in the page hierarchy.
 
   #dl
-    #dt %code{#breadcrumbs_trail()} → Array
+    #dt %code{breadcrumbs_trail()} → Array
     #dd
       #p Creates a breadcrumb trail leading from the current item to its parent, to its parent’s parent, etc, until the root item is reached. This function does not require that each intermediate item exist; for example, if there is no %identifier{/foo/} item, breadcrumbs for a %identifier{/foo/bar/} item will contain a %code{nil} element.
 
       #p This function returns an array containing the breadcrumbs, starting with the root item and ending with the item itself.
 
-      #p The %code{#breadcrumbs_trail} function takes the following options:
+      #p The %code{breadcrumbs_trail()} function takes the following options:
 
       #dl
         #dt %code{:tiebreaker} (%code{Proc} or %code{:error})
@@ -258,7 +258,7 @@ title: "Helpers"
         <p>On this item, Nanoc is introduced, blah blah.</p>
       <%% end %%>
 
-    #p Capturing the content for %code{summary} with a string (assuming that the user-defined %code{#summary_for} function returns a string):
+    #p Capturing the content for %code{summary} with a string (assuming that the user-defined %code{summary_for()} function returns a string):
 
     #listing[lang=rhtml]
       <%% content_for :summary, summary_for(@item) %%>
@@ -323,7 +323,7 @@ title: "Helpers"
   #p The %code{Filtering} helper provides functionality for filtering parts of an item or a layout.
 
   #dl[compact]
-    #dt %code{#filter(%var{filter_name}, %var{arguments} = {%}, &block)}
+    #dt %code{filter(%var{filter_name}, %var{arguments} = {%}, &block)}
     #dd
       #p Filters the content in the given block with the %var{filter_name} filter, and outputs it. The %var{arguments} argument is passed as-is to the filter. This function does not return anything; instead, the filtered contents is directly appended to the output buffer (%code{_erbout}).
 
@@ -384,7 +384,7 @@ title: "Helpers"
 
     #dt %code{link_to_unless_current(%var{text}, %var{target}, %var{attributes} = {%})} → %code{String}
     #dd
-      #p Creates an HTML link using %code{#link_to}, except when the linked item is the current one. In this case, a span element with class %code{active} and with the given text will be created. The HTML-escaping rules for %code{#link_to} apply here as well.
+      #p Creates an HTML link using %code{link_to()}, except when the linked item is the current one. In this case, a span element with class %code{active} and with the given text will be created. The HTML-escaping rules for %code{link_to()} apply here as well.
 
       #p This function takes the following arguments:
 
@@ -464,7 +464,7 @@ title: "Helpers"
 
       #p When this method is invoked with a block, an empty string will be returned and the rendered content will be appended to %code{_erbout}. In this case, the content of the block will be captured (using the %ref[frag=capturing]{Capturing} helper) and this content will be made available with %code{yield}. In other words, a %code{yield} inside the partial will output the content of the block passed to the method.
 
-      #note The reason why %code{#render} with a block has this behavior of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
+      #note The reason why %code{render()} with a block has this behavior of returning an empty string and modifying %code{_erbout} is because the syntax of ERB does not allow combining the %code{<%%= ... %%>} form with a method call that takes a block.
 
       #p The assigns (%code{@item}, %code{@config}, …) will be available in the partial. It is also possible to pass custom assigns to the method; these assigns will be made available as instance variables inside the partial.
 
@@ -525,7 +525,7 @@ title: "Helpers"
   #dl
     #dt %code{tags_for(%var{item}, %var{base_url}:, %var{none_text}:, %var{separator}:)} → %code{String}
     #dd
-      #p Returns a formatted list of tags for the given item as a string. The tags will be linked using the %code{#link_for_tag} function; the HTML-escaping rules for %code{#link_for_tag} apply here as well.
+      #p Returns a formatted list of tags for the given item as a string. The tags will be linked using the %code{link_for_tag()} function; the HTML-escaping rules for %code{link_for_tag()} apply here as well.
 
       #p This function takes the following arguments:
 
@@ -627,7 +627,7 @@ title: "Helpers"
         #dd A proc to filter reps through. If the proc returns true, the rep will be included; otherwise, it will not.
 
   #section %h{Examples}
-    #p Typically, the value for the %code{:items} option to the %code{#xml_sitemap} method will be all items with a path that ends in %filename{.html}. For example:
+    #p Typically, the value for the %code{:items} option to the %code{xml_sitemap()} method will be all items with a path that ends in %filename{.html}. For example:
 
     #listing[lang=rhtml]
       <%%= xml_sitemap(items: items.select { |i| i.path.end_with?('.html') %}) %%>

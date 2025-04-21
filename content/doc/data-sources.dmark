@@ -128,7 +128,7 @@ title: "Data sources"
 
   #p Each data source has an identifier. This identifier is used in the configuration file to specify which data source should be used to fetch data. In the example above, the identifier is %code{release_notes}.
 
-  #p The %code{#items} and %code{#layouts} methods return a collection of items and layouts, respectively. To instantiate items and layouts, use %code{#new_item} and %code{#new_layout}, respectively. These methods take three arguments:
+  #p The %code{items()} and %code{layouts()} methods return a collection of items and layouts, respectively. To instantiate items and layouts, use %code{new_item()} and %code{new_layout()}, respectively. These methods take three arguments:
 
   #dl
     #dt %code{content_or_filename}
@@ -140,7 +140,7 @@ title: "Data sources"
     #dt %code{identifier}
     #dd A %code{Nanoc::Identifier} instance, or a string that will be converted to a full identifier. See %ref[item=/doc/identifiers-and-patterns.*]{} for details.
 
-  #p You can pass the following options to %code{#new_item} and %code{#new_layout}:
+  #p You can pass the following options to %code{new_item()} and %code{new_layout()}:
 
   #dl
     #dt %code{:binary} (defaults to %code{false})
@@ -151,7 +151,7 @@ title: "Data sources"
 
   #p The configuration for this data source is available in %code{@config}.
 
-  #p If a data source needs to do work before data becomes available, such as establishing a connection, it can do so in the %code{#up} method. The %code{#down} method can be used to undo the work, such as tearing down the connection. Here is an example data source that reads from an SQLite database:
+  #p If a data source needs to do work before data becomes available, such as establishing a connection, it can do so in the %code{up()} method. The %code{down()} method can be used to undo the work, such as tearing down the connection. Here is an example data source that reads from an SQLite database:
 
   #listing[lang=ruby]
     class HRDataSource < ::Nanoc::DataSource

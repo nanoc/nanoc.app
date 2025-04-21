@@ -72,24 +72,24 @@ title: "Variables"
     #dt %code{@layouts.size} → %code{Integer}
     #dd The number of items.
 
-  #p Both %code{@items} and %code{@layouts} include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
+  #p Both %code{@items} and %code{@layouts} include Ruby’s %code{Enumerable}, which means useful methods such as %code{map()} and %code{select()} are available.
 
-  #p To find an item or layout by identifier, passing the identifier to the %code{#[]} method:
+  #p To find an item or layout by identifier, passing the identifier to %code{[]}:
 
   #listing[lang=ruby]
     @items["/about.md"]
 
-  #p You can also pass a string pattern (a glob) to %code{#[]} to find an item or layout whose identifier matches the given string:
+  #p You can also pass a string pattern (a glob) to %code{[]} to find an item or layout whose identifier matches the given string:
 
   #listing[lang=ruby]
     @layouts["/default.*"]
 
-  #p Additionally, you can pass a regular expression to the %code{#[]} method, which will find the item or layout whose identifier matches that regex:
+  #p Additionally, you can pass a regular expression to %code{[]}, which will find the item or layout whose identifier matches that regex:
 
   #listing[lang=ruby]
     @items[%%r{\A/articles/2014/.*%}]
 
-  #p The %code{#find_all} method is similar to %code{#[]}, but returns a collection of items or layouts, rather than a single result.
+  #p The %code{find_all()} method is similar to %code{[]}, but returns a collection of items or layouts, rather than a single result.
 
   #p The following methods are available during preprocessing:
 
@@ -183,7 +183,7 @@ title: "Variables"
     #dt %code{@item.modified?} → %var{boolean}
     #dd %code{true} if the item’s compiled content has changed; %code{false} otherwise.
 
-  #p Item representation collections include Ruby’s %code{Enumerable}, which means useful methods such as %code{#map} and %code{#select} are available.
+  #p Item representation collections include Ruby’s %code{Enumerable}, which means useful methods such as %code{map()} and %code{select()} are available.
 
 #section %h{%code{@layout}}
   #p The %code{@layout} variable contains the layout that is currently being used. This variable is only available while laying out an item.

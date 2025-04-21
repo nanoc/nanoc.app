@@ -29,7 +29,7 @@ short_title: "Checking"
   #p The example above prevents the Nanoc site from being deployed if there are broken internal links or stale files in the output directory.
 
   #note
-    #p Deploy-time checks can also be configured in a file named %filename{Checks} in the site directory. To configure a check to be run before deploying, call %code{#deploy_check} with name of the check:
+    #p Deploy-time checks can also be configured in a file named %filename{Checks} in the site directory. To configure a check to be run before deploying, call %code{deploy_check()} with name of the check:
 
     #listing[lang=ruby]
       deploy_check :internal_links
@@ -76,12 +76,12 @@ short_title: "Checking"
       end
     end
 
-  #p In a custom check, you can use %code{#add_issue}. The first argument is the description of the problem, and the %code{:subject} option defines the location of the problem (usually a filename).
+  #p In a custom check, you can use %code{add_issue()}. The first argument is the description of the problem, and the %code{:subject} option defines the location of the problem (usually a filename).
 
   #p In a custom check, the variables %code{@config}, %code{@items}, and %code{@layouts} are available, in addition to %code{@output_filenames}, which is the collection of filenames in the output directory that correspond to an item in the site. For details, see %ref[item=/doc/reference/variables.*]{}.
 
   #note
-    #p Custom checks can also be defined in a file named %filename{Checks} in the site directory. To define a check in this way, call the %code{#check} method with the name of the check, and a block:
+    #p Custom checks can also be defined in a file named %filename{Checks} in the site directory. To define a check in this way, call the %code{check()} method with the name of the check, and a block:
 
     #listing[lang=ruby]
       check :no_unprocessed_erb do

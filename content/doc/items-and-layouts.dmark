@@ -56,7 +56,7 @@ title: "Items and layouts"
       </body>
     </html>
 
-  #p An item is laid out using %code{#layout} function in a compilation rule. See %ref[item=/doc/rules.*]{} page for details.
+  #p An item is laid out using %code{layout()} function in a compilation rule. See %ref[item=/doc/rules.*]{} page for details.
 
   #p Just like items, layouts have attributes and an %ref[item=/doc/identifiers-and-patterns.*]{identifier}.
 
@@ -68,7 +68,7 @@ title: "Items and layouts"
     #listing[lang=ruby]
       use_helper Nanoc::Helpers::Rendering
 
-    #p To render a partial, call %code{#render} with the identifier or a glob as an argument:
+    #p To render a partial, call %code{render()} with the identifier or a glob as an argument:
 
     #listing[lang=eruby]
       <%%= render '/head.*' %%>

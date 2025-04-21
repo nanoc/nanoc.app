@@ -94,7 +94,7 @@ title: "Nanoc 4 upgrade guide"
       #listing[lang=ruby,new]
         @items.create('Hello', {%}, '/hello/')
 
-    #li In data sources, use %code{#new_item} or %code{#new_layout} rather than instantiating %code{Nanoc::Item} or %code{Nanoc::Layout}. For example:
+    #li In data sources, use %code{new_item()} or %code{new_layout()} rather than instantiating %code{Nanoc::Item} or %code{Nanoc::Layout}. For example:
 
       #listing[lang=ruby,legacy]
         def items
@@ -106,7 +106,7 @@ title: "Nanoc 4 upgrade guide"
           [new_item('Hello', {%}, '/hello/')]
         end
 
-    #li In data sources, replace the %code{identifier} argument in calls to %code{#new_item} and %code{#new_layout} with an explicit %code{Nanoc::Identifier} instance, constructed with %code{type: legacy}:
+    #li In data sources, replace the %code{identifier} argument in calls to %code{new_item()} and %code{new_layout()} with an explicit %code{Nanoc::Identifier} instance, constructed with %code{type: legacy}:
 
       #listing[lang=ruby,legacy-intermediate]
         def items
@@ -126,7 +126,7 @@ title: "Nanoc 4 upgrade guide"
       #listing[lang=ruby,new]
         item.reps[:default].path
 
-    #li Replace calls to %code{#rep_named} by %code{reps[%var{something}]}, where %var{something} is the argument to %code{#rep_named}. For example:
+    #li Replace calls to %code{rep_named()} by %code{reps[%var{something}]}, where %var{something} is the argument to %code{rep_named()}. For example:
 
       #listing[lang=ruby,legacy]
         item.rep_named(:raw).path
@@ -159,7 +159,7 @@ title: "Nanoc 4 upgrade guide"
         #listing[lang=yaml,new]
           string_pattern_type: glob
 
-      #li Ensure that all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site, start and end with a slash. This is an intermediate step. For example:
+      #li Ensure that all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{render()} throughout the site, start and end with a slash. This is an intermediate step. For example:
 
         #listing[lang=ruby,legacy]
           # Before
@@ -191,7 +191,7 @@ title: "Nanoc 4 upgrade guide"
           <!-- After -->
           <%%= render '/header/' %%>
 
-      #li Replace %code{*} and %code{+} with %code{**/*} in all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. For example:
+      #li Replace %code{*} and %code{+} with %code{**/*} in all string patterns in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{render()} throughout the site. For example:
 
         #listing[lang=ruby,legacy]
           compile '/articles/*/' do
@@ -227,7 +227,7 @@ title: "Nanoc 4 upgrade guide"
         #listing[lang=yaml,new]
           identifier_type: full
 
-      #li Remove the trailing slash from any argument to %code{#compile}, %code{#route}, and %code{#layout} in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{#render} throughout the site. If the pattern does not end with a “%code{*}”, add “%code{.*}”. For example:
+      #li Remove the trailing slash from any argument to %code{compile()}, %code{route()}, and %code{layout()} in the %filename{Rules} file, as well as in calls to %code{@items[…]}, %code{@layouts[…]}, and %code{render()} throughout the site. If the pattern does not end with a “%code{*}”, add “%code{.*}”. For example:
 
         #listing[lang=ruby,legacy]
           compile '/articles/**/*/' do
@@ -285,7 +285,7 @@ title: "Nanoc 4 upgrade guide"
             item.identifier.without_ext + '.html'
           end
 
-      #li If the site has calls to %code{#children}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{#children} with a function call to %code{#children_of}, passing in the item as an argument. For example:
+      #li If the site has calls to %code{children()}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{children()} with a function call to %code{children_of()}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @items['/articles/'].children
@@ -295,7 +295,7 @@ title: "Nanoc 4 upgrade guide"
           children_of(@items['/articles/'])
           children_of(@item)
 
-      #li If the site has calls to %code{#parent}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{#parent} with a function call to %code{#parent_of}, passing in the item as an argument. For example:
+      #li If the site has calls to %code{parent()}, ensure the %filename{lib/helpers.rb} file contains %code{use_helper Nanoc::Helpers::ChildParent}, and replace method calls to %code{parent()} with a function call to %code{parent_of()}, passing in the item as an argument. For example:
 
         #listing[lang=ruby,legacy]
           @item.parent

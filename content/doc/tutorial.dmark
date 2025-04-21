@@ -331,7 +331,7 @@ title: "Tutorial"
 
   #p This will make all functions defined in the %code{Nanoc::Helpers::Tagging} module available for use.
 
-  #p Modify the layout, %filename{layouts/default.html}, and replace the paragraph that displays the tags with a call to %code{#tags_for}, which is defined in the tagging helper:
+  #p Modify the layout, %filename{layouts/default.html}, and replace the paragraph that displays the tags with a call to %code{tags_for()}, which is defined in the tagging helper:
 
   #listing[lang=rhtml]
     <p>Tags: <%%= tags_for(@item) %%></p>

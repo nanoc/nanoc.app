@@ -403,7 +403,7 @@ title: "Troubleshooting"
     #listing[lang=rhtml,errors]
       <%%= link_to 'About', @items['/about.*'] %%>
 
-    #p To fix this problem, activate the helper by calling %code{#use_helper}, with the helper as the argument, somewhere in %filename{lib/}. For example, to activate the %code{LinkTo} helper:
+    #p To fix this problem, activate the helper by calling %code{use_helper()}, with the helper as the argument, somewhere in %filename{lib/}. For example, to activate the %code{LinkTo} helper:
 
     #listing[lang=ruby]
       # in lib/helpers.rb
@@ -578,4 +578,3 @@ title: "Troubleshooting"
     ---
 
     Another section…
-
