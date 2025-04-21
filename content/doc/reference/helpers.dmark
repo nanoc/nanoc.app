@@ -274,22 +274,50 @@ title: "Helpers"
 #section %h{%code{ChildParent}}
   #p The %code{ChildParent} helper provides functionality for fetching the children and the parent of a given item. This works for both full identifiers and legacy identifiers.
 
+  #p For items with full identifiers, the behavior is as follows:
+
   #dl
-    #dt %code{#parent_of(%var{item})}
+    #dt %code{parent_of(%var{item})}
     #dd
       #p Returns the parent of the given item.
 
-      #p For items with legacy identifiers, the parent is the item where the identifier contains one less component than the identifier of the given item. For example, the parent of the %identifier{/projects/nanoc/} item is the %identifier{/projects/} item.
-
-      #p For items with full identifiers, the parent is the item where the identifier contains one less component than the identifier of the given item, and ends with any extension. For example, the parent of the %identifier{/projects/nanoc.md} item could be the %identifier{/projects.md} item, or the %identifier{/projects.html} item, etc. Note that the parent is ambiguous for items that have a full identifier; only the first candidate parent item will be returned.
-
-    #dt %code{#children_of(%var{item})}
+    #dt %code{children_of(%var{item})}
     #dd
       #p Returns the children of the given item.
 
-      #p For items with legacy identifiers, the children are the items where the identifier contains one more component than the identifier of the given item. For example, the children of the %identifier{/projects/} item could be %identifier{/projects/nanoc/} and %identifier{/projects/cri/}, but not %identifier{/about/} nor %identifier{/projects/nanoc/history/}.
+  #section %h{For items with full identifiers}
+    #p The parent is the item where the identifier contains one less component than the identifier of the given item, and ends with any extension. For example, the parent of %identifier{/projects/nanoc.md} is any item matching %code{/projects.*}, such as %identifier{/projects.md} or %identifier{/projects.html}.
 
-      #p For items with full identifiers, the children are the item where the identifier starts with the identifier of the given item, minus the extension, followed by a slash. For example, the children of the %identifier{/projects.md} item could be the %identifier{/projects/nanoc.md} and %identifier{/projects/cri.adoc} items , but not %identifier{/about.md} nor %identifier{/projects/nanoc/history.md}.
+    #note The parent is potentially ambiguous, and only the first candidate parent item will be returned. For example, if both %identifier{/projects.md} and %identifier{/projects.html} items were to exist, then the parent %identifier{/projects/nanoc.md} could be either. Nanoc will select one at random.
+
+    #p The same applies for finding the children of an item. For example, the children of %identifier{/projects.md} will be any item matching %code{/projects/*}, such as %identifier{/projects/nanoc.md} and %identifier{/projects/cri.adoc}, but not %identifier{/about.md} nor %identifier{/projects/nanoc/history.md}.
+
+    #section %h{Handling index files}
+      #p Nanoc does not treat items with the base name %code{index} as special (with one exception described below). An item with identifier %identifier{/projects/index.md} is treated just as %identifier{/projects/nanoc.md}, and so the parent of %identifier{/projects/index.md} will be any item that matches %code{/projects.*}.
+
+      #p The exception is items at the root. Any item matching %code{/*} will have an item matching %code{/index.*} as its parent. For example, an item with identifier %identifier{/projects.md} will have %code{/index.md} as its parent.
+
+      #p This might not be what you want! If you rely on %code{index} files being treated specially, consider defining your own %code{parent_of()} helper:
+
+      #listing[lang=ruby]
+        def parent_of(item)
+          # e.g. for "/projects/nanoc.md",
+          #   the `base` is "/projects"
+          base = item.identifier.to_s.sub(/[^\/]+$/, '').chop
+
+          # find e.g. "/projects/index.*"
+          #   and fall back to "/projects.*"
+          @items[base + '/index.*'] || @items[base + '.*']
+        end
+
+      #p If you rely on %code{index} files being treated specially, you’ll also want to provide your own implementation of %code{children_of()}, as well as %code{breadcrumbs_trail()} from the %code{Breadcrumbs} helper.
+
+      #p Nanoc’s built-in helpers are, in large part, intended as a starting point for your own implementation, in case you require more sophisticated behavior.
+
+  #section %h{For items with legacy identifiers}
+    #p The parent is the item where the identifier contains one less component than the identifier of the given item. For example, the parent of the %identifier{/projects/nanoc/} item is the %identifier{/projects/} item.
+
+    #p The children are the items where the identifier contains one more component than the identifier of the given item. For example, the children of the %identifier{/projects/} item would be anything that matches %code{/projects/*/}, such as %identifier{/projects/nanoc/} and %identifier{/projects/cri/}, but not %identifier{/about/} nor %identifier{/projects/nanoc/history/}.
 
 #section %h{%code{Filtering}}
   #p The %code{Filtering} helper provides functionality for filtering parts of an item or a layout.
