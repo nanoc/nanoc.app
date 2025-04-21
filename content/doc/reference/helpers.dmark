@@ -113,6 +113,9 @@ title: "Helpers"
         #dt %code{:title_proc} (%code{proc})
         #dd A proc that returns the title of the given article, passed as a parameter. This function should not return nil. By default, it will return the content of the %code{title} attribute of the item.
 
+        #dt %code{:id_proc} (%code{proc})
+        #dd A proc that returns the ID of the given article, passed as a parameter. This function should not return nil. It will fall back to %code{atom_tag_for()}.
+
         #dt %code{:title} (%code{String})
         #dd The feed's title, if it is not given in the item attributes.
 

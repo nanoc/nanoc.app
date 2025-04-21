@@ -3,6 +3,7 @@
 
 preprocess do
   config[:nanoc_version_info] = Nanoc::Core.version_information.strip
+  config[:nanoc_version_info_major_minor_patch] = Nanoc::Core.version_information.strip.scan(/\d+/).take(3).join('.')
   config[:nanoc_version_info_major_minor] = Nanoc::Core.version_information.strip.scan(/\d+/).take(2).join('.')
   config[:nanoc_version_info_major] = Nanoc::Core.version_information.strip.scan(/\d+/).first
 

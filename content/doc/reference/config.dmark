@@ -39,13 +39,13 @@ title: "Configuration"
   #p The %code{exclude} option determines which files and directories you want to exclude from pruning. If you version your output directory, you should probably exclude VCS directories such as %filename{.git} or %filename{.hg}.
 
 #section %h{%code{commands_dirs}}
-  #p Directories to read commands from. This is useful when you have a set of commands that you want to share between sites.
+  #p Directories to read commands from. This is useful when you have a set of commands that you want to share between sites. Paths that start with a %code{~} will be expanded to the current user’s home directory.
 
   #listing[lang=yaml]
     commands_dirs: [ '../shared-commands' ]
 
 #section %h{%code{lib_dirs}}
-  #p Directories to read code snippets from. This is useful when you have a set of code snippets that you want to share between sites.
+  #p Directories to read code snippets from. This is useful when you have a set of code snippets that you want to share between sites. Paths that start with a %code{~} will be expanded to the current user’s home directory.
 
   #listing[lang=yaml]
     lib_dirs: [ 'lib', '../shared-lib' ]
@@ -107,9 +107,11 @@ title: "Configuration"
       #dt %code{exclude} (default: empty array)
       #dd A list of patterns, specified as regular expressions, to exclude from the check. If an external link matches this pattern, the validity check will be skipped.
 
-    #dl
       #dt %code{exclude_files} (default: empty array)
       #dd A list of file patterns, specified as regular expressions, to exclude from the check. If a file matches this pattern, the links from this file will not be checked.
+
+      #dt %code{user_agent} (default: %code{"Mozilla/5.0 Nanoc/%erb{config[:nanoc_version_info_major_minor_patch]} (link rot checker)"})
+      #dd The user agent to use when making HTTP requests.
 
     #p For example, the following will exclude all links to %code{example.com}, as well as all links on %code{blog/page}, from being marked as broken:
 
