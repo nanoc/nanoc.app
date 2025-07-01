@@ -1,7 +1,6 @@
 @use "colors";
 
 .explanation {
-  border-top: 10px solid;
   @include colors.page-top-border-color;
 
   @include colors.explanation-bg-color;

@@ -14,11 +14,13 @@
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">
   </head>
   <body id="nanoc">
-    <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>" >
+    <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>">
 <% if @item[:has_basic_layout] %>
+      <%= render '/free_palestine.*' %>
       <%= yield %>
 <% else %>
       <nav class="nws-nav">
+        <%= render '/free_palestine.*' %>
         <div class="nws-nav-content">
           <span class="nws-nav-home"><%= link_to_unless_current('Nanoc', @items['/index.*'], class: 'nws-nav-link') %></span>
           <ul>

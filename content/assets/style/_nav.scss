@@ -2,7 +2,7 @@
 
 .nws-nav {
   margin: 0;
-  padding: 10px 0;
+  padding: 0;
 
   @media (min-width: 720px) {
     position: fixed;
@@ -26,7 +26,7 @@
   }
 
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0.5rem 20px;
   max-width: 1020px;
   display: flex;
   justify-content: space-between;

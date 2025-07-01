@@ -1,0 +1,21 @@
+.cta-message {
+  background: black;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.cta-flag {
+  height: 1rem;
+  background-image: linear-gradient(
+    to right,
+    #EE2A35 0%,
+    #EE2A35 25%,
+    black 25%,
+    black 50%,
+    white 50%,
+    white 75%,
+    #009736 75%,
+    #009736 100
+  );
+  background-size: 100%;
