@@ -11,20 +11,12 @@
     right: 0;
   }
 
-  @media (max-width: 719px) {
-    padding: 10px 20px;
-  }
-
   z-index: 100;
 
   @include colors.nav-bg-color;
 }
 
 .nws-nav-content {
-  @media (max-width: 719px) {
-    padding: 0;
-  }
-
   margin: 0 auto;
   padding: 0.5rem 20px;
   max-width: 1020px;
