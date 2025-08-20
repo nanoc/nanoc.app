@@ -41,6 +41,23 @@ title: "Items and layouts"
 
     #p Binary items cannot have snapshots.
 
+  #section %h{Finding items}
+    #p In filters that allow running Ruby code, such as the %code{:erb} filter, the list of all items can be accessed as %code{@items}. This variable behaves like an array, but has extra method for finding specific items.
+
+    #p You can pass a pattern to %code{#[]}. For example, the following finds the (first) item that matches %code{/about.*}:
+
+    #listing[lang=ruby]
+      @items["/about.*"]
+
+    #p The %code{#find_all} method is similar, but returns all matching items, rather than just the first. For example, the following finds all articles with the %code{.md} extension:
+
+    #listing[lang=ruby]
+      @items.find_all("/articles/*.md")
+
+    #p Using patterns like this is faster than looping through all items (e.g. using %code{#select}).
+
+    #p For details on patterns, refer to the %ref[item=/doc/identifiers-and-patterns.*,frag=patterns]{Identifiers and patterns} page, as well as the %ref[item=/doc/reference/variables.*,frag=items-and-layouts]{Variables} page for details on %code{@items}.
+
 #section %h{Layouts}
   #p A %firstterm{layout} is the “frame” for content to go into. Typically, a layout adds a header, and a footer to a page.
 
