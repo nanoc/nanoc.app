@@ -5,7 +5,7 @@ title = "What’s new?"
 #p This page summarizes new features in minor releases. For a detailed list of all changes in all versions, see %ref[item=/release-notes.*]{}.
 
 #section %h{Nanoc 4.14}
-  #p Nanoc 4.14 adds support for TOML in frontmatter and in the configuration file.
+  #p Nanoc 4.14 adds support for %ref[url=https://toml.io/]{TOML} in frontmatter and in the configuration file.
 
   #p To make use of TOML, first make sure you have the %code{perfect_toml} gem in your %filename{Gemfile}:
 
