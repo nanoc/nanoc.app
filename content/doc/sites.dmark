@@ -22,7 +22,7 @@ title: "Sites"
   #p A site has the following files and directories:
 
   #dl
-    #dt %filename{nanoc.yaml} (or %filename{config.yaml} on older sites)
+    #dt %filename{nanoc.yaml}, %filename{nanoc.toml}, or %filename{config.yaml}
     #dd contains the site configuration
 
     #dt %filename{Rules}
@@ -47,7 +47,7 @@ title: "Sites"
   #p Nanoc will load all Ruby source files in the %filename{lib/} directory before it starts compiling. All method definitions, class definitions, … will be available during the compilation process. This directory is useful for putting in custom %ref[item=/doc/helpers.*]{helpers}, custom %ref[item=/doc/filters.*]{filters}, custom %ref[item=/doc/data-sources.*]{data sources}, etc.
 
 #section %h{Configuration}
-  #p The configuration for a Nanoc site lives in a file named %filename{nanoc.yaml} (when using YAML) or %filename{nanoc.toml} (when using TOML). The configuration file contains several pre-defined configuration keys, but can also contain free-form data. Here is an example configuration file that uses YAML:
+  #p The configuration for a Nanoc site lives in a file named %filename{nanoc.yaml} or %filename{config.yaml} (when using YAML) or %filename{nanoc.toml} (when using TOML). The configuration file contains several pre-defined configuration keys, but can also contain free-form data. Here is an example configuration file that uses YAML:
 
   #listing[lang=yaml]
     prune:
