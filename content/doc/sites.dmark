@@ -61,7 +61,7 @@ title: "Sites"
 
   #p And here is an example configuration file that uses TOML:
 
-  #listing[lang=yaml]
+  #listing[lang=toml]
     base_url = "https://nanoc.app"
 
     [prune]
