@@ -1,5 +1,9 @@
 @use "/assets/style/_colors.scss";
 
+:target {
+  scroll-margin-top: 80px;
+}
+
 :target:before {
   content: "";
   display: block;
