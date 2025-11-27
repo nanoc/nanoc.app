@@ -94,6 +94,35 @@ short_title: "Checking"
 
     #p Use of the %filename{Checks} file is discouraged, however.
 
+  #p It can be useful to construct a mapping of the paths in the output directory to item representations. For this, an item representation’s %code{#raw_path} and %code{#snapshot_names} methods are useful:
+
+  #listing[lang=ruby]
+    # Map output filenames (paths) to item representations
+    paths_to_reps = {%}
+    all_item_reps = @items.flat_map { |i| i.reps.to_a %}
+    all_item_reps.each do |rep|
+      rep.snapshot_names.each do |snapshot_name|
+        path = rep.raw_path(snapshot: snapshot_name)
+        next unless path # some reps have no paths (are not written)
+
+        paths_to_reps[path] = rep
+      end
+    end
+
+  #p With this mapping, the corresponding item representation is easy to find, to pass to %code{#add_issue}. For example:
+
+  #listing[lang=ruby]
+    @output_filenames.each do |filename|
+      next if ok?(filename)
+
+      rep = paths_to_reps[filename]
+
+      add_issue(
+        "something is rotten",
+        subject: "#{filename%} --- #{rep.item.identifier%}",
+      )
+    end
+
 #section %h{Available checks}
   #p Nanoc comes with the following checks:
 
