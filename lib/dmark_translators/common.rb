@@ -40,8 +40,6 @@ class NanocWsCommonTranslator < DMark::Translator
     if item.identifier.ext == 'dmark'
       begin
         CachingDMarkParser.parse(item.raw_content)
-      rescue => e
-        handle_error(e, item.raw_content)
       end
     end
   end

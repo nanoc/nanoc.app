@@ -14,8 +14,6 @@ module GenericDMarkFilter
     nodes = CachingDMarkParser.parse(content)
     context = { items: @items, item: @item, config: @config, nodes: nodes }
     translator_class.translate(nodes, context)
-  rescue => e
-    handle_error(e, content)
   end
 
   def translator_class
