@@ -96,4 +96,4 @@ title: "Contributing"
       #li Update the version mentioned on the %ref[url=https://en.wikipedia.org/wiki/Nanoc]{Nanoc Wikipedia page}.
 
 #section %h{Contributor code of conduct}
-  #p Contribution is government by the %ref[url=https://github.com/nanoc/nanoc/blob/main/CODE_OF_CONDUCT.md]{code of conduct}.
+  #p Contribution is governed by the %ref[url=https://github.com/nanoc/nanoc/blob/main/CODE_OF_CONDUCT.md]{code of conduct}.
