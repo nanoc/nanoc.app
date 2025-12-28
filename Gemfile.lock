@@ -117,7 +117,6 @@ GEM
     rackup (2.3.1)
       rack (>= 3)
     rainbow (3.1.1)
-    rainpress (1.0.1)
     rake (13.3.1)
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
@@ -186,7 +185,6 @@ DEPENDENCIES
   nokogiri
   perfect_toml (~> 0.9.0)
   psych (~> 4.0)
-  rainpress
   rake
   rubocop
   terminal-notifier
