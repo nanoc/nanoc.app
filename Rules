@@ -20,6 +20,7 @@ passthrough '/favicon.ico'
 ignore '/assets/style/*.tex'
 
 passthrough '/assets/font-awesome/**/*'
+passthrough '/assets/source-sans-3-*/**/*'
 
 compile '/well-known/**/*' do
   write '/.' + item.identifier.to_s[1..-1]

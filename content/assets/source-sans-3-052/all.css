@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-ExtraLight.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 200;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-ExtraLightIt.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-Light.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-LightIt.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-Regular.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-It.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-Semibold.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-SemiboldIt.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-Bold.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-BoldIt.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("SourceSans3-Black.otf.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("SourceSans3-BlackIt.otf.woff2") format("woff2");
+}

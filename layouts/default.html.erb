@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
     <link href="<%= @items['/assets/style/screen.*'].path %>" media="screen" rel="stylesheet">
-    <link href="<%= @items['/assets/font-awesome/style/all.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/style/print.*'].path %>"  media="print" rel="stylesheet">
+    <link href="<%= @items['/assets/font-awesome/style/all.*'].path %>" media="screen" rel="stylesheet">
+    <link href="<%= @items['/assets/source-sans-3-*/all.*'].path %>" media="screen" rel="stylesheet">
     <link rel="preconnect" href="https://RNL791U9AF-dsn.algolia.net" crossorigin>
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic%7CRoboto+Mono:400,400italic,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,700" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
