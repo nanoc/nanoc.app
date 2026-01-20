@@ -286,6 +286,7 @@ templating
 timestamp
 timestamps
 Timestamps
+TOML
 Toon
 Torikian
 Tronçon
