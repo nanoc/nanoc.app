@@ -74,10 +74,27 @@
           </div>
         </div>
       </footer>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
       <script src="<%= @items['/assets/docsearch-*/*.js'].path %>"></script>
       <script>docsearch({apiKey:'3b10f9cf40d282e212f40bd445173aed',appId:'RNL791U9AF',indexName:'nanoc',container:'#search-box',debug:true});</script>
-      <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const container = document.querySelector('.hero__slides');
+
+          setInterval(() => {
+            const firstSlide = container.querySelector('.hero__slide:first-child');
+            const nextSlide = firstSlide.nextElementSibling;
+
+            if (nextSlide) {
+              firstSlide.style.opacity = 0;
+              nextSlide.style.opacity = 1;
+
+              setTimeout(() => {
+                container.appendChild(firstSlide);
+              }, 1200);
+            }
+          }, 4000);
+        });
+      </script>
       <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
     </div>
   </body>
