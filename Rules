@@ -22,6 +22,7 @@ ignore '/assets/style/*.tex'
 passthrough '/assets/font-awesome/**/*'
 passthrough '/assets/source-sans-3-*/**/*'
 passthrough '/assets/roboto-mono-3-*/**/*'
+passthrough '/assets/docsearch-*/**/*'
 
 compile '/well-known/**/*' do
   write '/.' + item.identifier.to_s[1..-1]

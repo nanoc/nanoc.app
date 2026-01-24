@@ -9,7 +9,7 @@
     <link href="<%= @items['/assets/source-sans-3-*/all.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/roboto-mono-3-*/all.*'].path %>" media="screen" rel="stylesheet">
     <link rel="preconnect" href="https://RNL791U9AF-dsn.algolia.net" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
+    <link href="<%= @items['/assets/docsearch-*/*.css'].path %>" media="screen" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">
@@ -75,7 +75,7 @@
         </div>
       </footer>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+      <script src="<%= @items['/assets/docsearch-*/*.js'].path %>"></script>
       <script>docsearch({apiKey:'3b10f9cf40d282e212f40bd445173aed',appId:'RNL791U9AF',indexName:'nanoc',container:'#search-box',debug:true});</script>
       <script>$(function(){setInterval(function(){$('.hero__slide:first-child').fadeOut(1200).next('.hero__slide').fadeIn(1200).end().appendTo('.hero__slides');},4000);});</script>
       <script>var _gaq = _gaq || []; var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js'; _gaq.push(['_require', 'inpage_linkid', pluginUrl]); _gaq.push(['_setAccount', 'UA-15639968-1']); _gaq.push(['_setDomainName', 'nanoc.ws']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
