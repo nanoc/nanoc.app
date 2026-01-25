@@ -1,3 +1,21 @@
+.swatch {
+  display: inline-block;
+
+  vertical-align: top;
+
+  width: 200px;
+  height: 200px;
+
+  padding: 10px;
+  margin: 20px 20px 0 0;
+}
+
+.swatch > .inside {
+  padding: 2px 5px;
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .swatch-orange {
   background: var(--color-ld-orange);
 }

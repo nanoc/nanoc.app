@@ -1,0 +1,10 @@
+.nws-content {
+  position: relative;
+
+  padding: 0 20px;
+
+  @media (min-width: 720px) {
+    max-width: 1020px;
+    margin: 5rem auto 0 auto;
+  }
+}

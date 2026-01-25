@@ -10,9 +10,14 @@ include:
     include:
       - "/assets/style2/_old.*"
 
+  - layer: "base"
+    include:
+      - "/assets/style2/_base.*"
+
   - layer: "layout"
     include:
       - "/assets/style2/layout/_article.*"
+      - "/assets/style2/layout/_content.*"
 
   - layer: "components"
     include:
