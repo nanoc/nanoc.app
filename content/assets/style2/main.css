@@ -16,6 +16,7 @@ include:
 
   - layer: "base"
     include:
+      - "/assets/style2/base/_colors.*"
       - "/assets/style2/base/_headers.*"
       - "/assets/style2/base/_mark.*"
       - "/assets/style2/base/_misc.*"
