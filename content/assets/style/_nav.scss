@@ -1,78 +1,11 @@
 @use "colors";
 
 .nws-nav {
-  margin: 0;
-  padding: 0;
-
-  @media (min-width: 720px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  z-index: 100;
-
   @include colors.nav-bg-color;
-}
-
-.nws-nav-content {
-  margin: 0 auto;
-  padding: 0.5rem 20px;
-  max-width: 1020px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.nws-nav-content ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: right;
-  margin: 0;
-  padding: 0;
-}
-
-.nws-nav-item {
-  display: block;
-  flex: 0 0 auto;
-
-  margin: 0;
-  padding: 0;
-
-  list-style-type: none;
-}
-
-.nws-nav-home .nws-nav-link {
-  background-image: url(/assets/images/logo-light-a.png);
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  background-size: 30px 30px;
-
-  padding: 10px 0 10px 40px;
-  margin: 0;
-}
-
-.nws-nav-home .nws-nav-link:hover {
-  background-image: url(/assets/images/logo-light-b.png);
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  background-size: 30px 30px;
-}
-
-.nws-nav-link,
-.nws-nav-item .active {
-  display: block;
-
-  margin: 10px;
-  padding: 0;
-
-  border-radius: 0;
 }
 
 .nws-nav-item .active {
   @include colors.nav-item-active-color;
-
-  border-bottom: 3px solid;
   @include colors.nav-border-color;
 }
 
@@ -83,10 +16,4 @@
 
 .nws-nav-link:hover {
   @include colors.nav-item-hover-color;
-
-  background: transparent;
-}
-
-.nws-nav-link:active {
-  background: transparent;
 }
