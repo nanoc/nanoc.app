@@ -164,6 +164,9 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-footer-link-hover-bg: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
     --color-footer-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
     --color-footer-heart: light-dark(var(--color-orange), var(--color-darkmode-orange));
+
+    /* text */
+    --color-text-fg: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
 }
 
 // Body
@@ -191,17 +194,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
-  }
-}
-
-// Text
-
-:root { --color-text: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700)); }
-@mixin text-color {
-  color: $color-gray-700;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-gray-700;
   }
 }
 

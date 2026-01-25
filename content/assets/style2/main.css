@@ -16,6 +16,7 @@ include:
       - "/assets/style2/base/_misc.*"
       - "/assets/style2/base/_links.*"
       - "/assets/style2/base/_lists.*"
+      - "/assets/style2/base/_text.*"
 
   - layer: "layout"
     include:

@@ -1,5 +1,0 @@
-@use "colors";
-
-p, li, blockquote, dd, .admonition, pre, figcaption {
-  @include colors.text-color;
-}
