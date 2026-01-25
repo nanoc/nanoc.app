@@ -12,6 +12,7 @@ include:
 
   - layer: "components"
     include:
+      - "/assets/style2/components/_admonition.*"
       - "/assets/style2/components/_code.*"
       - "/assets/style2/components/_cta.*"
       - "/assets/style2/components/_hero.*"

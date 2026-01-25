@@ -142,6 +142,17 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-tag-new-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
     --color-tag-errors-bg: light-dark(var(--color-orange), var(--color-darkmode-orange));
     --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+
+    /* admonitions */
+    --color-admon-fg-tip: light-dark(#{$color-blue}, #{$color-darkmode-blue});
+    --color-admon-fg-note: light-dark(#{$color-blue}, #{$color-darkmode-blue});
+    --color-admon-fg-caution: light-dark(#{$color-orange}, #{$color-darkmode-orange});
+    --color-admon-fg-todo: light-dark(#{$color-gray-500}, #{$color-darkmode-gray-500});
+    --color-admon-bg: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+    --color-admon-bg-tip: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
+    --color-admon-bg-note: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
+    --color-admon-bg-caution: light-dark(#{$color-orange-quiet}, #{$color-darkmode-orange-quiet});
+    --color-admon-bg-todo: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
 }
 
 // Body
@@ -245,80 +256,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
-  }
-}
-
-// Admonitions
-
-@mixin admon-bg-color {
-  background: $color-gray-100;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-100;
-  }
-}
-
-@mixin admon-fg-tip-color {
-  color: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-blue;
-  }
-}
-
-@mixin admon-fg-note-color {
-  color: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-blue;
-  }
-}
-
-@mixin admon-fg-caution-color {
-  color: $color-orange;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-orange;
-  }
-}
-
-@mixin admon-fg-todo-color {
-  color: $color-gray-500;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-gray-500;
-  }
-}
-
-@mixin admon-bg-tip-color {
-  background: $color-blue-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-quiet;
-  }
-}
-
-@mixin admon-bg-note-color {
-  background: $color-blue-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-quiet;
-  }
-}
-
-@mixin admon-bg-caution-color {
-  background: $color-orange-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-orange-quiet;
-  }
-}
-
-@mixin admon-bg-todo-color {
-  background: $color-gray-100;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-100;
   }
 }
 

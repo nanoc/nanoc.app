@@ -1,5 +1,3 @@
-@use "/assets/style/_colors.scss";
-
 div.admonition-wrapper {
   display: table;
 
@@ -26,48 +24,48 @@ div.admonition-wrapper:before {
 }
 
 div.admonition-wrapper .admonition {
-  @include colors.admon-bg-color;
+  background: var(--color-admon-bg);
   border-radius: 4px;
   display: table-cell;
   padding: 10px 15px;
 }
 
 div.admonition-wrapper.tip  .admonition {
-  @include colors.admon-bg-tip-color;
+  background: var(--color-admon-bg-tip);
 }
 
 div.admonition-wrapper.tip:before {
-  @include colors.admon-fg-tip-color;
+  color: var(--color-admon-fg-tip);
   font-weight: 900;
   content: "\f0eb";
 }
 
 div.admonition-wrapper.note  .admonition {
-  @include colors.admon-bg-note-color;
+  background: var(--color-admon-bg-note);
 }
 
 div.admonition-wrapper.note:before {
-  @include colors.admon-fg-note-color;
+  color: var(--color-admon-fg-note);
   font-weight: 900;
   content: "\f05a";
 }
 
 div.admonition-wrapper.caution  .admonition {
-  @include colors.admon-bg-caution-color;
+  background: var(--color-admon-bg-caution);
 }
 
 div.admonition-wrapper.caution:before {
-  @include colors.admon-fg-caution-color;
+  color: var(--color-admon-fg-caution);
   font-weight: 900;
   content: "\f071";
 }
 
 div.admonition-wrapper.todo  .admonition {
-  @include colors.admon-bg-todo-color;
+  background: var(--color-admon-bg-todo);
 }
 
 div.admonition-wrapper.todo:before {
-  @include colors.admon-fg-todo-color;
+  color: var(--color-admon-fg-todo);
   font-weight: 900;
   content: "\f0c3";
 }
