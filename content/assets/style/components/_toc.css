@@ -1,0 +1,16 @@
+.toc li {
+  list-style-type: none;
+}
+
+.toc {
+  margin-left: 0;
+}
+
+.toc .toc {
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+.toc .active {
+  font-weight: bold;
+}

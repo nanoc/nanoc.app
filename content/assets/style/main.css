@@ -1,0 +1,42 @@
+---
+include:
+  - layer: "reset"
+    include:
+      - "/assets/style/_reset.*"
+
+  - layer: "framework"
+    include:
+      - "/assets/style/_framework.*"
+
+  - layer: "base"
+    include:
+      - "/assets/style/base/_colors.*"
+      - "/assets/style/base/_headers.*"
+      - "/assets/style/base/_mark.*"
+      - "/assets/style/base/_misc.*"
+      - "/assets/style/base/_links.*"
+      - "/assets/style/base/_lists.*"
+      - "/assets/style/base/_print.*"
+      - "/assets/style/base/_text.*"
+
+  - layer: "layout"
+    include:
+      - "/assets/style/layout/_content.*"
+
+  - layer: "components"
+    include:
+      - "/assets/style/components/_admonition.*"
+      - "/assets/style/components/_article.*"
+      - "/assets/style/components/_code.*"
+      - "/assets/style/components/_cta.*"
+      - "/assets/style/components/_explanation.*"
+      - "/assets/style/components/_figure.*"
+      - "/assets/style/components/_footer.*"
+      - "/assets/style/components/_hero.*"
+      - "/assets/style/components/_nav.*"
+      - "/assets/style/components/_search.*"
+      - "/assets/style/components/_side.*"
+      - "/assets/style/components/_tags.*"
+      - "/assets/style/components/_toc.*"
+      - "/assets/style/components/_swatches.*"
+---

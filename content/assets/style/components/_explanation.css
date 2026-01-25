@@ -1,10 +1,8 @@
-@use "colors";
-
 .explanation {
-  @include colors.page-top-border-color;
+  border-color: var(--color-page-top-border);
 
-  @include colors.explanation-bg-color;
-  @include colors.explanation-fg-color;
+  background: var(--color-explanation-bg);
+  color: var(--color-explanation-fg);
 }
 
 .explanation-content {

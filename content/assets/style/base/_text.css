@@ -1,0 +1,9 @@
+p,
+li,
+blockquote,
+dd,
+.admonition,
+pre,
+figcaption {
+  color: var(--color-text-fg);
+}

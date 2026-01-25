@@ -1,19 +1,19 @@
-@use "colors";
-
 .nws-nav {
+  background: var(--color-nav-bg);
+
   margin: 0;
   padding: 0;
 
-  @media (min-width: 720px) {
+  z-index: 100;
+}
+
+@media (min-width: 720px) {
+  .nws-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
   }
-
-  z-index: 100;
-
-  @include colors.nav-bg-color;
 }
 
 .nws-nav-content {
@@ -59,6 +59,15 @@
   background-size: 30px 30px;
 }
 
+.nws-nav-link:link,
+.nws-nav-link:visited {
+  color: var(--color-nav-link);
+}
+
+.nws-nav-link:hover {
+  color: var(--color-nav-item-hover);
+}
+
 .nws-nav-link,
 .nws-nav-item .active {
   display: block;
@@ -70,20 +79,13 @@
 }
 
 .nws-nav-item .active {
-  @include colors.nav-item-active-color;
-
   border-bottom: 3px solid;
-  @include colors.nav-border-color;
-}
 
-.nws-nav-link:link,
-.nws-nav-link:visited {
-  @include colors.nav-link-color;
+  color: var(--color-nav-item-active);
+  border-color: var(--color-nav-border);
 }
 
 .nws-nav-link:hover {
-  @include colors.nav-item-hover-color;
-
   background: transparent;
 }
 

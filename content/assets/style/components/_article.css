@@ -1,0 +1,17 @@
+@media screen {
+  article {
+    padding: 40px 0 0 0;
+  }
+
+  .article-content {
+    padding: 30px;
+
+    background: var(--color-article-content-bg);
+  }
+}
+
+@media screen and (min-width: 720px) {
+  article {
+    margin: 0 0 0 250px;
+  }
+}

@@ -1,7 +1,5 @@
-@use "/assets/style/_colors.scss";
-
 .prompt {
-  @include colors.code-prompt-color;
+  color: var(--color-ld-prompt-fg);
 }
 
 pre {

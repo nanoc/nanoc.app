@@ -1,0 +1,151 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: var(--color-page-bg);
+
+  font-family: "Source Sans 3";
+  font-weight: normal;
+  font-size: 15px;
+
+  line-height: 22px;
+
+  min-height: 100%;
+}
+
+abbr {
+  font-weight: bold;
+}
+
+pre,
+code,
+kbd,
+var,
+samp,
+.attribute,
+.command,
+.output {
+  font-size: 13px;
+}
+
+blockquote {
+  font-style: italic;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+pre {
+  border-radius: 4px;
+
+  padding: 10px;
+  margin: 0 0 20px 0;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  box-shadow: 0 1px 1px var(--color-pre-shadow);
+  background: var(--color-pre-bg);
+}
+
+pre,
+code,
+kbd,
+samp,
+var,
+.attribute,
+.command,
+.output,
+.filename,
+.glob,
+.identifier,
+.uri {
+  -webkit-hyphenate-character: "";
+  -moz-hyphenate-character: "";
+  -ms-hyphenate-character: "";
+  -o-hyphenate-character: "";
+  hyphenate-character: "";
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+kbd {
+  font-weight: bold;
+}
+
+var {
+  font-style: italic;
+}
+
+.filename,
+.glob,
+.identifier,
+.uri,
+.productname,
+.firstterm {
+  font-style: italic;
+}
+
+h2 code,
+h3 code,
+h4 code {
+  font-size: 0.9em;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+pre,
+code,
+kbd,
+var,
+samp,
+.output,
+.attribute,
+.command {
+  font-family: "Roboto Mono", Consolas, Inconsolata, Monaco, monospace;
+}
+
+pre.template var:before {
+  content: "<";
+}
+
+pre.template var:after {
+  content: ">";
+}
+
+:target {
+  scroll-margin-top: 80px;
+}
+
+:target:before {
+  content: "";
+  display: block;
+
+  @media (min-width: 720px) {
+    height: 70px;
+    margin: -70px 0 0;
+  }
+
+  @media (max-width: 719px) {
+    height: 10px;
+    margin: -10px 0 0;
+  }
+}

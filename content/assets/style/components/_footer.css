@@ -1,0 +1,132 @@
+footer {
+  margin: 60px 0 -40px 0;
+}
+
+footer p {
+  color: var(--color-footer-fg);
+}
+footer a {
+  padding: 0 2px;
+  margin: 0;
+}
+
+footer a:hover {
+  color: var(--color-footer-link-hover-fg);
+}
+
+.home footer {
+  background: var(--color-footer-bg);
+}
+
+.home .footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page .footer-content-wrapper {
+  max-width: 1020px;
+
+  margin: -60px auto 0;
+  padding: 0;
+}
+
+@media (min-width: 720px) {
+  .page .footer-content-wrapper {
+    padding: 0 20px 40px 275px;
+  }
+}
+
+@media (max-width: 719px) {
+  .page .footer-content-wrapper {
+    padding: 0 20px 40px 20px;
+  }
+}
+
+.footer-releasenotes {
+  padding: 40px 0 20px 0;
+
+  color: var(--color-footer-fg);
+}
+
+.footer-links-explanation {
+  color: var(--color-footer-fg);
+}
+
+.footer-links {
+  padding: 0 0 10px 0;
+  margin: 0;
+}
+
+.footer-links strong {
+  font-family:
+    "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo",
+    "Arial Unicode MS";
+
+  color: var(--color-footer-heart);
+}
+
+.footer-links li {
+  padding: 0 2px;
+  margin: 0 -2px;
+  display: inline-block;
+}
+
+.footer-links li:first-child {
+  margin-left: -4px;
+}
+
+.footer-links li:after {
+  padding: 0 5px;
+  content: "\00B7";
+
+  color: var(--color-footer-fg);
+}
+
+.footer-links li:last-child:after {
+  padding: 0;
+  content: "";
+}
+
+.footer-copyright {
+  color: var(--color-footer-fg);
+
+  padding: 20px 0;
+
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.footer-copyright .logo {
+  order: 1;
+  flex: 0 1;
+}
+
+.footer-copyright .text {
+  order: 2;
+  flex: 1 0;
+}
+
+.footer-copyright .made-in-berlin {
+  order: 3;
+  flex: 0 1;
+}
+
+.footer-copyright .logo img {
+  width: 40px;
+}
+
+.footer-copyright .made-in-berlin img {
+  width: 117px;
+  height: 100px;
+}
+
+@media (min-width: 720px) {
+  .footer-copyright {
+    flex-direction: row;
+  }
+}

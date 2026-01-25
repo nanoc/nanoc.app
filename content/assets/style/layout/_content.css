@@ -1,0 +1,16 @@
+.nws-content {
+  position: relative;
+}
+
+@media screen {
+  .nws-content {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .nws-content {
+    max-width: 1020px;
+    margin: 5rem auto 0 auto;
+  }
+}

@@ -198,6 +198,9 @@ title: Style guide
     #dt command
     #dd The %command{compile} command is used to compile a site.
 
+    #dt mark
+    #dd Some %mark{marked} text.
+
     #dt user input
     #dd To use it, type %kbd{nanoc compile} into the terminal.
 

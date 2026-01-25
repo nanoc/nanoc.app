@@ -1,5 +1,3 @@
-@use "/assets/style/_colors.scss";
-
 dl.legacy dt:after {
   content: "LEGACY";
 
@@ -10,56 +8,63 @@ dl.legacy dt:after {
   font-weight: bold;
   letter-spacing: 1px;
 
-  @include colors.tag-legacy-bg-color;
-  @include colors.tag-legacy-fg-color;
+  background: var(--color-tag-legacy-bg);
+  color: var(--color-tag-legacy-fg);
+
   border-radius: 4px;
 }
 
 pre.errors:before {
   content: "ERRORS";
 
-  @include colors.tag-errors-bg-color;
-  @include colors.tag-errors-fg-color;
+  background: var(--color-tag-errors-bg);
+  color: var(--color-tag-errors-fg);
+
   border-top-right-radius: 4px;
 }
 
 pre.legacy:before {
   content: "NANOC 3.X";
 
-  @include colors.tag-legacy-bg-color;
-  @include colors.tag-legacy-fg-color;
+  background: var(--color-tag-legacy-bg);
+  color: var(--color-tag-legacy-fg);
+
   border-top-right-radius: 4px;
 }
 
 pre.legacy-intermediate:before {
   content: "INTERMEDIATE STEP";
 
-  @include colors.tag-legacy-bg-color;
-  @include colors.tag-legacy-fg-color;
+  background: var(--color-tag-legacy-bg);
+  color: var(--color-tag-legacy-fg);
+
   border-top-right-radius: 4px;
 }
 
 pre.legacy-49:before {
   content: "NANOC 4.8";
 
-  @include colors.tag-legacy-bg-color;
-  @include colors.tag-legacy-fg-color;
+  background: var(--color-tag-legacy-bg);
+  color: var(--color-tag-legacy-fg);
+
   border-top-right-radius: 4px;
 }
 
 pre.new:before {
   content: "NANOC 4.x";
 
-  @include colors.tag-new-bg-color;
-  @include colors.tag-new-fg-color;
+  background: var(--color-tag-new-bg);
+  color: var(--color-tag-new-fg);
+
   border-top-right-radius: 4px;
 }
 
 pre.new-49:before {
   content: "NANOC 4.9";
 
-  @include colors.tag-new-bg-color;
-  @include colors.tag-new-fg-color;
+  background: var(--color-tag-new-bg);
+  color: var(--color-tag-new-fg);
+
   border-top-right-radius: 4px;
 }
 

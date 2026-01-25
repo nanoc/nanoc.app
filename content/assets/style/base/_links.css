@@ -1,0 +1,18 @@
+a {
+  text-decoration: none;
+
+  padding: 0 2px;
+  margin: 0 -1px;
+
+  border-radius: 3px;
+}
+
+a:link,
+a:visited {
+  color: var(--color-link-fg);
+}
+
+a:hover {
+  color: var(--color-link-hover-fg);
+  background: var(--color-link-hover-bg);
+}

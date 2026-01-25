@@ -1,0 +1,73 @@
+.swatch {
+  display: inline-block;
+
+  vertical-align: top;
+
+  width: 200px;
+  height: 200px;
+
+  padding: 10px;
+  margin: 20px 20px 0 0;
+}
+
+.swatch > .inside {
+  padding: 2px 5px;
+
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.swatch-orange {
+  background: var(--color-ld-orange);
+}
+
+.swatch-bg {
+  background: var(--color-ld-bg);
+}
+
+.swatch-fg {
+  background: var(--color-ld-fg);
+}
+
+.swatch-shadow {
+  background: var(--color-ld-shadow);
+}
+
+.swatch-blue {
+  background: var(--color-ld-blue);
+}
+
+.swatch-mark {
+  background: var(--color-ld-mark);
+}
+
+.swatch-blue-hint {
+  background: var(--color-ld-blue-hint);
+}
+
+.swatch-gray-100 {
+  background: var(--color-ld-gray-100);
+}
+
+.swatch-orange-quiet {
+  background: var(--color-ld-orange-quiet);
+}
+
+.swatch-blue-quiet {
+  background: var(--color-ld-blue-quiet);
+}
+
+.swatch-gray-300 {
+  background: var(--color-ld-gray-300);
+}
+
+.swatch-gray-500 {
+  background: var(--color-ld-gray-500);
+}
+
+.swatch-gray-700 {
+  background: var(--color-ld-gray-700);
+}
+
+.swatch-gray-900 {
+  background: var(--color-ld-gray-900);
+}
