@@ -9,6 +9,7 @@
   --color-l-shadow: #000;
   --color-l-blue: hsl(211, 87%, 41%);
   --color-l-mark: hsl(60, 100%, 90%);
+
   --color-d-orange: hsl(8, 90%, 60%);
   --color-d-bg: hsl(210, 15%, 18%);
   --color-d-fg: #fff;
@@ -18,11 +19,13 @@
 
   --color-l-orange-quiet: rgb(252.96, 237.32, 229.5);
   --color-l-nav-shadow: rgba(0, 0, 0, 0.2);
+
   --color-d-orange-quiet: rgb(59.5935, 49.878, 53.6265);
   --color-d-nav-shadow: rgba(0, 0, 0, 0.4);
 
   --color-l-blue-hint: rgb(235.68732, 242.721444, 250.24068);
   --color-l-blue-quiet: rgb(221.045475, 232.0529325, 243.819525);
+
   --color-d-blue-hint: rgb(45.7164, 55.326728878, 65.2596);
   --color-d-blue-quiet: rgb(52.765875, 63.6309797951, 74.989125);
 
@@ -31,6 +34,7 @@
   --color-l-gray-500: rgb(145.35, 145.35, 145.35);
   --color-l-gray-700: rgb(72.675, 72.675, 72.675);
   --color-l-gray-900: rgb(12.1125, 12.1125, 12.1125);
+
   --color-d-gray-100: rgb(48.68715, 56.355, 64.02285);
   --color-d-gray-300: rgb(79.6340775, 86.15175, 92.6694225);
   --color-d-gray-500: rgb(131.21229, 135.813, 140.41371);
@@ -39,8 +43,10 @@
 
   --color-l-hero-link-bg: rgba(255, 255, 255, 0.4);
   --color-d-hero-link-bg: hsla(210, 15%, 18%, 0.4);
+
   --color-l-prompt-fg: rgba(0, 0, 0, 0.5);
   --color-d-prompt-fg: rgba(255, 255, 255, 0.5);
+
   --color-pre-shadow: rgba(0, 0, 0, 0.3);
 }
 
@@ -67,17 +73,17 @@
 
 :root {
   /* hero-bg */
-  --color-ld-hero-bg: var(--color-ld-blue-quiet);
+  --color-hero-bg: var(--color-ld-blue-quiet);
 
   /* hero-link-bg */
-  --color-ld-hero-link-bg: light-dark(var(--color-l-hero-link-bg), var(--color-d-hero-link-bg));
+  --color-hero-link-bg: light-dark(var(--color-l-hero-link-bg), var(--color-d-hero-link-bg));
 
   /* hero-link-hover-xxx */
   --color-hero-link-hover-fg: var(--color-ld-blue);
   --color-hero-link-hover-bg: var(--color-ld-bg);
 
   /* prompt */
-  --color-ld-prompt-fg: light-dark(var(--color-l-prompt-fg), var(--color-d-prompt-fg));
+  --color-prompt-fg: light-dark(var(--color-l-prompt-fg), var(--color-d-prompt-fg));
 
   /* tags */
   --color-tag-legacy-bg: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));

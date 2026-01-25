@@ -1,5 +1,5 @@
 .prompt {
-  color: var(--color-ld-prompt-fg);
+  color: var(--color-prompt-fg);
 }
 
 pre {
@@ -29,11 +29,14 @@ pre {
     color: #66aa00;
   }
 
-  .string, .value {
+  .string,
+  .value {
     color: #d90;
   }
 
-  .constant, .class, .symbol {
+  .constant,
+  .class,
+  .symbol {
     color: #cc6600;
   }
 
@@ -41,19 +44,24 @@ pre {
     color: #ee2211;
   }
 
-  .instance-variable, .local_variable {
+  .instance-variable,
+  .local_variable {
     color: #66aa00;
   }
 
-  .reserved, .predefined, .predefined-constant {
+  .reserved,
+  .predefined,
+  .predefined-constant {
     color: #0099cc;
   }
 
-  .tag, .keyword {
+  .tag,
+  .keyword {
     color: #88cc55;
   }
 
-  .integer, .attribute_name {
+  .integer,
+  .attribute_name {
     color: #aa5500;
   }
 }
