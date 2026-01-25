@@ -208,32 +208,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange));
 }
 
-// Figures
-
-@mixin figure-bg-color {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
-}
-
-@mixin figure-border-color {
-  border-color: $color-gray-100;
-
-  @media (prefers-color-scheme: dark) {
-    border-color: $color-darkmode-gray-100;
-  }
-}
-
-@mixin figure-caption-bg-color {
-  background: $color-gray-100;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-100;
-  }
-}
-
 // Sidebar
 
 @mixin sidebar-section-title-color {
