@@ -3,6 +3,8 @@ html {
 }
 
 body {
+  background: var(--color-page-bg);
+
   font-family: "Source Sans 3";
   font-weight: normal;
   font-size: 15px;
@@ -49,6 +51,9 @@ pre {
 
   white-space: pre-wrap;
   word-wrap: break-word;
+
+  box-shadow: 0 1px 1px var(--color-pre-shadow);
+  background: var(--color-pre-bg);
 }
 
 pre,

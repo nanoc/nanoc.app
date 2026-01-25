@@ -1,0 +1,4 @@
+mark {
+  color: var(--color-mark-fg);
+  background: var(--color-mark-bg);
+}
