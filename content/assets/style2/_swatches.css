@@ -1,64 +1,55 @@
 .swatch-orange {
-  background: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  background: var(--color-ld-orange);
 }
 
 .swatch-bg {
-  background: light-dark(var(--color-bg), var(--color-darkmode-bg));
+  background: var(--color-ld-bg);
 }
 
 .swatch-fg {
-  background: light-dark(var(--color-fg), var(--color-darkmode-fg));
+  background: var(--color-ld-fg);
 }
 
 .swatch-shadow {
-  background: light-dark(var(--color-shadow), var(--color-darkmode-shadow));
+  background: var(--color-ld-shadow);
 }
 
 .swatch-blue {
-  background: light-dark(var(--color-blue), var(--color-darkmode-blue));
+  background: var(--color-ld-blue);
 }
 
 .swatch-mark {
-  background: light-dark(var(--color-mark), var(--color-darkmode-mark));
+  background: var(--color-ld-mark);
 }
 
 .swatch-blue-hint {
-  background: light-dark(
-    var(--color-blue-hint),
-    var(--color-darkmode-blue-hint)
-  );
+  background: var(--color-ld-blue-hint);
 }
 
 .swatch-gray-100 {
-  background: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+  background: var(--color-ld-gray-100);
 }
 
 .swatch-orange-quiet {
-  background: light-dark(
-    var(--color-orange-quiet),
-    var(--color-darkmode-orange-quiet)
-  );
+  background: var(--color-ld-orange-quiet);
 }
 
 .swatch-blue-quiet {
-  background: light-dark(
-    var(--color-blue-quiet),
-    var(--color-darkmode-blue-quiet)
-  );
+  background: var(--color-ld-blue-quiet);
 }
 
 .swatch-gray-300 {
-  background: light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
+  background: var(--color-ld-gray-300);
 }
 
 .swatch-gray-500 {
-  background: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+  background: var(--color-ld-gray-500);
 }
 
 .swatch-gray-700 {
-  background: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+  background: var(--color-ld-gray-700);
 }
 
 .swatch-gray-900 {
-  background: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+  background: var(--color-ld-gray-900);
 }

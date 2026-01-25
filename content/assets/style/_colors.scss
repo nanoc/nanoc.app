@@ -29,6 +29,13 @@ $color-darkmode-mark:         hsl(0, 0%, 0%);
     --color-darkmode-shadow:       #{$color-darkmode-shadow};
     --color-darkmode-blue:         #{$color-darkmode-blue};
     --color-darkmode-mark:         #{$color-darkmode-mark};
+
+    --color-ld-orange:  light-dark(var(--color-orange), var(--color-darkmode-orange));
+    --color-ld-bg:      light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-ld-fg:      light-dark(var(--color-fg), var(--color-darkmode-fg));
+    --color-ld-shadow:  light-dark(var(--color-shadow), var(--color-darkmode-shadow));
+    --color-ld-blue:    light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-ld-mark:    light-dark(var(--color-mark), var(--color-darkmode-mark));
 }
 
 // Derived colors
@@ -45,6 +52,9 @@ $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
 
     --color-darkmode-orange-quiet:  #{$color-darkmode-orange-quiet};
     --color-darkmode-nav-shadow:    #{$color-darkmode-nav-shadow};
+
+    --color-ld-orange-quiet:  light-dark(var(--color-orange-quiet), var(--color-darkmode-orange-quiet));
+    --color-ld-nav-shadow:    light-dark(var(--color-nav-shadow), var(--color-darkmode-nav-shadow));
 }
 
 // Derived colors -- blues
@@ -58,8 +68,12 @@ $color-darkmode-blue-quiet:   color.adjust(color.mix($color-darkmode-blue, $colo
 :root {
     --color-blue-hint:            #{$color-blue-hint};
     --color-blue-quiet:           #{$color-blue-quiet};
+
     --color-darkmode-blue-hint:   #{$color-darkmode-blue-hint};
     --color-darkmode-blue-quiet:  #{$color-darkmode-blue-quiet};
+
+    --color-ld-blue-hint:   light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
+    --color-ld-blue-quiet:  light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
 }
 
 // Derived colors -- grays
@@ -82,11 +96,18 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-gray-500:             #{$color-gray-500};
     --color-gray-700:             #{$color-gray-700};
     --color-gray-900:             #{$color-gray-900};
+
     --color-darkmode-gray-100:    #{$color-darkmode-gray-100};
     --color-darkmode-gray-300:    #{$color-darkmode-gray-300};
     --color-darkmode-gray-500:    #{$color-darkmode-gray-500};
     --color-darkmode-gray-700:    #{$color-darkmode-gray-700};
     --color-darkmode-gray-900:    #{$color-darkmode-gray-900};
+
+    --color-ld-gray-100:  light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+    --color-ld-gray-300:  light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
+    --color-ld-gray-500:  light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-ld-gray-700:  light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+    --color-ld-gray-900:  light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
 }
 
 // Body
