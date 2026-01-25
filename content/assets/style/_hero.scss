@@ -1,9 +1,17 @@
-@use "/assets/style/_colors.scss";
-
 .hero {
-  @include colors.hero-bg-color;
+  background-color: var(--color-ld-blue-quiet);
 
   margin-bottom: -60px;
+}
+
+.hero {
+  background-image: url(/assets/images/symphony.png);
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background-image: url(/assets/images/symphony-dark.png);
+  }
 }
 
 .hero__links {
@@ -14,8 +22,10 @@
 
   display: flex;
   justify-content: center;
+}
 
-  @media (max-width: 719px) {
+@media (max-width: 719px) {
+  .hero__links {
     flex-direction: column;
     padding-bottom: 20px;
   }
@@ -23,8 +33,10 @@
 
 .hero__link {
   margin: 0 20px;
+}
 
-  @media (max-width: 719px) {
+@media (max-width: 719px) {
+  .hero__link {
     margin: 5px auto;
   }
 }
@@ -37,12 +49,12 @@
 
 .hero__link:link,
 .hero__link:visited {
-  @include colors.hero-link-bg-color;
+  background: var(--color-ld-hero-link-bg);
 }
 
 .hero__link:hover {
-  @include colors.hero-link-hover-fg-color;
-  @include colors.hero-link-hover-bg-color;
+  color: var(--color-hero-link-hover-fg);
+  background: var(--color-hero-link-hover-bg);
 }
 
 .hero__slides {
@@ -50,35 +62,45 @@
 
   height: 480px;
 
-  @media (max-width: 819px) {
-    padding-top: 10px;
-    height: 430px;
-  }
-
-  @media (max-width: 719px) {
-    padding-top: 10px;
-    height: 380px;
-  }
-
-  @media (max-width: 619px) {
-    height: 330px;
-
-    img {
-      margin-top: -20px;
-    }
-  }
-
-  @media (max-width: 519px) {
-    height: 280px;
-  }
-
-  @media (max-width: 419px) {
-    height: 230px;
-  }
-
   top: -10px;
   max-width: 960px;
   margin: 0 auto;
+}
+
+@media (max-width: 819px) {
+  .hero__slides {
+    padding-top: 10px;
+    height: 430px;
+  }
+}
+
+@media (max-width: 719px) {
+  .hero__slides {
+    padding-top: 10px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 619px) {
+  .hero__slides {
+    height: 330px;
+  }
+
+  .hero__slides  img {
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 519px) {
+  .hero__slides {
+    height: 280px;
+  }
+}
+
+@media (max-width: 419px) {
+  .hero__slides {
+    height: 230px;
+  }
 }
 
 .hero__slide {

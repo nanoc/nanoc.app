@@ -1,4 +1,9 @@
 @use "sass:color";
+
+:root {
+    color-scheme: light dark;
+}
+
 // Core colors
 
 $color-orange:                hsl(20, 100%, 46%);
@@ -108,6 +113,22 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-ld-gray-500:  light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
     --color-ld-gray-700:  light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
     --color-ld-gray-900:  light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+}
+
+// Derived colors -- component-specific
+
+:root {
+    /* hero-bg */
+    --color-ld-hero-bg:  var(--color-ld-blue-quiet);
+
+    /* hero-link-bg */
+    --color-hero-link-bg:           #{color.adjust($color-bg, $alpha: -0.6)};
+    --color-darkmode-hero-link-bg:  #{color.adjust($color-darkmode-bg, $alpha: -0.6)};
+    --color-ld-hero-link-bg:        light-dark(var(--color-hero-link-bg), var(--color-darkmode-hero-link-bg));
+
+    /* hero-link-hover-xxx */
+    --color-hero-link-hover-fg:  var(--color-ld-blue);
+    --color-hero-link-hover-bg:  var(--color-ld-bg);
 }
 
 // Body
@@ -387,40 +408,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 1px 1px color.adjust($color-darkmode-shadow, $alpha: -0.7);
-  }
-}
-
-// Hero
-
-@mixin hero-bg-color {
-  background: $color-blue-quiet url(/assets/images/symphony.png);
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-quiet url(/assets/images/symphony-dark.png);
-  }
-}
-
-@mixin hero-link-bg-color {
-  background: color.adjust($color-bg, $alpha: -0.6);
-
-  @media (prefers-color-scheme: dark) {
-    background: color.adjust($color-darkmode-bg, $alpha: -0.6);
-  }
-}
-
-@mixin hero-link-hover-fg-color {
-  color: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-blue;
-  }
-}
-
-@mixin hero-link-hover-bg-color {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
   }
 }
 
