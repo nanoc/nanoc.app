@@ -164,14 +164,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
-@mixin nav-shadow-color {
-  box-shadow: 0 3px 5px $color-nav-shadow;
-
-  @media (prefers-color-scheme: dark) {
-    box-shadow: 0 3px 5px $color-darkmode-nav-shadow;
-  }
-}
-
 @mixin nav-item-active-color {
   color: $color-fg;
 
@@ -430,68 +422,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-bg;
   }
-}
-
-// Search
-
-@mixin search-bg-color {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
-}
-
-@mixin search-fg-color {
-  color: $color-gray-500;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-gray-500;
-  }
-}
-
-@mixin search-border-color {
-  border-color: $color-blue-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    border-color: $color-darkmode-blue-quiet;
-  }
-}
-
-@mixin search-placeholder-bg-color {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
-}
-
-@mixin search-placeholder-border-color {
-  border-color: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    border-color:  $color-darkmode-bg;
-  }
-}
-
-@mixin search-results-l0-fg-color {
-  color: $color-orange;
-}
-
-@mixin search-results-l1-fg-color {
-  color: $color-fg;
-}
-
-@mixin search-results-higlight-fg-color {
-  color: $color-orange;
-}
-
-@mixin search-results-higlight-bg-color {
-  background: $color-orange-quiet;
-}
-
-@mixin search-results-selection-bg-color {
-  background: $color-orange-quiet;
 }
 
 // Mark
