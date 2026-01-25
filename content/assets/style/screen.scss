@@ -148,18 +148,18 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
 
     /* admonitions */
-    --color-admon-fg-tip: light-dark(#{$color-blue}, #{$color-darkmode-blue});
-    --color-admon-fg-note: light-dark(#{$color-blue}, #{$color-darkmode-blue});
-    --color-admon-fg-caution: light-dark(#{$color-orange}, #{$color-darkmode-orange});
-    --color-admon-fg-todo: light-dark(#{$color-gray-500}, #{$color-darkmode-gray-500});
-    --color-admon-bg: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
-    --color-admon-bg-tip: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
-    --color-admon-bg-note: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
-    --color-admon-bg-caution: light-dark(#{$color-orange-quiet}, #{$color-darkmode-orange-quiet});
-    --color-admon-bg-todo: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+    --color-admon-fg-tip: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-admon-fg-note: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-admon-fg-caution: light-dark(var(--color-orange), var(--color-darkmode-orange));
+    --color-admon-fg-todo: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-admon-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+    --color-admon-bg-tip: light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
+    --color-admon-bg-note: light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
+    --color-admon-bg-caution: light-dark(var(--color-orange-quiet), var(--color-darkmode-orange-quiet));
+    --color-admon-bg-todo: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
 
     /* headers */
-    --color-header-fg: light-dark(#{$color-orange}, #{$color-darkmode-orange});
+    --color-header-fg: light-dark(var(--color-orange), var(--color-darkmode-orange));
 
     /* footer */
     --color-footer-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
@@ -182,7 +182,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-page-top-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
 
     /* article-content */
-    --color-article-content-bg: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+    --color-article-content-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
 
     /* nav */
     --color-nav-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
@@ -213,25 +213,25 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 }
 
 :root {
-  --docsearch-primary-color: light-dark(#{$color-blue}, #{$color-darkmode-blue});
-  --docsearch-text-color: light-dark(#{$color-fg}, #{$color-darkmode-fg});
+  --docsearch-primary-color: light-dark(var(--color-blue), var(--color-darkmode-blue));
+  --docsearch-text-color: light-dark(var(--color-fg), var(--color-darkmode-fg));
 
-  --docsearch-muted-color: light-dark(#{$color-gray-500}, #{$color-darkmode-gray-500});
+  --docsearch-muted-color: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
   --docsearch-container-background: light-dark(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
-  --docsearch-modal-background: light-dark(#{$color-blue-hint}, #{$color-darkmode-bg});
-  --docsearch-logo-color: light-dark(#{$color-blue}, #{$color-darkmode-fg});
-  --docsearch-searchbox-background: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+  --docsearch-modal-background: light-dark(var(--color-blue-hint), var(--color-darkmode-bg));
+  --docsearch-logo-color: light-dark(var(--color-blue), var(--color-darkmode-fg));
+  --docsearch-searchbox-background: light-dark(var(--color-bg), var(--color-darkmode-bg));
   --docsearch-searchbox-focus-background: light-dark(#fff, rgba(0, 0, 0, 0.3));
-  --docsearch-hit-color: light-dark(#{$color-gray-900}, #{$color-darkmode-gray-900});
+  --docsearch-hit-color: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
   --docsearch-hit-active-color: light-dark(#fff, #fff);
-  --docsearch-hit-background: light-dark(#fff, #{$color-darkmode-gray-100});
-  --docsearch-footer-background: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+  --docsearch-hit-background: light-dark(#fff, var(--color-darkmode-gray-100));
+  --docsearch-footer-background: light-dark(var(--color-bg), var(--color-darkmode-bg));
 
-  --search-key-gradient-from: light-dark(#{$color-gray-300}, #{$color-darkmode-gray-300});
-  --search-key-gradient-to: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+  --search-key-gradient-from: light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
+  --search-key-gradient-to: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
 
-  --search-key-shadow-1: light-dark(#{$color-gray-300}, #{$color-darkmode-gray-100});
-  --search-key-shadow-2: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-300});
+  --search-key-shadow-1: light-dark(var(--color-gray-300), var(--color-darkmode-gray-100));
+  --search-key-shadow-2: light-dark(var(--color-gray-100), var(--color-darkmode-gray-300));
   --search-key-shadow-3: rgba(0, 0, 0, 0.3);
 }
 
