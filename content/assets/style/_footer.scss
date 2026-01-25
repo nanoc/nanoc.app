@@ -10,9 +10,6 @@ footer {
   }
 
   a {
-    padding: 0 2px;
-    margin: 0;
-
     :link, :visited {
       @include colors.footer-link-color;
     }
@@ -22,33 +19,10 @@ footer {
       @include colors.footer-link-hover-fg-color;
     }
   }
-
-  margin: 60px 0 -40px 0;
 }
 
-.home .footer-content {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.page .footer-content-wrapper {
-  max-width: 1020px;
-
-  margin: -60px auto 0;
-  padding: 0;
-
-  @media (min-width: 720px) {
-    padding: 0 20px 40px 275px;
-  }
-
-  @media (max-width: 719px) {
-    padding: 0 20px 40px 20px;
-  }
-}
 
 .footer-releasenotes {
-  padding: 40px 0 20px 0;
   @include colors.footer-fg-color;
 }
 
@@ -57,77 +31,15 @@ footer {
 }
 
 .footer-links {
-  padding: 0 0 10px 0;
-  margin: 0;
-
   strong {
     @include colors.footer-heart-color;
-    font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
-  }
-
-  li {
-    padding: 0 2px;
-    margin: 0 -2px;
-    display: inline-block;
-  }
-
-  li:first-child {
-    margin-left: -4px;
   }
 
   li:after {
     @include colors.footer-fg-color;
-
-    padding: 0 5px;
-    content: "\00B7";
-  }
-
-  li:last-child:after {
-    padding: 0;
-    content: "";
   }
 }
 
 .footer-copyright {
-  padding: 20px 0;
-
-  gap: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
   @include colors.footer-fg-color;
-
-  .logo {
-    order: 1;
-    flex: 0 1;
-  }
-
-  .text {
-    order: 2;
-    flex: 1 0;
-  }
-
-  .made-in-berlin {
-    order: 3;
-    flex: 0 1;
-  }
-
-  .logo img {
-    width: 40px;
-  }
-
-  .made-in-berlin img {
-    width: 117px;
-    height: 100px;
-  }
-
-  flex-direction: column;
-}
-
-@media (min-width: 720px) {
-  .footer-copyright {
-    flex-direction: row;
-  }
 }
