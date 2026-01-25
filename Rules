@@ -13,7 +13,7 @@ end
 
 layout '/**/*', :erb
 
-compile "/assets/style2/_*.css" do
+compile "/assets/style2/**/_*.css" do
   filter :css_include
   snapshot :for_inclusion
 
