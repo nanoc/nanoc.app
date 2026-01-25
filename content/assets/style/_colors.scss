@@ -177,6 +177,9 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-page-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
     --color-page-top-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
 
+    /* article-content */
+    --color-article-content-bg: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+
     /* nav */
     --color-nav-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
     --color-nav-item-active: light-dark(var(--color-fg), var(--color-darkmode-fg));
@@ -203,16 +206,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
     /* sidebar */
     --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange));
-}
-
-// Body
-
-.article-content {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
 }
 
 // Figures

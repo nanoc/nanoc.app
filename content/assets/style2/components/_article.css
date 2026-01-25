@@ -10,4 +10,6 @@ article {
 
 .article-content {
   padding: 30px;
+
+  background: var(--color-article-content-bg);
 }

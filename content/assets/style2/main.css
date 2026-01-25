@@ -21,12 +21,12 @@ include:
 
   - layer: "layout"
     include:
-      - "/assets/style2/layout/_article.*"
       - "/assets/style2/layout/_content.*"
 
   - layer: "components"
     include:
       - "/assets/style2/components/_admonition.*"
+      - "/assets/style2/components/_article.*"
       - "/assets/style2/components/_code.*"
       - "/assets/style2/components/_cta.*"
       - "/assets/style2/components/_explanation.*"
