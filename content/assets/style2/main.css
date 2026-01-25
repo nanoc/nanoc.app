@@ -1,0 +1,6 @@
+---
+include:
+  - layer: "reset"
+    include:
+      - "/assets/style2/_reset.*"
+---

@@ -13,6 +13,21 @@ end
 
 layout '/**/*', :erb
 
+compile "/assets/style2/_*.css" do
+  filter :css_include
+  snapshot :for_inclusion
+
+  # Explicitly needed, otherwise it gets caught by #passthrough
+  write nil
+end
+
+compile "/assets/style2/*.css" do
+  filter :css_include
+  snapshot :for_inclusion
+  filter :relativize_paths, type: :css
+  write item.identifier.without_ext + '-' + fingerprint('/assets/style2/*') + '.css'
+end
+
 passthrough '/_redirects'
 ignore '/**/_*'
 
