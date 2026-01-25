@@ -156,10 +156,19 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
     /* headers */
     --color-header-fg: light-dark(#{$color-orange}, #{$color-darkmode-orange});
+
+    /* footer */
+    --color-footer-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-footer-fg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-footer-link: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+    --color-footer-link-hover-bg: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+    --color-footer-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-footer-heart: light-dark(var(--color-orange), var(--color-darkmode-orange));
 }
 
 // Body
 
+:root { --color-page-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint)); }
 @mixin page-bg-color {
   background: $color-blue-hint;
 
@@ -168,6 +177,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-page-top-border: light-dark(var(--color-orange), var(--color-darkmode-orange)); }
 @mixin page-top-border-color {
   border-color: $color-orange;
 
@@ -186,6 +196,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Text
 
+:root { --color-text: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700)); }
 @mixin text-color {
   color: $color-gray-700;
 
@@ -196,6 +207,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Navigation
 
+:root { --color-nav-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint)); }
 @mixin nav-bg-color {
   background: $color-blue-hint;
 
@@ -204,6 +216,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-nav-item-active: light-dark(var(--color-fg), var(--color-darkmode-fg)); }
 @mixin nav-item-active-color {
   color: $color-fg;
 
@@ -212,6 +225,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-nav-item-hover: light-dark(var(--color-fg), var(--color-darkmode-fg)); }
 @mixin nav-item-hover-color {
   color: $color-fg;
 
@@ -220,6 +234,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-nav-link: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500)); }
 @mixin nav-link-color {
   color: $color-gray-500;
 
@@ -228,6 +243,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-nav-border: light-dark(var(--color-orange), var(--color-darkmode-orange)); }
 @mixin nav-border-color {
   border-color: $color-orange;
 
@@ -238,6 +254,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Explanation
 
+:root { --color-explanation-bg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin explanation-bg-color {
   background: $color-bg;
 
@@ -246,57 +263,8 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-explanation-fg: light-dark(var(--color-orange), var(--color-darkmode-orange)); }
 @mixin explanation-fg-color {
-  color: $color-orange;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-orange;
-  }
-}
-
-// Footer
-
-@mixin footer-bg-color {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
-}
-
-@mixin footer-fg-color {
-  color: $color-gray-500;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-gray-500;
-  }
-}
-
-@mixin footer-link-color {
-  color: $color-gray-900;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-gray-900;
-  }
-}
-
-@mixin footer-link-hover-bg-color {
-  background: $color-gray-900;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-900;
-  }
-}
-
-@mixin footer-link-hover-fg-color {
-  color: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-bg;
-  }
-}
-
-@mixin footer-heart-color {
   color: $color-orange;
 
   @media (prefers-color-scheme: dark) {
@@ -306,6 +274,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Links
 
+:root { --color-link: light-dark(var(--color-blue), var(--color-darkmode-blue)); }
 @mixin link-color {
   color: $color-blue;
 
@@ -314,6 +283,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin link-hover-fg-color {
   color: $color-bg;
 
@@ -322,6 +292,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-link-hover-bg: light-dark(var(--color-blue), var(--color-darkmode-blue)); }
 @mixin link-hover-bg-color {
   background: $color-blue;
 
@@ -332,6 +303,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Code
 
+:root { --color-pre-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100)); }
 @mixin pre-bg-color {
   background: $color-gray-100;
 
@@ -350,6 +322,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Mark
 
+:root { --color-mark-fg: light-dark(var(--color-fg), var(--color-darkmode-fg)); }
 @mixin mark-fg-color {
   color: $color-fg;
 
@@ -358,6 +331,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-mark-bg: light-dark(var(--color-mark), var(--color-darkmode-mark)); }
 @mixin mark-bg-color {
   background: $color-mark;
 
@@ -368,6 +342,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Tags
 
+:root { --color-tag-legacy-bg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500)); }
 @mixin tag-legacy-bg-color {
   background: $color-gray-500;
 
@@ -376,6 +351,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-tag-legacy-fg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin tag-legacy-fg-color {
   color: $color-bg;
 
@@ -384,6 +360,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-tag-new-bg: light-dark(var(--color-blue), var(--color-darkmode-blue)); }
 @mixin tag-new-bg-color {
   background: $color-blue;
 
@@ -392,6 +369,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-tag-new-fg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin tag-new-fg-color {
   color: $color-bg;
 
@@ -400,6 +378,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-tag-errors-bg: light-dark(var(--color-orange), var(--color-darkmode-orange)); }
 @mixin tag-errors-bg-color {
   background: $color-orange;
 
@@ -408,6 +387,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin tag-errors-fg-color {
   color: $color-bg;
 
@@ -418,6 +398,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Figures
 
+:root { --color-figure-bg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
 @mixin figure-bg-color {
   background: $color-bg;
 
@@ -426,6 +407,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-figure-border: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100)); }
 @mixin figure-border-color {
   border-color: $color-gray-100;
 
@@ -434,6 +416,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
   }
 }
 
+:root { --color-figure-caption-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100)); }
 @mixin figure-caption-bg-color {
   background: $color-gray-100;
 
@@ -444,6 +427,7 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
 // Sidebar
 
+:root { --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange)); }
 @mixin sidebar-section-title-color {
   color: $color-orange;
 
