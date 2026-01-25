@@ -21,10 +21,6 @@ else
   end
 end
 
-group :nanoc do
-  gem 'nanoc-dart-sass', '~> 1.0'
-end
-
 gem 'adsf'
 gem 'builder'
 gem 'coderay'
