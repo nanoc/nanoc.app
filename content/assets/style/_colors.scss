@@ -129,6 +129,11 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     /* hero-link-hover-xxx */
     --color-hero-link-hover-fg:  var(--color-ld-blue);
     --color-hero-link-hover-bg:  var(--color-ld-bg);
+
+    /* prompt */
+    --color-prompt-fg: color.adjust($color-fg, $alpha: -0.5);
+    --color-darkmode-prompt-fg: color.adjust($color-darkmode-fg, $alpha: -0.5);
+    --color-ld-prompt-fg: light-dark(var(--color-prompt-fg), var(--color-darkmode-prompt-fg));
 }
 
 // Body
@@ -392,14 +397,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     background: $color-darkmode-gray-100;
-  }
-}
-
-@mixin code-prompt-color {
-  color: color.adjust($color-fg, $alpha: -0.5);
-
-  @media (prefers-color-scheme: dark) {
-    color: color.adjust($color-darkmode-fg, $alpha: -0.5);
   }
 }
 
