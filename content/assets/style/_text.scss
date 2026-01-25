@@ -1,13 +1,5 @@
 @use "colors";
 
-* {
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-}
-
 p, li, blockquote, dd, .admonition, pre, figcaption {
   @include colors.text-color;
 }
