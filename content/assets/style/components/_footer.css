@@ -1,10 +1,23 @@
-footer {
-  margin: 60px 0 -40px 0;
+@media (min-width: 720px) {
+  footer {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 20px 2rem 20px;
+  }
+
+  .footer-content-wrapper {
+    margin-left: calc(220px + 1rem);
+  }
+}
+
+.footer-content-wrapper {
+  padding: 0 30px;
 }
 
 footer p {
   color: var(--color-footer-fg);
 }
+
 footer a {
   padding: 0 2px;
   margin: 0;
@@ -15,36 +28,22 @@ footer a:hover {
 }
 
 .home footer {
+  max-width: none;
+
+  padding-top: 80px;
+
   background: var(--color-footer-bg);
 }
 
-.home .footer-content {
-  max-width: 960px;
+.home .footer-content-wrapper {
+  max-width: calc(1020px - 220px - 1rem);
   margin: 0 auto;
-  padding: 0 20px;
-}
 
-.page .footer-content-wrapper {
-  max-width: 1020px;
-
-  margin: -60px auto 0;
   padding: 0;
 }
 
-@media (min-width: 720px) {
-  .page .footer-content-wrapper {
-    padding: 0 20px 40px 275px;
-  }
-}
-
-@media (max-width: 719px) {
-  .page .footer-content-wrapper {
-    padding: 0 20px 40px 20px;
-  }
-}
-
 .footer-releasenotes {
-  padding: 40px 0 20px 0;
+  padding: 20px 0 20px 0;
 
   color: var(--color-footer-fg);
 }
@@ -59,9 +58,7 @@ footer a:hover {
 }
 
 .footer-links strong {
-  font-family:
-    "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo",
-    "Arial Unicode MS";
+  font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
 
   color: var(--color-footer-heart);
 }

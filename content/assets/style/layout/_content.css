@@ -1,16 +1,42 @@
 .nws-content {
-  position: relative;
+  display: grid;
+
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "side"
+    "body";
+
+  padding: 0 20px;
+
+  gap: 2rem 1rem;
+}
+
+@media (min-width: 720px) {
+  .nws-content {
+    grid-template-rows: auto;
+    grid-template-columns: 220px auto;
+    grid-template-areas: "side body";
+  }
+}
+
+.nws-content .nws-content__side {
+  grid-area: side;
+}
+
+.nws-content .nws-content__body {
+  grid-area: body;
 }
 
 @media screen {
   .nws-content {
-    padding: 0 20px;
+    padding-bottom: 2rem;
   }
 }
 
 @media screen and (min-width: 720px) {
   .nws-content {
     max-width: 1020px;
-    margin: 5rem auto 0 auto;
+    margin: 0 auto 0 auto;
   }
 }

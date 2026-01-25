@@ -12,6 +12,8 @@ body {
   line-height: 22px;
 
   min-height: 100%;
+
+  border-top: 0.5rem solid var(--color-page-top-border);
 }
 
 abbr {
@@ -132,20 +134,5 @@ pre.template var:after {
 }
 
 :target {
-  scroll-margin-top: 80px;
-}
-
-:target:before {
-  content: "";
-  display: block;
-
-  @media (min-width: 720px) {
-    height: 70px;
-    margin: -70px 0 0;
-  }
-
-  @media (max-width: 719px) {
-    height: 10px;
-    margin: -10px 0 0;
-  }
+  scroll-margin-top: 20px;
 }

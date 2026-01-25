@@ -20,14 +20,12 @@
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">
   </head>
-  <body id="nanoc">
+  <body>
     <div class="wrapper <%= @item[:has_basic_layout] ? 'home' : 'page' %>">
 <% if @item[:has_basic_layout] %>
-      <%= render '/free_palestine.*' %>
       <%= yield %>
 <% else %>
       <nav class="nws-nav">
-        <%= render '/free_palestine.*' %>
         <div class="nws-nav-content">
           <span class="nws-nav-home"><%= link_to_unless_current('Nanoc', @items['/index.*'], class: 'nws-nav-link') %></span>
           <ul>
@@ -39,7 +37,7 @@
         </div>
       </nav>
       <div class="nws-content">
-        <aside class="side">
+        <aside class="side nws-content__side">
           <div class="nws-side__search" id="search-box"></div>
           <div class="nws-side__content">
             <% if @item.identifier =~ %r{^/doc(/|\.)} %>
@@ -51,7 +49,7 @@
             <% end %>
           </div>
         </aside>
-        <article>
+        <article class="nws-content__body">
           <div class="article-content">
             <h1 class="nws-article__title"><%= @item[:title] %></h1>
             <%= yield %>
