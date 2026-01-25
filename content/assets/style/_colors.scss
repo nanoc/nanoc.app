@@ -207,13 +207,3 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     /* sidebar */
     --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange));
 }
-
-// Sidebar
-
-@mixin sidebar-section-title-color {
-  color: $color-orange;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-orange;
-  }
-}
