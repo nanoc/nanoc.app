@@ -3,24 +3,24 @@
 }
 
 :root {
-  --color-ld-orange: light-dark(var(--color-orange), var(--color-darkmode-orange));
-  --color-ld-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-ld-fg: light-dark(var(--color-fg), var(--color-darkmode-fg));
-  --color-ld-shadow: light-dark(var(--color-shadow), var(--color-darkmode-shadow));
-  --color-ld-blue: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --color-ld-mark: light-dark(var(--color-mark), var(--color-darkmode-mark));
+  --color-ld-orange: light-dark(var(--color-l-orange), var(--color-d-orange));
+  --color-ld-bg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-ld-fg: light-dark(var(--color-l-fg), var(--color-d-fg));
+  --color-ld-shadow: light-dark(var(--color-l-shadow), var(--color-d-shadow));
+  --color-ld-blue: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --color-ld-mark: light-dark(var(--color-l-mark), var(--color-d-mark));
 
-  --color-ld-orange-quiet: light-dark(var(--color-orange-quiet), var(--color-darkmode-orange-quiet));
-  --color-ld-nav-shadow: light-dark(var(--color-nav-shadow), var(--color-darkmode-nav-shadow));
+  --color-ld-orange-quiet: light-dark(var(--color-l-orange-quiet), var(--color-d-orange-quiet));
+  --color-ld-nav-shadow: light-dark(var(--color-l-nav-shadow), var(--color-d-nav-shadow));
 
-  --color-ld-blue-hint: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
-  --color-ld-blue-quiet: light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
+  --color-ld-blue-hint: light-dark(var(--color-l-blue-hint), var(--color-d-blue-hint));
+  --color-ld-blue-quiet: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
 
-  --color-ld-gray-100: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
-  --color-ld-gray-300: light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
-  --color-ld-gray-500: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
-  --color-ld-gray-700: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
-  --color-ld-gray-900: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+  --color-ld-gray-100: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
+  --color-ld-gray-300: light-dark(var(--color-l-gray-300), var(--color-d-gray-300));
+  --color-ld-gray-500: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
+  --color-ld-gray-700: light-dark(var(--color-l-gray-700), var(--color-d-gray-700));
+  --color-ld-gray-900: light-dark(var(--color-l-gray-900), var(--color-d-gray-900));
 }
 
 :root {
@@ -28,107 +28,107 @@
   --color-ld-hero-bg: var(--color-ld-blue-quiet);
 
   /* hero-link-bg */
-  --color-ld-hero-link-bg: light-dark(var(--color-hero-link-bg), var(--color-darkmode-hero-link-bg));
+  --color-ld-hero-link-bg: light-dark(var(--color-hero-link-bg), var(--color-d-hero-link-bg));
 
   /* hero-link-hover-xxx */
   --color-hero-link-hover-fg: var(--color-ld-blue);
   --color-hero-link-hover-bg: var(--color-ld-bg);
 
   /* prompt */
-  --color-ld-prompt-fg: light-dark(var(--color-prompt-fg), var(--color-darkmode-prompt-fg));
+  --color-ld-prompt-fg: light-dark(var(--color-prompt-fg), var(--color-d-prompt-fg));
 
   /* tags */
-  --color-tag-legacy-bg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
-  --color-tag-legacy-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-tag-new-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --color-tag-new-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-tag-errors-bg: light-dark(var(--color-orange), var(--color-darkmode-orange));
-  --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+  --color-tag-legacy-bg: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
+  --color-tag-legacy-fg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-tag-new-bg: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --color-tag-new-fg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-tag-errors-bg: light-dark(var(--color-l-orange), var(--color-d-orange));
+  --color-tag-errors-fg: light-dark(var(--color-l-bg), var(--color-d-bg));
 
   /* admonitions */
-  --color-admon-fg-tip: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --color-admon-fg-note: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --color-admon-fg-caution: light-dark(var(--color-orange), var(--color-darkmode-orange));
-  --color-admon-fg-todo: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
-  --color-admon-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
-  --color-admon-bg-tip: light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
-  --color-admon-bg-note: light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
-  --color-admon-bg-caution: light-dark(var(--color-orange-quiet), var(--color-darkmode-orange-quiet));
-  --color-admon-bg-todo: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+  --color-admon-fg-tip: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --color-admon-fg-note: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --color-admon-fg-caution: light-dark(var(--color-l-orange), var(--color-d-orange));
+  --color-admon-fg-todo: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
+  --color-admon-bg: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
+  --color-admon-bg-tip: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
+  --color-admon-bg-note: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
+  --color-admon-bg-caution: light-dark(var(--color-l-orange-quiet), var(--color-d-orange-quiet));
+  --color-admon-bg-todo: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
   /* headers */
-  --color-header-fg: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-header-fg: light-dark(var(--color-l-orange), var(--color-d-orange));
 
   /* footer */
-  --color-footer-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-footer-fg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
-  --color-footer-link: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
-  --color-footer-link-hover-bg: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
-  --color-footer-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-footer-heart: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-footer-bg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-footer-fg: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
+  --color-footer-link: light-dark(var(--color-l-gray-900), var(--color-d-gray-900));
+  --color-footer-link-hover-bg: light-dark(var(--color-l-gray-900), var(--color-d-gray-900));
+  --color-footer-link-hover-fg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-footer-heart: light-dark(var(--color-l-orange), var(--color-d-orange));
 
   /* text */
-  --color-text-fg: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+  --color-text-fg: light-dark(var(--color-l-gray-700), var(--color-d-gray-700));
 
   /* links */
-  --color-link-fg: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --color-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-link-hover-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+  --color-link-fg: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --color-link-hover-fg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-link-hover-bg: light-dark(var(--color-l-blue), var(--color-d-blue));
 
   /* page */
-  --color-page-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
-  --color-page-top-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-page-bg: light-dark(var(--color-l-blue-hint), var(--color-d-blue-hint));
+  --color-page-top-border: light-dark(var(--color-l-orange), var(--color-d-orange));
 
   /* article-content */
-  --color-article-content-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+  --color-article-content-bg: light-dark(var(--color-l-bg), var(--color-d-bg));
 
   /* nav */
-  --color-nav-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
-  --color-nav-item-active: light-dark(var(--color-fg), var(--color-darkmode-fg));
-  --color-nav-item-hover: light-dark(var(--color-fg), var(--color-darkmode-fg));
-  --color-nav-link: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
-  --color-nav-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-nav-bg: light-dark(var(--color-l-blue-hint), var(--color-d-blue-hint));
+  --color-nav-item-active: light-dark(var(--color-l-fg), var(--color-d-fg));
+  --color-nav-item-hover: light-dark(var(--color-l-fg), var(--color-d-fg));
+  --color-nav-link: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
+  --color-nav-border: light-dark(var(--color-l-orange), var(--color-d-orange));
 
   /* explanation */
-  --color-explanation-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-explanation-fg: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-explanation-bg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-explanation-fg: light-dark(var(--color-l-orange), var(--color-d-orange));
 
   /* pre */
-  --color-pre-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+  --color-pre-bg: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
   /* mark */
-  --color-mark-fg: light-dark(var(--color-fg), var(--color-darkmode-fg));
-  --color-mark-bg: light-dark(var(--color-mark), var(--color-darkmode-mark));
+  --color-mark-fg: light-dark(var(--color-l-fg), var(--color-d-fg));
+  --color-mark-bg: light-dark(var(--color-l-mark), var(--color-d-mark));
 
   /* figure */
-  --color-figure-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
-  --color-figure-border: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
-  --color-figure-caption-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+  --color-figure-bg: light-dark(var(--color-l-bg), var(--color-d-bg));
+  --color-figure-border: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
+  --color-figure-caption-bg: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
   /* sidebar */
-  --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange));
+  --color-sidebar-section-title: light-dark(var(--color-l-orange), var(--color-d-orange));
 }
 
 :root {
-  --docsearch-primary-color: light-dark(var(--color-blue), var(--color-darkmode-blue));
-  --docsearch-text-color: light-dark(var(--color-fg), var(--color-darkmode-fg));
+  --docsearch-primary-color: light-dark(var(--color-l-blue), var(--color-d-blue));
+  --docsearch-text-color: light-dark(var(--color-l-fg), var(--color-d-fg));
 
-  --docsearch-muted-color: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+  --docsearch-muted-color: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
   --docsearch-container-background: light-dark(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
-  --docsearch-modal-background: light-dark(var(--color-blue-hint), var(--color-darkmode-bg));
-  --docsearch-logo-color: light-dark(var(--color-blue), var(--color-darkmode-fg));
-  --docsearch-searchbox-background: light-dark(var(--color-bg), var(--color-darkmode-bg));
+  --docsearch-modal-background: light-dark(var(--color-l-blue-hint), var(--color-d-bg));
+  --docsearch-logo-color: light-dark(var(--color-l-blue), var(--color-d-fg));
+  --docsearch-searchbox-background: light-dark(var(--color-l-bg), var(--color-d-bg));
   --docsearch-searchbox-focus-background: light-dark(#fff, rgba(0, 0, 0, 0.3));
-  --docsearch-hit-color: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+  --docsearch-hit-color: light-dark(var(--color-l-gray-900), var(--color-d-gray-900));
   --docsearch-hit-active-color: light-dark(#fff, #fff);
-  --docsearch-hit-background: light-dark(#fff, var(--color-darkmode-gray-100));
-  --docsearch-footer-background: light-dark(var(--color-bg), var(--color-darkmode-bg));
+  --docsearch-hit-background: light-dark(#fff, var(--color-d-gray-100));
+  --docsearch-footer-background: light-dark(var(--color-l-bg), var(--color-d-bg));
 
-  --search-key-gradient-from: light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
-  --search-key-gradient-to: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+  --search-key-gradient-from: light-dark(var(--color-l-gray-300), var(--color-d-gray-300));
+  --search-key-gradient-to: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
-  --search-key-shadow-1: light-dark(var(--color-gray-300), var(--color-darkmode-gray-100));
-  --search-key-shadow-2: light-dark(var(--color-gray-100), var(--color-darkmode-gray-300));
+  --search-key-shadow-1: light-dark(var(--color-l-gray-300), var(--color-d-gray-100));
+  --search-key-shadow-2: light-dark(var(--color-l-gray-100), var(--color-d-gray-300));
   --search-key-shadow-3: rgba(0, 0, 0, 0.3);
 }
 
@@ -140,8 +140,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --docsearch-modal-shadow: inset 1px 1px 0 0 var(--color-darkmode-gray-100), 0 5px 12px 0 #000000;
+    --docsearch-modal-shadow: inset 1px 1px 0 0 var(--color-d-gray-100), 0 5px 12px 0 #000000;
     --docsearch-hit-shadow: none;
-    --docsearch-footer-shadow: inset 0 1px 0 0 var(--color-darkmode-bg), 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+    --docsearch-footer-shadow: inset 0 1px 0 0 var(--color-d-bg), 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
   }
 }

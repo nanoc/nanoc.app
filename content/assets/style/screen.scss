@@ -7,104 +7,104 @@ is_hidden: true
 
 // Core colors
 
-$color-orange:                hsl(20, 100%, 46%);
-$color-bg:                    #fff;
-$color-fg:                    #000;
-$color-shadow:                #000;
-$color-blue:                  hsl(211, 87%, 41%);
-$color-mark:                  hsl(60, 100%, 90%);
+$color-l-orange:                hsl(20, 100%, 46%);
+$color-l-bg:                    #fff;
+$color-l-fg:                    #000;
+$color-l-shadow:                #000;
+$color-l-blue:                  hsl(211, 87%, 41%);
+$color-l-mark:                  hsl(60, 100%, 90%);
 
-$color-darkmode-orange:       hsl(8, 90%, 60%);
-$color-darkmode-bg:           hsl(210, 15%, 18%);
-$color-darkmode-fg:           #fff;
-$color-darkmode-shadow:       #000;
-$color-darkmode-blue:         hsl(211, 87%, 65%);
-$color-darkmode-mark:         hsl(0, 0%, 0%);
+$color-d-orange:       hsl(8, 90%, 60%);
+$color-d-bg:           hsl(210, 15%, 18%);
+$color-d-fg:           #fff;
+$color-d-shadow:       #000;
+$color-d-blue:         hsl(211, 87%, 65%);
+$color-d-mark:         hsl(0, 0%, 0%);
 
 :root {
-    --color-orange:                #{$color-orange};
-    --color-bg:                    #{$color-bg};
-    --color-fg:                    #{$color-fg};
-    --color-shadow:                #{$color-shadow};
-    --color-blue:                  #{$color-blue};
-    --color-mark:                  #{$color-mark};
+    --color-l-orange:                #{$color-l-orange};
+    --color-l-bg:                    #{$color-l-bg};
+    --color-l-fg:                    #{$color-l-fg};
+    --color-l-shadow:                #{$color-l-shadow};
+    --color-l-blue:                  #{$color-l-blue};
+    --color-l-mark:                  #{$color-l-mark};
 
-    --color-darkmode-orange:       #{$color-darkmode-orange};
-    --color-darkmode-bg:           #{$color-darkmode-bg};
-    --color-darkmode-fg:           #{$color-darkmode-fg};
-    --color-darkmode-shadow:       #{$color-darkmode-shadow};
-    --color-darkmode-blue:         #{$color-darkmode-blue};
-    --color-darkmode-mark:         #{$color-darkmode-mark};
+    --color-d-orange:       #{$color-d-orange};
+    --color-d-bg:           #{$color-d-bg};
+    --color-d-fg:           #{$color-d-fg};
+    --color-d-shadow:       #{$color-d-shadow};
+    --color-d-blue:         #{$color-d-blue};
+    --color-d-mark:         #{$color-d-mark};
 }
 
 // Derived colors
 
-$color-orange-quiet:          color.mix($color-orange, $color-bg, 10%);
-$color-nav-shadow:            rgba(0, 0, 0, 0.2);
+$color-l-orange-quiet:          color.mix($color-l-orange, $color-l-bg, 10%);
+$color-l-nav-shadow:            rgba(0, 0, 0, 0.2);
 
-$color-darkmode-orange-quiet: color.mix($color-darkmode-orange, $color-darkmode-bg, 10%);
-$color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
+$color-d-orange-quiet: color.mix($color-d-orange, $color-d-bg, 10%);
+$color-d-nav-shadow:   rgba(0, 0, 0, 0.4);
 
 :root {
-    --color-orange-quiet:           #{$color-orange-quiet};
-    --color-nav-shadow:             #{$color-nav-shadow};
+    --color-l-orange-quiet:           #{$color-l-orange-quiet};
+    --color-l-nav-shadow:             #{$color-l-nav-shadow};
 
-    --color-darkmode-orange-quiet:  #{$color-darkmode-orange-quiet};
-    --color-darkmode-nav-shadow:    #{$color-darkmode-nav-shadow};
+    --color-d-orange-quiet:  #{$color-d-orange-quiet};
+    --color-d-nav-shadow:    #{$color-d-nav-shadow};
 }
 
 // Derived colors -- blues
 
-$color-blue-hint:             color.mix($color-blue, $color-bg, 8%);
-$color-blue-quiet:            color.adjust(color.mix($color-blue, $color-bg, 15%), $saturation: -10%);
+$color-l-blue-hint:             color.mix($color-l-blue, $color-l-bg, 8%);
+$color-l-blue-quiet:            color.adjust(color.mix($color-l-blue, $color-l-bg, 15%), $saturation: -10%);
 
-$color-darkmode-blue-hint:    color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 8%), $saturation: -5%);
-$color-darkmode-blue-quiet:   color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 15%), $saturation: -10%);
+$color-d-blue-hint:    color.adjust(color.mix($color-d-blue, $color-d-bg, 8%), $saturation: -5%);
+$color-d-blue-quiet:   color.adjust(color.mix($color-d-blue, $color-d-bg, 15%), $saturation: -10%);
 
 :root {
-    --color-blue-hint:            #{$color-blue-hint};
-    --color-blue-quiet:           #{$color-blue-quiet};
+    --color-l-blue-hint:            #{$color-l-blue-hint};
+    --color-l-blue-quiet:           #{$color-l-blue-quiet};
 
-    --color-darkmode-blue-hint:   #{$color-darkmode-blue-hint};
-    --color-darkmode-blue-quiet:  #{$color-darkmode-blue-quiet};
+    --color-d-blue-hint:   #{$color-d-blue-hint};
+    --color-d-blue-quiet:  #{$color-d-blue-quiet};
 }
 
 // Derived colors -- grays
 
-$color-gray-100:                 color.mix($color-fg, $color-bg, 5%);
-$color-gray-300:                 color.mix($color-fg, $color-gray-100, 15%);
-$color-gray-500:                 color.mix($color-fg, $color-gray-100, 40%);
-$color-gray-700:                 color.mix($color-fg, $color-gray-100, 70%);
-$color-gray-900:                 color.mix($color-fg, $color-gray-100, 95%);
+$color-l-gray-100:                 color.mix($color-l-fg, $color-l-bg, 5%);
+$color-l-gray-300:                 color.mix($color-l-fg, $color-l-gray-100, 15%);
+$color-l-gray-500:                 color.mix($color-l-fg, $color-l-gray-100, 40%);
+$color-l-gray-700:                 color.mix($color-l-fg, $color-l-gray-100, 70%);
+$color-l-gray-900:                 color.mix($color-l-fg, $color-l-gray-100, 95%);
 
-$color-darkmode-gray-100:        color.adjust(color.mix($color-darkmode-fg, $color-darkmode-bg, 5%), $saturation: 2%);
-$color-darkmode-gray-300:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 15%);
-$color-darkmode-gray-500:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 40%);
-$color-darkmode-gray-700:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 70%);
-$color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 95%);
+$color-d-gray-100:        color.adjust(color.mix($color-d-fg, $color-d-bg, 5%), $saturation: 2%);
+$color-d-gray-300:        color.mix($color-d-fg, $color-d-gray-100, 15%);
+$color-d-gray-500:        color.mix($color-d-fg, $color-d-gray-100, 40%);
+$color-d-gray-700:        color.mix($color-d-fg, $color-d-gray-100, 70%);
+$color-d-gray-900:        color.mix($color-d-fg, $color-d-gray-100, 95%);
 
 :root {
-    --color-gray-100:             #{$color-gray-100};
-    --color-gray-300:             #{$color-gray-300};
-    --color-gray-500:             #{$color-gray-500};
-    --color-gray-700:             #{$color-gray-700};
-    --color-gray-900:             #{$color-gray-900};
+    --color-l-gray-100:             #{$color-l-gray-100};
+    --color-l-gray-300:             #{$color-l-gray-300};
+    --color-l-gray-500:             #{$color-l-gray-500};
+    --color-l-gray-700:             #{$color-l-gray-700};
+    --color-l-gray-900:             #{$color-l-gray-900};
 
-    --color-darkmode-gray-100:    #{$color-darkmode-gray-100};
-    --color-darkmode-gray-300:    #{$color-darkmode-gray-300};
-    --color-darkmode-gray-500:    #{$color-darkmode-gray-500};
-    --color-darkmode-gray-700:    #{$color-darkmode-gray-700};
-    --color-darkmode-gray-900:    #{$color-darkmode-gray-900};
+    --color-d-gray-100:    #{$color-d-gray-100};
+    --color-d-gray-300:    #{$color-d-gray-300};
+    --color-d-gray-500:    #{$color-d-gray-500};
+    --color-d-gray-700:    #{$color-d-gray-700};
+    --color-d-gray-900:    #{$color-d-gray-900};
 }
 
 // Derived colors -- custom
 
 :root {
-    --color-hero-link-bg:           #{color.adjust($color-bg, $alpha: -0.6)};
-    --color-darkmode-hero-link-bg:  #{color.adjust($color-darkmode-bg, $alpha: -0.6)};
+    --color-hero-link-bg:           #{color.adjust($color-l-bg, $alpha: -0.6)};
+    --color-d-hero-link-bg:  #{color.adjust($color-d-bg, $alpha: -0.6)};
 
-    --color-prompt-fg: color.adjust($color-fg, $alpha: -0.5);
-    --color-darkmode-prompt-fg: color.adjust($color-darkmode-fg, $alpha: -0.5);
+    --color-prompt-fg: color.adjust($color-l-fg, $alpha: -0.5);
+    --color-d-prompt-fg: color.adjust($color-d-fg, $alpha: -0.5);
 
-    --color-pre-shadow: #{color.adjust($color-shadow, $alpha: -0.7)};
+    --color-pre-shadow: #{color.adjust($color-l-shadow, $alpha: -0.7)};
 }
