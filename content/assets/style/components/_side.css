@@ -1,3 +1,9 @@
+@media (max-width: 719px) {
+  .side {
+    padding: 0 20px;
+  }
+}
+
 .side h3 {
   display: none;
 }

@@ -1,7 +1,17 @@
-@media screen {
+@media screen and (max-width: 719px) {
+  .article-content {
+    padding: 20px;
+  }
+}
+
+@media screen and (min-width: 720px) {
   .article-content {
     padding: 30px;
+  }
+}
 
+@media screen {
+  .article-content {
     background: var(--color-article-content-bg);
   }
 }
