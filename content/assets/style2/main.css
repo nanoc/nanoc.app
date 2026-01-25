@@ -12,7 +12,10 @@ include:
 
   - layer: "base"
     include:
-      - "/assets/style2/_base.*"
+      - "/assets/style2/base/_headers.*"
+      - "/assets/style2/base/_misc.*"
+      - "/assets/style2/base/_links.*"
+      - "/assets/style2/base/_lists.*"
 
   - layer: "layout"
     include:
@@ -26,5 +29,6 @@ include:
       - "/assets/style2/components/_cta.*"
       - "/assets/style2/components/_hero.*"
       - "/assets/style2/components/_tags.*"
+      - "/assets/style2/components/_toc.*"
       - "/assets/style2/components/_swatches.*"
 ---

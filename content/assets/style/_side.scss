@@ -65,21 +65,3 @@
     overflow: auto;
   }
 }
-
-.toc {
-  margin-left: 0;
-}
-
-.toc .toc {
-  margin-top: 0;
-  margin-left: 20px;
-}
-
-.toc li {
-  list-style-type: none;
-}
-
-.toc .active {
-  font-weight: bold;
-  @include colors.text-emph-color;
-}

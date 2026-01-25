@@ -153,6 +153,9 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-admon-bg-note: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
     --color-admon-bg-caution: light-dark(#{$color-orange-quiet}, #{$color-darkmode-orange-quiet});
     --color-admon-bg-todo: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+
+    /* headers */
+    --color-header-fg: light-dark(#{$color-orange}, #{$color-darkmode-orange});
 }
 
 // Body
@@ -188,14 +191,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-gray-700;
-  }
-}
-
-@mixin text-emph-color {
-  color: $color-fg;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-fg;
   }
 }
 
@@ -454,23 +449,5 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
-  }
-}
-
-// Typography
-
-@mixin header-color {
-  color: $color-orange;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-orange;
-  }
-}
-
-@mixin dt-color {
-  color: $color-fg;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-fg;
   }
 }

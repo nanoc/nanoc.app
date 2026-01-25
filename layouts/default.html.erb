@@ -3,18 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <title><%= @item[:full_title] || 'Nanoc &raquo; ' + @item[:title] %></title>
+
+    <!-- new stylesheets -->
     <link href="<%= @items['/assets/style2/main.*'].path %>" rel="stylesheet">
+
+    <!-- old stylesheet -->
     <style media="screen">
       @import url('<%= @items["/assets/style/screen.*"].path %>') layer(old);
     </style>
     <style media="print">
       @import url('<%= @items["/assets/style/print.*"].path %>') layer(old);
     </style>
+    <style media="screen">
+      @import url('<%= @items["/assets/docsearch-*/*.css"].path %>') layer(old);
+    </style>
+
+    <!-- other assets -->
     <link href="<%= @items['/assets/font-awesome/style/all.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/source-sans-3-*/all.*'].path %>" media="screen" rel="stylesheet">
     <link href="<%= @items['/assets/roboto-mono-3-*/all.*'].path %>" media="screen" rel="stylesheet">
+
     <link rel="preconnect" href="https://RNL791U9AF-dsn.algolia.net" crossorigin>
-    <link href="<%= @items['/assets/docsearch-*/*.css'].path %>" media="screen" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">

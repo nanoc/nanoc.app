@@ -4,10 +4,6 @@ p, li, blockquote, dd, .admonition, pre, figcaption {
   @include colors.text-color;
 }
 
-li.active, strong, dt {
-  @include colors.text-emph-color;
-}
-
 pre, code, kbd, samp, var, .attribute, .command, .output, .filename, .glob, .identifier, .uri {
   -webkit-hyphenate-character: "";
   -moz-hyphenate-character: "";
