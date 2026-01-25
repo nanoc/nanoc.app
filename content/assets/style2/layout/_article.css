@@ -1,7 +1,9 @@
 article {
   padding: 40px 0 0 0;
+}
 
-  @media (min-width: 720px) {
+@media (min-width: 720px) {
+  article {
     margin: 0 0 0 250px;
   }
 }
