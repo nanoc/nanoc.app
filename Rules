@@ -25,7 +25,7 @@ compile "/assets/style/*.css" do
   filter :css_include
   snapshot :for_inclusion
   filter :relativize_paths, type: :css
-  write item.identifier.without_ext + '-' + fingerprint('/assets/style/*') + '.css'
+  write item.identifier.without_ext + '-' + fingerprint('/assets/style/**/*') + '.css'
 end
 
 passthrough '/_redirects'
