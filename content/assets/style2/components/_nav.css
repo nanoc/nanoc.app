@@ -1,4 +1,6 @@
 .nws-nav {
+  background: var(--color-nav-bg);
+
   margin: 0;
   padding: 0;
 
@@ -57,6 +59,15 @@
   background-size: 30px 30px;
 }
 
+.nws-nav-link:link,
+.nws-nav-link:visited {
+  color: var(--color-nav-link);
+}
+
+.nws-nav-link:hover {
+  color: var(--color-nav-item-hover);
+}
+
 .nws-nav-link,
 .nws-nav-item .active {
   display: block;
@@ -69,6 +80,9 @@
 
 .nws-nav-item .active {
   border-bottom: 3px solid;
+
+  color: var(--color-nav-item-active);
+  border-color: var(--color-nav-border);
 }
 
 .nws-nav-link:hover {
