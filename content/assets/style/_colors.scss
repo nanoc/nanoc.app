@@ -134,6 +134,14 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
     --color-prompt-fg: color.adjust($color-fg, $alpha: -0.5);
     --color-darkmode-prompt-fg: color.adjust($color-darkmode-fg, $alpha: -0.5);
     --color-ld-prompt-fg: light-dark(var(--color-prompt-fg), var(--color-darkmode-prompt-fg));
+
+    /* tags */
+    --color-tag-legacy-bg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-tag-legacy-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-tag-new-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-tag-new-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-tag-errors-bg: light-dark(var(--color-orange), var(--color-darkmode-orange));
+    --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
 }
 
 // Body
