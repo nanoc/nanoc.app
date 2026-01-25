@@ -8,12 +8,6 @@ include:
     include:
       - "/assets/style/_framework.*"
 
-  # The “old” layer is where the old stylesheets will be injected into. The
-  # medium-term goal is to remove these entirely.
-  - layer: "old"
-    include:
-      - "/assets/style/_old.*"
-
   - layer: "base"
     include:
       - "/assets/style/base/_colors.*"
