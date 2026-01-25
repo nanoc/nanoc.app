@@ -2,4 +2,249 @@
 is_hidden: true
 ---
 
-@use "/assets/style/_search.scss";
+@use "sass:color";
+
+:root {
+    color-scheme: light dark;
+}
+
+// Core colors
+
+$color-orange:                hsl(20, 100%, 46%);
+$color-bg:                    #fff;
+$color-fg:                    #000;
+$color-shadow:                #000;
+$color-blue:                  hsl(211, 87%, 41%);
+$color-mark:                  hsl(60, 100%, 90%);
+
+$color-darkmode-orange:       hsl(8, 90%, 60%);
+$color-darkmode-bg:           hsl(210, 15%, 18%);
+$color-darkmode-fg:           #fff;
+$color-darkmode-shadow:       #000;
+$color-darkmode-blue:         hsl(211, 87%, 65%);
+$color-darkmode-mark:         hsl(0, 0%, 0%);
+
+:root {
+    --color-orange:                #{$color-orange};
+    --color-bg:                    #{$color-bg};
+    --color-fg:                    #{$color-fg};
+    --color-shadow:                #{$color-shadow};
+    --color-blue:                  #{$color-blue};
+    --color-mark:                  #{$color-mark};
+
+    --color-darkmode-orange:       #{$color-darkmode-orange};
+    --color-darkmode-bg:           #{$color-darkmode-bg};
+    --color-darkmode-fg:           #{$color-darkmode-fg};
+    --color-darkmode-shadow:       #{$color-darkmode-shadow};
+    --color-darkmode-blue:         #{$color-darkmode-blue};
+    --color-darkmode-mark:         #{$color-darkmode-mark};
+
+    --color-ld-orange:  light-dark(var(--color-orange), var(--color-darkmode-orange));
+    --color-ld-bg:      light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-ld-fg:      light-dark(var(--color-fg), var(--color-darkmode-fg));
+    --color-ld-shadow:  light-dark(var(--color-shadow), var(--color-darkmode-shadow));
+    --color-ld-blue:    light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-ld-mark:    light-dark(var(--color-mark), var(--color-darkmode-mark));
+}
+
+// Derived colors
+
+$color-orange-quiet:          color.mix($color-orange, $color-bg, 10%);
+$color-nav-shadow:            rgba(0, 0, 0, 0.2);
+
+$color-darkmode-orange-quiet: color.mix($color-darkmode-orange, $color-darkmode-bg, 10%);
+$color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
+
+:root {
+    --color-orange-quiet:           #{$color-orange-quiet};
+    --color-nav-shadow:             #{$color-nav-shadow};
+
+    --color-darkmode-orange-quiet:  #{$color-darkmode-orange-quiet};
+    --color-darkmode-nav-shadow:    #{$color-darkmode-nav-shadow};
+
+    --color-ld-orange-quiet:  light-dark(var(--color-orange-quiet), var(--color-darkmode-orange-quiet));
+    --color-ld-nav-shadow:    light-dark(var(--color-nav-shadow), var(--color-darkmode-nav-shadow));
+}
+
+// Derived colors -- blues
+
+$color-blue-hint:             color.mix($color-blue, $color-bg, 8%);
+$color-blue-quiet:            color.adjust(color.mix($color-blue, $color-bg, 15%), $saturation: -10%);
+
+$color-darkmode-blue-hint:    color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 8%), $saturation: -5%);
+$color-darkmode-blue-quiet:   color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 15%), $saturation: -10%);
+
+:root {
+    --color-blue-hint:            #{$color-blue-hint};
+    --color-blue-quiet:           #{$color-blue-quiet};
+
+    --color-darkmode-blue-hint:   #{$color-darkmode-blue-hint};
+    --color-darkmode-blue-quiet:  #{$color-darkmode-blue-quiet};
+
+    --color-ld-blue-hint:   light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
+    --color-ld-blue-quiet:  light-dark(var(--color-blue-quiet), var(--color-darkmode-blue-quiet));
+}
+
+// Derived colors -- grays
+
+$color-gray-100:                 color.mix($color-fg, $color-bg, 5%);
+$color-gray-300:                 color.mix($color-fg, $color-gray-100, 15%);
+$color-gray-500:                 color.mix($color-fg, $color-gray-100, 40%);
+$color-gray-700:                 color.mix($color-fg, $color-gray-100, 70%);
+$color-gray-900:                 color.mix($color-fg, $color-gray-100, 95%);
+
+$color-darkmode-gray-100:        color.adjust(color.mix($color-darkmode-fg, $color-darkmode-bg, 5%), $saturation: 2%);
+$color-darkmode-gray-300:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 15%);
+$color-darkmode-gray-500:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 40%);
+$color-darkmode-gray-700:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 70%);
+$color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 95%);
+
+:root {
+    --color-gray-100:             #{$color-gray-100};
+    --color-gray-300:             #{$color-gray-300};
+    --color-gray-500:             #{$color-gray-500};
+    --color-gray-700:             #{$color-gray-700};
+    --color-gray-900:             #{$color-gray-900};
+
+    --color-darkmode-gray-100:    #{$color-darkmode-gray-100};
+    --color-darkmode-gray-300:    #{$color-darkmode-gray-300};
+    --color-darkmode-gray-500:    #{$color-darkmode-gray-500};
+    --color-darkmode-gray-700:    #{$color-darkmode-gray-700};
+    --color-darkmode-gray-900:    #{$color-darkmode-gray-900};
+
+    --color-ld-gray-100:  light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+    --color-ld-gray-300:  light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
+    --color-ld-gray-500:  light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-ld-gray-700:  light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+    --color-ld-gray-900:  light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+}
+
+// Derived colors -- component-specific
+
+:root {
+    /* hero-bg */
+    --color-ld-hero-bg:  var(--color-ld-blue-quiet);
+
+    /* hero-link-bg */
+    --color-hero-link-bg:           #{color.adjust($color-bg, $alpha: -0.6)};
+    --color-darkmode-hero-link-bg:  #{color.adjust($color-darkmode-bg, $alpha: -0.6)};
+    --color-ld-hero-link-bg:        light-dark(var(--color-hero-link-bg), var(--color-darkmode-hero-link-bg));
+
+    /* hero-link-hover-xxx */
+    --color-hero-link-hover-fg:  var(--color-ld-blue);
+    --color-hero-link-hover-bg:  var(--color-ld-bg);
+
+    /* prompt */
+    --color-prompt-fg: color.adjust($color-fg, $alpha: -0.5);
+    --color-darkmode-prompt-fg: color.adjust($color-darkmode-fg, $alpha: -0.5);
+    --color-ld-prompt-fg: light-dark(var(--color-prompt-fg), var(--color-darkmode-prompt-fg));
+
+    /* tags */
+    --color-tag-legacy-bg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-tag-legacy-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-tag-new-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-tag-new-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-tag-errors-bg: light-dark(var(--color-orange), var(--color-darkmode-orange));
+    --color-tag-errors-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+
+    /* admonitions */
+    --color-admon-fg-tip: light-dark(#{$color-blue}, #{$color-darkmode-blue});
+    --color-admon-fg-note: light-dark(#{$color-blue}, #{$color-darkmode-blue});
+    --color-admon-fg-caution: light-dark(#{$color-orange}, #{$color-darkmode-orange});
+    --color-admon-fg-todo: light-dark(#{$color-gray-500}, #{$color-darkmode-gray-500});
+    --color-admon-bg: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+    --color-admon-bg-tip: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
+    --color-admon-bg-note: light-dark(#{$color-blue-quiet}, #{$color-darkmode-blue-quiet});
+    --color-admon-bg-caution: light-dark(#{$color-orange-quiet}, #{$color-darkmode-orange-quiet});
+    --color-admon-bg-todo: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+
+    /* headers */
+    --color-header-fg: light-dark(#{$color-orange}, #{$color-darkmode-orange});
+
+    /* footer */
+    --color-footer-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-footer-fg: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-footer-link: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+    --color-footer-link-hover-bg: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+    --color-footer-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-footer-heart: light-dark(var(--color-orange), var(--color-darkmode-orange));
+
+    /* text */
+    --color-text-fg: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+
+    /* links */
+    --color-link-fg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-link-hover-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+
+    /* page */
+    --color-page-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
+    --color-page-top-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
+
+    /* article-content */
+    --color-article-content-bg: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+
+    /* nav */
+    --color-nav-bg: light-dark(var(--color-blue-hint), var(--color-darkmode-blue-hint));
+    --color-nav-item-active: light-dark(var(--color-fg), var(--color-darkmode-fg));
+    --color-nav-item-hover: light-dark(var(--color-fg), var(--color-darkmode-fg));
+    --color-nav-link: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+    --color-nav-border: light-dark(var(--color-orange), var(--color-darkmode-orange));
+
+    /* explanation */
+    --color-explanation-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-explanation-fg: light-dark(var(--color-orange), var(--color-darkmode-orange));
+
+    /* pre */
+    --color-pre-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+    --color-pre-shadow: #{color.adjust($color-shadow, $alpha: -0.7)};
+
+    /* mark */
+    --color-mark-fg: light-dark(var(--color-fg), var(--color-darkmode-fg));
+    --color-mark-bg: light-dark(var(--color-mark), var(--color-darkmode-mark));
+
+    /* figure */
+    --color-figure-bg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-figure-border: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+    --color-figure-caption-bg: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+
+    /* sidebar */
+    --color-sidebar-section-title: light-dark(var(--color-orange), var(--color-darkmode-orange));
+}
+
+:root {
+  --docsearch-primary-color: light-dark(#{$color-blue}, #{$color-darkmode-blue});
+  --docsearch-text-color: light-dark(#{$color-fg}, #{$color-darkmode-fg});
+
+  --docsearch-muted-color: light-dark(#{$color-gray-500}, #{$color-darkmode-gray-500});
+  --docsearch-container-background: light-dark(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
+  --docsearch-modal-background: light-dark(#{$color-blue-hint}, #{$color-darkmode-bg});
+  --docsearch-logo-color: light-dark(#{$color-blue}, #{$color-darkmode-fg});
+  --docsearch-searchbox-background: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+  --docsearch-searchbox-focus-background: light-dark(#fff, rgba(0, 0, 0, 0.3));
+  --docsearch-hit-color: light-dark(#{$color-gray-900}, #{$color-darkmode-gray-900});
+  --docsearch-hit-active-color: light-dark(#fff, #fff);
+  --docsearch-hit-background: light-dark(#fff, #{$color-darkmode-gray-100});
+  --docsearch-footer-background: light-dark(#{$color-bg}, #{$color-darkmode-bg});
+
+  --search-key-gradient-from: light-dark(#{$color-gray-300}, #{$color-darkmode-gray-300});
+  --search-key-gradient-to: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-100});
+
+  --search-key-shadow-1: light-dark(#{$color-gray-300}, #{$color-darkmode-gray-100});
+  --search-key-shadow-2: light-dark(#{$color-gray-100}, #{$color-darkmode-gray-300});
+  --search-key-shadow-3: rgba(0, 0, 0, 0.3);
+}
+
+:root {
+  --docsearch-modal-shadow: inset 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 5px 12px 0 rgba(0, 0, 0, 0.3);
+  --docsearch-hit-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  --docsearch-footer-shadow: 0 -1px 0 0 #e0e3e8, 0 -3px 6px 0 rgba(69, 98, 155, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --docsearch-modal-shadow: inset 1px 1px 0 0 #{$color-darkmode-gray-100}, 0 5px 12px 0 #000000;
+    --docsearch-hit-shadow: none;
+    --docsearch-footer-shadow: inset 0 1px 0 0 #{$color-darkmode-bg}, 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+}

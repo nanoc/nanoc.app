@@ -4,6 +4,10 @@ include:
     include:
       - "/assets/style2/_reset.*"
 
+  - layer: "framework"
+    include:
+      - "/assets/style2/_framework.*"
+
   # The “old” layer is where the old stylesheets will be injected into. The
   # medium-term goal is to remove these entirely.
   - layer: "old"
