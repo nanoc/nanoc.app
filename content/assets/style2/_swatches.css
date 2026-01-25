@@ -1,0 +1,64 @@
+.swatch-orange {
+  background: light-dark(var(--color-orange), var(--color-darkmode-orange));
+}
+
+.swatch-bg {
+  background: light-dark(var(--color-bg), var(--color-darkmode-bg));
+}
+
+.swatch-fg {
+  background: light-dark(var(--color-fg), var(--color-darkmode-fg));
+}
+
+.swatch-shadow {
+  background: light-dark(var(--color-shadow), var(--color-darkmode-shadow));
+}
+
+.swatch-blue {
+  background: light-dark(var(--color-blue), var(--color-darkmode-blue));
+}
+
+.swatch-mark {
+  background: light-dark(var(--color-mark), var(--color-darkmode-mark));
+}
+
+.swatch-blue-hint {
+  background: light-dark(
+    var(--color-blue-hint),
+    var(--color-darkmode-blue-hint)
+  );
+}
+
+.swatch-gray-100 {
+  background: light-dark(var(--color-gray-100), var(--color-darkmode-gray-100));
+}
+
+.swatch-orange-quiet {
+  background: light-dark(
+    var(--color-orange-quiet),
+    var(--color-darkmode-orange-quiet)
+  );
+}
+
+.swatch-blue-quiet {
+  background: light-dark(
+    var(--color-blue-quiet),
+    var(--color-darkmode-blue-quiet)
+  );
+}
+
+.swatch-gray-300 {
+  background: light-dark(var(--color-gray-300), var(--color-darkmode-gray-300));
+}
+
+.swatch-gray-500 {
+  background: light-dark(var(--color-gray-500), var(--color-darkmode-gray-500));
+}
+
+.swatch-gray-700 {
+  background: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+}
+
+.swatch-gray-900 {
+  background: light-dark(var(--color-gray-900), var(--color-darkmode-gray-900));
+}

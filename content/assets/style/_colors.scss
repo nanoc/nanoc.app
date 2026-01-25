@@ -15,6 +15,22 @@ $color-darkmode-shadow:       #000;
 $color-darkmode-blue:         hsl(211, 87%, 65%);
 $color-darkmode-mark:         hsl(0, 0%, 0%);
 
+:root {
+    --color-orange:                #{$color-orange};
+    --color-bg:                    #{$color-bg};
+    --color-fg:                    #{$color-fg};
+    --color-shadow:                #{$color-shadow};
+    --color-blue:                  #{$color-blue};
+    --color-mark:                  #{$color-mark};
+
+    --color-darkmode-orange:       #{$color-darkmode-orange};
+    --color-darkmode-bg:           #{$color-darkmode-bg};
+    --color-darkmode-fg:           #{$color-darkmode-fg};
+    --color-darkmode-shadow:       #{$color-darkmode-shadow};
+    --color-darkmode-blue:         #{$color-darkmode-blue};
+    --color-darkmode-mark:         #{$color-darkmode-mark};
+}
+
 // Derived colors
 
 $color-orange-quiet:          color.mix($color-orange, $color-bg, 10%);
@@ -23,6 +39,14 @@ $color-nav-shadow:            rgba(0, 0, 0, 0.2);
 $color-darkmode-orange-quiet: color.mix($color-darkmode-orange, $color-darkmode-bg, 10%);
 $color-darkmode-nav-shadow:   rgba(0, 0, 0, 0.4);
 
+:root {
+    --color-orange-quiet:           #{$color-orange-quiet};
+    --color-nav-shadow:             #{$color-nav-shadow};
+
+    --color-darkmode-orange-quiet:  #{$color-darkmode-orange-quiet};
+    --color-darkmode-nav-shadow:    #{$color-darkmode-nav-shadow};
+}
+
 // Derived colors -- blues
 
 $color-blue-hint:             color.mix($color-blue, $color-bg, 8%);
@@ -30,6 +54,13 @@ $color-blue-quiet:            color.adjust(color.mix($color-blue, $color-bg, 15%
 
 $color-darkmode-blue-hint:    color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 8%), $saturation: -5%);
 $color-darkmode-blue-quiet:   color.adjust(color.mix($color-darkmode-blue, $color-darkmode-bg, 15%), $saturation: -10%);
+
+:root {
+    --color-blue-hint:            #{$color-blue-hint};
+    --color-blue-quiet:           #{$color-blue-quiet};
+    --color-darkmode-blue-hint:   #{$color-darkmode-blue-hint};
+    --color-darkmode-blue-quiet:  #{$color-darkmode-blue-quiet};
+}
 
 // Derived colors -- grays
 
@@ -45,118 +76,17 @@ $color-darkmode-gray-500:        color.mix($color-darkmode-fg, $color-darkmode-g
 $color-darkmode-gray-700:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 70%);
 $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-gray-100, 95%);
 
-// Swatches
-
-.swatch-orange {
-  background: $color-orange;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-orange;
-  }
-}
-
-.swatch-bg {
-  background: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-bg;
-  }
-}
-
-.swatch-fg {
-  background: $color-fg;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-fg;
-  }
-}
-
-.swatch-shadow {
-  background: $color-shadow;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-shadow;
-  }
-}
-
-.swatch-blue {
-  background: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue;
-  }
-}
-
-.swatch-mark {
-  background: $color-mark;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-mark;
-  }
-}
-
-.swatch-blue-hint {
-  background: $color-blue-hint;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-hint;
-  }
-}
-
-.swatch-gray-100 {
-  background: $color-gray-100;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-100;
-  }
-}
-
-.swatch-orange-quiet {
-  background: $color-orange-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-orange-quiet;
-  }
-}
-
-.swatch-blue-quiet {
-  background: $color-blue-quiet;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue-quiet;
-  }
-}
-
-.swatch-gray-300 {
-  background: $color-gray-300;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-300;
-  }
-}
-
-.swatch-gray-500 {
-  background: $color-gray-500;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-500;
-  }
-}
-
-.swatch-gray-700 {
-  background: $color-gray-700;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-700;
-  }
-}
-
-.swatch-gray-900 {
-  background: $color-gray-900;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-gray-900;
-  }
+:root {
+    --color-gray-100:             #{$color-gray-100};
+    --color-gray-300:             #{$color-gray-300};
+    --color-gray-500:             #{$color-gray-500};
+    --color-gray-700:             #{$color-gray-700};
+    --color-gray-900:             #{$color-gray-900};
+    --color-darkmode-gray-100:    #{$color-darkmode-gray-100};
+    --color-darkmode-gray-300:    #{$color-darkmode-gray-300};
+    --color-darkmode-gray-500:    #{$color-darkmode-gray-500};
+    --color-darkmode-gray-700:    #{$color-darkmode-gray-700};
+    --color-darkmode-gray-900:    #{$color-darkmode-gray-900};
 }
 
 // Body

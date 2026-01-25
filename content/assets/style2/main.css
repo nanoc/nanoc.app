@@ -3,4 +3,8 @@ include:
   - layer: "reset"
     include:
       - "/assets/style2/_reset.*"
+
+  - layer: "base"
+    include:
+      - "/assets/style2/_swatches.*"
 ---
