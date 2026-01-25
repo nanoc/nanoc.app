@@ -13,15 +13,3 @@ pre {
   @include colors.pre-box-shadow;
   @include colors.pre-bg-color;
 }
-
-/* LINKS */
-
-a:link,
-a:visited {
-  @include colors.link-color;
-}
-
-a:hover {
-  @include colors.link-hover-fg-color;
-  @include colors.link-hover-bg-color;
-}

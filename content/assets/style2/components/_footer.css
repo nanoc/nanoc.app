@@ -10,13 +10,7 @@ footer a {
   margin: 0;
 }
 
-footer a:link,
-footer a:visited {
-  @include colors.footer-link-color;
-}
-
 footer a:hover {
-  background: var(--color-footer-link-hover-bg);
   color: var(--color-footer-link-hover-fg);
 }
 

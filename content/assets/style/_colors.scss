@@ -167,6 +167,11 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
     /* text */
     --color-text-fg: light-dark(var(--color-gray-700), var(--color-darkmode-gray-700));
+
+    /* links */
+    --color-link-fg: light-dark(var(--color-blue), var(--color-darkmode-blue));
+    --color-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg));
+    --color-link-hover-bg: light-dark(var(--color-blue), var(--color-darkmode-blue));
 }
 
 // Body
@@ -261,35 +266,6 @@ $color-darkmode-gray-900:        color.mix($color-darkmode-fg, $color-darkmode-g
 
   @media (prefers-color-scheme: dark) {
     color: $color-darkmode-orange;
-  }
-}
-
-// Links
-
-:root { --color-link: light-dark(var(--color-blue), var(--color-darkmode-blue)); }
-@mixin link-color {
-  color: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-blue;
-  }
-}
-
-:root { --color-link-hover-fg: light-dark(var(--color-bg), var(--color-darkmode-bg)); }
-@mixin link-hover-fg-color {
-  color: $color-bg;
-
-  @media (prefers-color-scheme: dark) {
-    color: $color-darkmode-bg;
-  }
-}
-
-:root { --color-link-hover-bg: light-dark(var(--color-blue), var(--color-darkmode-blue)); }
-@mixin link-hover-bg-color {
-  background: $color-blue;
-
-  @media (prefers-color-scheme: dark) {
-    background: $color-darkmode-blue;
   }
 }
 
