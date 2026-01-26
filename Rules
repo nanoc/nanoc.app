@@ -107,6 +107,9 @@ compile '/**/*' do
   elsif item.identifier =~ '/doc/about.*'
     # TODO: Remove me, and set up a redirect from /about to /doc/about
     write '/about/index.html'
+  elsif item.identifier =~ '/doc/whats-new.*'
+    # TODO: Remove me, and set up a redirect from /whats-new to /doc/whats-new
+    write '/whats-new/index.html'
   else
     write item.identifier.without_ext + '/index.html'
   end
