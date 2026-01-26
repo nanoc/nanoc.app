@@ -26,6 +26,10 @@ title: Style guide
     #swatch[color=gray-700] gray-700
     #swatch[color=gray-900] gray-900
 
+  #section %h{Miscellaneous}
+    #swatch[color=hero-link-bg] hero-link-bg
+    #swatch[color=prompt-fg] prompt-fg
+
 #section %h{Headers}
   #p Headers all the way down…
 

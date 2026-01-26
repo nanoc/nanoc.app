@@ -238,11 +238,28 @@ class NanocWsHTMLTranslator < GenericHTMLTranslator
 
       wrap(element.name, attributes) { handle_children(element, context) }
     when 'swatch'
-      attributes = { class: "swatch swatch-#{element.attributes.fetch('color')}" }
-      wrap('div', attributes) do
-        wrap('span', class: 'inside') do
-          handle_children(element, context)
-        end
+      name = element.attributes.fetch('color')
+
+      style_l = "background: var(--color-l-#{name})"
+      style_d = "background: var(--color-d-#{name})"
+
+      wrap('div', class: 'swatch') do
+        [
+          wrap('div', class: 'swatch-part-wrapper') do
+            wrap('div', class: 'swatch-part', style: style_l) do
+              wrap('span', class: 'swatch-label') do
+                handle_children(element, context)
+              end
+            end
+          end,
+          wrap('div', class: 'swatch-part-wrapper') do
+            wrap('div', class: 'swatch-part', style: style_d) do
+              wrap('span', class: 'swatch-label') do
+                handle_children(element, context)
+              end
+            end
+          end
+        ]
       end
     else
       super
