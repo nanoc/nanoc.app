@@ -8,9 +8,12 @@ include:
     include:
       - "/assets/style/_framework.*"
 
+  - layer: "theme"
+    include:
+      - "/assets/style/theme/_colors.*"
+
   - layer: "base"
     include:
-      - "/assets/style/base/_colors.*"
       - "/assets/style/base/_headers.*"
       - "/assets/style/base/_mark.*"
       - "/assets/style/base/_misc.*"
