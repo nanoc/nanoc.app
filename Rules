@@ -111,6 +111,6 @@ compile '/**/*' do
     # TODO: Remove me, and set up a redirect from /whats-new to /doc/whats-new
     write '/whats-new/index.html'
   else
-    write item.identifier.without_ext + '/index.html'
+    write item.identifier.without_exts + '/index.html'
   end
 end

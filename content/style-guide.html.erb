@@ -1,0 +1,357 @@
+---
+title: Style guide
+---
+
+<%
+
+def swatch(id)
+  %[
+    <div class="swatch">
+      <div class="swatch-part-wrapper">
+        <div class="swatch-part" style="background: var(--color-l-#{id})"><span class="swatch-label">#{id}</span></div>
+      </div>
+      <div class="swatch-part-wrapper">
+        <div class="swatch-part" style="background: var(--color-d-#{id})"><span class="swatch-label">#{id}</span></div>
+      </div>
+    </div>
+  ]
+end
+
+%>
+
+<p>This page is designed to collect all the different elements used on the Nanoc website.</p>
+
+<h2>Colors</h2>
+
+<h3>Primary</h3>
+
+<%= swatch('bg') %>
+<%= swatch('fg') %>
+<%= swatch('orange') %>
+<%= swatch('blue') %>
+<%= swatch('mark') %>
+
+<h3>Secondary</h3>
+
+<%= swatch('orange-quiet') %>
+
+<h3>Secondary: blues</h3>
+
+<%= swatch('blue-hint') %>
+<%= swatch('blue-quiet') %>
+
+<h3>Secondary: grays</h3>
+
+<%= swatch('gray-100') %>
+<%= swatch('gray-300') %>
+<%= swatch('gray-500') %>
+<%= swatch('gray-700') %>
+<%= swatch('gray-900') %>
+
+<h2>Headers</h2>
+
+<p>Headers all the way down…</p>
+
+<h3>Headers</h3>
+
+<p>Headers all the way down…</p>
+
+<h4>Headers</h4>
+
+<p>Headers all the way down…</p>
+
+<h2>Headers <code>withCode</code></h2>
+
+<p>Headers all the way down…</p>
+
+<h3>Headers <code>withCode</code></h3>
+
+<p>Headers all the way down…</p>
+
+<h4>Headers <code>withCode</code></h4>
+
+<p>Headers all the way down…</p>
+
+<h2>Block-level elements</h2>
+
+<h3>Paragraphs</h3>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+</p>
+
+<p>
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<h3>Blockquote</h3>
+
+<p>Paragraph before.</p>
+
+<blockquote>
+    Blockquote without paragraph. Lorem ipsum dolor sit amet, consectetur
+    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+</blockquote>
+<p>Paragraph after.</p>
+
+<blockquote>
+    <p>
+        Pragraph inside blockquote. Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+    </p>
+
+</blockquote>
+<p>Paragraph after.</p>
+
+<h3>Preformatted text</h3>
+
+<p>Some code:</p>
+
+<pre><code class="language-ruby"><span class="keyword">def</span> <span class="function">say_hi_to</span>(person, params = {})
+  puts(<span class="string"><span class="delimiter">"</span><span class="content">What’s up, </span><span class="inline"><span class="inline-delimiter">#{</span>person.first_name<span class="inline-delimiter">}</span></span><span class="content">?</span><span class="delimiter">"</span></span>)
+<span class="keyword">rescue</span>
+  puts(<span class="string"><span class="delimiter">"</span><span class="content">Uh…&nbsp;hi?</span><span class="delimiter">"</span></span>)
+<span class="keyword">end</span></code></pre>
+<pre
+    class="legacy"
+><code class="language-ruby"><span class="comment"># Old approach -- NO LONGER WORKS!</span>
+compile <span class="string"><span class="delimiter">'</span><span class="content">*</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
+  rep.filter <span class="symbol">:erb</span>
+  rep.layout <span class="string"><span class="delimiter">'</span><span class="content">default</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+<pre
+    class="new"
+><code class="language-ruby"><span class="comment"># New approach</span>
+compile <span class="string"><span class="delimiter">'</span><span class="content">*</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
+  filter <span class="symbol">:erb</span>
+  layout <span class="string"><span class="delimiter">'</span><span class="content">default</span><span class="delimiter">'</span></span>
+<span class="keyword">end</span></code></pre>
+<p>Some terminal input and output:</p>
+
+<pre><code><span class="prompt">~%</span> <kbd>bundle exec nanoc</kbd>
+Loading site data… done
+Compiling site…
+
+Site compiled in 26357.65s.</code></pre>
+
+<h3>Unordered lists</h3>
+
+<p>These are short lists (no paragraphs):</p>
+
+<ul>
+    <li>
+        A short but cute
+        <ul>
+            <li>unordered list</li>
+            <li>with exactly</li>
+        </ul>
+    </li>
+    <li>five</li>
+    <li>elements</li>
+</ul>
+<p>These are long lists (with paragraphs):</p>
+
+<ul>
+    <li>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </li>
+    <li>
+        <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+        </p>
+    </li>
+</ul>
+
+<h3>Ordered lists</h3>
+
+<p>These are short lists (no paragraphs):</p>
+
+<ol>
+    <li>An ordered list</li>
+    <li>with three</li>
+    <li>
+        elements
+        <ol>
+            <li>and even</li>
+            <li>some sub-elements</li>
+        </ol>
+    </li>
+    <li>followed by a root-level element</li>
+</ol>
+<p>These are long lists (with paragraphs):</p>
+
+<ol>
+    <li>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+    </li>
+    <li>
+        <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+        </p>
+    </li>
+</ol>
+
+<h3>Definition lists</h3>
+
+<dl>
+    <dt>Nanoc</dt>
+    <dd>A tool for generating static sites</dd>
+
+    <dt>DSL</dt>
+    <dd>Domain-specific language</dd>
+    <dd>Digital subscriber line</dd>
+
+    <dt>moshi</dt>
+    <dt>mothership</dt>
+    <dd>Something scary</dd>
+</dl>
+<p>Some definition lists with tags:</p>
+
+<dl class="legacy">
+    <dt><code>@item.parent</code> → <var>item</var> or <code>nil</code></dt>
+    <dd>The parent of this item</dd>
+</dl>
+
+<h3>Admonitions</h3>
+
+<p>Here is a tip:</p>
+
+<div class="admonition-wrapper tip">
+    <div class="admonition">
+        Prefix lines with <code>TIP:</code> to turn them into tip admonitions.
+    </div>
+</div>
+
+<p>Here is a note:</p>
+
+<div class="admonition-wrapper note">
+    <div class="admonition">
+        Admonitions are handled by a Nanoc filter and not by Markdown.
+    </div>
+</div>
+
+<p>Here is a caution:</p>
+
+<div class="admonition-wrapper caution">
+    <div class="admonition">
+        The <span class="command">rm</span> command can cause data loss.
+    </div>
+</div>
+
+<p>Here is to-do item:</p>
+
+<div class="admonition-wrapper todo">
+    <div class="admonition">Finish the darn thing!</div>
+</div>
+
+<h3>Figures</h3>
+
+<figure>
+    <img src="../assets/images/tutorial/default-site.png" />
+    <figcaption>
+        Screenshot of what a brand new Nanoc site looks like
+    </figcaption>
+</figure>
+
+<h2>Inline elements</h2>
+
+<dl>
+    <dt>link to URL</dt>
+    <dd>The <a href="https://nanoc.app/">Nanoc website</a> is pretty.</dd>
+
+    <dt>link to item</dt>
+    <dd>For details, see the <a href="../about/">About Nanoc</a> page.</dd>
+
+    <dt>link to fragment</dt>
+    <dd>For details, see the <a href="#figures">Figures</a> section.</dd>
+
+    <dt>link to item with fragment</dt>
+    <dd>
+        For details, see the
+        <a href="../doc/identifiers-and-patterns/#glob-patterns"
+            >Glob patterns</a
+        >
+        section on the
+        <a href="../doc/identifiers-and-patterns/">Identifiers and patterns</a>
+        page.
+    </dd>
+
+    <dt>emphasis</dt>
+    <dd>
+        You should <em>never</em> have to reboot your computer after
+        installation.
+    </dd>
+
+    <dt>strong emphasis</dt>
+    <dd>You should <strong>never</strong> have a passwordless root account.</dd>
+
+    <dt>command</dt>
+    <dd>
+        The <span class="command">compile</span> command is used to compile a
+        site.
+    </dd>
+
+    <dt>mark</dt>
+    <dd>Some <mark>marked</mark> text.</dd>
+
+    <dt>user input</dt>
+    <dd>To use it, type <kbd>nanoc compile</kbd> into the terminal.</dd>
+
+    <dt>replaceable text</dt>
+    <dd>Replace <var>repo-url</var> with the URL of the repository.</dd>
+
+    <dt>abbreviation</dt>
+    <dd>
+        Be elegant (and maybe incomprehensible) with Ruby
+        <abbr title="domain specific language">DSL</abbr>s.
+    </dd>
+
+    <dt>first term</dt>
+    <dd>
+        To achieve this goal, we use the
+        <span class="firstterm">outdatedness checker</span>.
+    </dd>
+
+    <dt>code</dt>
+    <dd>
+        The <code>def</code> keyword is used to define a function or method.
+    </dd>
+
+    <dt>filename</dt>
+    <dd>Open the <span class="filename">content/index.md</span> file.</dd>
+
+    <dt>product name</dt>
+    <dd>
+        We love the <span class="productname">cri</span> library for building
+        command-line interfaces.
+        <div class="admonition-wrapper todo">
+            <div class="admonition">
+                Remove <code>productname</code>, as it doesn’t provide any value
+                and should not be styled differently.
+            </div>
+        </div>
+    </dd>
+
+    <dt>URI</dt>
+    <dd>
+        Go to <span class="uri">http://example.com/</span> to see a sample web
+        page.
+    </dd>
+</dl>
