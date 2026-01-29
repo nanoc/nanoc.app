@@ -11,6 +11,7 @@ include:
   - layer: "theme"
     include:
       - "/assets/style/theme/_colors.*"
+      - "/assets/style/theme/_sizes.*"
 
   - layer: "base"
     include:
@@ -36,6 +37,7 @@ include:
       - "/assets/style/components/_footer.*"
       - "/assets/style/components/_hero.*"
       - "/assets/style/components/_nav.*"
+      - "/assets/style/components/_prose.*"
       - "/assets/style/components/_search.*"
       - "/assets/style/components/_side.*"
       - "/assets/style/components/_tags.*"

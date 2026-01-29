@@ -143,8 +143,6 @@
   /* Admonitions */
 
   div.admonition-wrapper {
-    margin: 0 0 20pt 0;
-
     border: 1px solid black;
   }
 

@@ -1,0 +1,10 @@
+:root {
+  --base-size: 0.375rem;
+
+  --size-1: calc(1 * var(--base-size));
+  --size-2: calc(2 * var(--base-size));
+  --size-3: calc(4 * var(--base-size));
+  --size-3-plus: calc(4 * 1.5 * var(--base-size));
+  --size-4: calc(8 * var(--base-size));
+  --size-5: calc(16 * var(--base-size));
+}

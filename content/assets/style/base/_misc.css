@@ -22,36 +22,16 @@ abbr {
   font-weight: bold;
 }
 
-pre,
-code,
-kbd,
-var,
-samp,
-.attribute,
-.command,
-.output {
-  font-size: 13px;
-}
-
 blockquote {
   font-style: italic;
+
   margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-p:last-child {
-  margin-bottom: 0;
 }
 
 pre {
   border-radius: 4px;
 
   padding: 10px;
-  margin: 0 0 20px 0;
 
   white-space: pre-wrap;
   word-wrap: break-word;

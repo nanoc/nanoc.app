@@ -8,40 +8,7 @@ ol > li {
 
 ul,
 ol {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-ul:last-child,
-ol:last-child {
-  margin-bottom: 0;
-}
-
-ol > li > ol,
-ol > li > ul,
-ul > li > ol,
-ul > li > ul {
-  margin-bottom: 0;
-}
-
-ul.spacious li,
-ol.spacious li {
-  margin-bottom: 20px;
-}
-
-ul.spacious li pre,
-ol.spacious li pre {
-  margin-top: 20px;
-}
-
-dl {
-  margin-bottom: 20px;
-}
-
-dl.compact dt,
-dl.compact dd {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-left: var(--size-3);
 }
 
 dt {
@@ -49,5 +16,9 @@ dt {
 }
 
 dd {
-  margin: 0 0 20px 20px;
+  margin: 0 0 var(--size-3) var(--size-3);
+}
+
+dl.compact dd {
+  margin-bottom: 0;
 }

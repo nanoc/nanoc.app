@@ -1,0 +1,12 @@
+.prose > * + *,
+.prose :is(blockquote, dd, .admonition) > * + *,
+.prose :is(ul, ol):has(p) > * + *,
+.prose :is(ul, ol).spacious > * + *,
+.prose :is(ul, ol):has(p) > li > * + *,
+.prose :is(ul, ol).spacious > li > * + * {
+  margin-block-start: var(--flow-space, var(--size-3));
+}
+
+.prose > :is(h2, h3) {
+  --flow-space: var(--size-4);
+}

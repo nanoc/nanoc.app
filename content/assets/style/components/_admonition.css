@@ -2,8 +2,6 @@ div.admonition-wrapper {
   display: table;
 
   width: 100%;
-
-  margin: 0 0 20px 0;
 }
 
 div.admonition-wrapper:before {
@@ -52,12 +50,4 @@ div.admonition-wrapper.todo:before {
   color: var(--color-admon-fg-todo);
   font-weight: 900;
   content: "\f0c3";
-}
-
-body.page div.admonition *:first-child {
-  margin-top: 0;
-}
-
-body.page div.admonition *:last-child {
-  margin-bottom: 0;
 }
