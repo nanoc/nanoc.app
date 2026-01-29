@@ -21,10 +21,7 @@
   --color-d-nav-shadow: rgba(0, 0, 0, 0.4);
 
   --color-l-blue-hint: rgb(235.68732, 242.721444, 250.24068);
-  --color-l-blue-quiet: rgb(221.045475, 232.0529325, 243.819525);
-
   --color-d-blue-hint: rgb(45.7164, 55.326728878, 65.2596);
-  --color-d-blue-quiet: rgb(52.765875, 63.6309797951, 74.989125);
 
   --color-l-gray-100: rgb(242.25, 242.25, 242.25);
   --color-l-gray-300: rgb(205.9125, 205.9125, 205.9125);
@@ -58,7 +55,6 @@
   --color-ld-nav-shadow: light-dark(var(--color-l-nav-shadow), var(--color-d-nav-shadow));
 
   --color-ld-blue-hint: light-dark(var(--color-l-blue-hint), var(--color-d-blue-hint));
-  --color-ld-blue-quiet: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
 
   --color-ld-gray-100: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
   --color-ld-gray-300: light-dark(var(--color-l-gray-300), var(--color-d-gray-300));
@@ -69,7 +65,7 @@
 
 :root {
   /* hero-bg */
-  --color-hero-bg: var(--color-ld-blue-quiet);
+  --color-hero-bg: var(--color-ld-gray-100);
 
   /* hero-link-bg */
   --color-hero-link-bg: light-dark(var(--color-l-hero-link-bg), var(--color-d-hero-link-bg));
@@ -95,9 +91,6 @@
   --color-admon-fg-caution: light-dark(var(--color-l-orange), var(--color-d-orange));
   --color-admon-fg-todo: light-dark(var(--color-l-gray-500), var(--color-d-gray-500));
   --color-admon-bg: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
-  --color-admon-bg-tip: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
-  --color-admon-bg-note: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
-  --color-admon-bg-todo: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
   /* headers */
   --color-header-fg: light-dark(var(--color-l-orange), var(--color-d-orange));
