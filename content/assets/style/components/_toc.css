@@ -8,7 +8,7 @@
 
 .toc .toc {
   margin-top: 0;
-  margin-left: 20px;
+  margin-left: var(--size-3);
 }
 
 .toc .active {

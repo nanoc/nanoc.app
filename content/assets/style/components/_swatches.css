@@ -1,6 +1,5 @@
 .swatch {
-  margin-bottom: 10px;
-  gap: 10px;
+  gap: var(--size-3);
 
   display: grid;
 
@@ -14,7 +13,7 @@
 }
 
 .swatch-part {
-  padding: 20px;
+  padding: var(--size-3);
 }
 
 .swatch-label {

@@ -1,8 +1,6 @@
 figure {
   background: var(--color-figure-bg);
   border: 1px solid var(--color-figure-border);
-
-  margin: 0 0 20px 0;
 }
 
 figure img {
@@ -12,18 +10,17 @@ figure img {
 }
 
 figure figcaption {
-  padding: 5px 10px;
+  padding: var(--size-1);
 
   background: var(--color-figure-caption-bg);
 
   display: block;
 
-  font-size: 13px;
   font-style: italic;
 }
 
 figure.compact img {
-  padding: 10px 0;
+  padding: var(--size-1) 0;
   margin: 0 auto;
 
   width: auto;

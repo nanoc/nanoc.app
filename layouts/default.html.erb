@@ -58,17 +58,19 @@
   <% end %>
       <footer class="footer">
         <div class="footer-content-wrapper">
-          <div class="footer-content">
+          <div class="footer-content prose">
             <div class="footer-releasenotes">The latest release is <%= latest_release_info[:version] %>, released on <%= latest_release_info[:date].format_as_date %>. See the <a href="/release-notes/">release notes</a> for details.</div>
-            <div class="footer-links-explanation">Don’t stick around forever. For a change of scenery, go over here:</div>
-            <ul class="footer-links">
-              <li><%= link_to_id '/contributing.*' %></li>
-              <li><a href="https://github.com/nanoc/nanoc">GitHub repo</a></li>
-              <li><a href="https://github.com/nanoc/nanoc/issues">Issue tracker</a></li>
-              <li><a href="https://github.com/nanoc/nanoc/discussions">GitHub discussions</a></li>
-              <li><a href="https://groups.google.com/d/forum/nanoc">Google group</a></li>
-              <li><a href="https://ko-fi.com/denisdefreyne">Donate <strong>&#10084;</strong></a></li>
-            </ul>
+            <div>
+              <p>Don’t stick around forever. For a change of scenery, go over here:</p>
+              <ul class="footer-links">
+                <li><%= link_to_id '/contributing.*' %></li>
+                <li><a href="https://github.com/nanoc/nanoc">GitHub repo</a></li>
+                <li><a href="https://github.com/nanoc/nanoc/issues">Issue tracker</a></li>
+                <li><a href="https://github.com/nanoc/nanoc/discussions">GitHub discussions</a></li>
+                <li><a href="https://groups.google.com/d/forum/nanoc">Google group</a></li>
+                <li><a href="https://ko-fi.com/denisdefreyne">Donate <strong>&#10084;</strong></a></li>
+              </ul>
+            </div>
             <div class="footer-copyright">
               <div class="text">Nanoc © 2007–2026 <a href="https://denisdefreyne.com/" rel="author">Denis Defreyne</a>. The content of the Nanoc website is licensed under a <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>, with exception of code examples, which are released into the public domain. Nanoc is licensed under the MIT license. <a href="https://fontawesome.com">Font Awesome</a> licensed under SIL OFL 1.1. <a href="https://www.toptal.com/designers/subtlepatterns/">Subtle Patterns</a> by Atle Mo. Deployed on <a href="https://www.netlify.com/">Netlify</a>, the hosting platform with native support for Nanoc.</div>
               <div class="logo"><img src="/assets/images/logo-small.png"></div>

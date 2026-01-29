@@ -1,6 +1,6 @@
 @media (max-width: 719px) {
   .side {
-    padding: 0 20px;
+    padding: 0 var(--size-3);
   }
 }
 
@@ -30,7 +30,7 @@
 .side ol,
 .side ul,
 .side p {
-  margin-top: 20px;
+  margin-top: var(--size-3);
 }
 
 @media (max-width: 719px) {
@@ -47,6 +47,6 @@
   .side p + ol.toc,
   .side .section-title + ol.toc,
   .side ul + .section-title {
-    margin-top: 20px;
+    margin-top: var(--size-3);
   }
 }

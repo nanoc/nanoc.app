@@ -1,16 +1,8 @@
-@media screen and (max-width: 719px) {
-  .article-content {
-    padding: 20px;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  .article-content {
-    padding: 30px;
-  }
-}
-
 @media screen {
+  .article-content {
+    padding: var(--size-3);
+  }
+
   .article-content {
     background: var(--color-article-content-bg);
   }

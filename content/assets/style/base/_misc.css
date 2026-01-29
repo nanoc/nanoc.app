@@ -25,13 +25,13 @@ abbr {
 blockquote {
   font-style: italic;
 
-  margin-left: 20px;
+  margin-left: var(--size-3);
 }
 
 pre {
   border-radius: 4px;
 
-  padding: 10px;
+  padding: var(--size-2);
 
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -116,5 +116,5 @@ pre.template var:after {
 }
 
 :target {
-  scroll-margin-top: 20px;
+  scroll-margin-top: var(--size-3);
 }

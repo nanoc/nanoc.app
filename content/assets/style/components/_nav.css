@@ -9,7 +9,7 @@
 
 .nws-nav-content {
   margin: 0 auto;
-  padding: 1.5rem 20px;
+  padding: var(--size-3) var(--size-3);
   max-width: 1020px;
   display: flex;
   justify-content: space-between;
@@ -39,7 +39,7 @@
   background-position: 0 50%;
   background-size: 30px 30px;
 
-  padding: 10px 0 10px 40px;
+  padding: var(--size-1) 0 var(--size-1) 40px;
   margin: 0;
 }
 
@@ -63,7 +63,7 @@
 .nws-nav-item .active {
   display: block;
 
-  margin: 10px;
+  margin: var(--size-1);
   padding: 0;
 
   border-radius: 0;

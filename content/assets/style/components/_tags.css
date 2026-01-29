@@ -1,7 +1,7 @@
 dl.legacy dt:after {
   content: "LEGACY";
 
-  margin-left: 10px;
+  margin-left: var(--size-1);
   padding: 1px 4px;
 
   font-size: 10px;

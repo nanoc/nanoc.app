@@ -14,7 +14,7 @@
 
 @media (min-width: 720px) {
   .nws-content {
-    padding: 0 20px;
+    padding: 0 var(--size-3);
 
     grid-template-rows: auto;
     grid-template-columns: 220px auto;

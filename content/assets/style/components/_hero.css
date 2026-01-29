@@ -17,7 +17,7 @@
 .hero__links {
   text-align: center;
 
-  padding: 20px 0 5px 0;
+  padding: var(--size-3) 0 var(--size-1) 0;
   margin: 0;
 
   display: flex;
@@ -27,12 +27,12 @@
 @media (max-width: 719px) {
   .hero__links {
     flex-direction: column;
-    padding-bottom: 20px;
+    padding-bottom: var(--size-3);
   }
 }
 
 .hero__link {
-  margin: 0 20px;
+  margin: 0 var(--size-3);
 }
 
 @media (max-width: 719px) {
@@ -42,7 +42,7 @@
 }
 
 .hero__link {
-  padding: 12px 20px;
+  padding: 12px var(--size-3);
   font-size: 24px;
   font-style: normal;
 }
@@ -62,7 +62,6 @@
 
   height: 480px;
 
-  top: -10px;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -87,7 +86,7 @@
   }
 
   .hero__slides img {
-    margin-top: -20px;
+    margin-top: calc(var(--size-3) * -1);
   }
 }
 
