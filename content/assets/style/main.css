@@ -17,7 +17,6 @@ include:
       - "/assets/style/base/_links.*"
       - "/assets/style/base/_lists.*"
       - "/assets/style/base/_print.*"
-      - "/assets/style/base/_text.*"
 
   - layer: "layout"
     include:

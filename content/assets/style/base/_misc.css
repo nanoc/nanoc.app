@@ -5,6 +5,8 @@ html {
 body {
   background: var(--color-page-bg);
 
+  color: var(--color-text-fg);
+
   font-family: "Source Sans 3";
   font-weight: normal;
   font-size: 15px;
