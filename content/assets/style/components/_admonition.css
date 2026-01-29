@@ -30,18 +30,10 @@ div.admonition-wrapper .admonition {
   padding: 10px 15px;
 }
 
-div.admonition-wrapper.tip  .admonition {
-  background: var(--color-admon-bg-tip);
-}
-
 div.admonition-wrapper.tip:before {
   color: var(--color-admon-fg-tip);
   font-weight: 900;
   content: "\f0eb";
-}
-
-div.admonition-wrapper.note  .admonition {
-  background: var(--color-admon-bg-note);
 }
 
 div.admonition-wrapper.note:before {
@@ -50,18 +42,10 @@ div.admonition-wrapper.note:before {
   content: "\f05a";
 }
 
-div.admonition-wrapper.caution  .admonition {
-  background: var(--color-admon-bg-caution);
-}
-
 div.admonition-wrapper.caution:before {
   color: var(--color-admon-fg-caution);
   font-weight: 900;
   content: "\f071";
-}
-
-div.admonition-wrapper.todo  .admonition {
-  background: var(--color-admon-bg-todo);
 }
 
 div.admonition-wrapper.todo:before {

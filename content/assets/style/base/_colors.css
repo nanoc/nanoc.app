@@ -17,10 +17,7 @@
   --color-d-blue: hsl(211, 87%, 65%);
   --color-d-mark: hsl(0, 0%, 0%);
 
-  --color-l-orange-quiet: rgb(252.96, 237.32, 229.5);
   --color-l-nav-shadow: rgba(0, 0, 0, 0.2);
-
-  --color-d-orange-quiet: rgb(59.5935, 49.878, 53.6265);
   --color-d-nav-shadow: rgba(0, 0, 0, 0.4);
 
   --color-l-blue-hint: rgb(235.68732, 242.721444, 250.24068);
@@ -58,7 +55,6 @@
   --color-ld-blue: light-dark(var(--color-l-blue), var(--color-d-blue));
   --color-ld-mark: light-dark(var(--color-l-mark), var(--color-d-mark));
 
-  --color-ld-orange-quiet: light-dark(var(--color-l-orange-quiet), var(--color-d-orange-quiet));
   --color-ld-nav-shadow: light-dark(var(--color-l-nav-shadow), var(--color-d-nav-shadow));
 
   --color-ld-blue-hint: light-dark(var(--color-l-blue-hint), var(--color-d-blue-hint));
@@ -101,7 +97,6 @@
   --color-admon-bg: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
   --color-admon-bg-tip: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
   --color-admon-bg-note: light-dark(var(--color-l-blue-quiet), var(--color-d-blue-quiet));
-  --color-admon-bg-caution: light-dark(var(--color-l-orange-quiet), var(--color-d-orange-quiet));
   --color-admon-bg-todo: light-dark(var(--color-l-gray-100), var(--color-d-gray-100));
 
   /* headers */
