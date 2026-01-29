@@ -1,19 +1,19 @@
 div.admonition-wrapper {
-  display: table;
+  display: grid;
 
-  width: 100%;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "icon main";
+
+  gap: 0;
 }
 
-div.admonition-wrapper:before {
-  display: table-cell;
+div.admonition-wrapper::before {
+  grid-area: icon;
 
   font-family: "Font Awesome 5 Free";
   font-weight: normal;
   font-size: 30px;
-
-  line-height: 20px;
-
-  width: 28px;
 
   padding: 0 var(--size-3) 0 var(--size-2);
 
@@ -22,9 +22,10 @@ div.admonition-wrapper:before {
 }
 
 div.admonition-wrapper .admonition {
+  grid-area: main;
+
   background: var(--color-admon-bg);
   border-radius: 4px;
-  display: table-cell;
   padding: var(--size-2);
 }
 
