@@ -1,5 +1,5 @@
 @media (min-width: 720px) {
-  footer {
+  .footer {
     max-width: 1020px;
     margin: 0 auto;
     padding: 0 20px 2rem 20px;
@@ -14,16 +14,16 @@
   padding: 0 30px;
 }
 
-footer p {
+.footer p {
   color: var(--color-footer-fg);
 }
 
-footer a {
+.footer a {
   padding: 0 2px;
   margin: 0;
 }
 
-footer a:hover {
+.footer a:hover {
   color: var(--color-footer-link-hover-fg);
 }
 
