@@ -104,7 +104,7 @@ samp,
 .output,
 .attribute,
 .command {
-  font-family: "Roboto Mono", Consolas, Inconsolata, Monaco, monospace;
+  font-family: "Source Code Pro", Consolas, Inconsolata, Monaco, monospace;
 }
 
 pre.template var:before {

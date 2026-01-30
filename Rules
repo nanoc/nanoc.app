@@ -35,7 +35,7 @@ passthrough '/favicon.ico'
 
 passthrough '/assets/font-awesome/**/*'
 passthrough '/assets/source-sans-3-*/**/*'
-passthrough '/assets/roboto-mono-3-*/**/*'
+passthrough '/assets/source-code-pro-*/**/*'
 passthrough '/assets/docsearch-*/**/*'
 
 compile '/well-known/**/*' do
