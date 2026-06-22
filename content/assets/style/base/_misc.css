@@ -57,6 +57,8 @@ var,
   -ms-hyphenate-character: "";
   -o-hyphenate-character: "";
   hyphenate-character: "";
+
+  font-variant-ligatures: normal;
 }
 
 i,
