@@ -205,3 +205,45 @@ short_title: "Deploying"
     Removing remote files
     Done!
     %prompt{%%}
+
+#section %h{With Git to a web server}
+
+  #p For a server setup using SSH, see %ref[url=https://ecoconsulting.co.uk/solutions/#deploy-a-website-to-a-server-using-git]{Deploy a website to a server using Git} and SSH access. Once set up (and having run %command{nanoc compile} and committed the main local repository) %command{nanoc deploy} pushes a %em{nested repository} in Nanoc’s %code{output} folder to a %em{bare repository} on the server. Site files are moved to the required location by a %filename{post-receive} file (e.g. at: %code{username/websiterepo.git/hooks/post-receive})—for example:
+  
+  #listing[lang=bash]
+    #!/bin/sh
+      git --work-tree=/PATH_TO_SITE_ROOT --git-dir=PATH_TO_BARE_REPO.git checkout -f
+
+  #p In %filename{nanoc.yaml}:
+  
+  #listing[lang=bash]
+    deploy:
+      default:
+        kind: git
+        remote: ssh://USER@IP:PORT/PATH_TO_BARE_REPO.git
+        branch: deploy
+        forced: true
+
+  Alternatively, you can copy the (similar) setup used for %uri{denisdefreyne.com} (change %var{TARGET}, %var{GIT_DIR} and Git deployment %var{BRANCH} to match your setup):
+
+  #listing[lang=bash]
+    #!/bin/bash
+
+    set -ex
+
+    TARGET="/var/www/virtual/username/website.com"
+    GIT_DIR="/home/username/web/websiterepo.com.git"
+
+    BRANCH="built"
+
+    while read oldrev newrev ref
+    do
+      if [ "$ref" = "refs/heads/$BRANCH" ];
+      then
+        echo "Ref $ref received. Deploying ${BRANCH} branch on server..."
+        git --work-tree="${TARGET}" --git-dir="${GIT_DIR}" checkout -f ${BRANCH}
+      else
+        echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+      fi
+    done
+
