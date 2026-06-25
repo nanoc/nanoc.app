@@ -50,10 +50,34 @@
   margin: 0;
 }
 
-.footer-links strong {
+@keyframes heart-color-change {
+  0% {
+    color: var(--color-footer-heart-a);
+  }
+  5% {
+    color: var(--color-footer-heart-b);
+  }
+  10% {
+    color: var(--color-footer-heart-a);
+  }
+  15% {
+    color: var(--color-footer-heart-a);
+  }
+  20% {
+    color: var(--color-footer-heart-b);
+  }
+  25% {
+    color: var(--color-footer-heart-a);
+  }
+  100% {
+    color: var(--color-footer-heart-a);
+  }
+}
+
+.heart {
   font-family: "Noto Emoji", "Noto Sans Symbols", "Zapf Dingbats", "Menlo", "Arial Unicode MS";
 
-  color: var(--color-footer-heart);
+  animation: heart-color-change 5s infinite;
 }
 
 .footer-links li {

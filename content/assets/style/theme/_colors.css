@@ -96,7 +96,8 @@
   --color-footer-link: var(--color-ld-gray-900);
   --color-footer-link-hover-bg: var(--color-ld-gray-900);
   --color-footer-link-hover-fg: var(--color-ld-bg);
-  --color-footer-heart: var(--color-ld-orange);
+  --color-footer-heart-a: var(--color-ld-orange);
+  --color-footer-heart-b: var(--color-ld-gray-100);
 
   /* text */
   --color-text-fg: var(--color-ld-gray-700);
