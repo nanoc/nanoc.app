@@ -41,7 +41,7 @@ data_sources:
     items_root: /doc/reference/commands/
   - type: release_notes
 
-base_url: https://nanoc.app
+base_url: https://nanoc.denisdefreyne.com
 
 checking:
   enabled_checks:

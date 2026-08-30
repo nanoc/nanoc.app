@@ -57,12 +57,12 @@ title: "Sites"
     data_sources:
       - type: filesystem
 
-    base_url: https://nanoc.app
+    base_url: https://nanoc.denisdefreyne.com
 
   #p And here is an example configuration file that uses TOML:
 
   #listing[lang=toml]
-    base_url = "https://nanoc.app"
+    base_url = "https://nanoc.denisdefreyne.com"
 
     [prune]
     auto_prune = true
@@ -163,9 +163,9 @@ title: "Sites"
 
     environments:
       prod:
-        base_url: https://nanoc.app
+        base_url: https://nanoc.denisdefreyne.com
 
-  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} in all environments, but %code{"https://nanoc.app"} in the %code{prod} environment. The %code{site_name} configuration option will be %code{"Nanoc"} in all environments.
+  #p In the example above, the value for the %code{base_url} configuration option will be %code{"http://nanoc.dev"} in all environments, but %code{"https://nanoc.denisdefreyne.com"} in the %code{prod} environment. The %code{site_name} configuration option will be %code{"Nanoc"} in all environments.
 
   #p The %code{default} environment is, as the name suggests, the environment that will be used when no environment is explicitly specified. However, non-%code{default} environments will not inherit from the %code{default} environment. For example:
 
@@ -177,7 +177,7 @@ title: "Sites"
         base_url: http://nanoc.dev
         site_name: Nanoc (local)
       prod:
-        base_url: https://nanoc.app
+        base_url: https://nanoc.denisdefreyne.com
 
   #p In this example, %code{site_name} will be %code{"Nanoc"} in all environments, except %code{default}, where it is %code{"Nanoc (local)"} instead.
 
