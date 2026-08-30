@@ -13,7 +13,17 @@ end
 
 layout '/**/*', :erb
 
-compile "/assets/style/**/_*.css" do
+compile '/_htaccess.*' do
+  filter :erb, trim_mode: '<>'
+  write '/.htaccess'
+end
+
+compile '/**/_htaccess.*' do
+  filter :erb, trim_mode: '<>'
+  write '/' + item.identifier.components[0..-2].join('/') + '/.htaccess'
+end
+
+compile '/assets/style/**/_*.css' do
   filter :css_include
   snapshot :for_inclusion
 
@@ -21,16 +31,11 @@ compile "/assets/style/**/_*.css" do
   write nil
 end
 
-compile "/assets/style/*.css" do
+compile '/assets/style/*.css' do
   filter :css_include
   snapshot :for_inclusion
   filter :relativize_paths, type: :css
   write item.identifier.without_ext + '-' + fingerprint('/assets/style/**/*') + '.css'
-end
-
-compile "/_htaccess.*" do
-  filter :erb, trim_mode: "<>"
-  write "/.htaccess"
 end
 
 ignore '/**/_*'
