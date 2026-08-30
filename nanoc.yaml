@@ -98,7 +98,7 @@ toc:
       - "/doc/whats-new.*"
 
 deploy:
-  uberspace:
+  default:
     kind: git
     remote: defreyne@185.26.156.30:web/nanoc.denisdefreyne.com.git
     branch: main
