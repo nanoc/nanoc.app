@@ -96,3 +96,9 @@ toc:
   - title: "Changes"
     children:
       - "/doc/whats-new.*"
+
+deploy:
+  uberspace:
+    kind: git
+    remote: defreyne@185.26.156.30:web/nanoc.denisdefreyne.com.git
+    branch: main
