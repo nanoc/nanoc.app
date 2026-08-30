@@ -144,6 +144,63 @@ short_title: "Deploying"
 #section %h{With Netlify}
   #p %ref[url=https://www.netlify.com/]{Netlify} supports Nanoc out of the box, and deploying onto Netlify is as simple as giving it the Git repository containing your Nanoc site source.
 
+#section %h{With Git to a web server}
+  #p If you have a web server that you can SSH into and that has Git installed, you can use Git as a reliable way of deploying a web site. This is, in fact, how the Nanoc web site is deployed.
+
+  #p On your server, create a %emph{bare} Git repository that you will push to (replacing %var{example.com.git} with the path to the new Git repository that you want to create):
+
+  #listing
+    %prompt{web%%} %kbd{git init --bare example.com.git}
+    Initialized empty Git repository in /home/denis/web/example.com.git/
+
+  #p Next, still on the server, create a file %filename{hooks/post-receive} in that bare Git repository (e.g. at %filename{example.com.git/hooks/post-receive}):
+
+  #listing[lang=bash]
+    #!/bin/bash
+
+    set -ex
+
+    TARGET="/var/www/example.com"
+    GIT_DIR="/home/denis/web/example.com.git"
+
+    BRANCH="main"
+
+    while read oldrev newrev ref
+    do
+      if [ "$ref" = "refs/heads/$BRANCH" ];
+      then
+        echo "Ref $ref received. Deploying ${BRANCH%} branch on server..."
+        git --work-tree="${TARGET%}" --git-dir="${GIT_DIR%}" checkout -f ${BRANCH%}
+      else
+        echo "Ref $ref received. Doing nothing: only the ${BRANCH%} branch may be deployed on this server."
+      fi
+    done
+
+  #p Replace %var{TARGET} with the path to the directory that will be served by the web server, and %var{GIT_DIR} with the path to the just-created bare Git repository. Also ensure it is executable (replacing %var{example.com.git}):
+
+  #listing
+    %prompt{web%%} %kbd{chmod 755 example.com.git/hooks/post-receive}
+
+  #p In your local Nanoc site, add a new deployment configuration to %filename{nanoc.yaml}. For example:
+
+  #listing[lang=yaml]
+    deploy:
+      default:
+        kind: git
+        remote: defreyne@10.20.30.40:web/example.com.git
+        branch: main
+
+  #p You’ll need to replace the value for %code{remote} with your own.
+
+  #p In your local %filename{output} directory, run %kbd{git init}.
+
+  #p Finally, run %kbd{nanoc deploy}:
+
+  #listing
+    Deploying via Git to branch “main” on remote “defreyne@10.20.30.40:web/example.com.git”…
+
+  #p That should proceed with no errors, and your web site will be live.
+
 #section %h{With rsync}
   #p To use %command{rsync} as the deployment method, set %code{kind} to %code{rsync} in the deployment configuration, and set %code{dst} to the destination, in the format used by %command{rsync}. For example:
 
