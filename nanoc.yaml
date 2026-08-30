@@ -1,10 +1,39 @@
-text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'txt', 'xhtml', 'xml', 'dmark' ]
+text_extensions:
+  [
+    "adoc",
+    "asciidoc",
+    "atom",
+    "coffee",
+    "css",
+    "erb",
+    "haml",
+    "handlebars",
+    "hb",
+    "htm",
+    "html",
+    "js",
+    "less",
+    "markdown",
+    "md",
+    "ms",
+    "mustache",
+    "php",
+    "rb",
+    "rdoc",
+    "sass",
+    "scss",
+    "slim",
+    "txt",
+    "xhtml",
+    "xml",
+    "dmark",
+  ]
 
 enable_output_diff: true
 
 prune:
   auto_prune: true
-  exclude: ['.git']
+  exclude: [".git"]
 
 data_sources:
   - type: filesystem
@@ -26,44 +55,44 @@ checking:
     - mixed_content
 
 toc:
-  - title: 'Getting started'
+  - title: "Getting started"
     children:
-      - '/doc/about.*'
-      - '/doc/tutorial.*'
-  - title: 'Using Nanoc'
+      - "/doc/about.*"
+      - "/doc/tutorial.*"
+  - title: "Using Nanoc"
     children:
-      - '/doc/sites.*'
-      - '/doc/items-and-layouts.*'
-      - '/doc/cli.*'
-      - '/doc/identifiers-and-patterns.*'
-      - '/doc/rules.*'
-      - '/doc/filters.*'
-      - '/doc/helpers.*'
-      - '/doc/deploying.*'
-      - '/doc/testing.*'
-      - '/doc/data-sources.*'
-  - title: 'Tips and tricks'
+      - "/doc/sites.*"
+      - "/doc/items-and-layouts.*"
+      - "/doc/cli.*"
+      - "/doc/identifiers-and-patterns.*"
+      - "/doc/rules.*"
+      - "/doc/filters.*"
+      - "/doc/helpers.*"
+      - "/doc/deploying.*"
+      - "/doc/testing.*"
+      - "/doc/data-sources.*"
+  - title: "Tips and tricks"
     children:
-      - '/doc/guides/using-binary-items-effectively.*'
-      - '/doc/guides/creating-multilingual-sites.*'
-      - '/doc/guides/using-external-sources.*'
-      - '/doc/guides/creating-pdfs.*'
-      - '/doc/guides/using-common-filters.*'
-  - title: 'References'
+      - "/doc/guides/using-binary-items-effectively.*"
+      - "/doc/guides/creating-multilingual-sites.*"
+      - "/doc/guides/using-external-sources.*"
+      - "/doc/guides/creating-pdfs.*"
+      - "/doc/guides/using-common-filters.*"
+  - title: "References"
     compact: true
     children:
-      - '/doc/reference/filters.*'
-      - '/doc/reference/helpers.*'
-      - '/doc/reference/commands.*'
-      - '/doc/reference/config.*'
-      - '/doc/reference/variables.*'
-  - title: 'Appendices'
+      - "/doc/reference/filters.*"
+      - "/doc/reference/helpers.*"
+      - "/doc/reference/commands.*"
+      - "/doc/reference/config.*"
+      - "/doc/reference/variables.*"
+  - title: "Appendices"
     children:
-      - '/doc/installation.*'
-      - '/doc/troubleshooting.*'
-      - '/doc/nanoc-4-upgrade-guide.*'
-      - '/doc/internals.*'
-      - '/doc/glossary.*'
-  - title: 'Changes'
+      - "/doc/installation.*"
+      - "/doc/troubleshooting.*"
+      - "/doc/nanoc-4-upgrade-guide.*"
+      - "/doc/internals.*"
+      - "/doc/glossary.*"
+  - title: "Changes"
     children:
-      - '/doc/whats-new.*'
+      - "/doc/whats-new.*"
