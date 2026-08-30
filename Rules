@@ -28,7 +28,11 @@ compile "/assets/style/*.css" do
   write item.identifier.without_ext + '-' + fingerprint('/assets/style/**/*') + '.css'
 end
 
-passthrough '/_redirects'
+compile "/_htaccess.*" do
+  filter :erb, trim_mode: "<>"
+  write "/.htaccess"
+end
+
 ignore '/**/_*'
 
 passthrough '/favicon.ico'

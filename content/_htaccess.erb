@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^nanoc\.stoneship\.org$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?nanoc\.ws$ [NC]
+RewriteRule ^(.*)$ https://nanoc.app/$1 [R=301,L,NE]
+
+RewriteRule ^doc/?$ /about/ [R=301,L]
