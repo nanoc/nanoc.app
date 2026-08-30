@@ -1,3 +1,65 @@
+DirectoryIndex index.html index.php
+
+
+
+############################################################
+# CORS
+
+SetEnvIf Origin "http(s)?://nanoc\.denisdefreyne\.com$" REQUEST_ORIGIN=$0
+Header add Access-Control-Allow-Origin %{REQUEST_ORIGIN}e env=REQUEST_ORIGIN
+Header add Access-Control-Allow-Credentials "true" env=REQUEST_ORIGIN
+Header merge Vary Origin
+
+
+
+############################################################
+# MIME TYPES
+
+AddType font/woff2                      .woff2
+
+
+
+############################################################
+# ENCODING
+
+AddDefaultCharset utf-8
+
+AddCharset utf-8 .htm .html .js .css
+
+
+
+############################################################
+# COMPRESS
+
+# compress - text/html/xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+
+# compress - css
+AddOutputFilterByType DEFLATE text/css
+
+# compress - js
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE text/javascript
+
+
+
+############################################################
+# ERROR DOCUMENT
+
+ErrorDocument 404 /404.html
+
+
+
+############################################################
+# REDIRECTS
+
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} ^nanoc\.stoneship\.org$ [NC,OR]
