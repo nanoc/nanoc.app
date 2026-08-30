@@ -11,6 +11,12 @@ Header add Access-Control-Allow-Credentials "true" env=REQUEST_ORIGIN
 Header merge Vary Origin
 
 
+############################################################
+# CACHING
+
+Header set Cache-Control "public,max-age=0,must-revalidate"
+
+
 
 ############################################################
 # MIME TYPES
