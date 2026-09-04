@@ -54,7 +54,10 @@ passthrough '/favicon.ico'
 passthrough '/assets/font-awesome/**/*'
 passthrough '/assets/source-sans-3-*/**/*'
 passthrough '/assets/source-code-pro-*/**/*'
-passthrough '/assets/docsearch-*/**/*'
+
+postprocess do
+  system('./node_modules/.bin/pagefind') || raise('Pagefind indexing failed')
+end
 
 compile '/well-known/**/*' do
   write '/.' + item.identifier.to_s[1..-1]

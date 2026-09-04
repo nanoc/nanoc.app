@@ -9,3 +9,6 @@ tmp/
 output/
 output.diff
 crash.log
+
+# node/npm
+node_modules/

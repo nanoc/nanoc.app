@@ -1,0 +1,40 @@
+.nws-content__side > pagefind-searchbox {
+  display: block;
+  padding: 0 0 15px 0;
+  color-scheme: light dark;
+}
+
+:root {
+  /* Colors */
+  --pf-text: var(--color-search-text);
+  --pf-text-secondary: var(--color-search-text-secondary);
+  --pf-text-muted: var(--color-search-text-muted);
+  --pf-background: var(--color-search-bg);
+  --pf-border: var(--color-search-border);
+  --pf-border-focus: var(--color-search-border-focus);
+  --pf-skeleton: var(--color-search-skeleton);
+  --pf-skeleton-shine: var(--color-search-skeleton-shine);
+  --pf-hover: var(--color-search-hover);
+  --pf-mark: var(--color-search-mark);
+  --pf-scroll-shadow: var(--color-search-scroll-shadow);
+
+  /* Shadows */
+  --pf-shadow-sm: 0 2px 8px color-mix(in srgb, var(--color-search-shadow) 6%, transparent);
+  --pf-shadow-md: 0 4px 12px color-mix(in srgb, var(--color-search-shadow) 10%, transparent);
+  --pf-shadow-lg: 0 16px 48px color-mix(in srgb, var(--color-search-shadow) 20%, transparent);
+
+  /* Error states */
+  --pf-error-bg: var(--color-search-error-bg);
+  --pf-error-border: var(--color-search-error-border);
+  --pf-error-text: var(--color-search-error-text);
+  --pf-error-text-secondary: var(--color-search-error-text-secondary);
+
+  /* Focus ring */
+  --pf-outline-focus: var(--color-search-border-focus);
+
+  /* Typography */
+  --pf-font: "Source Sans 3", sans-serif;
+
+  /* Modal */
+  --pf-modal-backdrop: color-mix(in srgb, var(--color-search-shadow) 50%, transparent);
+}

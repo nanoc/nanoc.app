@@ -10,9 +10,9 @@
 
     <!-- stylesheets -->
     <link href="<%= @items['/assets/style/main.*'].path %>" rel="stylesheet">
-    <style media="screen">
-      @import url('<%= @items["/assets/docsearch-*/*.css"].path %>') layer(framework);
-    </style>
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+    <link href="<%= @items['/assets/style/pagefind.*'].path %>" rel="stylesheet">
+    <script src="/pagefind/pagefind-component-ui.js" type="module"></script>
 
     <!-- other assets -->
     <link href="<%= @items['/assets/font-awesome/style/all.*'].path %>" media="screen" rel="stylesheet">
@@ -24,7 +24,6 @@
     <meta property="og:title" content="<%= @item[:full_title] || @item[:title] %>">
     <meta property="og:locale" content="en">
 
-    <link rel="preconnect" href="https://RNL791U9AF-dsn.algolia.net" crossorigin>
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
     <meta name="msvalidate.01" content="C17C3E6CB88433CBBAB71760E3F9B95A">
@@ -54,7 +53,8 @@
       </nav>
       <div class="nws-content">
         <aside class="side nws-content__side">
-          <div class="nws-side__search" id="search-box"></div>
+          <pagefind-searchbox show-keyboard-hints="false"></pagefind-searchbox>
+
           <div class="nws-side__content">
             <% if @item.identifier =~ %r{^/doc(/|\.)} %>
               <h3>Table of contents</h3>

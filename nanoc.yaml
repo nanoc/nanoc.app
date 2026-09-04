@@ -33,7 +33,12 @@ enable_output_diff: true
 
 prune:
   auto_prune: true
-  exclude: [".git"]
+  exclude: [".git", "pagefind"]
+
+checks:
+  all:
+    exclude_files:
+      - output/pagefind/.*
 
 data_sources:
   - type: filesystem

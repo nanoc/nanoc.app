@@ -1,0 +1,2 @@
+site: output
+glob: "**/*.html"

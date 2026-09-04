@@ -139,41 +139,25 @@
 
   /* sidebar */
   --color-sidebar-section-title: var(--color-ld-orange);
-}
 
-:root {
-  --docsearch-primary-color: var(--color-ld-blue);
-  --docsearch-text-color: var(--color-ld-fg);
-
-  --docsearch-muted-color: var(--color-ld-gray-500);
-  --docsearch-container-background: light-dark(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
-  --docsearch-modal-background: light-dark(var(--color-l-gray-100), var(--color-d-bg));
-  --docsearch-logo-color: light-dark(var(--color-l-blue), var(--color-d-fg));
-  --docsearch-searchbox-background: var(--color-ld-bg);
-  --docsearch-searchbox-focus-background: light-dark(#fff, rgba(0, 0, 0, 0.3));
-  --docsearch-hit-color: var(--color-ld-gray-900);
-  --docsearch-hit-active-color: light-dark(#fff, #fff);
-  --docsearch-hit-background: light-dark(#fff, var(--color-d-gray-100));
-  --docsearch-footer-background: var(--color-ld-bg);
-
-  --search-key-gradient-from: var(--color-ld-gray-300);
-  --search-key-gradient-to: var(--color-ld-gray-100);
-
-  --search-key-shadow-1: light-dark(var(--color-l-gray-300), var(--color-d-gray-100));
-  --search-key-shadow-2: light-dark(var(--color-l-gray-100), var(--color-d-gray-300));
-  --search-key-shadow-3: rgba(0, 0, 0, 0.3);
-}
-
-:root {
-  --docsearch-modal-shadow: inset 1px 1px 0 0 hsla(0, 0%, 100%, 0.5), 0 5px 12px 0 rgba(0, 0, 0, 0.3);
-  --docsearch-hit-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-  --docsearch-footer-shadow: 0 -1px 0 0 #e0e3e8, 0 -3px 6px 0 rgba(69, 98, 155, 0.12);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --docsearch-modal-shadow: inset 1px 1px 0 0 var(--color-d-gray-100), 0 5px 12px 0 #000000;
-    --docsearch-hit-shadow: none;
-    --docsearch-footer-shadow: inset 0 1px 0 0 var(--color-d-bg), 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+  /* search */
+  --color-search-text: light-dark(var(--color-l-gray-700), var(--color-d-gray-900));
+  --color-search-text-secondary: var(--color-ld-gray-500);
+  --color-search-text-muted: var(--color-ld-gray-500);
+  --color-search-bg: var(--color-article-content-bg);
+  --color-search-border: var(--color-ld-gray-300);
+  --color-search-border-focus: var(--color-link-fg);
+  --color-search-skeleton: var(--color-ld-gray-100);
+  --color-search-skeleton-shine: light-dark(var(--color-l-bg), var(--color-d-gray-300));
+  --color-search-hover: var(--color-ld-gray-100);
+  --color-search-mark: light-dark(var(--color-l-orange), var(--color-d-gray-900));
+  --color-search-scroll-shadow: light-dark(
+    color-mix(in srgb, var(--color-l-shadow) 8%, transparent),
+    color-mix(in srgb, var(--color-d-fg) 10%, transparent)
+  );
+  --color-search-shadow: var(--color-ld-shadow);
+  --color-search-error-bg: color-mix(in srgb, var(--color-ld-orange) 12%, var(--color-ld-bg));
+  --color-search-error-border: color-mix(in srgb, var(--color-ld-orange) 35%, var(--color-ld-bg));
+  --color-search-error-text: var(--color-ld-orange);
+  --color-search-error-text-secondary: var(--color-ld-orange);
 }

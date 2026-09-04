@@ -6,3 +6,5 @@ up:
   - homebrew: aspell
   - ruby
   - bundle
+  - node
+  - npm
