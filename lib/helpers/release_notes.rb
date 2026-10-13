@@ -4,7 +4,7 @@ require 'nokogiri'
 
 module NanocSite
   module ReleaseNotes
-    TITLE_REGEX = /^(\d+\.\d+(\.\d+){0,2}) \((\d{4}-\d{2}-\d{2})\)$/.freeze
+    TITLE_REGEX = /^(\d+\.\d+(\.\d+){0,2}) \((\d{4}-\d{2}-\d{2})\)$/
 
     class Cached
       include Singleton

@@ -6,7 +6,6 @@ require 'ffi/aspell'
 require 'json'
 require 'nokogiri'
 require 'open3'
-require 'set'
 
 class NanocSpellChecker
   class Visitor
