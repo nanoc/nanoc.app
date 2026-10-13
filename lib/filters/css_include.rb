@@ -28,9 +28,9 @@ class CssIncludeFilter < Nanoc::Filter
         end
 
         [pre, handle_hashlike(thing), post].compact.join
-       else
-        raise "???"
+      else
+        raise '???'
       end
-    end.join("")
+    end.join('')
   end
 end

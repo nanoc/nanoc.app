@@ -27,8 +27,8 @@ class NanocSpellChecker
       # Remove URLs and email addresses (crude but it works)
       candidate =
         candidate
-          .gsub(/https?:\/\/[\w\d\/\._-]+[\w\d\/]/, '')
-          .gsub(/[\w\d]+@[\w\d]+\.[\w\d]+/, '')
+        .gsub(%r{https?://[\w\d/._-]+[\w\d/]}, '')
+        .gsub(/[\w\d]+@[\w\d]+\.[\w\d]+/, '')
 
       @string << candidate
 
