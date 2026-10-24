@@ -1,8 +1,12 @@
 .sass-cache/
-tmp/
-output/
-crash.log
-output.diff
 .DS_Store
 .*~
+
+# ruby
 .bundle
+
+# nanoc
+tmp/
+output/
+output.diff
+crash.log
