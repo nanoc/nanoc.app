@@ -1,0 +1,6 @@
+framework: ruby
+
+linter:
+  rules:
+    erb-no-duplicate-branch-elements:
+      enabled: false
