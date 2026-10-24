@@ -6,4 +6,4 @@ skip_details: true
 
 #p Unfortunately, the page you requested was not found on this website.
 
-#p Did this surprise you? Let us know by %ref[url=https://github.com/nanoc/nanoc.ws/issues/new]{opening an issue for the Nanoc website}.
+#p Did this surprise you? Let us know by %ref[url=https://github.com/nanoc/nanoc-web/issues/new]{opening an issue for the Nanoc website}.
